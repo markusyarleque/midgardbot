@@ -4,6 +4,11 @@ const client = new Discord.Client();
 const newUsers = new Discord.Collection();
 client.snipes = new Map();
 
+const dbv = require('megadb');
+const db_marry = new dbv.crearDB("marry")
+let vip = new dbv.crearDB('vip');
+let bl = new dbv.crearDB('blacklist')
+
 let prefix = process.env.PREFIX;
 
 client.on('ready', () => {
