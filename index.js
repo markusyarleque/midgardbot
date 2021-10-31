@@ -76,7 +76,7 @@ client.on("messageDelete", (message) => {
     .setTimestamp(new Date())
     .setFooter(`Id: ${message.author.id}`, `${message.author.displayAvatarURL()}`)
     
-    channel.send({ embeds: [embed] });
+    channel.send(embed);
     //channel.send("📢 | Mensajes Borrados\n``` \n===> Canal:\n"+`${message.channel.name}`+" | "+ message.channel.id +"\n\n===> Autor:\n"+`${message.author.username}`+" | "+ message.author.id +"\n\n===> Mensaje:\n"+message.content+"\n\n```")
 
     /*if(message.attachments.size > 0){
