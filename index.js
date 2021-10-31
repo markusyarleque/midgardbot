@@ -499,15 +499,6 @@ client.on("message", message => {
   
         }
   
-        let sofi = new RegExp(`^<@!?${'723407471556952064'}>( |)$`);
-  
-        if (message.content.match(sofi))
-        {
-  
-          message.channel.send(`¿Qué necesitas de la chica más hermosa? <:Sofia:877115812362747904>`)
-  
-        }
-  
         let princesa = new RegExp(`^<@!?${'748192032098353193'}>( |)$`);
   
         if (message.content.match(princesa))
@@ -615,7 +606,7 @@ client.on("message", message => {
   
 })
 
-client.on('message', async message => {
+client.on('message', message => {
 
     if(!message.content.startsWith(process.env.PREFIX)) return;
     if (message.author.bot) return;
