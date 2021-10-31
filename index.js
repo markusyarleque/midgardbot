@@ -667,6 +667,16 @@ client.on('message', async message => {
 
     }
 
+    if(command === 'say'){
+
+        let texto = args.join(" ");
+    
+        if(!texto) return message.channel.send(`Escriba un contenido para decir.`);
+        message.channel.send(texto);
+        message.delete({ timeout: 100 });
+        
+      }
+
 });
 
 client.on("error", (e) => console.error(e));
