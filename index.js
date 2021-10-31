@@ -20,7 +20,7 @@ client.on('ready', () => {
 
 });
 
-client.on("guildMemberAdd", (member) => {
+/*client.on("guildMemberAdd", (member) => {
 //
     const guild = member.guild;
     newUsers.set(member.id, member.user);
@@ -51,7 +51,7 @@ client.on("guildMemberAdd", (member) => {
 
 client.on("guildMemberRemove", (member) => {
     if(newUsers.has(member.id)) newUsers.delete(member.id);
-  });
+  });*/
 
 const imgdelete = new Discord.MessageEmbed() 
 
@@ -606,7 +606,7 @@ client.on("message", message => {
   
 })
 
-client.on('message', message => {
+client.on('message', async message => {
 
     if(!message.content.startsWith(process.env.PREFIX)) return;
     if (message.author.bot) return;
