@@ -1310,7 +1310,73 @@ client.on('message', async message => {
         message.channel.send(texto);
         message.delete({ timeout: 100 });
         
-      }
+    }
+
+    var perreo = [
+        "https://media.discordapp.net/attachments/853500788848853002/873274148300927046/1.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873274158027513866/2.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873274169305997373/3.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873274177619111966/4.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873274193976897596/5.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873274205532213298/6.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873274214302486538/7.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873274228147892264/8.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873274256765644820/9.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873274270090936340/10.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873274285500805190/11.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873274309915848774/12.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873274322964332594/13.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873274336100900916/14.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873274377234427914/16.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873274402081492992/17.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873274419089395722/18.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/877026220661944370/19.gif?width=432&height=243",
+        "https://media.discordapp.net/attachments/853500788848853002/877026227356074004/20.gif?width=252&height=448",
+        "https://media.discordapp.net/attachments/853500788848853002/877026237346885662/21.gif?width=432&height=432",
+        "https://media.discordapp.net/attachments/853500788848853002/877026242707202088/22.gif?width=432&height=243",
+        "https://media.discordapp.net/attachments/853500788848853002/877026250777051186/23.gif?width=297&height=294",
+        "https://media.discordapp.net/attachments/853500788848853002/877026259887079504/24.gif?width=372&height=219",
+        "https://media.discordapp.net/attachments/853500788848853002/877026271266230292/25.gif?width=237&height=418",
+        "https://media.discordapp.net/attachments/853500788848853002/877026284578959400/26.gif?width=432&height=331",
+        "https://media.discordapp.net/attachments/853500788848853002/877026293949034526/27.gif?width=297&height=297",
+        "https://media.discordapp.net/attachments/853500788848853002/877026307911843850/28.gif?width=294&height=226",
+        "https://media.discordapp.net/attachments/853500788848853002/877026322193457192/29.gif?width=486&height=246",
+        "https://media.discordapp.net/attachments/853500788848853002/877026333287407696/30.gif?width=432&height=243"
+    ]
+    
+    
+    if(command === 'perreo'){
+    
+        let img = message.mentions.users.first()
+        let ramdonperreo = perreo[Math.floor(Math.random()*perreo.length)]
+        
+        if (!img || img.id===message.author.id) {
+    
+            const embed = new Discord.MessageEmbed()
+            .setAuthor(`Midgard's Disco`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            //.setTitle("Imagen completa")
+            .setDescription(`**${message.author.username}** está perreando hasta el piso.`)
+            .setImage(ramdonperreo)
+            .setColor("RANDOM")
+            .setTimestamp(new Date())
+            .setFooter(`🌎┃「Midgard」`,"https://images-ext-1.discordapp.net/external/LqjSNTRuPDp-S3_PX4vknOlPAi6jU_q8EI7tofjmDVw/%3Fsize%3D128/https/cdn.discordapp.com/icons/777620055344545842/a_aae0a18f3292a0f55425daa36395b79b.gif");
+            message.channel.send(embed);
+    
+        } else {
+    
+            const embed = new Discord.MessageEmbed()
+            .setAuthor(`Midgard's Disco`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            //.setTitle("Imagen completa")
+            .setDescription(`**${img.username}**, ${message.author.username} te está perreando duro contra el muro. <a:perreo:880634843610902640>`)
+            .setImage(ramdonperreo)
+            .setColor("RANDOM")
+            .setTimestamp(new Date())
+            .setFooter(`🌎┃「Midgard」`,"https://images-ext-1.discordapp.net/external/LqjSNTRuPDp-S3_PX4vknOlPAi6jU_q8EI7tofjmDVw/%3Fsize%3D128/https/cdn.discordapp.com/icons/777620055344545842/a_aae0a18f3292a0f55425daa36395b79b.gif");
+            message.channel.send(embed);
+      
+        };
+    
+    }
 
 });
 
