@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 const newUsers = new Discord.Collection();
+const listask = new Discord.Collection();
 client.snipes = new Map();
 
 const clientN = require("nekos.life") 
@@ -3441,6 +3442,2469 @@ client.on('message', async message => {
         };
     
     }
+
+
+    //COMANDOS DE KARAOKE
+
+    const embed = new Discord.MessageEmbed()
+  .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+  .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+  .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+  .setDescription("-------------------------------------------------- ")
+  .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> No hay nadie agregado ", false)
+  .addField('En espera :', '...................................................................................', false)
+  .addField('N° :', 1, true)
+  .addField('Participantes: <a:start:880922179280207934>', "No hay nadie más agregado", true)
+  .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+  .setColor(5929128)
+  .setTimestamp(new Date())
+  .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+
+  if(command === 'k'){
+
+    if (message.channel.id != '880317466557952000')
+    {
+
+      message.channel.send("Ese comando solo se acepta en este canal : "+`${client.channels.cache.get('880317466557952000')}`);
+
+    } else{
+
+      let canalis = client.channels.cache.get("880355911078645770")
+      let img = message.mentions.users.first()
+
+      if (!img) {
+
+        if(listask.has(message.author.id)) return message.channel.send(`${message.author} Ya estás agregado en la lista`)
+        .then(m => m.delete({timeout: 5000}));
+        
+        message.channel.send(`${message.author}`+" Has sido anotado en la lista <:syzerotwolove:881304660324020244>")
+        .then(m => m.delete({timeout: 5000}));
+        message.react("✅")
+        listask.set(message.author.id,message.author.username)
+
+        canalis.bulkDelete(1);
+        canalis.send(embed).then(m => {
+
+        if (listask.size === 0) {
+
+          const embed = new Discord.MessageEmbed()
+          .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+          .setDescription("-------------------------------------------------- ")
+          .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> No hay nadie agregado ", false)
+          .addField('En espera :', '...................................................................................', false)
+          .addField('N° :', 1, true)
+          .addField('Participantes: <a:start:880922179280207934>', "No hay nadie más agregado", true)
+          .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+          .setColor(5929128)
+          .setTimestamp(new Date())
+          .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+
+          m.edit(embed)
+      
+        } else if (listask.size === 1) {
+  
+          const embed = new Discord.MessageEmbed()
+          .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+          .setDescription("-------------------------------------------------- ")
+          .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+          .addField('En espera :', '...................................................................................', false)
+          .addField('N° :', 1, true)
+          .addField('Participantes: <a:start:880922179280207934>', "No hay nadie más agregado", true)
+          .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+          .setColor(5929128)
+          .setTimestamp(new Date())
+          .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+
+          m.edit(embed)
+
+          } else if (listask.size === 2){
+
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+            .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+            .setDescription("-------------------------------------------------- ")
+            .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+            .addField('En espera :', '...................................................................................', false)
+            .addField('N° :', 1, true)
+            .addField('┃', '┃', true)
+            .addField('Participantes: <a:start:880922179280207934>', listask.last(), true)
+            .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+            .setColor(5929128)
+            .setTimestamp(new Date())
+            .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+            m.edit(embed)
+          
+          } else if (listask.size === 3) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2", true)
+                .addField('┃', '┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(2), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed)
+      
+          } else if (listask.size === 4) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3", true)
+                .addField('┃', '┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(3), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              //.setImage(ramdonsape)
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🌎┃「Midgard」`,"https://images-ext-1.discordapp.net/external/LqjSNTRuPDp-S3_PX4vknOlPAi6jU_q8EI7tofjmDVw/%3Fsize%3D128/https/cdn.discordapp.com/icons/777620055344545842/a_aae0a18f3292a0f55425daa36395b79b.gif");
+              m.edit(embed);
+  
+          } else if (listask.size === 5) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4", true)
+                .addField('┃', '┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(4), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 6) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(5), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 7) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(6), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 8) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(7), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 9) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(8), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 10) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(9), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 11) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(10), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 12) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(11), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 13) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(12), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 14) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(13), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 15) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(14), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 16) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(15), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 17) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(16), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 18) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16\n17", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(17), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 19) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16\n17\n18", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(18), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 20) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(19), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          }
+
+        })  
+
+      } else {
+      
+        if(img.id==='753435606410985573') return message.channel.send("No puedes agregar a mi dueño <:Sofia:877115812362747904>")
+        
+        if(listask.has(img.id)) return message.channel.send(`El participante **${img.username}** ya está agregado en la lista`)
+        .then(m => m.delete({timeout: 5000}));
+
+        listask.set(img.id,img.username)
+        message.channel.send(`**${message.author.username}**`+" Has anotado a "+`**${img.username}**`+" en la lista <:syzerotwolove:881304660324020244>")
+        .then(m => m.delete({timeout: 5000}));
+        message.react("✅")
+
+        canalis.bulkDelete(1);
+        canalis.send(embed).then(m => {
+
+        if (listask.size === 0) {
+
+          const embed = new Discord.MessageEmbed()
+          .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+          .setDescription("-------------------------------------------------- ")
+          .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> No hay nadie agregado ", false)
+          .addField('En espera :', '...................................................................................', false)
+          .addField('N° :', 1, true)
+          .addField('Participantes: <a:start:880922179280207934>', "No hay nadie más agregado", true)
+          .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+          .setColor(5929128)
+          .setTimestamp(new Date())
+          .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+
+          m.edit(embed)
+      
+        } else if (listask.size === 1) {
+  
+          const embed = new Discord.MessageEmbed()
+          .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+          .setDescription("-------------------------------------------------- ")
+          .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+          .addField('En espera :', '...................................................................................', false)
+          .addField('N° :', 1, true)
+          .addField('Participantes: <a:start:880922179280207934>', "No hay nadie más agregado", true)
+          .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+          .setColor(5929128)
+          .setTimestamp(new Date())
+          .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+
+          m.edit(embed)
+
+          } else if (listask.size === 2){
+
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+            .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+            .setDescription("-------------------------------------------------- ")
+            .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+            .addField('En espera :', '...................................................................................', false)
+            .addField('N° :', 1, true)
+            .addField('┃', '┃', true)
+            .addField('Participantes: <a:start:880922179280207934>', listask.last(), true)
+            .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+            .setColor(5929128)
+            .setTimestamp(new Date())
+            .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+            m.edit(embed)
+          
+          } else if (listask.size === 3) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2", true)
+                .addField('┃', '┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(2), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed)
+      
+          } else if (listask.size === 4) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3", true)
+                .addField('┃', '┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(3), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              //.setImage(ramdonsape)
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🌎┃「Midgard」`,"https://images-ext-1.discordapp.net/external/LqjSNTRuPDp-S3_PX4vknOlPAi6jU_q8EI7tofjmDVw/%3Fsize%3D128/https/cdn.discordapp.com/icons/777620055344545842/a_aae0a18f3292a0f55425daa36395b79b.gif");
+              m.edit(embed);
+  
+          } else if (listask.size === 5) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4", true)
+                .addField('┃', '┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(4), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 6) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(5), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 7) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(6), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 8) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(7), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 9) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(8), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 10) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(9), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 11) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(10), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 12) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(11), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 13) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(12), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 14) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(13), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 15) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(14), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 16) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(15), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 17) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(16), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 18) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16\n17", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(17), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 19) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16\n17\n18", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(18), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 20) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(19), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          }
+
+        })  
+
+      }
+
+    }
+    
+
+  }
+
+  if(command === 'lista') {
+
+    let canalis = client.channels.cache.get("880355911078645770")
+
+    if (message.channel.id != '880317466557952000')
+    {
+
+      message.channel.send("Ese comando solo se acepta en este canal : "+`${client.channels.cache.get('880317466557952000')}`);
+
+    } else
+    {
+
+      message.channel.send("Lista Actualizada: "+`${client.channels.cache.get('880355911078645770')}`).then()
+      message.delete({timeout: 100})
+      canalis.bulkDelete(1);
+      canalis.send(embed).then(m => {
+
+        if (listask.size === 0) {
+
+          const embed = new Discord.MessageEmbed()
+          .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+          .setDescription("-------------------------------------------------- ")
+          .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> No hay nadie agregado ", false)
+          .addField('En espera :', '...................................................................................', false)
+          .addField('N° :', 1, true)
+          .addField('Participantes: <a:start:880922179280207934>', "No hay nadie más agregado", true)
+          .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+          .setColor(5929128)
+          .setTimestamp(new Date())
+          .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+
+          m.edit(embed)
+      
+        } else if (listask.size === 1) {
+  
+          const embed = new Discord.MessageEmbed()
+          .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+          .setDescription("-------------------------------------------------- ")
+          .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+          .addField('En espera :', '...................................................................................', false)
+          .addField('N° :', 1, true)
+          .addField('Participantes: <a:start:880922179280207934>', "No hay nadie más agregado", true)
+          .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+          .setColor(5929128)
+          .setTimestamp(new Date())
+          .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+
+          m.edit(embed)
+
+          } else if (listask.size === 2){
+
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+            .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+            .setDescription("-------------------------------------------------- ")
+            .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+            .addField('En espera :', '...................................................................................', false)
+            .addField('N° :', 1, true)
+            .addField('┃', '┃', true)
+            .addField('Participantes: <a:start:880922179280207934>', listask.last(), true)
+            .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+            .setColor(5929128)
+            .setTimestamp(new Date())
+            .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+            m.edit(embed)
+          
+          } else if (listask.size === 3) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2", true)
+                .addField('┃', '┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(2), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed)
+      
+          } else if (listask.size === 4) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3", true)
+                .addField('┃', '┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(3), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              //.setImage(ramdonsape)
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🌎┃「Midgard」`,"https://images-ext-1.discordapp.net/external/LqjSNTRuPDp-S3_PX4vknOlPAi6jU_q8EI7tofjmDVw/%3Fsize%3D128/https/cdn.discordapp.com/icons/777620055344545842/a_aae0a18f3292a0f55425daa36395b79b.gif");
+              m.edit(embed);
+  
+          } else if (listask.size === 5) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4", true)
+                .addField('┃', '┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(4), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 6) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(5), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 7) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(6), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 8) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(7), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 9) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(8), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 10) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(9), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 11) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(10), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 12) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(11), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 13) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(12), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 14) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(13), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 15) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(14), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 16) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(15), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 17) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(16), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 18) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16\n17", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(17), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 19) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16\n17\n18", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(18), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 20) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(19), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          }
+
+        })  
+
+    }
+    
+  }
+    
+  if(command === 'd'){
+
+    if (message.channel.id != '880317466557952000')
+    {
+
+      message.channel.send("Ese comando solo se acepta en este canal : "+`${client.channels.cache.get('880317466557952000')}`);
+
+    } else{
+
+      let canalis = client.channels.cache.get("880355911078645770")
+      let img = message.mentions.users.first()
+
+      if (!img) {
+
+        if(listask.has(message.author.id)) {
+        
+          listask.delete(message.author.id);
+          message.channel.send(`${message.author} Fuiste eliminado de la lista`)
+          .then(m => m.delete({timeout: 5000}));
+          message.react("✅")
+
+          canalis.bulkDelete(1);
+          canalis.send(embed).then(m => {
+
+        if (listask.size === 0) {
+
+          const embed = new Discord.MessageEmbed()
+          .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+          .setDescription("-------------------------------------------------- ")
+          .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> No hay nadie agregado ", false)
+          .addField('En espera :', '...................................................................................', false)
+          .addField('N° :', 1, true)
+          .addField('Participantes: <a:start:880922179280207934>', "No hay nadie más agregado", true)
+          .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+          .setColor(5929128)
+          .setTimestamp(new Date())
+          .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+
+          m.edit(embed)
+      
+        } else if (listask.size === 1) {
+  
+          const embed = new Discord.MessageEmbed()
+          .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+          .setDescription("-------------------------------------------------- ")
+          .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+          .addField('En espera :', '...................................................................................', false)
+          .addField('N° :', 1, true)
+          .addField('Participantes: <a:start:880922179280207934>', "No hay nadie más agregado", true)
+          .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+          .setColor(5929128)
+          .setTimestamp(new Date())
+          .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+
+          m.edit(embed)
+
+          } else if (listask.size === 2){
+
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+            .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+            .setDescription("-------------------------------------------------- ")
+            .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+            .addField('En espera :', '...................................................................................', false)
+            .addField('N° :', 1, true)
+            .addField('┃', '┃', true)
+            .addField('Participantes: <a:start:880922179280207934>', listask.last(), true)
+            .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+            .setColor(5929128)
+            .setTimestamp(new Date())
+            .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+            m.edit(embed)
+          
+          } else if (listask.size === 3) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2", true)
+                .addField('┃', '┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(2), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed)
+      
+          } else if (listask.size === 4) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3", true)
+                .addField('┃', '┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(3), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              //.setImage(ramdonsape)
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🌎┃「Midgard」`,"https://images-ext-1.discordapp.net/external/LqjSNTRuPDp-S3_PX4vknOlPAi6jU_q8EI7tofjmDVw/%3Fsize%3D128/https/cdn.discordapp.com/icons/777620055344545842/a_aae0a18f3292a0f55425daa36395b79b.gif");
+              m.edit(embed);
+  
+          } else if (listask.size === 5) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4", true)
+                .addField('┃', '┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(4), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 6) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(5), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 7) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(6), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 8) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(7), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 9) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(8), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 10) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(9), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 11) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(10), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 12) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(11), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 13) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(12), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 14) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(13), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 15) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(14), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 16) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(15), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 17) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(16), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 18) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16\n17", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(17), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 19) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16\n17\n18", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(18), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 20) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(19), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          }
+
+        })  
+        }        
+
+      } else {
+
+        if(listask.has(img.id)) {
+        
+          listask.delete(img.id);
+          message.channel.send(`Has eliminado a **${img.username}** de la lista`)
+          .then(m => m.delete({timeout: 5000}));
+          message.react("✅")
+
+          canalis.bulkDelete(1);
+        canalis.send(embed).then(m => {
+
+        if (listask.size === 0) {
+
+          const embed = new Discord.MessageEmbed()
+          .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+          .setDescription("-------------------------------------------------- ")
+          .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> No hay nadie agregado ", false)
+          .addField('En espera :', '...................................................................................', false)
+          .addField('N° :', 1, true)
+          .addField('Participantes: <a:start:880922179280207934>', "No hay nadie más agregado", true)
+          .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+          .setColor(5929128)
+          .setTimestamp(new Date())
+          .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+
+          m.edit(embed)
+      
+        } else if (listask.size === 1) {
+  
+          const embed = new Discord.MessageEmbed()
+          .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+          .setDescription("-------------------------------------------------- ")
+          .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+          .addField('En espera :', '...................................................................................', false)
+          .addField('N° :', 1, true)
+          .addField('Participantes: <a:start:880922179280207934>', "No hay nadie más agregado", true)
+          .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+          .setColor(5929128)
+          .setTimestamp(new Date())
+          .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+
+          m.edit(embed)
+
+          } else if (listask.size === 2){
+
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+            .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+            .setDescription("-------------------------------------------------- ")
+            .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+            .addField('En espera :', '...................................................................................', false)
+            .addField('N° :', 1, true)
+            .addField('┃', '┃', true)
+            .addField('Participantes: <a:start:880922179280207934>', listask.last(), true)
+            .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+            .setColor(5929128)
+            .setTimestamp(new Date())
+            .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+            m.edit(embed)
+          
+          } else if (listask.size === 3) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2", true)
+                .addField('┃', '┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(2), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed)
+      
+          } else if (listask.size === 4) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3", true)
+                .addField('┃', '┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(3), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              //.setImage(ramdonsape)
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🌎┃「Midgard」`,"https://images-ext-1.discordapp.net/external/LqjSNTRuPDp-S3_PX4vknOlPAi6jU_q8EI7tofjmDVw/%3Fsize%3D128/https/cdn.discordapp.com/icons/777620055344545842/a_aae0a18f3292a0f55425daa36395b79b.gif");
+              m.edit(embed);
+  
+          } else if (listask.size === 5) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4", true)
+                .addField('┃', '┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(4), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 6) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(5), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 7) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(6), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 8) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(7), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 9) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(8), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 10) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(9), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 11) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(10), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 12) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(11), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 13) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(12), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 14) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(13), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 15) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(14), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 16) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(15), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 17) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(16), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 18) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16\n17", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(17), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 19) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16\n17\n18", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(18), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 20) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(19), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          }
+
+        })  
+        }        
+        
+      }
+    }
+    
+  }
+
+  if(command === 'dall'){
+
+    if (message.channel.id != '880317466557952000')
+    {
+
+      message.channel.send("Ese comando solo se acepta en este canal : "+`${client.channels.cache.get('880317466557952000')}`);
+
+    } else{
+
+      let canalis = client.channels.cache.get("880355911078645770")
+      let id = ['723407471556952064','753435606410985573']
+
+      if(!id.some(id => message.author.id == id)) {
+      
+        const embed = new Discord.MessageEmbed()
+        .setDescription('Solo el presentador de Karaoke puede usar este comando.')
+        .setColor("RED")
+        message.channel.send(embed)
+        .then(m => m.delete({timeout: 5000}));
+        message.react("❎");
+
+      } else {
+
+        listask.clear();
+        message.channel.send(`${message.author} Has eliminado a **TODOS** los participantes de la lista`)
+        .then(m => m.delete({timeout: 5000}));
+        message.react("✅")
+
+        canalis.bulkDelete(1);
+        canalis.send(embed).then(m => {
+
+        if (listask.size === 0) {
+
+          const embed = new Discord.MessageEmbed()
+          .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+          .setDescription("-------------------------------------------------- ")
+          .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> No hay nadie agregado ", false)
+          .addField('En espera :', '...................................................................................', false)
+          .addField('N° :', 1, true)
+          .addField('Participantes: <a:start:880922179280207934>', "No hay nadie más agregado", true)
+          .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+          .setColor(5929128)
+          .setTimestamp(new Date())
+          .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+
+          m.edit(embed)
+      
+        } else if (listask.size === 1) {
+  
+          const embed = new Discord.MessageEmbed()
+          .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+          .setDescription("-------------------------------------------------- ")
+          .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+          .addField('En espera :', '...................................................................................', false)
+          .addField('N° :', 1, true)
+          .addField('Participantes: <a:start:880922179280207934>', "No hay nadie más agregado", true)
+          .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+          .setColor(5929128)
+          .setTimestamp(new Date())
+          .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+
+          m.edit(embed)
+
+          } else if (listask.size === 2){
+
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+            .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+            .setDescription("-------------------------------------------------- ")
+            .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+            .addField('En espera :', '...................................................................................', false)
+            .addField('N° :', 1, true)
+            .addField('┃', '┃', true)
+            .addField('Participantes: <a:start:880922179280207934>', listask.last(), true)
+            .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+            .setColor(5929128)
+            .setTimestamp(new Date())
+            .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+            m.edit(embed)
+          
+          } else if (listask.size === 3) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2", true)
+                .addField('┃', '┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(2), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed)
+      
+          } else if (listask.size === 4) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3", true)
+                .addField('┃', '┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(3), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              //.setImage(ramdonsape)
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🌎┃「Midgard」`,"https://images-ext-1.discordapp.net/external/LqjSNTRuPDp-S3_PX4vknOlPAi6jU_q8EI7tofjmDVw/%3Fsize%3D128/https/cdn.discordapp.com/icons/777620055344545842/a_aae0a18f3292a0f55425daa36395b79b.gif");
+              m.edit(embed);
+  
+          } else if (listask.size === 5) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4", true)
+                .addField('┃', '┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(4), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 6) {
+  
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(5), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 7) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(6), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 8) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(7), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 9) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(8), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 10) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(9), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 11) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(10), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 12) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(11), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 13) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(12), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 14) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(13), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 15) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(14), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 16) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(15), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 17) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(16), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 18) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16\n17", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(17), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 19) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16\n17\n18", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(18), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+          } else if (listask.size === 20) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
+              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
+              .setDescription("-------------------------------------------------- ")
+              .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
+              .addField('En espera :', '...................................................................................', false)
+                .addField('N° :', "1\n2\n3\n4\n5\n6\n7\n8\9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19", true)
+                .addField('┃', '┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃\n┃', true)
+                .addField('Participantes: <a:start:880922179280207934>', listask.last(19), true)
+                .setImage("https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif")
+              .setColor(5929128)
+              .setTimestamp(new Date())
+              .setFooter(`🔥 La Élite 🔥`,"https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              m.edit(embed);
+      
+            }
+
+        })  
+      }
+    }
+
+    }
+
+    
 
 });
 
