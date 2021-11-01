@@ -596,7 +596,7 @@ client.on("message", message => {
         }
   
   
-        let bot = new RegExp(`^<@!?${'856814676692041738'}>( |)$`);
+        let bot = new RegExp(`^<@!?${'904290001196556369'}>( |)$`);
   
         if (message.content.match(bot))
         {
@@ -615,9 +615,11 @@ client.on('message', async message => {
 
     if(!message.content.startsWith(process.env.PREFIX)) return;
     if (message.author.bot) return;
-
+    
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
+
+    if(bl.tiene(message.author.id)) return message.channel.send("Estás prohibido de usar estos comandos, contacto con el equipo de desarrolladores para más información.!");
 
     if(command === 'malta'){
 
@@ -650,6 +652,9 @@ client.on('message', async message => {
   
       }
 
+
+    // COMANDOS DE INFORMACIÓN
+
     if (command === "ping") {
 
         let ping = Math.floor(message.client.ws.ping);
@@ -661,6 +666,640 @@ client.on('message', async message => {
           
           });
 
+    }
+
+    if(message.content.startsWith(prefix + 'stats')){
+
+        const embed = new Discord.MessageEmbed()
+        .setThumbnail("https://media.giphy.com/media/3rgXBsmYd60rL3w7sc/giphy.gif")
+        .setAuthor("MidgardBot", client.user.avatarURL())
+        .setTitle("Estadísticas")
+        .addField('Desarrollador: ', 'Maltazard#1207')
+        .addField('Servidores: ', `${client.guilds.cache.size}`)
+        .addField('Usuarios: ', ` ${client.users.cache.size}`)
+        .addField('Ram: ', ` ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`)
+        .addField('Lenguaje: ', "JavaScript")
+        .addField("Libreria", "Discord.js v12.2.0")
+        .setColor("RANDOM")
+        .setTimestamp(new Date())
+        .setFooter(`Malta's Bot`, `${message.author.displayAvatarURL()}`);
+            
+        message.channel.send(embed);
+        
+    }
+
+    //SERVER INFO
+
+    const vl = {
+        NONE: 'Ninguno',
+        LOW: 'Bajo',
+        MEDIUM: 'Medio',
+        HIGH: 'Alto',
+        VERY_HIGH: 'Muy Alto'
+    };
+
+    const regions = {
+        brazil: 'Brasil',
+        europe: 'Europa',
+        hongkong: 'Hong Kong',
+        india: 'India',
+        japan: 'Japón',
+        russia: 'Rusia',
+        singapore: 'Singapore',
+        southafrica: 'South África',
+        sydeny: 'Sydeny',
+        'us-central': 'US Central',
+        'us-east': 'US East',
+        'us-west': 'US West',
+        'us-south': 'US South'
+    };
+
+    if(command === 'server'){
+
+    var server = message.guild;
+    const roles = server.roles.cache.sort((a, b) => b.position - a.position).map(role => role.toString());
+    const members = server.members.cache;
+    const channels = server.channels.cache;
+    const emojis = server.emojis.cache;
+  
+    const embed = new Discord.MessageEmbed()
+    .setThumbnail(server.iconURL({ dynamic: true }))
+    .setAuthor(server.name, "https://media.discordapp.net/attachments/879633476532453386/880906710066294815/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485")
+    .addField('ID:', server.id, false)
+    .addField('Dueño:', `${server.owner.user.tag} (${server.ownerID})` , true)
+    //.addField('Creado el:', server.createdAt, false)
+    .addField('Creado el:', moment(server.createdTimestamp).format('LL') + " a las "+moment(server.createdTimestamp).format('LT') + " [" + moment(server.createdTimestamp).fromNow()+" ]", false)
+    
+    .addField('Miembros:', server.memberCount, true)
+    .addField('Region:', regions[server.region], false)
+    .addField('Nivel:', `${server.premiumTier}`, true)
+    //.addField('Nivel:', server.mfaLevel, false)
+    .addField('Mejoras:', server.premiumSubscriptionCount || '0', false)
+
+    .addField('Roles:', roles.length , true)
+    .addField('Emojis:', emojis.size , false)
+    .addField('Verificación:', vl[server.verificationLevel] , false)
+
+    .addField('Canales de Texto:', channels.filter(channel => channel.type === 'text').size , true)
+    .addField('Canales de Voz:', channels.filter(channel => channel.type === 'voice').size , true)
+    .setImage(`https://media.discordapp.net/attachments/869426472706785290/880795102933565510/galaxy-purple-planet-wallpaper-for-android-android-live.jpg?width=862&height=533`)
+    .setColor("RANDOM")
+    
+    .setTimestamp(new Date())
+    .setFooter(`Malta's Bot`, `${message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')}`);
+        
+   message.channel.send({ embed });
+
+    }
+
+    let prohibidos = ["ID1", "ID2"];
+
+    if(command === 'report'){
+
+    if(prohibidos.includes(message.author.id)) return message.channel.send("¡Tienes prohibido usar este comando por mal usarlo!");
+
+    let reporte = args.join(' ');
+    if(!reporte) return message.channel.send("❎ **Debes agregar un reporte para enviar al desarrollador!**")
+
+    let sv = client.guilds.cache.get("777620055344545842")
+    let channel = sv.channels.cache.get("874891049120714752")
+
+    let usera = message.author;
+
+    const embed = new Discord.MessageEmbed()
+    .setThumbnail(`https://assets.sutori.com/user-uploads/image/bc331db1-aa9d-4684-b73e-8a1fcb7d751b/aa64184f325ce5cc6abe613d51383870.gif`)
+    .setTitle('<a:alto:860350719172542464> | Reporte')
+    .setDescription(`**${usera.username}** ¿Estás segur@ que quieres reportar este bug? ¡Usar mal el comando causará la prohibición!`)
+    .addField("Bug a reportar:", reporte)
+    .setColor("RANDOM")
+    .setTimestamp(new Date())
+    .setFooter(`Developer Team - Midgard Club`, `${message.author.displayAvatarURL()}`);
+    message.delete({ timeout: 100 });
+    message.channel.send(embed).then(m => {
+
+      m.react("✅")
+      m.react("❎")
+     
+      const filtro = (reaction, user) => {
+        return ["✅", "❎"].includes(reaction.emoji.name) && user.id == message.author.id;
+      };
+
+      m.awaitReactions(filtro, {max: 1, time: 60000, errors: ["time"]}).catch(() => {
+
+        m.edit("¡No confirmaste a tiempo! <:enojado:882877729266098186>")
+        m.reactions.removeAll()
+
+      }).then(coleccionado=> {
+
+        const reaccion = coleccionado.first();
+
+        if(reaccion.emoji.name === "✅") {
+
+          let bugco = new Discord.MessageEmbed()
+          .setThumbnail(`https://assets.sutori.com/user-uploads/image/bc331db1-aa9d-4684-b73e-8a1fcb7d751b/aa64184f325ce5cc6abe613d51383870.gif`)
+          .setTitle('📧 | Reporte')
+          .setColor("RANDOM")
+          .setDescription("Reporte confirmado con éxito! <a:emoji_266:812426331685519393>")
+          .addField("Bug reportado:", reporte)
+          .setTimestamp(new Date())
+          .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
+    
+          m.edit(bugco)
+          m.reactions.removeAll()
+
+          let bugre = new Discord.MessageEmbed()
+          .setThumbnail(`https://assets.sutori.com/user-uploads/image/bc331db1-aa9d-4684-b73e-8a1fcb7d751b/aa64184f325ce5cc6abe613d51383870.gif`)
+          .setTitle('📧 | Reporte')
+          .setColor("RANDOM")
+          .addField("Ha llegado el siguiente reporte:", reporte)
+          .setTimestamp(new Date())
+          .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
+    
+          channel.send(bugre)
+        } else if(reaccion.emoji.name === "❎") {
+
+          m.edit("Reporte cancelado. <:y_:868544745541087293>")
+          m.reactions.removeAll()
+
+        }
+      })
+    })
+    }
+
+    if(command === 'suggestion'){
+
+    if(prohibidos.includes(message.author.id)) return message.channel.send("¡Tienes prohibido usar este comando por mal usarlo!");
+
+    let reporte = args.join(' ');
+    if(!reporte) return message.channel.send("❎ **Debes agregar una sugerencia para enviar al desarrollador!**")
+
+    let sv = client.guilds.cache.get("777620055344545842")
+    let channel = sv.channels.cache.get("874922451040083978")
+
+    let usera = message.author;
+
+    const embed = new Discord.MessageEmbed()
+    .setThumbnail(`https://media.giphy.com/media/Jzw7qUU2ZMw7DYpQV8/giphy.gif`)
+    .setTitle('<a:corazonBlack_FD:880526799736557679> | Sugerencia')
+    .setDescription(`**${usera.username}** ¿Estás segur@ que quieres dar esta sugerencia? ¡Usar mal el comando causará la prohibición!`)
+    .addField("Sugerencia:", reporte)
+    .setColor("RANDOM")
+    .setTimestamp(new Date())
+    .setFooter(`Developer Team - Midgard Club`, `${message.author.displayAvatarURL()}`);
+    message.delete({ timeout: 100 });
+    message.channel.send(embed).then(m => {
+
+      m.react("✅")
+      m.react("❎")
+     
+      const filtro = (reaction, user) => {
+        return ["✅", "❎"].includes(reaction.emoji.name) && user.id == message.author.id;
+      };
+
+      m.awaitReactions(filtro, {max: 1, time: 60000, errors: ["time"]}).catch(() => {
+
+        m.edit("¡No confirmaste a tiempo! <:enojado:882877729266098186>")
+        m.reactions.removeAll()
+
+      }).then(coleccionado=> {
+
+        const reaccion = coleccionado.first();
+
+        if(reaccion.emoji.name === "✅") {
+
+          let bugco = new Discord.MessageEmbed()
+          .setThumbnail(`https://media.giphy.com/media/Jzw7qUU2ZMw7DYpQV8/giphy.gif`)
+          .setTitle('<a:corazonBlack_FD:880526799736557679> | Sugerencia')
+          .setColor("RANDOM")
+          .setDescription("Sugerencia realizada con éxito! <a:emoji_266:812426331685519393>")
+          .addField("Sugerencia:", reporte)
+          .setTimestamp(new Date())
+          .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
+    
+          m.edit(bugco)
+          m.reactions.removeAll()
+
+          let bugre = new Discord.MessageEmbed()
+          .setThumbnail(`https://media.giphy.com/media/Jzw7qUU2ZMw7DYpQV8/giphy.gif`)
+          .setTitle('<a:corazonBlack_FD:880526799736557679> | Sugerencia')
+          .setColor("RANDOM")
+          .addField("Ha llegado la siguiente sugerencia:", reporte)
+          .setTimestamp(new Date())
+          .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
+    
+          channel.send(bugre)
+        } else if(reaccion.emoji.name === "❎") {
+
+          m.edit("Sugerencia cancelada. <:y_:868544745541087293>")
+          m.reactions.removeAll()
+
+        }
+        })
+        })
+    }
+
+    //COMANDOS DE UTILIDAD
+
+    if(command === 'user'){
+
+        let userm = message.mentions.users.first()
+
+        if(!userm){
+            
+            var user = message.author;
+          
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail(user.displayAvatarURL({ dynamic: true }).replace('webp','png'))
+            .setAuthor('Información del Usuario', "https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .addField('Jugando a', user.presence.game != null ? user.presence.game.name : "Nada", true)
+            .addField('Estado:', user.presence.status, true)
+            .addField('Color:', message.member.displayHexColor, true)
+            .addField('Usuario:', user.username+'#'+user.discriminator, true)
+            .addField('Apodo:', message.member.nickname ? message.member.nickname : 'No tiene', true)
+            .addField('ID:', user.id, true)
+    
+            .addField('Cuenta Creada', user.createdAt.toLocaleDateString()+', '+user.createdAt.toLocaleTimeString(), true)
+            .addField('Fecha de Ingreso', message.member.joinedAt.toLocaleDateString()+', '+message.member.joinedAt.toLocaleTimeString(), true)
+            .addField('Roles', message.member.roles.cache.map(roles => `\`${roles.name}\``).join(', '))
+            .setColor(0x66b3ff)
+    
+            .setTimestamp(new Date())
+            .setFooter(`🌎┃「Midgard」`, "https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              
+           message.channel.send({ embed });
+
+        } else{
+
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail(userm.displayAvatarURL({ dynamic: true }).replace('webp','png'))
+            .setAuthor('Información del Usuario', "https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .addField('Jugando a', userm.presence.game != null ? userm.presence.game.name : "Nada", true)
+            .addField('Estado:', userm.presence.status, true)
+            .addField('Color:', userm.displayHexColor, true)
+            .addField('Usuario:', userm.username+'#'+userm.discriminator, true)
+            .addField('Apodo:', userm.nickname ? userm.nickname : 'No tiene', true)
+            .addField('ID:', userm.id, true)
+    
+            .addField('Cuenta Creada', userm.createdAt.toLocaleDateString()+', '+userm.createdAt.toLocaleTimeString(), true)
+            .addField('Fecha de Ingreso', message.member.joinedAt.toLocaleDateString()+', '+message.member.joinedAt.toLocaleTimeString(), true )
+            .addField('Roles', message.member.roles.cache.map(roles => `\`${roles.name}\``).join(', '))
+            .setColor(0x66b3ff)
+    
+            .setTimestamp(new Date())
+            .setFooter(`🌎┃「Midgard」`, "https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485");
+              
+            message.channel.send({ embed });
+        }
+        
+    }
+
+    if(command === 'avatar'){
+
+        let img = message.mentions.users.first()
+        if (!img) {
+    
+            const embed = new Discord.MessageEmbed()
+            .setAuthor(`Avatar de ${message.author.username}#${message.author.discriminator}`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setTitle("Imagen completa")
+            .setDescription("[Click aquí]("+`${message.author.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`+")")
+            .setImage(`${message.author.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`)
+            .setColor(0x66b3ff)
+            .setTimestamp(new Date())
+            .setFooter(`🌎┃「Midgard」`,"https://images-ext-1.discordapp.net/external/LqjSNTRuPDp-S3_PX4vknOlPAi6jU_q8EI7tofjmDVw/%3Fsize%3D128/https/cdn.discordapp.com/icons/777620055344545842/a_aae0a18f3292a0f55425daa36395b79b.gif");
+            message.channel.send(embed);
+    
+        } else if (img.avatarURL === null) {
+    
+            message.channel.sendMessage("El usuario ("+ img.username +") no tiene avatar!");
+    
+        } else {
+    
+            const embed = new Discord.MessageEmbed()
+            .setAuthor(`Avatar de ${img.username}#${img.discriminator}`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setTitle("Imagen completa")
+            .setDescription("[Click aquí]("+`${img.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`+")")
+            .setImage(`${img.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`)
+            .setColor(0x66b3ff)
+            .setTimestamp(new Date())
+            .setFooter(`🌎┃「Midgard」`,"https://images-ext-1.discordapp.net/external/LqjSNTRuPDp-S3_PX4vknOlPAi6jU_q8EI7tofjmDVw/%3Fsize%3D128/https/cdn.discordapp.com/icons/777620055344545842/a_aae0a18f3292a0f55425daa36395b79b.gif");
+            message.channel.send(embed);
+      
+        }
+    
+    }
+
+    var welcome = [
+        "https://media.discordapp.net/attachments/853500788848853002/873245600936788048/1.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873245604090892348/2.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873245605294645308/3.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873245608775917688/4.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873245613217689650/5.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873245612554993704/6.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873245617277796394/7.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873245617672056902/8.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873245622017359962/9.gif",
+        "https://media.discordapp.net/attachments/853500788848853002/873245621820215326/10.gif"
+    ] 
+    
+    if(command === 'welcome'){
+    
+        let img = message.mentions.users.first()
+        let ramdonwelcome = welcome[Math.floor(Math.random()*welcome.length)]
+    
+        if (!img || img.id===message.author.id) {
+    
+            message.channel.send(`<:yojoo:880315297846947860> Necesitas mencionar a un usuario <a:pasito:877116925291946094>`);
+    
+        } else {
+    
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail(`${img.displayAvatarURL({ dynamic: true }).replace('webp','png')}`)
+            //.setAuthor(`Midgard`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setTitle(`Bienvenid@ <:cosita:880300168514252811> **${img.username}** <a:pepedance:880928616416968745>`)
+            .setDescription(`<a:exclama2:880930071731392512> Gracias por unirte!!! <a:sc_ositobailin:880930467774365707> Espero que lo disfrutes. <a:abdul_dance:880930576683630662>`)
+            .setImage(ramdonwelcome)
+            .setColor(10773200)
+            .setTimestamp(new Date())
+            .setFooter(`🌎┃「Midgard」`,"https://images-ext-1.discordapp.net/external/LqjSNTRuPDp-S3_PX4vknOlPAi6jU_q8EI7tofjmDVw/%3Fsize%3D128/https/cdn.discordapp.com/icons/777620055344545842/a_aae0a18f3292a0f55425daa36395b79b.gif");
+            message.channel.send(embed);
+      
+        }
+    
+    }
+    
+    if(command === 'wlc'){
+    
+        let img = message.mentions.users.first()
+        let ramdonwelcome = welcome[Math.floor(Math.random()*welcome.length)]
+    
+        if (!img || img.id===message.author.id) {
+    
+            message.channel.send(`<:yojoo:880315297846947860> Necesitas mencionar a un usuario <a:pasito:877116925291946094>`);
+    
+        } else {
+    
+            const embed = new Discord.MessageEmbed()
+            .setThumbnail(`${img.displayAvatarURL({ dynamic: true }).replace('webp','png')}`)
+            //.setAuthor(`Midgard`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setTitle(`Bienvenid@ <:cosita:880300168514252811> **${img.username}** <a:pepedance:880928616416968745>`)
+            .setDescription(`<a:exclama2:880930071731392512> Gracias por unirte!!! <a:sc_ositobailin:880930467774365707> Espero que lo disfrutes. <a:abdul_dance:880930576683630662>`)
+            .setImage(ramdonwelcome)
+            .setColor(10773200)
+            .setTimestamp(new Date())
+            .setFooter(`🌎┃「Midgard」`,"https://images-ext-1.discordapp.net/external/LqjSNTRuPDp-S3_PX4vknOlPAi6jU_q8EI7tofjmDVw/%3Fsize%3D128/https/cdn.discordapp.com/icons/777620055344545842/a_aae0a18f3292a0f55425daa36395b79b.gif");
+            message.channel.send(embed);
+      
+        }
+    
+    }
+
+    if(command === 'remindme'){
+
+        let obtener = args[0]
+        let mensaje = args[1]
+    
+        if (!obtener) {
+          
+          message.channel.send("Debes agregar un tiempo: `_remindme tiempo mensaje`")
+    
+        } else if(!mensaje) {
+    
+          message.channel.send("Debes agregar un recordatorio: `_remindme tiempo mensaje`")
+    
+        } else {
+    
+          function reminder() {
+    
+            message.reply(' Tengo este recordatorio para ti: ' + mensaje)
+    
+          }
+    
+          switch (obtener.slice(-1)){
+    
+            case 's': {
+    
+              if (obtener.slice(0, -1) > 60) return message.channel.send('No puede ser mayor de 60 segundos')
+    
+              var msDelay = obtener.slice(0, -1)*1000
+              message.reply('Acabas de establecer un recordatorio en ' + obtener.slice(0, -1) + ' segundos:\n'+mensaje);
+              setTimeout(reminder, msDelay);
+              break
+            }
+    
+            case 'm': {
+    
+              if (obtener.slice(0, -1) > 60) return message.channel.send('No puede ser mayor de 60 minutos')
+    
+              var msDelay = obtener.slice(0, -1)*60000
+              message.reply('Acabas de establecer un recordatorio en ' + obtener.slice(0, -1) + ' minutos:\n'+mensaje);
+              setTimeout(reminder, msDelay);
+              break
+            }
+    
+            case 'h': {
+    
+              if (obtener.slice(0, -1) > 24) return message.channel.send('No puede ser mayor de 24 horas')
+    
+              var msDelay = obtener.slice(0, -1)*3600000
+              message.reply('Acabas de establecer un recordatorio en ' + obtener.slice(0, -1) + ' horas:\n'+mensaje);
+              setTimeout(reminder, msDelay);
+              break
+            }
+    
+            default: {
+    
+              message.channel.send('Lo estas haciendo mal es:\n<1 - 60>s <recordatorio>\n<1 - 60>m <recordatorio>\n<1 -  24>h <recordatorio>\n ____Ejemplo:____\n```1m Recordar ir a sacar un perro```');
+              break;
+            }
+          }
+      
+        };
+    
+      }
+    
+      if(command === 'snipe')
+      {
+        const channel = message.mentions.channels.first() || message.channel;
+        const msg = client.snipes.get(channel.id);
+    
+        if (!msg)
+        {
+          message.channel.send("No se ha borrado recientemente ningun mensaje")
+              .then(m => m.delete({timeout: 5000}));
+        
+        } else {
+    
+          imgdelete.setColor("RANDOM")
+          .setAuthor(`${msg.delete.tag}`, msg.delete.displayAvatarURL())
+          .setTimestamp(new Date())
+          .setDescription(`${msg.content}`)
+          message.channel.send(imgdelete);
+    
+        }
+    }
+
+    if(command === 'jumbo'){
+
+        if(!args[0]) return message.reply('Uso incorrecto del comando\nDebe ser: _jumbo <emoji> \n*Si quieres añadirlo al servidor añade --s al final*') // Si no usa args[0]
+        
+        const emoticon = require('discord.js').Util.parseEmoji(args[0]) // Usaremos el metodo que nos da discord.js para obtener info del emoji
+          
+        if(emoticon.id == null) return message.reply('Emoji invalido') // Si no es un emoji personalizado o no lo encuentra la id seria null para evitar problemas devolvera
+        
+        let palta = `https://cdn.discordapp.com/emojis/` + `${emoticon.id}.` + (emoticon.animated ? 'gif' : 'png') // Conseguimos el url 
+          
+        if(message.content.endsWith('--s')) { // Si termina con --s
+        
+          if(!message.member.permissions.has('MANAGE_EMOJIS')) return message.reply('No tienes permisos para ejecutar esto') // Si no tiene permisos el usuario
+        
+          if(!message.guild.me.permissions.has('MANAGE_EMOJIS')) return message.reply('No tengo los permisos para ejecutar esto') // Si el bot no tiene permisos
+          message.guild.emojis.create(palta, emoticon.name) // Creamos un emoji con la imagen del emoji 
+          return message.channel.send('Emoji agregado: ' + emoticon.name) // Mensaje de confirmacioon 
+          } // Cerramos condicion
+          message.channel.send(palta) // Enviamos el url del emoticon
+          /*const embed = new Discord.MessageEmbed()
+          .setImage(palta)
+            message.channel.send(embed);*/
+    }
+
+    if(command === 'conteo'){
+
+        if(!args[0]) return message.channel.send('Pon una cantidad para hacer una cuenta regresiva.').then(m => m.delete({timeout: 5000}));
+    
+        if(isNaN(args[0])) return  message.channel.send(`**Pon una cantidad, solo puedo contar numeros.**`).then(m => m.delete({timeout: 5000}));
+    
+        let time = parseInt(args[0])
+    
+        if(time > 7200) return  message.channel.send(`**No puedo contar mas de 2 horas**`).then(m => m.delete({timeout: 5000}));
+    
+        async function cuenta()
+        {
+          let msg = await message.channel.send(String(time))
+    
+          if(time < 60) {
+    
+            let count1 = setInterval(async () => {
+    
+              await msg.edit(time <= 0 ? `${message.author}... Se acabó el tiempo ⌛` : String(time))
+              //message.channel.send(`${message.author} La cuenta regresiva ha terminado`)
+              time <= 0 ? clearInterval(count1) : time -= 1
+    
+            }, 2000)
+    
+    
+          } else {
+    
+            let count2 = setInterval(async () => {
+    
+              await msg.edit(time <= 0  ? `${message.author}... Se acabó el tiempo ⌛` : String(time))
+              //message.channel.send(`${message.author} La cuenta regresiva ha terminado`)
+              time <= 0 ? clearInterval(count2) : time -= 2
+    
+            }, 3000)
+            
+          }
+        }
+        cuenta();
+    }
+
+    //COMANDOS DE MODERACIÓN
+
+    if(command === 'role'){
+        
+        if(!args) return message.channel.send('¡Ingrese nombre del rol!');
+    
+        let role = message.guild.roles.cache.find(n => n.name === args.join(" "));
+    
+        if(!role) return message.channel.send('Rol no encontrado en el servidor.');
+    
+        const embed = new Discord.MessageEmbed()
+        
+          .setAuthor(`Solicitado por: ${message.author.username}`,`${message.author.displayAvatarURL()}`)
+          .setDescription("Información sobre el rol mencionado.")
+          .addField("Nombre:", `- ${role.name}`) 
+          .addField("ID:", `- ${role.id}`) 
+          .addField("Miembros con el Rol:", `- ${role.members.size}`)
+          .addField("Posición:", `- ${role.rawPosition}`) 
+          .addField("HexColor:", `- ${role.hexColor}`)  
+          .addField("¿Mencionable?:", `- ${role.mentionable}`)
+          .addField("¿Separado?:", `- ${role.hoist}`)
+          .addField("¿Gestionado por el sistema?:", `- ${role.managed}`) 
+            
+          .setColor("RANDOM")
+          .setTimestamp(new Date())
+          .setFooter(`🌎┃「Midgard」`,"https://images-ext-1.discordapp.net/external/LqjSNTRuPDp-S3_PX4vknOlPAi6jU_q8EI7tofjmDVw/%3Fsize%3D128/https/cdn.discordapp.com/icons/777620055344545842/a_aae0a18f3292a0f55425daa36395b79b.gif");
+            
+        /*let miembroroles = message.guild.roles.cache.get(role.id).members;
+        message.channel.send(`Tienes a **${miembroroles.size}** miembro(s) con el rol **${args}**.`);*/
+        message.channel.send(embed)
+        
+    }
+    
+    if(command === 'roleid'){
+            
+        const role = message.mentions.roles.first() || message.guild.roles.cache.get(args[0]);
+    
+        if(!role) return message.channel.send('¡Especifica un rol por mención o por id!');
+    
+        const embed = new Discord.MessageEmbed()
+        
+          .setAuthor(`Solicitado por: ${message.author.username}`,`${message.author.displayAvatarURL()}`)
+          .setDescription("Información sobre el rol mencionado.")
+          .addField("Nombre:", `- ${role.name}`) 
+          .addField("ID:", `- ${role.id}`) 
+          .addField("Miembros con el Rol:", `- ${role.members.size}`)
+          .addField("Posición:", `- ${role.rawPosition}`) 
+          .addField("HexColor:", `- ${role.hexColor}`)  
+          .addField("¿Mencionable?:", `- ${role.mentionable}`)
+          .addField("¿Separado?:", `- ${role.hoist}`)
+          .addField("¿Gestionado por el sistema?:", `- ${role.managed}`) 
+            
+          .setColor("RANDOM")
+          .setTimestamp(new Date())
+          .setFooter(`🌎┃「Midgard」`,"https://images-ext-1.discordapp.net/external/LqjSNTRuPDp-S3_PX4vknOlPAi6jU_q8EI7tofjmDVw/%3Fsize%3D128/https/cdn.discordapp.com/icons/777620055344545842/a_aae0a18f3292a0f55425daa36395b79b.gif");
+            
+        /*let miembroroles = message.guild.roles.cache.get(role.id).members;
+        message.channel.send(`Tienes a **${miembroroles.size}** miembro(s) con el rol **${args}**.`);*/
+        message.channel.send(embed)
+        
+    }
+    
+    if(command === 'addrol'){
+    
+        let miembro = message.mentions.members.first();
+        let nombrerol = args.slice(1).join(' ');
+    
+        let role = message.guild.roles.cache.find("name", nombrerol);
+        let perms = message.member.hasPermission("MANAGE_ROLES_OR_PERMISSIONS");
+    
+        if(!perms) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
+         
+        if(message.mentions.users.size < 1) return message.reply('Debe mencionar a un miembro.').catch(console.error);
+        if(!nombrerol) return message.channel.send('Escriba el nombre del rol a agregar, `_addrol @username [rol]`');
+        if(!role) return message.channel.send('Rol no encontrado en el servidor.');
+        
+        miembro.addRole(role).catch(console.error);
+        message.channel.send(`El rol **${role.name}** fue agregado correctamente a **${miembro.user.username}**.`);
+    
+    }
+    
+    if(command === 'removerol'){
+    
+        let miembro = message.mentions.members.first();
+        let nombrerol = args.slice(1).join(' ');
+    
+        let role = message.guild.roles.cache.find("name", nombrerol);
+        let perms = message.member.hasPermission("MANAGE_ROLES_OR_PERMISSIONS");
+    
+        if(!perms) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
+         
+        if(message.mentions.users.size < 1) return message.reply('Debe mencionar a un miembro.').catch(console.error);
+        if(!nombrerol) return message.channel.send('Escriba el nombre del rol a remover, `_removerol @miembro [rol]`');
+        if(!role) return message.channel.send('Rol no encontrado en el servidor.');
+        
+        miembro.removeRole(role).catch(console.error);
+        message.channel.send(`El rol **${role.name}** del miembro **${miembro.user.username}** fue removido  correctamente.`);
+    
     }
 
     if(command === 'say'){
