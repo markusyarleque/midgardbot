@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const { MessageSelectMenu, MessageEmbed } = require('discord.js')
 
 const newUsers = new Discord.Collection();
 const listask = new Discord.Collection();
@@ -7538,10 +7539,8 @@ client.on('message', async message => {
 
     //HELP AVANZADO CON MENÚ
 
-    if (command === 'helpm')
+    if (command === 'hpm')
     {
-
-      const { MessageSelectMenu, MessageEmbed } = require('discord.js')
 
       const embedmenu = new MessageSelectMenu()
       .setCustomId('help-menu')
