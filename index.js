@@ -7536,6 +7536,74 @@ client.on('message', async message => {
     
     }
 
+    //HELP AVANZADO CON MENÚ
+
+    if (command === 'helpm')
+    {
+
+      const { MessageSelectMenu, MessageEmbed } = require('discord.js')
+
+      const embedmenu = new MessageSelectMenu()
+      .setCustomId('help-menu')
+      .setPlaceholder('Categorías')
+      .addOptions(
+        {
+          label: 'Información',
+          emoji: '📝',
+          description: 'Descubre los comandos de información que tiene el bot.',
+          value: 'option_1'
+        },
+        {
+          label: 'Moderación',
+          emoji: '🔨',
+          description: 'Encuentra los comandos de moderación que incluye el bot.',
+          value: 'option_2'
+        }
+      )
+      .setMaxValues(1)
+
+      const embed = new MessageEmbed()
+      .setTitle('Comandos')
+      .setDescription('> **Categorías**\n🔨 `Moderación`\n📝 `Información`')
+      .setTimestamp()
+      .setColor(0x69ff7c) 
+      message.reply({
+        embeds: [embed],
+        components: [{
+          "type": 1,
+          "components": [embedmenu]
+        }]
+      })
+
+      if(!interaction.isSelectMenu()) return;
+
+      if(interaction.customId === 'help-menu')
+      {
+
+        if(interaction.values[0] === 'option_1')
+        {
+          const newembedinfo = new MessageEmbed()
+          .setTitle('Comandos')
+          .setDescription('> 📝 **Información**\n`!ping` - Te muestra el ping del bot\n`!botinfo` - Te muestra la información del bot\n`!userinfo` - Te muestra la información de un usuario.')
+          .setTimestamp()
+          .setColor(0x69ff7c)
+          interaction.update({ embeds: [newembedinfo] }) 
+        }
+
+        if(interaction.values[0] === 'option_2') 
+        {
+          const newembedmod = new MessageEmbed()
+          .setTitle('Comandos') 
+          .setDescription('> 🔨 **Moderación**\n`!ban` - Banea a un usuario, esté o no en el servidor\n`!kick` - Expulsa a un miembro del servidor\n`!mute` - Silencia a un miembro del servidor')
+          .setTimestamp()
+          .setColor(0x69ff7c)
+          interaction.update({ embeds: [newembedmod] })
+        }
+
+      }
+    }
+    
+
     //COMANDOS DEL DESARROLLADOR
 
     if(command === "enviarmd"){
