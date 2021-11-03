@@ -913,7 +913,7 @@ client.on('message', async message => {
       .setThumbnail("https://logos-marcas.com/wp-content/uploads/2020/12/Discord-Logo.png")
       .setTitle("Vota por Nuestro Servidor <a:elmo_timido:894721783066918953>")
       .setDescription(`Estaremos eternamente agradecidos que votes por Midgard! <:abby:880300168514252811>`)
-      .addField("Top.gg",'[Click aquí para votar](https://top.gg/servers/777620055344545842/vote)\n\n',true)
+      .addField("Top.gg",'[Click aquí para votar](https://top.gg/servers/777620055344545842/vote)\n\n',false)
       //.addField('\u200B','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>')
       .addField('Recompensas por tu voto <a:CorazonMulticolor:880315280759345163>','Recibirás un Rol muy especial que te diferenciará de los demás:\n\n <a:dc_zFlecha3:880315279903703060> <@&886772939549184052> \n\nAdemás, este rol te dará una cierta cantidad de coins de nuestro casino cada cierto tiempo... \n\nDescúbrelo!!! <:tierno:881618338759966800>',true)
       .setColor("RANDOM")
