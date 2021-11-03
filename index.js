@@ -906,6 +906,23 @@ client.on('message', async message => {
         })
     }
 
+    if(command === 'vote '){
+
+      const embed = new Discord.MessageEmbed()
+      .setAuthor(`Midgard's Staff`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+      .setThumbnail("https://support.discord.com/hc/article_attachments/1500015317842/Rebrand_Blog__1_.png")
+      .setTitle("Vota por Nuestro Servidor <a:elmo_timido:894721783066918953>")
+      .setDescription(`Estaremos eternamente agradecidos que votes por Midgard! <:abby:880300168514252811>`)
+      .addField("Top.gg",'Click aquí para votar (https://top.gg/servers/777620055344545842/vote)',true)
+      .addField('\u200B','\u200B')
+      .addField('Recompensas por tu voto <a:CorazonMulticolor:880315280759345163>','Recibirás un Rol muy especial que te diferenciará de los demás: <@&886772939549184052> Además, este rol te dará una cierta cantidad de coins de nuestro casino cada cierto tiempo... Descúbrelo!!! <:tierno:881618338759966800>',true)
+      .setColor("RANDOM")
+      .setTimestamp(new Date())
+      .setFooter(`🌎┃「Midgard」• Muchas gracias por tu voto!`,"https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif");
+      message.channel.send(embed);
+
+    }
+
     //COMANDOS DE UTILIDAD
 
     if(command === 'user'){
