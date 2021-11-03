@@ -906,7 +906,7 @@ client.on('message', async message => {
         })
     }
 
-    if(command === 'vote '){
+    if(command === 'vote'){
 
       const embed = new Discord.MessageEmbed()
       .setAuthor(`Midgard's Staff`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
