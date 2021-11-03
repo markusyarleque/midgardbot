@@ -909,12 +909,12 @@ client.on('message', async message => {
     if(command === 'vote'){
 
       const embed = new Discord.MessageEmbed()
-      .setAuthor(`Midgard's Staff`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
-      .setThumbnail("https://support.discord.com/hc/article_attachments/1500015317842/Rebrand_Blog__1_.png")
+      .setAuthor(`Midgard's Staff`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
+      .setThumbnail("https://logos-marcas.com/wp-content/uploads/2020/12/Discord-Logo.png")
       .setTitle("Vota por Nuestro Servidor <a:elmo_timido:894721783066918953>")
       .setDescription(`Estaremos eternamente agradecidos que votes por Midgard! <:abby:880300168514252811>`)
-      .addField("Top.gg",'Click aquí para votar (https://top.gg/servers/777620055344545842/vote)',true)
-      .addField('\u200B','\u200B')
+      .addField("Top.gg",'[Click aquí para votar](https://top.gg/servers/777620055344545842/vote)',true)
+      .addField('\u200B','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>')
       .addField('Recompensas por tu voto <a:CorazonMulticolor:880315280759345163>','Recibirás un Rol muy especial que te diferenciará de los demás: <@&886772939549184052> Además, este rol te dará una cierta cantidad de coins de nuestro casino cada cierto tiempo... Descúbrelo!!! <:tierno:881618338759966800>',true)
       .setColor("RANDOM")
       .setTimestamp(new Date())
@@ -935,7 +935,7 @@ client.on('message', async message => {
           
             const embed = new Discord.MessageEmbed()
             .setThumbnail(user.displayAvatarURL({ dynamic: true }).replace('webp','png'))
-            .setAuthor('Información del Usuario', "https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor('Información del Usuario', "https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             .addField('Jugando a', user.presence.game != null ? user.presence.game.name : "Nada", true)
             .addField('Estado:', user.presence.status, true)
             .addField('Color:', message.member.displayHexColor, true)
@@ -957,7 +957,7 @@ client.on('message', async message => {
 
             const embed = new Discord.MessageEmbed()
             .setThumbnail(userm.displayAvatarURL({ dynamic: true }).replace('webp','png'))
-            .setAuthor('Información del Usuario', "https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor('Información del Usuario', "https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             .addField('Jugando a', userm.presence.game != null ? userm.presence.game.name : "Nada", true)
             .addField('Estado:', userm.presence.status, true)
             .addField('Color:', userm.displayHexColor, true)
@@ -984,7 +984,7 @@ client.on('message', async message => {
         if (!img) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Avatar de ${message.author.username}#${message.author.discriminator}`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Avatar de ${message.author.username}#${message.author.discriminator}`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             .setTitle("Imagen completa")
             .setDescription("[Click aquí]("+`${message.author.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`+")")
             .setImage(`${message.author.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`)
@@ -1000,7 +1000,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Avatar de ${img.username}#${img.discriminator}`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Avatar de ${img.username}#${img.discriminator}`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             .setTitle("Imagen completa")
             .setDescription("[Click aquí]("+`${img.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`+")")
             .setImage(`${img.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`)
@@ -1039,7 +1039,7 @@ client.on('message', async message => {
     
             const embed = new Discord.MessageEmbed()
             .setThumbnail(`${img.displayAvatarURL({ dynamic: true }).replace('webp','png')}`)
-            //.setAuthor(`Midgard`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            //.setAuthor(`Midgard`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             .setTitle(`Bienvenid@ <:cosita:880300168514252811> **${img.username}** <a:pepedance:880928616416968745>`)
             .setDescription(`<a:exclama2:880930071731392512> Gracias por unirte!!! <a:sc_ositobailin:880930467774365707> Espero que lo disfrutes. <a:abdul_dance:880930576683630662>`)
             .setImage(ramdonwelcome)
@@ -1065,7 +1065,7 @@ client.on('message', async message => {
     
             const embed = new Discord.MessageEmbed()
             .setThumbnail(`${img.displayAvatarURL({ dynamic: true }).replace('webp','png')}`)
-            //.setAuthor(`Midgard`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            //.setAuthor(`Midgard`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             .setTitle(`Bienvenid@ <:cosita:880300168514252811> **${img.username}** <a:pepedance:880928616416968745>`)
             .setDescription(`<a:exclama2:880930071731392512> Gracias por unirte!!! <a:sc_ositobailin:880930467774365707> Espero que lo disfrutes. <a:abdul_dance:880930576683630662>`)
             .setImage(ramdonwelcome)
@@ -1739,7 +1739,7 @@ client.on('message', async message => {
         var dado = links[Math.floor(Math.random() * links.length)]
 
         const embed = new Discord.MessageEmbed() 
-        .setAuthor(`Midgard's Fun`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+        .setAuthor(`Midgard's Fun`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
         .setTitle(`${message.author.username} ha tirado el dado.`)
         .setDescription("El dado a caído en:")
         .setImage(dado)
@@ -1964,7 +1964,7 @@ client.on('message', async message => {
         let msg = resp[Math.floor(Math.random() * resp.length)] 
         
         const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's Love`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+        .setAuthor(`Midgard's Love`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
         .setTitle(`${msg}`)
         .setDescription(`${heard} ${random} % ${heard}`)
         .setImage(`${image}`)
@@ -1986,7 +1986,7 @@ client.on('message', async message => {
         }).then(post =>
             {
                 const embed = new Discord.MessageEmbed()
-                .setAuthor(`Midgard's Fun`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+                .setAuthor(`Midgard's Fun`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
                 .setTitle(post.title)
                 .setImage(post.url)
                 .setColor("RAMDOM")
@@ -2071,7 +2071,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Cafe`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** tomó una taza de café.`)
             .setImage(ramdoncafe)
@@ -2083,7 +2083,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Cafe`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${img.username}**, ${message.author.username} te invitó una taza de café.`)
             .setImage(ramdoncafe)
@@ -2118,7 +2118,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Cafe`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** está tomando awita.`)
             .setImage(ramdonagua)
@@ -2130,7 +2130,7 @@ client.on('message', async message => {
         }  else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Cafe`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${img.username}**, ${message.author.username} te invitó un poquito de awita.`)
             .setImage(ramdonagua)
@@ -2164,7 +2164,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Cafe`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** está relajándose con un tesito.`)
             .setImage(ramdonte)
@@ -2176,7 +2176,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Cafe`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${img.username}**, ponte cómodo y relájate, que ${message.author.username} te ha invitado un tesito.`)
             .setImage(ramdonte)
@@ -2209,7 +2209,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Cafe`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** está tomando un delicioso juguito.`)
             .setImage(ramdonjugo)
@@ -2221,7 +2221,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Cafe`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${img.username}**, ${message.author.username} te invitó un juguito.`)
             .setImage(ramdonjugo)
@@ -2242,7 +2242,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Cafe`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** está comiendo unos tacos.`)
             .setImage(ramdontacos)
@@ -2254,7 +2254,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Cafe`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${img.username}**, ${message.author.username} te invitó un rico taco.`)
             .setImage(ramdontacos)
@@ -2288,7 +2288,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Cafe`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** está comiendo un delicioso chocolate.`)
             .setImage(ramdonchocolate)
@@ -2300,7 +2300,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Cafe`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${img.username}**, ${message.author.username} te invitó un rico chocolate.`)
             .setImage(ramdonchocolate)
@@ -2333,7 +2333,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Cafe`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`A **${message.author.username}** se le antojaron unas galletitas.`)
             .setImage(ramdongalletas)
@@ -2345,7 +2345,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Cafe`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${img.username}**, ${message.author.username} te invitó unas sabrosas galletitas.`)
             .setImage(ramdongalletas)
@@ -2378,7 +2378,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Cafe`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** está comiendo un refrescante helado.`)
             .setImage(ramdonhelado)
@@ -2390,7 +2390,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Cafe`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${img.username}**, ${message.author.username} te invitó un poquito de helado.`)
             .setImage(ramdonhelado)
@@ -2424,7 +2424,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Cafe`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** está comiendo una sabrosa hamburguesa.`)
             .setImage(ramdonhamburguesa)
@@ -2436,7 +2436,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Cafe`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${img.username}**, ${message.author.username} te invitó una gran hamburguesa.`)
             .setImage(ramdonhamburguesa)
@@ -2473,7 +2473,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Cafe`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** está comiendo una riquísima pizza.`)
             .setImage(ramdonpizza)
@@ -2485,7 +2485,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Cafe`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${img.username}**, ${message.author.username} te invitó una sabrosa pizza.`)
             .setImage(ramdonpizza)
@@ -2520,7 +2520,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Bar`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** está refrescándose con una Coca Cola.`)
             .setImage(ramdoncocacola)
@@ -2532,7 +2532,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Bar`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${img.username}**, ${message.author.username} te invitó una Coca Cola... Disfrútala!`)
             .setImage(ramdoncocacola)
@@ -2566,7 +2566,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Bar`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** está energizándose con un Red Bull.`)
             .setImage(ramdonredbull)
@@ -2578,7 +2578,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Bar`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${img.username}**, ${message.author.username} te invitó una lata de Red Bull.`)
             .setImage(ramdonredbull)
@@ -2611,7 +2611,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Bar`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** está tomando una cervecita.`)
             .setImage(ramdoncerveza)
@@ -2623,7 +2623,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Bar`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`Hey, **${img.username}**, disfruta tu cerveza invitada por ${message.author.username}.`)
             .setImage(ramdoncerveza)
@@ -2655,7 +2655,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Bar`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** está disfrutando un rico vino.`)
             .setImage(ramdonvino)
@@ -2667,7 +2667,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Bar`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${img.username}**, aquí te traigo una copa de vino invitado por ${message.author.username}.`)
             .setImage(ramdonvino)
@@ -2700,7 +2700,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Bar`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** está disfrutando un tequilita.`)
             .setImage(ramdontequila)
@@ -2712,7 +2712,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Bar`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`Hey, **${img.username}**, toma este tequila invitado por ${message.author.username}.`)
             .setImage(ramdontequila)
@@ -2746,7 +2746,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Bar`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** está celebrando con un roncito.`)
             .setImage(ramdonron)
@@ -2758,7 +2758,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Bar`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${img.username}**, agradécele a ${message.author.username} porque te está invitando un ron.`)
             .setImage(ramdonron)
@@ -2791,7 +2791,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Bar`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** está saboreando su delicioso coctel.`)
             .setImage(ramdoncoctel)
@@ -2803,7 +2803,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Bar`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${img.username}**, disfruta este coctel que te ha invitado ${message.author.username}.`)
             .setImage(ramdoncoctel)
@@ -2834,7 +2834,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Bar`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** está volando con un porro de mota.`)
             .setImage(ramdonporro)
@@ -2846,7 +2846,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Bar`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${img.username}**, disfruta de esta mota que te ha invitado ${message.author.username}.`)
             .setImage(ramdonporro)
@@ -2879,7 +2879,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Bar`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** está fumando un cigarrito.`)
             .setImage(ramdoncigarro)
@@ -2891,7 +2891,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Bar`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`Hey **${img.username}**, ${message.author.username} ha compartido un cigarro contigo.`)
             .setImage(ramdoncigarro)
@@ -2926,7 +2926,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Bar`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`A **${message.author.username}** le apeteció una pipa bien potente.`)
             .setImage(ramdonhuca)
@@ -2938,7 +2938,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Bar`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${img.username}**, disfruta de la hookah que te invitó ${message.author.username}.`)
             .setImage(ramdonhuca)
@@ -2993,7 +2993,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Disco`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Disco`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** está perreando hasta el piso.`)
             .setImage(ramdonperreo)
@@ -3005,7 +3005,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Disco`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Disco`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${img.username}**, ${message.author.username} te está perreando duro contra el muro. <a:perreo:880634843610902640>`)
             .setImage(ramdonperreo)
@@ -3043,7 +3043,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Disco`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Disco`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`Miren a **${message.author.username}** como disfruta esa bachata.`)
             .setImage(ramdonbachata)
@@ -3055,7 +3055,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Disco`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Disco`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${img.username}**, está bachateando con ${message.author.username}.`)
             .setImage(ramdonbachata)
@@ -3099,7 +3099,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Disco`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Disco`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** salsea como los dioses.`)
             .setImage(ramdonsalsa2)
@@ -3111,7 +3111,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Disco`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Disco`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${img.username}** y ${message.author.username} están salseando juntos.`)
             .setImage(ramdonsalsa)
@@ -3159,7 +3159,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Disco`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Disco`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** está bailando un pinche cumbión bien loco.`)
             .setImage(ramdoncumbia2)
@@ -3171,7 +3171,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Disco`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Disco`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`A **${img.username}** y ${message.author.username} les va bien los pasitos de cumbia.`)
             .setImage(ramdoncumbia)
@@ -3215,7 +3215,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Disco`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Disco`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** pidió una colegiala y no la quiere compartir. <:jaaa:846566909239099403>`)
             .setImage(ramdoncolegiala)
@@ -3227,7 +3227,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Disco`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Disco`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`Opa! **${img.username}**, mira esta colegiala que ${message.author.username} te trajo. <:uyy:805310624523223041>`)
             .setImage(ramdoncolegiala)
@@ -3268,7 +3268,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
           const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Love`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setAuthor(`Midgard's Love`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
           //.setTitle("Imagen completa")
           .setDescription(`**${message.author.username}** está saludando a todos.`)
           .setImage(ramdonhi)
@@ -3280,7 +3280,7 @@ client.on('message', async message => {
         } else {
     
           const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Love`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setAuthor(`Midgard's Love`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
           //.setTitle("Imagen completa")
           .setDescription(`**${img.username}**, está saludando a ${message.author.username}.`)
           .setImage(ramdonhi)
@@ -3328,7 +3328,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Love`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Love`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** se está abrazando a sí mismo.`)
             .setImage(ramdonhug2)
@@ -3340,7 +3340,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Love`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Love`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** está abrazando a **${img.username}**.`)
             .setImage(ramdonhug)
@@ -3388,7 +3388,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Love`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Love`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** le dió un beso a **${img.username}**.`)
             .setImage(ramdonkiss)
@@ -3432,7 +3432,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
           const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Sad`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setAuthor(`Midgard's Sad`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
           //.setTitle("Imagen completa")
           .setDescription(`**${message.author.username}** se puso modo depre.`)
           .setImage(ramdonsad)
@@ -3444,7 +3444,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Sad`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Sad`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** y **${img.username}** andan modo sad.`)
             .setImage(ramdonsad)
@@ -3488,7 +3488,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
           const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Sad`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setAuthor(`Midgard's Sad`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
           //.setTitle("Imagen completa")
           .setDescription(`**${message.author.username}** no llores, Te queremos ❤`)
           .setImage(ramdoncry)
@@ -3500,7 +3500,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Sad`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Sad`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** y **${img.username}** no lloren, el Staff Los quiere ❤`)
             .setImage(ramdoncry)
@@ -3548,7 +3548,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Love`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Love`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** le dió un sape a **${img.username}**.`)
             .setImage(ramdonsape)
@@ -3606,7 +3606,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Love`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Love`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** le dió un puñetazo a **${img.username}**.`)
             .setImage(ramdonpunch)
@@ -3633,7 +3633,7 @@ client.on('message', async message => {
           neko.sfw.slap().then(neko => {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Love`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Love`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** abofeteó a **${img.username}**.`)
             .setImage(neko.url)
@@ -3678,7 +3678,7 @@ client.on('message', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Love`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Love`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** acaba de masacrar a **${img.username}**.`)
             .setImage(ramdonkill)
@@ -3696,7 +3696,7 @@ client.on('message', async message => {
 
     const embed = new Discord.MessageEmbed()
   .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-  .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+  .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
   .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
   .setDescription("-------------------------------------------------- ")
   .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> No hay nadie agregado ", false)
@@ -3737,7 +3737,7 @@ client.on('message', async message => {
 
           const embed = new Discord.MessageEmbed()
           .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
           .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
           .setDescription("-------------------------------------------------- ")
           .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> No hay nadie agregado ", false)
@@ -3755,7 +3755,7 @@ client.on('message', async message => {
   
           const embed = new Discord.MessageEmbed()
           .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
           .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
           .setDescription("-------------------------------------------------- ")
           .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -3773,7 +3773,7 @@ client.on('message', async message => {
 
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-            .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
             .setDescription("-------------------------------------------------- ")
             .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -3791,7 +3791,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -3809,7 +3809,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -3828,7 +3828,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -3846,7 +3846,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -3864,7 +3864,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -3882,7 +3882,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -3900,7 +3900,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -3918,7 +3918,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -3936,7 +3936,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -3954,7 +3954,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -3972,7 +3972,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -3990,7 +3990,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4008,7 +4008,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4026,7 +4026,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4044,7 +4044,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4062,7 +4062,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4080,7 +4080,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4098,7 +4098,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4135,7 +4135,7 @@ client.on('message', async message => {
 
           const embed = new Discord.MessageEmbed()
           .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
           .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
           .setDescription("-------------------------------------------------- ")
           .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> No hay nadie agregado ", false)
@@ -4153,7 +4153,7 @@ client.on('message', async message => {
   
           const embed = new Discord.MessageEmbed()
           .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
           .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
           .setDescription("-------------------------------------------------- ")
           .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4171,7 +4171,7 @@ client.on('message', async message => {
 
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-            .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
             .setDescription("-------------------------------------------------- ")
             .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4189,7 +4189,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4207,7 +4207,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4226,7 +4226,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4244,7 +4244,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4262,7 +4262,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4280,7 +4280,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4298,7 +4298,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4316,7 +4316,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4334,7 +4334,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4352,7 +4352,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4370,7 +4370,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4388,7 +4388,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4406,7 +4406,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4424,7 +4424,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4442,7 +4442,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4460,7 +4460,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4478,7 +4478,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4496,7 +4496,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4542,7 +4542,7 @@ client.on('message', async message => {
 
           const embed = new Discord.MessageEmbed()
           .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
           .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
           .setDescription("-------------------------------------------------- ")
           .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> No hay nadie agregado ", false)
@@ -4560,7 +4560,7 @@ client.on('message', async message => {
   
           const embed = new Discord.MessageEmbed()
           .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
           .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
           .setDescription("-------------------------------------------------- ")
           .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4578,7 +4578,7 @@ client.on('message', async message => {
 
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-            .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
             .setDescription("-------------------------------------------------- ")
             .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4596,7 +4596,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4614,7 +4614,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4633,7 +4633,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4651,7 +4651,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4669,7 +4669,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4687,7 +4687,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4705,7 +4705,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4723,7 +4723,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4741,7 +4741,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4759,7 +4759,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4777,7 +4777,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4795,7 +4795,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4813,7 +4813,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4831,7 +4831,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4849,7 +4849,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4867,7 +4867,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4885,7 +4885,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4903,7 +4903,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4953,7 +4953,7 @@ client.on('message', async message => {
 
           const embed = new Discord.MessageEmbed()
           .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
           .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
           .setDescription("-------------------------------------------------- ")
           .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> No hay nadie agregado ", false)
@@ -4971,7 +4971,7 @@ client.on('message', async message => {
   
           const embed = new Discord.MessageEmbed()
           .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
           .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
           .setDescription("-------------------------------------------------- ")
           .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -4989,7 +4989,7 @@ client.on('message', async message => {
 
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-            .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
             .setDescription("-------------------------------------------------- ")
             .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5007,7 +5007,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5025,7 +5025,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5044,7 +5044,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5062,7 +5062,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5080,7 +5080,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5098,7 +5098,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5116,7 +5116,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5134,7 +5134,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5152,7 +5152,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5170,7 +5170,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5188,7 +5188,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5206,7 +5206,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5224,7 +5224,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5242,7 +5242,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5260,7 +5260,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5278,7 +5278,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5296,7 +5296,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5314,7 +5314,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5349,7 +5349,7 @@ client.on('message', async message => {
 
           const embed = new Discord.MessageEmbed()
           .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
           .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
           .setDescription("-------------------------------------------------- ")
           .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> No hay nadie agregado ", false)
@@ -5367,7 +5367,7 @@ client.on('message', async message => {
   
           const embed = new Discord.MessageEmbed()
           .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
           .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
           .setDescription("-------------------------------------------------- ")
           .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5385,7 +5385,7 @@ client.on('message', async message => {
 
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-            .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
             .setDescription("-------------------------------------------------- ")
             .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5403,7 +5403,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5421,7 +5421,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5440,7 +5440,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5458,7 +5458,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5476,7 +5476,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5494,7 +5494,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5512,7 +5512,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5530,7 +5530,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5548,7 +5548,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5566,7 +5566,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5584,7 +5584,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5602,7 +5602,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5620,7 +5620,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5638,7 +5638,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5656,7 +5656,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5674,7 +5674,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5692,7 +5692,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5710,7 +5710,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5769,7 +5769,7 @@ client.on('message', async message => {
 
           const embed = new Discord.MessageEmbed()
           .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
           .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
           .setDescription("-------------------------------------------------- ")
           .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> No hay nadie agregado ", false)
@@ -5787,7 +5787,7 @@ client.on('message', async message => {
   
           const embed = new Discord.MessageEmbed()
           .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-          .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
           .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
           .setDescription("-------------------------------------------------- ")
           .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5805,7 +5805,7 @@ client.on('message', async message => {
 
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-            .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
             .setDescription("-------------------------------------------------- ")
             .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5823,7 +5823,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5841,7 +5841,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5860,7 +5860,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5878,7 +5878,7 @@ client.on('message', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5896,7 +5896,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5914,7 +5914,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5932,7 +5932,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5950,7 +5950,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5968,7 +5968,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -5986,7 +5986,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -6004,7 +6004,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -6022,7 +6022,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -6040,7 +6040,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -6058,7 +6058,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -6076,7 +6076,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -6094,7 +6094,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -6112,7 +6112,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -6130,7 +6130,7 @@ client.on('message', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail("https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif")
-              .setAuthor(`Midgard's Karaoke`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Karaoke`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               .setTitle("Lista de participantes <a:corazonBlack_FD:880526799736557679>")
               .setDescription("-------------------------------------------------- ")
               .addField('Turno de : <a:Microfono:880524826459140126>', "<a:flechad:880330587678838784> "+listask.first(), false)
@@ -6210,7 +6210,7 @@ client.on('message', async message => {
         if (!img || img.id===message.author.id) {
     
           const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
           //.setTitle("Imagen completa")
           .setDescription(`**${message.author.username}** mira estos melones <a:pandanoveo:830321011508641832>`)
           .setImage(ramdontetas)
@@ -6222,7 +6222,7 @@ client.on('message', async message => {
         } else {
     
           const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+          .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
           //.setTitle("Imagen completa")
           .setDescription(`Hey **${img.username}**, mira estos melones que **${message.author.username}** te trajo <a:pandanoveo:830321011508641832>`)
           .setImage(ramdontetas)
@@ -6289,7 +6289,7 @@ client.on('message', async message => {
           if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** mira esa papaya <a:pandanoveo:830321011508641832>`)
             .setImage(ramdonpussy)
@@ -6301,7 +6301,7 @@ client.on('message', async message => {
           }else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`Hey **${img.username}**, mira esa papaya que **${message.author.username}** te está mostrando <a:pandanoveo:830321011508641832>`)
             .setImage(ramdonpussy)
@@ -6387,7 +6387,7 @@ client.on('message', async message => {
           if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** mira ese perro culazo <a:pandanoveo:830321011508641832>`)
             .setImage(ramdonculo)
@@ -6399,7 +6399,7 @@ client.on('message', async message => {
           } else{
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`Omg!!! **${img.username}** mira ese perro culazo que tiene **${message.author.username}** <a:pandanoveo:830321011508641832>`)
             .setImage(ramdonculo)
@@ -6449,7 +6449,7 @@ client.on('message', async message => {
           if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`A **${message.author.username}** le provocó una rica polla <a:pandanoveo:830321011508641832>`)
             .setImage(ramdondick)
@@ -6461,7 +6461,7 @@ client.on('message', async message => {
           }else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** anda viendo la verga de **${img.username}** <a:pandanoveo:830321011508641832>`)
             .setImage(ramdondick)
@@ -6557,7 +6557,7 @@ client.on('message', async message => {
           {
             
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** acaba de vaciarse <:y_:868544745541087293>`)
             .setImage(ramdoncum)
@@ -6569,7 +6569,7 @@ client.on('message', async message => {
           } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** se vino dentro de **${img.username}**.`)
             .setImage(ramdoncum2)
@@ -6652,7 +6652,7 @@ client.on('message', async message => {
           {
             
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`Señoraaaa!!! su hijo **${message.author.username}** está viendo nopor <a:run:854139739762196510>`)
             .setImage(ramdonfuck)
@@ -6664,7 +6664,7 @@ client.on('message', async message => {
           } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** se está follando a **${img.username}** <a:sabroso:880695816497541180>.`)
             .setImage(ramdonfuck)
@@ -6763,7 +6763,7 @@ client.on('message', async message => {
           {
             
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`A **${message.author.username}** le provocó lamer coños <a:sabroso:880695816497541180>`)
             .setImage(ramdonlick)
@@ -6775,7 +6775,7 @@ client.on('message', async message => {
           } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** le está haciendo un buen oral a **${img.username}** <a:sabroso:880695816497541180>.`)
             .setImage(ramdonlick)
@@ -6848,7 +6848,7 @@ client.on('message', async message => {
           {
             
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`A **${message.author.username}** le provocó chupar pollas <a:sabroso:880695816497541180>`)
             .setImage(ramdonsuck)
@@ -6860,7 +6860,7 @@ client.on('message', async message => {
           } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** se está comiendo la verga de **${img.username}** <a:sabroso:880695816497541180>.`)
             .setImage(ramdonsuck)
@@ -6913,7 +6913,7 @@ client.on('message', async message => {
           {
             
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`A **${message.author.username}** le gusta chupar bolas <a:sabroso:880695816497541180>`)
             .setImage(ramdonsuckb)
@@ -6925,7 +6925,7 @@ client.on('message', async message => {
           } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** se está comiendo las pelotas de **${img.username}** <a:sabroso:880695816497541180>.`)
             .setImage(ramdonsuckb)
@@ -6976,7 +6976,7 @@ client.on('message', async message => {
           {
             
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${message.author.username}** está chupando tetas <a:sabroso:880695816497541180>`)
             .setImage(ramdonsboobs)
@@ -6988,7 +6988,7 @@ client.on('message', async message => {
           } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+            .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
             //.setTitle("Imagen completa")
             .setDescription(`**${img.username}**, **${message.author.username}** te está chupando los melones que tienes <a:sabroso:880695816497541180>.`)
             .setImage(ramdonsboobs)
@@ -7020,7 +7020,7 @@ client.on('message', async message => {
               const image = await nsfw3.anal();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               //.setTitle("Imagen completa")
               .setDescription(`A **${message.author.username}** le están dando por detroit <:y_:868544745541087293>`)
               .setImage(image)
@@ -7038,7 +7038,7 @@ client.on('message', async message => {
               const image = await nsfw3.anal();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               //.setTitle("Imagen completa")
               .setDescription(`**${message.author.username}** le está dando a **${img.username}** por la retaguardia`)
               .setImage(image)
@@ -7072,7 +7072,7 @@ client.on('message', async message => {
               const image = await nsfw3.pgif();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               //.setTitle("Imagen completa")
               .setDescription(`Señoraaaa!!! su hijo **${message.author.username}** está viendo nopor <a:run:854139739762196510>`)
               .setImage(image)
@@ -7090,7 +7090,7 @@ client.on('message', async message => {
               const image = await nsfw3.pgif();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               //.setTitle("Imagen completa")
               .setDescription(`**${message.author.username}** está viendo nopor con **${img.username}** <a:run:854139739762196510>`)
               .setImage(image)
@@ -7124,7 +7124,7 @@ client.on('message', async message => {
               const image = await nsfw3.fourk();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               //.setTitle("Imagen completa")
               .setDescription(`A **${message.author.username}** le gusta en 4k <a:run:854139739762196510>`)
               .setImage(image)
@@ -7142,7 +7142,7 @@ client.on('message', async message => {
               const image = await nsfw3.fourk();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               //.setTitle("Imagen completa")
               .setDescription(`**${message.author.username}** y **${img.username}** están viendo 4k <a:run:854139739762196510>`)
               .setImage(image)
@@ -7176,7 +7176,7 @@ client.on('message', async message => {
               const image = await nsfw3.gonewild();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               //.setTitle("Imagen completa")
               .setDescription(`**${message.author.username}**, disfrútalo!`)
               .setImage(image)
@@ -7194,7 +7194,7 @@ client.on('message', async message => {
               const image = await nsfw3.gonewild();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               //.setTitle("Imagen completa")
               .setDescription(`**${message.author.username}** y **${img.username}** disfrútenlo!`)
               .setImage(image)
@@ -7228,7 +7228,7 @@ client.on('message', async message => {
               const image = await nsfw3.solo();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               //.setTitle("Imagen completa")
               //.setDescription(`**${message.author.username}** se está masturbando.`)
               .setImage(image)
@@ -7246,7 +7246,7 @@ client.on('message', async message => {
               const image = await nsfw3.solo();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,"https://media.discordapp.net/attachments/879633476532453386/880505945497677824/PicsArt_08-26-07.00.27.jpg?width=862&height=485")
+              .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
               //.setTitle("Imagen completa")
               //.setDescription(`**${message.author.username}** le da una mano a **${img.username}**.`)
               .setImage(image)
