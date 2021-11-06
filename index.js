@@ -1403,8 +1403,7 @@ client.on('message', async message => {
         return;
       }
 
-      async function v()
-    {
+     
       const embed = new Discord.MessageEmbed()
       .setColor("RANDOM")
       .setAuthor(`Iniciado/a por: ${message.author}`, message.author.displayAvatarURL({ dynamic: true }))
@@ -1455,8 +1454,6 @@ client.on('message', async message => {
         await msg.edit("¡Votacion terminada!", {
           embed: embed2
         });
-
-      }v();
 
     }
 
@@ -7021,8 +7018,7 @@ client.on('message', async message => {
     
           if(!img)
           {
-            async function anal()
-            {
+            
               const image = await nsfw3.anal();
     
               const embed = new Discord.MessageEmbed()
@@ -7034,13 +7030,10 @@ client.on('message', async message => {
               .setTimestamp(new Date())
               .setFooter(`🌎┃「Midgard」`,"https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif");
               message.channel.send(embed);
-            }
-            anal();
+            
     
           } else {
     
-            async function anal()
-            {
               const image = await nsfw3.anal();
     
               const embed = new Discord.MessageEmbed()
@@ -7054,8 +7047,7 @@ client.on('message', async message => {
               message.channel.send(embed);
             }
             
-            anal();
-        }
+        
     
         }   
     
@@ -7073,8 +7065,7 @@ client.on('message', async message => {
     
           if(!img)
           {
-            async function porno()
-            {
+            
               const image = await nsfw3.pgif();
     
               const embed = new Discord.MessageEmbed()
@@ -7086,13 +7077,10 @@ client.on('message', async message => {
               .setTimestamp(new Date())
               .setFooter(`🌎┃「Midgard」`,"https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif");
               message.channel.send(embed);
-            }
-            porno();
-    
+            
           } else {
     
-            async function porno()
-            {
+            
               const image = await nsfw3.pgif();
     
               const embed = new Discord.MessageEmbed()
@@ -7104,9 +7092,7 @@ client.on('message', async message => {
               .setTimestamp(new Date())
               .setFooter(`🌎┃「Midgard」`,"https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif");
               message.channel.send(embed);
-            }
             
-            porno();
         }
     
         }   
@@ -7125,8 +7111,7 @@ client.on('message', async message => {
     
           if(!img)
           {
-            async function porno()
-            {
+           
               const image = await nsfw3.fourk();
     
               const embed = new Discord.MessageEmbed()
@@ -7138,13 +7123,9 @@ client.on('message', async message => {
               .setTimestamp(new Date())
               .setFooter(`🌎┃「Midgard」`,"https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif");
               message.channel.send(embed);
-            }
-            porno();
     
           } else {
     
-            async function porno()
-            {
               const image = await nsfw3.fourk();
     
               const embed = new Discord.MessageEmbed()
@@ -7156,9 +7137,7 @@ client.on('message', async message => {
               .setTimestamp(new Date())
               .setFooter(`🌎┃「Midgard」`,"https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif");
               message.channel.send(embed);
-            }
-            
-            porno();
+           
         }
     
         }   
@@ -7177,8 +7156,7 @@ client.on('message', async message => {
     
           if(!img)
           {
-            async function porno()
-            {
+            
               const image = await nsfw3.gonewild();
     
               const embed = new Discord.MessageEmbed()
@@ -7190,13 +7168,10 @@ client.on('message', async message => {
               .setTimestamp(new Date())
               .setFooter(`🌎┃「Midgard」`,"https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif");
               message.channel.send(embed);
-            }
-            porno();
+           
     
           } else {
     
-            async function porno()
-            {
               const image = await nsfw3.gonewild();
     
               const embed = new Discord.MessageEmbed()
@@ -7208,9 +7183,7 @@ client.on('message', async message => {
               .setTimestamp(new Date())
               .setFooter(`🌎┃「Midgard」`,"https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif");
               message.channel.send(embed);
-            }
             
-            porno();
         }
     
         }   
@@ -7229,8 +7202,6 @@ client.on('message', async message => {
     
           if(!img)
           {
-            async function porno()
-            {
               const image = await nsfw3.solo();
     
               const embed = new Discord.MessageEmbed()
@@ -7242,14 +7213,10 @@ client.on('message', async message => {
               .setTimestamp(new Date())
               .setFooter(`🌎┃「Midgard」`,"https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif");
               message.channel.send(embed);
-            }
-            porno();
     
           } else {
     
-            async function porno()
-            {
-              const image = await nsfw3.solo();
+            const image = await nsfw3.solo();
     
               const embed = new Discord.MessageEmbed()
               .setAuthor(`Midgard's Hot`,"https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png")
@@ -7260,9 +7227,7 @@ client.on('message', async message => {
               .setTimestamp(new Date())
               .setFooter(`🌎┃「Midgard」`,"https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif");
               message.channel.send(embed);
-            }
-            
-            porno();
+          
         }
     
         }   
