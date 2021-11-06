@@ -33,7 +33,7 @@ client.on('ready', () => {
 
 });
 
-/*client.on("guildMemberAdd", (member) => {
+client.on("guildMemberAdd", (member) => {
 //
     const guild = member.guild;
     newUsers.set(member.id, member.user);
@@ -44,11 +44,11 @@ client.on('ready', () => {
     //canal.send(`Hola ${member.user}, bienvenid@ nos alegra que formes parte de nosotros.`);
     
     // Send the message to a designated channel on a server:
-    const channel = guild.channels.cache.find(ch => ch.id === '779566489429737472');
+    const channel = guild.channels.cache.find(ch => ch.id === '870195067338506271');
     // Do nothing if the channel wasn't found on this server
     if (!channel) return;
 
-    if (newUsers.size > 1000) {
+    if (newUsers.size > 1000000) {
 
       const userlist = newUsers.map(u => u.toString()).join(" ");
       channel.send(`¡Bienvenid@ Terrícola! ${userlist}, a este nuestro **Universo**. <:ShyLove:880410907635748924> Les invito a pasar por <#855582327514202132> y <#785685918270488656> Y si tienen una queja, duda o sugerencia, pasen por <#815654349912801280>. Cualquier duda o pregunta aquí estará todo el equipo de Staff a su disposición. <a:pasito:877116925291946094> Pásenla increíble, lindo día, tarde o noche. <a:abdul_dance:880930576683630662>`);
@@ -64,7 +64,7 @@ client.on('ready', () => {
 
 client.on("guildMemberRemove", (member) => {
     if(newUsers.has(member.id)) newUsers.delete(member.id);
-  });*/
+  });
 
 const imgdelete = new Discord.MessageEmbed() 
 
