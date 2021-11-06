@@ -9,6 +9,10 @@ client.snipes = new Map();
 const NSFW = require("discord-nsfw");
 const nsfw3 = new NSFW();
 
+const red = require('reddit-fetch')
+
+const over = require('poke-over')
+
 const clientN = require("nekos.life") 
 const neko = new clientN()
 
@@ -16,6 +20,11 @@ const dbv = require('megadb');
 const db_marry = new dbv.crearDB("marry")
 let vip = new dbv.crearDB('vip');
 let bl = new dbv.crearDB('blacklist')
+const fs = require('fs')
+
+const Canvas = require('canvas')
+
+const marsnpm = require("marsnpm")
 
 let prefix = process.env.PREFIX;
 
@@ -557,12 +566,12 @@ client.on("message", message => {
             "No es el whisky ni la cerveza, eres tú quien se me ha subido a la cabeza.","Me encanta la soltería, pero por ti me lo pensaría."
           ]
   
-          let rpiropo = piropo[Math.floor(Math.random()*piropo.length)]
+        let rpiropo = piropo[Math.floor(Math.random()*piropo.length)]
   
-          const embed = new Discord.MessageEmbed()
-          .setColor("RANDOM")
-          .setDescription(rpiropo)
-          message.channel.send(embed)
+        const embed = new Discord.MessageEmbed()
+        .setColor("RANDOM")
+        .setDescription(rpiropo)
+        message.channel.send(embed)
         }
   
   
@@ -1197,8 +1206,7 @@ client.on('message', async message => {
     
         if(time > 7200) return  message.channel.send(`**No puedo contar mas de 2 horas**`).then(m => m.delete({timeout: 5000}));
     
-        async function cuenta()
-        {
+       
           let msg = await message.channel.send(String(time))
     
           if(time < 60) {
@@ -1223,8 +1231,6 @@ client.on('message', async message => {
             }, 3000)
             
           }
-        }
-        cuenta();
     }
 
     if(command === 'poll')
