@@ -22,7 +22,7 @@ let vip = new dbv.crearDB('vip');
 let bl = new dbv.crearDB('blacklist')
 const fs = require('fs')
 
-const Canvas = require('canvas')
+//const Canvas = require('canvas')
 
 const marsnpm = require("marsnpm")
 
