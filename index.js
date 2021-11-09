@@ -636,7 +636,7 @@ client.on('message', async message => {
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
-    if(bl.tiene(message.author.id)) return message.channel.send("Estás prohibido de usar estos comandos, contacto con el equipo de desarrolladores para más información.!");
+    if(bl.tiene(message.author.id)) return message.channel.send("Estás prohibido de usar estos comandos, contacta con el equipo de desarrolladores para más información.!");
 
     if(command === 'malta'){
 
