@@ -53,7 +53,7 @@ client.on("guildMemberAdd", (member) => {
     //canal.send(`Hola ${member.user}, bienvenid@ nos alegra que formes parte de nosotros.`);
     
     // Send the message to a designated channel on a server:
-    const channel = guild.channels.cache.find(ch => ch.id === '870195067338506271');
+    const channel = guild.channels.cache.find(ch => ch.id === '779566489429737472');
     // Do nothing if the channel wasn't found on this server
     if (!channel) return;
 
@@ -132,7 +132,7 @@ client.on("message", message => {
       .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
       .setAuthor("MaltaBot", client.user.avatarURL())
       .setTitle("📢 | Mensaje directo")
-      .addField("Autor: ", `${message.author}`)
+      .addField("Autor: ", `---> ${message.author}`)
       .addField("Mensaje: ", `---> ${message.content}`)
       .setColor("RANDOM")
       .setTimestamp(new Date())
@@ -152,8 +152,8 @@ client.on("message", message => {
       .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
       .setAuthor("MaltaBot", client.user.avatarURL())
       .setTitle("📢 | Mensaje Enviado")
-      .addField("Canal: ", `<#${message.channel.id}>`)
-      .addField("Autor: ", `${message.author}`)
+      .addField("Canal: ", `---> <#${message.channel.id}>`)
+      .addField("Autor: ", `---> ${message.author}`)
       .addField("Mensaje: ", `---> ${message.content}`)
       .setColor("RANDOM")
       .setTimestamp(new Date())
@@ -171,8 +171,8 @@ client.on("message", message => {
       .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
       .setAuthor("MaltaBot", client.user.avatarURL())
       .setTitle("📢 | Mensaje Enviado")
-      .addField("Canal: ", `<#${message.channel.id}>`)
-      .addField("Autor: ", `${message.author}`)
+      .addField("Canal: ", `---> <#${message.channel.id}>`)
+      .addField("Autor: ", `---> ${message.author}`)
       .addField("Mensaje: ", `---> ${message.content}`)
       .setColor("RANDOM")
       .setTimestamp(new Date())
@@ -190,8 +190,8 @@ client.on("message", message => {
       .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
       .setAuthor("MaltaBot", client.user.avatarURL())
       .setTitle("📢 | Mensaje Enviado")
-      .addField("Canal: ", `<#${message.channel.id}>`)
-      .addField("Autor: ", `${message.author}`)
+      .addField("Canal: ", `---> <#${message.channel.id}>`)
+      .addField("Autor: ", `---> ${message.author}`)
       .addField("Mensaje: ", `---> ${message.content}`)
       .setColor("RANDOM")
       .setTimestamp(new Date())
@@ -209,8 +209,8 @@ client.on("message", message => {
       .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
       .setAuthor("MaltaBot", client.user.avatarURL())
       .setTitle("📢 | Mensaje Enviado")
-      .addField("Canal: ", `<#${message.channel.id}>`)
-      .addField("Autor: ", `${message.author}`)
+      .addField("Canal: ", `---> <#${message.channel.id}>`)
+      .addField("Autor: ", `---> ${message.author}`)
       .addField("Mensaje: ", `---> ${message.content}`)
       .setColor("RANDOM")
       .setTimestamp(new Date())
@@ -228,8 +228,8 @@ client.on("message", message => {
       .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
       .setAuthor("MaltaBot", client.user.avatarURL())
       .setTitle("📢 | Mensaje Enviado")
-      .addField("Canal: ", `<#${message.channel.id}>`)
-      .addField("Autor: ", `${message.author}`)
+      .addField("Canal: ", `---> <#${message.channel.id}>`)
+      .addField("Autor: ", `---> ${message.author}`)
       .addField("Mensaje: ", `---> ${message.content}`)
       .setColor("RANDOM")
       .setTimestamp(new Date())
@@ -247,8 +247,8 @@ client.on("message", message => {
       .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
       .setAuthor("MaltaBot", client.user.avatarURL())
       .setTitle("📢 | Mensaje Enviado")
-      .addField("Canal: ", `<#${message.channel.id}>`)
-      .addField("Autor: ", `${message.author}`)
+      .addField("Canal: ", `---> <#${message.channel.id}>`)
+      .addField("Autor: ", `---> ${message.author}`)
       .addField("Mensaje: ", `---> ${message.content}`)
       .setColor("RANDOM")
       .setTimestamp(new Date())
