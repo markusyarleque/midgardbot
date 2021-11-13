@@ -273,7 +273,7 @@ client.on("message", message => {
       .setTimestamp(new Date())
       .setFooter(`Id: ${message.author.id}`, `${message.author.displayAvatarURL()}`)
       
-      channel.send({ embeds: [embed] });
+      channel.send(embed);
   
     }
   
@@ -7549,7 +7549,7 @@ client.on('message', async message => {
       )
       .setMaxValues(1)
 
-      const embed = new MessageEmbed()
+      const embed = new Discord.MessageEmbed()
       .setTitle('Comandos')
       .setDescription('> **Categorías**\n🔨 `Moderación`\n📝 `Información`')
       .setTimestamp()
@@ -7569,7 +7569,7 @@ client.on('message', async message => {
 
         if(interaction.values[0] === 'option_1')
         {
-          const newembedinfo = new MessageEmbed()
+          const newembedinfo = new Discord.MessageEmbed()
           .setTitle('Comandos')
           .setDescription('> 📝 **Información**\n`!ping` - Te muestra el ping del bot\n`!botinfo` - Te muestra la información del bot\n`!userinfo` - Te muestra la información de un usuario.')
           .setTimestamp()
@@ -7579,7 +7579,7 @@ client.on('message', async message => {
 
         if(interaction.values[0] === 'option_2') 
         {
-          const newembedmod = new MessageEmbed()
+          const newembedmod = new Discord.MessageEmbed()
           .setTitle('Comandos') 
           .setDescription('> 🔨 **Moderación**\n`!ban` - Banea a un usuario, esté o no en el servidor\n`!kick` - Expulsa a un miembro del servidor\n`!mute` - Silencia a un miembro del servidor')
           .setTimestamp()
