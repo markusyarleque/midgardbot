@@ -928,7 +928,19 @@ client.on('message', async message => {
       .setColor("RANDOM")
       .setTimestamp(new Date())
       .setFooter(`🌎┃「Midgard」• Muchas gracias por tu voto!`,"https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif");
-      message.channel.send(embed);
+      
+      const row = new Discord.MessageActionRow()
+      .setComponents(
+
+        new Discord.MessageButton()
+        .setLabel('VOTAR') //Lo que quieran que aparezca en el boton (Opcional)
+        //.setEmoji('?') //Puede ser cualquier emoji, si le han puesto el label aparecera al lado izquierdo del texto, si no le pusieron el label aparecera en medio del boton
+        .setStyle('Link') //Ponemos el estilo del botï¿½n, los estilos los puedes encontrar en https://discord.com/developers/docs/interactions/message-components#buttons
+        .setURL('https://top.gg/servers/777620055344545842/vote') 
+
+      )
+
+      message.channel.send({embed : [embed], components : [row]});
 
     }
 
