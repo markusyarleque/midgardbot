@@ -933,7 +933,7 @@ client.on('message', async message => {
       .setComponents(
 
         new Discord.MessageButton()
-        .setLabel('VOTAR') //Lo que quieran que aparezca en el boton (Opcional)
+        .setLabel('VOTAR') //Lo que quieran que aparezca en el boton
         //.setEmoji('?') //Puede ser cualquier emoji, si le han puesto el label aparecera al lado izquierdo del texto, si no le pusieron el label aparecera en medio del boton
         .setStyle('Link') //Ponemos el estilo del botï¿½n, los estilos los puedes encontrar en https://discord.com/developers/docs/interactions/message-components#buttons
         .setURL('https://top.gg/servers/777620055344545842/vote') 
