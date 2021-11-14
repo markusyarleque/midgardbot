@@ -24,7 +24,7 @@ const bl = new dbv.crearDB('blacklist');
 
 // const Canvas = require('canvas')
 
-// const marsnpm = require('marsnpm');
+// const marsnpm = require('marsnpm')
 
 const prefix = process.env.PREFIX;
 
