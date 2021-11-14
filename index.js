@@ -937,7 +937,7 @@ client.on('messageCreate', async message => {
       .setFooter(`🌎┃「Midgard」• Muchas gracias por tu voto!`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
       
       const row = new MessageActionRow()
-      .setComponents(
+      .addComponents(
 
         new MessageButton()
         
@@ -948,7 +948,7 @@ client.on('messageCreate', async message => {
 
       );
       // message.channel.send({embeds : [embed], components : [{ 'type': 2, 'components': [row] }]});
-      message.channel.send({embeds : [embed], components: [row] });
+      message.channel.send({embeds : [embed] });
       // message.channel.send({ content: 'Pong!', components: [ { components : [row], type: 1}] });
     }
 
