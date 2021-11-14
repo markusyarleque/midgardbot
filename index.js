@@ -33,6 +33,8 @@ const bl = new dbv.crearDB('blacklist');
 
 // const marsnpm = require('marsnpm')
 
+const discordTTS = require("discord-tts");
+
 const prefix = process.env.PREFIX;
 
 client.on('ready', () => {
@@ -1474,6 +1476,22 @@ client.on('messageCreate', async message => {
         await msg.edit('¡Votacion terminada!', {
           embed: embed2
         });
+
+    }
+
+    if(command === 'tts'){
+
+      const voiceChannel = message.member.voice.channel;
+      const decir = args.join(' ')
+
+      if(!voiceChannel) return message.channel.send('**<a:No:769884924995829800> | Entra a un canal de voz y vuelve a intentarlo.**')
+      if(!decir) return message.channel.send('**<a:No:769884924995829800> | ¿Que quieres que diga?**')
+    
+      voiceChannel.join().then(connection => { 
+        const stream = discordTTS.getVoiceStream(decir); // Hacemos una const para conectar con discord-tts y dentro ponemos >decir>(los argumentos que se escucharan) 
+        const dispatcher = connection.play(stream);// Hacemos la conexion y lo reproducimos
+        dispatcher.on("finish",()=>voiceChannel.leave())// Cuando finalize el tts el bot saldra automaticamente del canal
+      })
 
     }
 

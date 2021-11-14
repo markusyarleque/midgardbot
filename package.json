@@ -24,6 +24,7 @@
   "homepage": "https://github.com/Maltazard2",
   "dependencies": {
     "discord-nsfw": "^1.3.0",
+    "discord-tts": "^1.2.1",
     "discord.js": "^13.3.1",
     "fs": "^0.0.1-security",
     "marsnpm": "^0.5.2",
