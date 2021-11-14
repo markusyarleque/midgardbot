@@ -5,7 +5,7 @@ const { Client, Intents } = require('discord.js');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
-const { MessageSelectMenu, MessageEmbed } = require('discord.js')
+// const { MessageSelectMenu, MessageEmbed } = require('discord.js')
 
 const { MessageActionRow, MessageButton } = require('discord.js');
 
@@ -33,13 +33,13 @@ const bl = new dbv.crearDB('blacklist');
 
 // const marsnpm = require('marsnpm')
 
-const { joinVoiceChannel } = require('@discordjs/voice');
+// const { joinVoiceChannel } = require('@discordjs/voice');
 
-const { createAudioPlayer } = require('@discordjs/voice');
+// const { createAudioPlayer } = require('@discordjs/voice');
 
-const player = createAudioPlayer();
+// const player = createAudioPlayer();
 
-const discordTTS = require("discord-tts");
+// const discordTTS = require("discord-tts");
 
 const prefix = process.env.PREFIX;
 
@@ -1485,7 +1485,7 @@ client.on('messageCreate', async message => {
 
     }
 
-    if(command === 'tts'){
+    /*if(command === 'tts'){
 
       const connection = joinVoiceChannel({
         channelId: message.member.voice.channel.id,
@@ -1505,7 +1505,7 @@ client.on('messageCreate', async message => {
         dispatcher.on("finish",()=>connection.leave())// Cuando finalize el tts el bot saldra automaticamente del canal
       
 
-    }
+    }*/
 
     //COMANDOS DE MODERACIÓN
 
