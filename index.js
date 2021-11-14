@@ -7,6 +7,8 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_
 
 // const { MessageSelectMenu, MessageEmbed } = require('discord.js')
 
+const { MessageActionRow, MessageButton } = require('discord.js');
+
 const newUsers = new Discord.Collection();
 const listask = new Discord.Collection();
 client.snipes = new Map();
@@ -934,10 +936,10 @@ client.on('messageCreate', async message => {
       .setTimestamp(new Date())
       .setFooter(`🌎┃「Midgard」• Muchas gracias por tu voto!`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
       
-      const row = new Discord.MessageActionRow()
+      const row = new MessageActionRow()
       .addComponents(
 
-        new Discord.MessageButton()
+        new MessageButton()
         
         .setLabel('VOTAR') //Lo que quieran que aparezca en el boton
         //.setEmoji('?') //Puede ser cualquier emoji, si le han puesto el label aparecera al lado izquierdo del texto, si no le pusieron el label aparecera en medio del boton
