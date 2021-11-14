@@ -944,12 +944,13 @@ client.on('messageCreate', async message => {
         .setLabel('VOTAR') //Lo que quieran que aparezca en el boton
         //.setEmoji('?') //Puede ser cualquier emoji, si le han puesto el label aparecera al lado izquierdo del texto, si no le pusieron el label aparecera en medio del boton
         .setStyle('Link') //Ponemos el estilo del botón, los estilos los puedes encontra
-        .setURL('https://top.gg/servers/777620055344545842/vote') 
+        .setURL('https://top.gg/servers/777620055344545842/vote')
+        .setCustomId('btn1')
 
       );
       // message.channel.send({embeds : [embed], components : [{ 'type': 2, 'components': [row] }]});
       message.channel.send({embeds : [embed] });
-      message.channel.send({ content: 'Pong!', components: [ { components : [row], type: 2}] });
+      message.channel.send({ content: 'Pong!', components: [ { components : [row], type: 1}] });
     }
 
     //COMANDOS DE UTILIDAD
