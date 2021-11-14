@@ -1483,7 +1483,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'tts'){
 
-      const jvc = joinVoiceChannel({
+      const connection = joinVoiceChannel({
         channelId: message.member.voice.channel.id,
         guildId: message.guild.id,
         adapterCreator: message.guild.voiceAdapterCreator
@@ -1491,14 +1491,14 @@ client.on('messageCreate', async message => {
       // const voiceChannel = message.member.voice.channel;
       const decir = args.join(' ')
 
-      if(!jvc) return message.channel.send('**<a:No:769884924995829800> | Entra a un canal de voz y vuelve a intentarlo.**')
+      if(!connection) return message.channel.send('**<a:No:769884924995829800> | Entra a un canal de voz y vuelve a intentarlo.**')
       if(!decir) return message.channel.send('**<a:No:769884924995829800> | ¿Que quieres que diga?**')
     
-      jvc.join().then(connection => { 
+      
         const stream = discordTTS.getVoiceStream(decir); // Hacemos una const para conectar con discord-tts y dentro ponemos >decir>(los argumentos que se escucharan) 
         const dispatcher = connection.play(stream);// Hacemos la conexion y lo reproducimos
-        dispatcher.on("finish",()=>jvc.leave())// Cuando finalize el tts el bot saldra automaticamente del canal
-      })
+        dispatcher.on("finish",()=>connection.leave())// Cuando finalize el tts el bot saldra automaticamente del canal
+      
 
     }
 
