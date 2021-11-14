@@ -935,9 +935,10 @@ client.on('messageCreate', async message => {
       .setFooter(`🌎┃「Midgard」• Muchas gracias por tu voto!`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
       
       const row = new Discord.MessageActionRow()
-      .setComponents(
+      .addComponents(
 
         new Discord.MessageButton()
+        
         .setLabel('VOTAR') //Lo que quieran que aparezca en el boton
         //.setEmoji('?') //Puede ser cualquier emoji, si le han puesto el label aparecera al lado izquierdo del texto, si no le pusieron el label aparecera en medio del boton
         .setStyle('Link') //Ponemos el estilo del botón, los estilos los puedes encontra
