@@ -60,7 +60,7 @@ client.on('guildMemberAdd', (member) => {
 
   // Send the message to a designated channel on a server:
   const channel = guild.channels.cache.find(ch => ch.id === '779566489429737472');
-  // Do nothing if the channel wasn't found on this server
+  
   if (!channel) return;
 
   if (newUsers.size > 1000000) {
