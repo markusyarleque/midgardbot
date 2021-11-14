@@ -35,6 +35,10 @@ const bl = new dbv.crearDB('blacklist');
 
 const { joinVoiceChannel } = require('@discordjs/voice');
 
+const { createAudioPlayer } = require('@discordjs/voice');
+
+const player = createAudioPlayer();
+
 const discordTTS = require("discord-tts");
 
 const prefix = process.env.PREFIX;
@@ -1496,7 +1500,8 @@ client.on('messageCreate', async message => {
     
       
         const stream = discordTTS.getVoiceStream(decir); // Hacemos una const para conectar con discord-tts y dentro ponemos >decir>(los argumentos que se escucharan) 
-        const dispatcher = connection.play(stream);// Hacemos la conexion y lo reproducimos
+
+        const dispatcher = player.play(stream);// Hacemos la conexion y lo reproducimos
         dispatcher.on("finish",()=>connection.leave())// Cuando finalize el tts el bot saldra automaticamente del canal
       
 
