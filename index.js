@@ -948,6 +948,7 @@ client.on('messageCreate', async message => {
 
       );
       message.channel.send({embeds : [embed]}, {components : [{ 'type': 1, 'components': [row] }]});
+      message.channel.send({content : "Prueba", components : [{ 'type': 1, 'components': [row] }]});
 
     }
 
