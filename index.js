@@ -949,7 +949,7 @@ client.on('messageCreate', async message => {
       );
       // message.channel.send({embeds : [embed], components : [{ 'type': 2, 'components': [row] }]});
       message.channel.send({embeds : [embed] });
-      message.channel.send({ content: 'Pong!', components: [row] });
+      message.channel.send({ content: 'Pong!', components: [ { components : [row], type: 1}] });
     }
 
     //COMANDOS DE UTILIDAD
