@@ -1495,9 +1495,11 @@ client.on('messageCreate', async message => {
       if(!decir) return message.channel.send('**<a:No:769884924995829800> | ¿Que quieres que diga?**')
     
       joinVoiceChannel.join().then(connection => { 
+
         const stream = discordTTS.getVoiceStream(decir); // Hacemos una const para conectar con discord-tts y dentro ponemos >decir>(los argumentos que se escucharan) 
         const dispatcher = connection.play(stream);// Hacemos la conexion y lo reproducimos
         dispatcher.on("finish",()=>joinVoiceChannel.leave())// Cuando finalize el tts el bot saldra automaticamente del canal
+        
       })
 
     }
