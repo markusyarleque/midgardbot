@@ -946,8 +946,8 @@ client.on('messageCreate', async message => {
         .setStyle('Link') //Ponemos el estilo del botón, los estilos los puedes encontra
         .setURL('https://top.gg/servers/777620055344545842/vote') 
 
-      )
-      message.channel.send({embeds : [embed], components : [{ 'type': 1, 'components': [row] }]});
+      );
+      message.channel.send({embeds : [embed]}, {components : [{ 'type': 1, 'components': [row] }]});
 
     }
 
