@@ -5,7 +5,7 @@ const { Client, Intents } = require('discord.js');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
-// const { MessageSelectMenu, MessageEmbed } = require('discord.js')
+const { MessageSelectMenu, MessageEmbed } = require('discord.js')
 
 const { MessageActionRow, MessageButton } = require('discord.js');
 
@@ -947,9 +947,7 @@ client.on('messageCreate', async message => {
         .setURL('https://top.gg/servers/777620055344545842/vote') 
 
       )
-
-      message.channel.send({embeds : [embed], components : [{ components: [ [row] ], type: 2 }]});
-      message.channel.send({ content : 'Prueba', components : [{ components: [ [row] ], type: 1 }] })
+      message.channel.send({embeds : [embed], components : [{ 'type': 1, 'components': [row] }]});
 
     }
 
@@ -7551,7 +7549,7 @@ client.on('messageCreate', async message => {
     if (command === 'hpm')
     {
 
-     const embedmenu = new Discord.MessageSelectMenu()
+     const embedmenu = new MessageSelectMenu()
       .setCustomId('help-menu')
       .setPlaceholder('Categorías')
       .addOptions(
@@ -7570,7 +7568,7 @@ client.on('messageCreate', async message => {
       )
       .setMaxValues(1)
 
-      const embed = new Discord.MessageEmbed()
+      const embed = new MessageEmbed()
       .setTitle('Comandos')
       .setDescription('> **Categorías**\n🔨 `Moderación`\n📝 `Información`')
       .setTimestamp()
@@ -7590,7 +7588,7 @@ client.on('messageCreate', async message => {
 
         if(interaction.values[0] === 'option_1')
         {
-          const newembedinfo = new Discord.MessageEmbed()
+          const newembedinfo = new MessageEmbed()
           .setTitle('Comandos')
           .setDescription('> 📝 **Información**\n`!ping` - Te muestra el ping del bot\n`!botinfo` - Te muestra la información del bot\n`!userinfo` - Te muestra la información de un usuario.')
           .setTimestamp()
@@ -7600,7 +7598,7 @@ client.on('messageCreate', async message => {
 
         if(interaction.values[0] === 'option_2') 
         {
-          const newembedmod = new Discord.MessageEmbed()
+          const newembedmod = new MessageEmbed()
           .setTitle('Comandos') 
           .setDescription('> 🔨 **Moderación**\n`!ban` - Banea a un usuario, esté o no en el servidor\n`!kick` - Expulsa a un miembro del servidor\n`!mute` - Silencia a un miembro del servidor')
           .setTimestamp()
