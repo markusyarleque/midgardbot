@@ -947,8 +947,9 @@ client.on('messageCreate', async message => {
         .setURL('https://top.gg/servers/777620055344545842/vote') 
 
       );
-      message.channel.send({embeds : [embed], components : [{ 'type': 2, 'components': [row] }]});
-
+      // message.channel.send({embeds : [embed], components : [{ 'type': 2, 'components': [row] }]});
+      message.channel.send({embeds : [embed] });
+      message.channel.send({ content: 'Pong!', components: [row] });
     }
 
     //COMANDOS DE UTILIDAD
