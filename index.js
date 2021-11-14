@@ -937,7 +937,7 @@ client.on('messageCreate', async message => {
       .setFooter(`🌎┃「Midgard」• Muchas gracias por tu voto!`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
       
       const row = new MessageActionRow()
-      .addComponents(
+      .setComponents(
 
         new MessageButton()
         
