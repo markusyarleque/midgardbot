@@ -129,7 +129,7 @@ client.on('messageDelete', (message) => {
     
     //.setImage(m.proxyURL)
   
-    //canal.send(embed)enviamos el embed
+    //canal.send({embeds : [embed]})enviamos el embed
       
       })
     }*/
@@ -4182,7 +4182,7 @@ client.on('messageCreate', async message => {
         message.react('✅')
 
         canalis.bulkDelete(1);
-        canalis.send(embed).then(m => {
+        canalis.send({embeds : [embed]}).then(m => {
 
         if (listask.size === 0) {
 
@@ -4589,7 +4589,7 @@ client.on('messageCreate', async message => {
       message.channel.send('Lista Actualizada: '+`${client.channels.cache.get('880355911078645770')}`).then()
       message.delete({timeout: 100})
       canalis.bulkDelete(1);
-      canalis.send(embed).then(m => {
+      canalis.send({embeds : [embed]}).then(m => {
 
         if (listask.size === 0) {
 
@@ -5000,7 +5000,7 @@ client.on('messageCreate', async message => {
           message.react('✅')
 
           canalis.bulkDelete(1);
-          canalis.send(embed).then(m => {
+          canalis.send({embeds : [embed]}).then(m => {
 
         if (listask.size === 0) {
 
@@ -5396,7 +5396,7 @@ client.on('messageCreate', async message => {
           message.react('✅')
 
           canalis.bulkDelete(1);
-        canalis.send(embed).then(m => {
+        canalis.send({embeds : [embed]}).then(m => {
 
         if (listask.size === 0) {
 
@@ -5816,7 +5816,7 @@ client.on('messageCreate', async message => {
         message.react('✅')
 
         canalis.bulkDelete(1);
-        canalis.send(embed).then(m => {
+        canalis.send({embeds : [embed]}).then(m => {
 
         if (listask.size === 0) {
 
