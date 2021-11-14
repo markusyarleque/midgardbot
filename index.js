@@ -937,7 +937,7 @@ client.on('messageCreate', async message => {
       .setFooter(`🌎┃「Midgard」• Muchas gracias por tu voto!`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
       
       const row = new MessageActionRow()
-      .addComponents(
+      .setComponents(
 
         new MessageButton()
         
@@ -945,7 +945,6 @@ client.on('messageCreate', async message => {
         //.setEmoji('?') //Puede ser cualquier emoji, si le han puesto el label aparecera al lado izquierdo del texto, si no le pusieron el label aparecera en medio del boton
         .setStyle('Link') //Ponemos el estilo del botón, los estilos los puedes encontra
         .setURL('https://top.gg/servers/777620055344545842/vote')
-        .setCustomId('btn1')
 
       );
       // message.channel.send({embeds : [embed], components : [{ 'type': 2, 'components': [row] }]});
