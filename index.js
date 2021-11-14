@@ -33,6 +33,8 @@ const bl = new dbv.crearDB('blacklist');
 
 // const marsnpm = require('marsnpm')
 
+const { joinVoiceChannel } = require('@discordjs/voice');
+
 const discordTTS = require("discord-tts");
 
 const prefix = process.env.PREFIX;
@@ -1481,10 +1483,15 @@ client.on('messageCreate', async message => {
 
     if(command === 'tts'){
 
-      const voiceChannel = message.member.voice.channel;
+      joinVoiceChannel({
+        channelId: message.member.voice.channel.id,
+        guildId: message.guild.id,
+        adapterCreator: message.guild.voiceAdapterCreator
+      })
+      // const voiceChannel = message.member.voice.channel;
       const decir = args.join(' ')
 
-      if(!voiceChannel) return message.channel.send('**<a:No:769884924995829800> | Entra a un canal de voz y vuelve a intentarlo.**')
+      if(!joinVoiceChannel) return message.channel.send('**<a:No:769884924995829800> | Entra a un canal de voz y vuelve a intentarlo.**')
       if(!decir) return message.channel.send('**<a:No:769884924995829800> | ¿Que quieres que diga?**')
     
       voiceChannel.join().then(connection => { 
