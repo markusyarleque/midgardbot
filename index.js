@@ -3784,7 +3784,7 @@ client.on('messageCreate', async message => {
         listask.set(message.author.id,message.author.username)
 
         canalis.bulkDelete(1);
-        canalis.send(embed).then(m => {
+        canalis.send({embeds: [embed]}).then(m => {
 
         if (listask.size === 0) {
 
