@@ -663,7 +663,7 @@ client.on('messageCreate', async message => {
           .setDescription('Solo el developer del bot puede usar este comando.')
           .setColor('RED')
           message.channel.send({ embeds: [embed] })
-          .then(m => m.delete({timeout: 5000}));
+          .then(m => setTimeout(() => m.delete(), 5000));
   
         } else {
   
@@ -671,7 +671,7 @@ client.on('messageCreate', async message => {
   
           if(!estadobot){
   
-            message.reply('Exactamente... ¿Qué quieres que ponga?').then(m => m.delete({timeout: 5000}));
+            message.reply('Exactamente... ¿Qué quieres que ponga?').then(m => setTimeout(() => m.delete(), 5000));
   
           }else{
   
@@ -1187,7 +1187,7 @@ client.on('messageCreate', async message => {
         if (!msg)
         {
           message.channel.send('No se ha borrado recientemente ningun mensaje')
-              .then(m => m.delete({timeout: 5000}));
+              .then(m => setTimeout(() => m.delete(), 5000));
         
         } else {
     
@@ -1226,13 +1226,13 @@ client.on('messageCreate', async message => {
 
     if(command === 'conteo'){
 
-        if(!args[0]) return message.channel.send('Pon una cantidad para hacer una cuenta regresiva.').then(m => m.delete({timeout: 5000}));
+        if(!args[0]) return message.channel.send('Pon una cantidad para hacer una cuenta regresiva.').then(m => setTimeout(() => m.delete(), 5000));
     
-        if(isNaN(args[0])) return  message.channel.send(`**Pon una cantidad, solo puedo contar numeros.**`).then(m => m.delete({timeout: 5000}));
+        if(isNaN(args[0])) return  message.channel.send(`**Pon una cantidad, solo puedo contar numeros.**`).then(m => setTimeout(() => m.delete(), 5000));
     
         let time = parseInt(args[0])
     
-        if(time > 7200) return  message.channel.send(`**No puedo contar mas de 2 horas**`).then(m => m.delete({timeout: 5000}));
+        if(time > 7200) return  message.channel.send(`**No puedo contar mas de 2 horas**`).then(m => setTimeout(() => m.delete(), 5000));
     
        
           let msg = await message.channel.send(String(time))
@@ -1628,7 +1628,7 @@ client.on('messageCreate', async message => {
           };
     
           message.channel.send('🔒 Todos los canales del servidor fueron bloqueados')
-            .then(m => m.delete({timeout: 5000}));
+            .then(m => setTimeout(() => m.delete(), 5000));
     
         } else if(ch){
     
@@ -1637,7 +1637,7 @@ client.on('messageCreate', async message => {
           });
     
           message.channel.send(`🔒 El canal <#${ch.id}> fue bloqueado`)
-            .then(m => m.delete({timeout: 5000}));
+            .then(m => setTimeout(() => m.delete(), 5000));
     
         } else{
     
@@ -1646,7 +1646,7 @@ client.on('messageCreate', async message => {
           });
     
           message.channel.send('🔒 Este canal fue bloqueado')
-            .then(m => m.delete({timeout: 5000}));
+            .then(m => setTimeout(() => m.delete(), 5000));
         }
     
     }
@@ -1672,7 +1672,7 @@ client.on('messageCreate', async message => {
           };
     
           message.channel.send('🔓 Todos los canales del servidor fueron desbloqueados')
-            .then(m => m.delete({timeout: 5000}));
+            .then(m => setTimeout(() => m.delete(), 5000));
     
         } else if(ch){
     
@@ -1681,7 +1681,7 @@ client.on('messageCreate', async message => {
           });
     
           message.channel.send(`🔓 El canal <#${ch.id}> fue desbloqueado`)
-            .then(m => m.delete({timeout: 5000}));
+            .then(m => setTimeout(() => m.delete(), 5000));
     
         } else{
     
@@ -1690,7 +1690,7 @@ client.on('messageCreate', async message => {
           });
     
           message.channel.send('🔓 Este canal fue desbloqueado')
-            .then(m => m.delete({timeout: 5000}));
+            .then(m => setTimeout(() => m.delete(), 5000));
         }
     
     }
@@ -1706,16 +1706,16 @@ client.on('messageCreate', async message => {
             if (!args[0])
     
                 return message.channel.send(`Por Favor, especifica una cantidad`)
-                .then(m => m.delete({timeout: 5000}));
+                .then(m => setTimeout(() => m.delete(), 5000));
     
             if (isNaN(args[0]))
     
                 return message.channel.send(`Por favor, ingresa un número`)
-                .then(m => m.delete({timeout: 5000}));
+                .then(m => setTimeout(() => m.delete(), 5000));
     
             if (args[0] > 100)
                 return message.channel.send(`No puedo eliminar más de 100 mensajes`)
-                .then(m => m.delete({timeout: 5000}));
+                .then(m => setTimeout(() => m.delete(), 5000));
           
             message.channel.bulkDelete(args[0]).then(Message => {
     
@@ -3776,10 +3776,10 @@ client.on('messageCreate', async message => {
       if (!img) {
 
         if(listask.has(message.author.id)) return message.channel.send(`${message.author} Ya estás agregado en la lista`)
-        .then(m => m.delete({timeout: 5000}));
+        .then(m => setTimeout(() => m.delete(), 5000));
         
         message.channel.send(`${message.author}`+' Has sido anotado en la lista <:syzerotwolove:881304660324020244>')
-        .then(m => m.delete({timeout: 5000}));
+        .then(m => setTimeout(() => m.delete(), 5000));
         message.react('✅')
         listask.set(message.author.id,message.author.username)
 
@@ -4174,11 +4174,11 @@ client.on('messageCreate', async message => {
         if(img.id==='753435606410985573') return message.channel.send('No puedes agregar a mi dueño <:Sofia:877115812362747904>')
         
         if(listask.has(img.id)) return message.channel.send(`El participante **${img.username}** ya está agregado en la lista`)
-        .then(m => m.delete({timeout: 5000}));
+        .then(m => setTimeout(() => m.delete(), 5000));
 
         listask.set(img.id,img.username)
         message.channel.send(`**${message.author.username}**`+' Has anotado a '+`**${img.username}**`+' en la lista <:syzerotwolove:881304660324020244>')
-        .then(m => m.delete({timeout: 5000}));
+        .then(m => setTimeout(() => m.delete(), 5000));
         message.react('✅')
 
         canalis.bulkDelete(1);
@@ -4996,7 +4996,7 @@ client.on('messageCreate', async message => {
         
           listask.delete(message.author.id);
           message.channel.send(`${message.author} Fuiste eliminado de la lista`)
-          .then(m => m.delete({timeout: 5000}));
+          .then(m => setTimeout(() => m.delete(), 5000));
           message.react('✅')
 
           canalis.bulkDelete(1);
@@ -5392,7 +5392,7 @@ client.on('messageCreate', async message => {
         
           listask.delete(img.id);
           message.channel.send(`Has eliminado a **${img.username}** de la lista`)
-          .then(m => m.delete({timeout: 5000}));
+          .then(m => setTimeout(() => m.delete(), 5000));
           message.react('✅')
 
           canalis.bulkDelete(1);
@@ -5805,14 +5805,14 @@ client.on('messageCreate', async message => {
         .setDescription('Solo el presentador de Karaoke puede usar este comando.')
         .setColor('RED')
         message.channel.send({ embeds: [embed] })
-        .then(m => m.delete({timeout: 5000}));
+        .then(m => setTimeout(() => m.delete(), 5000));
         message.react('❎');
 
       } else {
 
         listask.clear();
         message.channel.send(`${message.author} Has eliminado a **TODOS** los participantes de la lista`)
-        .then(m => m.delete({timeout: 5000}));
+        .then(m => setTimeout(() => m.delete(), 5000));
         message.react('✅')
 
         canalis.bulkDelete(1);
@@ -7647,17 +7647,17 @@ client.on('messageCreate', async message => {
 
         let permisos = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
     
-        if(!permisos) return message.reply('No tiene permisos para usar este comando <:pepemaje:846893345678950420>').then(m => m.delete({timeout: 5000}));
+        if(!permisos) return message.reply('No tiene permisos para usar este comando <:pepemaje:846893345678950420>').then(m => setTimeout(() => m.delete(), 5000));
     
         const mencionado = message.mentions.users.first();
     
-        if(!mencionado) return message.reply('No ha mencionando a ningún miembro <:pepemaje:846893345678950420>').then(m => m.delete({timeout: 5000}));
+        if(!mencionado) return message.reply('No ha mencionando a ningún miembro <:pepemaje:846893345678950420>').then(m => setTimeout(() => m.delete(), 5000));
     
         let id = mencionado.id;
     
         let texto = args.slice(1).join(' ');
     
-        if(!texto) return message.channel.send(`Escriba el contenido a enviar. <:pepemaje:846893345678950420>`).then(m => m.delete({timeout: 5000}));
+        if(!texto) return message.channel.send(`Escriba el contenido a enviar. <:pepemaje:846893345678950420>`).then(m => setTimeout(() => m.delete(), 5000));
     
         client.users.get(id).send(texto)
     
