@@ -47,10 +47,10 @@ client.on('ready', () => {
   // client.user.setActivity('bot en heroku', {type: 'WATCHING'});
   client.user.setPresence({
     status: 'online',
-    activity: {
+    activities: [{
       name: '.gg/svmidgard',
       type: 'WATCHING',
-    },
+    }],
   });
   console.log('Listo!');
 
