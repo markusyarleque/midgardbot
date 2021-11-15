@@ -1182,7 +1182,7 @@ client.on('messageCreate', async message => {
       if(command === 'snipe')
       {
 
-        const conf = guild.channels.cache.find(ch => ch.id === '880312288593195028');
+        const conf = message.guild.channels.cache.find(ch => ch.id === '880312288593195028');
 
         const channel = message.mentions.channels.first() || message.channel;
 
