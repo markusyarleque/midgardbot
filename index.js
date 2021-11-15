@@ -3802,7 +3802,7 @@ client.on('messageCreate', async message => {
           .setTimestamp(new Date())
           .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
 
-          m.edit(embed)
+          m.edit({embeds : [embed]})
       
         } else if (listask.size === 1) {
   
@@ -3838,7 +3838,7 @@ client.on('messageCreate', async message => {
             .setColor(5929128)
             .setTimestamp(new Date())
             .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-            m.edit(embed)
+            m.edit({embeds : [embed]})
           
           } else if (listask.size === 3) {
   
@@ -3856,7 +3856,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed)
+              m.edit({embeds : [embed]})
       
           } else if (listask.size === 4) {
   
@@ -3875,7 +3875,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
   
           } else if (listask.size === 5) {
   
@@ -3893,7 +3893,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 6) {
   
@@ -3911,7 +3911,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 7) {
       
@@ -3929,7 +3929,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 8) {
       
@@ -3947,7 +3947,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 9) {
       
@@ -3965,7 +3965,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 10) {
       
@@ -3983,7 +3983,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 11) {
       
@@ -4001,7 +4001,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 12) {
       
@@ -4019,7 +4019,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 13) {
       
@@ -4037,7 +4037,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 14) {
       
@@ -4055,7 +4055,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 15) {
       
@@ -4073,7 +4073,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 16) {
       
@@ -4091,7 +4091,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 17) {
       
@@ -4109,7 +4109,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 18) {
       
@@ -4127,7 +4127,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 19) {
       
@@ -4145,7 +4145,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 20) {
       
@@ -4163,7 +4163,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           }
 
@@ -4200,7 +4200,7 @@ client.on('messageCreate', async message => {
           .setTimestamp(new Date())
           .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
 
-          m.edit(embed)
+          m.edit({embeds : [embed]})
       
         } else if (listask.size === 1) {
   
@@ -4218,7 +4218,7 @@ client.on('messageCreate', async message => {
           .setTimestamp(new Date())
           .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
 
-          m.edit(embed)
+          m.edit({embeds : [embed]})
 
           } else if (listask.size === 2){
 
@@ -4236,7 +4236,7 @@ client.on('messageCreate', async message => {
             .setColor(5929128)
             .setTimestamp(new Date())
             .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-            m.edit(embed)
+            m.edit({embeds : [embed]})
           
           } else if (listask.size === 3) {
   
@@ -4254,7 +4254,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed)
+              m.edit({embeds : [embed]})
       
           } else if (listask.size === 4) {
   
@@ -4273,7 +4273,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
   
           } else if (listask.size === 5) {
   
@@ -4291,7 +4291,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 6) {
   
@@ -4309,7 +4309,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 7) {
       
@@ -4327,7 +4327,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 8) {
       
@@ -4345,7 +4345,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 9) {
       
@@ -4363,7 +4363,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 10) {
       
@@ -4381,7 +4381,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 11) {
       
@@ -4399,7 +4399,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 12) {
       
@@ -4417,7 +4417,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 13) {
       
@@ -4435,7 +4435,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 14) {
       
@@ -4453,7 +4453,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 15) {
       
@@ -4471,7 +4471,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 16) {
       
@@ -4489,7 +4489,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 17) {
       
@@ -4507,7 +4507,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 18) {
       
@@ -4525,7 +4525,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 19) {
       
@@ -4543,7 +4543,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 20) {
       
@@ -4561,7 +4561,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           }
 
@@ -4607,7 +4607,7 @@ client.on('messageCreate', async message => {
           .setTimestamp(new Date())
           .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
 
-          m.edit(embed)
+          m.edit({embeds : [embed]})
       
         } else if (listask.size === 1) {
   
@@ -4625,7 +4625,7 @@ client.on('messageCreate', async message => {
           .setTimestamp(new Date())
           .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
 
-          m.edit(embed)
+          m.edit({embeds : [embed]})
 
           } else if (listask.size === 2){
 
@@ -4643,7 +4643,7 @@ client.on('messageCreate', async message => {
             .setColor(5929128)
             .setTimestamp(new Date())
             .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-            m.edit(embed)
+            m.edit({embeds : [embed]})
           
           } else if (listask.size === 3) {
   
@@ -4661,7 +4661,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed)
+              m.edit({embeds : [embed]})
       
           } else if (listask.size === 4) {
   
@@ -4680,7 +4680,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
   
           } else if (listask.size === 5) {
   
@@ -4698,7 +4698,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 6) {
   
@@ -4716,7 +4716,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 7) {
       
@@ -4734,7 +4734,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 8) {
       
@@ -4752,7 +4752,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 9) {
       
@@ -4770,7 +4770,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 10) {
       
@@ -4788,7 +4788,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 11) {
       
@@ -4806,7 +4806,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 12) {
       
@@ -4824,7 +4824,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 13) {
       
@@ -4842,7 +4842,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 14) {
       
@@ -4860,7 +4860,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 15) {
       
@@ -4878,7 +4878,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 16) {
       
@@ -4896,7 +4896,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 17) {
       
@@ -4914,7 +4914,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 18) {
       
@@ -4932,7 +4932,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 19) {
       
@@ -4950,7 +4950,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 20) {
       
@@ -4968,7 +4968,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           }
 
@@ -5018,7 +5018,7 @@ client.on('messageCreate', async message => {
           .setTimestamp(new Date())
           .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
 
-          m.edit(embed)
+          m.edit({embeds : [embed]})
       
         } else if (listask.size === 1) {
   
@@ -5036,7 +5036,7 @@ client.on('messageCreate', async message => {
           .setTimestamp(new Date())
           .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
 
-          m.edit(embed)
+          m.edit({embeds : [embed]})
 
           } else if (listask.size === 2){
 
@@ -5054,7 +5054,7 @@ client.on('messageCreate', async message => {
             .setColor(5929128)
             .setTimestamp(new Date())
             .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-            m.edit(embed)
+            m.edit({embeds : [embed]})
           
           } else if (listask.size === 3) {
   
@@ -5072,7 +5072,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed)
+              m.edit({embeds : [embed]})
       
           } else if (listask.size === 4) {
   
@@ -5091,7 +5091,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
   
           } else if (listask.size === 5) {
   
@@ -5109,7 +5109,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 6) {
   
@@ -5127,7 +5127,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 7) {
       
@@ -5145,7 +5145,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 8) {
       
@@ -5163,7 +5163,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 9) {
       
@@ -5181,7 +5181,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 10) {
       
@@ -5199,7 +5199,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 11) {
       
@@ -5217,7 +5217,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 12) {
       
@@ -5235,7 +5235,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 13) {
       
@@ -5253,7 +5253,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 14) {
       
@@ -5271,7 +5271,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 15) {
       
@@ -5289,7 +5289,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 16) {
       
@@ -5307,7 +5307,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 17) {
       
@@ -5325,7 +5325,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 18) {
       
@@ -5343,7 +5343,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 19) {
       
@@ -5361,7 +5361,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 20) {
       
@@ -5379,7 +5379,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           }
 
@@ -5414,7 +5414,7 @@ client.on('messageCreate', async message => {
           .setTimestamp(new Date())
           .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
 
-          m.edit(embed)
+          m.edit({embeds : [embed]})
       
         } else if (listask.size === 1) {
   
@@ -5432,7 +5432,7 @@ client.on('messageCreate', async message => {
           .setTimestamp(new Date())
           .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
 
-          m.edit(embed)
+          m.edit({embeds : [embed]})
 
           } else if (listask.size === 2){
 
@@ -5450,7 +5450,7 @@ client.on('messageCreate', async message => {
             .setColor(5929128)
             .setTimestamp(new Date())
             .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-            m.edit(embed)
+            m.edit({embeds : [embed]})
           
           } else if (listask.size === 3) {
   
@@ -5468,7 +5468,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed)
+              m.edit({embeds : [embed]})
       
           } else if (listask.size === 4) {
   
@@ -5487,7 +5487,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
   
           } else if (listask.size === 5) {
   
@@ -5505,7 +5505,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 6) {
   
@@ -5523,7 +5523,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 7) {
       
@@ -5541,7 +5541,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 8) {
       
@@ -5559,7 +5559,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 9) {
       
@@ -5577,7 +5577,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 10) {
       
@@ -5595,7 +5595,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 11) {
       
@@ -5613,7 +5613,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 12) {
       
@@ -5631,7 +5631,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 13) {
       
@@ -5649,7 +5649,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 14) {
       
@@ -5667,7 +5667,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 15) {
       
@@ -5685,7 +5685,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 16) {
       
@@ -5703,7 +5703,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 17) {
       
@@ -5721,7 +5721,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 18) {
       
@@ -5739,7 +5739,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 19) {
       
@@ -5757,7 +5757,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 20) {
       
@@ -5775,7 +5775,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           }
 
@@ -5834,7 +5834,7 @@ client.on('messageCreate', async message => {
           .setTimestamp(new Date())
           .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
 
-          m.edit(embed)
+          m.edit({embeds : [embed]})
       
         } else if (listask.size === 1) {
   
@@ -5852,7 +5852,7 @@ client.on('messageCreate', async message => {
           .setTimestamp(new Date())
           .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
 
-          m.edit(embed)
+          m.edit({embeds : [embed]})
 
           } else if (listask.size === 2){
 
@@ -5870,7 +5870,7 @@ client.on('messageCreate', async message => {
             .setColor(5929128)
             .setTimestamp(new Date())
             .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-            m.edit(embed)
+            m.edit({embeds : [embed]})
           
           } else if (listask.size === 3) {
   
@@ -5888,7 +5888,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed)
+              m.edit({embeds : [embed]})
       
           } else if (listask.size === 4) {
   
@@ -5907,7 +5907,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
   
           } else if (listask.size === 5) {
   
@@ -5925,7 +5925,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 6) {
   
@@ -5943,7 +5943,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 7) {
       
@@ -5961,7 +5961,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 8) {
       
@@ -5979,7 +5979,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 9) {
       
@@ -5997,7 +5997,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 10) {
       
@@ -6015,7 +6015,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 11) {
       
@@ -6033,7 +6033,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 12) {
       
@@ -6051,7 +6051,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 13) {
       
@@ -6069,7 +6069,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 14) {
       
@@ -6087,7 +6087,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 15) {
       
@@ -6105,7 +6105,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 16) {
       
@@ -6123,7 +6123,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 17) {
       
@@ -6141,7 +6141,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 18) {
       
@@ -6159,7 +6159,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 19) {
       
@@ -6177,7 +6177,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
           } else if (listask.size === 20) {
       
@@ -6195,7 +6195,7 @@ client.on('messageCreate', async message => {
               .setColor(5929128)
               .setTimestamp(new Date())
               .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              m.edit(embed);
+              m.edit({embeds : [embed]});
       
             }
 
