@@ -806,7 +806,7 @@ client.on('messageCreate', async message => {
     .setColor('RANDOM')
     .setTimestamp(new Date())
     .setFooter(`Developer Team - Midgard Club`, `${message.author.displayAvatarURL()}`);
-    message.delete({ timeout: 100 });
+    setTimeout(() => message.delete(), 100);
     message.channel.send({ embeds: [embed] }).then(m => {
 
       m.react('✅')
@@ -878,7 +878,7 @@ client.on('messageCreate', async message => {
     .setColor('RANDOM')
     .setTimestamp(new Date())
     .setFooter(`Developer Team - Midgard Club`, `${message.author.displayAvatarURL()}`);
-    message.delete({ timeout: 100 });
+    setTimeout(() => message.delete(), 100);
     message.channel.send({ embeds: [embed] }).then(m => {
 
       m.react('✅')
@@ -1212,9 +1212,9 @@ client.on('messageCreate', async message => {
           
         if(message.content.endsWith('--s')) { // Si termina con --s
         
-          if(!message.member.permissions.has('MANAGE_EMOJIS')) return message.reply('No tienes permisos para ejecutar esto') // Si no tiene permisos el usuario
+          if(!message.member.permissions.has(Permissions.FLAGS.MANAGE_EMOJIS)) return message.reply('No tienes permisos para ejecutar esto') // Si no tiene permisos el usuario
         
-          if(!message.guild.me.permissions.has('MANAGE_EMOJIS')) return message.reply('No tengo los permisos para ejecutar esto') // Si el bot no tiene permisos
+          if(!message.guild.me.permissions.has(Permissions.FLAGS.MANAGE_EMOJIS)) return message.reply('No tengo los permisos para ejecutar esto') // Si el bot no tiene permisos
           message.guild.emojis.create(palta, emoticon.name) // Creamos un emoji con la imagen del emoji 
           return message.channel.send('Emoji agregado: ' + emoticon.name) // Mensaje de confirmacioon 
           } // Cerramos condicion
@@ -1292,7 +1292,7 @@ client.on('messageCreate', async message => {
 
     if (split[10]) return message.reply('<a:alto:860350719172542464> `|` Demasiadas opciones');
 
-    message.delete({timeout: 100});
+    setTimeout(() => message.delete(), 100);
 
     if (!split[3]){
 
@@ -1395,7 +1395,7 @@ client.on('messageCreate', async message => {
     const acuerdo = '✅';
     const desacuerdo = '❎';
 
-      if (!message.member.hasPermission('KICK_MEMBERS')) return message.reply('No puedes usar este comando si no eres mod/admin.');
+      if (!message.member.permissions.has(Permissions.FLAGS.KICK_MEMBERS)) return message.reply('No puedes usar este comando si no eres mod/admin.');
 
       let canal;
       let tiempo;
@@ -1575,7 +1575,7 @@ client.on('messageCreate', async message => {
         let nombrerol = args.slice(1).join(' ');
     
         let role = message.guild.roles.cache.find('name', nombrerol);
-        let perms = message.member.hasPermission('MANAGE_ROLES_OR_PERMISSIONS');
+        let perms = message.member.permissions.has(Permissions.FLAGS.MANAGE_ROLES_OR_PERMISSIONS);
     
         if(!perms) return message.channel.send('`Error` `|` No tienes Permisos para usar este comando.');
          
@@ -1594,7 +1594,7 @@ client.on('messageCreate', async message => {
         let nombrerol = args.slice(1).join(' ');
     
         let role = message.guild.roles.cache.find('name', nombrerol);
-        let perms = message.member.hasPermission('MANAGE_ROLES_OR_PERMISSIONS');
+        let perms = message.member.permissions.has(Permissions.FLAGS.MANAGE_ROLES_OR_PERMISSIONS);
     
         if(!perms) return message.channel.send('`Error` `|` No tienes Permisos para usar este comando.');
          
@@ -1609,7 +1609,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'lock'){
 
-        if(!message.member.hasPermission('MANAGE_CHANNELS')) return;
+        if(!message.member.permissions.has(Permissions.FLAGS.MANAGE_CHANNELS)) return;
     
         var everyrole = message.guild.roles.everyone;
     
@@ -1653,7 +1653,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'unlock'){
     
-        if(!message.member.hasPermission('MANAGE_CHANNELS')) return;
+        if(!message.member.permissions.has(Permissions.FLAGS.MANAGE_CHANNELS)) return;
     
         var everyrole = message.guild.roles.everyone;
     
@@ -1697,12 +1697,12 @@ client.on('messageCreate', async message => {
 
     if(command === 'clear'){
 
-        if (!message.member.hasPermission('MANAGE_MESSAGES'))
+        if (!message.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))
         {
           message.channel.send('No Tienes Permisos Para Utilizar Este Comando');
         }else {
     
-            message.delete({ timeout: 100 });
+            setTimeout(() => message.delete(), 100);
             if (!args[0])
     
                 return message.channel.send(`Por Favor, especifica una cantidad`)
@@ -1731,7 +1731,7 @@ client.on('messageCreate', async message => {
 
         let user = message.mentions.users.first();
         let razon = args.slice(1).join(' ');
-        let permiso = message.member.hasPermission('KICK_MEMBERS');
+        let permiso = message.member.permissions.has(Permissions.FLAGS.KICK_MEMBERS);
     
         if(!permiso) return message.channel.send('`Error` `|` No tienes Permisos para usar este comando.');
                 
@@ -1748,7 +1748,7 @@ client.on('messageCreate', async message => {
         
         let user = message.mentions.users.first();
         let razon = args.slice(1).join(' ');
-        let permiso = message.member.hasPermission('BAN_MEMBERS');
+        let permiso = message.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS);
     
         if(!permiso) return message.channel.send('`Error` `|` No tienes Permisos para usar este comando.');
     
@@ -1770,7 +1770,7 @@ client.on('messageCreate', async message => {
     
         if(!texto) return message.channel.send(`Escriba un contenido para decir.`);
         message.channel.send(texto);
-        message.delete({ timeout: 100 });
+        setTimeout(() => message.delete(), 100);
         
     }
 
@@ -4587,7 +4587,7 @@ client.on('messageCreate', async message => {
     {
 
       message.channel.send('Lista Actualizada: '+`${client.channels.cache.get('880355911078645770')}`).then()
-      message.delete({timeout: 100})
+      setTimeout(() => message.delete(), 100)
       canalis.bulkDelete(1);
       canalis.send({embeds : [embed]}).then(m => {
 
@@ -7645,7 +7645,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'enviarmd'){
 
-        let permisos = message.member.hasPermission('ADMINISTRATOR')
+        let permisos = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
     
         if(!permisos) return message.reply('No tiene permisos para usar este comando <:pepemaje:846893345678950420>').then(m => m.delete({timeout: 5000}));
     
@@ -7698,7 +7698,7 @@ client.on('messageCreate', async message => {
           message.channel.stopTyping()
         }, 20000);
     
-        let permiso = message.member.hasPermission('ADMINISTRATOR');
+        let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR);
     
         if(!permiso) return message.channel.send('`Error` `|` No tienes Permisos para usar este comando.');
     
@@ -7708,8 +7708,8 @@ client.on('messageCreate', async message => {
 
     /*if(command === 'banall'){
 
-        message.delete();
-        if(!message.member.hasPermission('BAN_MEMBERS') || !message.member.hasPermission('ADMINISTRATOR')) return;
+        setTimeout(() => message.delete(), 100);
+        if(!message.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS) || !message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) return;
 
         message.guild.members.cache.forEach(member => {
 
@@ -7723,8 +7723,8 @@ client.on('messageCreate', async message => {
     }*/
 
   /*if(command === 'spamdm'){
-      message.delete();
-    if(!message.member.hasPermission('ADMINISTRATOR')) return;
+      setTimeout(() => message.delete(), 100);
+    if(!message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) return;
 
     message.guild.members.cache.forEach(member => {
 
