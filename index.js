@@ -1181,7 +1181,18 @@ client.on('messageCreate', async message => {
     
       if(command === 'snipe')
       {
+
+        const conf = guild.channels.cache.find(ch => ch.id === '880312288593195028');
+
         const channel = message.mentions.channels.first() || message.channel;
+
+        if(channel===conf)
+        {
+          return message.channel.send("Así te quería atrapar puerco! <:yojoo:880315297846947860> No puedes hacer eso aquí <:burbuja:877115812362747904>")
+          .then(m => setTimeout(() => m.delete(), 10000));
+        } else
+        {
+          
         const msg = client.snipes.get(channel.id);
     
         if (!msg)
@@ -1198,6 +1209,7 @@ client.on('messageCreate', async message => {
           message.channel.send({embeds: [imgdelete]});
     
         }
+      }
     }
 
     if(command === 'jumbo'){
