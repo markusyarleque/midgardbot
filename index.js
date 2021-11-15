@@ -1195,7 +1195,7 @@ client.on('messageCreate', async message => {
           .setAuthor(`${msg.delete.tag}`, msg.delete.displayAvatarURL())
           .setTimestamp(new Date())
           .setDescription(`${msg.content}`)
-          message.channel.send(imgdelete);
+          message.channel.send({embeds: [imgdelete]});
     
         }
     }
@@ -7370,7 +7370,7 @@ client.on('messageCreate', async message => {
 
         message.channel.send(
             new Discord.MessageEmbed()
-            .setDescription('El usuario <@'+user+' > ha sido eliminado de la lista negra!.')
+            .setDescription('El usuario **'+user.user.tag+' ** ha sido eliminado de la lista negra!.')
         .setColor('RANDOM')
         )
     }
@@ -7490,7 +7490,7 @@ client.on('messageCreate', async message => {
   
   if(message.content.startsWith(prefix + 'help')){
 
-    message.channel.send(helpprincipal).then(editado =>{
+    message.channel.send({embeds: [helpprincipal]}).then(editado =>{
 
       editado.react('📌')
       editado.react('💡')
@@ -7521,52 +7521,52 @@ client.on('messageCreate', async message => {
 
           editado.reactions.removeAll()
           //reaction.users.remove(user.id)
-          editado.edit(helpinfo)
+          editado.edit({embeds: [helpinfo]})
         }
         if(reaccion.emoji.name === '💡'){
 
           editado.reactions.removeAll()
-          editado.edit(helputil)
+          editado.edit({embeds: [helputil]})
         }
         if(reaccion.emoji.name === '🔒'){
 
           editado.reactions.removeAll()
-          editado.edit(helpmod)
+          editado.edit({embeds: [helpmod]})
         }
         if(reaccion.emoji.name === '🤣'){
 
           editado.reactions.removeAll()
-          editado.edit(helpdiv)
+          editado.edit({embeds: [helpdiv]})
         }
         if(reaccion.emoji.name === '😎'){
 
           editado.reactions.removeAll()
-          editado.edit(helprea)
+          editado.edit({embeds: [helprea]})
         }
         if(reaccion.emoji.name === '☕'){
 
           editado.reactions.removeAll()
-          editado.edit(helpcaf)
+          editado.edit({embeds: [helpcaf]})
         }
         if(reaccion.emoji.name === '🥂'){
 
           editado.reactions.removeAll()
-          editado.edit(helpbar)
+          editado.edit({embeds: [helpbar]})
         }
         if(reaccion.emoji.name === '💃'){
 
           editado.reactions.removeAll()
-          editado.edit(helpdis)
+          editado.edit({embeds: [helpdis]})
         }
         if(reaccion.emoji.name === '🔞'){
 
           editado.reactions.removeAll()
-          editado.edit(helpnsfw)
+          editado.edit({embeds: [helpnsfw]})
         }
         if(reaccion.emoji.name === '⬅️'){
 
           editado.reactions.removeAll()
-          editado.edit(helpprincipal)
+          editado.edit({embeds: [helpprincipal]})
         }
 
       })
@@ -7599,7 +7599,7 @@ client.on('messageCreate', async message => {
       )
       .setMaxValues(1)
 
-      const embed = new MessageEmbed()
+      const embed = new Discord.MessageEmbed()
       .setTitle('Comandos')
       .setDescription('> **Categorías**\n🔨 `Moderación`\n📝 `Información`')
       .setTimestamp()
