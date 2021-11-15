@@ -423,13 +423,13 @@ client.on('messageCreate', message => {
         {
           if(bl.tiene(message.author.id)) return;
   
-          message.channel.startTyping();
+          message.channel.sendTyping()
   
-          message.channel.send(`${message.author}, en breves momentos te atenderé`).then(m => m.delete({timeout: 2000}));
+          message.channel.send(`${message.author}, en breves momentos te atenderé`).then(m => setTimeout(() => m.delete(), 2000));
           
           setTimeout(() => {
             message.channel.send(`<@${img}> Te buscan por aquí <:yonofui:880916494085681203>`);
-            message.channel.stopTyping()
+             
           }, 3000);
   
         }
@@ -438,13 +438,13 @@ client.on('messageCreate', message => {
         {
           if(bl.tiene(message.author.id)) return;
   
-          message.channel.startTyping();
+          message.channel.sendTyping()
   
-          message.channel.send(`${message.author}, en breves momentos te atenderé`).then(m => m.delete({timeout: 2000}));
+          message.channel.send(`${message.author}, en breves momentos te atenderé`).then(m => setTimeout(() => m.delete(), 2000));
           
           setTimeout(() => {
             message.channel.send(`<@${img}> Te buscan por aquí <:yonofui:880916494085681203>`);
-            message.channel.stopTyping()
+             
           }, 3000);
   
         }
@@ -453,13 +453,13 @@ client.on('messageCreate', message => {
         {
           if(bl.tiene(message.author.id)) return;
   
-          message.channel.startTyping();
+          message.channel.sendTyping()
   
-          message.channel.send(`${message.author}, en breves momentos te atenderé`).then(m => m.delete({timeout: 2000}));
+          message.channel.send(`${message.author}, en breves momentos te atenderé`).then(m => setTimeout(() => m.delete(), 2000));
           
           setTimeout(() => {
             message.channel.send(`<@${img}> Te buscan por aquí <:yonofui:880916494085681203>`);
-            message.channel.stopTyping()
+             
           }, 3000);
   
         }
@@ -468,13 +468,13 @@ client.on('messageCreate', message => {
         {
           if(bl.tiene(message.author.id)) return;
   
-          message.channel.startTyping();
+          message.channel.sendTyping()
   
-          message.channel.send(`${message.author}, en breves momentos te atenderé`).then(m => m.delete({timeout: 2000}));
+          message.channel.send(`${message.author}, en breves momentos te atenderé`).then(m => setTimeout(() => m.delete(), 2000));
           
           setTimeout(() => {
             message.channel.send(`<@${img}> Te buscan por aquí <:yonofui:880916494085681203>`);
-            message.channel.stopTyping()
+             
           }, 3000);
   
         }
@@ -483,13 +483,13 @@ client.on('messageCreate', message => {
         {
           if(bl.tiene(message.author.id)) return;
   
-          message.channel.startTyping();
+          message.channel.sendTyping()
   
-          message.channel.send(`${message.author}, en breves momentos te atenderé`).then(m => m.delete({timeout: 2000}));
+          message.channel.send(`${message.author}, en breves momentos te atenderé`).then(m => setTimeout(() => m.delete(), 2000));
           
           setTimeout(() => {
             message.channel.send(`<@${img}> Te buscan por aquí <:yonofui:880916494085681203>`);
-            message.channel.stopTyping()
+             
           }, 3000);
   
         }
@@ -498,13 +498,13 @@ client.on('messageCreate', message => {
         {
           if(bl.tiene(message.author.id)) return;
   
-          message.channel.startTyping();
+          message.channel.sendTyping()
   
-          message.channel.send(`${message.author}, en breves momentos te atenderé`).then(m => m.delete({timeout: 2000}));
+          message.channel.send(`${message.author}, en breves momentos te atenderé`).then(m => setTimeout(() => m.delete(), 2000));
           
           setTimeout(() => {
             message.channel.send(`<@${img}> Te buscan por aquí <:yonofui:880916494085681203>`);
-            message.channel.stopTyping()
+             
           }, 3000);
   
         }
@@ -7691,11 +7691,11 @@ client.on('messageCreate', async message => {
 
     if(message.content.startsWith(prefix + 'update')){
 
-        message.channel.startTyping();
+        message.channel.sendTyping()
     
         setTimeout(() => {
           message.channel.send(`Ahh!!! Te la creíste wey <:jaaa:846566909239099403>`);
-          message.channel.stopTyping()
+           
         }, 20000);
     
         let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR);
