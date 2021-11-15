@@ -3820,7 +3820,7 @@ client.on('messageCreate', async message => {
           .setTimestamp(new Date())
           .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
 
-          m.edit(embed)
+          m.edit({embeds : [embed]})
 
           } else if (listask.size === 2){
 
