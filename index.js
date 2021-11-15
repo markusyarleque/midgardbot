@@ -299,7 +299,7 @@ client.on('messageCreate', message => {
           message.channel.send('Hola '+message.author.username+', cómo va tu día?');
         }
         if (message.content === 'hola'){
-          //Si escribiera Hola, nos contestará con un mensaje personalizado
+          //Si escribiera Hola, nos contestará con un mensaje 
           message.channel.send('Hola '+message.author.username+', cómo va tu día?');
         }
         if (message.content === 'ola'){
