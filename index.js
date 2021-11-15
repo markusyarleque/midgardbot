@@ -48,8 +48,8 @@ client.on('ready', () => {
   client.user.setPresence({
     status: 'online',
     activity: {
-      name: '💻 | Malta Bot',
-      type: 'PLAYING',
+      name: '.gg/svmidgard',
+      type: 'WATCHING',
     },
   });
   console.log('Listo!');
