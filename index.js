@@ -63,7 +63,7 @@ client.on('guildMemberAdd', (member) => {
 
   console.log(`Nuevo usuario:  ${member.user.username} se ha unido a ${guild.name}.`);
 
-  // var canal = client.channels.get('840421191982252082'); 
+  // var canal = client.channels.get('840421191982252082'); 779566489429737472
   // canal.send(`Hola ${member.user}, bienvenid@ nos alegra que formes parte de nosotros.`);
 
   // Send the message to a designated channel on a server:
