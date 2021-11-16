@@ -1233,7 +1233,7 @@ client.on('messageCreate', async message => {
           message.channel.send(palta) // Enviamos el url del emoticon
           /*const embed = new Discord.MessageEmbed()
           .setImage(palta)
-            message.channel.send({ embeds: [embed] });*/
+          message.channel.send({ embeds: [embed] });*/
     }
 
     if(command === 'conteo'){
@@ -1244,7 +1244,7 @@ client.on('messageCreate', async message => {
     
         let time = parseInt(args[0])
     
-        if(time > 7200) return  message.channel.send(`**No puedo contar mas de 2 horas**`).then(m => setTimeout(() => m.delete(), 5000));
+        if(time > 7200) return  message.channel.send(`**No puedo contar más de 2 horas**`).then(m => setTimeout(() => m.delete(), 5000));
     
        
           let msg = await message.channel.send(String(time))
