@@ -1197,7 +1197,7 @@ client.on('messageCreate', async message => {
     
         if (!msg)
         {
-          message.channel.send('No se ha borrado recientemente ningun mensaje')
+          message.channel.send('No se ha borrado recientemente ningun mensaje!')
               .then(m => setTimeout(() => m.delete(), 5000));
         
         } else {
