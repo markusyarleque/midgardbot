@@ -63,10 +63,6 @@ client.on('guildMemberAdd', (member) => {
 
   console.log(`Nuevo usuario:  ${member.user.username} se ha unido a ${guild.name}.`);
 
-  // var canal = client.channels.get('840421191982252082'); 779566489429737472
-  // canal.send(`Hola ${member.user}, bienvenid@ nos alegra que formes parte de nosotros.`);
-
-  // Send the message to a designated channel on a server:
   const channel = guild.channels.cache.find(ch => ch.id === '779566489429737472');
   
   if (!channel) return;
@@ -77,7 +73,7 @@ client.on('guildMemberAdd', (member) => {
     channel.send(`¡Bienvenid@ Terrícola! ${userlist}, a este nuestro **Universo**. <:ShyLove:880410907635748924> Les invito a pasar por <#855582327514202132> y <#785685918270488656> Y si tienen una queja, duda o sugerencia, pasen por <#815654349912801280>. Cualquier duda o pregunta aquí estará todo el equipo de Staff a su disposición. <a:pasito:877116925291946094> Pásenla increíble, lindo día, tarde o noche. <a:abdul_dance:880930576683630662>`);
     newUsers.clear();
 
-    }
+  }
   else{
       
     channel.send(`¡Bienvenid@ Terrícola! ${member.user}, a este nuestro **Universo**. <:ShyLove:880410907635748924>. Espero que te lo pases genial en este server libre de toxicidad, con muchos eventos programados, premios y más sorpresas!!! <a:Sara:880304101215334401> Recuerda pasar por <#777623227321155614> y <#880268322921414657> Y si tienes alguna queja, duda o sugerencia, pasa por <#880402803825188874>. Cualquier incoveniente aquí estará todo el equipo de Staff a su disposición. <a:dc_party1:881033439367815239>`);
@@ -1949,7 +1945,7 @@ client.on('messageCreate', async message => {
                       
                     if (column == 0 && j == 0){
     
-                    j++; //Si la casilla estÃ¡ a la izquierda del todo, se le aumenta la j
+                    j++; //Si la casilla esta la izquierda del todo, se le aumenta la j
     
                     }
                           
