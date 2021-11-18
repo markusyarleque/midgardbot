@@ -415,94 +415,43 @@ client.on('messageCreate', message => {
   
         let img = '753435606410985573'
   
-        if (message.content === 'malta')
+        if (message.content === 'malta' || message.content === 'Malta' || message.content === 'MALTA' || message.content === 'MAlta' || message.content === 'maltazar' || message.content === 'Maltazar' || message.content === 'MALTAZAR' || message.content === 'MAltazar' || message.content === 'maltazard' || message.content === 'Maltazard' || message.content === 'MALTAZARD' || message.content === 'MAltazard')
         {
           if(bl.tiene(message.author.id)) return;
   
           message.channel.sendTyping()
   
-          message.channel.send(`${message.author}, en breves momentos te atenderé`).then(m => setTimeout(() => m.delete(), 2000));
-          
-          setTimeout(() => {
-            message.channel.send(`<@${img}> Te buscan por aquí <:yonofui:880916494085681203>`);
-             
-          }, 3000);
-  
-        }
-  
-        if (message.content === 'Malta')
-        {
-          if(bl.tiene(message.author.id)) return;
-  
-          message.channel.sendTyping()
-  
-          message.channel.send(`${message.author}, en breves momentos te atenderé`).then(m => setTimeout(() => m.delete(), 2000));
-          
-          setTimeout(() => {
-            message.channel.send(`<@${img}> Te buscan por aquí <:yonofui:880916494085681203>`);
-             
-          }, 3000);
-  
-        }
-  
-        if (message.content === 'maltazar')
-        {
-          if(bl.tiene(message.author.id)) return;
-  
-          message.channel.sendTyping()
-  
-          message.channel.send(`${message.author}, en breves momentos te atenderé`).then(m => setTimeout(() => m.delete(), 2000));
-          
-          setTimeout(() => {
-            message.channel.send(`<@${img}> Te buscan por aquí <:yonofui:880916494085681203>`);
-             
-          }, 3000);
-  
-        }
-  
-        if (message.content === 'Maltazar')
-        {
-          if(bl.tiene(message.author.id)) return;
-  
-          message.channel.sendTyping()
-  
-          message.channel.send(`${message.author}, en breves momentos te atenderé`).then(m => setTimeout(() => m.delete(), 2000));
-          
-          setTimeout(() => {
-            message.channel.send(`<@${img}> Te buscan por aquí <:yonofui:880916494085681203>`);
-             
-          }, 3000);
-  
-        }
-  
-        if (message.content === 'maltazard')
-        {
-          if(bl.tiene(message.author.id)) return;
-  
-          message.channel.sendTyping()
-  
-          message.channel.send(`${message.author}, en breves momentos te atenderé`).then(m => setTimeout(() => m.delete(), 2000));
-          
-          setTimeout(() => {
-            message.channel.send(`<@${img}> Te buscan por aquí <:yonofui:880916494085681203>`);
-             
-          }, 3000);
-  
-        }
-  
-        if (message.content === 'Maltazard')
-        {
-          if(bl.tiene(message.author.id)) return;
-  
-          message.channel.sendTyping()
-  
-          message.channel.send(`${message.author}, en breves momentos te atenderé`).then(m => setTimeout(() => m.delete(), 2000));
-          
-          setTimeout(() => {
-            message.channel.send(`<@${img}> Te buscan por aquí <:yonofui:880916494085681203>`);
-             
-          }, 3000);
-  
+          message.channel.send(`${message.author}, Deseas contactar a Malta?`).then(m => {
+
+            m.react('✅')
+            m.react('❎')
+           
+            const filtro = (reaction, user) => {
+              return ['✅', '❎'].includes(reaction.emoji.name) && user.id == message.author.id;
+            };
+      
+            m.awaitReactions(filtro, {max: 1, time: 20000, errors: ['time']}).catch(() => {
+      
+              m.edit('¡No confirmaste a tiempo! <:enojado:882877729266098186>')
+              m.reactions.removeAll()
+      
+            }).then(coleccionado=> {
+      
+              const reaccion = coleccionado.first();
+      
+              if(reaccion.emoji.name === '✅') {
+      
+                m.delete()
+                message.channel.send(`<@${img}> Te buscan por aquí <:yonofui:880916494085681203>`);
+
+              } else if(reaccion.emoji.name === '❎') {
+      
+                m.edit('Gracias, si necesitas algo, no dudes en contactarme. <:tierno:881618338759966800>')
+                m.reactions.removeAll()
+      
+              }
+            })
+          })
         }
   
         if (message.content === 'reven'){
