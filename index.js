@@ -656,7 +656,7 @@ client.on('messageCreate', async message => {
         .addField('Usuarios: ', ` ${client.users.cache.size}`)
         .addField('Ram: ', ` ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`)
         .addField('Lenguaje: ', 'JavaScript')
-        .addField('Libreria', 'Discord.js v12.2.0')
+        .addField('Libreria', 'Discord.js v13.3.0')
         .setColor('RANDOM')
         .setTimestamp(new Date())
         .setFooter(`Malta's Bot`, `${message.author.displayAvatarURL()}`);
