@@ -437,7 +437,7 @@ client.on('messageCreate', message => {
       
             }).then(coleccionado=> {
       
-              const reaccion = coleccionado.firstKey();
+              const reaccion = coleccionado.first();
       
               if(reaccion.emoji.name === '✅') {
       
