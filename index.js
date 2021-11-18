@@ -1945,7 +1945,7 @@ client.on('messageCreate', async message => {
                       
                     if (column == 0 && j == 0){
     
-                    j++; //Si la casilla esta la izquierda del todo, se le aumenta la j
+                    j++; //Si la casilla esta la izquierda del todo, se le aumenta 
     
                     }
                           
