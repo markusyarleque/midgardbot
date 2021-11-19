@@ -3467,6 +3467,51 @@ client.on('messageCreate', async message => {
         };
     
     }
+
+  var clorox = [
+      'https://media.discordapp.net/attachments/822642787555213312/911184609058897920/1.gif?width=401&height=468',
+      'https://media.discordapp.net/attachments/822642787555213312/911184608849174548/2.gif?width=401&height=468',
+      'https://media.discordapp.net/attachments/822642787555213312/911184608660426752/3.gif?width=401&height=468',
+      'https://media.discordapp.net/attachments/822642787555213312/911184607515402281/4.gif?width=401&height=468',
+      'https://media.discordapp.net/attachments/822642787555213312/911184607272124446/5.gif?width=401&height=468',
+      'https://media.discordapp.net/attachments/822642787555213312/911184607033045012/6.gif?width=401&height=468',
+      'https://media.discordapp.net/attachments/822642787555213312/911184606345187328/7.gif',
+      'https://media.discordapp.net/attachments/822642787555213312/911184606051569684/8.gif',
+      'https://media.discordapp.net/attachments/822642787555213312/911184605359505448/9.gif'
+  ]
+  
+  if(command === 'clorox'){
+  
+      let img = message.mentions.users.first()
+      let ramdonclorox = clorox[Math.floor(Math.random()*clorox.length)]
+     
+      if (!img || img.id===message.author.id) {
+  
+          const embed = new Discord.MessageEmbed()
+          .setAuthor(`Midgard's Sad`,'https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png')
+          //.setTitle('Imagen completa')
+          .setDescription(`**${message.author.username}** se ahoga con un buen clorox!`)
+          .setImage(ramdonclorox)
+          .setColor('RANDOM')
+          .setTimestamp(new Date())
+          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          message.channel.send({ embeds: [embed] });
+  
+      } else {
+  
+          const embed = new Discord.MessageEmbed()
+          .setAuthor(`Midgard's Sad`,'https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png')
+          //.setTitle('Imagen completa')
+          .setDescription(`**${img.username}**, vamos a ahogarnos en la soledad con un clorox invitado por ${message.author.username}.`)
+          .setImage(ramdonclorox)
+          .setColor('RANDOM')
+          .setTimestamp(new Date())
+          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          message.channel.send({ embeds: [embed] });
+    
+      };
+  
+  }
     
     var cry = [
         'https://media.discordapp.net/attachments/853500788848853002/876015088862122025/1.gif',
