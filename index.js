@@ -7331,7 +7331,12 @@ client.on('messageCreate', async message => {
     }
 
     var tt = [
-      'https://media.discordapp.net/attachments/822642787555213312/911381143968968704/karen1.gif?width=263&height=468'
+      'https://media.discordapp.net/attachments/822642787555213312/911381143968968704/karen1.gif?width=263&height=468',
+      'https://media.discordapp.net/attachments/822642787555213312/911385505789272125/k2.gif?width=263&height=468',
+      'https://media.discordapp.net/attachments/822642787555213312/911385504652603402/k3.gif?width=263&height=468',
+      'https://media.discordapp.net/attachments/822642787555213312/911385503364939776/k4.gif?width=263&height=468',
+      'https://media.discordapp.net/attachments/822642787555213312/911385502035378176/k5.gif?width=263&height=468',
+      'https://media.discordapp.net/attachments/822642787555213312/911385501053882408/k6.gif?width=263&height=468'
     ]
 
     if(command === 'tiktokaren'){
@@ -7352,7 +7357,7 @@ client.on('messageCreate', async message => {
 
         const embed = new Discord.MessageEmbed()
             .setAuthor(`Midgard's VIP`,'https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png')
-            //.setTitle('Imagen completa')
+            .setTitle('TikTok @kareninfinity')
             .setDescription(`${message.author.username} mira como lo mueve Karen <:tierno:881618338759966800>`)
             .setImage(ramdontt)
             .setColor('RANDOM')
