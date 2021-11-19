@@ -56,7 +56,7 @@ client.on('ready', () => {
 
 });
 
-client.on('guildMemberAdd', (member) => {
+client.on('guildMemberAdd', async member => {
 
   if(member.bot) return;
   const guild = member.guild;
