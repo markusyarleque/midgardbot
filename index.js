@@ -7329,6 +7329,39 @@ client.on('messageCreate', async message => {
             .setColor('RANDOM')
         )
     }
+
+    var tt = [
+      'https://media.discordapp.net/attachments/822642787555213312/911381143968968704/karen1.gif?width=263&height=468'
+    ]
+
+    if(command === 'tiktokaren'){
+
+      let id = ['753435606410985573']
+  
+      if(!id.some(id => message.author.id == id)) {
+      
+        const embed = new Discord.MessageEmbed()
+        .setDescription('Solo el developer del bot puede usar este comando.')
+        .setColor('RED')
+        message.channel.send({ embeds: [embed] })
+        .then(m => setTimeout(() => m.delete(), 5000));
+
+      } else {
+
+        let ramdontt = tt[Math.floor(Math.random()*tt.length)]
+
+        const embed = new Discord.MessageEmbed()
+            .setAuthor(`Midgard's VIP`,'https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png')
+            //.setTitle('Imagen completa')
+            .setDescription(`${message.author.username} mira como lo mueve Karen <:tierno:881618338759966800>`)
+            .setImage(ramdontt)
+            .setColor('RANDOM')
+            .setTimestamp(new Date())
+            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            message.channel.send({ embeds: [embed] });
+      
+      }
+    }
     
     //ejemplo
     //if(!vip.tiene(message.author.id) return message.channel.send('¡No tienes VIP, no puedes utilizar esta función!')
