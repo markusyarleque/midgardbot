@@ -484,7 +484,7 @@ client.on('messageCreate', message => {
 
         let ian = new RegExp(`^<@!?${'603344396351438889'}>( |)$`);
   
-        if (message.content.match(malta))
+        if (message.content.match(ian))
         {
           if(bl.tiene(message.author.id)) return;
           message.channel.send(`<a:megaphone:912163796737486908> Alo? Tierra llamando al **argentino con más flow** <a:darkcrown2:886466286773739530>, Ian en camino bebé <a:bmirusboyrunfast:880411644893724672>`)
