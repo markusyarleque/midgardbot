@@ -490,6 +490,15 @@ client.on('messageCreate', message => {
           message.channel.send(`<a:megaphone:912163796737486908> Alo? Tierra llamando al **argentino con más flow** <a:darkcrown2:886466286773739530>, Ian en camino bebé <a:bmirusboyrunfast:880411644893724672>`)
   
         }
+
+        let ana = new RegExp(`^<@!?${'883633609498570762'}>( |)$`);
+  
+        if (message.content.match(ana))
+        {
+          if(bl.tiene(message.author.id)) return;
+          message.channel.send(`<:emoji_233:890722279074451506> Días,tardes,noches,madrugadas <:mmsi:890721733991104583> porque Buena está la persona que me acaba de mencionar <a:Zuii:890684724673150996> <a:Ytodomedavuelta:890721775699259422>`)
+  
+        }
   
         /*let princesa = new RegExp(`^<@!?${'748192032098353193'}>( |)$`);
   
