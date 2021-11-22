@@ -481,15 +481,24 @@ client.on('messageCreate', message => {
           message.channel.send(`¿Qué necesitas de mi dueño? <a:ositovino:880306728867078165>`)
   
         }
+
+        let ian = new RegExp(`^<@!?${'603344396351438889'}>( |)$`);
   
-        let princesa = new RegExp(`^<@!?${'748192032098353193'}>( |)$`);
+        if (message.content.match(malta))
+        {
+          if(bl.tiene(message.author.id)) return;
+          message.channel.send(`<a:megaphone:912163796737486908> Alo? Tierra llamando al **argentino con más flow** <a:darkcrown2:886466286773739530>, Ian en camino bebé <a:bmirusboyrunfast:880411644893724672>`)
+  
+        }
+  
+        /*let princesa = new RegExp(`^<@!?${'748192032098353193'}>( |)$`);
   
         if (message.content.match(princesa))
         {
   
           message.channel.send(`<a:dc_fuegorosaa:889684389829681202> ¿Qué necesitas de La Princesa del server? <a:dc_fuegorosaa:889684389829681202>`)
   
-        }
+        }*/
   
         if (message.content === 'piropo' || message.content === 'Piropo')
         {
