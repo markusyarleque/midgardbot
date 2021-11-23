@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 // const client = new Discord.Client();
+const { Permissions } = require('discord.js');
 
 const { Client, Intents } = require('discord.js');
 
