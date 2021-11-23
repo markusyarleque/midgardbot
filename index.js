@@ -1197,9 +1197,9 @@ client.on('messageCreate', async message => {
           
         if(message.content.endsWith('--s')) { // Si termina con --s
         
-          if(!message.member.permissions.has(Permissions.FLAGS.MANAGE_EMOJIS)) return message.reply('No tienes permisos para ejecutar esto') // Si no tiene permisos el usuario
+          if(!message.member.permissions.has(Permissions.FLAGS.MANAGE_EMOJIS_AND_STICKERS)) return message.reply('No tienes permisos para ejecutar esto') // Si no tiene permisos el usuario
         
-          if(!message.guild.me.permissions.has(Permissions.FLAGS.MANAGE_EMOJIS)) return message.reply('No tengo los permisos para ejecutar esto') // Si el bot no tiene permisos
+          if(!message.guild.me.permissions.has(Permissions.FLAGS.MANAGE_EMOJIS_AND_STICKERS)) return message.reply('No tengo los permisos para ejecutar esto') // Si el bot no tiene permisos
           message.guild.emojis.create(palta, emoticon.name) // Creamos un emoji con la imagen del emoji 
           return message.channel.send('Emoji agregado: ' + emoticon.name) // Mensaje de confirmacioon 
           } // Cerramos condicion
