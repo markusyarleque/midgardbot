@@ -499,6 +499,15 @@ client.on('messageCreate', message => {
           message.channel.send(`<:emoji_233:890722279074451506> Días,tardes,noches,madrugadas <:mmsi:890721733991104583> porque Buena está la persona que me acaba de mencionar <a:Zuii:890684724673150996> <a:Ytodomedavuelta:890721775699259422>`)
   
         }
+
+        let scarlett = new RegExp(`^<@!?${'754792358104793158'}>( |)$`);
+  
+        if (message.content.match(scarlett))
+        {
+          if(bl.tiene(message.author.id)) return;
+          message.channel.send(`Que necesidad de etiquetar <:nojao:891551822387486721>`)
+  
+        }
   
         /*let princesa = new RegExp(`^<@!?${'748192032098353193'}>( |)$`);
   
