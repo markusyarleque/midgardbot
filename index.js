@@ -457,11 +457,11 @@ client.on('messageCreate', message => {
   
         if (message.content === 'reven'){
   
-          message.channel.send('𝑬𝒍 𝒖́𝒍𝒕𝒊𝒎𝒐 𝒇𝒊𝒆𝒍 𝒒𝒖𝒆 𝒒𝒖𝒆𝒅𝒂 𝒆𝒏 𝒆𝒔𝒕𝒆 𝒎𝒖𝒏𝒅𝒐 <a:FuegoRojo:882761255381790750>');
+          message.channel.send('𝐷𝑖𝑓𝑖́𝑐𝑖𝑙 𝑑𝑒𝑠𝑖𝑐𝑖𝑜́𝑛,𝑗𝑢𝑔𝑎𝑟 𝑐𝑜𝑛 𝑙𝑎 𝑝𝑒𝑙𝑜𝑡𝑎?\n𝑜 𝑐𝑜𝑛 𝑡𝑢 𝑐𝑜𝑟𝑎𝑧𝑜́𝑛 <a:sabroso:880695816497541180> ');
         }
         if (message.content === 'Reven'){
   
-          message.channel.send('𝑬𝒍 𝒖́𝒍𝒕𝒊𝒎𝒐 𝒇𝒊𝒆𝒍 𝒒𝒖𝒆 𝒒𝒖𝒆𝒅𝒂 𝒆𝒏 𝒆𝒔𝒕𝒆 𝒎𝒖𝒏𝒅𝒐 <a:FuegoRojo:882761255381790750>');
+          message.channel.send('𝐷𝑖𝑓𝑖́𝑐𝑖𝑙 𝑑𝑒𝑠𝑖𝑐𝑖𝑜́𝑛,𝑗𝑢𝑔𝑎𝑟 𝑐𝑜𝑛 𝑙𝑎 𝑝𝑒𝑙𝑜𝑡𝑎?\n𝑜 𝑐𝑜𝑛 𝑡𝑢 𝑐𝑜𝑟𝑎𝑧𝑜́𝑛 <a:sabroso:880695816497541180> ');
         }
   
         let reven = new RegExp(`^<@!?${'710588969557164113'}>( |)$`);
@@ -7384,7 +7384,7 @@ client.on('messageCreate', async message => {
 
         const embed = new Discord.MessageEmbed()
             .setAuthor(`Midgard's VIP`,'https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png')
-            .setTitle('TikTok @kareninfinity')
+            .setTitle('@kareninfinity')
             .setDescription(`${message.author.username} mira como lo mueve Karen <:tierno:881618338759966800>`)
             .setImage(ramdontt)
             .setColor('RANDOM')
