@@ -7740,7 +7740,7 @@ client.on('messageCreate', async message => {
         .setThumbnail(`${img.displayAvatarURL({ dynamic: true}).replace('webp','png')}`)
         .setAuthor(`🔥 La Élite 🔥`,"https://images-ext-2.discordapp.net/external/fZCHQ3Pm9458IJD8COr7CbKYPoy7SeP2s_ciYZrewGw/%3Fsize%3D2048/https/cdn.discordapp.com/icons/777620055344545842/a_d19d266fc1f7c19cc23ab0f874ebcd72.gif")
         .setTitle(`Soltero(a) N°: ${n}`)
-        .addField('<a:diamante:887714567084449892> User: ', img , false)
+        .addField('<a:diamante:887714567084449892> User: ', img.tag , false)
         .addField('<a:diamante:887714567084449892> Nombre: ', nombre , false)
         .addField('<a:diamante:887714567084449892> Edad: ', edad , false)
         .addField('<a:diamante:887714567084449892> País: ', pais , false)
