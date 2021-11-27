@@ -434,7 +434,7 @@ client.on('messageCreate', message => {
       
             m.awaitReactions({filtro, max: 1, time: 20000, errors: ['time']}).catch(() => {
       
-              m.edit('¡No confirmaste a tiempo! <:enojado:882877729266098186>')
+              // m.edit('¡No confirmaste a tiempo! <:enojado:882877729266098186>')
               m.reactions.removeAll()
       
             }).then(coleccionado=> {
@@ -448,7 +448,7 @@ client.on('messageCreate', message => {
 
               } else if(reaccion.emoji.name === '❎') {
       
-                m.edit('Gracias, si necesitas algo, no dudes en contactarme. <:tierno:881618338759966800>')
+                // m.edit('Gracias, si necesitas algo, no dudes en contactarme. <:tierno:881618338759966800>')
                 m.reactions.removeAll()
       
               }
