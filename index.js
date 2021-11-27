@@ -7750,7 +7750,7 @@ client.on('messageCreate', async message => {
         .setImage(imagen)
         .setColor("RANDOM")
         .setFooter(`🌎┃「Midgard」`,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
-        message.channel.send(embed);
+        message.channel.send({ embeds: [embed] });
         message.delete({timeout: 100})
       }
     }
