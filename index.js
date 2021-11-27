@@ -7712,6 +7712,49 @@ client.on('messageCreate', async message => {
 
     //COMANDOS DEL DESARROLLADOR
 
+    if (message.content.startsWith(prefix +"subasta")){
+
+      let permiso = message.member.hasPermission("ADMINISTRATOR");
+  
+      let img = message.mentions.users.first()
+  
+      if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
+  
+      const split = args.slice(0).join(" ").split(";");
+      let n = split[1]
+      let nombre = split[2]
+      let edad = split[3]
+      let pais = split[4]
+      let signo = split[5]
+      let hobbies = split[6]
+      let desc = split[7]
+      let imagen = split[8]
+  
+      if(!img) {
+  
+        message.channel.send("Debes mencionar al usuario!!!")
+  
+      } else {
+        
+        const embed = new Discord.MessageEmbed()
+        .setThumbnail(`${img.displayAvatarURL({ dynamic: true}).replace('webp','png')}`)
+        .setAuthor(`🔥 La Élite 🔥`,"https://images-ext-2.discordapp.net/external/fZCHQ3Pm9458IJD8COr7CbKYPoy7SeP2s_ciYZrewGw/%3Fsize%3D2048/https/cdn.discordapp.com/icons/777620055344545842/a_d19d266fc1f7c19cc23ab0f874ebcd72.gif")
+        .setTitle(`Soltero(a) N°: ${n}`)
+        .addField('<a:diamante:887714567084449892> User: ', img , false)
+        .addField('<a:diamante:887714567084449892> Nombre: ', nombre , false)
+        .addField('<a:diamante:887714567084449892> Edad: ', edad , false)
+        .addField('<a:diamante:887714567084449892> País: ', pais , false)
+        .addField('<a:diamante:887714567084449892> Signo Zodiacal: ', signo, false)
+        .addField('<a:diamante:887714567084449892> Hobbies: ', hobbies, false)
+        .addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>', `<a:d_Fijao:897243194943737866> **Descripción:** ${desc}`, false)
+        .setImage(imagen)
+        .setColor("RANDOM")
+        .setFooter(`🌎┃「Midgard」`,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
+        message.channel.send(embed);
+        message.delete({timeout: 100})
+      }
+    }
+
     if(command === 'enviarmd'){
 
         let permisos = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
