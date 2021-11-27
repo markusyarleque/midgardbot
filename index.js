@@ -7746,7 +7746,7 @@ client.on('messageCreate', async message => {
         .addField('<a:diamante:887714567084449892> País: ', `${pais}` , false)
         .addField('<a:diamante:887714567084449892> Signo Zodiacal: ', `${signo}`, false)
         .addField('<a:diamante:887714567084449892> Hobbies: ', `${hobbies}`, false)
-        .addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>', `<a:d_Fijao:897243194943737866> **Descripción:** ${desc}`, false)
+        .addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>', `<a:d_Fijao:897243194943737866> ${desc}`, false)
         .setImage(imagen)
         .setColor("RANDOM")
         .setFooter(`🌎┃「Midgard」⁞ Monto base: 500k 💰` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
