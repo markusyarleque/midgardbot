@@ -7714,7 +7714,7 @@ client.on('messageCreate', async message => {
 
     if (message.content.startsWith(prefix +"subasta")){
 
-      let permiso = message.member.hasPermission("ADMINISTRATOR");
+      let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
   
       let img = message.mentions.users.first()
   
