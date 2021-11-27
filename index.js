@@ -415,7 +415,7 @@ client.on('messageCreate', message => {
           message.react(`<a:cerveza:880635824021065738>`)
         }
   
-        /*let img = '753435606410985573'
+        let img = '753435606410985573'
   
         if (message.content === 'malta' || message.content === 'Malta' || message.content === 'MALTA' || message.content === 'MAlta' || message.content === 'maltazar' || message.content === 'Maltazar' || message.content === 'MALTAZAR' || message.content === 'MAltazar' || message.content === 'maltazard' || message.content === 'Maltazard' || message.content === 'MALTAZARD' || message.content === 'MAltazard')
         {
@@ -454,7 +454,7 @@ client.on('messageCreate', message => {
               }
             })
           })
-        }*/
+        }
   
         if (message.content === 'reven'){
   
