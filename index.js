@@ -443,7 +443,7 @@ client.on('messageCreate', message => {
       
               if(reaccion.emoji.name === '✅') {
       
-                m.delete()
+                setTimeout(() => m.delete(), 100);
                 message.channel.send(`<@${img}> Te buscan por aquí <:yonofui:880916494085681203>`);
 
               } else if(reaccion.emoji.name === '❎') {
