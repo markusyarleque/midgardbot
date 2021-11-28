@@ -426,7 +426,7 @@ client.on('messageCreate', async message => {
             m.react('👍')
             m.react('👎')
            
-            const filtro = (reaction, user) => {
+            /*const filtro = (reaction, user) => {
               return ['👍', '👎'].includes(reaction.emoji.name) && user.id == message.author.id;
             };
       
@@ -450,7 +450,7 @@ client.on('messageCreate', async message => {
                 m.reactions.removeAll()
       
               }
-            })
+            })*/
           })
         }
   
