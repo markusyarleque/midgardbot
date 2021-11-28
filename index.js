@@ -7554,10 +7554,10 @@ client.on('messageCreate', async message => {
   
   if(message.content.startsWith(prefix + 'help')){
 
-    message.channel.send({embeds: [helpprincipal]}).then(editado =>{
+    message.channel.send({embeds: [helpprincipal]}).then(editado => {
 
       editado.react('📌')
-      .then(() => editado.react('💡'))
+      .then(() => editado.react('💡'));
       /*.then(() => editado.react('🔒'))
       .then(() => editado.react('🤣'))
       .then(() => editado.react('😎'))
