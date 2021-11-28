@@ -134,7 +134,7 @@ client.on('messageDelete', (message) => {
   
 });
 
-client.on('messageCreate', message => {
+client.on('messageCreate', async message => {
 
     if (message.channel.type === 'dm') {
   
