@@ -426,11 +426,11 @@ client.on('messageCreate', async message => {
             m.react('👍')
             m.react('👎')
            
-            /*const filtro = (reaction, user) => {
-              return ['👍', '👎'].includes(reaction.emoji.name) && user.id == message.author.id;
+            const filter = (reaction, user) => {
+              return ['👍', '👎'].includes(reaction.emoji.name);
             };
       
-            m.awaitReactions({filtro, max: 1, time: 20000, errors: ['time']}).catch(() => {
+            m.awaitReactions({filter, max: 1, time: 20000, errors: ['time']}).catch(() => {
       
               m.edit('¡No confirmaste a tiempo! <:enojado:882877729266098186>')
               m.reactions.removeAll()
@@ -450,7 +450,7 @@ client.on('messageCreate', async message => {
                 m.reactions.removeAll()
       
               }
-            })*/
+            })
           })
         }
   
