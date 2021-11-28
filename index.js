@@ -786,7 +786,7 @@ client.on('messageCreate', async message => {
         return ['✅', '❎'].includes(reaction.emoji.name) && user.id == message.author.id;
       };
 
-      m.awaitReactions(filtro, {max: 1, time: 60000, errors: ['time']}).catch(() => {
+      m.awaitReactions({filtro, max: 1, time: 60000, errors: ['time']}).catch(() => {
 
         m.edit('¡No confirmaste a tiempo! <:enojado:882877729266098186>')
         m.reactions.removeAll()
@@ -857,7 +857,7 @@ client.on('messageCreate', async message => {
         return ['✅', '❎'].includes(reaction.emoji.name) && user.id == message.author.id;
       };
 
-      m.awaitReactions(filtro, {max: 1, time: 60000, errors: ['time']}).catch(() => {
+      m.awaitReactions({filtro, max: 1, time: 60000, errors: ['time']}).catch(() => {
 
         m.edit('¡No confirmaste a tiempo! <:enojado:882877729266098186>')
         m.reactions.removeAll()
@@ -7572,7 +7572,7 @@ client.on('messageCreate', async message => {
         return ['📌','💡','🔒','🤣','😎','☕','🥂','💃','🔞','⬅️'].includes(reaction.emoji.name) && user.id == message.author.id;
       };
 
-      editado.awaitReactions(filtro, {max: 1, time: 60000, errors: ['time']}).catch(() => {
+      editado.awaitReactions({filtro, max: 1, time: 60000, errors: ['time']}).catch(() => {
 
         editado.edit(`¡No confirmaste a tiempo! <:enojado:882877729266098186>`)
         editado.reactions.removeAll()
