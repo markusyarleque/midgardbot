@@ -423,11 +423,11 @@ client.on('messageCreate', async message => {
   
           message.channel.send(`${message.author}, Deseas contactar a Malta?`).then(m => {
 
-            m.react('✅')
-            m.react('❎')
+            m.react('👍')
+            m.react('👎')
            
             const filtro = (reaction, user) => {
-              return ['✅', '❎'].includes(reaction.emoji.name) && user.id == message.author.id;
+              return ['👍', '👎'].includes(reaction.emoji.name) && user.id == message.author.id;
             };
       
             m.awaitReactions({filtro, max: 1, time: 20000, errors: ['time']}).catch(() => {
@@ -439,12 +439,12 @@ client.on('messageCreate', async message => {
       
               const reaccion = coleccionado.first();
       
-              if(reaccion.emoji.name === '✅') {
+              if(reaccion.emoji.name === '👍') {
       
                 setTimeout(() => m.delete(), 100);
                 message.channel.send(`<@${img}> Te buscan por aquí <:yonofui:880916494085681203>`);
 
-              } else if(reaccion.emoji.name === '❎') {
+              } else if(reaccion.emoji.name === '👎') {
       
                 m.edit('Gracias, si necesitas algo, no dudes en contactarme. <:tierno:881618338759966800>')
                 m.reactions.removeAll()
