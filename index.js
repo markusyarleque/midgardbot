@@ -7487,7 +7487,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
-    .setDescription('> **user**\n Muestra información sobre un usuario mencionado. | Uso: `' +prefix +'user <@user>`\nSi no hay mención, mostrará la información del usuario que ejecute el comando.\n\n> **avatar**\n Muestra el avatar de un usuario. | Uso: `' +prefix +'avatar <@user>`\nSi no hay mención, mostrará el avatar del usuario que ejecute el comando.\n\n> **welcome**\n Muestra un embed de bienvenida. | Uso: `' +prefix +'welcome <@user>`\n\n> **remindme**\n Establece un recordatorio. | Uso: `' +prefix +'remindme <tiempo en s,m,h> <recordatorio>`\n\n> **snipe**\n Recupera el último mensaje eliminado.\n\n> **jumbo**\n Ver en grande un emoji.\n\n> **poll**\n Crea una encuentas. | Uso: `' +prefix +'poll pregunta / opción1 / opción2 / opción3 [opcional]... ``\n\n')
+    .setDescription('> **user**\n Muestra información sobre un usuario mencionado. | Uso: `' +prefix +'user <@user>`\nSi no hay mención, mostrará la información del usuario que ejecute el comando.\n\n> **avatar**\n Muestra el avatar de un usuario. | Uso: `' +prefix +'avatar <@user>`\nSi no hay mención, mostrará el avatar del usuario que ejecute el comando.\n\n> **welcome**\n Muestra un embed de bienvenida. | Uso: `' +prefix +'welcome <@user>`\n\n> **remindme**\n Establece un recordatorio. | Uso: `' +prefix +'remindme <tiempo en s,m,h> <recordatorio>`\n\n> **snipe**\n Recupera el último mensaje eliminado.\n\n> **jumbo**\n Ver en grande un emoji.\n\n> **poll**\n Crea una encuentas. | Uso: `' +prefix +'poll pregunta / opción1 / opción2 / opción3 [opcional]...`\n\n')
   
   const helpmod = new Discord.MessageEmbed()
     .setTitle('COMANDOS DE MODERACIÓN')
@@ -7579,7 +7579,7 @@ client.on('messageCreate', async message => {
 
       }).then(coleccionado => {
 
-        const reaccion = coleccionado.first();
+        const reaccion = coleccionado.last();
 
         if(reaccion.emoji.name === '📌'){
 
