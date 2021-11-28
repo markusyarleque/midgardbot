@@ -7557,8 +7557,8 @@ client.on('messageCreate', async message => {
     message.channel.send({embeds: [helpprincipal]}).then(editado => {
 
       editado.react('📌')
-      .then(() => editado.react('💡'));
-      /*.then(() => editado.react('🔒'))
+      .then(() => editado.react('💡'))
+      .then(() => editado.react('🔒'))
       .then(() => editado.react('🤣'))
       .then(() => editado.react('😎'))
       .then(() => editado.react('☕'))
@@ -7566,7 +7566,7 @@ client.on('messageCreate', async message => {
       .then(() => editado.react('💃'))
       .then(() => editado.react('😎'))
       .then(() => editado.react('🔞'))
-      .then(() => editado.react('⬅️'))*/
+      .then(() => editado.react('⬅️'));
   
       const filtro = (reaction, user) => {
         return ['📌','💡','🔒','🤣','😎','☕','🥂','💃','🔞','⬅️'].includes(reaction.emoji.name) && user.id == message.author.id;
@@ -7587,47 +7587,47 @@ client.on('messageCreate', async message => {
           //reaction.users.remove(user.id)
           editado.edit({embeds: [helpinfo]})
         }
-        if(reaccion.emoji.name === '💡'){
+        else if(reaccion.emoji.name === '💡'){
 
           editado.reactions.removeAll()
           editado.edit({embeds: [helputil]})
         }
-        if(reaccion.emoji.name === '🔒'){
+        else if(reaccion.emoji.name === '🔒'){
 
           editado.reactions.removeAll()
           editado.edit({embeds: [helpmod]})
         }
-        if(reaccion.emoji.name === '🤣'){
+        else if(reaccion.emoji.name === '🤣'){
 
           editado.reactions.removeAll()
           editado.edit({embeds: [helpdiv]})
         }
-        if(reaccion.emoji.name === '😎'){
+        else if(reaccion.emoji.name === '😎'){
 
           editado.reactions.removeAll()
           editado.edit({embeds: [helprea]})
         }
-        if(reaccion.emoji.name === '☕'){
+        else if(reaccion.emoji.name === '☕'){
 
           editado.reactions.removeAll()
           editado.edit({embeds: [helpcaf]})
         }
-        if(reaccion.emoji.name === '🥂'){
+        else if(reaccion.emoji.name === '🥂'){
 
           editado.reactions.removeAll()
           editado.edit({embeds: [helpbar]})
         }
-        if(reaccion.emoji.name === '💃'){
+        else if(reaccion.emoji.name === '💃'){
 
           editado.reactions.removeAll()
           editado.edit({embeds: [helpdis]})
         }
-        if(reaccion.emoji.name === '🔞'){
+        else if(reaccion.emoji.name === '🔞'){
 
           editado.reactions.removeAll()
           editado.edit({embeds: [helpnsfw]})
         }
-        if(reaccion.emoji.name === '⬅️'){
+        else if(reaccion.emoji.name === '⬅️'){
 
           editado.reactions.removeAll()
           editado.edit({embeds: [helpprincipal]})
