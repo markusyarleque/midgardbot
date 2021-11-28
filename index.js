@@ -423,11 +423,10 @@ client.on('messageCreate', async message => {
   
           message.channel.send(`${message.author}, ¿Deseas contactar a Malta?`).then(m => {
 
-            m.react('👍')
-            m.react('👎')
+            m.react('👍').then(() => m.react('👎'));
            
             const filter = (reaction, user) => {
-              return ['👍', '👎'].includes(reaction.emoji.name);
+              return ['👍', '👎'].includes(reaction.emoji.name) && user.id == message.author.id;
             };
       
             m.awaitReactions({filter, max: 1, time: 20000, errors: ['time']}).catch(() => {
