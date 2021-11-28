@@ -780,8 +780,7 @@ client.on('messageCreate', async message => {
     setTimeout(() => message.delete(), 100);
     message.channel.send({ embeds: [embed] }).then(m => {
 
-      m.react('✅')
-      m.react('❎')
+      m.react('✅').then(() => m.react('❎'));
      
       const filtro = (reaction, user) => {
         return ['✅', '❎'].includes(reaction.emoji.name) && user.id == message.author.id;
@@ -852,9 +851,8 @@ client.on('messageCreate', async message => {
     setTimeout(() => message.delete(), 100);
     message.channel.send({ embeds: [embed] }).then(m => {
 
-      m.react('✅')
-      m.react('❎')
-     
+      m.react('✅').then(() => m.react('❎'));
+      
       const filtro = (reaction, user) => {
         return ['✅', '❎'].includes(reaction.emoji.name) && user.id == message.author.id;
       };
@@ -7559,17 +7557,17 @@ client.on('messageCreate', async message => {
     message.channel.send({embeds: [helpprincipal]}).then(editado =>{
 
       editado.react('📌')
-      editado.react('💡')
-      editado.react('🔒')
-      editado.react('🤣')
-      editado.react('😎')
-      editado.react('☕')
-      editado.react('🥂')
-      editado.react('💃')
-      editado.react('😎')
-      editado.react('🔞')
-      editado.react('⬅️')
-
+      .then(() => editado.react('💡'))
+      .then(() => editado.react('🔒'))
+      .then(() => editado.react('🤣'))
+      .then(() => editado.react('😎'))
+      .then(() => editado.react('☕'))
+      .then(() => editado.react('🥂'))
+      .then(() => editado.react('💃'))
+      .then(() => editado.react('😎'))
+      .then(() => editado.react('🔞'))
+      .then(() => editado.react('⬅️'))
+  
       const filtro = (reaction, user) => {
         return ['📌','💡','🔒','🤣','😎','☕','🥂','💃','🔞','⬅️'].includes(reaction.emoji.name) && user.id == message.author.id;
       };
