@@ -421,8 +421,6 @@ client.on('messageCreate', message => {
         {
           if(bl.tiene(message.author.id)) return;
   
-          message.channel.sendTyping()
-  
           message.channel.send(`${message.author}, Deseas contactar a Malta?`).then(m => {
 
             m.react('✅')
