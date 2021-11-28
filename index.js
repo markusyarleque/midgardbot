@@ -421,7 +421,7 @@ client.on('messageCreate', async message => {
         {
           if(bl.tiene(message.author.id)) return;
   
-          message.channel.send(`${message.author}, Deseas contactar a Malta?`).then(m => {
+          message.channel.send(`${message.author}, ¿Deseas contactar a Malta?`).then(m => {
 
             m.react('👍')
             m.react('👎')
