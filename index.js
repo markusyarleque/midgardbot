@@ -7588,68 +7588,58 @@ client.on('messageCreate', async message => {
 
       }).then(coleccionado => {
 
-        const reaccion = coleccionado.first()
+        const reaccion = coleccionado.values()
 
         if(reaccion.emoji.name === '📌'){
 
           // editado.reactions.removeAll()
           //reaction.users.remove(user.id)
           editado.edit({embeds: [helpinfo]})
-          const reaccion = coleccionado.first()
         }
-        if(reaccion.emoji.name === '💡'){
+        else if(reaccion.emoji.name === '💡'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helputil]})
-          const reaccion = coleccionado.first()
         }
-        if(reaccion.emoji.name === '🔒'){
+        else if(reaccion.emoji.name === '🔒'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helpmod]})
-          const reaccion = coleccionado.first()
         }
-        if(reaccion.emoji.name === '🤣'){
+        else if(reaccion.emoji.name === '🤣'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helpdiv]})
-          const reaccion = coleccionado.first()
         }
-        if(reaccion.emoji.name === '😎'){
+        else if(reaccion.emoji.name === '😎'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helprea]})
-          const reaccion = coleccionado.first()
         }
-        if(reaccion.emoji.name === '☕'){
+        else if(reaccion.emoji.name === '☕'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helpcaf]})
-          const reaccion = coleccionado.first()
         }
-        if(reaccion.emoji.name === '🥂'){
+        else if(reaccion.emoji.name === '🥂'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helpbar]})
-          const reaccion = coleccionado.first()
         }
-        if(reaccion.emoji.name === '💃'){
+        else if(reaccion.emoji.name === '💃'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helpdis]})
-          const reaccion = coleccionado.first()
         }
-        if(reaccion.emoji.name === '🔞'){
+        else if(reaccion.emoji.name === '🔞'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helpnsfw]})
-          const reaccion = coleccionado.first()
         }
-        if(reaccion.emoji.name === '⬅️'){
+        else if(reaccion.emoji.name === '⬅️'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helpprincipal]})
-          const reaccion = coleccionado.first()
         }
 
       })
