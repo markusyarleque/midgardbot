@@ -7466,7 +7466,7 @@ client.on('messageCreate', async message => {
     .setTitle('BIENVENIDO AL APARTADO DE AYUDA')
     .setAuthor('MidgardBot',client.user.avatarURL())
     .setDescription('Para ver los comandos, debes **Reaccionar** al emoji respectivo:\n\n> 📌 • Comandos de Información\n> 💡 • Comandos de Utilidad\n> 🔒 • Comandos de Moderación\n> 🤣 • Comandos de Diversión\n> 😎 • Comandos de Reacción\n> ☕ • Comandos de Cafetería\n> 🥂 • Comandos de Bar\n> 💃 • Comandos de Disco\n> 🔞 • Comandos NSFW\n> ⬅️ • Menú Principal\n\n\n**Pronto se agregarán más comandos**')
-    .setFooter(`${message.author}`,message.author.avatarURL())
+    .setFooter(`${message.author.username}`,message.author.avatarURL())
     .setTimestamp(new Date())
     .setColor('RANDOM')
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
@@ -7474,7 +7474,7 @@ client.on('messageCreate', async message => {
   const helpinfo = new Discord.MessageEmbed()
     .setTitle('📌 • Comandos De Información')
     .setAuthor('MidgardBot',client.user.avatarURL())
-    .setFooter(`${message.author}`,message.author.avatarURL())
+    .setFooter(`${message.author.username}`,message.author.avatarURL())
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
@@ -7483,7 +7483,7 @@ client.on('messageCreate', async message => {
   const helputil = new Discord.MessageEmbed()
     .setTitle('💡 • Comandos de Utilidad')
     .setAuthor('MidgardBot',client.user.avatarURL())
-    .setFooter(`${message.author}`,message.author.avatarURL())
+    .setFooter(`${message.author.username}`,message.author.avatarURL())
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
@@ -7492,7 +7492,7 @@ client.on('messageCreate', async message => {
   const helpmod = new Discord.MessageEmbed()
     .setTitle('🔒 • Comandos de Moderación')
     .setAuthor('MidgardBot',client.user.avatarURL())
-    .setFooter(`${message.author}`,message.author.avatarURL())
+    .setFooter(`${message.author.username}`,message.author.avatarURL())
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
@@ -7501,7 +7501,7 @@ client.on('messageCreate', async message => {
   const helpdiv = new Discord.MessageEmbed()
     .setTitle('🤣 • Comandos de Diversión')
     .setAuthor('MidgardBot',client.user.avatarURL())
-    .setFooter(`${message.author}`,message.author.avatarURL())
+    .setFooter(`${message.author.username}`,message.author.avatarURL())
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
@@ -7510,7 +7510,7 @@ client.on('messageCreate', async message => {
    const helpcaf = new Discord.MessageEmbed()
     .setTitle('☕ • Comandos de Cafetería')
     .setAuthor('MidgardBot',client.user.avatarURL())
-    .setFooter(`${message.author}`,message.author.avatarURL())
+    .setFooter(`${message.author.username}`,message.author.avatarURL())
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
@@ -7519,7 +7519,7 @@ client.on('messageCreate', async message => {
   const helpbar = new Discord.MessageEmbed()
     .setTitle('🥂 • Comandos de Bar')
     .setAuthor('MidgardBot',client.user.avatarURL())
-    .setFooter(`${message.author}`,message.author.avatarURL())
+    .setFooter(`${message.author.username}`,message.author.avatarURL())
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
@@ -7528,7 +7528,7 @@ client.on('messageCreate', async message => {
   const helpdis = new Discord.MessageEmbed()
     .setTitle('💃 • Comandos de Disco')
     .setAuthor('MidgardBot',client.user.avatarURL())
-    .setFooter(`${message.author}`,message.author.avatarURL())
+    .setFooter(`${message.author.username}`,message.author.avatarURL())
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
@@ -7537,7 +7537,7 @@ client.on('messageCreate', async message => {
   const helprea = new Discord.MessageEmbed()
     .setTitle('😎 • Comandos de Reacción')
     .setAuthor('MidgardBot',client.user.avatarURL())
-    .setFooter(`${message.author}`,message.author.avatarURL())
+    .setFooter(`${message.author.username}`,message.author.avatarURL())
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
@@ -7546,15 +7546,23 @@ client.on('messageCreate', async message => {
   const helpnsfw = new Discord.MessageEmbed()
     .setTitle('🔞 • Comandos NSFW')
     .setAuthor('MidgardBot',client.user.avatarURL())
-    .setFooter(`${message.author}`,message.author.avatarURL())
+    .setFooter(`${message.author.username}`,message.author.avatarURL())
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
     .setDescription('> **||tetas||**\n\n> **||pussy||**\n\n> **||culo||**\n\n> **||dick||**\n\n> **||lick||**\n\n> **||suck||**\n\n> **||suckb||**\n\n> **||sboobs||**\n\n> **||fuck||**\n\n> **||anal||**\n\n> **||cum||**\n\n> **||porno||**\n\n> **||4k||**\n\n> **||nekosolo||**\n\n> **||gonewild||**\n\n')
+
+  const embedespera = new Discord.MessageEmbed()
+    .setDescription('<a:cargando:887482093481902101> | Espera mientras cargan las reacciones...')
+    .setColor('RANDOM')
+
+  const embednoconf = new Discord.MessageEmbed()
+    .setDescription(`¡No confirmaste a tiempo! <:enojado:882877729266098186>`)
+    .setColor('RANDOM')
   
   if(message.content.startsWith(prefix + 'help')){
 
-    message.channel.send('<a:cargando:887482093481902101> | Espera mientras cargan las reacciones...').then(editado => {
+    message.channel.send({embeds: [embedespera]}).then(editado => {
 
       editado.react('📌')
       .then(() => editado.react('💡'))
@@ -7575,7 +7583,7 @@ client.on('messageCreate', async message => {
 
       editado.awaitReactions({filter, max: 1, time: 60000, errors: ['time']}).catch(() => {
 
-        editado.edit(`¡No confirmaste a tiempo! <:enojado:882877729266098186>`)
+        editado.edit({embeds: [embednoconf]})
         editado.reactions.removeAll()
 
       }).then(coleccionado => {
