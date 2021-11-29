@@ -7252,7 +7252,7 @@ client.on('messageCreate', async message => {
     
               const embed = new Discord.MessageEmbed()
               .setAuthor(`Midgard's Hot`,'https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png')
-              //.setTitle('Imagen pleta')
+              //.setTitle('Imagen plet')
               .setDescription(`**${message.author.username}** y **${img.username}** disfrútenlo!`)
               .setImage(image)
               .setColor('RANDOM')
