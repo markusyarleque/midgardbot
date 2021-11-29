@@ -7465,7 +7465,7 @@ client.on('messageCreate', async message => {
     const helpprincipal = new Discord.MessageEmbed()
     .setTitle('Bienvenido al apartado de Ayuda 💌')
     .setAuthor('MidgardBot',client.user.avatarURL())
-    .setDescription('Para ver los comandos, debes **Reaccionar** al emoji respectivo:\n\n> 📌 • Comandos de Información>\n>\n> 💡 • Comandos de Utilidad\n> 🔒 • Comandos de Moderación\n> 🤣 • Comandos de Diversión\n> 😎 • Comandos de Reacción\n> ☕ • Comandos de Cafetería\n> 🥂 • Comandos de Bar\n> 💃 • Comandos de Disco\n> 🔞 • Comandos NSFW\n> ⬅️ • Menú Principal\n\n**Pronto se agregarán más comandos**')
+    .setDescription('Para ver los comandos, debes **Reaccionar** al emoji respectivo:\n\n> 📌 • Comandos de Información\n> 💡 • Comandos de Utilidad\n> 🔒 • Comandos de Moderación\n> 🤣 • Comandos de Diversión\n> 😎 • Comandos de Reacción\n> ☕ • Comandos de Cafetería\n> 🥂 • Comandos de Bar\n> 💃 • Comandos de Disco\n> 🔞 • Comandos NSFW\n> ⬅️ • Menú Principal\n\n**Pronto se agregarán más comandos**')
     .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
     .setTimestamp(new Date())
     .setColor('RANDOM')
@@ -7588,58 +7588,68 @@ client.on('messageCreate', async message => {
 
       }).then(coleccionado => {
 
-        const reaccion = coleccionado.last()
+        const reaccion = coleccionado.first()
 
         if(reaccion.emoji.name === '📌'){
 
           // editado.reactions.removeAll()
           //reaction.users.remove(user.id)
           editado.edit({embeds: [helpinfo]})
+          const reaccion = coleccionado.first()
         }
         if(reaccion.emoji.name === '💡'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helputil]})
+          const reaccion = coleccionado.first()
         }
         if(reaccion.emoji.name === '🔒'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helpmod]})
+          const reaccion = coleccionado.first()
         }
         if(reaccion.emoji.name === '🤣'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helpdiv]})
+          const reaccion = coleccionado.first()
         }
         if(reaccion.emoji.name === '😎'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helprea]})
+          const reaccion = coleccionado.first()
         }
         if(reaccion.emoji.name === '☕'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helpcaf]})
+          const reaccion = coleccionado.first()
         }
         if(reaccion.emoji.name === '🥂'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helpbar]})
+          const reaccion = coleccionado.first()
         }
         if(reaccion.emoji.name === '💃'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helpdis]})
+          const reaccion = coleccionado.first()
         }
         if(reaccion.emoji.name === '🔞'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helpnsfw]})
+          const reaccion = coleccionado.first()
         }
         if(reaccion.emoji.name === '⬅️'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helpprincipal]})
+          const reaccion = coleccionado.first()
         }
 
       })
