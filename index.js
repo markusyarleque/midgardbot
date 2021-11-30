@@ -975,7 +975,7 @@ client.on('messageCreate', async message => {
             .setAuthor('Información del Usuario', 'https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png')
             //.addField('Jugando a', userm.presence.game != null ? userm.presence.game.name : 'Nada', true)
             //.addField('Estado:', userm.presence.status, true)
-            .addField('Color:', userm.displayHexColor, true)
+            .addField('Color:', userm.hexAccentColor, true)
             .addField('Usuario:', userm.username+'#'+userm.discriminator, true)
             .addField('Apodo:', userm.nickname ? userm.nickname : 'No tiene', true)
             .addField('ID:', userm.id, true)
