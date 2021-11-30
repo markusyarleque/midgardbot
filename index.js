@@ -7525,7 +7525,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
-    .setDescription('> **user**\n> Muestra información sobre un usuario mencionado. | Uso: `' +prefix +'user <@user>`\n>Si no hay mención, mostrará la información del usuario que ejecute el comando.\n\n> **avatar**\n> Muestra el avatar de un usuario. | Uso: `' +prefix +'avatar <@user>`\n>Si no hay mención, mostrará el avatar del usuario que ejecute el comando.\n\n> **welcome**\n> Muestra un embed de bienvenida. | Uso: `' +prefix +'welcome <@user>`\n\n> **remindme**\n> Establece un recordatorio. | Uso: `' +prefix +'remindme <tiempo en s,m,h> <recordatorio>`\n\n> **snipe**\n> Recupera el último mensaje eliminado.\n\n> **jumbo**\n> Ver en grande un emoji.\n\n> **poll**\n> Crea una encuentas. | Uso: `' +prefix +'poll pregunta / opción1 / opción2 / opción3 [opcional]...`\n\n')
+    .setDescription('> **user**\n> Muestra información sobre un usuario mencionado. | Uso: `' +prefix +'user <@user>`\n> Si no hay mención, mostrará la información del usuario que ejecute el comando.\n\n> **avatar**\n> Muestra el avatar de un usuario. | Uso: `' +prefix +'avatar <@user>`\n> Si no hay mención, mostrará el avatar del usuario que ejecute el comando.\n\n> **welcome**\n> Muestra un embed de bienvenida. | Uso: `' +prefix +'welcome <@user>`\n\n> **remindme**\n> Establece un recordatorio. | Uso: `' +prefix +'remindme <tiempo en s,m,h> <recordatorio>`\n\n> **snipe**\n> Recupera el último mensaje eliminado.\n\n> **jumbo**\n> Ver en grande un emoji.\n\n> **poll**\n> Crea una encuentas. | Uso: `' +prefix +'poll pregunta / opción1 / opción2 / opción3 [opcional]...`\n\n')
   
   const helpmod = new Discord.MessageEmbed()
     .setTitle('🔒 • Comandos de Moderación')
@@ -7552,7 +7552,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
-    .setDescription('> **cafe**\n> **agua**\n> **te**\n> **jugo**\n> **tacos**\n\n> **chocolate**\n\n> **galletas**\n\n> **helado**\n\n> **hamburguesa**\n\n> **pizza**\n\n')
+    .setDescription('> **cafe**\n> **agua**\n> **te**\n> **jugo**\n> **tacos**\n> **chocolate**\n> **galletas**\n> **helado**\n> **hamburguesa**\n> **pizza**\n\n')
   
   const helpbar = new Discord.MessageEmbed()
     .setTitle('🥂 • Comandos de Bar')
@@ -7561,7 +7561,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
-    .setDescription('> **cocacola**\n\n> **redbull**\n\n> **cerveza**\n\n> **vino**\n\n> **tequila**\n\n> **ron**\n\n> **coctel**\n\n> **cigarro**\n\n> **porro**\n\n> **huca**\n\n')
+    .setDescription('> **cocacola**\n> **redbull**\n> **cerveza**\n> **vino**\n> **tequila**\n> **ron**\n> **coctel**\n> **cigarro**\n> **porro**\n> **huca**\n\n')
   
   const helpdis = new Discord.MessageEmbed()
     .setTitle('💃 • Comandos de Disco')
@@ -7570,7 +7570,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
-    .setDescription('> **perreo**\n\n> **bachata**\n\n> **salsa**\n\n> **cumbia**\n\n> **colegiala**')
+    .setDescription('> **perreo**\n> **bachata**\n> **salsa**\n> **cumbia**\n> **colegiala**')
   
   const helprea = new Discord.MessageEmbed()
     .setTitle('😎 • Comandos de Reacción')
@@ -7628,11 +7628,22 @@ client.on('messageCreate', async message => {
 
         const reaccion = coleccionado.first()
 
+        const userReactions = coleccionado.filter(reaction => reaction.users.cache.has(message.author.id));
+      
         if(reaccion.emoji.name === '📌'){
 
           // editado.reactions.removeAll()
           //reaction.users.remove(user.id)
           editado.edit({embeds: [helpinfo]})
+
+          try {
+            for (const reaction of userReactions.values()) {
+              await reaction.users.remove(message.author.id);
+            }
+          } catch (error) {
+            console.error('Falla al remover la reacción');
+          }
+          
         }
         else if(reaccion.emoji.name === '💡'){
 
