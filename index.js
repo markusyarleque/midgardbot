@@ -815,7 +815,7 @@ client.on('messageCreate', async message => {
           .setTimestamp(new Date())
           .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
     
-          m.edit(bugco)
+          m.edit({ embeds: [bugco]})
           m.reactions.removeAll()
 
           let bugre = new Discord.MessageEmbed()
@@ -826,7 +826,7 @@ client.on('messageCreate', async message => {
           .setTimestamp(new Date())
           .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
     
-          channel.send(bugre)
+          channel.send({ embeds: [bugre]})
         } else if(reaccion.emoji.name === '❎') {
 
           m.edit('Reporte cancelado. <:y_:868544745541087293>')
@@ -886,7 +886,7 @@ client.on('messageCreate', async message => {
           .setTimestamp(new Date())
           .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
     
-          m.edit(bugco)
+          m.edit({ embeds: [bugco]})
           m.reactions.removeAll()
 
           let bugre = new Discord.MessageEmbed()
@@ -897,7 +897,7 @@ client.on('messageCreate', async message => {
           .setTimestamp(new Date())
           .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
     
-          channel.send(bugre)
+          channel.send({ embeds: [bugre]})
         } else if(reaccion.emoji.name === '❎') {
 
           m.edit('Sugerencia cancelada. <:y_:868544745541087293>')
