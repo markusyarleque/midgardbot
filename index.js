@@ -7619,7 +7619,7 @@ client.on('messageCreate', async message => {
         return ['📌','💡','🔒','🤣','😎','☕','🥂','💃','🔞','⬅️'].includes(reaction.emoji.name) && user.id == message.author.id;
       };
 
-      editado.awaitReactions({filter, time: 60000, errors: ['time']}).catch(() => {
+      editado.awaitReactions({filter, max: 1, time: 60000, errors: ['time']}).catch(() => {
 
         editado.edit({embeds: [embednoconf]})
         editado.reactions.removeAll()
