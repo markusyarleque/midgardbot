@@ -7516,7 +7516,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
-    .setDescription('> **ping**\n> Comprueba la latencia del bot y de tus mensajes.\n\n> **stats**\n> Muestra la info y estado del bot.\n\n> **help**\n> Menú de ayuda con los comandos del bot\n\n> **server**\n Muestra información de un servidor determinado.\n\n> **report**\n Reportar un bug del bot.\n\n> **suggestion**\n Enviar una sugerencia para mejorar el bot.\n\n')
+    .setDescription('> **ping**\n> Comprueba la latencia del bot y de tus mensajes.\n\n> **stats**\n> Muestra la info y estado del bot.\n\n> **help**\n> Menú de ayuda con los comandos del bot\n\n> **server**\n> Muestra información de un servidor determinado.\n\n> **report**\n> Reportar un bug del bot.\n\n> **suggestion**\n> Enviar una sugerencia para mejorar el bot.\n\n')
 
   const helputil = new Discord.MessageEmbed()
     .setTitle('💡 • Comandos de Utilidad')
@@ -7525,7 +7525,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
-    .setDescription('> **user**\n Muestra información sobre un usuario mencionado. | Uso: `' +prefix +'user <@user>`\nSi no hay mención, mostrará la información del usuario que ejecute el comando.\n\n> **avatar**\n Muestra el avatar de un usuario. | Uso: `' +prefix +'avatar <@user>`\nSi no hay mención, mostrará el avatar del usuario que ejecute el comando.\n\n> **welcome**\n Muestra un embed de bienvenida. | Uso: `' +prefix +'welcome <@user>`\n\n> **remindme**\n Establece un recordatorio. | Uso: `' +prefix +'remindme <tiempo en s,m,h> <recordatorio>`\n\n> **snipe**\n Recupera el último mensaje eliminado.\n\n> **jumbo**\n Ver en grande un emoji.\n\n> **poll**\n Crea una encuentas. | Uso: `' +prefix +'poll pregunta / opción1 / opción2 / opción3 [opcional]...`\n\n')
+    .setDescription('> **user**\n> Muestra información sobre un usuario mencionado. | Uso: `' +prefix +'user <@user>`\n>Si no hay mención, mostrará la información del usuario que ejecute el comando.\n\n> **avatar**\n> Muestra el avatar de un usuario. | Uso: `' +prefix +'avatar <@user>`\n>Si no hay mención, mostrará el avatar del usuario que ejecute el comando.\n\n> **welcome**\n> Muestra un embed de bienvenida. | Uso: `' +prefix +'welcome <@user>`\n\n> **remindme**\n> Establece un recordatorio. | Uso: `' +prefix +'remindme <tiempo en s,m,h> <recordatorio>`\n\n> **snipe**\n> Recupera el último mensaje eliminado.\n\n> **jumbo**\n> Ver en grande un emoji.\n\n> **poll**\n> Crea una encuentas. | Uso: `' +prefix +'poll pregunta / opción1 / opción2 / opción3 [opcional]...`\n\n')
   
   const helpmod = new Discord.MessageEmbed()
     .setTitle('🔒 • Comandos de Moderación')
@@ -7534,7 +7534,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
-    .setDescription('> **role**\n Muestra información de un rol mencionado. | Uso: `' +prefix +'role <nombre/@rol>`\n\n> **roleid**\n Muestra información de un rol por id. | Uso: `' +prefix +'roleid <id>`\n\n> **addrol**\nAgrega un rol a un usuario del servidor. | Uso: `' +prefix +'addrol <@user> <rol>`\n\n> **removerol**\nRemueve un rol a un usuario del servidor. | Uso: `' +prefix +'removerol <@user> <rol>`\n\n> **lock**\nBloquea un canal del servidor. | Uso: `' +prefix +'lock <#canal>`\nSi no menciona el canal, se bloqueará el canal donde se ejecute el comando\n\n> **unlock**\nDesbloquea un canal del servidor. | Uso: `' +prefix +'unlock <#canal>`\nSi no menciona el canal, se desbloqueará el canal donde se ejecute el comando\n\n> **clear**\nElimina mensajes de un canal. | Uso: `' +prefix +'clear <cantidad>`\n\n> **kick**\nExpulsa a un miembro mencionado. | Uso: `' +prefix +'kick <@user>`\n\n> **ban**\nBanea a un miembro mencionado. | Uso: `' +prefix +'ban <@user>`')
+    .setDescription('> **role**\n> Muestra información de un rol mencionado. | Uso: `' +prefix +'role <nombre/@rol>`\n\n> **roleid**\n> Muestra información de un rol por id. | Uso: `' +prefix +'roleid <id>`\n\n> **addrol**\n> Agrega un rol a un usuario del servidor. | Uso: `' +prefix +'addrol <@user> <rol>`\n\n> **removerol**\n> Remueve un rol a un usuario del servidor. | Uso: `' +prefix +'removerol <@user> <rol>`\n\n> **lock**\n> Bloquea un canal del servidor. | Uso: `' +prefix +'lock <#canal>`\n> Si no menciona el canal, se bloqueará el canal donde se ejecute el comando\n\n> **unlock**\n> Desbloquea un canal del servidor. | Uso: `' +prefix +'unlock <#canal>`\n> Si no menciona el canal, se desbloqueará el canal donde se ejecute el comando\n\n> **clear**\n> Elimina mensajes de un canal. | Uso: `' +prefix +'clear <cantidad>`\n\n> **kick**\n> Expulsa a un miembro mencionado. | Uso: `' +prefix +'kick <@user>`\n\n> **ban**\n> Banea a un miembro mencionado. | Uso: `' +prefix +'ban <@user>`')
   
   const helpdiv = new Discord.MessageEmbed()
     .setTitle('🤣 • Comandos de Diversión')
@@ -7543,7 +7543,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
-    .setDescription('> **say**\n Hace que el bot diga un mensaje.\n\n> **8ball**\n El bot responderá a tus preguntas.\n\n> **roll**\nLanza un dado al azar.\n\n> **impostor**\nAverigua quién es el impostor de este mundo.\n\n> **buscaminas**\nEnvía un tablero del clásico juego.\n\n> **ship**\nMide tu nivel de amor con un usuario mencionado. | Uso: `' +prefix +'ship <@user>`\n\n> **meme**\nEnvía memes al azar.')
+    .setDescription('> **say**\n> Hace que el bot diga un mensaje.\n\n> **8ball**\n> El bot responderá a tus preguntas.\n\n> **roll**\n> Lanza un dado al azar.\n\n> **impostor**\n> Averigua quién es el impostor de este mundo.\n\n> **buscaminas**\n> Envía un tablero del clásico juego.\n\n> **ship**\n> Mide tu nivel de amor con un usuario mencionado. | Uso: `' +prefix +'ship <@user>`\n\n> **meme**\n> Envía memes al azar.')
   
    const helpcaf = new Discord.MessageEmbed()
     .setTitle('☕ • Comandos de Cafetería')
@@ -7552,7 +7552,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
-    .setDescription('> **cafe**\n\n> **agua**\n\n> **te**\n\n> **jugo**\n\n> **tacos**\n\n> **chocolate**\n\n> **galletas**\n\n> **helado**\n\n> **hamburguesa**\n\n> **pizza**\n\n')
+    .setDescription('> **cafe**\n> **agua**\n> **te**\n> **jugo**\n> **tacos**\n\n> **chocolate**\n\n> **galletas**\n\n> **helado**\n\n> **hamburguesa**\n\n> **pizza**\n\n')
   
   const helpbar = new Discord.MessageEmbed()
     .setTitle('🥂 • Comandos de Bar')
