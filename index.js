@@ -737,13 +737,13 @@ client.on('messageCreate', async message => {
     
     .addField('Miembros:', '--->'+server.memberCount, true)
     .addField('Region:', '--->'+regions[server.region], false)
-    .addField('Nivel:', `${server.premiumTier}`, true)
+    .addField('Nivel:', '--->'+`${server.premiumTier}`, true)
     //.addField('Nivel:', server.mfaLevel, false)
-    .addField('Mejoras:', server.premiumSubscriptionCount || '0', false)
+    .addField('Mejoras:', '--->'+server.premiumSubscriptionCount || '0', false)
 
-    .addField('Roles:', roles.length , true)
-    .addField('Emojis:', emojis.size , false)
-    .addField('Verificación:', vl[server.verificationLevel] , false)
+    .addField('Roles:', '--->'+roles.length , true)
+    .addField('Emojis:', '--->'+emojis.size , false)
+    .addField('Verificación:', '--->'+vl[server.verificationLevel] , false)
 
     .addField('Canales de Texto:', channels.filter(channel => channel.type === 'text').size , true)
     .addField('Canales de Voz:', channels.filter(channel => channel.type === 'voice').size , true)
