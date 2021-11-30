@@ -7619,24 +7619,7 @@ client.on('messageCreate', async message => {
         return ['📌','💡','🔒','🤣','😎','☕','🥂','💃','🔞','⬅️'].includes(reaction.emoji.name) && user.id == message.author.id;
       };
 
-      editado.awaitReactions((reaction, user) => {
-
-        if(message.author.id !== user.id) return;
-
-        if(reaction.emoji.name === '📌'){
-          editado.edit({embeds: [helpinfo]})
-        }
-
-        if(reaction.emoji.name === '💡'){
-          editado.edit({embeds: [helputil]})
-        }
-
-        if(reaction.emoji.name === '🔒'){
-          editado.edit({embeds: [helpmod]})
-        }
-
-      })
-      /*editado.awaitReactions({filter, max: 1, time: 60000, errors: ['time']}).catch(() => {
+      editado.awaitReactions({filter, time: 60000, errors: ['time']}).catch(() => {
 
         editado.edit({embeds: [embednoconf]})
         editado.reactions.removeAll()
@@ -7653,13 +7636,13 @@ client.on('messageCreate', async message => {
           reaccion.users.remove(message.author.id)
           editado.edit({embeds: [helpinfo]})
           
-        try {
+       /* try {
           for (const reaction of userReactions.values()) {
             reaction.users.remove(message.author.id);
           }
         } catch (error) {
           console.error('Falla al remover la reacción');
-        }
+        }*/
 
         }
         if(reaccion.emoji.name === '💡'){
@@ -7710,7 +7693,7 @@ client.on('messageCreate', async message => {
           editado.edit({embeds: [helpprincipal]})
         }
         
-      })*/
+      })
 
     });
     
