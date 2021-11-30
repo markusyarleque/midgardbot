@@ -7648,11 +7648,13 @@ client.on('messageCreate', async message => {
         if(reaccion.emoji.name === '💡'){
 
           //editado.reactions.removeAll()
+          reaccion.users.remove(message.author.id)
           editado.edit({embeds: [helputil]})
         }
         if(reaccion.emoji.name === '🔒'){
 
           //editado.reactions.removeAll()
+          reaccion.users.remove(message.author.id)
           editado.edit({embeds: [helpmod]})
         }
         if(reaccion.emoji.name === '🤣'){
