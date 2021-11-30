@@ -1231,8 +1231,8 @@ client.on('messageCreate', async message => {
     
             let count1 = setInterval(async () => {
     
-              await msg.edit(time <= 0 ? `... Se acabó el tiempo ⌛` : String(time))
-              await message.channel.send(`${message.author} La cuenta regresiva ha terminado!`)
+              await msg.edit(time <= 0 ? `${message.author}... Se acabó el tiempo ⌛` : String(time))
+              // message.channel.send(`${message.author} La cuenta regresiva ha terminado!`)
               time <= 0 ? clearInterval(count1) : time -= 2
     
             }, 2000)
@@ -1499,6 +1499,11 @@ client.on('messageCreate', async message => {
 
     //COMANDOS DE MODERACIÓN
 
+    const boolean = {
+      true: 'Si',
+      false: 'No',
+    };
+
     if(command === 'role'){
         
         if(!args) return message.channel.send('¡Ingrese nombre del rol!');
@@ -1507,18 +1512,19 @@ client.on('messageCreate', async message => {
     
         if(!role) return message.channel.send('Rol no encontrado en el servidor.');
     
+        const
         const embed = new Discord.MessageEmbed()
         
           .setAuthor(`Solicitado por: ${message.author.username}`,`${message.author.displayAvatarURL()}`)
           .setDescription('Información sobre el rol mencionado.')
-          .addField('Nombre:', `- ${role.name}`) 
-          .addField('ID:', `- ${role.id}`) 
-          .addField('Miembros con el Rol:', `- ${role.members.size}`)
-          .addField('Posición:', `- ${role.rawPosition}`) 
-          .addField('HexColor:', `- ${role.hexColor}`)  
-          .addField('¿Mencionable?:', `- ${role.mentionable}`)
-          .addField('¿Separado?:', `- ${role.hoist}`)
-          .addField('¿Gestionado por el sistema?:', `- ${role.managed}`) 
+          .addField('Nombre:', `<a:flech:915156906258071554> ${role.name}`) 
+          .addField('ID:', `<a:flech:915156906258071554> ${role.id}`) 
+          .addField('Miembros con el Rol:', `<a:flech:915156906258071554> ${role.members.size}`)
+          .addField('Posición:', `<a:flech:915156906258071554> ${role.rawPosition}`) 
+          .addField('HexColor:', `<a:flech:915156906258071554> ${role.hexColor}`)  
+          .addField('¿Mencionable?:', `<a:flech:915156906258071554> `+boolean[role.mentionable])
+          .addField('¿Separado?:', `<a:flech:915156906258071554> `+boolean[role.hoist])
+          .addField('¿Gestionado por el sistema?:', `<a:flech:915156906258071554> `+boolean[role.managed]) 
             
           .setColor('RANDOM')
           .setTimestamp(new Date())
@@ -1540,14 +1546,14 @@ client.on('messageCreate', async message => {
         
           .setAuthor(`Solicitado por: ${message.author.username}`,`${message.author.displayAvatarURL()}`)
           .setDescription('Información sobre el rol mencionado.')
-          .addField('Nombre:', `- ${role.name}`) 
-          .addField('ID:', `- ${role.id}`) 
-          .addField('Miembros con el Rol:', `- ${role.members.size}`)
-          .addField('Posición:', `- ${role.rawPosition}`) 
-          .addField('HexColor:', `- ${role.hexColor}`)  
-          .addField('¿Mencionable?:', `- ${role.mentionable}`)
-          .addField('¿Separado?:', `- ${role.hoist}`)
-          .addField('¿Gestionado por el sistema?:', `- ${role.managed}`) 
+          .addField('Nombre:', `<a:flech:915156906258071554> ${role.name}`) 
+          .addField('ID:', `<a:flech:915156906258071554> ${role.id}`) 
+          .addField('Miembros con el Rol:', `<a:flech:915156906258071554> ${role.members.size}`)
+          .addField('Posición:', `<a:flech:915156906258071554> ${role.rawPosition}`) 
+          .addField('HexColor:', `<a:flech:915156906258071554> ${role.hexColor}`)  
+          .addField('¿Mencionable?:', `<a:flech:915156906258071554> `+boolean[role.mentionable])
+          .addField('¿Separado?:', `<a:flech:915156906258071554> `+boolean[role.hoist])
+          .addField('¿Gestionado por el sistema?:', `<a:flech:915156906258071554> `+boolean[role.managed]) 
             
           .setColor('RANDOM')
           .setTimestamp(new Date())
