@@ -4,7 +4,7 @@ const { Permissions } = require('discord.js');
 
 const { Client, Intents } = require('discord.js');
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS] });
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_BANS, Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_TYPING, Intents.FLAGS.GUILD_PRESENCES] });
 
 // const { MessageSelectMenu, MessageEmbed } = require('discord.js')
 
@@ -780,7 +780,7 @@ client.on('messageCreate', async message => {
 
     const embed = new Discord.MessageEmbed()
     .setThumbnail(`https://assets.sutori.com/user-uploads/image/bc331db1-aa9d-4684-b73e-8a1fcb7d751b/aa64184f325ce5cc6abe613d51383870.gif`)
-    .setTitle('<a:alto:860350719172542464> | Reporte')
+    .setTitle('<a:alerta:915361125510545438> | Reporte')
     .setDescription(`**${usera.username}** ¿Estás segur@ que quieres reportar este bug? ¡Usar mal el comando causará la prohibición!`)
     .addField('Bug a reportar:', reporte)
     .setColor('RANDOM')
@@ -791,11 +791,11 @@ client.on('messageCreate', async message => {
 
       m.react('✅').then(() => m.react('❎'));
      
-      const filtro = (reaction, user) => {
+      const filter = (reaction, user) => {
         return ['✅', '❎'].includes(reaction.emoji.name) && user.id == message.author.id;
       };
 
-      m.awaitReactions({filtro, max: 1, time: 60000, errors: ['time']}).catch(() => {
+      m.awaitReactions({filter, max: 1, time: 60000, errors: ['time']}).catch(() => {
 
         m.edit('¡No confirmaste a tiempo! <:enojado:882877729266098186>')
         m.reactions.removeAll()
@@ -862,11 +862,11 @@ client.on('messageCreate', async message => {
 
       m.react('✅').then(() => m.react('❎'));
       
-      const filtro = (reaction, user) => {
+      const filter = (reaction, user) => {
         return ['✅', '❎'].includes(reaction.emoji.name) && user.id == message.author.id;
       };
 
-      m.awaitReactions({filtro, max: 1, time: 60000, errors: ['time']}).catch(() => {
+      m.awaitReactions({filter, max: 1, time: 60000, errors: ['time']}).catch(() => {
 
         m.edit('¡No confirmaste a tiempo! <:enojado:882877729266098186>')
         m.reactions.removeAll()
@@ -1270,7 +1270,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
 
-    if (!split[2]) return message.reply('<a:alto:860350719172542464> `|` Uso: `' +prefix +'poll pregunta / opción1 / opción2 / opción3 [opcional]... `');
+    if (!split[2]) return message.reply('<a:alerta:915361125510545438> `|` Uso: `' +prefix +'poll pregunta / opción1 / opción2 / opción3 [opcional]... `');
 
     if (split[3]) embed.addField('<a:tres:854651172525834270> **' + split[3] + '**', '..........');
     if (split[4]) embed.addField('<a:cuatro:854651171465854976> **' + split[4] + '**', '..........');
@@ -1280,7 +1280,7 @@ client.on('messageCreate', async message => {
     if (split[8]) embed.addField('<a:ocho:854651172512989194> **' + split[8] + '**', '..........');
     if (split[9]) embed.addField('<a:nueve:854651170638790676> **' + split[9] + '**', '..........');
 
-    if (split[10]) return message.reply('<a:alto:860350719172542464> `|` Demasiadas opciones');
+    if (split[10]) return message.reply('<a:alerta:915361125510545438> `|` Demasiadas opciones');
 
     setTimeout(() => message.delete(), 100);
 
