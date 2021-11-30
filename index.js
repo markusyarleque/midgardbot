@@ -735,8 +735,8 @@ client.on('messageCreate', async message => {
     //.addField('Creado el:', server.createdAt, false)
     .addField('Creado el:', moment(server.createdTimestamp).format('LL') + ' a las '+moment(server.createdTimestamp).format('LT') + ' [' + moment(server.createdTimestamp).fromNow()+' ]', false)
     
-    .addField('Miembros:', server.memberCount, true)
-    .addField('Region:', regions[server.region], false)
+    .addField('Miembros:', '--->'+server.memberCount, true)
+    .addField('Region:', '--->'+regions[server.region], false)
     .addField('Nivel:', `${server.premiumTier}`, true)
     //.addField('Nivel:', server.mfaLevel, false)
     .addField('Mejoras:', server.premiumSubscriptionCount || '0', false)
