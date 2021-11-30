@@ -7579,7 +7579,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
-    .setDescription('> **hi**\n Saluda a alguien o a todos.\n\n> **hug**\n Abraza a alguien o a ti mismo.\n\n> **kiss**\n Besa a un usuario.\n\n> **sad**\n Gifs tristes.\n\n> **cry**\n Gifs llorando.\n\n> **sape**\n Dale un sape a alguien.\n\n> **punch**\nTira un golpe a alguien.\n\n> **kill**\nMata a un usario.')
+    .setDescription('> **hi**\n> Saluda a alguien o a todos.\n\n> **hug**\n> Abraza a alguien o a ti mismo.\n\n> **kiss**\n> Besa a un usuario.\n\n> **sad**\n> Modo Sad.\n\n> **cry**\n> Modo Sad 2.0.\n\n> **sape**\n> Dale un sape a alguien.\n\n> **punch**\n> Tira un golpe a alguien.\n\n> **kill**\n> Mata a un usario.')
 
   const helpnsfw = new Discord.MessageEmbed()
     .setTitle('🔞 • Comandos NSFW')
@@ -7619,7 +7619,7 @@ client.on('messageCreate', async message => {
         return ['📌','💡','🔒','🤣','😎','☕','🥂','💃','🔞','⬅️'].includes(reaction.emoji.name) && user.id == message.author.id;
       };
 
-      editado.awaitReactions({filter, max: 5, time: 60000, errors: ['time']}).catch(() => {
+      editado.awaitReactions({filter, max: 1, time: 60000, errors: ['time']}).catch(() => {
 
         editado.edit({embeds: [embednoconf]})
         editado.reactions.removeAll()
@@ -7660,36 +7660,43 @@ client.on('messageCreate', async message => {
         if(reaccion.emoji.name === '🤣'){
 
           //editado.reactions.removeAll()
+          reaccion.users.remove(message.author.id)
           editado.edit({embeds: [helpdiv]})
         }
         if(reaccion.emoji.name === '😎'){
 
           //editado.reactions.removeAll()
+          reaccion.users.remove(message.author.id)
           editado.edit({embeds: [helprea]})
         }
         if(reaccion.emoji.name === '☕'){
 
           //editado.reactions.removeAll()
+          reaccion.users.remove(message.author.id)
           editado.edit({embeds: [helpcaf]})
         }
         if(reaccion.emoji.name === '🥂'){
 
           //editado.reactions.removeAll()
+          reaccion.users.remove(message.author.id)
           editado.edit({embeds: [helpbar]})
         }
         if(reaccion.emoji.name === '💃'){
 
           //editado.reactions.removeAll()
+          reaccion.users.remove(message.author.id)
           editado.edit({embeds: [helpdis]})
         }
         if(reaccion.emoji.name === '🔞'){
 
           //editado.reactions.removeAll()
+          reaccion.users.remove(message.author.id)
           editado.edit({embeds: [helpnsfw]})
         }
         if(reaccion.emoji.name === '⬅️'){
 
           //editado.reactions.removeAll()
+          reaccion.users.remove(message.author.id)
           editado.edit({embeds: [helpprincipal]})
         }
         
