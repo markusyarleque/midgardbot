@@ -2008,7 +2008,7 @@ client.on('messageCreate', async message => {
 
         if (!users) {
           
-          const rand = message.guild.members.cache.find();
+          const rand = message.guild.members.cache.random();
 
           let resp = [`El porcetanje de ${message.author.username} & ${rand.user.username} es: `,`Oh vaya, calculo que el amor de ${message.author.username} & ${rand.user.username} es un: `,`${message.author.username} & ${rand.user.username} tienen un: `]
 
@@ -2041,7 +2041,7 @@ client.on('messageCreate', async message => {
           .setTimestamp(new Date())
           .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] })
-          
+
         }
         
     }
