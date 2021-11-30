@@ -30,6 +30,7 @@
     "fs": "^0.0.1-security",
     "marsnpm": "^0.5.2",
     "megadb": "^3.4.0",
+    "moment": "^2.29.1",
     "nekos.life": "^2.0.7",
     "poke-over": "^1.0.5",
     "reddit-fetch": "^1.5.1"
