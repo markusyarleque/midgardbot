@@ -2019,7 +2019,7 @@ client.on('messageCreate', async message => {
           .setTitle(`${msg}`)
           .setDescription(`${heard} ${random} % ${heard}`)
           .setImage(`${image}`)
-          .setColor(0xff4d4d)
+          .setColor('RANDOM')
           .setTimestamp(new Date())
           .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] })
@@ -2037,7 +2037,7 @@ client.on('messageCreate', async message => {
           .setTitle(`${msg}`)
           .setDescription(`${heard} ${random} % ${heard}`)
           .setImage(`${image}`)
-          .setColor(0xff4d4d)
+          .setColor('RANDOM')
           .setTimestamp(new Date())
           .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] })
