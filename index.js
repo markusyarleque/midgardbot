@@ -811,7 +811,7 @@ client.on('messageCreate', async message => {
           .setTitle('📧 | Reporte')
           .setColor('RANDOM')
           .setDescription('Reporte confirmado con éxito! <a:emoji_266:812426331685519393>')
-          .addField('Bug reportado:', reporte)
+          .addField('Bug reportado:', '<a:flech:915156906258071554> '+reporte)
           .setTimestamp(new Date())
           .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
     
@@ -822,7 +822,7 @@ client.on('messageCreate', async message => {
           .setThumbnail(`https://assets.sutori.com/user-uploads/image/bc331db1-aa9d-4684-b73e-8a1fcb7d751b/aa64184f325ce5cc6abe613d51383870.gif`)
           .setTitle('📧 | Reporte')
           .setColor('RANDOM')
-          .addField('Ha llegado el siguiente reporte:', reporte)
+          .addField('Ha llegado el siguiente reporte:', '<a:flech:915156906258071554> '+reporte)
           .setTimestamp(new Date())
           .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
     
@@ -882,7 +882,7 @@ client.on('messageCreate', async message => {
           .setTitle('<a:corazonBlack_FD:880526799736557679> | Sugerencia')
           .setColor('RANDOM')
           .setDescription('Sugerencia realizada con éxito! <a:emoji_266:812426331685519393>')
-          .addField('Sugerencia:', reporte)
+          .addField('Sugerencia:', '<a:flech:915156906258071554> '+reporte)
           .setTimestamp(new Date())
           .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
     
@@ -893,7 +893,7 @@ client.on('messageCreate', async message => {
           .setThumbnail(`https://media.giphy.com/media/Jzw7qUU2ZMw7DYpQV8/giphy.gif`)
           .setTitle('<a:corazonBlack_FD:880526799736557679> | Sugerencia')
           .setColor('RANDOM')
-          .addField('Ha llegado la siguiente sugerencia:', reporte)
+          .addField('Ha llegado la siguiente sugerencia:', '<a:flech:915156906258071554> '+reporte)
           .setTimestamp(new Date())
           .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
     
