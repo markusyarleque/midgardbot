@@ -735,7 +735,7 @@ client.on('messageCreate', async message => {
     //.addField('Creado el:', server.createdAt, false)
     .addField('Creado el:', moment(server.createdTimestamp).format('LL') + ' a las '+moment(server.createdTimestamp).format('LT') + ' [' + moment(server.createdTimestamp).fromNow()+' ]', false)
     
-    .addField('Miembros:', '---> '+server.memberCount, true)
+    .addField('Miembros:', server.memberCount, true)
     .addField('Region:', regions[server.region], false)
     .addField('Nivel:', `${server.premiumTier}`, true)
     //.addField('Nivel:', server.mfaLevel, false)
@@ -753,7 +753,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setFooter(`Malta's Bot`, `${message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')}`);
         
-   message.channel.send({ embed });
+   message.channel.send({ embeds: embed });
 
     }
 
@@ -959,7 +959,7 @@ client.on('messageCreate', async message => {
             .setTimestamp(new Date())
             .setFooter(`🌎┃「Midgard」`, 'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
               
-           message.channel.send({ embed });
+           message.channel.send({ embeds: embed });
 
         } else{
 
@@ -981,7 +981,7 @@ client.on('messageCreate', async message => {
             .setTimestamp(new Date())
             .setFooter(`🌎┃「Midgard」`, 'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
               
-            message.channel.send({ embed });
+            message.channel.send({ embeds: embed });
         }
         
     }
