@@ -7605,10 +7605,6 @@ client.on('messageCreate', async message => {
   const embedespera = new Discord.MessageEmbed()
     .setDescription('<a:cargando:887482093481902101> | Espera mientras cargan las reacciones...')
     .setColor('RANDOM')
-
-  const embednoconf = new Discord.MessageEmbed()
-    .setDescription(`¡No confirmaste a tiempo! <:enojado:882877729266098186>`)
-    .setColor('RANDOM')
   
   if(message.content.startsWith(prefix + 'help')){
 
