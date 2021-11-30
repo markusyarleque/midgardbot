@@ -7588,7 +7588,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
-    .setDescription('> **||tetas||**\n\n> **||pussy||**\n\n> **||culo||**\n\n> **||dick||**\n\n> **||lick||**\n\n> **||suck||**\n\n> **||suckb||**\n\n> **||sboobs||**\n\n> **||fuck||**\n\n> **||anal||**\n\n> **||cum||**\n\n> **||porno||**\n\n> **||4k||**\n\n> **||nekosolo||**\n\n> **||gonewild||**\n\n')
+    .setDescription('> **||tetas||**\n> **||pussy||**\n> **||culo||**\n> **||dick||**\n> **||lick||**\n> **||suck||**\n> **||suckb||**\n> **||sboobs||**\n> **||fuck||**\n> **||anal||**\n> **||cum||**\n> **||porno||**\n> **||4k||**\n> **||nekosolo||**\n> **||gonewild||**\n')
 
   const embedespera = new Discord.MessageEmbed()
     .setDescription('<a:cargando:887482093481902101> | Espera mientras cargan las reacciones...')
