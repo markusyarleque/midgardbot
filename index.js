@@ -7638,12 +7638,12 @@ client.on('messageCreate', async message => {
 
           try {
             for (const reaction of userReactions.values()) {
-              await reaction.users.remove(message.author.id);
+              reaction.users.remove(message.author.id);
             }
           } catch (error) {
             console.error('Falla al remover la reacción');
           }
-          
+
         }
         else if(reaccion.emoji.name === '💡'){
 
