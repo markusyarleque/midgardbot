@@ -7629,7 +7629,7 @@ client.on('messageCreate', async message => {
         const reaccion = coleccionado.last()
 
         const userReactions = coleccionado.filter(reaction => reaction.users.cache.has(message.author.id));
-      
+
         if(reaccion.emoji.name === '📌'){
 
           // editado.reactions.removeAll()
@@ -7637,47 +7637,47 @@ client.on('messageCreate', async message => {
           editado.edit({embeds: [helpinfo]})
 
         }
-        else if(reaccion.emoji.name === '💡'){
+        if(reaccion.emoji.name === '💡'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helputil]})
         }
-        else if(reaccion.emoji.name === '🔒'){
+        if(reaccion.emoji.name === '🔒'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helpmod]})
         }
-        else if(reaccion.emoji.name === '🤣'){
+        if(reaccion.emoji.name === '🤣'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helpdiv]})
         }
-        else if(reaccion.emoji.name === '😎'){
+        if(reaccion.emoji.name === '😎'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helprea]})
         }
-        else if(reaccion.emoji.name === '☕'){
+        if(reaccion.emoji.name === '☕'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helpcaf]})
         }
-        else if(reaccion.emoji.name === '🥂'){
+        if(reaccion.emoji.name === '🥂'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helpbar]})
         }
-        else if(reaccion.emoji.name === '💃'){
+        if(reaccion.emoji.name === '💃'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helpdis]})
         }
-        else if(reaccion.emoji.name === '🔞'){
+        if(reaccion.emoji.name === '🔞'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helpnsfw]})
         }
-        else if(reaccion.emoji.name === '⬅️'){
+        if(reaccion.emoji.name === '⬅️'){
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helpprincipal]})
