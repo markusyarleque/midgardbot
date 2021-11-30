@@ -7636,14 +7636,6 @@ client.on('messageCreate', async message => {
           //reaction.users.remove(user.id)
           editado.edit({embeds: [helpinfo]})
 
-          try {
-            for (const reaction of userReactions.values()) {
-              reaction.users.remove(message.author.id);
-            }
-          } catch (error) {
-            console.error('Falla al remover la reacción');
-          }
-
         }
         else if(reaccion.emoji.name === '💡'){
 
@@ -7689,6 +7681,14 @@ client.on('messageCreate', async message => {
 
           //editado.reactions.removeAll()
           editado.edit({embeds: [helpprincipal]})
+        }
+        
+        try {
+          for (const reaction of userReactions.values()) {
+            reaction.users.remove(message.author.id);
+          }
+        } catch (error) {
+          console.error('Falla al remover la reacción');
         }
 
       })
