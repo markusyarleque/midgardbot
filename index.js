@@ -1512,7 +1512,6 @@ client.on('messageCreate', async message => {
     
         if(!role) return message.channel.send('Rol no encontrado en el servidor.');
     
-        const
         const embed = new Discord.MessageEmbed()
         
           .setAuthor(`Solicitado por: ${message.author.username}`,`${message.author.displayAvatarURL()}`)
