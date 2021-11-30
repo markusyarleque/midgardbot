@@ -7364,11 +7364,11 @@ client.on('messageCreate', async message => {
 
         vip.establecer(user.id, user.user.tag);
 
-        message.channel.send(
-            new Discord.MessageEmbed()
-            .setDescription('El usuario **'+user.user.tag+' ** ha sido añadido a la lista VIP.')
-            .setColor('RANDOM')
-        )
+        const embed = new Discord.MessageEmbed()
+          .setDescription('El usuario **'+user.user.tag+' ** ha sido añadido a la lista VIP.')
+          .setColor('RANDOM')
+
+        message.channel.send({embeds: [embed]})
     }
 
     if(command === 'removevip')
@@ -7384,11 +7384,11 @@ client.on('messageCreate', async message => {
 
         vip.eliminar(`${user.id}`)
 
-        message.channel.send(
-            new Discord.MessageEmbed()
-            .setDescription('El usuario <@'+user+' > ha sido eliminado de la lista VIP!.')
-            .setColor('RANDOM')
-        )
+        const embed = new Discord.MessageEmbed()
+          .setDescription('El usuario **'+user.user.tag+' ** ha sido eliminado de la lista VIP.')
+          .setColor('RANDOM')
+
+        message.channel.send({embeds: [embed]})
     }
 
     var tt = [
@@ -7450,11 +7450,11 @@ client.on('messageCreate', async message => {
 
         bl.establecer(user.id, user.user.tag);
 
-        message.channel.send(
-            new Discord.MessageEmbed()
-            .setDescription('El usuario **'+user.user.tag+' ** ha sido añadido a la lista negra.')
-            .setColor('RANDOM')
-        )
+        const embed = new Discord.MessageEmbed()
+          .setDescription('El usuario **'+user.user.tag+' ** ha sido añadido a la lista Negra!.')
+          .setColor('RANDOM')
+
+        message.channel.send({embeds: [embed]})
     }
 
     if(command === 'removebl')
@@ -7470,11 +7470,11 @@ client.on('messageCreate', async message => {
 
         bl.eliminar(`${user.id}`)
 
-        message.channel.send(
-            new Discord.MessageEmbed()
-            .setDescription('El usuario **'+user.user.tag+' ** ha sido eliminado de la lista negra!.')
-        .setColor('RANDOM')
-        )
+        const embed = new Discord.MessageEmbed()
+          .setDescription('El usuario **'+user.user.tag+' ** ha sido elimado de la lista Negra.')
+          .setColor('RANDOM')
+
+        message.channel.send({embeds: [embed]})
     }
 
     //COMANDOS DE AYUDA
