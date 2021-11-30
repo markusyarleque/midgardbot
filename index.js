@@ -125,7 +125,7 @@ client.on('messageDelete', (message) => {
       Attachs.forEach(m => {//esto es por si hay más de una imagen
 
         imgdelete.setImage(m.proxyURL)
-        //canal.send({file: [m.proxyURL]})//enviamos la imagen para enviar la imagen en un embed
+        //canal.send({file: [m.proxyURL]})//enviamos la imagen 
     
     //.setImage(m.proxyURL)
   
