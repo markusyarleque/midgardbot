@@ -1977,7 +1977,6 @@ client.on('messageCreate', async message => {
 
         let users =  message.mentions.users.first();
     
-        if (!users) return message.reply('Menciona a alguien porfavor!')
         if (users === message.author) return message.channel.send('**No puedes hacer eso contigo mismo**');
         if (users === client.user) return message.channel.send('**No puedo calcular eso conmigo!**')
     
@@ -2006,20 +2005,45 @@ client.on('messageCreate', async message => {
           image='https://i.gifer.com/9mZB.gif';
     
         }
+
+        if (!users) {
+          
+          const rand = message.guild.members.cache.find();
+
+          let resp = [`El porcetanje de ${message.author.username} & ${rand.user.username} es: `,`Oh vaya, calculo que el amor de ${message.author.username} & ${rand.user.username} es un: `,`${message.author.username} & ${rand.user.username} tienen un: `]
+
+          let msg = resp[Math.floor(Math.random() * resp.length)] 
+
+          const embed = new Discord.MessageEmbed()
+          .setAuthor(`Midgard's Love`,'https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png')
+          .setTitle(`${msg}`)
+          .setDescription(`${heard} ${random} % ${heard}`)
+          .setImage(`${image}`)
+          .setColor(0xff4d4d)
+          .setTimestamp(new Date())
+          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          message.channel.send({ embeds: [embed] })
+
+        }
     
-        let resp = [`El porcetanje de ${message.author.username} & ${users.username} es: `,`Oh vaya, calculo que el amor de ${message.author.username} & ${users.username} es un: `,`${message.author.username} & ${users.username} tienen un: `]
+        else {
+
+          let resp = [`El porcetanje de ${message.author.username} & ${users.username} es: `,`Oh vaya, calculo que el amor de ${message.author.username} & ${users.username} es un: `,`${message.author.username} & ${users.username} tienen un: `]
     
-        let msg = resp[Math.floor(Math.random() * resp.length)] 
+          let msg = resp[Math.floor(Math.random() * resp.length)] 
+          
+          const embed = new Discord.MessageEmbed()
+          .setAuthor(`Midgard's Love`,'https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png')
+          .setTitle(`${msg}`)
+          .setDescription(`${heard} ${random} % ${heard}`)
+          .setImage(`${image}`)
+          .setColor(0xff4d4d)
+          .setTimestamp(new Date())
+          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          message.channel.send({ embeds: [embed] })
+          
+        }
         
-        const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's Love`,'https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png')
-        .setTitle(`${msg}`)
-        .setDescription(`${heard} ${random} % ${heard}`)
-        .setImage(`${image}`)
-        .setColor(0xff4d4d)
-        .setTimestamp(new Date())
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-        message.channel.send({ embeds: [embed] })
     }
 
     if(command === 'meme')
