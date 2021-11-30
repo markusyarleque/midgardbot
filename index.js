@@ -751,7 +751,7 @@ client.on('messageCreate', async message => {
     .setColor('RANDOM')
     
     .setTimestamp(new Date())
-    .setFooter(message.author.username+'#'+message.authon.discriminator, `${message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')}`);
+    .setFooter(message.author.username+'#'+message.author.discriminator, `${message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')}`);
         
    message.channel.send({ embeds: [embed] });
 
