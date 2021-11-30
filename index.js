@@ -7633,7 +7633,7 @@ client.on('messageCreate', async message => {
         if(reaccion.emoji.name === '📌'){
 
           // editado.reactions.removeAll()
-          reaccion.users.remove(user.id)
+          reaccion.users.remove(message.author.id)
           editado.edit({embeds: [helpinfo]})
           
        /* try {
