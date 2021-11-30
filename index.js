@@ -7471,7 +7471,7 @@ client.on('messageCreate', async message => {
         bl.eliminar(`${user.id}`)
 
         const embed = new Discord.MessageEmbed()
-          .setDescription('El usuario **'+user.user.tag+' ** ha sido elimado de la lista Negra.')
+          .setDescription('El usuario **'+user.user.tag+' ** ha sido elimado de la lista Negra!.')
           .setColor('RANDOM')
 
         message.channel.send({embeds: [embed]})
@@ -7516,7 +7516,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
-    .setDescription('> **ping**\n Comprueba la latencia del bot y de tus mensajes.\n\n> **stats**\n Muestra la info y estado del bot.\n\n> **help**\n Menú de ayuda con los comandos del bot\n\n> **server**\n Muestra información de un servidor determinado.\n\n> **report**\n Reportar un bug del bot.\n\n> **suggestion**\n Enviar una sugerencia para mejorar el bot.\n\n')
+    .setDescription('> **ping**\n> Comprueba la latencia del bot y de tus mensajes.\n\n> **stats**\n> Muestra la info y estado del bot.\n\n> **help**\n> Menú de ayuda con los comandos del bot\n\n> **server**\n Muestra información de un servidor determinado.\n\n> **report**\n Reportar un bug del bot.\n\n> **suggestion**\n Enviar una sugerencia para mejorar el bot.\n\n')
 
   const helputil = new Discord.MessageEmbed()
     .setTitle('💡 • Comandos de Utilidad')
