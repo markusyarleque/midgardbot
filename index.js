@@ -747,7 +747,7 @@ client.on('messageCreate', async message => {
 
     .addField('Canales de Texto:', '---> '+channels.filter(channel => channel.type === 'GUILD_TEXT').size , true)
     .addField('Canales de Voz:', '---> '+channels.filter(channel => channel.type === 'GUILD_VOICE').size , true)
-    .setImage(server.banner)
+    .setImage(server.bannerURL({ dynamic: true }))
     .setColor('RANDOM')
     
     .setTimestamp(new Date())
