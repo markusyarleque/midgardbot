@@ -964,8 +964,8 @@ client.on('messageCreate', async message => {
             .setColor(0x66b3ff)
     
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`, 'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              
+            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+             
            message.channel.send({ embeds: [embed] });
 
         } else{
@@ -983,11 +983,11 @@ client.on('messageCreate', async message => {
             .addField('Cuenta Creada', userm.createdAt.toLocaleDateString()+', '+userm.createdAt.toLocaleTimeString(), true)
             .addField('Fecha de Ingreso', message.member.joinedAt.toLocaleDateString()+', '+message.member.joinedAt.toLocaleTimeString(), true )
             .addField('Roles', message.member.roles.cache.map(roles => `\`${roles.name}\``).join(', '))
-            .setColor(0x66b3ff)
+            .setColor('RANDOM')
     
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`, 'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
-              
+            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+             
             message.channel.send({ embeds: [embed] });
         }
         
@@ -1093,7 +1093,7 @@ client.on('messageCreate', async message => {
     
     }
 
-    if(command === 'remindme'){
+    if(command === 'remindme' || command === 'rm'){
 
         let obtener = args[0]
         let mensaje = args[1]
@@ -1110,7 +1110,7 @@ client.on('messageCreate', async message => {
     
           function reminder() {
     
-            message.reply(' Tengo este recordatorio para ti: ' + mensaje)
+            message.reply('<a:exclama2:880930071731392512> | Tengo este recordatorio para ti: ' + mensaje)
     
           }
     
@@ -1121,7 +1121,7 @@ client.on('messageCreate', async message => {
               if (obtener.slice(0, -1) > 60) return message.channel.send('No puede ser mayor de 60 segundos')
     
               var msDelay = obtener.slice(0, -1)*1000
-              message.reply('Acabas de establecer un recordatorio en ' + obtener.slice(0, -1) + ' segundos:\n'+mensaje);
+              message.channel.send('<a:reloj:915171222961135646> | Acabas de establecer un recordatorio en ' + obtener.slice(0, -1) + ' segundos:\n<a:flech:915156906258071554> '+mensaje);
               setTimeout(reminder, msDelay);
               break
             }
@@ -1131,7 +1131,7 @@ client.on('messageCreate', async message => {
               if (obtener.slice(0, -1) > 60) return message.channel.send('No puede ser mayor de 60 minutos')
     
               var msDelay = obtener.slice(0, -1)*60000
-              message.reply('Acabas de establecer un recordatorio en ' + obtener.slice(0, -1) + ' minutos:\n'+mensaje);
+              message.channel.send('<a:reloj:915171222961135646> | Acabas de establecer un recordatorio en ' + obtener.slice(0, -1) + ' minutos:\n<a:flech:915156906258071554> '+mensaje);
               setTimeout(reminder, msDelay);
               break
             }
@@ -1141,14 +1141,14 @@ client.on('messageCreate', async message => {
               if (obtener.slice(0, -1) > 24) return message.channel.send('No puede ser mayor de 24 horas')
     
               var msDelay = obtener.slice(0, -1)*3600000
-              message.reply('Acabas de establecer un recordatorio en ' + obtener.slice(0, -1) + ' horas:\n'+mensaje);
+              message.channel.send('<a:reloj:915171222961135646> | Acabas de establecer un recordatorio en ' + obtener.slice(0, -1) + ' horas:\n<a:flech:915156906258071554> '+mensaje);
               setTimeout(reminder, msDelay);
               break
             }
     
             default: {
     
-              message.channel.send('Lo estas haciendo mal es:\n<1 - 60>s <recordatorio>\n<1 - 60>m <recordatorio>\n<1 -  24>h <recordatorio>\n ____Ejemplo:____\n```1m Recordar ir a sacar un perro```');
+              message.channel.send('Lo estás haciendo mal, es:\n<1 - 60>s <recordatorio>\n<1 - 60>m <recordatorio>\n<1 -  24>h <recordatorio>\n ____Ejemplo:____\n```1m Recordar ir a sacar un perro```');
               break;
             }
           }
@@ -1231,9 +1231,8 @@ client.on('messageCreate', async message => {
     
             let count1 = setInterval(async () => {
     
-              await msg.edit(time <= 0 ? `${message.author}... Se acabó el tiempo ⌛` : String(time))
-              //message.channel.send(`${message.author} La cuenta regresiva ha terminado`)
-              time <= 0 ? clearInterval(count1) : time -= 1
+              await msg.edit(time <= 0 ? `... Se acabó el tiempo ⌛` : String(time))
+              time <= 0 ? clearInterval(count1) : time -= 2
     
             }, 2000)
     
@@ -1242,13 +1241,14 @@ client.on('messageCreate', async message => {
     
             let count2 = setInterval(async () => {
     
-              await msg.edit(time <= 0  ? `${message.author}... Se acabó el tiempo ⌛` : String(time))
-              //message.channel.send(`${message.author} La cuenta regresiva ha terminado`)
-              time <= 0 ? clearInterval(count2) : time -= 2
+              await msg.edit(time <= 0  ? `... Se acabó el tiempo ⌛` : String(time))
+              time <= 0 ? clearInterval(count2) : time -= 3
     
             }, 3000)
             
           }
+
+          message.channel.send(`${message.author} La cuenta regresiva ha terminado!`)
     }
 
     if(command === 'poll')
