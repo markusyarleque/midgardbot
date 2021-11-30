@@ -1236,7 +1236,8 @@ client.on('messageCreate', async message => {
     
             }, 2000)
     
-    
+            message.channel.send(`${message.author} La cuenta regresiva ha terminado!`)
+            
           } else {
     
             let count2 = setInterval(async () => {
@@ -1245,10 +1246,11 @@ client.on('messageCreate', async message => {
               time <= 0 ? clearInterval(count2) : time -= 3
     
             }, 3000)
+
+            message.channel.send(`${message.author} La cuenta regresiva ha terminado!`)
             
           }
 
-          message.channel.send(`${message.author} La cuenta regresiva ha terminado!`)
     }
 
     if(command === 'poll')
