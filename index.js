@@ -754,7 +754,7 @@ client.on('messageCreate', async message => {
 
     .addField('Canales de Texto:', '<a:flech:915156906258071554> '+channels.filter(channel => channel.type === 'GUILD_TEXT').size , true)
     .addField('Canales de Voz:', '<a:flech:915156906258071554> '+channels.filter(channel => channel.type === 'GUILD_VOICE').size , true)
-    .setImage(server.bannerURL({ dynamic: true, size: 4096 }))
+    .setImage(server.bannerURL({ dynamic: true, size: 4096 }).replace('webp','png'))
     .setColor('RANDOM')
     
     .setTimestamp(new Date())
@@ -952,7 +952,7 @@ client.on('messageCreate', async message => {
             .setThumbnail(user.displayAvatarURL({ dynamic: true }).replace('webp','png'))
             .setAuthor('Información del Usuario', 'https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png')
             //.addField('Jugando a', user.presence.game != null ? user.presence.game.name : 'Nada', true)
-            .addField('Estado:', user.presence.status, true)
+            //.addField('Estado:', user.presence.status, true)
             .addField('Color:', message.member.displayHexColor, true)
             .addField('Usuario:', user.username+'#'+user.discriminator, true)
             .addField('Apodo:', message.member.nickname ? message.member.nickname : 'No tiene', true)
@@ -974,7 +974,7 @@ client.on('messageCreate', async message => {
             .setThumbnail(userm.displayAvatarURL({ dynamic: true }).replace('webp','png'))
             .setAuthor('Información del Usuario', 'https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png')
             //.addField('Jugando a', userm.presence.game != null ? userm.presence.game.name : 'Nada', true)
-            .addField('Estado:', userm.presence.status, true)
+            //.addField('Estado:', userm.presence.status, true)
             .addField('Color:', userm.displayHexColor, true)
             .addField('Usuario:', userm.username+'#'+userm.discriminator, true)
             .addField('Apodo:', userm.nickname ? userm.nickname : 'No tiene', true)
