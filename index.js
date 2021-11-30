@@ -293,7 +293,7 @@ client.on('messageCreate', async message => {
     if (message.author.bot) return;
   
       if (message.content === 'Hola'){
-          //Si escribiera Hola, nos contestará con un mensaje personal
+        
           message.channel.send('Hola '+message.author.username+', cómo va tu día?');
         }
         if (message.content === 'hola'){
@@ -729,7 +729,7 @@ client.on('messageCreate', async message => {
     .setThumbnail(server.iconURL({ dynamic: true }))
     .setAuthor(server.name, 'https://media.discordapp.net/attachments/879633476532453386/880906710066294815/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485')
     .addField('ID:', server.id, false)
-    .addField('Dueño:', `${server.owner.user.tag} (${server.ownerID})` , true)
+    .addField('Dueño:', `${await server.fetchOwner().user.tag} (${(await server.fetchOwner()).id})` , true)
     //.addField('Creado el:', server.createdAt, false)
     .addField('Creado el:', moment(server.createdTimestamp).format('LL') + ' a las '+moment(server.createdTimestamp).format('LT') + ' [' + moment(server.createdTimestamp).fromNow()+' ]', false)
     
