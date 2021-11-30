@@ -766,6 +766,18 @@ client.on('messageCreate', async message => {
 
     let prohibidos = ['ID1', 'ID2'];
 
+    const embedercancel = new Discord.MessageEmbed()
+    .setDescription('Reporte cancelado. <:aisaMexicana:880315292381773856>')
+    .setColor('RANDOM')
+
+    const embedescancel = new Discord.MessageEmbed()
+    .setDescription('Sugerencia cancelada. <:aisaMexicana:880315292381773856>')
+    .setColor('RANDOM')
+
+    const embednoconf = new Discord.MessageEmbed()
+    .setDescription('¡No confirmaste a tiempo! <:enojado:882877729266098186>')
+    .setColor('RANDOM')
+
     if(command === 'report'){
 
     if(prohibidos.includes(message.author.id)) return message.channel.send('¡Tienes prohibido usar este comando por mal usarlo!');
@@ -797,7 +809,7 @@ client.on('messageCreate', async message => {
 
       m.awaitReactions({filter, max: 1, time: 60000, errors: ['time']}).catch(() => {
 
-        m.edit('¡No confirmaste a tiempo! <:enojado:882877729266098186>')
+        m.edit({ embeds: [embednoconf]})
         m.reactions.removeAll()
 
       }).then(coleccionado=> {
@@ -810,7 +822,7 @@ client.on('messageCreate', async message => {
           .setThumbnail(`https://assets.sutori.com/user-uploads/image/bc331db1-aa9d-4684-b73e-8a1fcb7d751b/aa64184f325ce5cc6abe613d51383870.gif`)
           .setTitle('📧 | Reporte')
           .setColor('RANDOM')
-          .setDescription('Reporte confirmado con éxito! <a:emoji_266:812426331685519393>')
+          .setDescription('Reporte confirmado con éxito! <a:clap:881331231021756437>')
           .addField('Bug reportado:', '<a:flech:915156906258071554> '+reporte)
           .setTimestamp(new Date())
           .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
@@ -829,7 +841,7 @@ client.on('messageCreate', async message => {
           channel.send({ embeds: [bugre]})
         } else if(reaccion.emoji.name === '❎') {
 
-          m.edit('Reporte cancelado. <:y_:868544745541087293>')
+          m.edit({embeds : [embedercancel]})
           m.reactions.removeAll()
 
         }
@@ -868,7 +880,7 @@ client.on('messageCreate', async message => {
 
       m.awaitReactions({filter, max: 1, time: 60000, errors: ['time']}).catch(() => {
 
-        m.edit('¡No confirmaste a tiempo! <:enojado:882877729266098186>')
+        m.edit({ embeds: [embednoconf]})
         m.reactions.removeAll()
 
       }).then(coleccionado=> {
@@ -881,7 +893,7 @@ client.on('messageCreate', async message => {
           .setThumbnail(`https://media.giphy.com/media/Jzw7qUU2ZMw7DYpQV8/giphy.gif`)
           .setTitle('<a:corazonBlack_FD:880526799736557679> | Sugerencia')
           .setColor('RANDOM')
-          .setDescription('Sugerencia realizada con éxito! <a:emoji_266:812426331685519393>')
+          .setDescription('Sugerencia realizada con éxito! <a:clap:881331231021756437>')
           .addField('Sugerencia:', '<a:flech:915156906258071554> '+reporte)
           .setTimestamp(new Date())
           .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
@@ -900,7 +912,7 @@ client.on('messageCreate', async message => {
           channel.send({ embeds: [bugre]})
         } else if(reaccion.emoji.name === '❎') {
 
-          m.edit('Sugerencia cancelada. <:y_:868544745541087293>')
+          m.edit({embeds : [embedescancel]})
           m.reactions.removeAll()
 
         }
@@ -6676,7 +6688,7 @@ client.on('messageCreate', async message => {
             const embed = new Discord.MessageEmbed()
             .setAuthor(`Midgard's Hot`,'https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png')
             //.setTitle('Imagen completa')
-            .setDescription(`**${message.author.username}** acaba de vaciarse <:y_:868544745541087293>`)
+            .setDescription(`**${message.author.username}** acaba de vaciarse <:aisaMexicana:880315292381773856>`)
             .setImage(ramdoncum)
             .setColor('RANDOM')
             .setTimestamp(new Date())
@@ -7138,7 +7150,7 @@ client.on('messageCreate', async message => {
               const embed = new Discord.MessageEmbed()
               .setAuthor(`Midgard's Hot`,'https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png')
               //.setTitle('Imagen completa')
-              .setDescription(`A **${message.author.username}** le están dando por detroit <:y_:868544745541087293>`)
+              .setDescription(`A **${message.author.username}** le están dando por detroit <:aisaMexicana:880315292381773856>`)
               .setImage(image)
               .setColor('RANDOM')
               .setTimestamp(new Date())
