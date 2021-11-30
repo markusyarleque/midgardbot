@@ -1232,12 +1232,12 @@ client.on('messageCreate', async message => {
             let count1 = setInterval(async () => {
     
               await msg.edit(time <= 0 ? `... Se acabó el tiempo ⌛` : String(time))
+              await message.channel.send(`${message.author} La cuenta regresiva ha terminado!`)
               time <= 0 ? clearInterval(count1) : time -= 2
     
             }, 2000)
     
-            message.channel.send(`${message.author} La cuenta regresiva ha terminado!`)
-            
+
           } else {
     
             let count2 = setInterval(async () => {
@@ -1246,8 +1246,6 @@ client.on('messageCreate', async message => {
               time <= 0 ? clearInterval(count2) : time -= 3
     
             }, 3000)
-
-            message.channel.send(`${message.author} La cuenta regresiva ha terminado!`)
             
           }
 
