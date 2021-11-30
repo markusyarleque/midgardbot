@@ -745,8 +745,8 @@ client.on('messageCreate', async message => {
     .addField('Emojis:', '--->'+emojis.size , false)
     .addField('Verificación:', '--->'+vl[server.verificationLevel] , false)
 
-    .addField('Canales de Texto:', channels.filter(channel => channel.type === 'text').size , true)
-    .addField('Canales de Voz:', channels.filter(channel => channel.type === 'voice').size , true)
+    .addField('Canales de Texto:', '--->'+channels.filter(channel => channel.type === 'text').size , true)
+    .addField('Canales de Voz:', '--->'+channels.filter(channel => channel.type === 'voice').size , true)
     .setImage(`https://media.discordapp.net/attachments/869426472706785290/880795102933565510/galaxy-purple-planet-wallpaper-for-android-android-live.jpg?width=862&height=533`)
     .setColor('RANDOM')
     
