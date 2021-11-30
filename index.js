@@ -7626,23 +7626,23 @@ client.on('messageCreate', async message => {
 
       }).then(coleccionado => {
 
-        const reaccion = coleccionado.last()
+        const reaccion = coleccionado.first()
 
         const userReactions = coleccionado.filter(reaction => reaction.users.cache.has(message.author.id));
 
         if(reaccion.emoji.name === '📌'){
 
           // editado.reactions.removeAll()
-          //reaction.users.remove(user.id)
+          reaction.users.remove(user.id)
           editado.edit({embeds: [helpinfo]})
           
-        try {
+       /* try {
           for (const reaction of userReactions.values()) {
             reaction.users.remove(message.author.id);
           }
         } catch (error) {
           console.error('Falla al remover la reacción');
-        }
+        }*/
 
         }
         if(reaccion.emoji.name === '💡'){
