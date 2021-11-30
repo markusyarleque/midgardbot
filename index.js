@@ -729,29 +729,29 @@ client.on('messageCreate', async message => {
   
     const embed = new Discord.MessageEmbed()
     .setThumbnail(server.iconURL({ dynamic: true }))
-    .setAuthor(server.name, 'https://media.discordapp.net/attachments/879633476532453386/880906710066294815/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485')
+    .setAuthor(server.name, client.user.avatarURL())
     .addField('ID:', server.id, false)
     .addField('Dueño:', `${(await server.fetchOwner()).user.tag} (${(await server.fetchOwner()).id})` , true)
     //.addField('Creado el:', server.createdAt, false)
     .addField('Creado el:', moment(server.createdTimestamp).format('LL') + ' a las '+moment(server.createdTimestamp).format('LT') + ' [' + moment(server.createdTimestamp).fromNow()+' ]', false)
     
-    .addField('Miembros:', '--->'+server.memberCount, true)
-    .addField('Region:', '--->'+regions[server.region], false)
-    .addField('Nivel:', '--->'+`${server.premiumTier}`, true)
+    .addField('Miembros:', '---> '+server.memberCount, true)
+    .addField('Region:', '---> '+regions[server.region], false)
+    .addField('Nivel:', '---> '+`${server.premiumTier}`, true)
     //.addField('Nivel:', server.mfaLevel, false)
-    .addField('Mejoras:', '--->'+server.premiumSubscriptionCount || '0', false)
+    .addField('Mejoras:', '---> '+server.premiumSubscriptionCount || '0', false)
 
-    .addField('Roles:', '--->'+roles.length , true)
-    .addField('Emojis:', '--->'+emojis.size , false)
-    .addField('Verificación:', '--->'+vl[server.verificationLevel] , false)
+    .addField('Roles:', '---> '+roles.length , true)
+    .addField('Emojis:', '---> '+emojis.size , false)
+    .addField('Verificación:', '--->' +vl[server.verificationLevel] , false)
 
-    .addField('Canales de Texto:', '--->'+channels.filter(channel => channel.type === 'text').size , true)
-    .addField('Canales de Voz:', '--->'+channels.filter(channel => channel.type === 'voice').size , true)
-    .setImage(`https://media.discordapp.net/attachments/869426472706785290/880795102933565510/galaxy-purple-planet-wallpaper-for-android-android-live.jpg?width=862&height=533`)
+    .addField('Canales de Texto:', '---> '+channels.filter(channel => channel.type === 'GUILD_TEXT').size , true)
+    .addField('Canales de Voz:', '---> '+channels.filter(channel => channel.type === 'GUILD_VOICE').size , true)
+    .setImage(server.banner)
     .setColor('RANDOM')
     
     .setTimestamp(new Date())
-    .setFooter(`Malta's Bot`, `${message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')}`);
+    .setFooter(message.author.username+'#'+message.authon.discriminator, `${message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')}`);
         
    message.channel.send({ embeds: [embed] });
 
