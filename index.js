@@ -331,7 +331,7 @@ client.on('messageCreate', async message => {
           message.channel.send('Buen día precios@ ❤');
         }
         if (message.content === 'buen día'){
-          //Si escribiera Buenos días, nos contestará con un mensaje personalizado
+          //
           message.channel.send('Buen día precios@ ❤');
         }
       
