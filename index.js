@@ -400,7 +400,7 @@ client.on('messageCreate', async message => {
           message.react(`<a:cerveza:880635824021065738>`)
         }
         if (message.content === 'welcome'){
-          //Si escribiera Buenos días, nos contestará con un mensaje personalizado
+          //Si escribiera Buenos días, nos contestará con un mensaje perso
           message.react(`<a:pasito:877116925291946094>`)
           message.react(`<a:cerveza:880635824021065738>`)
         }
