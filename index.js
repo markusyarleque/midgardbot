@@ -429,7 +429,7 @@ client.on('messageCreate', async message => {
               return ['👍', '👎'].includes(reaction.emoji.name) && user.id == message.author.id;
             };
       
-            m.awaitReactions({filter, max: 1, time: 20000, errors: ['time']}).catch(() => {
+            m.awaitReactions({filter, max: 1, time: 5000, errors: ['time']}).catch(() => {
       
               m.edit('¡No confirmaste a tiempo! <:enojado:882877729266098186>')
               m.reactions.removeAll()
