@@ -436,7 +436,7 @@ client.on('messageCreate', async message => {
       
             }).then(coleccionado=> {
       
-              const reaccion = coleccionado.first();
+              const reaccion = coleccionado.first()
       
               if(reaccion.emoji.name === '👍') {
       
