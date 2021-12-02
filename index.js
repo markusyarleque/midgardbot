@@ -3064,7 +3064,32 @@ client.on('messageCreate', async message => {
         'https://media.discordapp.net/attachments/853500788848853002/877026293949034526/27.gif?width=297&height=297',
         'https://media.discordapp.net/attachments/853500788848853002/877026307911843850/28.gif?width=294&height=226',
         'https://media.discordapp.net/attachments/853500788848853002/877026322193457192/29.gif?width=486&height=246',
-        'https://media.discordapp.net/attachments/853500788848853002/877026333287407696/30.gif?width=432&height=243'
+        'https://media.discordapp.net/attachments/853500788848853002/877026333287407696/30.gif?width=432&height=243',
+        'https://media.discordapp.net/attachments/822642787555213312/916055772859863110/31.gif',
+        'https://media.discordapp.net/attachments/822642787555213312/916055773522583563/32.gif',
+        'https://media.discordapp.net/attachments/822642787555213312/916055774193668136/33.gif?width=262&height=468',
+        'https://media.discordapp.net/attachments/822642787555213312/916055774902517840/34.gif',
+        'https://media.discordapp.net/attachments/822642787555213312/916055775120613466/35.gif',
+        'https://media.discordapp.net/attachments/822642787555213312/916055775623909416/36.gif',
+        'https://media.discordapp.net/attachments/822642787555213312/916055775946879006/37.gif',
+        'https://media.discordapp.net/attachments/822642787555213312/916055776311795773/38.gif',
+        'https://media.discordapp.net/attachments/822642787555213312/916055776638947430/39.gif',
+        'https://media.discordapp.net/attachments/822642787555213312/916055777435861052/40.gif',
+        'https://media.discordapp.net/attachments/822642787555213312/916055841424158830/41.gif',
+        'https://media.discordapp.net/attachments/822642787555213312/916055841738752091/42.gif',
+        'https://media.discordapp.net/attachments/822642787555213312/916055842070077491/43.gif',
+        'https://media.discordapp.net/attachments/822642787555213312/916055842355310682/44.gif',
+        'https://media.discordapp.net/attachments/822642787555213312/916055842653081630/45.gif',
+        'https://media.discordapp.net/attachments/822642787555213312/916055843517136957/46.gif',
+        'https://media.discordapp.net/attachments/822642787555213312/916055844200800296/47.gif',
+        'https://media.discordapp.net/attachments/822642787555213312/916055844557291520/48.gif',
+        'https://media.discordapp.net/attachments/822642787555213312/916078739903897661/50.gif',
+        'https://media.discordapp.net/attachments/822642787555213312/916078787152740432/51.gif',
+        'https://media.discordapp.net/attachments/822642787555213312/916078787614085140/52.gif',
+        'https://media.discordapp.net/attachments/822642787555213312/916078788209696828/53.gif',
+        'https://media.discordapp.net/attachments/822642787555213312/916078788830441493/54.gif?width=293&height=468',
+        'https://media.discordapp.net/attachments/822642787555213312/916078789589602386/55.gif',
+        'https://media.discordapp.net/attachments/822642787555213312/916078790013255700/56.gif?width=411&height=468'
     ]
     
     if(command === 'perreo'){
