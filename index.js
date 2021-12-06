@@ -3336,7 +3336,7 @@ client.on('messageCreate', async message => {
             const embed = new Discord.MessageEmbed()
             .setAuthor(`Midgard's Disco`,'https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png')
             //.setTitle('Imagen completa')
-            .setDescription(`Opa! **${img.username}**, mira esta colegiala que ${message.author.username} te trajo. <:uyy:805310624523223041>`)
+            .setDescription(`Opa! **${img.username}**, mira esta colegiala que ${message.author.username} te trajo. <:uyy:880315359197024286>`)
             .setImage(ramdoncolegiala)
             .setColor('RANDOM')
             .setTimestamp(new Date())
