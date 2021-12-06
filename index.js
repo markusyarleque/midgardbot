@@ -6442,7 +6442,7 @@ client.on('messageCreate', async message => {
     
             const embed = new Discord.MessageEmbed()
             .setAuthor(`Midgard's Hot`,'https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png')
-            //.setTitle('Imagen completa')
+            //.setTitle('Imagen')
             .setDescription(`**${message.author.username}** mira esa papaya <a:pandanoveo:830321011508641832>`)
             .setImage(ramdonpussy)
             .setColor('RANDOM')
