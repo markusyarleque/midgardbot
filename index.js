@@ -436,7 +436,7 @@ client.on('messageCreate', async message => {
       
             }).then(coleccionado=> {
       
-              const reaccion = coleccionado.first()
+              const reaccion = coleccionado.first() ? coleccionado.first(): '❎'
       
               if(reaccion.emoji.name === '👍') {
       
@@ -812,7 +812,7 @@ client.on('messageCreate', async message => {
 
       }).then(coleccionado=> {
 
-        const reaccion = coleccionado.first();
+        const reaccion = coleccionado.first() ? coleccionado.first(): '❎';
 
         if(reaccion.emoji.name === '✅') {
 
@@ -883,7 +883,7 @@ client.on('messageCreate', async message => {
 
       }).then(coleccionado=> {
 
-        const reaccion = coleccionado.first();
+        const reaccion = coleccionado.first() ? coleccionado.first(): '❎';
 
         if(reaccion.emoji.name === '✅') {
 
@@ -7657,7 +7657,7 @@ client.on('messageCreate', async message => {
 
       }).then(coleccionado => {
 
-        const reaccion = coleccionado.first()
+        const reaccion = coleccionado.first() ? coleccionado.first(): '❎'
 
         //const userReactions = coleccionado.filter(reaction => reaction.users.cache.has(message.author.id));
 
