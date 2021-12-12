@@ -8260,7 +8260,7 @@ client.on('messageCreate', async message => {
         const embed = new Discord.MessageEmbed()
         .setThumbnail(`https://images-ext-2.discordapp.net/external/oGzLI-594lkzq8oCTGuB2RSxumC-9E6m7oqLqOw2dJA/https/cdn.discordapp.com/emojis/897240681075060736.gif`)
         .setAuthor(`${autor}`,client.user.displayAvatarURL())
-        //.setTitle(`${titulo}`)
+        //.settle(`${titulo}`)
         .setDescription(`<a:d_Fijao:897243194943737866> ${desc}`)
         .addField(`<a:diamante:887714567084449892> ${f1}`, `${d1}` , false)
         .addField(`<a:diamante:887714567084449892> ${f2}`, `${d2}` , false)
