@@ -703,8 +703,8 @@ client.on('messageCreate', async message => {
           .setThumbnail(`${filas.foto}`)
           .addField('<a:start:880922179280207934> Nivel', '<a:flech:915156906258071554> '+filas.nivel, true)
           .addField('<a:d_Fijao:897243194943737866> XP', '<a:flech:915156906258071554> '+filas.exp, true)
-          .addField('<a:CorazonMulticolor:880315280759345163> Carisma', '<a:flech:915156906258071554> '+filas.rep, true)
-          .addField('\u200B','\u200B',true)
+          .addField('<a:CorazonMulticolor:880315280759345163> Carisma', '<a:flech:915156906258071554> '+filas.rep, false)
+          .addField('\u200B','\u200B',false)
           .addField('<a:megaphone:912163796737486908> Frase', '<a:flech:915156906258071554> '+filas.frase, true)
           .setColor("RANDOM")
           .setFooter(`Midgard's VIP`,client.user.avatarURL())
@@ -733,7 +733,7 @@ client.on('messageCreate', async message => {
             if (err) return console.error(err.message)
             if (!filas) return message.channel.send('No hay perfil registrado para el usuario!')
     
-            let update = `UPDATE usuarios SET foto = ${i} WHERE idusuario = ${id}`;
+            let update = `UPDATE usuarios SET foto = "${i}" WHERE idusuario = ${id}`;
     
              db.run(update, function(err) {      
               if (err) return console.error("Error actualizar "+update+" --- "+err.message)
@@ -755,7 +755,7 @@ client.on('messageCreate', async message => {
             if (err) return console.error(err.message)
             if (!filas) return message.channel.send('No hay perfil registrado para el usuario!')
     
-            let update = `UPDATE usuarios SET frase = ${f} WHERE idusuario = ${id}`;
+            let update = `UPDATE usuarios SET frase = "${f}" WHERE idusuario = ${id}`;
     
              db.run(update, function(err) {      
               if (err) return console.error("Error actualizar "+update+" --- "+err.message)
