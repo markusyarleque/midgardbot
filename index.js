@@ -62,7 +62,7 @@ client.on('ready', () => {
   console.log('Listo!');
 
   //<-- CREATE TABLE USUARIO -->
-
+  
   let crear = "CREATE TABLE IF NOT EXISTS usuarios (idusuario TEXT, nivel INTEGER, exp INTEGER, rep INTEGER, frase BLOB, foto BLOB)";
 
   db.run(crear, function(err) {
@@ -635,9 +635,9 @@ client.on('messageCreate', async message => {
 
     let id = message.author.id;
     let i = message.author.displayAvatarURL();
-    let f = '';
+    let f = "";
     let sentencia = `SELECT * FROM usuarios WHERE idusuario = ${id}`;
-
+    
     db.get(sentencia, (err, filas) => {
       if (err) return console.error('Error 0: '+err.message)
       if (!filas){
