@@ -365,7 +365,7 @@ client.on('messageCreate', async message => {
         }
       
         if (message.content === 'Buenas tardes'){
-          //Si escribiera Buenos días, nos contestará con un mensaje personalizado
+          //Si escribiera Buenos días, nos contestará con un men
           message.channel.send('Buenas tardes precios@ ❤');
         }
         if (message.content === 'buenas tardes'){
