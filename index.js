@@ -634,14 +634,15 @@ client.on('messageCreate', async message => {
     //<-- INSERT USUARIO -->
 
     let id = message.author.id
-    let i = message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')
+    //let i = message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')
+    let i = 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif'
     let f = "NN"
     let sentencia = `SELECT * FROM usuarios WHERE idusuario = ${id}`
 
     db.get(sentencia, (err, filas) => {
       if (err) return console.error('Error 0: '+err.message)
       if (!filas){
-      let insert = `INSERT INTO usuarios(idusuario, nivel, exp, rep, frase, foto) VALUES(${id}, 0, 1, 0, ${f}, ${i})`
+      let insert = `INSERT INTO usuarios(idusuario, nivel, exp, rep, frase, foto) VALUES(${id}, 0, 1, 0, ${f}, "${i}")`
 
       db.run(insert, function(err) {
        if (err) return console.error('Error 1: '+insert+" ---- "+err.message)
