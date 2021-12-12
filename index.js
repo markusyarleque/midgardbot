@@ -8238,7 +8238,7 @@ client.on('messageCreate', async message => {
       
     }
 
-    if (message.content.startsWith(prefix +"embedp")){
+    if (message.content.startsWith(prefix +"emp")){
 
       let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
   
@@ -8252,9 +8252,7 @@ client.on('messageCreate', async message => {
       let d1 = split[4]
       let f2 = split[5]
       let d2 = split[6]
-      let f3 = split[7]
-      let d3 = split[8]
-      let imagen = split[9]
+      let imagen = split[7]
   
       
         const embed = new Discord.MessageEmbed()
