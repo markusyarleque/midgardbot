@@ -7496,12 +7496,12 @@ client.on('messageCreate', async message => {
 
     //ACCESO VIP
 
-    var id = ['753435606410985573']
+    var idm = ['753435606410985573']
 
     if(command === 'addvip')
     {
 
-        if(!id.some(id => message.author.id == id)) return message.channel.send('No tienes acceso a este comando.')
+        if(!idm.some(id => message.author.id == id)) return message.channel.send('No tienes acceso a este comando.')
     
         let user = message.mentions.members.first();
 
@@ -7521,7 +7521,7 @@ client.on('messageCreate', async message => {
     if(command === 'removevip')
     {
 
-        if(!id.some(id => message.author.id == id)) return message.channel.send('No tienes acceso a este comando.')
+        if(!idm.some(id => message.author.id == id)) return message.channel.send('No tienes acceso a este comando.')
     
         let user = message.mentions.members.first();
 
