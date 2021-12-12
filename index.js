@@ -881,7 +881,7 @@ client.on('messageCreate', async message => {
     //<-- SELECT LISTA TOP USUARIOS -->
 
     if(command === "top"){
-      let lista = `SELECT idusuario, nivel, exp FROM usuarios ORDER BY nivel DESC LIMIT 10`
+      let lista = `SELECT idusuario, nivel, exp FROM usuarios ORDER BY exp DESC LIMIT 10`
       let embed = new Discord.MessageEmbed()
  
       db.all(lista, (err, filas) => {
@@ -890,14 +890,14 @@ client.on('messageCreate', async message => {
  
         filas.map(ls => {
           if(client.users.cache.get(ls.idusuario)){
-            datos.push('__' + client.users.cache.get(ls.idusuario).tag + '__, Nivel: **'+ls.nivel+'**, Exp: **'+ls.exp+'**')
+            datos.push('__' + client.users.cache.get(ls.idusuario).tag + '__ <a:flech:915156906258071554> **'+ls.exp+'** XP (Nivel: **'+ls.nivel+'**)')
           }
-         
         });
  
-        embed.setTitle('Lista de usuarios (TOP Niveles)')
+        embed.setTitle('Lista de usuarios (TOP XP)')
         embed.setDescription(datos.join('\n'))   	
-       
+        embed.setColor("RANDOM")
+        embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
         message.channel.send({ embeds: [embed] });
  
       });
