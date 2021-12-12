@@ -8246,20 +8246,21 @@ client.on('messageCreate', async message => {
   
       const split = args.slice(0).join(" ").split(";");
       let autor = split[0]
-      let desc = split[1]
-      let f1 = split[2]
-      let d1 = split[3]
-      let f2 = split[4]
-      let d2 = split[5]
-      let f3 = split[6]
-      let d3 = split[7]
-      let imagen = split[8]
+      let titulo = split[1]
+      let desc = split[2]
+      let f1 = split[3]
+      let d1 = split[4]
+      let f2 = split[5]
+      let d2 = split[6]
+      let f3 = split[7]
+      let d3 = split[8]
+      let imagen = split[9]
   
       
         const embed = new Discord.MessageEmbed()
         .setThumbnail(`https://images-ext-2.discordapp.net/external/oGzLI-594lkzq8oCTGuB2RSxumC-9E6m7oqLqOw2dJA/https/cdn.discordapp.com/emojis/897240681075060736.gif`)
         .setAuthor(`${autor}`,client.user.displayAvatarURL())
-        //.settle(`${titulo}`)
+        .setTitle(`${titulo}`)
         .setDescription(`<a:d_Fijao:897243194943737866> ${desc}`)
         .addField(`<a:diamante:887714567084449892> ${f1}`, `${d1}` , false)
         .addField(`<a:diamante:887714567084449892> ${f2}`, `${d2}` , false)
