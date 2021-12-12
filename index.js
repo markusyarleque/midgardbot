@@ -63,7 +63,7 @@ client.on('ready', () => {
 
   //<-- CREATE TABLE USUARIO -->
   
-  let crear = "CREATE TABLE IF NOT EXISTS usuarios (idusuario TEXT, nivel INTEGER, exp INTEGER, rep INTEGER, frase BLOB, foto BLOB)";
+  let crear = "CREATE TABLE IF NOT EXISTS usuarios (idusuario TEXT, nivel INTEGER, exp INTEGER, rep INTEGER, frase BLOB, foto BLOB)"
 
   db.run(crear, function(err) {
     if (err) return console.error('Error crear tabla: '+err.message)
@@ -633,15 +633,15 @@ client.on('messageCreate', async message => {
 
     //<-- INSERT USUARIO -->
 
-    let id = message.author.id;
-    let i = message.author.displayAvatarURL()
-    let f = "";
-    let sentencia = `SELECT * FROM usuarios WHERE idusuario = ${id}`;
+    let id = message.author.id
+    let i = "https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif"
+    let f = ""
+    let sentencia = `SELECT * FROM usuarios WHERE idusuario = ${id}`
 
     db.get(sentencia, (err, filas) => {
       if (err) return console.error('Error 0: '+err.message)
       if (!filas){
-      let insert = `INSERT INTO usuarios(idusuario, nivel, exp, rep, frase, foto) VALUES(${id}, 0, 1, 0, ${f}, ${i})`;
+      let insert = `INSERT INTO usuarios(idusuario, nivel, exp, rep, frase, foto) VALUES(${id}, 0, 1, 0, ${f}, ${i})`
 
       db.run(insert, function(err) {
        if (err) return console.error('Error 1: '+err.message)
