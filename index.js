@@ -634,10 +634,10 @@ client.on('messageCreate', async message => {
     //<-- INSERT USUARIO -->
 
     let id = message.author.id;
-    let i = message.author.displayAvatarURL();
+    let i = message.author.displayAvatarURL()
     let f = "";
     let sentencia = `SELECT * FROM usuarios WHERE idusuario = ${id}`;
-    
+
     db.get(sentencia, (err, filas) => {
       if (err) return console.error('Error 0: '+err.message)
       if (!filas){
