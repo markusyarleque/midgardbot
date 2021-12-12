@@ -8224,12 +8224,46 @@ client.on('messageCreate', async message => {
       
         const embed = new Discord.MessageEmbed()
         .setThumbnail(`https://images-ext-2.discordapp.net/external/oGzLI-594lkzq8oCTGuB2RSxumC-9E6m7oqLqOw2dJA/https/cdn.discordapp.com/emojis/897240681075060736.gif`)
-        .setAuthor(`${autor}`,"https://images-ext-2.discordapp.net/external/fZCHQ3Pm9458IJD8COr7CbKYPoy7SeP2s_ciYZrewGw/%3Fsize%3D2048/https/cdn.discordapp.com/icons/777620055344545842/a_d19d266fc1f7c19cc23ab0f874ebcd72.gif")
+        .setAuthor(`${autor}`,client.user.displayAvatarURL())
         .setTitle(`${titulo}`)
         .setDescription(`<a:d_Fijao:897243194943737866> ${desc}`)
         .addField(`<a:diamante:887714567084449892> ${f1}`, `${d1}` , false)
         .addField(`<a:diamante:887714567084449892> ${f2}`, `${d2}` , false)
         .addField(`<a:diamante:887714567084449892> ${f3}`, `${d3}` , false)
+        .setColor("RANDOM")
+        .setImage(imagen)
+        .setFooter(`🌎┃「Midgard」` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
+        message.channel.send({ embeds: [embed] });
+        message.delete({timeout: 100})
+      
+    }
+
+    if (message.content.startsWith(prefix +"embedp")){
+
+      let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
+  
+      if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
+  
+      const split = args.slice(0).join(" ").split(";");
+      let autor = split[0]
+      let titulo = split[1]
+      let desc = split[2]
+      let f1 = split[3]
+      let d1 = split[4]
+      let f2 = split[5]
+      let d2 = split[6]
+      let f3 = split[7]
+      let d3 = split[8]
+      let imagen = split[9]
+  
+      
+        const embed = new Discord.MessageEmbed()
+        .setThumbnail(`https://images-ext-2.discordapp.net/external/oGzLI-594lkzq8oCTGuB2RSxumC-9E6m7oqLqOw2dJA/https/cdn.discordapp.com/emojis/897240681075060736.gif`)
+        .setAuthor(`${autor}`,client.user.displayAvatarURL())
+        //.setTitle(`${titulo}`)
+        .setDescription(`<a:d_Fijao:897243194943737866> ${desc}`)
+        .addField(`<a:diamante:887714567084449892> ${f1}`, `${d1}` , false)
+        .addField(`<a:diamante:887714567084449892> ${f2}`, `${d2}` , false)
         .setColor("RANDOM")
         .setImage(imagen)
         .setFooter(`🌎┃「Midgard」` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
