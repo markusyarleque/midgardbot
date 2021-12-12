@@ -634,8 +634,8 @@ client.on('messageCreate', async message => {
     //<-- INSERT USUARIO -->
 
     let id = message.author.id
-    let i = message.author.displayAvatarURL()
-    let f = ""
+    let i = message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')
+    let f = "No hay frase agregada"
     let sentencia = `SELECT * FROM usuarios WHERE idusuario = ${id}`
 
     db.get(sentencia, (err, filas) => {
