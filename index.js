@@ -66,7 +66,7 @@ client.on('ready', () => {
   let crear = "CREATE TABLE IF NOT EXISTS usuarios (idusuario TEXT, nivel INTEGER, exp INTEGER, rep INTEGER, frase BLOB, foto BLOB)";
 
   db.run(crear, function(err) {
-    if (err) return console.error(err.message)
+    if (err) return console.error('Error crear tabla: '+err.message)
   })
 
 });
@@ -639,12 +639,12 @@ client.on('messageCreate', async message => {
     let sentencia = `SELECT * FROM usuarios WHERE idusuario = ${id}`;
 
     db.get(sentencia, (err, filas) => {
-      if (err) return console.error(err.message)
+      if (err) return console.error('Error 0: '+err.message)
       if (!filas){
       let insert = `INSERT INTO usuarios(idusuario, nivel, exp, rep, frase, foto) VALUES(${id}, 0, 1, 0, ${f}, ${i})`;
 
       db.run(insert, function(err) {
-       if (err) return console.error(err.message)
+       if (err) return console.error('Error 1: '+err.message)
       });
 
       } else {
@@ -656,7 +656,7 @@ client.on('messageCreate', async message => {
          let update = `UPDATE usuarios SET exp = ${filas.exp + 1}, nivel = ${curLevel} WHERE idusuario = ${id}`;
 
          db.run(update, function(err) {      
-          if (err) return console.error(err.message)
+          if (err) return console.error('Error 2: '+err.message)
           message.channel.send('Felicidades!!! Subiste de nivel, '+ message.author.tag)
 
          });
@@ -665,7 +665,7 @@ client.on('messageCreate', async message => {
 
         let update = `UPDATE usuarios SET exp = ${filas.exp + 1} WHERE idusuario = ${id}`;
         db.run(update, function(err) {      
-        if (err) return console.error(err.message)
+        if (err) return console.error('Error 3: '+err.message)
         })
 
       }
@@ -695,7 +695,7 @@ client.on('messageCreate', async message => {
       db.get(select, (err, filas) => {
 
         if (err) return console.error(err.message)
-        if (!filas) return message.channel.send('Sin resultados.')
+        if (!filas) return message.channel.send('No hay perfil registrado para ese usuario.')
  
         let embed = new Discord.MessageEmbed()
           .setAuthor('Perfil de ' + message.author.username, message.author.displayAvatarURL())
