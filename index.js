@@ -8246,15 +8246,14 @@ client.on('messageCreate', async message => {
   
       const split = args.slice(0).join(" ").split(";");
       let autor = split[0]
-      let titulo = split[1]
-      let desc = split[2]
-      let f1 = split[3]
-      let d1 = split[4]
-      let f2 = split[5]
-      let d2 = split[6]
-      let f3 = split[7]
-      let d3 = split[8]
-      let imagen = split[9]
+      let desc = split[1]
+      let f1 = split[2]
+      let d1 = split[3]
+      let f2 = split[4]
+      let d2 = split[5]
+      let f3 = split[6]
+      let d3 = split[7]
+      let imagen = split[8]
   
       
         const embed = new Discord.MessageEmbed()
