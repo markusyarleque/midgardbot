@@ -634,7 +634,7 @@ client.on('messageCreate', async message => {
     //<-- INSERT USUARIO -->
 
     let id = message.author.id
-    let i = "https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif"
+    let i = message.author.displayAvatarURL()
     let f = ""
     let sentencia = `SELECT * FROM usuarios WHERE idusuario = ${id}`
 
@@ -644,7 +644,7 @@ client.on('messageCreate', async message => {
       let insert = `INSERT INTO usuarios(idusuario, nivel, exp, rep, frase, foto) VALUES(${id}, 0, 1, 0, ${f}, ${i})`
 
       db.run(insert, function(err) {
-       if (err) return console.error('Error 1: '+err.message)
+       if (err) return console.error('Error 1: '+insert+" --- "+err.message)
       });
 
       } else {
