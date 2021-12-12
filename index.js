@@ -7463,6 +7463,29 @@ client.on('messageCreate', async message => {
       
       }
     }
+
+    var messi = [
+      'https://media4.giphy.com/media/xUA7aT4k7JLXH71zG0/200.gif',
+      'https://c.tenor.com/b_VTJ4TN0rYAAAAd/leo-messi.gif',
+      'http://i.giphy.com/h2KFQRfCogoxy.gif',
+      'https://indicepolitico.com/wp-content/uploads/2020/04/giphy-gif-12.jpg',
+      'https://i.pinimg.com/originals/bd/60/a9/bd60a9508dfc9ddef020f57b64d6cb53.gif'
+    ]
+
+    if(command === 'messi'){
+
+      let ramdonm = messi[Math.floor(Math.random()*messi.length)]
+
+      const embed = new Discord.MessageEmbed()
+        .setAuthor(`Midgard's VIP`,'https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png')
+        .setTitle('Lionel Messi')
+        //.setDescription(`${message.author.username} mira como lo mueve Karen <:tierno:881618338759966800>`)
+        .setImage(ramdonmm)
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        message.channel.send({ embeds: [embed] });
+    }
     
     //ejemplo
     //if(!vip.tiene(message.author.id) return message.channel.send('¡No tienes VIP, no puedes utilizar esta función!')
@@ -7511,6 +7534,7 @@ client.on('messageCreate', async message => {
 
         message.channel.send({embeds: [embed]})
     }
+
 
     //COMANDOS DE AYUDA
 
