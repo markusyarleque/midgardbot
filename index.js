@@ -8270,6 +8270,32 @@ client.on('messageCreate', async message => {
       
     }
 
+    if (message.content.startsWith(prefix +"emb")){
+
+      let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
+  
+      if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
+  
+      const split = args.slice(0).join(" ").split(";");
+      let autor = split[0]
+      let titulo = split[1]
+      let desc = split[2]
+      let imagen = split[3]
+  
+      
+        const embed = new Discord.MessageEmbed()
+        .setThumbnail(`https://images-ext-2.discordapp.net/external/oGzLI-594lkzq8oCTGuB2RSxumC-9E6m7oqLqOw2dJA/https/cdn.discordapp.com/emojis/897240681075060736.gif`)
+        .setAuthor(`${autor}`,client.user.displayAvatarURL())
+        .setTitle(`${titulo}`)
+        .setDescription(`<a:d_Fijao:897243194943737866> ${desc}`)
+        .setColor("RANDOM")
+        .setImage(imagen)
+        .setFooter(`🌎┃「Midgard」` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
+        message.channel.send({ embeds: [embed] });
+        message.delete({timeout: 100})
+      
+    }
+
     if(command === 'enviarmd'){
 
         let permisos = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
