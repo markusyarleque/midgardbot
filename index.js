@@ -635,7 +635,7 @@ client.on('messageCreate', async message => {
 
     let id = message.author.id;
     let i = message.author.displayAvatarURL();
-    let f = 'No hay frase agregada';
+    let f = message.member.nickname ? message.member.nickname : ''
     let sentencia = `SELECT * FROM usuarios WHERE idusuario = ${id}`;
 
     db.get(sentencia, (err, filas) => {
