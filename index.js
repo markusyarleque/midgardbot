@@ -710,7 +710,7 @@ client.on('messageCreate', async message => {
  
     }
 
-    //<-- SELECT LISTA TOP USUARIO -->
+    //<-- SELECT LISTA TOP USUARIOS -->
 
     if(command === "top"){
       let lista = `SELECT idusuario, nivel, exp FROM usuarios ORDER BY nivel DESC LIMIT 10`
