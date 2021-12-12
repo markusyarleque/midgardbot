@@ -685,9 +685,9 @@ client.on('messageCreate', async message => {
  
         let embed = new Discord.MessageEmbed()
           .setAuthor('Perfil de ' + message.author.username, message.author.displayAvatarURL())
-          .addField('Nivel', filas.nivel, true)
-          .addField('Exp', filas.exp, true)
-          .setColor("ff7b00")
+          .addField('Nivel', '<a:flech:915156906258071554> '+filas.nivel, true)
+          .addField('Exp', '<a:flech:915156906258071554> '+filas.exp, true)
+          .setColor("RANDOM")
  
         message.channel.send({ embeds: [embed] });
   
