@@ -726,15 +726,44 @@ client.on('messageCreate', async message => {
         case '-i': {
 
           i = args[1];
-          message.channel.send('<a:Dancing_Duck:894716883033538630> | Acabas de actualizar tu foto de perfil!');
+          console.log("Foto : "+ i)
+
+          db.get(select, (err, filas) => {
+
+            if (err) return console.error(err.message)
+            if (!filas) return message.channel.send('No hay perfil registrado para el usuario!')
+    
+            let update = `UPDATE usuarios SET foto = ${i} WHERE idusuario = ${id}`;
+    
+             db.run(update, function(err) {      
+              if (err) return console.error("Error actualizar "+update+" --- "+err.message)
+              message.channel.send('<a:Dancing_Duck:894716883033538630> | Acabas de actualizar tu foto de perfil!');
           
+             });
+     
+          });
           break
         }
 
         case '-f': {
 
           f = args[1];
-          message.channel.send('<a:Dancing_Duck:894716883033538630> | Acabas de actualizar tu frase de perfil!');
+          console.log("Frase : "+ f)
+
+          db.get(select, (err, filas) => {
+
+            if (err) return console.error(err.message)
+            if (!filas) return message.channel.send('No hay perfil registrado para el usuario!')
+    
+            let update = `UPDATE usuarios SET frase = ${f} WHERE idusuario = ${id}`;
+    
+             db.run(update, function(err) {      
+              if (err) return console.error("Error actualizar "+update+" --- "+err.message)
+              message.channel.send('<a:Dancing_Duck:894716883033538630> | Acabas de actualizar tu frase de perfil!');
+          
+             });
+     
+          });
           break
         }
 
@@ -745,20 +774,7 @@ client.on('messageCreate', async message => {
         }
       }
 
-      db.get(select, (err, filas) => {
-
-        if (err) return console.error(err.message)
-        if (!filas) return message.channel.send('No hay perfil registrado para el usuario!')
-
-        let update = `UPDATE usuarios SET frase = ${f}, foto = ${i} WHERE idusuario = ${id}`;
-
-         db.run(update, function(err) {      
-          if (err) return console.error(err.message)
-          message.channel.send('Felicidades!!! Su perfil ha sido actualizado.')
-
-         });
- 
-      });
+      
 
     }
 
