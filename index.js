@@ -693,7 +693,7 @@ client.on('messageCreate', async message => {
       let select = `SELECT * FROM usuarios WHERE idusuario = ${id}`;
       let obtener = args[0]
 
-      switch (obtener.slice(-2)){
+      /*switch (obtener.slice(-2)){
     
         case '-i': {
 
@@ -714,7 +714,20 @@ client.on('messageCreate', async message => {
 
          break;
         }
-      }
+      }*/
+
+     if (obtener.slice(-2) === '-i'){
+    
+          i = args[1];
+          message.channel.send('<a:Dancing_Duck:894716883033538630> | Acabas de actualizar tu foto de perfil!');
+     
+    } else if (obtener.slice(-2) === '-f'){
+
+       
+          f = args[1];
+          message.channel.send('<a:Dancing_Duck:894716883033538630> | Acabas de actualizar tu frase de perfil!');
+         
+    } else {
 
       db.get(select, (err, filas) => {
 
@@ -733,6 +746,8 @@ client.on('messageCreate', async message => {
         message.channel.send({ embeds: [embed] });
   
       });
+
+    }
 
     }
 
