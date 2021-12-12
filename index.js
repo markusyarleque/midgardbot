@@ -683,44 +683,129 @@ client.on('messageCreate', async message => {
 
       if(!img){
 
-        id = id;
+        let select = `SELECT * FROM usuarios WHERE idusuario = ${id}`;
+        let obtener = args[0]
+
+        if(!obtener){
+        
+          db.get(select, (err, filas) => {
+
+            if (err) return console.error(err.message)
+            if (!filas) return message.channel.send('No hay perfil registrado para ese usuario.')
+     
+            let embed = new Discord.MessageEmbed()
+              .setAuthor('Perfil de ' + message.author.username, message.author.displayAvatarURL())
+              .setThumbnail(`${filas.foto}`)
+              .addField('<a:start:880922179280207934> Nivel', '<a:flech:915156906258071554> '+filas.nivel, true)
+              .addField('<a:d_Fijao:897243194943737866> XP', '<a:flech:915156906258071554> '+filas.exp, true)
+              .addField('<a:CorazonMulticolor:880315280759345163> Carisma', '<a:flech:915156906258071554> '+filas.rep, false)
+              //.addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>',false)
+              .addField('<a:megaphone:912163796737486908> Frase', '<a:flech:915156906258071554> '+filas.frase, true)
+              .addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','\u200B',false)
+              .setColor("RANDOM")
+              .setFooter(`Midgard's VIP`,client.user.avatarURL())
+            message.channel.send({ embeds: [embed] });
+      
+          });
+        } else {
+
+          switch (obtener.slice(-2)){
+    
+            case '-i': {
+
+              i = args[1];
+              console.log("Foto : "+ i)
+
+              db.get(select, (err, filas) => {
+
+                if (err) return console.error(err.message)
+                if (!filas) return message.channel.send('No hay perfil registrado para el usuario!')
+    
+                let update = `UPDATE usuarios SET foto = "${i}" WHERE idusuario = ${id}`;
+    
+                db.run(update, function(err) {      
+                  if (err) return console.error("Error actualizar "+update+" --- "+err.message)
+                  message.channel.send('<a:Dancing_Duck:894716883033538630> | Acabas de actualizar tu foto de perfil!');
+          
+                });
+     
+              });
+              break
+            }
+
+            case '-f': {
+
+              f = args[1];
+              console.log("Frase : "+ f)
+
+              db.get(select, (err, filas) => {
+
+                if (err) return console.error(err.message)
+                if (!filas) return message.channel.send('No hay perfil registrado para el usuario!')
+    
+                let update = `UPDATE usuarios SET frase = "${f}" WHERE idusuario = ${id}`;
+    
+                db.run(update, function(err) {      
+                  if (err) return console.error("Error actualizar "+update+" --- "+err.message)
+                  message.channel.send('<a:Dancing_Duck:894716883033538630> | Acabas de actualizar tu frase de perfil!');
+          
+                });
+     
+              });
+
+              break
+            }
+
+            default: {
+
+              message.channel.send('<a:Verify2:880315278347616329> | Para actualizar Frase, agrega **-f** antes del texto. Para actualizar Foto, agrega **-i** antes del link');
+              break;
+            }
+          }
+        }
+      
 
       } else{
         
-        id=img.id;
+        idm=img.id;
+        let select = `SELECT * FROM usuarios WHERE idusuario = ${idm}`;
+          
+        db.get(select, (err, filas) => {
+
+          if (err) return console.error(err.message)
+          if (!filas) return message.channel.send('No hay perfil registrado para ese usuario.')
+ 
+          let embed = new Discord.MessageEmbed()
+            .setAuthor('Perfil de ' + img.username, img.displayAvatarURL())
+            .setThumbnail(`${filas.foto}`)
+            .addField('<a:start:880922179280207934> Nivel', '<a:flech:915156906258071554> '+filas.nivel, true)
+            .addField('<a:d_Fijao:897243194943737866> XP', '<a:flech:915156906258071554> '+filas.exp, true)
+            .addField('<a:CorazonMulticolor:880315280759345163> Carisma', '<a:flech:915156906258071554> '+filas.rep, false)
+            //.addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>',false)
+            .addField('<a:megaphone:912163796737486908> Frase', '<a:flech:915156906258071554> '+filas.frase, true)
+            .addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','\u200B',false)
+            .setColor("RANDOM")
+            .setFooter(`Midgard's VIP`,client.user.avatarURL())
+          message.channel.send({ embeds: [embed] });
+  
+        });
 
       }
-
-      let select = `SELECT * FROM usuarios WHERE idusuario = ${id}`;
-    
-      db.get(select, (err, filas) => {
-
-        if (err) return console.error(err.message)
-        if (!filas) return message.channel.send('No hay perfil registrado para ese usuario.')
- 
-        let embed = new Discord.MessageEmbed()
-          .setAuthor('Perfil de ' + message.author.username, message.author.displayAvatarURL())
-          .setThumbnail(`${filas.foto}`)
-          .addField('<a:start:880922179280207934> Nivel', '<a:flech:915156906258071554> '+filas.nivel, true)
-          .addField('<a:d_Fijao:897243194943737866> XP', '<a:flech:915156906258071554> '+filas.exp, true)
-          .addField('<a:CorazonMulticolor:880315280759345163> Carisma', '<a:flech:915156906258071554> '+filas.rep, false)
-          //.addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>',false)
-          .addField('<a:megaphone:912163796737486908> Frase', '<a:flech:915156906258071554> '+filas.frase, true)
-          .addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','\u200B',false)
-          .setColor("RANDOM")
-          .setFooter(`Midgard's VIP`,client.user.avatarURL())
-        message.channel.send({ embeds: [embed] });
-  
-      });
 
     }
 
     //<-- EDITAR USUARIO -->
 
-    if(command === "eperfil"){
+    /*if(command === "eperfil"){
 
       let select = `SELECT * FROM usuarios WHERE idusuario = ${id}`;
       let obtener = args[0]
+
+      if(!obtener){
+        
+        message.channel.send('<a:Verify2:880315278347616329> | Para actualizar Frase, agrega **-f** antes del texto. Para actualizar Foto, agrega **-i** antes del link');
+          
+      } else {
 
       switch (obtener.slice(-2)){
     
@@ -774,10 +859,9 @@ client.on('messageCreate', async message => {
           break;
         }
       }
+      }
 
-      
-
-    }
+    }*/
 
     //<-- DELETE USUARIO -->
 
