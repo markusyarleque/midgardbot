@@ -63,7 +63,7 @@ client.on('ready', () => {
 
   //<-- CREATE TABLE USUARIO -->
 
-  let crear = "CREATE TABLE IF NOT EXISTS usuarios (idusuario TEXT, nivel INTEGER, exp INTEGER, rep INTEGER, frase TEXT, foto TEXT)";
+  let crear = "CREATE TABLE IF NOT EXISTS usuarios (idusuario TEXT, nivel INTEGER, exp INTEGER, rep INTEGER, frase BLOB, foto BLOB)";
 
   db.run(crear, function(err) {
     if (err) return console.error(err.message)
