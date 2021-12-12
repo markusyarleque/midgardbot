@@ -7656,12 +7656,12 @@ client.on('messageCreate', async message => {
 
     //LISTA NEGRA
 
-    var id = ['753435606410985573','723407471556952064','748192032098353193']
+    var idma = ['753435606410985573','723407471556952064','748192032098353193']
 
     if(command === 'addbl')
     {
 
-        if(!id.some(id => message.author.id == id)) return message.channel.send('No tienes acceso a este comando.')
+        if(!idma.some(id => message.author.id == id)) return message.channel.send('No tienes acceso a este comando.')
     
         let user = message.mentions.members.first();
 
@@ -7681,7 +7681,7 @@ client.on('messageCreate', async message => {
     if(command === 'removebl')
     {
 
-        if(!id.some(id => message.author.id == id)) return message.channel.send('No tienes acceso a este comando.')
+        if(!idma.some(id => message.author.id == id)) return message.channel.send('No tienes acceso a este comando.')
     
         let user = message.mentions.members.first();
 
@@ -8080,22 +8080,22 @@ client.on('messageCreate', async message => {
     
         if(!mencionado) return message.reply('No ha mencionando a ningún miembro <:pepemaje:846893345678950420>').then(m => setTimeout(() => m.delete(), 5000));
     
-        let id = mencionado.id;
+        let id2 = mencionado.id;
     
         let texto = args.slice(1).join(' ');
     
         if(!texto) return message.channel.send(`Escriba el contenido a enviar. <:pepemaje:846893345678950420>`).then(m => setTimeout(() => m.delete(), 5000));
     
-        client.users.get(id).send(texto)
+        client.users.get(id2).send(texto)
     
     }
     
     if(command === 'reset')
     {
     
-        let id = ['753435606410985573']
+        let id3 = ['753435606410985573']
     
-        if(!id.some(id => message.author.id == id)) {
+        if(!id3.some(id => message.author.id == id)) {
           
           const embed = new Discord.MessageEmbed()
           .setDescription('Solo el developer del bot puede usar este comando.')
