@@ -634,6 +634,8 @@ client.on('messageCreate', async message => {
     //<-- INSERT USUARIO -->
 
     let id = message.author.id;
+    let i = message.author.displayAvatarURL();
+    let f = '';
     let sentencia = `SELECT * FROM usuarios WHERE idusuario = ${id}`;
 
     db.get(sentencia, (err, filas) => {
@@ -676,7 +678,43 @@ client.on('messageCreate', async message => {
 
     if(command === "perfil"){
 
+      let img = message.mentions.users.first()
+
+      if(!img){
+
+        id = id;
+
+      } else{
+        
+        id=img.id;
+
+      }
+
       let select = `SELECT * FROM usuarios WHERE idusuario = ${id}`;
+      let obtener = args[0]
+
+      switch (obtener.slice(-2)){
+    
+        case '-i': {
+
+          i = args[1];
+          message.channel.send('<a:Dancing_Duck:894716883033538630> | Acabas de actualizar tu foto de perfil!');
+          
+          break
+        }
+
+        case '-f': {
+
+          f = args[1];
+          message.channel.send('<a:Dancing_Duck:894716883033538630> | Acabas de actualizar tu frase de perfil!');
+          break
+        }
+
+        default: {
+
+         break;
+        }
+      }
 
       db.get(select, (err, filas) => {
 
@@ -685,10 +723,13 @@ client.on('messageCreate', async message => {
  
         let embed = new Discord.MessageEmbed()
           .setAuthor('Perfil de ' + message.author.username, message.author.displayAvatarURL())
-          .addField('Nivel', '<a:flech:915156906258071554> '+filas.nivel, true)
-          .addField('Exp', '<a:flech:915156906258071554> '+filas.exp, true)
+          .setThumbnail(`${i}`)
+          .addField('<a:start:880922179280207934> Nivel', '<a:flech:915156906258071554> '+filas.nivel, true)
+          .addField('<a:d_Fijao:897243194943737866> XP', '<a:flech:915156906258071554> '+filas.exp, true)
+          .addField('\u200B','\u200B',true)
+          .addField('<a:megaphone:912163796737486908> Frase', '<a:flech:915156906258071554> '+f, true)
           .setColor("RANDOM")
- 
+          .setFooter(`Midgard's VIP`,client.user.avatarURL())
         message.channel.send({ embeds: [embed] });
   
       });
