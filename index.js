@@ -704,9 +704,9 @@ client.on('messageCreate', async message => {
           .addField('<a:start:880922179280207934> Nivel', '<a:flech:915156906258071554> '+filas.nivel, true)
           .addField('<a:d_Fijao:897243194943737866> XP', '<a:flech:915156906258071554> '+filas.exp, true)
           .addField('<a:CorazonMulticolor:880315280759345163> Carisma', '<a:flech:915156906258071554> '+filas.rep, false)
-          .addField('\u200B','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>',false)
+          .addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>',false)
           .addField('<a:megaphone:912163796737486908> Frase', '<a:flech:915156906258071554> '+filas.frase, true)
-          .addField('\u200B','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>',false)
+          .addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>',false)
           .setColor("RANDOM")
           .setFooter(`Midgard's VIP`,client.user.avatarURL())
         message.channel.send({ embeds: [embed] });
