@@ -644,7 +644,7 @@ client.on('messageCreate', async message => {
       let insert = `INSERT INTO usuarios(idusuario, nivel, exp, rep, frase, foto) VALUES(${id}, 0, 1, 0, ${f}, ${i})`
 
       db.run(insert, function(err) {
-       if (err) return console.error('Error 1: '+insert+" --- "+err.message)
+       if (err) return console.error('Error 1: '+insert+" ---- "+err.message)
       });
 
       } else {
