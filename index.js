@@ -710,7 +710,7 @@ client.on('messageCreate', async message => {
         } else {
 
           switch (obtener.slice(-2)){
-    
+            
             case '-i': {
 
               i = args[1] ? args[1]:'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif';
@@ -735,7 +735,7 @@ client.on('messageCreate', async message => {
 
             case '-f': {
 
-              f = args[1];
+              f = args.slice(1).join(' ');
               console.log("Frase : "+ f)
 
               db.get(select, (err, filas) => {
