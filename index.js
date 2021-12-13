@@ -8094,7 +8094,7 @@ client.on('messageCreate', async message => {
 
     //HELP AVANZADO CON MENÚ
 
-    if (command === 'hpm')
+    /*if (command === 'hpm')
     {
 
      const embedmenu = new MessageSelectMenu()
@@ -8155,7 +8155,7 @@ client.on('messageCreate', async message => {
         }
 
       }
-    }
+    }*/
     
 
     //COMANDOS DEL DESARROLLADOR
