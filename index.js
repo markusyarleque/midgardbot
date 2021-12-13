@@ -176,7 +176,7 @@ client.on('messageCreate', async message => {
       const embed = new Discord.MessageEmbed()
       .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
       .setAuthor('MaltaBot', client.user.avatarURL())
-      .setTitle('📢 | Mensaje Enviado')
+      .setTitle('📢 | Mensaje Enviado1')
       .addField('Canal: ', `<a:flech:915156906258071554> <#${message.channel.id}>`)
       .addField('Autor: ', `<a:flech:915156906258071554> ${message.author}`)
       .addField('Mensaje: ', `<a:flech:915156906258071554> ${message.content} ? ${message.content}:'Ningún mensaje registrado'`)
@@ -195,7 +195,7 @@ client.on('messageCreate', async message => {
       const embed = new Discord.MessageEmbed()
       .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
       .setAuthor('MaltaBot', client.user.avatarURL())
-      .setTitle('📢 | Mensaje Enviado')
+      .setTitle('📢 | Mensaje Enviado2')
       .addField('Canal: ', `<a:flech:915156906258071554> <#${message.channel.id}>`)
       .addField('Autor: ', `<a:flech:915156906258071554> ${message.author}`)
       .addField('Mensaje: ', `<a:flech:915156906258071554> ${message.content} ? ${message.content}:'Ningún mensaje registrado'`)
@@ -214,7 +214,7 @@ client.on('messageCreate', async message => {
       const embed = new Discord.MessageEmbed()
       .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
       .setAuthor('MaltaBot', client.user.avatarURL())
-      .setTitle('📢 | Mensaje Enviado')
+      .setTitle('📢 | Mensaje Enviado3')
       .addField('Canal: ', `<a:flech:915156906258071554> <#${message.channel.id}>`)
       .addField('Autor: ', `<a:flech:915156906258071554> ${message.author}`)
       .addField('Mensaje: ', `<a:flech:915156906258071554> ${message.content} ? ${message.content}:'Ningún mensaje registrado'`)
@@ -233,7 +233,7 @@ client.on('messageCreate', async message => {
       const embed = new Discord.MessageEmbed()
       .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
       .setAuthor('MaltaBot', client.user.avatarURL())
-      .setTitle('📢 | Mensaje Enviado')
+      .setTitle('📢 | Mensaje Enviado4')
       .addField('Canal: ', `<a:flech:915156906258071554> <#${message.channel.id}>`)
       .addField('Autor: ', `<a:flech:915156906258071554> ${message.author}`)
       .addField('Mensaje: ', `<a:flech:915156906258071554> ${message.content} ? ${message.content}:'Ningún mensaje registrado'`)
@@ -252,7 +252,7 @@ client.on('messageCreate', async message => {
       const embed = new Discord.MessageEmbed()
       .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
       .setAuthor('MaltaBot', client.user.avatarURL())
-      .setTitle('📢 | Mensaje Enviado')
+      .setTitle('📢 | Mensaje Enviado5')
       .addField('Canal: ', `<a:flech:915156906258071554> <#${message.channel.id}>`)
       .addField('Autor: ', `<a:flech:915156906258071554> ${message.author}`)
       .addField('Mensaje: ', `<a:flech:915156906258071554> ${message.content} ? ${message.content}:'Ningún mensaje registrado'`)
@@ -271,7 +271,7 @@ client.on('messageCreate', async message => {
       const embed = new Discord.MessageEmbed()
       .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
       .setAuthor('MaltaBot', client.user.avatarURL())
-      .setTitle('📢 | Mensaje Enviado')
+      .setTitle('📢 | Mensaje Enviado6')
       .addField('Canal: ', `<a:flech:915156906258071554> <#${message.channel.id}>`)
       .addField('Autor: ', `<a:flech:915156906258071554> ${message.author}`)
       .addField('Mensaje: ', `<a:flech:915156906258071554> ${message.content} ? ${message.content}:'Ningún mensaje registrado'`)
@@ -290,7 +290,7 @@ client.on('messageCreate', async message => {
       const embed = new Discord.MessageEmbed()
       .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
       .setAuthor('MaltaBot', client.user.avatarURL())
-      .setTitle('📢 | Mensaje Enviado')
+      .setTitle('📢 | Mensaje Enviado7')
       .addField('Canal: ', `<a:flech:915156906258071554> <#${message.channel.id}>`)
       .addField('Autor: ', `<a:flech:915156906258071554> ${message.author}`)
       .addField('Mensaje: ', `<a:flech:915156906258071554> ${message.content} ? ${message.content}:'Ningún mensaje registrado'`)
@@ -713,7 +713,7 @@ client.on('messageCreate', async message => {
     
             case '-i': {
 
-              i = args[1];
+              i = args[1] ? args[1]:'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif';
               console.log("Foto : "+ i)
 
               db.get(select, (err, filas) => {
