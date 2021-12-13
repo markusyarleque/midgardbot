@@ -8012,14 +8012,14 @@ client.on('messageCreate', async message => {
 
       }).then(collected => {
 
-        const reaccion = collected.first()
+        const reaction = collected.first();
 
         //const userReactions = collected.filter(reaction => reaction.users.cache.has(message.author.id));
 
-        if(reaccion.emoji.name === '📌'){
+        if(reaction.emoji.name === '📌'){
 
           // editado.reactions.removeAll()
-          reaccion.users.remove(message.author.id)
+          reaction.users.remove(message.author.id)
           editado.edit({embeds: [helpinfo]})
           
        /* try {
@@ -8031,58 +8031,58 @@ client.on('messageCreate', async message => {
         }*/
 
         }
-        if(reaccion.emoji.name === '💡'){
+        if(reaction.emoji.name === '💡'){
 
           //editado.reactions.removeAll()
-          reaccion.users.remove(message.author.id)
+          reaction.users.remove(message.author.id)
           editado.edit({embeds: [helputil]})
         }
-        if(reaccion.emoji.name === '🔒'){
+        if(reaction.emoji.name === '🔒'){
 
           //editado.reactions.removeAll()
-          reaccion.users.remove(message.author.id)
+          reaction.users.remove(message.author.id)
           editado.edit({embeds: [helpmod]})
         }
-        if(reaccion.emoji.name === '🤣'){
+        if(reaction.emoji.name === '🤣'){
 
           //editado.reactions.removeAll()
-          reaccion.users.remove(message.author.id)
+          reaction.users.remove(message.author.id)
           editado.edit({embeds: [helpdiv]})
         }
-        if(reaccion.emoji.name === '😎'){
+        if(reaction.emoji.name === '😎'){
 
           //editado.reactions.removeAll()
-          reaccion.users.remove(message.author.id)
+          reaction.users.remove(message.author.id)
           editado.edit({embeds: [helprea]})
         }
-        if(reaccion.emoji.name === '☕'){
+        if(reaction.emoji.name === '☕'){
 
           //editado.reactions.removeAll()
-          reaccion.users.remove(message.author.id)
+          reaction.users.remove(message.author.id)
           editado.edit({embeds: [helpcaf]})
         }
-        if(reaccion.emoji.name === '🥂'){
+        if(reaction.emoji.name === '🥂'){
 
           //editado.reactions.removeAll()
-          reaccion.users.remove(message.author.id)
+          reaction.users.remove(message.author.id)
           editado.edit({embeds: [helpbar]})
         }
-        if(reaccion.emoji.name === '💃'){
+        if(reaction.emoji.name === '💃'){
 
           //editado.reactions.removeAll()
           reaccion.users.remove(message.author.id)
           editado.edit({embeds: [helpdis]})
         }
-        if(reaccion.emoji.name === '🔞'){
+        if(reaction.emoji.name === '🔞'){
 
           //editado.reactions.removeAll()
-          reaccion.users.remove(message.author.id)
+          reaction.users.remove(message.author.id)
           editado.edit({embeds: [helpnsfw]})
         }
-        if(reaccion.emoji.name === '⬅️'){
+        if(reaction.emoji.name === '⬅️'){
 
           //editado.reactions.removeAll()
-          reaccion.users.remove(message.author.id)
+          reaction.users.remove(message.author.id)
           editado.edit({embeds: [helpprincipal]})
         }
         
