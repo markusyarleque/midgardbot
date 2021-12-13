@@ -446,9 +446,9 @@ client.on('messageCreate', async message => {
               m.edit('¡No confirmaste a tiempo! <:enojado:882877729266098186>')
               m.reactions.removeAll()
       
-            }).then(coleccionado=> {
+            }).then(collected=> {
       
-              const reaccion = coleccionado.first()
+              const reaccion = collected.first()
       
               if(reaccion.emoji.name === '👍') {
       
@@ -1090,9 +1090,9 @@ client.on('messageCreate', async message => {
         m.edit({ embeds: [embednoconf]})
         m.reactions.removeAll()
 
-      }).then(coleccionado=> {
+      }).then(collected=> {
 
-        const reaccion = coleccionado.first();
+        const reaccion = collected.first();
 
         if(reaccion.emoji.name === '✅') {
 
@@ -1161,9 +1161,9 @@ client.on('messageCreate', async message => {
         m.edit({ embeds: [embednoconf]})
         m.reactions.removeAll()
 
-      }).then(coleccionado=> {
+      }).then(collected=> {
 
-        const reaccion = coleccionado.first();
+        const reaccion = collected.first();
 
         if(reaccion.emoji.name === '✅') {
 
@@ -8010,11 +8010,11 @@ client.on('messageCreate', async message => {
         editado.edit({embeds: [embednoconf]})
         editado.reactions.removeAll()
 
-      }).then(coleccionado => {
+      }).then(collected => {
 
-        const reaccion = coleccionado.first()
+        const reaccion = collected.first()
 
-        //const userReactions = coleccionado.filter(reaction => reaction.users.cache.has(message.author.id));
+        //const userReactions = collected.filter(reaction => reaction.users.cache.has(message.author.id));
 
         if(reaccion.emoji.name === '📌'){
 
