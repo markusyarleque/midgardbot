@@ -2410,7 +2410,7 @@ client.on('messageCreate', async message => {
         })
     }
 
-    if(command === 'tts')
+    if(command === 'ttt')
     {
 
       if (tresenraya.partidas.map(x => x).some(x => message.author.id) && args[0] ?.toLowerCase() !== "stop") return message.reply("Ya estás en una partida!").then(m => {
