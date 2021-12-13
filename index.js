@@ -8044,16 +8044,16 @@ client.on('messageCreate', async message => {
         message.channel.send({embeds: [embed]})
     }
 
-    var tt = [
+    /*var tt = [
       'https://media.discordapp.net/attachments/822642787555213312/911381143968968704/karen1.gif?width=263&height=468',
       'https://media.discordapp.net/attachments/822642787555213312/911385505789272125/k2.gif?width=263&height=468',
       'https://media.discordapp.net/attachments/822642787555213312/911385504652603402/k3.gif?width=263&height=468',
       'https://media.discordapp.net/attachments/822642787555213312/911385503364939776/k4.gif?width=263&height=468',
       'https://media.discordapp.net/attachments/822642787555213312/911385502035378176/k5.gif?width=263&height=468',
       'https://media.discordapp.net/attachments/822642787555213312/911385501053882408/k6.gif?width=263&height=468'
-    ]
+    ]*/
 
-    if(command === 'tiktokaren'){
+    /*if(command === 'tiktokaren'){
 
       let id = ['753435606410985573']
   
@@ -8080,7 +8080,7 @@ client.on('messageCreate', async message => {
             message.channel.send({ embeds: [embed] });
       
       }
-    }
+    }*/
 
     var messi = [
       'https://media4.giphy.com/media/xUA7aT4k7JLXH71zG0/200.gif',
@@ -8271,7 +8271,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
-    .setDescription('> **say**\n> Hace que el bot diga un mensaje.\n\n> **8ball**\n> El bot responderá a tus preguntas.\n\n> **roll**\n> Lanza un dado al azar.\n\n> **impostor**\n> Averigua quién es el impostor de este mundo.\n\n> **buscaminas**\n> Envía un tablero del clásico juego.\n\n> **ship**\n> Mide tu nivel de amor con un usuario mencionado. | Uso: `' +prefix +'ship <@user>`\n\n> **meme**\n> Envía memes al azar.')
+    .setDescription('> **say**\n> Hace que el bot diga un mensaje.\n\n> **8ball**\n> El bot responderá a tus preguntas.\n\n> **roll**\n> Lanza un dado al azar.\n\n> **impostor**\n> Averigua quién es el impostor de este mundo.\n\n> **buscaminas**\n> Envía un tablero del clásico juego.\n\n> **ship**\n> Mide tu nivel de amor con un usuario mencionado. | Uso: `' +prefix +'ship <@user>`\n\n> **meme**\n> Envía memes al azar.\n\n> **ttt**\n> Clásico Tic Tac Toe. | Uso: `' +prefix +'ttt <@user>`')
   
    const helpcaf = new Discord.MessageEmbed()
     .setTitle('☕ • Comandos de Cafetería')
@@ -8607,6 +8607,62 @@ client.on('messageCreate', async message => {
         message.delete({timeout: 100})
       
     }
+
+    if (message.content.startsWith(prefix +"emt")){
+
+      let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
+  
+      if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
+  
+      const split = args.slice(0).join(" ").split(";");
+      let autor = split[0]
+      let titulo = split[1]
+      let f1 = split[2]
+      let d1 = split[3]
+      let f2 = split[4]
+      let d2 = split[5]
+      let f3 = split[6]
+      let d3 = split[7]
+      let f4 = split[8]
+      let d4 = split[9]
+      let f5 = split[10]
+      let d5 = split[11]
+      let f6 = split[12]
+      let d6 = split[13]
+      let f7 = split[14]
+      let d7 = split[15]
+      let f8 = split[16]
+      let d8 = split[17]
+      let f9 = split[18]
+      let d9 = split[19]
+      let f10 = split[20]
+      let d10 = split[21]
+      let imagen = split[22]
+  
+      
+        const embed = new Discord.MessageEmbed()
+        .setThumbnail(`https://images-ext-2.discordapp.net/external/oGzLI-594lkzq8oCTGuB2RSxumC-9E6m7oqLqOw2dJA/https/cdn.discordapp.com/emojis/897240681075060736.gif`)
+        .setAuthor(`${autor}`,client.user.displayAvatarURL())
+        .setTitle(`${titulo}`)
+        .setDescription(`<a:d_Fijao:897243194943737866>`)
+        .addField(`<a:diamante:887714567084449892> ${f1}`, `${d1}` , false)
+        .addField(`<a:diamante:887714567084449892> ${f2}`, `${d2}` , false)
+        .addField(`<a:diamante:887714567084449892> ${f3}`, `${d3}` , false)
+        .addField(`<a:diamante:887714567084449892> ${f4}`, `${d4}` , false)
+        .addField(`<a:diamante:887714567084449892> ${f5}`, `${d5}` , false)
+        .addField(`<a:diamante:887714567084449892> ${f6}`, `${d6}` , false)
+        .addField(`<a:diamante:887714567084449892> ${f7}`, `${d7}` , false)
+        .addField(`<a:diamante:887714567084449892> ${f8}`, `${d8}` , false)
+        .addField(`<a:diamante:887714567084449892> ${f9}`, `${d9}` , false)
+        .addField(`<a:diamante:887714567084449892> ${f10}`, `${d10}` , false)
+        .setColor("RANDOM")
+        .setImage(imagen)
+        .setFooter(`🌎┃「Midgard」` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
+        message.channel.send({ embeds: [embed] });
+        message.delete({timeout: 100})
+      
+    }
+
 
     if (message.content.startsWith(prefix +"emb")){
 
