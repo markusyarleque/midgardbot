@@ -2978,7 +2978,6 @@ client.on('messageCreate', async message => {
     
       }
 
-
       if(!users){
 
         if(message.author.id==='753435606410985573')
@@ -2992,9 +2991,9 @@ client.on('messageCreate', async message => {
           .setTimestamp(new Date())
           .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] })
-        }
+        } else {
 
-        const embed = new Discord.MessageEmbed()
+          const embed = new Discord.MessageEmbed()
           .setAuthor(`Midgard's Love`,client.user.avatarURL())
           .setTitle(`Nivel de Infidelidad`)
           .setDescription(`${message.author.username} es ${random}% infiel! ${heard}`)
@@ -3002,7 +3001,8 @@ client.on('messageCreate', async message => {
           .setColor('RANDOM')
           .setTimestamp(new Date())
           .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-        message.channel.send({ embeds: [embed] })
+          message.channel.send({ embeds: [embed] })
+        }
 
       } else {
 
@@ -3017,9 +3017,9 @@ client.on('messageCreate', async message => {
           .setTimestamp(new Date())
           .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] })
-        }
+        } else {
 
-        const embed = new Discord.MessageEmbed()
+          const embed = new Discord.MessageEmbed()
           .setAuthor(`Midgard's Love`,client.user.avatarURL())
           .setTitle(`Nivel de Infidelidad`)
           .setDescription(`${users.username} es ${random}% infiel! ${heard}`)
@@ -3027,7 +3027,9 @@ client.on('messageCreate', async message => {
           .setColor('RANDOM')
           .setTimestamp(new Date())
           .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-        message.channel.send({ embeds: [embed] })
+          message.channel.send({ embeds: [embed] })
+          
+        }
       }
     }
 
