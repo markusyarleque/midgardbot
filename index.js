@@ -8433,9 +8433,8 @@ client.on('messageCreate', async message => {
           .setStyle("PRIMARY"),
       ])
     
-    
-    const btns_options2 = [
-      new MessageActionRow().addComponents([
+    const btns_options2 = new MessageActionRow().addComponents([
+
         new MessageButton()
           .setCustomId("mp")
           .setLabel("🌎 Inicio")
@@ -8457,7 +8456,6 @@ client.on('messageCreate', async message => {
           .setLabel("🔥 NSFW")
           .setStyle("PRIMARY"),
       ])
-    ];
 
   if(command === 'help'){
 
@@ -8481,14 +8479,14 @@ client.on('messageCreate', async message => {
             components: [btns_options1]
           });
 
-        } else if (int.customId === "inf") {
+        } if (int.customId === "inf") {
           
           m.edit({
             embeds: [helpinfo],
             components: [btns_options1]
           });
 
-        } else if (int.customId === "util") {
+        } if (int.customId === "util") {
           
           m.edit({
             embeds: [helputil],
