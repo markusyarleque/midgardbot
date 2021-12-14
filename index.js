@@ -8466,7 +8466,7 @@ client.on('messageCreate', async message => {
       
       let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
      
-      const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 30000 /* Tiempo para que el miembro interatue con los botones */ });
+      const collector = m.createMessageComponentCollector({ filter, time: 30000 /* Tiempo para que el miembro interatue con los botones */ });
       
       collector.on("collect", async int => {
         
@@ -8479,14 +8479,14 @@ client.on('messageCreate', async message => {
             components: [btns_options1]
           });
 
-        } if (int.customId === "inf") {
+        } else if (int.customId === "inf") {
           
           m.edit({
             embeds: [helpinfo],
             components: [btns_options1]
           });
 
-        } if (int.customId === "util") {
+        } else if (int.customId === "util") {
           
           m.edit({
             embeds: [helputil],
