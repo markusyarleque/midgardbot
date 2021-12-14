@@ -8409,8 +8409,8 @@ client.on('messageCreate', async message => {
     .setColor('RANDOM')
     .setDescription('> **||tetas||**\n> **||pussy||**\n> **||culo||**\n> **||dick||**\n> **||lick||**\n> **||suck||**\n> **||suckb||**\n> **||sboobs||**\n> **||fuck||**\n> **||anal||**\n> **||cum||**\n> **||porno||**\n> **||4k||**\n> **||nekosolo||**\n> **||gonewild||**\n')
     
-  const btns_options1 = [
-      new MessageActionRow().addComponents([
+  const btns_options1 = new MessageActionRow().addComponents([
+      
         new MessageButton()
           .setCustomId("mp")
           .setLabel("🌎 Inicio")
@@ -8432,7 +8432,7 @@ client.on('messageCreate', async message => {
           .setLabel("📋 Más Opciones")
           .setStyle("PRIMARY"),
       ])
-    ];
+    
     
     const btns_options2 = [
       new MessageActionRow().addComponents([
