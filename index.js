@@ -2983,7 +2983,15 @@ client.on('messageCreate', async message => {
 
         if(message.author.id==='753435606410985573')
         {
-          random = 0;
+          const embed = new Discord.MessageEmbed()
+          .setAuthor(`Midgard's Love`,client.user.avatarURL())
+          .setTitle(`Nivel de Infidelidad`)
+          .setDescription(`${message.author.username} es 0% infiel! 😎`)
+          .setImage(`https://i.pinimg.com/originals/fc/8a/07/fc8a0764969fcf2d587434f1bf3c014a.gif`)
+          .setColor('RANDOM')
+          .setTimestamp(new Date())
+          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          message.channel.send({ embeds: [embed] })
         }
 
         const embed = new Discord.MessageEmbed()
@@ -3000,9 +3008,17 @@ client.on('messageCreate', async message => {
 
         if(users.id==='753435606410985573')
         {
-          random = 0;
+          const embed = new Discord.MessageEmbed()
+          .setAuthor(`Midgard's Love`,client.user.avatarURL())
+          .setTitle(`Nivel de Infidelidad`)
+          .setDescription(`${users.username} es 0% infiel! 😎`)
+          .setImage(`https://i.pinimg.com/originals/fc/8a/07/fc8a0764969fcf2d587434f1bf3c014a.gif`)
+          .setColor('RANDOM')
+          .setTimestamp(new Date())
+          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          message.channel.send({ embeds: [embed] })
         }
-        
+
         const embed = new Discord.MessageEmbed()
           .setAuthor(`Midgard's Love`,client.user.avatarURL())
           .setTitle(`Nivel de Infidelidad`)
