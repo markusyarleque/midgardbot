@@ -469,7 +469,6 @@ client.on('messageCreate', async message => {
               if (int.customId === "accept") {
                 
                 /* Creamos una nueva partida con los jugadores y lo guardamos en una constante llamada "game", el id es para detectar si ya esta en una partida */
-                message.guild.members.ban(user.id, { reason: 'razon' });
                 m.edit({
                   content: `<@${img}> Te buscan por aquí <:yonofui:880916494085681203>`,
                   components: []
