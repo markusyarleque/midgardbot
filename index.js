@@ -2945,11 +2945,6 @@ client.on('messageCreate', async message => {
 
       let heard = '';
       let image = '';
-    
-      if(users.id === '753435606410985573')
-      {
-        random = 0;
-      }
 
       if(random === 0){
           
@@ -2986,10 +2981,15 @@ client.on('messageCreate', async message => {
 
       if(!users){
 
+        if(message.author.id==='753435606410985573')
+        {
+          random = 0;
+        }
+
         const embed = new Discord.MessageEmbed()
           .setAuthor(`Midgard's Love`,client.user.avatarURL())
           .setTitle(`Nivel de Infidelidad`)
-          .setDescription(`${users.username} es ${random}% infiel! ${heard}`)
+          .setDescription(`${message.author.username} es ${random}% infiel! ${heard}`)
           .setImage(`${image}`)
           .setColor('RANDOM')
           .setTimestamp(new Date())
@@ -2998,10 +2998,15 @@ client.on('messageCreate', async message => {
 
       } else {
 
+        if(users.id==='753435606410985573')
+        {
+          random = 0;
+        }
+        
         const embed = new Discord.MessageEmbed()
           .setAuthor(`Midgard's Love`,client.user.avatarURL())
           .setTitle(`Nivel de Infidelidad`)
-          .setDescription(`${message.author.username} es ${random}% infiel! ${heard}`)
+          .setDescription(`${users.username} es ${random}% infiel! ${heard}`)
           .setImage(`${image}`)
           .setColor('RANDOM')
           .setTimestamp(new Date())
