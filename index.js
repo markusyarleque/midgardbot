@@ -8340,7 +8340,7 @@ client.on('messageCreate', async message => {
     const helpprincipal = new Discord.MessageEmbed()
     .setTitle('Bienvenido al apartado de Ayuda 💌')
     .setAuthor('MidgardBot',client.user.avatarURL())
-    .setDescription('Bienvenid@ a la Lista de Comandos y funciones de **MidgardBot**, te invitamos a unirte a nuestro [servidor] (https://discord.gg/CM9yAmXPfC) de soporte.\n\nPara ver los comandos, debes clickear al botón respectivo:\n\n> 📌 • Comandos de Información\n> 💡 • Comandos de Utilidad\n> 🔒 • Comandos de Moderación\n> 🤣 • Comandos de Diversión\n> 😎 • Comandos de Reacción\n> ☕ • Comandos de Cafetería\n> 🥂 • Comandos de Bar\n> 💃 • Comandos de Disco\n> 🔞 • Comandos NSFW\n\n<a:flech:915156906258071554> **Muchas gracias por utilizar nuestro bot** <a:darkcrown2:886466286773739530>')
+    .setDescription('Bienvenid@ a la Lista de Comandos y funciones de **MidgardBot**, te invitamos a unirte a nuestro [servidor](https://discord.gg/CM9yAmXPfC) de soporte.\n\nPara ver los comandos, debes clickear al botón respectivo:\n\n> 📌 • Comandos de Información\n> 💡 • Comandos de Utilidad\n> 🔒 • Comandos de Moderación\n> 🤣 • Comandos de Diversión\n> 😎 • Comandos de Reacción\n> ☕ • Comandos de Cafetería\n> 🥂 • Comandos de Bar\n> 💃 • Comandos de Disco\n> 🔞 • Comandos NSFW\n\n<a:flech:915156906258071554> **Muchas gracias por utilizar nuestro bot** <a:darkcrown2:886466286773739530>')
     .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
     .setTimestamp(new Date())
     .setColor('RANDOM')
@@ -8383,7 +8383,7 @@ client.on('messageCreate', async message => {
     .setDescription('> **say**\n> Hace que el bot diga un mensaje.\n\n> **8ball**\n> El bot responderá a tus preguntas.\n\n> **roll**\n> Lanza un dado al azar.\n\n> **impostor**\n> Averigua quién es el impostor de este mundo.\n\n> **buscaminas**\n> Envía un tablero del clásico juego.\n\n> **ship**\n> Mide tu nivel de amor con un usuario mencionado. | Uso: `' +prefix +'ship <@user>`\n\n> **meme**\n> Envía memes al azar.\n\n> **ttt**\n> Clásico Tic Tac Toe. | Uso: `' +prefix +'ttt <@user>`')
   
    const helpcbd = new Discord.MessageEmbed()
-    .setTitle('• Cafetería ☕ • Bar 🥂 • Disco 💃 •')
+    .setTitle('• Comandos Exclusivos •')
     .setAuthor('MidgardBot',client.user.avatarURL())
     .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
     .setTimestamp(new Date())
