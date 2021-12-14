@@ -2448,7 +2448,7 @@ client.on('messageCreate', async message => {
         
         let filter = int => int.isButton() && int.user.id == member.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
        
-        const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 60000 /* Tiempo para que el miembro interatue con los botones */ });
+        const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 30000 /* Tiempo para que el miembro interatue con los botones */ });
         
         
         collector.on("collect", async int => {
