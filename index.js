@@ -470,7 +470,7 @@ client.on('messageCreate', async message => {
                 
                 /* Creamos una nueva partida con los jugadores y lo guardamos en una constante llamada "game", el id es para detectar si ya esta en una partida */
                 m.edit({
-                  content: `<@${img}> Te buscan por aquí <:yonofui:880916494085681203>`,
+                  content: `<@${img}> Te buscan por aquí <:yonofui:920215733387018280>`,
                   components: []
                 });
       
