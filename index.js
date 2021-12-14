@@ -2936,6 +2936,80 @@ client.on('messageCreate', async message => {
 
     }
 
+    if(command === 'infiel'){
+
+      let users =  message.mentions.users.first();
+      if (users === client.user) return message.channel.send('**En serio crees que yo soy infiel como tú???**')
+    
+      const random = Math.floor(Math.random() * 100);
+
+      let heard = '';
+      let image = '';
+    
+      if(users.id === '753435606410985573')
+      {
+        random = 0;
+      }
+
+      if(random === 0){
+          
+        heard='😎';
+        image='https://i.pinimg.com/originals/fc/8a/07/fc8a0764969fcf2d587434f1bf3c014a.gif';
+    
+      } else if(random < 20 && random >0){
+          
+        heard='😲';
+        image='https://i.pinimg.com/originals/c2/af/e0/c2afe0dfff01bf12c4ec5ae3b78fefe8.gif';
+    
+      } else if(random < 50){
+          
+        heard='🤨';
+        image='https://www.fmdos.cl/wp-content/uploads/2016/02/infiel.gif';
+    
+      }else if(random < 70){
+          
+        heard='😬';
+        image='https://media0.giphy.com/media/dVzaYGLXkSQjcdljlS/giphy.gif';
+    
+      }else if(random < 90){
+          
+        heard='🤥';
+        image='https://vanidad.es/images/carpeta_gestor/archivos/2017/03/28/gif-infiel.gif';
+    
+      }else if(random < 101){
+          
+        heard='🤡';
+        image='https://c.tenor.com/xV8ISXEKTOUAAAAC/exponiendo-infieles-badabun.gif';
+    
+      }
+
+
+      if(!users){
+
+        const embed = new Discord.MessageEmbed()
+          .setAuthor(`Midgard's Love`,client.user.avatarURL())
+          .setTitle(`Nivel de Infidelidad`)
+          .setDescription(`${users.username} es ${random}% infiel! ${heard}`)
+          .setImage(`${image}`)
+          .setColor('RANDOM')
+          .setTimestamp(new Date())
+          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        message.channel.send({ embeds: [embed] })
+
+      } else {
+
+        const embed = new Discord.MessageEmbed()
+          .setAuthor(`Midgard's Love`,client.user.avatarURL())
+          .setTitle(`Nivel de Infidelidad`)
+          .setDescription(`${message.author.username} es ${random}% infiel! ${heard}`)
+          .setImage(`${image}`)
+          .setColor('RANDOM')
+          .setTimestamp(new Date())
+          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        message.channel.send({ embeds: [embed] })
+      }
+    }
+
     //COMANDOS DE CAFETERÍA
 
     var cafe = [
@@ -8460,7 +8534,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://i.gifer.com/HqGV.gif')
     .setColor('RANDOM')
-    .setDescription('> **say**\n> Hace que el bot diga un mensaje.\n\n> **8ball**\n> El bot responderá a tus preguntas.\n\n> **roll**\n> Lanza un dado al azar.\n\n> **impostor**\n> Averigua quién es el impostor de este mundo.\n\n> **buscaminas**\n> Envía un tablero del clásico juego.\n\n> **ship**\n> Mide tu nivel de amor con un usuario mencionado. | Uso: `' +prefix +'ship <@user>`\n\n> **meme**\n> Envía memes al azar.\n\n> **ttt**\n> Clásico Tic Tac Toe. | Uso: `' +prefix +'ttt <@user>`')
+    .setDescription('> **say**\n> Hace que el bot diga un mensaje.\n\n> **8ball**\n> El bot responderá a tus preguntas.\n\n> **roll**\n> Lanza un dado al azar.\n\n> **impostor**\n> Averigua quién es el impostor de este mundo.\n\n> **buscaminas**\n> Envía un tablero del clásico juego.\n\n> **ship**\n> Mide tu nivel de amor con un usuario mencionado. | Uso: `' +prefix +'ship <@user>`\n\n> **meme**\n> Envía memes al azar.\n\n> **ttt**\n> Clásico Tic Tac Toe. | Uso: `' +prefix +'ttt <@user>`\n\n> **infiel**\n> Descubre tu % de infidelidad.\n\n')
   
    const helpcbd = new Discord.MessageEmbed()
     .setTitle('• Comandos Exclusivos •')
@@ -8478,7 +8552,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://i.pinimg.com/originals/54/ce/5a/54ce5ae304bd82e54b7d45f639693213.gif')
     .setColor('RANDOM')
-    .setDescription('> **hi**\n> Saluda a alguien o a todos.\n\n> **hug**\n> Abraza a alguien o a ti mismo.\n\n> **kiss**\n> Besa a un usuario.\n\n> **sad**\n> Modo Sad.\n\n> **cry**\n> Modo Sad 2.0.\n\n> **sape**\n> Dale un sape a alguien.\n\n> **punch**\n> Tira un golpe a alguien.\n\n> **kill**\n> Mata a un usario.')
+    .setDescription('> **hi**\n> Saluda a alguien o a todos.\n\n> **hug**\n> Abraza a alguien o a ti mismo.\n\n> **kiss**\n> Besa a un usuario.\n\n> **sad**\n> Modo Sad.\n\n> **cry**\n> Modo Sad 2.0.\n\n> **sape**\n> Dale un sape a alguien.\n\n> **punch**\n> Tira un golpe a alguien.\n\n> **slap**\n> Abofetea a alguien.\n\n> **kill**\n> Mata a un usario.')
 
   const helpnsfw = new Discord.MessageEmbed()
     .setTitle('🔞 • Comandos NSFW')
