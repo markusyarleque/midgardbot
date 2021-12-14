@@ -2072,8 +2072,10 @@ client.on('messageCreate', async message => {
     
         if (message.mentions.users.size < 1) {
 
-          let id = args.join(" ")
-          if(!id) return message.reply('Debe mencionar a alguien o colocar su id').catch(console.error);
+          let idm = args.join(" ")
+          if(!idm) return message.reply('Debe mencionar a alguien o colocar su id').catch(console.error);
+
+          let id = await client.users.fetch(idm)
 
           if (!message.guild.members.resolve(id.id)){
 
