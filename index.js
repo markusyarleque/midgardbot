@@ -8429,7 +8429,7 @@ client.on('messageCreate', async message => {
           .setStyle("PRIMARY"),
         new MessageButton()
           .setCustomId("m2")
-          .setLabel("➕ Más Opciones")
+          .setLabel("📋 Más Opciones")
           .setStyle("PRIMARY"),
       ])
     ];
