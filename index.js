@@ -8335,23 +8335,23 @@ client.on('messageCreate', async message => {
         
     }
 
-    //HELP
+    //HELP MalBot
 
     const helpprincipal = new Discord.MessageEmbed()
     .setTitle('Bienvenido al apartado de Ayuda 💌')
     .setAuthor('MidgardBot',client.user.avatarURL())
-    .setDescription('Para ver los comandos, debes **Reaccionar** al emoji respectivo:\n\n> 📌 • Comandos de Información\n> 💡 • Comandos de Utilidad\n> 🔒 • Comandos de Moderación\n> 🤣 • Comandos de Diversión\n> 😎 • Comandos de Reacción\n> ☕ • Comandos de Cafetería\n> 🥂 • Comandos de Bar\n> 💃 • Comandos de Disco\n> 🔞 • Comandos NSFW\n> ⬅️ • Menú Principal\n\n**Pronto se agregarán más comandos**')
+    .setDescription('Bienvenid@ a la Lista de Comandos y funciones de **MidgardBot**, te invitamos a unirte a nuestro [servidor] (https://discord.gg/CM9yAmXPfC) de soporte.\n\nPara ver los comandos, debes clickear al botón respectivo:\n\n> 📌 • Comandos de Información\n> 💡 • Comandos de Utilidad\n> 🔒 • Comandos de Moderación\n> 🤣 • Comandos de Diversión\n> 😎 • Comandos de Reacción\n> ☕ • Comandos de Cafetería\n> 🥂 • Comandos de Bar\n> 💃 • Comandos de Disco\n> 🔞 • Comandos NSFW\n\n<a:flech:915156906258071554> **Muchas gracias por utilizar nuestro bot** <a:darkcrown2:886466286773739530>')
     .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
     .setTimestamp(new Date())
     .setColor('RANDOM')
-    .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
+    .setThumbnail('https://c.tenor.com/hE0T8D0GpXsAAAAC/joinblink-blink.gif')
 
   const helpinfo = new Discord.MessageEmbed()
     .setTitle('📌 • Comandos De Información')
     .setAuthor('MidgardBot',client.user.avatarURL())
     .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
     .setTimestamp(new Date())
-    .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
+    .setThumbnail('https://mimeti.co/wp-content/uploads/2015/01/01-gif-traduction-localise.gif')
     .setColor('RANDOM')
     .setDescription('> **ping**\n> Comprueba la latencia del bot y de tus mensajes.\n\n> **stats**\n> Muestra la info y estado del bot.\n\n> **help**\n> Menú de ayuda con los comandos del bot\n\n> **server**\n> Muestra información de un servidor determinado.\n\n> **report**\n> Reportar un bug del bot.\n\n> **suggestion**\n> Enviar una sugerencia para mejorar el bot.\n\n')
 
@@ -8360,7 +8360,7 @@ client.on('messageCreate', async message => {
     .setAuthor('MidgardBot',client.user.avatarURL())
     .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
     .setTimestamp(new Date())
-    .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
+    .setThumbnail('https://jonmgomes.com/wp-content/uploads/2020/03/Liquid-Lightbulb-Animation-V2-800x600-1.gif')
     .setColor('RANDOM')
     .setDescription('> **user**\n> Muestra información sobre un usuario mencionado. | Uso: `' +prefix +'user <@user>`\n> Si no hay mención, mostrará la información del usuario que ejecute el comando.\n\n> **avatar**\n> Muestra el avatar de un usuario. | Uso: `' +prefix +'avatar <@user>`\n> Si no hay mención, mostrará el avatar del usuario que ejecute el comando.\n\n> **welcome**\n> Muestra un embed de bienvenida. | Uso: `' +prefix +'welcome <@user>`\n\n> **remindme**\n> Establece un recordatorio. | Uso: `' +prefix +'remindme <tiempo en s,m,h> <recordatorio>`\n\n> **snipe**\n> Recupera el último mensaje eliminado.\n\n> **jumbo**\n> Ver en grande un emoji.\n\n> **poll**\n> Crea una encuentas. | Uso: `' +prefix +'poll pregunta / opción1 / opción2 / opción3 [opcional]...`\n\n')
   
@@ -8369,7 +8369,7 @@ client.on('messageCreate', async message => {
     .setAuthor('MidgardBot',client.user.avatarURL())
     .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
     .setTimestamp(new Date())
-    .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
+    .setThumbnail('https://elblogdelauz.files.wordpress.com/2018/10/gif-seguridad.gif')
     .setColor('RANDOM')
     .setDescription('> **role**\n> Muestra información de un rol mencionado. | Uso: `' +prefix +'role <nombre/@rol>`\n\n> **roleid**\n> Muestra información de un rol por id. | Uso: `' +prefix +'roleid <id>`\n\n> **addrol**\n> Agrega un rol a un usuario del servidor. | Uso: `' +prefix +'addrol <@user> <rol>`\n\n> **removerol**\n> Remueve un rol a un usuario del servidor. | Uso: `' +prefix +'removerol <@user> <rol>`\n\n> **lock**\n> Bloquea un canal del servidor. | Uso: `' +prefix +'lock <#canal>`\n> Si no menciona el canal, se bloqueará el canal donde se ejecute el comando\n\n> **unlock**\n> Desbloquea un canal del servidor. | Uso: `' +prefix +'unlock <#canal>`\n> Si no menciona el canal, se desbloqueará el canal donde se ejecute el comando\n\n> **clear**\n> Elimina mensajes de un canal. | Uso: `' +prefix +'clear <cantidad>`\n\n> **kick**\n> Expulsa a un miembro mencionado. | Uso: `' +prefix +'kick <@user>`\n\n> **ban**\n> Banea a un miembro mencionado. | Uso: `' +prefix +'ban <@user>`')
   
@@ -8378,7 +8378,7 @@ client.on('messageCreate', async message => {
     .setAuthor('MidgardBot',client.user.avatarURL())
     .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
     .setTimestamp(new Date())
-    .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
+    .setThumbnail('https://i.gifer.com/HqGV.gif')
     .setColor('RANDOM')
     .setDescription('> **say**\n> Hace que el bot diga un mensaje.\n\n> **8ball**\n> El bot responderá a tus preguntas.\n\n> **roll**\n> Lanza un dado al azar.\n\n> **impostor**\n> Averigua quién es el impostor de este mundo.\n\n> **buscaminas**\n> Envía un tablero del clásico juego.\n\n> **ship**\n> Mide tu nivel de amor con un usuario mencionado. | Uso: `' +prefix +'ship <@user>`\n\n> **meme**\n> Envía memes al azar.\n\n> **ttt**\n> Clásico Tic Tac Toe. | Uso: `' +prefix +'ttt <@user>`')
   
@@ -8387,7 +8387,7 @@ client.on('messageCreate', async message => {
     .setAuthor('MidgardBot',client.user.avatarURL())
     .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
     .setTimestamp(new Date())
-    .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
+    .setThumbnail('https://i.pinimg.com/originals/14/d6/dc/14d6dc0f242386738df2b7f067a9c593.gif')
     .setColor('RANDOM')
     .setDescription('**Cafetería** ☕\n> **cafe**\n> **agua**\n> **te**\n> **jugo**\n> **tacos**\n> **chocolate**\n> **galletas**\n> **helado**\n> **hamburguesa**\n> **pizza**\n\n**Bar** 🥂\n> **cocacola**\n> **redbull**\n> **cerveza**\n> **vino**\n> **tequila**\n> **ron**\n> **coctel**\n> **cigarro**\n> **porro**\n> **huca**\n\n**Disco** 💃\n> **perreo**\n> **bachata**\n> **salsa**\n> **cumbia**\n> **colegiala**\n\n')
   
@@ -8396,7 +8396,7 @@ client.on('messageCreate', async message => {
     .setAuthor('MidgardBot',client.user.avatarURL())
     .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
     .setTimestamp(new Date())
-    .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
+    .setThumbnail('https://i.pinimg.com/originals/54/ce/5a/54ce5ae304bd82e54b7d45f639693213.gif')
     .setColor('RANDOM')
     .setDescription('> **hi**\n> Saluda a alguien o a todos.\n\n> **hug**\n> Abraza a alguien o a ti mismo.\n\n> **kiss**\n> Besa a un usuario.\n\n> **sad**\n> Modo Sad.\n\n> **cry**\n> Modo Sad 2.0.\n\n> **sape**\n> Dale un sape a alguien.\n\n> **punch**\n> Tira un golpe a alguien.\n\n> **kill**\n> Mata a un usario.')
 
@@ -8405,7 +8405,7 @@ client.on('messageCreate', async message => {
     .setAuthor('MidgardBot',client.user.avatarURL())
     .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
     .setTimestamp(new Date())
-    .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
+    .setThumbnail('https://c.tenor.com/E0DqqabbUn0AAAAC/nsfw.gif')
     .setColor('RANDOM')
     .setDescription('> **||tetas||**\n> **||pussy||**\n> **||culo||**\n> **||dick||**\n> **||lick||**\n> **||suck||**\n> **||suckb||**\n> **||sboobs||**\n> **||fuck||**\n> **||anal||**\n> **||cum||**\n> **||porno||**\n> **||4k||**\n> **||nekosolo||**\n> **||gonewild||**\n')
     
@@ -8466,7 +8466,7 @@ client.on('messageCreate', async message => {
       
       let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
      
-      const collector = m.createMessageComponentCollector({ filter, time: 30000 /* Tiempo para que el miembro interatue con los botones */ });
+      const collector = m.createMessageComponentCollector({ filter, time: 60000 /* Tiempo para que el miembro interatue con los botones */ });
       
       collector.on("collect", async int => {
         
