@@ -2075,6 +2075,84 @@ client.on('messageCreate', async message => {
           let id = args.join(" ")
           if(!id) return message.reply('Debe mencionar a alguien o colocar su id').catch(console.error);
 
+          if (!message.guild.members.resolve(id.id)){
+
+            if (message.member.roles.highest.comparePositionTo(id.roles.highest) <= 0) {
+              return message.channel.send('No puedes banear a un usuario con mayor o igual rango que tú.')
+            }
+            if (!id.bannable) {
+              return message.channel.send('No puedo banear a este usuario')
+            }
+
+          }
+
+          message.channel.send({
+          content: message.author.toString() + " Estás seguro de banear a " + id.toString() + "?",
+          components: [
+            /* Botones para aceptar y rechazar el juego */
+            new MessageActionRow().addComponents([
+              new MessageButton()
+                .setCustomId("accept")
+                .setLabel("SI")
+                .setStyle("SUCCESS"),
+              new MessageButton()
+                .setCustomId("deny")
+                .setLabel("NO")
+                .setStyle("DANGER")
+            ])
+          ]
+          }).then(async m => {
+        
+          /* Creamos un collector de componentes para detectar lainteracción con los botones */
+          
+          let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
+         
+          const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 30000 /* Tiempo para que el miembro interatue con los botones */ });
+          
+          
+          collector.on("collect", async int => {
+            
+            /* Cuando el miembro mencionado de click en un boton */
+            
+            int.deferUpdate();
+            
+            /* Si dio click en el boton aceptar ... */
+            
+            if (int.customId === "accept") {
+              
+              /* Creamos una nueva partida con los jugadores y lo guardamos en una constante llamada "game", el id es para detectar si ya esta en una partida */
+              message.guild.members.ban(id.id, { reason: 'razon' });
+              m.edit({
+                content: `**${id.username}**, fue baneado del servidor, razón: ${razon}.`,
+                components: []
+              });
+    
+              
+            } else if (int.customId === "deny") {
+              
+              /* Si el juego fue rechazado ... */
+              
+              // Editamos el mensaje y quitamos los botones.
+              m.edit({
+                content: "Baneo cancelado...",
+                components: []
+              });
+            
+            }
+          });
+    
+          collector.on("end", colected => {
+            /* Si no dio click en ningun boton durante los 60s ...*/
+            
+            if(colected.size < 1) return m.edit({
+              content: "**Tardaste mucho en responder!.**",
+              components: []
+            });
+            
+          });
+          
+          });
+
         } else {
        
           if (!message.guild.members.resolve(user.id)){
