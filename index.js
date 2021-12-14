@@ -468,7 +468,6 @@ client.on('messageCreate', async message => {
               
               if (int.customId === "accept") {
                 
-                /* Creamos una nueva partida con los jugadores y lo guardamos en una constante llamada "game", el id es para detectar si ya esta en una partida */
                 m.edit({
                   content: `<@${img}> Te buscan por aquí <:yonofui:920215733387018280>`,
                   components: []
@@ -477,9 +476,7 @@ client.on('messageCreate', async message => {
                 
               } else if (int.customId === "deny") {
                 
-                /* Si el juego fue rechazado ... */
-                
-                // Editamos el mensaje y quitamos los botones.
+                 // Editamos el mensaje y quitamos los botones.
                 m.edit({
                   content: "Gracias, si necesitas algo, no dudes en contactarme. <:tierno:881618338759966800>",
                   components: []
@@ -2073,20 +2070,25 @@ client.on('messageCreate', async message => {
     
         if(!permiso) return message.channel.send('`Error` `|` No tienes Permisos para usar este comando.');
     
-        if (message.mentions.users.size < 1) return message.reply('Debe mencionar a alguien.').catch(console.error);
+        if (message.mentions.users.size < 1) {
+
+          let id = args.join(" ")
+          if(!id) return message.reply('Debe mencionar a alguien o colocar su id').catch(console.error);
+
+        } else {
        
-        if (!message.guild.members.resolve(user.id)){
+          if (!message.guild.members.resolve(user.id)){
 
-          if (message.member.roles.highest.comparePositionTo(user.roles.highest) <= 0) {
-            return message.channel.send('No puedes banear a un usuario con mayor o igual rango que tú.')
+            if (message.member.roles.highest.comparePositionTo(user.roles.highest) <= 0) {
+              return message.channel.send('No puedes banear a un usuario con mayor o igual rango que tú.')
+            }
+            if (!user.bannable) {
+              return message.channel.send('No puedo banear a este usuario')
+            }
+
           }
-          if (!user.bannable) {
-            return message.channel.send('No puedo banear a este usuario')
-          }
 
-        }
-
-        message.channel.send({
+          message.channel.send({
           content: message.author.toString() + " Estás seguro de banear a " + user.toString() + "?",
           components: [
             /* Botones para aceptar y rechazar el juego */
@@ -2101,7 +2103,7 @@ client.on('messageCreate', async message => {
                 .setStyle("DANGER")
             ])
           ]
-        }).then(async m => {
+          }).then(async m => {
         
           /* Creamos un collector de componentes para detectar lainteracción con los botones */
           
@@ -2151,8 +2153,8 @@ client.on('messageCreate', async message => {
             
           });
           
-        });
-
+          });
+        }
     }
 
     //COMANDOS DE DIVERSIÓN
@@ -8380,32 +8382,14 @@ client.on('messageCreate', async message => {
     .setColor('RANDOM')
     .setDescription('> **say**\n> Hace que el bot diga un mensaje.\n\n> **8ball**\n> El bot responderá a tus preguntas.\n\n> **roll**\n> Lanza un dado al azar.\n\n> **impostor**\n> Averigua quién es el impostor de este mundo.\n\n> **buscaminas**\n> Envía un tablero del clásico juego.\n\n> **ship**\n> Mide tu nivel de amor con un usuario mencionado. | Uso: `' +prefix +'ship <@user>`\n\n> **meme**\n> Envía memes al azar.\n\n> **ttt**\n> Clásico Tic Tac Toe. | Uso: `' +prefix +'ttt <@user>`')
   
-   const helpcaf = new Discord.MessageEmbed()
-    .setTitle('☕ • Comandos de Cafetería')
+   const helpcbd = new Discord.MessageEmbed()
+    .setTitle('• Cafetería ☕ • Bar 🥂 • Disco 💃 •')
     .setAuthor('MidgardBot',client.user.avatarURL())
     .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
     .setTimestamp(new Date())
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
-    .setDescription('> **cafe**\n> **agua**\n> **te**\n> **jugo**\n> **tacos**\n> **chocolate**\n> **galletas**\n> **helado**\n> **hamburguesa**\n> **pizza**\n\n')
-  
-  const helpbar = new Discord.MessageEmbed()
-    .setTitle('🥂 • Comandos de Bar')
-    .setAuthor('MidgardBot',client.user.avatarURL())
-    .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
-    .setTimestamp(new Date())
-    .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
-    .setColor('RANDOM')
-    .setDescription('> **cocacola**\n> **redbull**\n> **cerveza**\n> **vino**\n> **tequila**\n> **ron**\n> **coctel**\n> **cigarro**\n> **porro**\n> **huca**\n\n')
-  
-  const helpdis = new Discord.MessageEmbed()
-    .setTitle('💃 • Comandos de Disco')
-    .setAuthor('MidgardBot',client.user.avatarURL())
-    .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
-    .setTimestamp(new Date())
-    .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
-    .setColor('RANDOM')
-    .setDescription('> **perreo**\n> **bachata**\n> **salsa**\n> **cumbia**\n> **colegiala**')
+    .setDescription('**Cafetería** ☕\n> **cafe**\n> **agua**\n> **te**\n> **jugo**\n> **tacos**\n> **chocolate**\n> **galletas**\n> **helado**\n> **hamburguesa**\n> **pizza**\n\n**Bar** 🥂\n> **cocacola**\n> **redbull**\n> **cerveza**\n> **vino**\n> **tequila**\n> **ron**\n> **coctel**\n> **cigarro**\n> **porro**\n> **huca**\n\n**Disco** 💃\n> **perreo**\n> **bachata**\n> **salsa**\n> **cumbia**\n> **colegiala**\n\n')
   
   const helprea = new Discord.MessageEmbed()
     .setTitle('😎 • Comandos de Reacción')
@@ -8431,7 +8415,152 @@ client.on('messageCreate', async message => {
   
   if(message.content.startsWith(prefix + 'help')){
 
-    message.channel.send({embeds: [embedespera]}).then(editado => {
+    const btns_options1 = [
+      new MessageActionRow().addComponents([
+        new MessageButton()
+          .setCustomId("mp")
+          .setLabel("🌎 Inicio")
+          .setStyle("PRIMARY"),
+        new MessageButton()
+          .setCustomId("inf")
+          .setLabel("📌 Información")
+          .setStyle("PRIMARY"),
+        new MessageButton()
+          .setCustomId("util")
+          .setLabel("💡 Utilidad")
+          .setStyle("PRIMARY"),
+        new MessageButton()
+          .setCustomId("mod")
+          .setLabel("🔒 Moderación")
+          .setStyle("PRIMARY"),
+        new MessageButton()
+          .setCustomId("m2")
+          .setLabel("➕ Más Opciones")
+          .setStyle("PRIMARY"),
+      ])
+    ];
+    
+    const btns_options2 = [
+      new MessageActionRow().addComponents([
+        new MessageButton()
+          .setCustomId("mp")
+          .setLabel("🌎 Inicio")
+          .setStyle("PRIMARY"),
+        new MessageButton()
+          .setCustomId("div")
+          .setLabel("🤣 Diversión")
+          .setStyle("PRIMARY"),
+        new MessageButton()
+          .setCustomId("rea")
+          .setLabel("😎 Reacción")
+          .setStyle("PRIMARY"),
+        new MessageButton()
+          .setCustomId("cbd")
+          .setLabel("🥂 CBD")
+          .setStyle("PRIMARY"),
+        new MessageButton()
+          .setCustomId("nsfw")
+          .setLabel("🔥 NSFW")
+          .setStyle("PRIMARY"),
+      ])
+    ];
+    
+    message.channel.send({
+      embeds: [helpprincipal],
+      components: [btns_options1]
+    }).then(async m => {
+      
+      let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
+     
+      const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 30000 /* Tiempo para que el miembro interatue con los botones */ });
+      
+      collector.on("collect", async int => {
+        
+        int.deferUpdate();
+     
+        if (int.customId === "mp") {
+          
+          m.edit({
+            embeds: [helpprincipal],
+            components: [btns_options1]
+          });
+
+        } else if (int.customId === "inf") {
+          
+          m.edit({
+            embeds: [helpinfo],
+            components: [btns_options1]
+          });
+
+        } else if (int.customId === "util") {
+          
+          m.edit({
+            embeds: [helputil],
+            components: [btns_options1]
+          });
+
+        } else if (int.customId === "mod") {
+          
+          m.edit({
+            embeds: [helpmod],
+            components: [btns_options1]
+          });
+
+        } else if (int.customId === "m2") {
+          
+          m.edit({
+            embeds: [helpprincipal],
+            components: [btns_options2]
+          });
+
+        } else if (int.customId === "div") {
+          
+          m.edit({
+            embeds: [helpdiv],
+            components: [btns_options2]
+          });
+
+        } else if (int.customId === "rea") {
+          
+          m.edit({
+            embeds: [helprea],
+            components: [btns_options2]
+          });
+
+        } else if (int.customId === "cbd") {
+          
+          m.edit({
+            embeds: [helpcbd],
+            components: [btns_options2]
+          });
+
+        } else if (int.customId === "nsfw") {
+          
+          m.edit({
+            embeds: [helpnsfw],
+            components: [btns_options2]
+          });
+
+        } 
+
+      });
+
+      collector.on("end", colected => {
+        
+        if(colected.size < 1) return m.edit({
+          embeds: [embednoconf],
+          components: []
+        });
+        
+      });
+      
+    });
+    
+    }
+
+    //HELP AVANZADO CON MENÚ
+    
+    /*message.channel.send({embeds: [embedespera]}).then(editado => {
 
       editado.react('📌')
       .then(() => editado.react('💡'))
@@ -8467,77 +8596,73 @@ client.on('messageCreate', async message => {
           reaction.users.remove(message.author.id)
           editado.edit({embeds: [helpinfo]})
           
-       /* try {
+        try {
           for (const reaction of userReactions.values()) {
             reaction.users.remove(message.author.id);
           }
         } catch (error) {
           console.error('Falla al remover la reacción');
-        }*/
-
         }
-        if(reaction.emoji.name === '💡'){
 
-          //editado.reactions.removeAll()
-          reaction.users.remove(message.author.id)
-          editado.edit({embeds: [helputil]})
-        }
-        if(reaction.emoji.name === '🔒'){
+      }
+      if(reaction.emoji.name === '💡'){
 
-          //editado.reactions.removeAll()
-          reaction.users.remove(message.author.id)
-          editado.edit({embeds: [helpmod]})
-        }
-        if(reaction.emoji.name === '🤣'){
+        editado.reactions.removeAll()
+        reaction.users.remove(message.author.id)
+        editado.edit({embeds: [helputil]})
+      }
+      if(reaction.emoji.name === '🔒'){
 
-          //editado.reactions.removeAll()
-          reaction.users.remove(message.author.id)
-          editado.edit({embeds: [helpdiv]})
-        }
-        if(reaction.emoji.name === '😎'){
+        editado.reactions.removeAll()
+        reaction.users.remove(message.author.id)
+        editado.edit({embeds: [helpmod]})
+      }
+      if(reaction.emoji.name === '🤣'){
 
-          //editado.reactions.removeAll()
-          reaction.users.remove(message.author.id)
-          editado.edit({embeds: [helprea]})
-        }
-        if(reaction.emoji.name === '☕'){
+        editado.reactions.removeAll()
+        reaction.users.remove(message.author.id)
+        editado.edit({embeds: [helpdiv]})
+      }
+      if(reaction.emoji.name === '😎'){
 
-          //editado.reactions.removeAll()
-          reaction.users.remove(message.author.id)
-          editado.edit({embeds: [helpcaf]})
-        }
-        if(reaction.emoji.name === '🥂'){
+        editado.reactions.removeAll()
+        reaction.users.remove(message.author.id)
+        editado.edit({embeds: [helprea]})
+      }
+      if(reaction.emoji.name === '☕'){
 
-          //editado.reactions.removeAll()
-          reaction.users.remove(message.author.id)
-          editado.edit({embeds: [helpbar]})
-        }
-        if(reaction.emoji.name === '💃'){
+        editado.reactions.removeAll()
+        reaction.users.remove(message.author.id)
+        editado.edit({embeds: [helpcaf]})
+      }
+      if(reaction.emoji.name === '🥂'){
 
-          //editado.reactions.removeAll()
-          reaccion.users.remove(message.author.id)
-          editado.edit({embeds: [helpdis]})
-        }
-        if(reaction.emoji.name === '🔞'){
+        editado.reactions.removeAll()
+        reaction.users.remove(message.author.id)
+        editado.edit({embeds: [helpbar]})
+      }
+      if(reaction.emoji.name === '💃'){
 
-          //editado.reactions.removeAll()
-          reaction.users.remove(message.author.id)
-          editado.edit({embeds: [helpnsfw]})
-        }
-        if(reaction.emoji.name === '⬅️'){
+        editado.reactions.removeAll()
+        reaccion.users.remove(message.author.id)
+        editado.edit({embeds: [helpdis]})
+      }
+      if(reaction.emoji.name === '🔞'){
 
-          //editado.reactions.removeAll()
-          reaction.users.remove(message.author.id)
-          editado.edit({embeds: [helpprincipal]})
-        }
-        
-      })
+        editado.reactions.removeAll()
+        reaction.users.remove(message.author.id)
+        editado.edit({embeds: [helpnsfw]})
+      }
+      if(reaction.emoji.name === '⬅️'){
 
-    });
-    
-    }
+        editado.reactions.removeAll()
+        reaction.users.remove(message.author.id)
+        editado.edit({embeds: [helpprincipal]})
+      }
+      
+    })
 
-    //HELP AVANZADO CON MENÚ
+  });*/
 
     /*if (command === 'hpm')
     {
