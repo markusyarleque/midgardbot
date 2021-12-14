@@ -2040,7 +2040,17 @@ client.on('messageCreate', async message => {
     
         if (message.mentions.users.size < 1) return message.reply('Debe mencionar a alguien.').catch(console.error);
         if(!razon) return message.channel.send('Escriba un razón, `_ban @username [razón]`');
-        if (!message.guild.members(user).bannable) return message.reply('No puedo banear al usuario mencionado.');
+  
+        if (!message.guild.members.resolve(user.id)){
+
+          if (message.member.roles.highest.comparePositionTo(user.roles.highest) <= 0) {
+            return message.channel.send('No puedes banear a un usuario con mayor o igual rango que tú.')
+          }
+          if (!user.bannable) {
+            return message.channel.send('No puedo banear a este usuario')
+          }
+          
+        }
         
         message.guild.members.ban(user.id, { reason: 'razon' });
         message.channel.send(`**${user.username}**, fue baneado del servidor, razón: ${razon}.`);
