@@ -8408,14 +8408,8 @@ client.on('messageCreate', async message => {
     .setThumbnail('https://images-ext-2.discordapp.net/external/qR0o0Wkk5FoEF8kMGJ2azwrY35AnkDrzWBeCWV23Tck/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/35c9d4dcd0f3e8dc87a335e78a9a52ac.png?width=862&height=474')
     .setColor('RANDOM')
     .setDescription('> **||tetas||**\n> **||pussy||**\n> **||culo||**\n> **||dick||**\n> **||lick||**\n> **||suck||**\n> **||suckb||**\n> **||sboobs||**\n> **||fuck||**\n> **||anal||**\n> **||cum||**\n> **||porno||**\n> **||4k||**\n> **||nekosolo||**\n> **||gonewild||**\n')
-
-  const embedespera = new Discord.MessageEmbed()
-    .setDescription('<a:cargando:887482093481902101> | Espera mientras cargan las reacciones...')
-    .setColor('RANDOM')
-  
-  if(message.content.startsWith(prefix + 'help')){
-
-    const btns_options1 = [
+    
+  const btns_options1 = [
       new MessageActionRow().addComponents([
         new MessageButton()
           .setCustomId("mp")
@@ -8464,7 +8458,9 @@ client.on('messageCreate', async message => {
           .setStyle("PRIMARY"),
       ])
     ];
-    
+
+  if(command === 'help'){
+
     message.channel.send({
       embeds: [helpprincipal],
       components: [btns_options1]
