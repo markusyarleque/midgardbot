@@ -2693,7 +2693,7 @@ client.on('messageCreate', async message => {
           
           let filter = int => int.isButton(); //Filtrar que interactue con un boton.
           
-          const collector = m.createMessageComponentCollector({ filter, max: 1, time: 120000 /* 2 minutos para que interactue con un boton */ });
+          const collector = m.createMessageComponentCollector({ filter, max: 1, time: 30000 /* 2 minutos para que interactue con un boton */ });
   
           collector.on("collect", int => {
             
