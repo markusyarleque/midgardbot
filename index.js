@@ -434,36 +434,72 @@ client.on('messageCreate', async message => {
         {
           if(bl.tiene(message.author.id)) return;
   
-          message.channel.send(`${message.author}, ¿Deseas contactar a Malta?`).then(m => {
-
-            m.react('👍').then(() => m.react('👎'));
+          message.channel.send({
+            content: message.author.toString() + "¿Deseas contactar a Malta?",
+            components: [
+              /* Botones para aceptar y rechazar el juego */
+              new MessageActionRow().addComponents([
+                new MessageButton()
+                  .setCustomId("accept")
+                  .setLabel("SI")
+                  .setStyle("SUCCESS"),
+                new MessageButton()
+                  .setCustomId("deny")
+                  .setLabel("NO")
+                  .setStyle("DANGER")
+              ])
+            ]
+          }).then(async m => {
+          
+            /* Creamos un collector de componentes para detectar lainteracción con los botones */
+            
+            let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
            
-            const filter = (reaction, user) => {
-              return ['👍', '👎'].includes(reaction.emoji.name) && user.id == message.author.id;
-            };
+            const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 30000 /* Tiempo para que el miembro interatue con los botones */ });
+            
+            
+            collector.on("collect", async int => {
+              
+              /* Cuando el miembro mencionado de click en un boton */
+              
+              int.deferUpdate();
+              
+              /* Si dio click en el boton aceptar ... */
+              
+              if (int.customId === "accept") {
+                
+                /* Creamos una nueva partida con los jugadores y lo guardamos en una constante llamada "game", el id es para detectar si ya esta en una partida */
+                message.guild.members.ban(user.id, { reason: 'razon' });
+                m.edit({
+                  content: `<@${img}> Te buscan por aquí <:yonofui:880916494085681203>`,
+                  components: []
+                });
       
-            m.awaitReactions({filter, max: 1, time: 600000, errors: ['time']}).catch(() => {
-      
-              m.edit('¡No confirmaste a tiempo! <:enojado:882877729266098186>')
-              m.reactions.removeAll()
-      
-            }).then(collected=> {
-      
-              const reaccion = collected.first()
-      
-              if(reaccion.emoji.name === '👍') {
-      
-                setTimeout(() => m.delete(), 100);
-                message.channel.send(`<@${img}> Te buscan por aquí <:yonofui:880916494085681203>`);
-
-              } else if(reaccion.emoji.name === '👎') {
-      
-                m.edit('Gracias, si necesitas algo, no dudes en contactarme. <:tierno:881618338759966800>')
-                m.reactions.removeAll()
-      
+                
+              } else if (int.customId === "deny") {
+                
+                /* Si el juego fue rechazado ... */
+                
+                // Editamos el mensaje y quitamos los botones.
+                m.edit({
+                  content: "Gracias, si necesitas algo, no dudes en contactarme. <:tierno:881618338759966800>",
+                  components: []
+                });
+              
               }
-            })
-          })
+            });
+      
+            collector.on("end", colected => {
+              /* Si no dio click en ningun boton durante los 60s ...*/
+              
+              if(colected.size < 1) return m.edit({
+                content: "**¡No confirmaste a tiempo!** <:enojado:882877729266098186>",
+                components: []
+              });
+              
+            });
+            
+          });
         }
   
         if (message.content === 'reven'){
