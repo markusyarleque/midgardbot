@@ -2040,9 +2040,8 @@ client.on('messageCreate', async message => {
     
         if (message.mentions.users.size < 1) return message.reply('Debe mencionar a alguien.').catch(console.error);
         if(!razon) return message.channel.send('Escriba un razón, `_ban @username [razón]`');
-        if (!message.guild.member(user).bannable) return message.reply('No puedo banear al usuario mencionado.');
+        if (!message.guild.members(user).bannable) return message.reply('No puedo banear al usuario mencionado.');
         
-    
         message.guild.members.ban(user.id, { reason: 'razon' });
         message.channel.send(`**${user.username}**, fue baneado del servidor, razón: ${razon}.`);
     
