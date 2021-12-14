@@ -2033,7 +2033,7 @@ client.on('messageCreate', async message => {
     if(command === 'ban'){
         
         let user = message.mentions.users.first();
-        let razon = args.slice(1).join(' ');
+        let razon = args.slice(1).join(' ') ? args.slice(1).join(' ') : "Razon sin especificar";
         let permiso = message.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS);
     
         if(!permiso) return message.channel.send('`Error` `|` No tienes Permisos para usar este comando.');
@@ -2043,7 +2043,7 @@ client.on('messageCreate', async message => {
         if (!message.guild.member(user).bannable) return message.reply('No puedo banear al usuario mencionado.');
         
     
-        message.guild.member(user).ban({ reason: 'razon' });
+        message.guild.members.ban(user.id, { reason: 'razon' });
         message.channel.send(`**${user.username}**, fue baneado del servidor, razón: ${razon}.`);
     
     }
