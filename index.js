@@ -3073,12 +3073,12 @@ client.on('messageCreate', async message => {
 
       } else {
 
-        var tag = args[0]; // tag
+        var tag = message.mentions.users.first() // tag
 		    var anon = args[1]; // anónimo
         
 		    var mensaje = args.slice(2).join(" ")
 
-        var target = message.guild.members.cache.find(m => m.user.tag == tag);
+        var target = message.guild.members.cache.find(m => m.user.id == tag.id);
 
         if (!target) return message.channel.send("Error: No se ha encontrado al destinatario!");
 
