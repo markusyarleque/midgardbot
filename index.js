@@ -2300,10 +2300,23 @@ client.on('messageCreate', async message => {
     if(command === 'impostor'){
 
         const mencionado = message.mentions.members.first()
-    
+        
+        /*let random = [
+          "No era el impostor",
+          "Era el impostor"
+        ]*/
+        let impost = [
+          '715007589464801411',
+          '544585916115714057',
+          '580032343117660160',
+          '904598921240772609',
+          '373994470078808064',
+          '888857460599848990'
+        ]
+
         if(!mencionado){
-    
-          if (`${message.author.id}` === '786453334349447198' )
+          
+          if (!impost.some(id => message.author.id == id))
           {
     
             return message.channel.send(`. 　　　。　　　　•　 　ﾟ　　。 　　.
@@ -2312,13 +2325,11 @@ client.on('messageCreate', async message => {
     
     .　　 。　　　　　 ඞ 。 . 　　 • 　　　　•
     
-    　　ﾟ　ﾟ　。  ${message.author.username} Era el impostor  •　 。　.
+    　　ﾟ　ﾟ　。  ${message.author.username} No eres el impostor  •　 。　.
     
-    　　'　　ﾟ   •   　 ${nimpo-1} Impostores restantes 　 　　。  .
+    　　'　　ﾟ   •   　 ${impost.length} Impostores restantes 　 　　。  .
     
     　　ﾟ　　　.　　　. ,　　　　.　 .`)
-    
-            nimpo = nimpo - 1
     
           } else {
     
@@ -2328,9 +2339,9 @@ client.on('messageCreate', async message => {
     
     .　　 。　　　　　 ඞ 。 . 　　 • 　　　　•
     
-    　　ﾟ　ﾟ　。  ${message.author.username} No era el impostor  •　 。　.
+    　　ﾟ　ﾟ　。  ${message.author.username} Sí era el impostor  •　 。　.
     
-    　　'　　ﾟ   •   　 ${nimpo} Impostores restantes 　 　　。  .
+    　　'　　ﾟ   •   　 ${impost.length} Impostores restantes 　 　　。  .
     
     　　ﾟ　　　.　　　. ,　　　　.　 .`)
     
@@ -2338,7 +2349,7 @@ client.on('messageCreate', async message => {
           
         } else{
     
-          if (`${mencionado.id}` === '786453334349447198' )
+          if (!impost.some(id => mencionado.id == id))
           {
     
             return message.channel.send(`. 　　　。　　　　•　 　ﾟ　　。 　　.
@@ -2347,13 +2358,11 @@ client.on('messageCreate', async message => {
     
     .　　 。　　　　　 ඞ 。 . 　　 • 　　　　•
     
-    　　ﾟ　ﾟ　。  ${mencionado.user.username} Era el impostor  •　 。　.
+    　　ﾟ　ﾟ　。  ${mencionado.user.username} No es el impostor  •　 。　.
     
-    　　'　　ﾟ   •   　 ${nimpo-1} Impostores restantes 　 　　。  .
+    　　'　　ﾟ   •   　 ${impost.length-1} Impostores restantes 　 　　。  .
     
     　　ﾟ　　　.　　　. ,　　　　.　 .`)
-            
-            nimpo = nimpo - 1
     
           } else {
     
@@ -2363,9 +2372,9 @@ client.on('messageCreate', async message => {
     
     .　　 。　　　　　 ඞ 。 . 　　 • 　　　　•
     
-    　　ﾟ　ﾟ　。  ${mencionado.user.username} No era el impostor  •　 。　.
+    　　ﾟ　ﾟ　。  ${mencionado.user.username} Sí era el impostor  •　 。　.
     
-    　　'　　ﾟ   •   　 ${nimpo} Impostores restantes 　 　　。  .
+    　　'　　ﾟ   •   　 ${impost.length-1} Impostores restantes 　 　　。  .
     
     　　ﾟ　　　.　　　. ,　　　　.　 .`)
     
