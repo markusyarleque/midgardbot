@@ -51,16 +51,12 @@ const tresenraya = require('tresenraya');
 
 const CARTA_TIEMPO_MIN = 2;
 const CARTA_TIEMPO_MAX = 5;
-const MENSAJE_AYUDA_CARTA = 
-`
-Carta - Envia una carta a otro usuario
-Uso: carta <tag> <anonimo> <mensaje>
-
-Argumentos:
-	- tag: La discord tag del usuario / @user
-	- anonimo: Enviar anónimamente el mensaje (s/n)(s = sí, n = no)
-	- mensaje: El mensaje que deseas enviar
-`;
+const MENSAJE_AYUDA_CARTA = new Discord.MessageEmbed()
+.setDescription('<a:d_Fijao:897243194943737866> Carta - Envia una carta a otro usuario <:abby:880300168514252811>')
+.addFields('<a:flech:915156906258071554> Uso: ','`carta <tag> <anónimo> <mensaje>`')
+.addFields('<a:flech:915156906258071554> Argumentos: ','- tag: El tag del usuario / @user\n- anónimo: Enviar anónimamente el mensaje (s = sí, n = no)\n- mensaje: El mensaje que deseas enviar.')
+.setColor('RANDOM')
+.setFooter('Utiliza con moderación el comando, caso contrario, serás prohibido de utilizarlo', client.user.avatarURL());
 
 const prefix = process.env.PREFIX;
 
@@ -3069,7 +3065,7 @@ client.on('messageCreate', async message => {
 
       if (args.length < 3) { // Si no se han dado todos los argumentos, envíar un mensaje de ayuda
         
-        message.channel.send(MENSAJE_AYUDA_CARTA);
+        message.channel.send({embeds: [MENSAJE_AYUDA_CARTA]});
 
       } else {
 
@@ -8700,7 +8696,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://i.gifer.com/HqGV.gif')
     .setColor('RANDOM')
-    .setDescription('> **say**\n> Hace que el bot diga un mensaje.\n\n> **8ball**\n> El bot responderá a tus preguntas.\n\n> **roll**\n> Lanza un dado al azar.\n\n> **impostor**\n> Averigua quién es el impostor de este mundo.\n\n> **buscaminas**\n> Envía un tablero del clásico juego.\n\n> **ship**\n> Mide tu nivel de amor con un usuario mencionado. | Uso: `' +prefix +'ship <@user>`\n\n> **meme**\n> Envía memes al azar.\n\n> **ttt**\n> Clásico Tic Tac Toe. | Uso: `' +prefix +'ttt <@user>`\n\n> **infiel**\n> Descubre tu % de infidelidad.\n\n')
+    .setDescription('> **say**\n> Hace que el bot diga un mensaje.\n\n> **8ball**\n> El bot responderá a tus preguntas.\n\n> **roll**\n> Lanza un dado al azar.\n\n> **impostor**\n> Averigua quién es el impostor de este mundo.\n\n> **buscaminas**\n> Envía un tablero del clásico juego.\n\n> **ship**\n> Mide tu nivel de amor con un usuario mencionado. | Uso: `' +prefix +'ship <@user>`\n\n> **meme**\n> Envía memes al azar.\n\n> **ttt**\n> Clásico Tic Tac Toe. | Uso: `' +prefix +'ttt <@user>`\n\n> **infiel**\n> Descubre tu % de infidelidad.\n\n> **carta**\n> Envía una carta navideña con el mensaje que quieras.\n\n')
   
    const helpcbd = new Discord.MessageEmbed()
     .setTitle('• Comandos Exclusivos •')
