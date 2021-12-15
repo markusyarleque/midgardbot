@@ -3079,6 +3079,73 @@ client.on('messageCreate', async message => {
 		    var mensaje = args.slice(2).join(" ")
 
         var target = message.guild.members.cache.find(m => m.user.tag == tag);
+
+        if (!target) return message.channel.send("Error: No se ha encontrado al destinatario!");
+
+        anon = anon.toLowerCase();
+		    if (anon != "s" && anon != "n") return message.channel.send("Error: Argumento `anónimo` inválido (Respuestas válidas: s, n)") 
+
+        var tiempo = Math.random() * (CARTA_TIEMPO_MAX - CARTA_TIEMPO_MIN) + CARTA_TIEMPO_MIN;
+
+        var gif = [
+          'https://i.pinimg.com/originals/77/17/b4/7717b4e45fd9c15e0309ab3bc86531f7.gif',
+          'http://www.detodonavidad.com/wp-content/uploads/2011/12/Gifs-con-frases-de-Navidad.gif',
+          'https://i.pinimg.com/originals/77/2a/d3/772ad37dd84ed52eacd713673eb8fdc8.gif',
+          'https://3.bp.blogspot.com/-6w5TCuDoTOE/UrXNLMbd6PI/AAAAAAACEHE/iImqsk-eZlk/s1600/imagenes-de-navidad-postales-navide%C3%B1as-con-mensajes+(6).gif',
+          'https://1.bp.blogspot.com/-mAg3GfPw13E/X4hlvpikYRI/AAAAAAAGwLg/0zno8snoT0kznaIKp_0mnrglJxiuYh5UgCLcBGAsYHQ/s16000/mensajes-bonitos-para-navidad.gif',
+          'https://www.imagenesdeamor.cc/wp-content/uploads/2016/12/Imagenes-de-navidad-con-movimiento-gratis-10.gif',
+          'https://thumbs.gfycat.com/BrilliantEvergreenBuzzard-size_restricted.gif'
+        ]
+        let ramdong = gif[Math.floor(Math.random()*gif.length)]
+
+        const embcarta = new Discord.MessageEmbed()
+          .setAuthor(`Midgard's Love`,client.user.avatarURL())
+          .setThumbnail(message.author.displayAvatarURL({ dynamic: true }).replace('webp','png'))
+          .setTitle(`📩 | Cartas Navideñas 🎄`)
+          .setDescription(tag.username + ' Te ha llegado una **carta navideña** <:tierno:881618338759966800>\n\n<a:flech:915156906258071554> *Enviado por:*\n<a:corazones_fn:906775240795901982> **'+ message.author.username+'**\n\n<a:d_Fijao:897243194943737866>\n```'+mensaje+'```\n')
+          .setImage(`https://media.discordapp.net/attachments/920564115355889674/920594418711543838/FinalVideo_1638643044.278044.gif?width=512&height=288`)
+          .setColor('RANDOM')
+          .setTimestamp(new Date())
+          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          message.channel.send({ embeds: [embed] })
+
+        const embcartano = new Discord.MessageEmbed()
+          .setAuthor(`Midgard's Love`,client.user.avatarURL())
+          .setThumbnail(ramdong)
+          .setTitle(`📩 | Cartas Navideñas 🎄`)
+          .setDescription(tag.username + ' Te ha llegado una **carta navideña** <:tierno:881618338759966800>\n\n<a:flech:915156906258071554> *Enviado por:*\n<a:corazones_fn:906775240795901982> **Anónimo**\n\n<a:d_Fijao:897243194943737866>\n```'+mensaje+'```\n')
+          .setImage(`https://media.discordapp.net/attachments/920564115355889674/920594418711543838/FinalVideo_1638643044.278044.gif?width=512&height=288`)
+          .setColor('RANDOM')
+          .setTimestamp(new Date())
+          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          message.channel.send({ embeds: [embed] })
+        
+
+        if(anon === 's')
+        {
+          setTimeout(() => {
+
+            target.user.send({embeds: [embcartano]}).catch(err => message.reply("El receptor no acepta mensajes directos, por favor, contáctalo, para que pueda escribirle <a:facherita:881034171571646464>"))
+
+          }, tiempo * 60 * 1000)
+
+        } else {
+
+          setTimeout(() => {
+
+            target.user.send({embeds: [embcarta]}).catch(err => message.reply("El receptor no acepta mensajes directos, por favor, contáctalo, para que pueda escribirle <a:facherita:881034171571646464>"))
+
+          }, tiempo * 60 * 1000)
+
+        }
+
+        const joto = new Discord.MessageEmbed()
+          .setDescription(`Tu carta está en proceso de envío, puede tardar entre ${CARTA_TIEMPO_MIN} a ${CARTA_TIEMPO_MAX} minutos. Gracias por utilizar nuestros servicios! 💕`)
+          .setColor('RANDOM')
+
+        message.channel.send({embeds: [joto]})
+        console.log("[Cartas][Client/Event/message] Mensaje esperando " + tiempo +  " minutos");
+
       }
 
     }
