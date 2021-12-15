@@ -2315,11 +2315,13 @@ client.on('messageCreate', async message => {
         ]
 
         if(!mencionado){
-          
-          if (!impost.some(id => message.author.id == id))
-          {
+
+          if(!args[0]){
+
+            if (!impost.some(id => message.author.id == id))
+            {
     
-            return message.channel.send(`. 　　　。　　　　•　 　ﾟ　　。 　　.
+              return message.channel.send(`. 　　　。　　　　•　 　ﾟ　　。 　　.
     
     　　　.　　　 　　.　　　　　。　　 。　. 　
     
@@ -2331,9 +2333,9 @@ client.on('messageCreate', async message => {
     
     　　ﾟ　　　.　　　. ,　　　　.　 .`)
     
-          } else {
+            } else {
     
-            return message.channel.send(`. 　　　。　　　　•　 　ﾟ　　。 　　.
+              return message.channel.send(`. 　　　。　　　　•　 　ﾟ　　。 　　.
     
     　　　.　　　 　　.　　　　　。　　 。　. 　
     
@@ -2345,6 +2347,42 @@ client.on('messageCreate', async message => {
     
     　　ﾟ　　　.　　　. ,　　　　.　 .`)
     
+            }
+
+          } else {
+
+            let mid = await client.users.fetch(arg[0])
+
+            if (!impost.some(id => mid.id == id))
+            {
+    
+              return message.channel.send(`. 　　　。　　　　•　 　ﾟ　　。 　　.
+    
+    　　　.　　　 　　.　　　　　。　　 。　. 　
+    
+    .　　 。　　　　　 ඞ 。 . 　　 • 　　　　•
+    
+    　　ﾟ　ﾟ　。  ${mid.username} No era el impostor  •　 。　.
+    
+    　　'　　ﾟ   •   　 ${impost.length} Impostores restantes 　 　　。  .
+    
+    　　ﾟ　　　.　　　. ,　　　　.　 .`)
+    
+            } else {
+    
+              return message.channel.send(`. 　　　。　　　　•　 　ﾟ　　。 　　.
+    
+    　　　.　　　 　　.　　　　　。　　 。　. 　
+    
+    .　　 。　　　　　 ඞ 。 . 　　 • 　　　　•
+    
+    　　ﾟ　ﾟ　。  ${mid.username} Sí era el impostor  •　 。　.
+    
+    　　'　　ﾟ   •   　 ${impost.length} Impostores restantes 　 　　。  .
+    
+    　　ﾟ　　　.　　　. ,　　　　.　 .`)
+    
+            }
           }
           
         } else{
