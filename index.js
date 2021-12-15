@@ -56,7 +56,7 @@ const MENSAJE_AYUDA_CARTA = new Discord.MessageEmbed()
 .addField('<a:flech:915156906258071554> Uso: ','`carta <tag> <anónimo> <mensaje>`')
 .addField('<a:flech:915156906258071554> Argumentos: ','- tag: El tag del usuario / @user\n- anónimo: Enviar anónimamente el mensaje (s = sí, n = no)\n- mensaje: El mensaje que deseas enviar.')
 .setColor('RANDOM')
-.setFooter('Utiliza con moderación el comando, caso contrario, serás prohibido de utilizarlo', client.user.avatarURL());
+.setFooter('Utiliza con moderación el comando, caso contrario, serás reportado en la lista negra del Bot!', `${message.author.displayAvatarURL()}`);
 
 const prefix = process.env.PREFIX;
 
