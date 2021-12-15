@@ -2351,7 +2351,7 @@ client.on('messageCreate', async message => {
 
           } else {
 
-            let mid = await client.users.fetch(arg[0])
+            let mid = await client.users.fetch(args[0])
 
             if (!impost.some(id => mid.id == id))
             {
