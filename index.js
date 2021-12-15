@@ -3096,6 +3096,7 @@ client.on('messageCreate', async message => {
           'https://www.imagenesdeamor.cc/wp-content/uploads/2016/12/Imagenes-de-navidad-con-movimiento-gratis-10.gif',
           'https://thumbs.gfycat.com/BrilliantEvergreenBuzzard-size_restricted.gif'
         ]
+
         let ramdong = gif[Math.floor(Math.random()*gif.length)]
 
         const embcarta = new Discord.MessageEmbed()
@@ -3107,8 +3108,6 @@ client.on('messageCreate', async message => {
           .setColor('RANDOM')
           .setTimestamp(new Date())
           .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-        
-        message.channel.send({ embeds: [embcarta] })
 
         const embcartano = new Discord.MessageEmbed()
           .setAuthor(`Midgard's Love`,client.user.avatarURL())
@@ -3119,8 +3118,6 @@ client.on('messageCreate', async message => {
           .setColor('RANDOM')
           .setTimestamp(new Date())
           .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-          message.channel.send({ embeds: [embed] })
-        
 
         if(anon === 's')
         {
@@ -3145,6 +3142,7 @@ client.on('messageCreate', async message => {
           .setColor('RANDOM')
 
         message.channel.send({embeds: [joto]})
+        message.delete({timeout: 100})
         console.log("[Cartas][Client/Event/message] Mensaje esperando " + tiempo +  " minutos");
 
       }
