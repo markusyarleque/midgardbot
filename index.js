@@ -49,6 +49,19 @@ const tresenraya = require('tresenraya');
 
 // const discordTTS = require("discord-tts");
 
+const CARTA_TIEMPO_MIN = 2;
+const CARTA_TIEMPO_MAX = 5;
+const MENSAJE_AYUDA_CARTA = 
+`
+Carta - Envia una carta a otro usuario
+Uso: carta <tag> <anonimo> <mensaje>
+
+Argumentos:
+	- tag: La discord tag del usuario / @user
+	- anonimo: Enviar anónimamente el mensaje (s/n)(s = sí, n = no)
+	- mensaje: El mensaje que deseas enviar
+`;
+
 const prefix = process.env.PREFIX;
 
 client.on('ready', () => {
@@ -148,8 +161,10 @@ client.on('messageDelete', (message) => {
 });
 
 client.on('messageCreate', async message => {
-
+    
     if (message.channel.type === 'dm') {
+
+      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado al dm por: '+message.author)
   
       let sv = client.guilds.cache.get('777620055344545842')
       let channel = sv.channels.cache.get('874943743185285150')
@@ -170,6 +185,7 @@ client.on('messageCreate', async message => {
   
     if(message.channel.id==='880290686107275304')
     {
+      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en alto cargo por: '+message.author)
   
       let sv = client.guilds.cache.get('851924635930329098')
       let channel = sv.channels.cache.get('880267684950999050')
@@ -189,6 +205,8 @@ client.on('messageCreate', async message => {
   
     } else if(message.channel.id==='880292291443556383')
     {
+      
+      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en élite por: '+message.author)
   
       let sv = client.guilds.cache.get('851924635930329098')
       let channel = sv.channels.cache.get('880280405993996339')
@@ -208,6 +226,7 @@ client.on('messageCreate', async message => {
   
     } else if(message.channel.id==='840161683732693033')
     {
+      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en staff por: '+message.author)
   
       let sv = client.guilds.cache.get('851924635930329098')
       let channel = sv.channels.cache.get('880280308732272640')
@@ -225,8 +244,9 @@ client.on('messageCreate', async message => {
       
       channel.send({ embeds: [embed] });
   
-    } else if(message.channel.id==='880531543465021570')
+    } else if(message.channel.id==='909722451745837106')
     {
+      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en admin por: '+message.author)
   
       let sv = client.guilds.cache.get('851924635930329098')
       let channel = sv.channels.cache.get('880280346208395305')
@@ -246,6 +266,7 @@ client.on('messageCreate', async message => {
   
     } else if(message.channel.id==='870195067338506271')
     {
+      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en chat general por: '+message.author)
   
       let sv = client.guilds.cache.get('851924635930329098')
       let channel = sv.channels.cache.get('880280535304372234')
@@ -265,6 +286,7 @@ client.on('messageCreate', async message => {
   
     } else if(message.channel.id==='880384504240422972')
     {
+      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en chat solteroskis por: '+message.author)
   
       let sv = client.guilds.cache.get('851924635930329098')
       let channel = sv.channels.cache.get('880280557051858974')
@@ -284,6 +306,7 @@ client.on('messageCreate', async message => {
   
     } else
     {
+      if(message.content.length>=1000) return channel.send(`Mensaje demasiado largo, enviado en <#${message.channel.id}> por: `+message.author)
   
       let sv = client.guilds.cache.get('851924635930329098')
       let channel = sv.channels.cache.get('880280265216389140')
@@ -2971,9 +2994,14 @@ client.on('messageCreate', async message => {
         heard='🤥';
         image='https://vanidad.es/images/carpeta_gestor/archivos/2017/03/28/gif-infiel.gif';
     
-      }else if(random < 101){
+      }else if(random < 100){
           
         heard='🤡';
+        image='https://media.giphy.com/media/eYaRlI7BxVWvK/giphy.gif';
+    
+      }else if(random = 100){
+          
+        heard='🚩';
         image='https://c.tenor.com/xV8ISXEKTOUAAAAC/exponiendo-infieles-badabun.gif';
     
       }
@@ -2982,10 +3010,12 @@ client.on('messageCreate', async message => {
 
         if(message.author.id==='753435606410985573')
         {
+          const r = Math.floor(Math.random() * 10);
+          
           const embed = new Discord.MessageEmbed()
           .setAuthor(`Midgard's Love`,client.user.avatarURL())
           .setTitle(`Nivel de Infidelidad`)
-          .setDescription(`${message.author.username} es 0% infiel! 😎`)
+          .setDescription(`${message.author.username} es ${r}% infiel! 😎`)
           .setImage(`https://i.pinimg.com/originals/fc/8a/07/fc8a0764969fcf2d587434f1bf3c014a.gif`)
           .setColor('RANDOM')
           .setTimestamp(new Date())
@@ -3008,10 +3038,12 @@ client.on('messageCreate', async message => {
 
         if(users.id==='753435606410985573')
         {
+          const r = Math.floor(Math.random() * 10);
+
           const embed = new Discord.MessageEmbed()
           .setAuthor(`Midgard's Love`,client.user.avatarURL())
           .setTitle(`Nivel de Infidelidad`)
-          .setDescription(`${users.username} es 0% infiel! 😎`)
+          .setDescription(`${users.username} es ${r}% infiel! 😎`)
           .setImage(`https://i.pinimg.com/originals/fc/8a/07/fc8a0764969fcf2d587434f1bf3c014a.gif`)
           .setColor('RANDOM')
           .setTimestamp(new Date())
@@ -3031,6 +3063,24 @@ client.on('messageCreate', async message => {
           
         }
       }
+    }
+
+    if(command === 'carta'){
+
+      if (args.length < 3) { // Si no se han dado todos los argumentos, envíar un mensaje de ayuda
+        
+        message.channel.send(MENSAJE_AYUDA_CARTA);
+
+      } else {
+
+        var tag = args[0]; // tag
+		    var anon = args[1]; // anónimo
+        
+		    var mensaje = args.slice(2).join(" ")
+
+        var target = message.guild.members.cache.find(m => m.user.tag == tag);
+      }
+
     }
 
     //COMANDOS DE CAFETERÍA
