@@ -3107,7 +3107,8 @@ client.on('messageCreate', async message => {
           .setColor('RANDOM')
           .setTimestamp(new Date())
           .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-          message.channel.send({ embeds: [embed] })
+        
+        message.channel.send({ embeds: [embcarta] })
 
         const embcartano = new Discord.MessageEmbed()
           .setAuthor(`Midgard's Love`,client.user.avatarURL())
