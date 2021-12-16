@@ -24,6 +24,8 @@ const over = require('poke-over');
 const clientN = require('nekos.life');
 const neko = new clientN();
 
+const star = require('star-labs')
+
 const moment = require("moment")
 
 const dbv = require('megadb');
@@ -2311,7 +2313,11 @@ client.on('messageCreate', async message => {
           '580032343117660160',
           '904598921240772609',
           '373994470078808064',
-          '888857460599848990'
+          '888857460599848990',
+          '270418848979615754',
+          '776817746041241650',
+          '412347553141751808',
+          '626771394063237138'
         ]
 
         if(!mencionado){
@@ -2341,12 +2347,12 @@ client.on('messageCreate', async message => {
     
     .　　 。　　　　　 ඞ 。 . 　　 • 　　　　•
     
-    　　ﾟ　ﾟ　。  ${message.author.username} Sí era el impostor  •　 。　.
+    　　ﾟ　ﾟ　。  ${message.author.username} Sí eras el impostor  •　 。　.
     
     　　'　　ﾟ   •   　 ${impost.length} Impostores restantes 　 　　。  .
     
     　　ﾟ　　　.　　　. ,　　　　.　 .`)
-    
+
             }
 
           } else {
@@ -4438,7 +4444,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
           const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Love`,client.user.avatarURL())
+          .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
           //.setTitle('Imagen completa')
           .setDescription(`**${message.author.username}** está saludando a todos.`)
           .setImage(ramdonhi)
@@ -4569,6 +4575,122 @@ client.on('messageCreate', async message => {
       
         };
     
+    }
+
+    if(command === 'happy'){
+  
+      let happy = star.happy()
+
+      const embed = new Discord.MessageEmbed()
+        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        //.setTitle('Imagen completa')
+        .setDescription(`**${message.author.username}** se puso modo feliz <a:6975wolfparty:901266259256168508>`)
+        .setImage(happy)
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+      message.channel.send({ embeds: [embed] });
+  
+    }
+
+    if(command === 'lick'){
+  
+      let lick = star.lick()
+      let img = message.mentions.users.first()
+   
+      if (!img || img.id===message.author.id) {
+
+        message.channel.send('Te lamerías a ti mismo? <:asco:887730710843105300>')
+
+      } else {
+
+        const embed = new Discord.MessageEmbed()
+        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        //.setTitle('Imagen completa')
+        .setDescription(`**${message.author.username}** está lamiendo a **${img.username}** <:mmm:880308330894090241>`)
+        .setImage(lick)
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        message.channel.send({ embeds: [embed] });
+
+      }
+  
+    }
+
+    if(command === 'feed'){
+  
+      let feed = star.feed()
+      let img = message.mentions.users.first()
+   
+      if (!img || img.id===message.author.id) {
+
+        message.channel.send('Cómete <:Toma_esta:880300803594788925>')
+
+      } else {
+
+        const embed = new Discord.MessageEmbed()
+        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        //.setTitle('Imagen completa')
+        .setDescription(`**${message.author.username}** le dió de comer a **${img.username}** <a:Zuii:890684724673150996>`)
+        .setImage(feed)
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        message.channel.send({ embeds: [embed] });
+
+      }
+  
+    }
+
+    if(command === 'pat'){
+  
+      let pat = star.pat()
+      let img = message.mentions.users.first()
+   
+      if (!img || img.id===message.author.id) {
+
+        message.channel.send('Acariciame <:Toma_esta:880300803594788925>')
+
+      } else {
+
+        const embed = new Discord.MessageEmbed()
+        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        //.setTitle('Imagen completa')
+        .setDescription(`**${message.author.username}** está acariciando a **${img.username}** <a:elmo_timido:894721783066918953>`)
+        .setImage(pat)
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        message.channel.send({ embeds: [embed] });
+
+      }
+  
+    }
+
+    if(command === 'kick'){
+  
+      let kick = star.kick()
+      let img = message.mentions.users.first()
+   
+      if (!img || img.id===message.author.id) {
+
+        message.channel.send('¿A quién quieres patear? <:pepemaje:880303225109110814>')
+
+      } else {
+
+        const embed = new Discord.MessageEmbed()
+        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        //.setTitle('Imagen completa')
+        .setDescription(`**${img.username}**, ${message.author.username} te dió una patada <a:ThisGonnaBGud_retrasados:887057491081449512>`)
+        .setImage(kick)
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        message.channel.send({ embeds: [embed] });
+
+      }
+  
     }
 
     var sad = [
@@ -4726,6 +4848,22 @@ client.on('messageCreate', async message => {
       
         };
     
+    }
+
+    if(command === 'suicide'){
+
+      let suic = star.suicide()
+  
+      const embed = new Discord.MessageEmbed()
+        .setAuthor(`Midgard's Sad`,client.user.avatarURL())
+        //.setTitle('Imagen completa')
+        .setDescription(`**${message.author.username}** se ha suicidado... <a:suicide:881550681239064626>`)
+        .setImage(suic)
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+      message.channel.send({ embeds: [embed] });
+
     }
 
     var sape = [
@@ -8761,7 +8899,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://i.pinimg.com/originals/54/ce/5a/54ce5ae304bd82e54b7d45f639693213.gif')
     .setColor('RANDOM')
-    .setDescription('> **hi**\n> Saluda a alguien o a todos.\n\n> **hug**\n> Abraza a alguien o a ti mismo.\n\n> **kiss**\n> Besa a un usuario.\n\n> **sad**\n> Modo Sad.\n\n> **cry**\n> Modo Sad 2.0.\n\n> **sape**\n> Dale un sape a alguien.\n\n> **punch**\n> Tira un golpe a alguien.\n\n> **slap**\n> Abofetea a alguien.\n\n> **kill**\n> Mata a un usario.')
+    .setDescription('> **hi**\n> Saluda a alguien o a todos.\n\n> **hug**\n> Abraza a alguien o a ti mismo.\n\n> **kiss**\n> Besa a un usuario.\n\n> **happy**\n> Mood Feliz.\n\n> **lick**\n> Dale una lamida a alguien.\n\n> **feed**\n> Dale de comer a alguien.\n\n> **pat**\n> Acaricia a alguien.\n\n> **sad**\n> Modo Sad.\n\n> **cry**\n> Modo Sad 2.0.\n\n> **suicide**\n> Hacer la automorision.\n\n> **sape**\n> Dale un sape a alguien.\n\n> **punch**\n> Tira un golpe a alguien.\n\n> **kick**\n> Dale una patada a alguien.\n\n> **slap**\n> Abofetea a alguien.\n\n> **kill**\n> Mata a un usario.')
 
   const helpnsfw = new Discord.MessageEmbed()
     .setTitle('🔞 • Comandos NSFW')
