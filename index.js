@@ -4593,6 +4593,138 @@ client.on('messageCreate', async message => {
   
     }
 
+    if(command === 'sleep'){
+  
+      let sleep = star.sleep()
+      let img = message.mentions.users.first()
+   
+      if (!img || img.id===message.author.id) {
+
+        const embed = new Discord.MessageEmbed()
+        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        //.setTitle('Imagen completa')
+        .setDescription(`**${message.author.username}** se fue a dormir <a:Mimido:920963402355064852>`)
+        .setImage(sleep)
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        message.channel.send({ embeds: [embed] });
+
+      } else {
+
+        const embed = new Discord.MessageEmbed()
+        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        //.setTitle('Imagen completa')
+        .setDescription(`**${img.username}**, ${message.author.username} te ha invitado a dormir juntos <a:Mimido:920963402355064852>`)
+        .setImage(sleep)
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        message.channel.send({ embeds: [embed] });
+
+      }
+  
+    }
+
+    if(command === 'dance'){
+  
+      let dance = star.dance()
+      let img = message.mentions.users.first()
+   
+      if (!img || img.id===message.author.id) {
+
+        const embed = new Discord.MessageEmbed()
+        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        //.setTitle('Imagen completa')
+        .setDescription(`**${message.author.username}** está tirando los pasos prohibidos. <a:pasito:877116925291946094>`)
+        .setImage(dance)
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        message.channel.send({ embeds: [embed] });
+
+      } else {
+
+        const embed = new Discord.MessageEmbed()
+        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        //.setTitle('Imagen completa')
+        .setDescription(`**${img.username}** y **${message.author.username}** están bailando juntos <:abby:880300168514252811> `)
+        .setImage(dance)
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        message.channel.send({ embeds: [embed] });
+
+      }
+  
+    }
+
+    if(command === 'blush'){
+  
+      let blush = star.blush()
+      let img = message.mentions.users.first()
+   
+      if (!img || img.id===message.author.id) {
+
+        const embed = new Discord.MessageEmbed()
+        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        //.setTitle('Imagen completa')
+        .setDescription(`**${message.author.username}**se sonrojó <:BlushedCat:920964717864964116>`)
+        .setImage(blush)
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        message.channel.send({ embeds: [embed] });
+
+      } else {
+
+        const embed = new Discord.MessageEmbed()
+        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        //.setTitle('Imagen completa')
+        .setDescription(`**${message.author.username}** se sonrojó al ver a **${img.username}** <:abby:880300168514252811> `)
+        .setImage(blush)
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        message.channel.send({ embeds: [embed] });
+
+      }
+  
+    }
+
+    if(command === 'confused'){
+  
+      let confus = star.confused()
+      let img = message.mentions.users.first()
+   
+      if (!img || img.id===message.author.id) {
+
+        const embed = new Discord.MessageEmbed()
+        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        //.setTitle('Imagen completa')
+        .setDescription(`**${message.author.username}** está confundido <a:ConfusedDog:920965537020907541>`)
+        .setImage(confus)
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        message.channel.send({ embeds: [embed] });
+
+      } else {
+
+        const embed = new Discord.MessageEmbed()
+        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        //.setTitle('Imagen completa')
+        .setDescription(`**${message.author.username}** está confundiendo a **${img.username}** <a:ConfusedDog:920965537020907541> `)
+        .setImage(confus)
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        message.channel.send({ embeds: [embed] });
+
+      }
+  
+    }
+
     if(command === 'lick'){
   
       let lick = star.lick()
@@ -8899,7 +9031,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://i.pinimg.com/originals/54/ce/5a/54ce5ae304bd82e54b7d45f639693213.gif')
     .setColor('RANDOM')
-    .setDescription('> **hi**\n> Saluda a alguien o a todos.\n\n> **hug**\n> Abraza a alguien o a ti mismo.\n\n> **kiss**\n> Besa a un usuario.\n\n> **happy**\n> Mood Feliz.\n\n> **lick**\n> Dale una lamida a alguien.\n\n> **feed**\n> Dale de comer a alguien.\n\n> **pat**\n> Acaricia a alguien.\n\n> **sad**\n> Modo Sad.\n\n> **cry**\n> Modo Sad 2.0.\n\n> **suicide**\n> Hacer la automorision.\n\n> **sape**\n> Dale un sape a alguien.\n\n> **punch**\n> Tira un golpe a alguien.\n\n> **kickbut**\n> Dale una patada a alguien.\n\n> **slap**\n> Abofetea a alguien.\n\n> **kill**\n> Mata a un usario.')
+    .setDescription('> **hi**\n> Saluda a alguien o a todos.\n\n> **hug**\n> Abraza a alguien o a ti mismo.\n\n> **kiss**\n> Besa a un usuario.\n\n> **happy**\n> Mood Feliz.\n\n> **sleep**\n> Ya tienes sueño?\n\n> **dance**\n> Baila solo o acompañado.\n\n> **blush**\n> Sonrojad@ de nuevo?.\n\n> **confused**\n> Demuestra que no estamos solos.\n\n> **lick**\n> Dale una lamida a alguien.\n\n> **feed**\n> Dale de comer a alguien.\n\n> **pat**\n> Acaricia a alguien.\n\n> **sad**\n> Modo Sad.\n\n> **cry**\n> Modo Sad 2.0.\n\n> **suicide**\n> Hacer la automorision.\n\n> **sape**\n> Dale un sape a alguien.\n\n> **punch**\n> Tira un golpe a alguien.\n\n> **kickbut**\n> Dale una patada a alguien.\n\n> **slap**\n> Abofetea a alguien.\n\n> **kill**\n> Mata a un usario.')
 
   const helpnsfw = new Discord.MessageEmbed()
     .setTitle('🔞 • Comandos NSFW')
