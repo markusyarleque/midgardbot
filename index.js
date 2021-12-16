@@ -4668,7 +4668,7 @@ client.on('messageCreate', async message => {
   
     }
 
-    if(command === 'kick'){
+    if(command === 'kickbut'){
   
       let kick = star.kick()
       let img = message.mentions.users.first()
@@ -8899,7 +8899,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://i.pinimg.com/originals/54/ce/5a/54ce5ae304bd82e54b7d45f639693213.gif')
     .setColor('RANDOM')
-    .setDescription('> **hi**\n> Saluda a alguien o a todos.\n\n> **hug**\n> Abraza a alguien o a ti mismo.\n\n> **kiss**\n> Besa a un usuario.\n\n> **happy**\n> Mood Feliz.\n\n> **lick**\n> Dale una lamida a alguien.\n\n> **feed**\n> Dale de comer a alguien.\n\n> **pat**\n> Acaricia a alguien.\n\n> **sad**\n> Modo Sad.\n\n> **cry**\n> Modo Sad 2.0.\n\n> **suicide**\n> Hacer la automorision.\n\n> **sape**\n> Dale un sape a alguien.\n\n> **punch**\n> Tira un golpe a alguien.\n\n> **kick**\n> Dale una patada a alguien.\n\n> **slap**\n> Abofetea a alguien.\n\n> **kill**\n> Mata a un usario.')
+    .setDescription('> **hi**\n> Saluda a alguien o a todos.\n\n> **hug**\n> Abraza a alguien o a ti mismo.\n\n> **kiss**\n> Besa a un usuario.\n\n> **happy**\n> Mood Feliz.\n\n> **lick**\n> Dale una lamida a alguien.\n\n> **feed**\n> Dale de comer a alguien.\n\n> **pat**\n> Acaricia a alguien.\n\n> **sad**\n> Modo Sad.\n\n> **cry**\n> Modo Sad 2.0.\n\n> **suicide**\n> Hacer la automorision.\n\n> **sape**\n> Dale un sape a alguien.\n\n> **punch**\n> Tira un golpe a alguien.\n\n> **kickbut**\n> Dale una patada a alguien.\n\n> **slap**\n> Abofetea a alguien.\n\n> **kill**\n> Mata a un usario.')
 
   const helpnsfw = new Discord.MessageEmbed()
     .setTitle('🔞 • Comandos NSFW')
