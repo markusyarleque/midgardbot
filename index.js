@@ -8729,7 +8729,7 @@ client.on('messageCreate', async message => {
 
       const embed = new Discord.MessageEmbed()
         .setAuthor(`Midgard's VIP`,client.user.avatarURL())
-        .setTitle('Karin Benzema')
+        .setTitle('Karim Benzema')
         //.setDescription(`${message.author.username} mira  <:tierno:881618338759966800>`)
         .setImage(ramdonb)
         .setColor('RANDOM')
