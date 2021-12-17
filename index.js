@@ -2427,7 +2427,7 @@ client.on('messageCreate', async message => {
         }
     }
     
-    if(command === 'buscaminas'){
+    /*if(command === 'buscaminas'){
     
     
         //Cadena que da vida al buscaminsa final con los iconos ocultos
@@ -2523,7 +2523,7 @@ client.on('messageCreate', async message => {
         }
     
         message.channel.send(buscaminas);
-    }
+    }*/
 
     if(command === 'ship'){
 
