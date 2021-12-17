@@ -162,10 +162,10 @@ client.on('messageCreate', async message => {
     
     if (message.channel.type === 'dm') {
 
-      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado al dm por: '+message.author)
-  
       let sv = client.guilds.cache.get('777620055344545842')
       let channel = sv.channels.cache.get('874943743185285150')
+
+      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado al dm por: '+message.author)
   
       const embed = new Discord.MessageEmbed()
       .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
@@ -183,10 +183,11 @@ client.on('messageCreate', async message => {
   
     if(message.channel.id==='880290686107275304')
     {
-      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en alto cargo por: '+message.author)
-  
+
       let sv = client.guilds.cache.get('851924635930329098')
       let channel = sv.channels.cache.get('880267684950999050')
+
+      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en alto cargo por: '+message.author)
   
       const embed = new Discord.MessageEmbed()
       .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
@@ -204,10 +205,10 @@ client.on('messageCreate', async message => {
     } else if(message.channel.id==='880292291443556383')
     {
       
-      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en élite por: '+message.author)
-  
       let sv = client.guilds.cache.get('851924635930329098')
       let channel = sv.channels.cache.get('880280405993996339')
+  
+      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en élite por: '+message.author)
   
       const embed = new Discord.MessageEmbed()
       .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
@@ -224,10 +225,11 @@ client.on('messageCreate', async message => {
   
     } else if(message.channel.id==='840161683732693033')
     {
-      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en staff por: '+message.author)
-  
+
       let sv = client.guilds.cache.get('851924635930329098')
       let channel = sv.channels.cache.get('880280308732272640')
+  
+      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en staff por: '+message.author)
   
       const embed = new Discord.MessageEmbed()
       .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
@@ -244,10 +246,11 @@ client.on('messageCreate', async message => {
   
     } else if(message.channel.id==='909722451745837106')
     {
-      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en admin por: '+message.author)
-  
+
       let sv = client.guilds.cache.get('851924635930329098')
       let channel = sv.channels.cache.get('880280346208395305')
+  
+      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en admin por: '+message.author)
   
       const embed = new Discord.MessageEmbed()
       .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
@@ -264,10 +267,11 @@ client.on('messageCreate', async message => {
   
     } else if(message.channel.id==='870195067338506271')
     {
-      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en chat general por: '+message.author)
-  
+      
       let sv = client.guilds.cache.get('851924635930329098')
       let channel = sv.channels.cache.get('880280535304372234')
+  
+      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en chat general por: '+message.author)
   
       const embed = new Discord.MessageEmbed()
       .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
@@ -284,10 +288,11 @@ client.on('messageCreate', async message => {
   
     } else if(message.channel.id==='880384504240422972')
     {
-      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en chat solteroskis por: '+message.author)
-  
+      
       let sv = client.guilds.cache.get('851924635930329098')
       let channel = sv.channels.cache.get('880280557051858974')
+  
+      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en chat solteroskis por: '+message.author)
   
       const embed = new Discord.MessageEmbed()
       .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
@@ -304,10 +309,11 @@ client.on('messageCreate', async message => {
   
     } else
     {
-      if(message.content.length>=1000) return channel.send(`Mensaje demasiado largo, enviado en <#${message.channel.id}> por: `+message.author)
-  
+      
       let sv = client.guilds.cache.get('851924635930329098')
       let channel = sv.channels.cache.get('880280265216389140')
+  
+      if(message.content.length>=1000) return channel.send(`Mensaje demasiado largo, enviado en <#${message.channel.id}> por: `+message.author)
   
       const embed = new Discord.MessageEmbed()
       .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
