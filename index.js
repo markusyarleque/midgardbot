@@ -60,6 +60,8 @@ const sqlite3 = require('sqlite3'),
   })
 
   await client.db.exec(`CREATE TABLE IF NOT EXISTS dinero ('id' TEXT NOT NULL, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0)`)
+  await client.db.exec(`CREATE TABLE IF NOT EXISTS usuarios ('idusuario' TEXT NOT NULL, 'nivel' INTEGER DEFAULT 0, 'exp' INTEGER DEFAULT 0, 'rep' INTEGER DEFAULT 0, 'frase' BLOB, 'foto' BLOB)`)
+  
 })();
 
 
@@ -709,47 +711,56 @@ client.on('messageCreate', async message => {
 
     if(bl.tiene(message.author.id)) return message.channel.send('Estás prohibido de usar estos comandos, contacta con el equipo de desarrolladores para más información.!');
 
-    /*<-- INSERT USUARIO -->
+    //<-- INSERT USUARIO -->
 
     let id = message.author.id
-    let i = message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')
+    //let i = message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')
     let i = 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif'
     let f = 'No hay frase agregada'
-    let sentencia = `SELECT * FROM usuarios WHERE idusuario = ${id}`
+    let sentencia = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ${id}`)
 
-    db.get(sentencia, (err, filas) => {
-      if (err) return console.error('Error 0: '+err.message)
-      if (!filas){
-      let insert = `INSERT INTO usuarios(idusuario, nivel, exp, rep, frase, foto) VALUES(${id}, 0, 1, 0, "${f}", "${i}")`
+    /*db.get(sentencia, (err, filas) => {
+      if (err) return console.error('Error 0: '+err.message)*/
 
-      db.run(insert, function(err) {
+    if (!sentencia){
+
+      await client.db.run(`INSERT INTO usuarios (idusuario, nivel, exp, rep, frase, foto) VALUES (?,?,?,?,?,?)`, id,'0','1','0',f,i)
+      
+      //let insert = `INSERT INTO usuarios(idusuario, nivel, exp, rep, frase, foto) VALUES(${id}, 0, 1, 0, "${f}", "${i}")`
+
+      /*db.run(insert, function(err) {
        if (err) return console.error('Error 1: '+insert+" ---- "+err.message)
-      });
+      });*/
 
-      } else {
+    } else {
 
-        //<-- UPDATE EXPERIENCIA/NIVELES -->
-        let curLevel = Math.floor(0.1 * Math.sqrt(filas.exp + 1));
+      //<-- UPDATE EXPERIENCIA/NIVELES -->
 
-        if(curLevel > filas.nivel) {
-         let update = `UPDATE usuarios SET exp = ${filas.exp + 1}, nivel = ${curLevel} WHERE idusuario = ${id}`;
+      let curLevel = Math.floor(0.1 * Math.sqrt(sentencia.exp + 1));
 
-         db.run(update, function(err) {      
+      if(curLevel > sentencia.nivel) {
+
+        await client.db.run(`UPDATE usuarios SET exp = ${sentencia.exp + 1}, nivel = ${curLevel} WHERE idusuario = ${id}`)
+
+        //let update = `UPDATE usuarios SET exp = ${filas.exp + 1}, nivel = ${curLevel} WHERE idusuario = ${id}`;
+
+         /*db.run(update, function(err) {      
           if (err) return console.error('Error 2: '+err.message)
-          message.channel.send('Felicidades!!! Subiste de nivel, '+ message.author.tag)
+        message.channel.send('Felicidades!!! Subiste de nivel, '+ message.author.tag)
 
-         });
-
-        }
-
-        let update = `UPDATE usuarios SET exp = ${filas.exp + 1} WHERE idusuario = ${id}`;
-        db.run(update, function(err) {      
-        if (err) return console.error('Error 3: '+err.message)
-        })
+         });*/
 
       }
 
-    });*/
+      await client.db.run(`UPDATE usuarios SET exp = ${sentencia.exp + 1} WHERE idusuario = ${id}`)
+
+      //let update = `UPDATE usuarios SET exp = ${filas.exp + 1} WHERE idusuario = ${id}`;
+      
+      /*db.run(update, function(err) {      
+      if (err) return console.error('Error 3: '+err.message)
+      })*/
+
+    }
 
     //BASE DE DATOS
 
@@ -773,9 +784,11 @@ client.on('messageCreate', async message => {
         .setColor('BLUE')
         .setAuthor(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
         .setTitle(`Balance`)
-        .addField(`**Dinero**`, '<a:flech:915156906258071554> '+buscarUsuario.dinero, true)
-        .addField(`**Banco**`, '<a:flech:915156906258071554> '+buscarUsuario.banco, true)
-        .addField(`**Total**`, '<a:flech:915156906258071554> '+buscarUsuario.total, true)
+        .addField(`**Dinero:**`, '<a:money:901702063908606004>  '+buscarUsuario.dinero, true)
+        .addField(`**Banco:**`, '<a:money:901702063908606004>  '+buscarUsuario.banco, true)
+        .addField(`**Total:**`, '<a:money:901702063908606004>  '+buscarUsuario.total, true)
+        .setTimestamp(new Date())
+        .setFooter(`Midgard's VIP`,client.user.avatarURL())
 
       message.channel.send({embeds: [e]})
       console.log('dinero: '+buscarUsuario.dinero+', banco: '+buscarUsuario.banco+', total: '+buscarUsuario.total)
@@ -790,31 +803,35 @@ client.on('messageCreate', async message => {
 
       if(!img){
 
-        let select = `SELECT * FROM usuarios WHERE idusuario = ${id}`;
+        let select = await client.db.get(`SELECT * FROM usuarios WHERE idusuario='`+ id + "'")
+
+        //let select = `SELECT * FROM usuarios WHERE idusuario = ${id}`;
+
         let obtener = args[0]
 
         if(!obtener){
         
-          db.get(select, (err, filas) => {
+          /*db.get(select, (err, filas) => {
 
-            if (err) return console.error(err.message)
-            if (!filas) return message.channel.send('No hay perfil registrado para ese usuario.')
+            if (err) return console.error(err.message)*/
+          
+          if (!select) return message.channel.send('No hay perfil registrado para ese usuario.')
      
             let embed = new Discord.MessageEmbed()
               .setAuthor('Perfil de ' + message.author.username, message.author.displayAvatarURL())
-              .setThumbnail(`${filas.foto}`)
-              .addField('<a:start:880922179280207934> Nivel', '<a:flech:915156906258071554> '+filas.nivel, true)
-              .addField('<a:d_Fijao:897243194943737866> XP', '<a:flech:915156906258071554> '+filas.exp, true)
-              .addField('<a:CorazonMulticolor:880315280759345163> Carisma', '<a:flech:915156906258071554> '+filas.rep, false)
+              .setThumbnail(`${select.foto}`)
+              .addField('<a:start:880922179280207934> Nivel', '<a:flech:915156906258071554> '+select.nivel, true)
+              .addField('<a:d_Fijao:897243194943737866> XP', '<a:flech:915156906258071554> '+select.exp, true)
+              .addField('<a:CorazonMulticolor:880315280759345163> Carisma', '<a:flech:915156906258071554> '+select.rep, false)
               //.addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>',false)
-              .addField('<a:megaphone:912163796737486908> Frase', '<a:flech:915156906258071554> '+filas.frase, true)
+              .addField('<a:megaphone:912163796737486908> Frase', '<a:flech:915156906258071554> '+select.frase, true)
               .addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','\u200B',false)
               .setColor("RANDOM")
               .setFooter(`Midgard's VIP`,client.user.avatarURL())
             message.channel.send({ embeds: [embed] });
       
-          });
-        } else {
+          
+        } /*else {
 
           switch (obtener.slice(-2)){
             
@@ -869,10 +886,10 @@ client.on('messageCreate', async message => {
               break;
             }
           }
-        }
+        }*/
       
 
-      } else{
+      } /*else{
         
         idm=img.id;
         let select = `SELECT * FROM usuarios WHERE idusuario = ${idm}`;
@@ -897,7 +914,7 @@ client.on('messageCreate', async message => {
   
         });
 
-      }
+      }*/
 
     }
 
