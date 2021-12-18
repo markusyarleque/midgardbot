@@ -72,7 +72,7 @@ const MENSAJE_AYUDA_CARTA = new Discord.MessageEmbed()
 const prefix = process.env.PREFIX;
 
 client.on('ready', () => {
-  // client.user.setActivity('bot en heroku', {type: 'WATCHING'});
+  
   client.user.setPresence({
     status: 'online',
     activities: [{
