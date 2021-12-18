@@ -59,7 +59,7 @@ const sqlite3 = require('sqlite3'),
 
   })
 
-  await bot.db.exec(`CREATE TABLE IF NOT EXISTS dinero ('id' TEXT NOT NULL, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0)`)
+  await client.db.exec(`CREATE TABLE IF NOT EXISTS dinero ('id' TEXT NOT NULL, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0)`)
 })();
 
 
