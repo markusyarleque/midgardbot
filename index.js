@@ -764,6 +764,7 @@ client.on('messageCreate', async message => {
 
     //BASE DE DATOS
 
+    //<-- ECONOMÍA -->
     //<-- COMANDO BALANCE -->
 
     if(command === 'bal' || command === 'balance'){
