@@ -709,10 +709,10 @@ client.on('messageCreate', async message => {
 
     if(bl.tiene(message.author.id)) return message.channel.send('Estás prohibido de usar estos comandos, contacta con el equipo de desarrolladores para más información.!');
 
-    //<-- INSERT USUARIO -->
+    /*<-- INSERT USUARIO -->
 
     let id = message.author.id
-    //let i = message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')
+    let i = message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')
     let i = 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif'
     let f = 'No hay frase agregada'
     let sentencia = `SELECT * FROM usuarios WHERE idusuario = ${id}`
@@ -749,7 +749,7 @@ client.on('messageCreate', async message => {
 
       }
 
-    });
+    });*/
 
     //BASE DE DATOS
 
