@@ -739,7 +739,7 @@ client.on('messageCreate', async message => {
 
       if(curLevel > sentencia.nivel) {
 
-        await client.db.run(`UPDATE usuarios SET exp = ${sentencia.exp + 1}, nivel = ${curLevel}, banco = ${sentencia.banco+100}, total = ${sentencia.dinero+sentencia.banco} WHERE idusuario = ${id}`)
+        await client.db.run(`UPDATE usuarios SET exp = ${sentencia.exp + 1}, nivel = ${curLevel}, banco = ${sentencia.banco+100}, total = ${sentencia.dinero+sentencia.banco+100} WHERE idusuario = ${id}`)
 
         //let update = `UPDATE usuarios SET exp = ${filas.exp + 1}, nivel = ${curLevel} WHERE idusuario = ${id}`;
 
@@ -751,7 +751,7 @@ client.on('messageCreate', async message => {
 
       }
 
-      await client.db.run(`UPDATE usuarios SET exp = ${sentencia.exp + 1}, dinero = ${sentencia.dinero + 10}, total = ${sentencia.dinero+sentencia.banco} WHERE idusuario = ${id}`)
+      await client.db.run(`UPDATE usuarios SET exp = ${sentencia.exp + 1}, dinero = ${sentencia.dinero + 10}, total = ${sentencia.dinero+sentencia.banco+10} WHERE idusuario = ${id}`)
 
       //let update = `UPDATE usuarios SET exp = ${filas.exp + 1} WHERE idusuario = ${id}`;
       
