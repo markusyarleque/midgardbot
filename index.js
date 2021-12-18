@@ -768,31 +768,64 @@ client.on('messageCreate', async message => {
 
     if(command === 'bal' || command === 'balance'){
 
-      let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario='`+ message.author.id + "'")
-
-      if(!buscarUsuario){
+      let img = message.mentions.users.first()
       
-        await client.db.run(`INSERT INTO usuarios (idusuario) VALUES (?)`, message.author.id)
+      if(!img){
 
-        buscarUsuario = {id: message.author.id, dinero: 0, banco: 0, total: 0}
+        let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario='`+ message.author.id + "'")
 
-        console.log(buscarUsuario)
+        if(!buscarUsuario){
+        
+          await client.db.run(`INSERT INTO usuarios (idusuario) VALUES (?)`, message.author.id)
+  
+          buscarUsuario = {id: message.author.id, dinero: 0, banco: 0, total: 0}
+  
+          console.log('Balance de : '+message.author.id+' - '+buscarUsuario)
+  
+        }
+  
+        const e = new Discord.MessageEmbed()
+          .setColor('RANDOM')
+          .setAuthor(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+          .setTitle(`Balance`)
+          .addField(`**Dinero:**`, '<a:money:901702063908606004>  '+buscarUsuario.dinero, true)
+          .addField(`**Banco:**`, '<a:money:901702063908606004>  '+buscarUsuario.banco, true)
+          .addField(`**Total:**`, '<a:money:901702063908606004>  '+buscarUsuario.total, true)
+          .setTimestamp(new Date())
+          .setFooter(`Midgard's VIP`,client.user.avatarURL())
+  
+        message.channel.send({embeds: [e]})
+        console.log('Balance de : '+message.author.id+' - '+'dinero: '+buscarUsuario.dinero+', banco: '+buscarUsuario.banco+', total: '+buscarUsuario.total)
+  
+      } else {
 
+        let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario='`+ img.id + "'")
+
+        if(!buscarUsuario){
+        
+          await client.db.run(`INSERT INTO usuarios (idusuario) VALUES (?)`, img.id)
+  
+          buscarUsuario = {id: img.id, dinero: 0, banco: 0, total: 0}
+  
+          console.log('Balance de : '+img.id+' - '+buscarUsuario)
+  
+        }
+  
+        const e = new Discord.MessageEmbed()
+          .setColor('RANDOM')
+          .setAuthor(img.tag, img.displayAvatarURL({dynamic: true}))
+          .setTitle(`Balance`)
+          .addField(`**Dinero:**`, '<a:money:901702063908606004>  '+buscarUsuario.dinero, true)
+          .addField(`**Banco:**`, '<a:money:901702063908606004>  '+buscarUsuario.banco, true)
+          .addField(`**Total:**`, '<a:money:901702063908606004>  '+buscarUsuario.total, true)
+          .setTimestamp(new Date())
+          .setFooter(`Midgard's VIP`,client.user.avatarURL())
+  
+        message.channel.send({embeds: [e]})
+        console.log('Balance de : '+img.id+' - '+'dinero: '+buscarUsuario.dinero+', banco: '+buscarUsuario.banco+', total: '+buscarUsuario.total)
+  
       }
-
-      const e = new Discord.MessageEmbed()
-        .setColor('RANDOM')
-        .setAuthor(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
-        .setTitle(`Balance`)
-        .addField(`**Dinero:**`, '<a:money:901702063908606004>  '+buscarUsuario.dinero, true)
-        .addField(`**Banco:**`, '<a:money:901702063908606004>  '+buscarUsuario.banco, true)
-        .addField(`**Total:**`, '<a:money:901702063908606004>  '+buscarUsuario.total, true)
-        .setTimestamp(new Date())
-        .setFooter(`Midgard's VIP`,client.user.avatarURL())
-
-      message.channel.send({embeds: [e]})
-      console.log('dinero: '+buscarUsuario.dinero+', banco: '+buscarUsuario.banco+', total: '+buscarUsuario.total)
-
+    
     }
 
     //<-- SELECT USUARIO -->
@@ -990,41 +1023,51 @@ client.on('messageCreate', async message => {
     //<-- DELETE USUARIO -->
 
     if(command === "eliminar"){
-      
+
+      let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
+  
+      if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
+  
       let miembro = message.mentions.users.first();
       if(!miembro) return message.channel.send('Debe mencionar a un usuario a eliminar.')
- 
-      let remover = `DELETE FROM usuarios WHERE idusuario = ${miembro.id}`;
-      db.run(remover, function(err) {
-        if (err) return console.error(err.message)
-        message.channel.send(miembro.username +', fue eliminado correctamente.');
-      });
+
+      let remover = await client.db.get(`DELETE FROM usuarios WHERE idusuario = ${miembro.id}`)
+
+      //let remover = ``;
+
+      /*db.run(remover, function(err) {
+        if (err) return console.error(err.message)*/
+
+      message.channel.send(miembro.username +', fue eliminado correctamente.');
  
     }
 
     //<-- SELECT LISTA TOP USUARIOS -->
 
     if(command === "top"){
-      let lista = `SELECT idusuario, nivel, exp FROM usuarios ORDER BY exp DESC LIMIT 10`
+
+      let lista = await client.db.get(`SELECT idusuario, nivel, exp FROM usuarios ORDER BY exp DESC LIMIT 10`)
+
+      //let lista = `SELECT idusuario, nivel, exp FROM usuarios ORDER BY exp DESC LIMIT 10`
+
       let embed = new Discord.MessageEmbed()
  
-      db.all(lista, (err, filas) => {
-        if (err) return console.error(err.message)
-        let datos = [];
+      /*db.all(lista, (err, filas) => {
+        if (err) return console.error(err.message)*/
+
+      let datos = [];
  
-        filas.map(ls => {
+      lista.map(ls => {
           if(client.users.cache.get(ls.idusuario)){
             datos.push('__' + client.users.cache.get(ls.idusuario).tag + '__ <a:flech:915156906258071554> **'+ls.exp+'** XP (Nivel: **'+ls.nivel+'**)')
           }
-        });
- 
-        embed.setTitle('Lista de usuarios (TOP XP)')
-        embed.setDescription(datos.join('\n'))   	
-        embed.setColor("RANDOM")
-        embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
-        message.channel.send({ embeds: [embed] });
- 
       });
+ 
+      embed.setTitle('Lista de usuarios (TOP XP)')
+      embed.setDescription(datos.join('\n'))   	
+      embed.setColor("RANDOM")
+      embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
+      message.channel.send({ embeds: [embed] });
  
     }
 
