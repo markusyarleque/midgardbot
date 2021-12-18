@@ -778,6 +778,7 @@ client.on('messageCreate', async message => {
         .addField(`**Total**`, '<a:flech:915156906258071554> '+buscarUsuario.total, true)
 
       message.channel.send({embeds: [e]})
+      console.log('dinero: '+buscarUsuario.dinero+', banco: '+buscarUsuario.banco+', total: '+buscarUsuario.total)
 
     }
 
