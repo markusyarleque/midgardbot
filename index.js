@@ -925,7 +925,8 @@ client.on('messageCreate', async message => {
       } else{
         
         idm=img.id;
-        let select = `SELECT * FROM usuarios WHERE idusuario = ${idm}`;
+        let select = await client.db.get(`SELECT * FROM usuarios WHERE idusuario='`+ idm + "'")
+        //let select = `SELECT * FROM usuarios WHERE idusuario = ${idm}`;
           
         /*db.get(select, (err, filas) => {
 
@@ -1057,7 +1058,8 @@ client.on('messageCreate', async message => {
 
       let datos = [];
  
-      console.log(lista)
+      let ltop = await client.db.all(lista)
+      console.log(lista+' --- TOP --- '+ltop)
       /*lista.map(ls => {
           if(client.users.cache.get(ls.idusuario)){
             datos.push('__' + client.users.cache.get(ls.idusuario).tag + '__ <a:flech:915156906258071554> **'+ls.exp+'** XP (Nivel: **'+ls.nivel+'**)')
