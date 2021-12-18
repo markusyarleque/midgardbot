@@ -768,11 +768,11 @@ client.on('messageCreate', async message => {
 
     if(command === 'bal' || command === 'balance'){
 
-      let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE id='`+ message.author.id + "'")
+      let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario='`+ message.author.id + "'")
 
       if(!buscarUsuario){
       
-        await client.db.run(`INSERT INTO usuarios (id) VALUES (?)`, message.author.id)
+        await client.db.run(`INSERT INTO usuarios (idusuario) VALUES (?)`, message.author.id)
 
         buscarUsuario = {id: message.author.id, dinero: 0, banco: 0, total: 0}
 
