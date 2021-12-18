@@ -37,6 +37,15 @@ const fs = require('fs');
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database("./bd.sqlite");
 
+
+//<-- CREATE TABLE USUARIO -->
+  
+let crear = "CREATE TABLE IF NOT EXISTS usuarios (idusuario TEXT, nivel INTEGER, exp INTEGER, rep INTEGER, frase BLOB, foto BLOB)"
+
+db.run(crear, function(err) {
+  if (err) return console.error('Error crear tabla: '+err.message)
+})
+
 const tresenraya = require('tresenraya');
 
 // const Canvas = require('canvas')
@@ -72,14 +81,6 @@ client.on('ready', () => {
     }],
   });
   console.log('Listo!');
-
-  //<-- CREATE TABLE USUARIO -->
-  
-  let crear = "CREATE TABLE IF NOT EXISTS usuarios (idusuario TEXT, nivel INTEGER, exp INTEGER, rep INTEGER, frase BLOB, foto BLOB)"
-
-  db.run(crear, function(err) {
-    if (err) return console.error('Error crear tabla: '+err.message)
-  })
 
 });
 
