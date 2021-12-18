@@ -1057,11 +1057,12 @@ client.on('messageCreate', async message => {
 
       let datos = [];
  
-      lista.map(ls => {
+      console.log(lista)
+      /*lista.map(ls => {
           if(client.users.cache.get(ls.idusuario)){
             datos.push('__' + client.users.cache.get(ls.idusuario).tag + '__ <a:flech:915156906258071554> **'+ls.exp+'** XP (Nivel: **'+ls.nivel+'**)')
           }
-      });
+      });*/
  
       embed.setTitle('Lista de usuarios (TOP XP)')
       embed.setDescription(datos.join('\n'))   	
