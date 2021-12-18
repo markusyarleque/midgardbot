@@ -116,7 +116,7 @@ client.on('guildMemberAdd', async member => {
   /*if (newUsers.size > 1000000) {
 
     const userlist = newUsers.map(u => u.toString()).join(' ');
-    channel.send('¡Bienvenid@s Terrícolas!'+ `${userlist}`+', a este nuestro **Universo**. <:ShyLove:880410907635748924> Les invito a pasar por <#855582327514202132> y <#785685918270488656> Y si tienen una queja, duda o sugerencia, pasen por <#815654349912801280>. Cualquier duda o pregunta aquí estará todo el equipo de Staff a su disposición. <a:pasito:877116925291946094> Pásenla increíble, lindo día, tarde o noche. <a:abdul_dance:880930576683630662>');
+    channel.send('¡Bienvenid@s Terrícolas!'+ `${userlist}`+', a este nuevo**Universo**. <:ShyLove:880410907635748924> Les invito a pasar por <#855582327514202132> y <#785685918270488656> Y si tienen una queja, duda o sugerencia, pasen por <#815654349912801280>. Cualquier duda o pregunta aquí estará todo el equipo de Staff a su disposición. <a:pasito:877116925291946094> Pásenla increíble, lindo día, tarde o noche. <a:abdul_dance:880930576683630662>');
     newUsers.clear();
 
   }*/
@@ -766,7 +766,7 @@ client.on('messageCreate', async message => {
         buscarUsuario = {id: message.author.id, dinero: 0, banco: 0, total: 0}
 
         console.log(buscarUsuario)
-        
+
       }
 
       const e = new MessageEmbed()
