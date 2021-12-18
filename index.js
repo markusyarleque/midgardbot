@@ -34,17 +34,34 @@ const vip = new dbv.crearDB('vip');
 const bl = new dbv.crearDB('blacklist');
 const fs = require('fs');
 
-const sqlite3 = require('sqlite3').verbose();
+/*const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database("./bd.sqlite");
 
 
-//<-- CREATE TABLE USUARIO -->
+<-- CREATE TABLE USUARIO -->
   
 let crear = "CREATE TABLE IF NOT EXISTS usuarios (idusuario TEXT, nivel INTEGER, exp INTEGER, rep INTEGER, frase BLOB, foto BLOB)"
 
 db.run(crear, function(err) {
   if (err) return console.error('Error crear tabla: '+err.message)
-})
+})*/
+
+const sqlite3 = require('sqlite3'),
+{ open } = require('sqlite');
+
+
+(async()=>{
+  
+  client.db = await open({
+
+    filename:'./DATABASES/bd.db',
+    driver: sqlite3.Database
+
+  })
+
+  await bot.db.exec(`CREATE TABLE IF NOT EXISTS dinero ('id' TEXT NOT NULL, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0)`)
+})();
+
 
 const tresenraya = require('tresenraya');
 
@@ -735,6 +752,34 @@ client.on('messageCreate', async message => {
     });
 
     //BASE DE DATOS
+
+    //<-- COMANDO BALANCE -->
+
+    if(command === 'bal' || command === 'balance'){
+
+      let buscarUsuario = await client.db.get(`SELECT * FROM dinero WHERE id='`+ message.author.id + "'")
+
+      if(!buscarUsuario){
+      
+        await client.db.run(`INSERT INTO dinero (id) VALUES (?)`, message.author.id)
+
+        buscarUsuario = {id: message.author.id, dinero: 0, banco: 0, total: 0}
+
+        console.log(buscarUsuario)
+        
+      }
+
+      const e = new MessageEmbed()
+        .setColor('BLUE')
+        .setAuthor(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+        .setTitle(`Balance`)
+        .addField(`**Dinero**`, buscarUsuario.dinero, true)
+        .addField(`**Banco**`, buscarUsuario.banco, true)
+        .addField(`**Total**`, buscarUsuario.total, true)
+
+      message.channel.send({embeds: [e]})
+
+    }
 
     //<-- SELECT USUARIO -->
 

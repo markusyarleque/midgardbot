@@ -34,6 +34,7 @@
     "nekos.life": "^2.0.7",
     "poke-over": "^1.0.5",
     "reddit-fetch": "^1.5.1",
+    "sqlite": "^4.0.23",
     "sqlite3": "^5.0.2",
     "star-labs": "^1.1.2",
     "tresenraya": "^0.0.7"
