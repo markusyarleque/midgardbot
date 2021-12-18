@@ -852,7 +852,7 @@ client.on('messageCreate', async message => {
      
             let embed = new Discord.MessageEmbed()
               .setAuthor('Perfil de ' + message.author.username, message.author.displayAvatarURL())
-              .setThumbnail(`${select.foto}`)
+              .setThumbnail(select.foto ? select.foto : 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif')
               .addField('<a:start:880922179280207934> Nivel', '<a:flech:915156906258071554> '+select.nivel, true)
               .addField('<a:d_Fijao:897243194943737866> XP', '<a:flech:915156906258071554> '+select.exp, true)
               .addField('<a:CorazonMulticolor:880315280759345163> Carisma', '<a:flech:915156906258071554> '+select.rep, false)
@@ -1058,8 +1058,17 @@ client.on('messageCreate', async message => {
 
       let datos = [];
  
-      let ltop = await client.db.all(lista)
-      console.log(lista+' --- TOP --- '+ltop)
+      await client.db.all(lista, (err, filas) => {
+
+        if (err) return console.error('Error: '+err.message)
+
+        filas.map(ls => {
+          if(client.users.cache.get(ls.idusuario)){
+            datos.push('__' + client.users.cache.get(ls.idusuario).tag + '__ <a:flech:915156906258071554> **'+ls.exp+'** XP (Nivel: **'+ls.nivel+'**)')
+          }
+        })
+
+      })
       /*lista.map(ls => {
           if(client.users.cache.get(ls.idusuario)){
             datos.push('__' + client.users.cache.get(ls.idusuario).tag + '__ <a:flech:915156906258071554> **'+ls.exp+'** XP (Nivel: **'+ls.nivel+'**)')
