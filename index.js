@@ -769,7 +769,7 @@ client.on('messageCreate', async message => {
 
       }
 
-      const e = new MessageEmbed()
+      const e = new Discord.MessageEmbed()
         .setColor('BLUE')
         .setAuthor(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
         .setTitle(`Balance`)
