@@ -773,9 +773,9 @@ client.on('messageCreate', async message => {
         .setColor('BLUE')
         .setAuthor(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
         .setTitle(`Balance`)
-        .addField(`**Dinero**`, buscarUsuario.dinero, true)
-        .addField(`**Banco**`, buscarUsuario.banco, true)
-        .addField(`**Total**`, buscarUsuario.total, true)
+        .addField(`**Dinero**`, '<a:flech:915156906258071554> '+buscarUsuario.dinero, true)
+        .addField(`**Banco**`, '<a:flech:915156906258071554> '+buscarUsuario.banco, true)
+        .addField(`**Total**`, '<a:flech:915156906258071554> '+buscarUsuario.total, true)
 
       message.channel.send({embeds: [e]})
 
