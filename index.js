@@ -1058,10 +1058,13 @@ client.on('messageCreate', async message => {
 
       let datos = [];
 
+      let c = 1
+      
       for(let ls of lista){
 
         let usuario = client.users.resolve(ls.idusuario)
-        datos.push('__' + usuario + '__ <a:flech:915156906258071554> **'+ls.exp+'** XP (Nivel: **'+ls.nivel+'**)')
+        datos.push(c+'. __' + usuario.tag + '__ <a:flech:915156906258071554> **'+ls.exp+'** XP (Nivel: **'+ls.nivel+'**)')
+        c = c + 1
       }
 
       /*lista.map(ls => {
