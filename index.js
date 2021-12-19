@@ -763,71 +763,6 @@ client.on('messageCreate', async message => {
 
     //BASE DE DATOS
 
-    //<-- ECONOMÍA -->
-    //<-- COMANDO BALANCE -->
-
-    if(command === 'bal' || command === 'balance'){
-
-      let img = message.mentions.users.first()
-      
-      if(!img){
-
-        let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario='`+ message.author.id + "'")
-
-        if(!buscarUsuario){
-        
-          await client.db.run(`INSERT INTO usuarios (idusuario) VALUES (?)`, message.author.id)
-  
-          buscarUsuario = {id: message.author.id, dinero: 0, banco: 0, total: 0}
-  
-          console.log('Balance de : '+message.author.id+' - '+buscarUsuario)
-  
-        }
-  
-        const e = new Discord.MessageEmbed()
-          .setColor('RANDOM')
-          .setAuthor(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
-          .setTitle(`Balance`)
-          .addField(`**Dinero:**`, '<a:money:901702063908606004>  '+buscarUsuario.dinero, true)
-          .addField(`**Banco:**`, '<a:money:901702063908606004>  '+buscarUsuario.banco, true)
-          .addField(`**Total:**`, '<a:money:901702063908606004>  '+buscarUsuario.total, true)
-          .setTimestamp(new Date())
-          .setFooter(`Midgard's VIP`,client.user.avatarURL())
-  
-        message.channel.send({embeds: [e]})
-        console.log('Balance de : '+message.author.id+' - '+'dinero: '+buscarUsuario.dinero+', banco: '+buscarUsuario.banco+', total: '+buscarUsuario.total)
-  
-      } else {
-
-        let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario='`+ img.id + "'")
-
-        if(!buscarUsuario){
-        
-          await client.db.run(`INSERT INTO usuarios (idusuario) VALUES (?)`, img.id)
-  
-          buscarUsuario = {id: img.id, dinero: 0, banco: 0, total: 0}
-  
-          console.log('Balance de : '+img.id+' - '+buscarUsuario)
-  
-        }
-  
-        const e = new Discord.MessageEmbed()
-          .setColor('RANDOM')
-          .setAuthor(img.tag, img.displayAvatarURL({dynamic: true}))
-          .setTitle(`Balance`)
-          .addField(`**Dinero:**`, '<a:money:901702063908606004>  '+buscarUsuario.dinero, true)
-          .addField(`**Banco:**`, '<a:money:901702063908606004>  '+buscarUsuario.banco, true)
-          .addField(`**Total:**`, '<a:money:901702063908606004>  '+buscarUsuario.total, true)
-          .setTimestamp(new Date())
-          .setFooter(`Midgard's VIP`,client.user.avatarURL())
-  
-        message.channel.send({embeds: [e]})
-        console.log('Balance de : '+img.id+' - '+'dinero: '+buscarUsuario.dinero+', banco: '+buscarUsuario.banco+', total: '+buscarUsuario.total)
-  
-      }
-    
-    }
-
     //<-- SELECT USUARIO -->
 
     if(command === "perfil"){
@@ -952,75 +887,6 @@ client.on('messageCreate', async message => {
 
     }
 
-    //<-- EDITAR USUARIO -->
-
-    /*if(command === "eperfil"){
-
-      let select = `SELECT * FROM usuarios WHERE idusuario = ${id}`;
-      let obtener = args[0]
-
-      if(!obtener){
-        
-        message.channel.send('<a:Verify2:880315278347616329> | Para actualizar Frase, agrega **-f** antes del texto. Para actualizar Foto, agrega **-i** antes del link');
-          
-      } else {
-
-      switch (obtener.slice(-2)){
-    
-        case '-i': {
-
-          i = args[1];
-          console.log("Foto : "+ i)
-
-          db.get(select, (err, filas) => {
-
-            if (err) return console.error(err.message)
-            if (!filas) return message.channel.send('No hay perfil registrado para el usuario!')
-    
-            let update = `UPDATE usuarios SET foto = "${i}" WHERE idusuario = ${id}`;
-    
-             db.run(update, function(err) {      
-              if (err) return console.error("Error actualizar "+update+" --- "+err.message)
-              message.channel.send('<a:Dancing_Duck:894716883033538630> | Acabas de actualizar tu foto de perfil!');
-          
-             });
-     
-          });
-          break
-        }
-
-        case '-f': {
-
-          f = args[1];
-          console.log("Frase : "+ f)
-
-          db.get(select, (err, filas) => {
-
-            if (err) return console.error(err.message)
-            if (!filas) return message.channel.send('No hay perfil registrado para el usuario!')
-    
-            let update = `UPDATE usuarios SET frase = "${f}" WHERE idusuario = ${id}`;
-    
-             db.run(update, function(err) {      
-              if (err) return console.error("Error actualizar "+update+" --- "+err.message)
-              message.channel.send('<a:Dancing_Duck:894716883033538630> | Acabas de actualizar tu frase de perfil!');
-          
-             });
-     
-          });
-          break
-        }
-
-        default: {
-
-          message.channel.send('<a:Verify2:880315278347616329> | Para actualizar Frase, agrega **-f** antes del texto. Para actualizar Foto, agrega **-i** antes del link');
-          break;
-        }
-      }
-      }
-
-    }*/
-
     //<-- DELETE USUARIO -->
 
     if(command === "eliminar"){
@@ -1073,13 +939,104 @@ client.on('messageCreate', async message => {
           }
       });*/
  
-      embed.setTitle('Lista de Usuarios (TOP XP)')
+      embed.setTitle('MidgardBot (TOP XP)')
       embed.setDescription(datos.join('\n\n'))   	
       embed.setColor("RANDOM")
       embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
       message.channel.send({ embeds: [embed] });
  
     }
+
+    // COMANDOS DE ECONOMÍA
+
+    //<-- COMANDO BALANCE -->
+
+    if(command === 'bal' || command === 'balance'){
+
+      let img = message.mentions.users.first()
+      
+      if(!img){
+
+        let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario='`+ message.author.id + "'")
+
+        if(!buscarUsuario){
+        
+          await client.db.run(`INSERT INTO usuarios (idusuario) VALUES (?)`, message.author.id)
+  
+          buscarUsuario = {id: message.author.id, dinero: 0, banco: 0, total: 0}
+  
+          console.log('Balance de : '+message.author.id+' - '+buscarUsuario)
+  
+        }
+  
+        const e = new Discord.MessageEmbed()
+          .setColor('RANDOM')
+          .setAuthor(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+          .setTitle(`Balance`)
+          .addField(`**Dinero:**`, '<a:money:901702063908606004>  '+buscarUsuario.dinero, true)
+          .addField(`**Banco:**`, '<a:money:901702063908606004>  '+buscarUsuario.banco, true)
+          .addField(`**Total:**`, '<a:money:901702063908606004>  '+buscarUsuario.total, true)
+          .setTimestamp(new Date())
+          .setFooter(`Midgard's VIP`,client.user.avatarURL())
+  
+        message.channel.send({embeds: [e]})
+        console.log('Balance de : '+message.author.id+' - '+'dinero: '+buscarUsuario.dinero+', banco: '+buscarUsuario.banco+', total: '+buscarUsuario.total)
+  
+      } else {
+
+        let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario='`+ img.id + "'")
+
+        if(!buscarUsuario){
+        
+          await client.db.run(`INSERT INTO usuarios (idusuario) VALUES (?)`, img.id)
+  
+          buscarUsuario = {id: img.id, dinero: 0, banco: 0, total: 0}
+  
+          console.log('Balance de : '+img.id+' - '+buscarUsuario)
+  
+        }
+  
+        const e = new Discord.MessageEmbed()
+          .setColor('RANDOM')
+          .setAuthor(img.tag, img.displayAvatarURL({dynamic: true}))
+          .setTitle(`Balance`)
+          .addField(`**Dinero:**`, '<a:money:901702063908606004>  '+buscarUsuario.dinero, true)
+          .addField(`**Banco:**`, '<a:money:901702063908606004>  '+buscarUsuario.banco, true)
+          .addField(`**Total:**`, '<a:money:901702063908606004>  '+buscarUsuario.total, true)
+          .setTimestamp(new Date())
+          .setFooter(`Midgard's VIP`,client.user.avatarURL())
+  
+        message.channel.send({embeds: [e]})
+        console.log('Balance de : '+img.id+' - '+'dinero: '+buscarUsuario.dinero+', banco: '+buscarUsuario.banco+', total: '+buscarUsuario.total)
+  
+      }
+    
+    }
+
+    //<-- COMANDO WORK -->
+
+    var w = [
+      'Gracias por ayudarme a programar, aquí tienes tu recompensa: ',
+      'Felicidades por tu trabajo, te mereces esto: ',
+      'Excelente trabajo crack, aquí tienes: ',
+      '',
+      '',
+      ''
+    ]
+    if(command === 'work' || command === 'w'){
+
+      let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario=?`, message.author.id)
+      
+      r = Math.floor(Math.random() * (200 - 10) + 10)
+
+      e = new Discord.MessageEmbed()
+      .setColor('GREEN')
+      .setDescription(`Felicidades Buen hombreGanaste: ` + r)
+
+
+    }
+
+    // COMANDOS DE PROGRAMADOR
 
     if(command === 'malta'){
 
@@ -1111,7 +1068,6 @@ client.on('messageCreate', async message => {
         }
   
       }
-
 
     // COMANDOS DE INFORMACIÓN
 
