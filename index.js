@@ -1074,7 +1074,7 @@ client.on('messageCreate', async message => {
       });*/
  
       embed.setTitle('Lista de Usuarios (TOP XP)')
-      embed.setDescription(datos.join('\n'))   	
+      embed.setDescription(datos.join('\n\n'))   	
       embed.setColor("RANDOM")
       embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
       message.channel.send({ embeds: [embed] });
