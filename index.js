@@ -1047,7 +1047,7 @@ client.on('messageCreate', async message => {
 
     if(command === "top"){
 
-      let lista = await client.db.get(`SELECT idusuario, nivel, exp FROM usuarios ORDER BY exp DESC LIMIT 10`)
+      let lista = await client.db.all(`SELECT idusuario, nivel, exp FROM usuarios ORDER BY exp DESC LIMIT 10`)
 
       //let lista = `SELECT idusuario, nivel, exp FROM usuarios ORDER BY exp DESC LIMIT 10`
 
@@ -1057,25 +1057,20 @@ client.on('messageCreate', async message => {
         if (err) return console.error(err.message)*/
 
       let datos = [];
- 
-      await client.db.all(lista, (err, filas) => {
 
-        if (err) return console.error('Error: '+err.message)
+      for(let ls of lista){
 
-        filas.map(ls => {
-          if(client.users.cache.get(ls.idusuario)){
-            datos.push('__' + client.users.cache.get(ls.idusuario).tag + '__ <a:flech:915156906258071554> **'+ls.exp+'** XP (Nivel: **'+ls.nivel+'**)')
-          }
-        })
+        let usuario = client.users.resolve(ls.idusuario)
+        datos.push('__' + usuario + '__ <a:flech:915156906258071554> **'+ls.exp+'** XP (Nivel: **'+ls.nivel+'**)')
+      }
 
-      })
       /*lista.map(ls => {
           if(client.users.cache.get(ls.idusuario)){
             datos.push('__' + client.users.cache.get(ls.idusuario).tag + '__ <a:flech:915156906258071554> **'+ls.exp+'** XP (Nivel: **'+ls.nivel+'**)')
           }
       });*/
  
-      embed.setTitle('Lista de usuarios (TOP XP)')
+      embed.setTitle('Lista de Usuarios (TOP XP)')
       embed.setDescription(datos.join('\n'))   	
       embed.setColor("RANDOM")
       embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
