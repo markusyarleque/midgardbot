@@ -59,7 +59,7 @@ const sqlite3 = require('sqlite3'),
 
   })
 
-  await client.db.exec(`CREATE TABLE IF NOT EXISTS usuarios ('idusuario' TEXT NOT NULL, 'nivel' INTEGER DEFAULT 0, 'exp' INTEGER DEFAULT 0, 'rep' INTEGER DEFAULT 0, 'frase' BLOB, 'foto' BLOB, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0)`)
+  await client.db.exec(`CREATE TABLE IF NOT EXISTS usuarios ('idusuario' TEXT NOT NULL, 'nivel' INTEGER DEFAULT 0, 'exp' INTEGER DEFAULT 0, 'rep' INTEGER DEFAULT 0, 'frase' BLOB, 'foto' BLOB, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0, 'work' DATETIME)`)
   
 })();
 
@@ -1019,20 +1019,36 @@ client.on('messageCreate', async message => {
       'Gracias por ayudarme a programar, aquí tienes tu recompensa: ',
       'Felicidades por tu trabajo, te mereces esto: ',
       'Excelente trabajo crack, aquí tienes: ',
-      '',
-      '',
-      ''
+      'Por cuidar del server todo el día, te has ganado: ',
+      'Gracias por usar mis comandos, aquí tienes buen terrícola: ',
+      'Sin hacer nada, ya ganaste: '
     ]
+    
     if(command === 'work' || command === 'w'){
 
       let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario=?`, message.author.id)
       
-      r = Math.floor(Math.random() * (200 - 10) + 10)
+      let r = Math.floor(Math.random() * (200 - 10) + 10)
+      
+      let ramdonw = w[Math.floor(Math.random()*w.length)]
 
-      e = new Discord.MessageEmbed()
+      if(buscarUsuario){
+
+        if(buscarUsuario.work > Date.now()) return message.channel.send('Puedes volver a trabajar en '+buscarUsuario.work-Date.now())
+
+        await client.db.run(`UPDATE usuarios SET dinero=dinero+?, total=total+?, work=? WHERE idusuario=?`, r, r, (Date.now()+(1000*60)), message.author.id)
+
+      } else {
+
+        await client.db.run('INSERT INTO usuarios (idusuario, dinero, banco, total, work) VALUES (?, ?, ?, ?, ?)', message.author.id, r, 0, r, (Date.now()+(1000*60)))
+
+      }
+
+      const e = new Discord.MessageEmbed()
       .setColor('GREEN')
-      .setDescription(`Felicidades Buen hombreGanaste: ` + r)
+      .setDescription(ramdonw + r)
 
+      message.channel.send({embeds: [e]})
 
     }
 
