@@ -1034,7 +1034,12 @@ client.on('messageCreate', async message => {
 
       if(buscarUsuario){
 
-        if(buscarUsuario.work > Date.now()) return message.channel.send('Puedes volver a trabajar en :'+((buscarUsuario.work - Date.now())/1000))
+        if(buscarUsuario.work > Date.now()) return message.channel.send(
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription('Puedes volver a trabajar en : '+((buscarUsuario.work - Date.now())/1000)+' segundos')
+        )
 
         await client.db.run(`UPDATE usuarios SET dinero=dinero+?, total=total+?, work=? WHERE idusuario=?`, r, r, (Date.now()+(1000*60)), message.author.id)
 
@@ -1045,6 +1050,7 @@ client.on('messageCreate', async message => {
       }
 
       const e = new Discord.MessageEmbed()
+      .setAuthor(message.author.tag, message.author.displayAvatarURL())
       .setColor('GREEN')
       .setDescription(ramdonw + r)
 
