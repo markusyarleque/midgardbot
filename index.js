@@ -1034,7 +1034,7 @@ client.on('messageCreate', async message => {
 
       if(buscarUsuario){
 
-        if(buscarUsuario.work > Date.now()) return message.channel.send('Puedes volver a trabajar en :'+(buscarUsuario.work - Date.now()))
+        if(buscarUsuario.work > Date.now()) return message.channel.send('Puedes volver a trabajar en :'+(buscarUsuario.work))
 
         await client.db.run(`UPDATE usuarios SET dinero=dinero+?, total=total+?, work=? WHERE idusuario=?`, r, r, (Date.now()+(1000*60)), message.author.id)
 
