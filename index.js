@@ -1016,12 +1016,12 @@ client.on('messageCreate', async message => {
     //<-- COMANDO WORK -->
 
     var w = [
-      'Gracias por ayudarme a programar, aquí tienes tu recompensa: ',
-      'Felicidades por tu trabajo, te mereces esto: ',
-      'Excelente trabajo crack, aquí tienes: ',
-      'Por cuidar del server todo el día, te has ganado: ',
-      'Gracias por usar mis comandos, aquí tienes buen terrícola: ',
-      'Sin hacer nada, ya ganaste: '
+      'Gracias por ayudarme a programar, aquí tienes tu recompensa: <a:money:901702063908606004> ',
+      'Felicidades por tu trabajo, te mereces esto: <a:money:901702063908606004> ',
+      'Excelente trabajo crack, aquí tienes: <a:money:901702063908606004> ',
+      'Por cuidar del server todo el día, te has ganado: <a:money:901702063908606004> ',
+      'Gracias por usar mis comandos, aquí tienes buen terrícola: <a:money:901702063908606004> ',
+      'Sin hacer nada, ya ganaste: <a:money:901702063908606004> '
     ]
     
     if(command === 'work' || command === 'w'){
@@ -1034,7 +1034,7 @@ client.on('messageCreate', async message => {
 
       if(buscarUsuario){
 
-        if(buscarUsuario.work > Date.now()) return message.channel.send('Puedes volver a trabajar en '+buscarUsuario.work-Date.now())
+        if(buscarUsuario.work > Date.now()) return message.channel.send('Puedes volver a trabajar en ')
 
         await client.db.run(`UPDATE usuarios SET dinero=dinero+?, total=total+?, work=? WHERE idusuario=?`, r, r, (Date.now()+(1000*60)), message.author.id)
 
