@@ -59,7 +59,7 @@ const sqlite3 = require('sqlite3'),
 
   })
 
-  await client.db.exec(`CREATE TABLE IF NOT EXISTS usuarios ('idusuario' TEXT NOT NULL, 'nivel' INTEGER DEFAULT 0, 'exp' INTEGER DEFAULT 0, 'rep' INTEGER DEFAULT 0, 'frase' BLOB, 'foto' BLOB, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0, 'work' DATETIME)`)
+  await client.db.exec(`CREATE TABLE IF NOT EXISTS usuarios ('idusuario' TEXT NOT NULL, 'nivel' INTEGER DEFAULT 0, 'exp' INTEGER DEFAULT 0, 'rep' INTEGER DEFAULT 0, 'frase' BLOB, 'foto' BLOB, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0, 'work' DATETIME, 'rob' DATETIME)`)
   
 })();
 
@@ -1060,6 +1060,86 @@ client.on('messageCreate', async message => {
       message.channel.send({embeds: [e]})
 
     }
+
+    if(command === 'rob'){
+
+      let usuario = message.mentions.users.first()
+
+      if(!usuario)return message.channel.send({embeds: [
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:880315278347616329> | Necesitas mencionar a alguien!`)
+      ]})
+
+      if(usuario.id === message.author.id)return message.channel.send({embeds: [
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:880315278347616329> | No te puedes robar a ti mismo!`)
+      ]})
+
+      if(usuario.bot)return message.channel.send({embeds: [
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:880315278347616329> | No tienes el poder suficiente para robarle a los bots!`)
+      ]})
+
+      let usuario1 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, message.author.id)
+      let usuario2 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, usuario.id)
+
+      if(!usuario1){
+
+        await client.db.run(`INSERT INTO usuarios (idusuario) VALUES (?)`, message.author.id)
+        usuario1 = {idusuario: message.author.id, dinero: 0, banco: 0, total: 0}
+
+      } else if(!usuario2){
+
+        await client.db.run(`INSERT INTO usuarios (idusuario) VALUES (?)`, usuario.id)
+        usuario2 = {idusuario: usuario.id, dinero: 0, banco: 0, total: 0}
+      }
+
+      if(usuario2.dinero === 0) return message.channel.send({embeds: [
+
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:880315278347616329> | ¿Cómo te atreves a robarle a los pobres?`)
+      
+      ]})
+
+      let ganarob = usuario2.dinero === 0 ? 0 : Math.floor((10 * usuario2.dinero)/100)
+      let pierderob = usuario1.dinero === 0 ? Math.floor((10 * 200) / 100) : Math.floor((10 * usuario1.dinero) / 100)
+      let chance = Math.floor(Math.random()*10)
+
+      if(chance < 3){
+        
+        await client.db.run(`UPDATE usuarios SET dinero=dinero-?, total=total-? WHERE idusuario=?`, ganarob, ganarob, usuario.id)
+        await client.db.run(`UPDATE usuarios SET dinero=dinero+?, total=total+?, rob=? WHERE idusuario=?`, ganarob, ganarob, (Date.now()+(1000*60)), message.author.id)
+
+        const e = new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('GREEN')
+        .setDescription(`<a:Verify1:880315279391985744> | Le has robado <a:money:901702063908606004> `+ ganarob + ' a ' + usuario.toString())
+        .setTimestamp()
+        message.channel.send({embeds: [e]})
+    
+      } else {
+
+        await client.db.run(`UPDATE usuarios SET dinero=dinero-?, total=total-?, rob=? WHERE idusuario=?`, pierderob, pierderob, (Date.now()+(1000*60)), message.author.id)
+
+        const e = new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:880315278347616329> | Qué malo eres robando, acabas de ser capturado y perdiste <a:money:901702063908606004> `+ pierderob)
+        .setTimestamp()
+        message.channel.send({embeds: [e]})
+    
+      }
+
+    }
+
 
     // COMANDOS DE PROGRAMADO
 
