@@ -1151,40 +1151,32 @@ client.on('messageCreate', async message => {
 
       }
 
-      if(!args[0]){
-        
-        message.channel.send({embeds: [
+      if(!args[0]) return message.channel.send({embeds: [
 
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:880315278347616329> | Ingresa un monto a depositar!`)
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:880315278347616329> | Ingresa un monto a depositar!`)
 
-        ]})
+      ]})
 
-      } else if(buscarUsuario.dinero === 0){
+      else if(buscarUsuario.dinero === 0) return message.channel.send({embeds: [
 
-        message.channel.send({embeds: [
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:880315278347616329> | No tienes dinero para depositar!`)
 
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:880315278347616329> | No tienes dinero para depositar!`)
+      ]})
 
-        ]})
+      else if(buscarUsuario.dinero < parseInt(args[0])) return message.channel.send({embeds: [
 
-      } else if(buscarUsuario.dinero < parseInt(args[0])){
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:880315278347616329> | No tienes ese monto para depositar. Actualmente tienes <a:money:901702063908606004> `+ buscarUsuario.dinero)
 
-        message.channel.send({embeds: [
-
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:880315278347616329> | No tienes ese monto para depositar. Actualmente tienes <a:money:901702063908606004> `+ buscarUsuario.dinero)
-
-        ]})
-
-      }
+      ]})
 
       if(args[0].toLowerCase() === 'all'){
 
@@ -1224,7 +1216,7 @@ client.on('messageCreate', async message => {
       }
 
     }
-    
+
 
     // COMANDOS DE PROGRAMADO
 
