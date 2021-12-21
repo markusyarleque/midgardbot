@@ -1224,6 +1224,7 @@ client.on('messageCreate', async message => {
       }
 
     }
+    
 
     // COMANDOS DE PROGRAMADO
 
