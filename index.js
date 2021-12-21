@@ -1225,7 +1225,6 @@ client.on('messageCreate', async message => {
 
     }
 
-
     // COMANDOS DE PROGRAMADO
 
     if(command === 'malta'){
