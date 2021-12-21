@@ -1140,6 +1140,91 @@ client.on('messageCreate', async message => {
 
     }
 
+    if(command === 'dep'){
+
+      let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE id=?`, message.author.id)
+
+      if(!buscarUsuario){
+
+        await client.db.run(`INSERT INTO usuarios (id) VALUES (?)`, message.author.id)
+        buscarUsuario = {dinero: 0, banco: 0, total: 0}
+
+      }
+
+      if(!args[0]){
+        
+        message.channel.send({embeds: [
+
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | Ingresa un monto a depositar!`)
+
+        ]})
+
+      } else if(buscarUsuario.dinero === 0){
+
+        message.channel.send({embeds: [
+
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | No tienes dinero para depositar!`)
+
+        ]})
+
+      } else if(buscarUsuario.dinero < parseInt(args[0])){
+
+        message.channel.send({embeds: [
+
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | No tienes ese monto para depositar. Actualmente tienes <a:money:901702063908606004> `+ buscarUsuario.dinero)
+
+        ]})
+
+      }
+
+      if(args[0].toLowerCase() === 'all'){
+
+        await client.db.run(`UPDATE usuarios SET dinero=0, banco=banco + ? WHERE id=?`, buscarUsuario.dinero, message.author.id)
+        
+        const e = new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('GREEN')
+          .setDescription(`<a:Verify1:880315279391985744> | Has depositado <a:money:901702063908606004> `+ buscarUsuario.dinero+ ' al banco')
+          .setTimestamp()
+        
+        message.channel.send({embeds: [e]})
+
+      } else {
+
+        if(isNaN(parseInt(args[0]))) return message.channel.send({embeds: [
+
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | Ingresa un número válido a depositar!`)
+
+          ]})
+
+        let numero = parseInt(args[0])
+  
+        await client.db.run(`UPDATE usuarios SET dinero=dinero-?, banco=banco+? WHERE id=?`, numero, numero, message.author.id)
+  
+        const e = new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('GREEN')
+          .setDescription(`<a:Verify1:880315279391985744> | Has depositado <a:money:901702063908606004> `+ numero + ' al banco')
+          .setTimestamp()
+          
+        message.channel.send({embeds: [e]})
+
+      }
+
+    }
+
 
     // COMANDOS DE PROGRAMADO
 
