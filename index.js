@@ -1142,11 +1142,11 @@ client.on('messageCreate', async message => {
 
     if(command === 'dep'){
 
-      let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE id=?`, message.author.id)
+      let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario=?`, message.author.id)
 
       if(!buscarUsuario){
 
-        await client.db.run(`INSERT INTO usuarios (id) VALUES (?)`, message.author.id)
+        await client.db.run(`INSERT INTO usuarios (idusuario) VALUES (?)`, message.author.id)
         buscarUsuario = {dinero: 0, banco: 0, total: 0}
 
       }
@@ -1188,7 +1188,7 @@ client.on('messageCreate', async message => {
 
       if(args[0].toLowerCase() === 'all'){
 
-        await client.db.run(`UPDATE usuarios SET dinero=0, banco=banco + ? WHERE id=?`, buscarUsuario.dinero, message.author.id)
+        await client.db.run(`UPDATE usuarios SET dinero=0, banco=banco + ? WHERE idusuario=?`, buscarUsuario.dinero, message.author.id)
         
         const e = new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
@@ -1211,7 +1211,7 @@ client.on('messageCreate', async message => {
 
         let numero = parseInt(args[0])
   
-        await client.db.run(`UPDATE usuarios SET dinero=dinero-?, banco=banco+? WHERE id=?`, numero, numero, message.author.id)
+        await client.db.run(`UPDATE usuarios SET dinero=dinero-?, banco=banco+? WHERE idusuario=?`, numero, numero, message.author.id)
   
         const e = new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
