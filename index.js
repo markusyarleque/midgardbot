@@ -1442,7 +1442,7 @@ client.on('messageCreate', async message => {
           if (int.customId === "primary") {
             
             var msDelay = 12*3600000
-            await int.reply({ content: '<a:reloj:915171222961135646> | Acabas de establecer un recordatorio en 12 horas para votar nuevamente!', ephemeral: true});
+            await message.reply({ content: '<a:reloj:915171222961135646> | Acabas de establecer un recordatorio en 12 horas para votar nuevamente. No olvides de activar los mensajes directos!', ephemeral: true});
             setTimeout(reminder, msDelay);
   
           }
