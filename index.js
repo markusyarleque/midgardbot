@@ -1165,7 +1165,7 @@ client.on('messageCreate', async message => {
         
         ]}
       )
-      
+
       if(usuario2.dinero === 0) return message.channel.send({embeds: [
 
         new Discord.MessageEmbed()
@@ -1182,7 +1182,7 @@ client.on('messageCreate', async message => {
       if(chance < 3){
         
         await client.db.run(`UPDATE usuarios SET dinero=dinero-?, total=total-? WHERE idusuario=?`, ganarob, ganarob, usuario.id)
-        await client.db.run(`UPDATE usuarios SET dinero=dinero+?, total=total+?, rob=? WHERE idusuario=?`, ganarob, ganarob, (Date.now()+(1000*60)), message.author.id)
+        await client.db.run(`UPDATE usuarios SET dinero=dinero+?, total=total+?, rob=? WHERE idusuario=?`, ganarob, ganarob, (Date.now()+(1000*30)), message.author.id)
 
         const e = new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
@@ -1193,7 +1193,7 @@ client.on('messageCreate', async message => {
     
       } else {
 
-        await client.db.run(`UPDATE usuarios SET dinero=dinero-?, total=total-?, rob=? WHERE idusuario=?`, pierderob, pierderob, (Date.now()+(1000*60)), message.author.id)
+        await client.db.run(`UPDATE usuarios SET dinero=dinero-?, total=total-?, rob=? WHERE idusuario=?`, pierderob, pierderob, (Date.now()+(1000*30)), message.author.id)
 
         const e = new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
