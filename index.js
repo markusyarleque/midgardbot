@@ -914,7 +914,7 @@ client.on('messageCreate', async message => {
     if(command === "top"){
 
       var server = message.guild;
-      
+
       if(!args[0]){
 
         let lista = await client.db.all(`SELECT idusuario, total FROM usuarios ORDER BY total DESC LIMIT 10`)
@@ -933,7 +933,7 @@ client.on('messageCreate', async message => {
         }
  
         embed.setAuthor(server.name, server.iconURL({ dynamic: true }))
-        embed.setTitle('TOP ECONOMÍA')
+        embed.setTitle('Top Economía 💹🔝')
         embed.setDescription(datos.join('\n\n'))   	
         embed.setColor("RANDOM")
         embed.setFooter(`MidgardBot`,client.user.avatarURL())
@@ -970,7 +970,7 @@ client.on('messageCreate', async message => {
           });*/
  
           embed.setAuthor(server.name, server.iconURL({ dynamic: true }))
-          embed.setTitle('TOP XP')
+          embed.setTitle('Top XP')
           embed.setDescription(datos.join('\n\n'))   	
           embed.setColor("RANDOM")
           embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
@@ -994,7 +994,7 @@ client.on('messageCreate', async message => {
           }
  
           embed.setAuthor(server.name, server.iconURL({ dynamic: true }))
-          embed.setTitle('TOP CASH')
+          embed.setTitle('Top Cash')
           embed.setDescription(datos.join('\n\n'))   	
           embed.setColor("RANDOM")
           embed.setFooter(`MidgardBot`,client.user.avatarURL())
