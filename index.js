@@ -59,7 +59,7 @@ const sqlite3 = require('sqlite3'),
 
   })
 
-  await client.db.exec(`CREATE TABLE IF NOT EXISTS usuarios ('idusuario' TEXT NOT NULL, 'nivel' INTEGER DEFAULT 0, 'exp' INTEGER DEFAULT 0, 'rep' INTEGER DEFAULT 0, 'frase' BLOB, 'foto' BLOB, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0, 'work' DATETIME, 'rob' DATETIME)`)
+  await client.db.exec(`CREATE TABLE IF NOT EXISTS usuarios ('idusuario' TEXT NOT NULL, 'nivel' INTEGER DEFAULT 0, 'exp' INTEGER DEFAULT 0, 'rep' INTEGER DEFAULT 0, 'frase' BLOB, 'foto' BLOB, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0, 'work' DATETIME, 'rob' DATETIME, 'daily' DATETIME)`)
   
 })();
 
@@ -932,7 +932,7 @@ client.on('messageCreate', async message => {
           c = c + 1
         }
  
-        embed.setAuthor(server.name+' | Top Economía 🏦', server.iconURL({ dynamic: true }))
+        embed.setAuthor(server.name+' | Top Global 🏦', server.iconURL({ dynamic: true }))
         embed.setDescription(datos.join('\n\n'))   	
         embed.setColor("RANDOM")
         embed.setFooter(`MidgardBot`,client.user.avatarURL())
@@ -1350,9 +1350,73 @@ client.on('messageCreate', async message => {
 
     }
 
+    if(command === 'daily'){
+
+      let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario=?`, message.author.id)
+
+      let numero = 1000
+
+      if(!buscarUsuario){
+
+        await client.db.run(`INSERT INTO usuarios (idusuario, daily, dinero, total) VALUES (?, ?, ?, ?)`, message.author.id, (Date.now() + (24 * (60 * (1000 * 60)))), numero, numero)
+        
+        buscarUsuario = {dinero: numero, banco: 0, total: numero, daily: (Date.now() + (24 * (60 * (1000 * 60))))}
+
+      } else {
+
+        if(buscarUsuario.daily > Date.now()) return message.channel.send({embeds: [
+          
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription('<a:tiempogif:922403546492702720> | Ya has reclamado tu recompensa hoy! Recuerda que si apoyas al servidor votando en **Top.gg** podrás ganar el doble de coins. [Click aquí para votar](https://top.gg/servers/777620055344545842/vote)')
+          
+        ], components: [
+            
+          new MessageActionRow()
+          .addComponents(
+
+            new MessageButton()
+        
+            .setLabel('VOTAR') //Lo que quieran que aparezca en el boton
+            //.setEmoji('?') //Puede ser cualquier emoji, si le han puesto el label aparecera al lado izquierdo del texto, si no le pusieron el label aparecera en medio del boton
+            .setStyle('LINK') //Ponemos el estilo del botón, los estilos los puedes encontra
+            .setURL('https://top.gg/servers/777620055344545842/vote') 
+
+          )
+
+        ]})
+
+        await client.db.run(`UPDATE usuarios SET dinero=dinero+?, total=total+?, daily=? WHERE idusuario=?`, numero, numero, (Date.now() + (24 * (60 * (1000 * 60)))),message.author.id)
+
+      }
+
+      function reminder() {
+    
+        message.author.send('<a:exclama2:880930071731392512> | Tu último voto por el server **Midgard** fue hace 12 horas. ¡Ya puedes volver a votar para recibir recompensas! No te olvides de usar el comando `_daily` para canjear tus coins extras. https://top.gg/servers/777620055344545842/vote')
+
+      }
+
+      const e = new Discord.MessageEmbed()
+      .setAuthor(server.name, server.iconURL({ dynamic: true }))
+      .setTitle('Recompensa Diaria 💵')
+      .setColor('RANDOM')
+      .setDescription(`Felicidades **${message.author.username}**! Has recibido <a:money:901702063908606004> **` + numero + `** como recompensa diaria.\n¡Muchas gracias por usar mis comandos!`)
+      .setTimestamp()
+      .setFooter(`MidgardBot`,client.user.avatarURL())
+      
+      message.channel.send({embeds: [e]})
+
+      var msDelay = 12*3600000
+      message.channel.send('<a:reloj:915171222961135646> | Acabas de establecer un recordatorio en ' + obtener.slice(0, -1) + ' horas:\n<a:flech:915156906258071554> '+mensaje);
+      setTimeout(reminder, msDelay);
+
+    }
 
 
-
+    if(command === 'prueba2'){
+      message.reply('hola, funciona?')
+    }
     // COMANDOS DE PROGRAMADO
 
     if(command === 'malta'){
