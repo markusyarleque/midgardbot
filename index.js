@@ -938,67 +938,64 @@ client.on('messageCreate', async message => {
 
       } else {
 
-        if(args[0].toLowerCase === 'xp')
-      {
-        let lista = await client.db.all(`SELECT idusuario, nivel, exp FROM usuarios ORDER BY exp DESC LIMIT 10`)
+        if(args[0].toLowerCase() === 'xp'){
 
-        //let lista = `SELECT idusuario, nivel, exp FROM usuarios ORDER BY exp DESC LIMIT 10`
+          let lista = await client.db.all(`SELECT idusuario, nivel, exp FROM usuarios ORDER BY exp DESC LIMIT 10`)
 
-        let embed = new Discord.MessageEmbed()
+          //let lista = `SELECT idusuario, nivel, exp FROM usuarios ORDER BY exp DESC LIMIT 10`
+
+          let embed = new Discord.MessageEmbed()
  
-        /*db.all(lista, (err, filas) => {
-        if (err) return console.error(err.message)*/
+          /*db.all(lista, (err, filas) => {
+          if (err) return console.error(err.message)*/
 
-        let datos = [];
+          let datos = [];
 
-        let c = 1
+          let c = 1
 
-        for(let ls of lista){
+          for(let ls of lista){
 
-          let usuario = client.users.resolve(ls.idusuario)
-          datos.push('**'+c+'.** <@' + usuario.id + '> <a:flech:915156906258071554> **'+ls.exp+'** XP (Nivel: **'+ls.nivel+'**)')
-          c = c + 1
-        }
+            let usuario = client.users.resolve(ls.idusuario)
+            datos.push('**'+c+'.** <@' + usuario.id + '> <a:flech:915156906258071554> **'+ls.exp+'** XP (Nivel: **'+ls.nivel+'**)')
+            c = c + 1
+          }
 
-        /*lista.map(ls => {
+          /*lista.map(ls => {
           if(client.users.cache.get(ls.idusuario)){
             datos.push('__' + client.users.cache.get(ls.idusuario).tag + '__ <a:flech:915156906258071554> **'+ls.exp+'** XP (Nivel: **'+ls.nivel+'**)')
           }
-        });*/
+          });*/
  
-        embed.setTitle('MidgardBot (TOP XP)')
-        embed.setDescription(datos.join('\n\n'))   	
-        embed.setColor("RANDOM")
-        embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
-        message.channel.send({ embeds: [embed] });
+          embed.setTitle('MidgardBot (TOP XP)')
+          embed.setDescription(datos.join('\n\n'))   	
+          embed.setColor("RANDOM")
+          embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
+          message.channel.send({ embeds: [embed] });
 
-        } else if(args[0].toLowerCase === 'cash')
-      {
+        } else if(args[0].toLowerCase() === 'cash'){
         
-        let lista = await client.db.all(`SELECT idusuario, dinero FROM usuarios ORDER BY dinero DESC LIMIT 10`)
+          let lista = await client.db.all(`SELECT idusuario, dinero FROM usuarios ORDER BY dinero DESC LIMIT 10`)
 
-        let embed = new Discord.MessageEmbed()
+          let embed = new Discord.MessageEmbed()
 
-        let datos = [];
+          let datos = [];
 
-        let c = 1
+          let c = 1
 
-        for(let ls of lista){
+          for(let ls of lista){
 
-          let usuario = client.users.resolve(ls.idusuario)
-          datos.push('**'+c+'.** <@' + usuario.id + '> <a:money:901702063908606004> **'+ls.dinero+'**')
-          c = c + 1
-        }
+            let usuario = client.users.resolve(ls.idusuario)
+            datos.push('**'+c+'.** <@' + usuario.id + '> <a:money:901702063908606004> **'+ls.dinero+'**')
+            c = c + 1
+          }
  
-        embed.setTitle('MidgardBot (TOP CASH)')
-        embed.setDescription(datos.join('\n\n'))   	
-        embed.setColor("RANDOM")
-        embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
-        message.channel.send({ embeds: [embed] });
+          embed.setTitle('MidgardBot (TOP CASH)')
+          embed.setDescription(datos.join('\n\n'))   	
+          embed.setColor("RANDOM")
+          embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
+          message.channel.send({ embeds: [embed] });
 
-        } else {
-          message.channel.send('Prueba')
-        }
+        } 
 
       }
 
