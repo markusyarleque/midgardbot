@@ -930,10 +930,11 @@ client.on('messageCreate', async message => {
           c = c + 1
         }
  
-        embed.setTitle('MidgardBot (TOP ECONOMÍA)')
+        embed.setAuthor(server.name, server.iconURL({ dynamic: true }))
+        embed.setTitle('TOP ECONOMÍA')
         embed.setDescription(datos.join('\n\n'))   	
         embed.setColor("RANDOM")
-        embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
+        embed.setFooter(`MidgardBot`,client.user.avatarURL())
         message.channel.send({ embeds: [embed] });
 
       } else {
@@ -966,7 +967,8 @@ client.on('messageCreate', async message => {
           }
           });*/
  
-          embed.setTitle('MidgardBot (TOP XP)')
+          embed.setAuthor(server.name, server.iconURL({ dynamic: true }))
+          embed.setTitle('TOP XP')
           embed.setDescription(datos.join('\n\n'))   	
           embed.setColor("RANDOM")
           embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
@@ -989,10 +991,11 @@ client.on('messageCreate', async message => {
             c = c + 1
           }
  
-          embed.setTitle('MidgardBot (TOP CASH)')
+          embed.setAuthor(server.name, server.iconURL({ dynamic: true }))
+          embed.setTitle('TOP CASH')
           embed.setDescription(datos.join('\n\n'))   	
           embed.setColor("RANDOM")
-          embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
+          embed.setFooter(`MidgardBot`,client.user.avatarURL())
           message.channel.send({ embeds: [embed] });
 
         } 
