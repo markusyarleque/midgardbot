@@ -1363,7 +1363,7 @@ client.on('messageCreate', async message => {
       } else {
 
         numero = numero + 0
-        
+
       }
 
       if(!buscarUsuario){
@@ -1406,6 +1406,8 @@ client.on('messageCreate', async message => {
 
       }
 
+      const server = message.guild
+      
       const e = new Discord.MessageEmbed()
       .setAuthor(server.name, server.iconURL({ dynamic: true }))
       .setTitle('Recompensa Diaria 💵')
