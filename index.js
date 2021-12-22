@@ -996,7 +996,9 @@ client.on('messageCreate', async message => {
         embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
         message.channel.send({ embeds: [embed] });
 
-        } 
+        } else {
+          message.channel.send('Prueba')
+        }
 
       }
 
