@@ -932,8 +932,7 @@ client.on('messageCreate', async message => {
           c = c + 1
         }
  
-        embed.setAuthor(server.name, server.iconURL({ dynamic: true }))
-        embed.setTitle('Top Economía 🏦🏧')
+        embed.setAuthor(server.name+' | Top Economía 🏦', server.iconURL({ dynamic: true }))
         embed.setDescription(datos.join('\n\n'))   	
         embed.setColor("RANDOM")
         embed.setFooter(`MidgardBot`,client.user.avatarURL())
@@ -969,8 +968,7 @@ client.on('messageCreate', async message => {
           }
           });*/
  
-          embed.setAuthor(server.name, server.iconURL({ dynamic: true }))
-          embed.setTitle('Top XP ⭐')
+          embed.setAuthor(server.name+' | Top XP ⭐', server.iconURL({ dynamic: true }))
           embed.setDescription(datos.join('\n\n'))   	
           embed.setColor("RANDOM")
           embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
@@ -994,7 +992,6 @@ client.on('messageCreate', async message => {
           }
  
           embed.setAuthor(server.name+' | Top Cash 💵', server.iconURL({ dynamic: true }))
-          embed.setTitle('Top Cash 💵')
           embed.setDescription(datos.join('\n\n'))   	
           embed.setColor("RANDOM")
           embed.setFooter(`MidgardBot`,client.user.avatarURL())
