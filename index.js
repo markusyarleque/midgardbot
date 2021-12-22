@@ -913,6 +913,8 @@ client.on('messageCreate', async message => {
 
     if(command === "top"){
 
+      var server = message.guild;
+      
       if(!args[0]){
 
         let lista = await client.db.all(`SELECT idusuario, total FROM usuarios ORDER BY total DESC LIMIT 10`)
