@@ -1389,7 +1389,7 @@ client.on('messageCreate', async message => {
           new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('RED')
-          .setDescription('<a:tiempogif:922403546492702720> | Ya has reclamado tu recompensa hoy! Puedes volver en: '+((buscarUsuario.daily - Date.now())/1000).toFixed(0)+'\nRecuerda que si apoyas al servidor votando en **Top.gg** podrás ganar el doble de coins. [Click aquí para votar](https://top.gg/servers/777620055344545842/vote)')
+          .setDescription('<a:tiempogif:922403546492702720> | Ya has reclamado tu recompensa hoy! Puedes volver en: '+((buscarUsuario.daily - Date.now())/1000).toFixed(0)+' \nRecuerda que si apoyas al servidor votando en **Top.gg** podrás ganar el doble de coins. [Click aquí para votar](https://top.gg/servers/777620055344545842/vote)')
           
         ], components: [
             
