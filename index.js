@@ -913,7 +913,32 @@ client.on('messageCreate', async message => {
 
     if(command === "top"){
 
-      if(args[0].toLowerCase === 'xp')
+      if(!args[0]){
+
+        let lista = await client.db.all(`SELECT idusuario, total FROM usuarios ORDER BY total DESC LIMIT 10`)
+
+        let embed = new Discord.MessageEmbed()
+
+        let datos = [];
+
+        let c = 1
+
+        for(let ls of lista){
+
+          let usuario = client.users.resolve(ls.idusuario)
+          datos.push('**'+c+'.** <@' + usuario.id + '> <a:money:901702063908606004> **'+ls.total+'**')
+          c = c + 1
+        }
+ 
+        embed.setTitle('MidgardBot (TOP ECONOMÍA)')
+        embed.setDescription(datos.join('\n\n'))   	
+        embed.setColor("RANDOM")
+        embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
+        message.channel.send({ embeds: [embed] });
+
+      } else {
+
+        if(args[0].toLowerCase === 'xp')
       {
         let lista = await client.db.all(`SELECT idusuario, nivel, exp FROM usuarios ORDER BY exp DESC LIMIT 10`)
 
@@ -947,7 +972,7 @@ client.on('messageCreate', async message => {
         embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
         message.channel.send({ embeds: [embed] });
 
-      } else if(args[0].toLowerCase === 'cash')
+        } else if(args[0].toLowerCase === 'cash')
       {
         
         let lista = await client.db.all(`SELECT idusuario, dinero FROM usuarios ORDER BY dinero DESC LIMIT 10`)
@@ -961,7 +986,7 @@ client.on('messageCreate', async message => {
         for(let ls of lista){
 
           let usuario = client.users.resolve(ls.idusuario)
-          datos.push('**'+c+'.** <@' + usuario.id + '> <a:money:901702063908606004> **'+ls.dinero)
+          datos.push('**'+c+'.** <@' + usuario.id + '> <a:money:901702063908606004> **'+ls.dinero+'**')
           c = c + 1
         }
  
@@ -971,30 +996,10 @@ client.on('messageCreate', async message => {
         embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
         message.channel.send({ embeds: [embed] });
 
-      } else {
+        } 
 
-        let lista = await client.db.all(`SELECT idusuario, total FROM usuarios ORDER BY total DESC LIMIT 10`)
-
-        let embed = new Discord.MessageEmbed()
-
-        let datos = [];
-
-        let c = 1
-
-        for(let ls of lista){
-
-          let usuario = client.users.resolve(ls.idusuario)
-          datos.push('**'+c+'.** <@' + usuario.id + '> <a:money:901702063908606004> **'+ls.total)
-          c = c + 1
-        }
- 
-        embed.setTitle('MidgardBot (TOP ECONOMÍA)')
-        embed.setDescription(datos.join('\n\n'))   	
-        embed.setColor("RANDOM")
-        embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
-        message.channel.send({ embeds: [embed] });
       }
- 
+
     }
 
     // COMANDOS DE ECONOMÍA
