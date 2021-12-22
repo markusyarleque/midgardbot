@@ -1095,7 +1095,7 @@ client.on('messageCreate', async message => {
           new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('RED')
-          .setDescription('<a:tiempogif:922403546492702720> | Puedes volver a trabajar en : '+((buscarUsuario.work - Date.now())/1000)+' segundos')
+          .setDescription('<a:tiempogif:922403546492702720> | Puedes volver a trabajar en : '+((buscarUsuario.work - Date.now())/1000).toFixed(0)+' segundos')
           
           ]}
         )
@@ -1156,6 +1156,16 @@ client.on('messageCreate', async message => {
         usuario2 = {idusuario: usuario.id, dinero: 0, banco: 0, total: 0}
       }
 
+      if(usuario1.rob > Date.now()) return message.channel.send({embeds: [
+          
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription('<a:tiempogif:922403546492702720> | Puedes volver a robar en : '+((usuario1.rob - Date.now())/1000).toFixed(0)+' segundos')
+        
+        ]}
+      )
+      
       if(usuario2.dinero === 0) return message.channel.send({embeds: [
 
         new Discord.MessageEmbed()
