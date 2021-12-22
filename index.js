@@ -1378,18 +1378,56 @@ client.on('messageCreate', async message => {
 
       if(!buscarUsuario){
 
-        await client.db.run(`INSERT INTO usuarios (idusuario, daily, dinero, total) VALUES (?, ?, ?, ?)`, message.author.id, (Date.now() + (24 * (60 * (1000 * 60)))), numero, numero)
+        await client.db.run(`INSERT INTO usuarios (idusuario, daily, dinero, total) VALUES (?, ?, ?, ?)`, message.author.id, (Date.now() + (12 * (60 * (1000 * 60)))), numero, numero)
         
-        buscarUsuario = {dinero: numero, banco: 0, total: numero, daily: (Date.now() + (24 * (60 * (1000 * 60))))}
+        buscarUsuario = {dinero: numero, banco: 0, total: numero, daily: (Date.now() + (12 * (60 * (1000 * 60))))}
 
       } else {
+
+        let cooldown = ((buscarUsuario.daily - Date.now())/1000).toFixed(0)
+        let h = (cooldown/3600).toFixed(0)
+        let m = ((cooldown % 3600)/60).toFixed(0)
+        let mensaje
+
+        if(h>1)
+        {
+          if(m>1)
+          {
+            mensaje = h + ' horas y ' + m + ' minutos'
+          } else if(m===1)
+          {
+            mensaje = h + ' horas y ' + m + ' minuto'
+          } else if(m<1)
+          {
+            mensaje = h + ' horas'
+          }
+        } else if(h===1){
+          if(m>1)
+          {
+            mensaje = h + ' hora y ' + m + ' minutos'
+          } else if(m===1)
+          {
+            mensaje = h + ' hora y ' + m + ' minuto'
+          } else if(m<1)
+          {
+            mensaje = h + ' hora'
+          }
+        } else if(h<1){
+          if(m>1)
+          {
+            mensaje = m + ' minutos'
+          } else if(m===1)
+          {
+            mensaje = m + ' minuto'
+          }
+        }
 
         if(buscarUsuario.daily > Date.now()) return message.channel.send({embeds: [
           
           new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('RED')
-          .setDescription('<a:tiempogif:922403546492702720> | Ya has reclamado tu recompensa hoy! Puedes volver en: **'+(((buscarUsuario.daily - Date.now())/1000)/3600).toFixed(0)+'** horas \nRecuerda que si apoyas al servidor votando en **Top.gg** podrás ganar el doble de coins.\n\n[Click aquí para votar](https://top.gg/servers/777620055344545842/vote)')
+          .setDescription('<a:tiempogif:922403546492702720> | Ya has reclamado tu recompensa hoy! Puedes volver en: **'+ mensaje+'** \nRecuerda que si apoyas al servidor votando en **Top.gg** podrás ganar el doble de coins.\n\n[Click aquí para votar](https://top.gg/servers/777620055344545842/vote)')
           
         ], components: [
             
@@ -1406,7 +1444,7 @@ client.on('messageCreate', async message => {
 
         ]})
 
-        await client.db.run(`UPDATE usuarios SET dinero=dinero+?, total=total+?, daily=? WHERE idusuario=?`, numero, numero, (Date.now() + (24 * (60 * (1000 * 60)))),message.author.id)
+        await client.db.run(`UPDATE usuarios SET dinero=dinero+?, total=total+?, daily=? WHERE idusuario=?`, numero, numero, (Date.now() + (12 * (60 * (1000 * 60)))),message.author.id)
 
       }
 
