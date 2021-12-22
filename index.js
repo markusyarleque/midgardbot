@@ -913,37 +913,87 @@ client.on('messageCreate', async message => {
 
     if(command === "top"){
 
-      let lista = await client.db.all(`SELECT idusuario, nivel, exp FROM usuarios ORDER BY exp DESC LIMIT 10`)
+      if(args[0].toLowerCase === 'xp')
+      {
+        let lista = await client.db.all(`SELECT idusuario, nivel, exp FROM usuarios ORDER BY exp DESC LIMIT 10`)
 
-      //let lista = `SELECT idusuario, nivel, exp FROM usuarios ORDER BY exp DESC LIMIT 10`
+        //let lista = `SELECT idusuario, nivel, exp FROM usuarios ORDER BY exp DESC LIMIT 10`
 
-      let embed = new Discord.MessageEmbed()
+        let embed = new Discord.MessageEmbed()
  
-      /*db.all(lista, (err, filas) => {
+        /*db.all(lista, (err, filas) => {
         if (err) return console.error(err.message)*/
 
-      let datos = [];
+        let datos = [];
 
-      let c = 1
+        let c = 1
 
-      for(let ls of lista){
+        for(let ls of lista){
 
-        let usuario = client.users.resolve(ls.idusuario)
-        datos.push('**'+c+'.** <@' + usuario.id + '> <a:flech:915156906258071554> **'+ls.exp+'** XP (Nivel: **'+ls.nivel+'**)')
-        c = c + 1
-      }
+          let usuario = client.users.resolve(ls.idusuario)
+          datos.push('**'+c+'.** <@' + usuario.id + '> <a:flech:915156906258071554> **'+ls.exp+'** XP (Nivel: **'+ls.nivel+'**)')
+          c = c + 1
+        }
 
-      /*lista.map(ls => {
+        /*lista.map(ls => {
           if(client.users.cache.get(ls.idusuario)){
             datos.push('__' + client.users.cache.get(ls.idusuario).tag + '__ <a:flech:915156906258071554> **'+ls.exp+'** XP (Nivel: **'+ls.nivel+'**)')
           }
-      });*/
+        });*/
  
-      embed.setTitle('MidgardBot (TOP XP)')
-      embed.setDescription(datos.join('\n\n'))   	
-      embed.setColor("RANDOM")
-      embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
-      message.channel.send({ embeds: [embed] });
+        embed.setTitle('MidgardBot (TOP XP)')
+        embed.setDescription(datos.join('\n\n'))   	
+        embed.setColor("RANDOM")
+        embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
+        message.channel.send({ embeds: [embed] });
+
+      } else if(args[0].toLowerCase === 'cash')
+      {
+        
+        let lista = await client.db.all(`SELECT idusuario, dinero FROM usuarios ORDER BY dinero DESC LIMIT 10`)
+
+        let embed = new Discord.MessageEmbed()
+
+        let datos = [];
+
+        let c = 1
+
+        for(let ls of lista){
+
+          let usuario = client.users.resolve(ls.idusuario)
+          datos.push('**'+c+'.** <@' + usuario.id + '> <a:money:901702063908606004> **'+ls.dinero)
+          c = c + 1
+        }
+ 
+        embed.setTitle('MidgardBot (TOP CASH)')
+        embed.setDescription(datos.join('\n\n'))   	
+        embed.setColor("RANDOM")
+        embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
+        message.channel.send({ embeds: [embed] });
+
+      } else {
+
+        let lista = await client.db.all(`SELECT idusuario, total FROM usuarios ORDER BY total DESC LIMIT 10`)
+
+        let embed = new Discord.MessageEmbed()
+
+        let datos = [];
+
+        let c = 1
+
+        for(let ls of lista){
+
+          let usuario = client.users.resolve(ls.idusuario)
+          datos.push('**'+c+'.** <@' + usuario.id + '> <a:money:901702063908606004> **'+ls.total)
+          c = c + 1
+        }
+ 
+        embed.setTitle('MidgardBot (TOP ECONOMÍA)')
+        embed.setDescription(datos.join('\n\n'))   	
+        embed.setColor("RANDOM")
+        embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
+        message.channel.send({ embeds: [embed] });
+      }
  
     }
 
@@ -1216,6 +1266,85 @@ client.on('messageCreate', async message => {
       }
 
     }
+
+    if(command === 'with'){
+
+      let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario=?`, message.author.id)
+
+      if(!buscarUsuario){
+
+        await client.db.run(`INSERT INTO usuarios (idusuario) VALUES (?)`, message.author.id)
+        buscarUsuario = {dinero: 0, banco: 0, total: 0}
+
+      }
+
+      if(!args[0]) return message.channel.send({embeds: [
+
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:880315278347616329> | Ingresa un monto para retirar!`)
+
+      ]})
+
+      else if(buscarUsuario.banco === 0) return message.channel.send({embeds: [
+
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:880315278347616329> | No tienes dinero para retirar!`)
+
+      ]})
+
+      else if(buscarUsuario.banco < parseInt(args[0])) return message.channel.send({embeds: [
+
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:880315278347616329> | No tienes ese monto para retirar. Actualmente tienes en tu banco <a:money:901702063908606004> `+ buscarUsuario.banco)
+
+      ]})
+
+      if(args[0].toLowerCase() === 'all'){
+
+        await client.db.run(`UPDATE usuarios SET dinero=dinero + ?, banco=0 WHERE idusuario=?`, buscarUsuario.banco, message.author.id)
+        
+        const e = new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('GREEN')
+          .setDescription(`<a:Verify1:880315279391985744> | Has retirado <a:money:901702063908606004> `+ buscarUsuario.banco+ ' del banco')
+          .setTimestamp()
+        
+        message.channel.send({embeds: [e]})
+
+      } else {
+
+        if(isNaN(parseInt(args[0]))) return message.channel.send({embeds: [
+
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | Ingresa un número válido para retirar!`)
+
+          ]})
+
+        let numero = parseInt(args[0])
+  
+        await client.db.run(`UPDATE usuarios SET dinero=dinero+?, banco=banco-? WHERE idusuario=?`, numero, numero, message.author.id)
+  
+        const e = new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('GREEN')
+          .setDescription(`<a:Verify1:880315279391985744> | Has retirado <a:money:901702063908606004> `+ numero + ' del banco')
+          .setTimestamp()
+          
+        message.channel.send({embeds: [e]})
+
+      }
+
+    }
+
+
 
 
     // COMANDOS DE PROGRAMADO
