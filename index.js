@@ -1356,6 +1356,16 @@ client.on('messageCreate', async message => {
 
       let numero = 1000
 
+      if(message.member.roles.cache.find(r => r.id === '886772939549184052')){
+
+        numero = numero + 1000
+
+      } else {
+
+        numero = numero + 0
+        
+      }
+
       if(!buscarUsuario){
 
         await client.db.run(`INSERT INTO usuarios (idusuario, daily, dinero, total) VALUES (?, ?, ?, ?)`, message.author.id, (Date.now() + (24 * (60 * (1000 * 60)))), numero, numero)
@@ -1378,9 +1388,8 @@ client.on('messageCreate', async message => {
 
             new MessageButton()
         
-            .setLabel('VOTAR') //Lo que quieran que aparezca en el boton
-            //.setEmoji('?') //Puede ser cualquier emoji, si le han puesto el label aparecera al lado izquierdo del texto, si no le pusieron el label aparecera en medio del boton
-            .setStyle('LINK') //Ponemos el estilo del botón, los estilos los puedes encontra
+            .setLabel('VOTAR') 
+            .setStyle('LINK') 
             .setURL('https://top.gg/servers/777620055344545842/vote') 
 
           )
@@ -1405,18 +1414,49 @@ client.on('messageCreate', async message => {
       .setTimestamp()
       .setFooter(`MidgardBot`,client.user.avatarURL())
       
-      message.channel.send({embeds: [e]})
+      message.channel.send({embeds: [e], components: [
 
-      var msDelay = 12*3600000
-      message.channel.send('<a:reloj:915171222961135646> | Acabas de establecer un recordatorio en ' + obtener.slice(0, -1) + ' horas:\n<a:flech:915156906258071554> '+mensaje);
-      setTimeout(reminder, msDelay);
+        new MessageActionRow()
+        .addComponents(
+
+          new MessageButton()
+
+          .setCustomId('primary')
+					.setLabel('Recuérdame')
+					.setStyle('PRIMARY')
+          .setEmoji('⏰')
+
+        )
+      ]}).then(async m => {
+      
+        let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
+       
+        const collector = m.createMessageComponentCollector({ filter, time: 60000 /* Tiempo para que el miembro interatue con los botones */ });
+        
+        collector.on("collect", async int => {
+          
+          int.deferUpdate();
+       
+          if (int.customId === "primary") {
+            
+            var msDelay = 12*3600000
+            message.reply({ content: '<a:reloj:915171222961135646> | Acabas de establecer un recordatorio en 12 horas para votar nuevamente!', ephemeral: true});
+            setTimeout(reminder, msDelay);
+  
+          }
+  
+        });
+  
+        collector.on("end", colected => {
+          
+          if(colected.size < 1) return
+          
+        });
+        
+      })
 
     }
 
-
-    if(command === 'prueba2'){
-      message.reply('hola, funciona?')
-    }
     // COMANDOS DE PROGRAMADO
 
     if(command === 'malta'){
