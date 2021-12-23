@@ -1095,7 +1095,7 @@ client.on('messageCreate', async message => {
           new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('RED')
-          .setDescription('<a:tiempogif:922403546492702720> | Puedes volver a trabajar en : '+((buscarUsuario.work - Date.now())/1000).toFixed(0)+' segundos')
+          .setDescription('<a:tiempogif:922403546492702720> | Puedes volver a trabajar en : '+((buscarUsuario.work - Date.now())/1000).toFixed()+' segundos')
           
           ]}
         )
@@ -1161,7 +1161,7 @@ client.on('messageCreate', async message => {
         new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
         .setColor('RED')
-        .setDescription('<a:tiempogif:922403546492702720> | Puedes volver a robar en : '+((usuario1.rob - Date.now())/1000).toFixed(0)+' segundos')
+        .setDescription('<a:tiempogif:922403546492702720> | Puedes volver a robar en : '+((usuario1.rob - Date.now())/1000).toFixed()+' segundos')
         
         ]}
       )
@@ -1384,11 +1384,13 @@ client.on('messageCreate', async message => {
 
       } else {
 
-        let cooldown = ((buscarUsuario.daily - Date.now())/1000)
-        let h = (cooldown/3600).toFixed(0)
-        let m = ((cooldown % 3600)/60).toFixed(0)
+        let cooldown = ((buscarUsuario.daily - Date.now())/1000).toFixed()
+        let h = (cooldown/3600).toFixed()
+        let m = ((cooldown % 3600)/60).toFixed()
         let mensaje
 
+        // condition ? val1 : val2 
+        
         if(h>1)
         {
           if(m>1)
