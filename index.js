@@ -1384,7 +1384,7 @@ client.on('messageCreate', async message => {
 
       } else {
 
-        let cooldown = ((buscarUsuario.daily - Date.now())/1000).toFixed()
+        let cooldown = ((buscarUsuario.daily - Date.now())/1000)
         let h = (cooldown/3600).toFixed()
         let m = ((cooldown % 3600)/60).toFixed()
         let mensaje
