@@ -10196,7 +10196,7 @@ client.on('messageCreate', async message => {
   
       
         const embed = new Discord.MessageEmbed()
-        .setThumbnail(`https://images-ext-2.discordapp.net/external/oGzLI-594lkzq8oCTGuB2RSxumC-9E6m7oqLqOw2dJA/https/cdn.discordapp.com/emojis/897240681075060736.gif`)
+        .setThumbnail(`https://i.gifer.com/8AMQ.gif`)
         .setAuthor(`${autor}`,client.user.displayAvatarURL())
         .setTitle(`${titulo}`)
         .setDescription(`<a:d_Fijao:897243194943737866> ${desc}`)
