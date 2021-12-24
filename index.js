@@ -10156,8 +10156,11 @@ client.on('messageCreate', async message => {
       let d1 = split[3]
       let f2 = split[4]
       let d2 = split[5]
-      let d3 = split[6]
-      let imagen = split[7]
+      let f3 = split[6]
+      let d3 = split[7]
+      let d4 = split[8]
+      let d5 = split[9]
+      let imagen = split[10]
   
       
         const embed = new Discord.MessageEmbed()
@@ -10167,7 +10170,10 @@ client.on('messageCreate', async message => {
         .setDescription(`<a:diamante:887714567084449892>`)
         .addField(`<a:d_Fijao:897243194943737866> ${f1}`, `${d1}` , false)
         .addField(`<a:d_Fijao:897243194943737866> ${f2}`, `${d2}` , false)
-        .addField(`<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>`, `<a:d_Fijao:897243194943737866> ${d3}` , false)
+        .addField('\u200B',`<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>`, false)
+        .addField(`<a:d_Fijao:897243194943737866> ${f3}`, `${d3}` , false)
+        .addField(`<a:diamante:887714567084449892>`, `${d4}` , false)
+        .addField(`<a:diamante:887714567084449892>`, `${d5}` , false)
         .setColor("RANDOM")
         .setImage(imagen)
         .setFooter(`🌎┃「Midgard」` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
