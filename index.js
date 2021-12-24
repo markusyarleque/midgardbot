@@ -10108,7 +10108,7 @@ client.on('messageCreate', async message => {
       
     }
 
-    if (message.content.startsWith(prefix +"ems")){
+    if (command === 'ems'){
 
       let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
   
@@ -10137,7 +10137,7 @@ client.on('messageCreate', async message => {
         .setThumbnail(`https://i.gifer.com/8AMQ.gif`)
         .setAuthor(`${autor}`,client.user.displayAvatarURL())
         .setTitle(`${titulo}`)
-        .setDescription(`<a:diamante:887714567084449892> ${des}`)
+        .setDescription(`<a:diamante:887714567084449892> ${desc}`)
         .addField(`<a:d_Fijao:897243194943737866> ${f1}`, `${d1}` , false)
         .addField(`<a:d_Fijao:897243194943737866> ${f2}`, `${d2}` , false)
         .addField(`<a:d_Fijao:897243194943737866> ${f3}`, `${d3}` , false)
