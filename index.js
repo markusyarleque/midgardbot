@@ -10117,26 +10117,27 @@ client.on('messageCreate', async message => {
       const split = args.slice(0).join(" ").split(";");
       let autor = split[0]
       let titulo = split[1]
-      let f1 = split[2]
-      let d1 = split[3]
-      let f2 = split[4]
-      let d2 = split[5]
-      let f3 = split[6]
-      let d3 = split[7]
-      let f4 = split[8]
-      let d4 = split[9]
-      let f5 = split[10]
-      let d5 = split[11]
-      let f6 = split[12]
-      let d6 = split[13]
-      let imagen = split[14]
+      let desc = split[2]
+      let f1 = split[3]
+      let d1 = split[4]
+      let f2 = split[5]
+      let d2 = split[6]
+      let f3 = split[7]
+      let d3 = split[8]
+      let f4 = split[9]
+      let d4 = split[10]
+      let f5 = split[11]
+      let d5 = split[12]
+      let f6 = split[13]
+      let d6 = split[14]
+      let imagen = split[15]
   
       
         const embed = new Discord.MessageEmbed()
         .setThumbnail(`https://i.gifer.com/8AMQ.gif`)
         .setAuthor(`${autor}`,client.user.displayAvatarURL())
         .setTitle(`${titulo}`)
-        .setDescription(`<a:diamante:887714567084449892>`)
+        .setDescription(`<a:diamante:887714567084449892> ${des}`)
         .addField(`<a:d_Fijao:897243194943737866> ${f1}`, `${d1}` , false)
         .addField(`<a:d_Fijao:897243194943737866> ${f2}`, `${d2}` , false)
         .addField(`<a:d_Fijao:897243194943737866> ${f3}`, `${d3}` , false)
