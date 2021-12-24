@@ -949,7 +949,7 @@ client.on('messageCreate', async message => {
           let embed = new Discord.MessageEmbed()
  
           /*db.all(lista, (err, filas) => {
-          if (err) return console.error(err.message)*/
+          if (err) return console.error(err.message+'')*/
 
           let datos = [];
 
