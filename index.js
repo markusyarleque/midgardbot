@@ -10108,6 +10108,49 @@ client.on('messageCreate', async message => {
       
     }
 
+    if (message.content.startsWith(prefix +"ems")){
+
+      let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
+  
+      if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
+  
+      const split = args.slice(0).join(" ").split(";");
+      let autor = split[0]
+      let titulo = split[1]
+      let f1 = split[2]
+      let d1 = split[3]
+      let f2 = split[4]
+      let d2 = split[5]
+      let f3 = split[6]
+      let d3 = split[7]
+      let f4 = split[8]
+      let d4 = split[9]
+      let f5 = split[10]
+      let d5 = split[11]
+      let f6 = split[12]
+      let d6 = split[13]
+      let imagen = split[14]
+  
+      
+        const embed = new Discord.MessageEmbed()
+        .setThumbnail(`https://i.gifer.com/8AMQ.gif`)
+        .setAuthor(`${autor}`,client.user.displayAvatarURL())
+        .setTitle(`${titulo}`)
+        .setDescription(`<a:diamante:887714567084449892>`)
+        .addField(`<a:d_Fijao:897243194943737866> ${f1}`, `${d1}` , false)
+        .addField(`<a:d_Fijao:897243194943737866> ${f2}`, `${d2}` , false)
+        .addField(`<a:d_Fijao:897243194943737866> ${f3}`, `${d3}` , false)
+        .addField(`<a:d_Fijao:897243194943737866> ${f4}`, `${d4}` , false)
+        .addField(`<a:d_Fijao:897243194943737866> ${f5}`, `${d5}` , false)
+        .addField(`<a:emoji_115:882776364581785640> ${f6}`, `${d6}` , false)
+        .setColor("RANDOM")
+        .setImage(imagen)
+        .setFooter(`🌎┃「Midgard」` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
+        message.channel.send({ embeds: [embed] });
+        message.delete({timeout: 100})
+      
+    }
+
     if (message.content.startsWith(prefix +"emb")){
 
       let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
