@@ -10108,7 +10108,7 @@ client.on('messageCreate', async message => {
       
     }
 
-    if (command === 'ems'){
+    if (command === 'ems1'){
 
       let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
   
@@ -10124,13 +10124,7 @@ client.on('messageCreate', async message => {
       let d2 = split[6]
       let f3 = split[7]
       let d3 = split[8]
-      let f4 = split[9]
-      let d4 = split[10]
-      let f5 = split[11]
-      let d5 = split[12]
-      let f6 = split[13]
-      let d6 = split[14]
-      let imagen = split[15]
+      let imagen = split[9]
   
       
         const embed = new Discord.MessageEmbed()
@@ -10141,9 +10135,39 @@ client.on('messageCreate', async message => {
         .addField(`<a:d_Fijao:897243194943737866> ${f1}`, `${d1}` , false)
         .addField(`<a:d_Fijao:897243194943737866> ${f2}`, `${d2}` , false)
         .addField(`<a:d_Fijao:897243194943737866> ${f3}`, `${d3}` , false)
-        .addField(`<a:d_Fijao:897243194943737866> ${f4}`, `${d4}` , false)
-        .addField(`<a:d_Fijao:897243194943737866> ${f5}`, `${d5}` , false)
-        .addField(`<a:emoji_115:882776364581785640> ${f6}`, `${d6}` , false)
+        .setColor("RANDOM")
+        .setImage(imagen)
+        .setFooter(`🌎┃「Midgard」` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
+        message.channel.send({ embeds: [embed] });
+        message.delete({timeout: 100})
+      
+    }
+
+    if (command === 'ems2'){
+
+      let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
+  
+      if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
+  
+      const split = args.slice(0).join(" ").split(";");
+      let autor = split[0]
+      let titulo = split[1]
+      let f1 = split[2]
+      let d1 = split[3]
+      let f2 = split[4]
+      let d2 = split[5]
+      let d3 = split[6]
+      let imagen = split[7]
+  
+      
+        const embed = new Discord.MessageEmbed()
+        .setThumbnail(`https://i.gifer.com/8AMQ.gif`)
+        .setAuthor(`${autor}`,client.user.displayAvatarURL())
+        .setTitle(`${titulo}`)
+        .setDescription(`<a:diamante:887714567084449892>`)
+        .addField(`<a:d_Fijao:897243194943737866> ${f1}`, `${d1}` , false)
+        .addField(`<a:d_Fijao:897243194943737866> ${f2}`, `${d2}` , false)
+        .addField(`<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>`, `<a:d_Fijao:897243194943737866> ${d3}` , false)
         .setColor("RANDOM")
         .setImage(imagen)
         .setFooter(`🌎┃「Midgard」` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
