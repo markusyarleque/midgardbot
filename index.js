@@ -10282,9 +10282,9 @@ client.on('messageCreate', async message => {
         
             member.ban();
 
-        }
+          }
 
-    })
+        })
     }*/
 
   /*if(command === 'spamdm'){
