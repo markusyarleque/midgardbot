@@ -9495,7 +9495,7 @@ client.on('messageCreate', async message => {
       'Máximo anotador en los mundiales': 'Miroslav Klose'
     };
 
-    if(command === 'trivia'){
+    /*if(command === 'trivia'){
 
       let ramdonf = pregf[Math.floor(Math.random()*pregf.length)]
 
@@ -9508,7 +9508,7 @@ client.on('messageCreate', async message => {
         .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
         message.channel.send({ embeds: [embed] });
 
-    }
+    }*/
 
 
     //ejemplo
