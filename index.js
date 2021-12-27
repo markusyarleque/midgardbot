@@ -1555,7 +1555,7 @@ client.on('messageCreate', async message => {
 
     // <-- CODIGO CMD PLAY (REPRODUCIR): -->
 
-    if(command === 'play') {
+    /*if(command === 'play') {
 
       const voiceChannel = message.member.voice.channel;
   
@@ -1682,7 +1682,7 @@ client.on('messageCreate', async message => {
       
       }
   
-    }
+    }*/
 
     // <-- CODIGO CMD SKIP (SALTAR): -->
 
