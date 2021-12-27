@@ -93,6 +93,8 @@ const ytdl = require('ytdl-core');
 const search = require('youtube-search');
 const queue = new Map();
 
+const { joinVoiceChannel } = require('@discordjs/voice');
+
 client.on('ready', () => {
   
   client.user.setPresence({
@@ -1628,7 +1630,14 @@ client.on('messageCreate', async message => {
         try {
 
           // Aquí unimos el bot al canal de voz y guardar nuestra conexión en nuestro objeto.
-          var connection = await voiceChannel.join();
+          //var connection = await voiceChannel.join();
+          const connection = joinVoiceChannel(
+          {
+              channelId: message.member.voice.channel,
+              guildId: message.guild.id,
+              adapterCreator: message.guild.voiceAdapterCreator
+          });
+
           queueObject.connection = connection;
          
           message.channel.send({embeds: [
