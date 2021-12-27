@@ -10550,7 +10550,7 @@ function play(guild, song) {
     play(guild, serverQueue.songs[0]);
     })
     .on('error', error => {
-    console.error(error);
+    console.error(error+" holi");
     });
 
     // Configuramos el volumen de la reproducción de la canción
