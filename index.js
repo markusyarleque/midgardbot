@@ -1703,7 +1703,7 @@ client.on('messageCreate', async message => {
 
         let ping = Math.floor(message.client.ws.ping);
 
-         message.channel.send(':ping_pong: Pong!')
+        message.channel.send(':ping_pong: Pong!')
           .then(m => {
     
               m.edit(`:incoming_envelope: Ping Mensajes: \`${Math.floor(m.createdTimestamp - Date.now())} ms\`\n:satellite_orbital: Ping DiscordAPI: \`${ping} ms\``);
@@ -2256,9 +2256,14 @@ client.on('messageCreate', async message => {
           if(!message.member.permissions.has(Permissions.FLAGS.MANAGE_EMOJIS_AND_STICKERS)) return message.reply('No tienes permisos para ejecutar esto') // Si no tiene permisos el usuario
         
           if(!message.guild.me.permissions.has(Permissions.FLAGS.MANAGE_EMOJIS_AND_STICKERS)) return message.reply('No tengo los permisos para ejecutar esto') // Si el bot no tiene permisos
+
+          const emojis = server.emojis.cache.size;
+
+          if(emojis === 250) return message.reply('No hay espacio suficiente para agregar el emoji')
+          
           message.guild.emojis.create(palta, emoticon.name) // Creamos un emoji con la imagen del emoji 
           return message.channel.send('Emoji agregado: ' + emoticon.name) // Mensaje de confirmacioon 
-          } // Cerramos condicion
+        } // Cerramos condicion
           message.channel.send(palta) // Enviamos el url del emoticon
           /*const embed = new Discord.MessageEmbed()
           .setImage(palta)
