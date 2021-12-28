@@ -59,7 +59,7 @@ const sqlite3 = require('sqlite3'),
 
   })
 
-  await client.db.exec(`CREATE TABLE IF NOT EXISTS usuarios ('idusuario' TEXT NOT NULL, 'nivel' INTEGER DEFAULT 0, 'exp' INTEGER DEFAULT 0, 'rep' INTEGER DEFAULT 0, 'frase' BLOB, 'foto' BLOB, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0, 'work' DATETIME, 'rob' DATETIME, 'daily' DATETIME)`)
+  await client.db.exec(`CREATE TABLE IF NOT EXISTS usuarios ('idusuario' TEXT NOT NULL, 'nivel' INTEGER DEFAULT 0, 'exp' INTEGER DEFAULT 0, 'rep' INTEGER DEFAULT 0, 'frase' BLOB, 'foto' BLOB, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0, 'work' DATETIME,'crime' DATETIME, 'rob' DATETIME, 'daily' DATETIME)`)
   
 })();
 
@@ -1092,7 +1092,7 @@ client.on('messageCreate', async message => {
 
       let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario=?`, message.author.id)
       
-      let r = Math.floor(Math.random() * (200 - 10) + 10)
+      let r = Math.floor(Math.random() * (500 - 10) + 10)
       
       let ramdonw = w[Math.floor(Math.random()*w.length)]
 
@@ -1122,6 +1122,79 @@ client.on('messageCreate', async message => {
       .setDescription(ramdonw + r)
 
       message.channel.send({embeds: [e]})
+
+    }
+
+    //<-- COMANDO CRIME -->
+
+    var crime = [
+      'Junto con tus amigos, han asaltado el banco de Midgard y lograron robar: <a:money:901702063908606004> ',
+      'La mafia agradece tus trabajos y te da estas monedas de recompensa: <a:money:901702063908606004> ',
+      'El hackeo al banco de Midgard resultó muy bien, lograste obtener: <a:money:901702063908606004> ',
+      'Pero que buen asalto! En total conseguiste: <a:money:901702063908606004> ',
+      'Tus crímenes son bien recompensados por la mafia: <a:money:901702063908606004> ',
+      'Que pro eres hackeando, aquí tienes: <a:money:901702063908606004> '
+    ]
+    
+    if(command === 'crime'){
+
+      let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario=?`, message.author.id)
+      
+      if(buscarUsuario){
+
+        if(buscarUsuario.crime > Date.now()) return message.channel.send({embeds: [
+          
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription('<a:tiempogif:922403546492702720> | Puedes volver a cometer un crimen en : '+((buscarUsuario.crime - Date.now())/1000).toFixed()+' segundos')
+          
+          ]}
+        )
+
+        let chance = Math.floor(Math.random()*10)
+        let r = Math.floor(Math.random() * (300 - 10) + 10)
+        let ramdonc = crime[Math.floor(Math.random()*crime.length)]
+
+        if(chance < 4){
+
+          await client.db.run(`UPDATE usuarios SET dinero=dinero+?, total=total+?, crime=? WHERE idusuario=?`, r, r, (Date.now()+(1000*60)), message.author.id)
+          
+          const e = new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('GREEN')
+          .setDescription(ramdonc + r)
+          .setTimestamp()
+
+          message.channel.send({embeds: [e]})
+
+        } else {
+          
+          await client.db.run(`UPDATE usuarios SET dinero=dinero-?, total=total-?, crime=? WHERE idusuario=?`, r, r, (Date.now()+(1000*60)), message.author.id)
+          
+          const e = new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | Qué malo eres cometiendo crímenes, acabas de ser capturado y perdiste <a:money:901702063908606004> `+ r)
+          .setTimestamp()
+
+          message.channel.send({embeds: [e]})
+
+        }
+
+      } else {
+
+        await client.db.run('INSERT INTO usuarios (idusuario, dinero, banco, total, crime) VALUES (?, ?, ?, ?, ?)', message.author.id, 50, 0, 50, (Date.now()+(1000*60)))
+        
+        const e = new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | Eres muy novato para estos trabajos, mejor te obsequio estas monedas : <a:money:901702063908606004> `+ 50)
+          .setTimestamp()
+
+        message.channel.send({embeds: [e]})
+
+      }
 
     }
 
@@ -2243,26 +2316,58 @@ client.on('messageCreate', async message => {
 
     if(command === 'jumbo'){
 
-        if(!args[0]) return message.reply('Uso incorrecto del comando\nDebe ser: _jumbo <emoji> \n*Si quieres añadirlo al servidor añade --s al final*') // Si no usa args[0]
+        if(!args[0]) return message.reply({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | Uso incorrecto del comando\nDebe ser: _jumbo <emoji> \n*Si quieres añadirlo al servidor añade --s al final*`)
+        ]}) // Si no usa args[0]
         
         const emoticon = require('discord.js').Util.parseEmoji(args[0]) // Usaremos el metodo que nos da discord.js para obtener info del emoji
           
-        if(emoticon.id == null) return message.reply('Emoji invalido') // Si no es un emoji personalizado o no lo encuentra la id seria null para evitar problemas devolvera
+        if(emoticon.id == null) return message.reply({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | Emoji inválido!!!`)
+        ]}) // Si no es un emoji personalizado o no lo encuentra la id seria null para evitar problemas devolvera
         
         let palta = `https://cdn.discordapp.com/emojis/` + `${emoticon.id}.` + (emoticon.animated ? 'gif' : 'png') // Conseguimos el url 
           
         if(message.content.endsWith('--s')) { // Si termina con --s
         
-          if(!message.member.permissions.has(Permissions.FLAGS.MANAGE_EMOJIS_AND_STICKERS)) return message.reply('No tienes permisos para ejecutar esto') // Si no tiene permisos el usuario
+          if(!message.member.permissions.has(Permissions.FLAGS.MANAGE_EMOJIS_AND_STICKERS)) return message.reply({embeds: [
+            new Discord.MessageEmbed()
+            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setColor('RED')
+            .setDescription(`<a:Verify2:880315278347616329> | No tienes permisos para agregar emojis!!!`)
+          ]}) // Si no tiene permisos el usuario
         
-          if(!message.guild.me.permissions.has(Permissions.FLAGS.MANAGE_EMOJIS_AND_STICKERS)) return message.reply('No tengo los permisos para ejecutar esto') // Si el bot no tiene permisos
+          if(!message.guild.me.permissions.has(Permissions.FLAGS.MANAGE_EMOJIS_AND_STICKERS)) return message.reply({embeds: [
+            new Discord.MessageEmbed()
+            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setColor('RED')
+            .setDescription(`<a:Verify2:880315278347616329> | No tengo los permisos para agregar emojis!!!`)
+          ]}) // Si el bot no tiene permisos
 
           const emojis = server.emojis.cache.size;
 
-          if(emojis === 250) return message.reply('No hay espacio suficiente para agregar el emoji')
-          
+          if(emojis === 500) return message.reply({embeds: [
+            new Discord.MessageEmbed()
+            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setColor('RED')
+            .setDescription(`<a:Verify2:880315278347616329> | No hay espacio suficiente para agregar el emoji!!!`)
+          ]})
+
           message.guild.emojis.create(palta, emoticon.name) // Creamos un emoji con la imagen del emoji 
-          return message.channel.send('Emoji agregado: ' + emoticon.name) // Mensaje de confirmacioon 
+          return message.channel.send({embeds: [
+            new Discord.MessageEmbed()
+            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setColor('GREEN')
+            .setDescription(`<a:Verify1:880315279391985744> |Emoji agregado correctamente : **`+ emoticon.name+'**')
+            .setTimestamp()
+            ]}) // Mensaje de confirmacioon 
+
         } // Cerramos condicion
           message.channel.send(palta) // Enviamos el url del emoticon
           /*const embed = new Discord.MessageEmbed()
