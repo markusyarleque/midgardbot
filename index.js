@@ -1594,7 +1594,6 @@ client.on('messageCreate', async message => {
       .addField(`<a:money:901702063908606004> 10,000 - Amarillo`, 'Color para tu perfil', true)			
       .setColor("RANDOM")
       .setFooter(`Página 1/2`,client.user.avatarURL())
-      message.channel.send({ embeds: [embed] })
 
     const shop2 = new Discord.MessageEmbed()
       .setAuthor(message.guild.name+' | Store 🏪', message.guild.iconURL({ dynamic: true }))
