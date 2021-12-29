@@ -59,7 +59,7 @@ const sqlite3 = require('sqlite3'),
 
   })
 
-  await client.db.exec(`CREATE TABLE IF NOT EXISTS usuarios ('idusuario' TEXT NOT NULL, 'nivel' INTEGER DEFAULT 0, 'exp' INTEGER DEFAULT 0, 'rep' INTEGER DEFAULT 0, 'pat' INTEGER DEFAULT 0, 'hug' INTEGER DEFAULT 0, 'sape' INTEGER DEFAULT 0, 'frase' BLOB, 'foto' BLOB, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0, 'work' DATETIME,'crime' DATETIME, 'rob' DATETIME, 'daily' DATETIME, 'crep' DATETIME)`)
+  await client.db.exec(`CREATE TABLE IF NOT EXISTS usuarios ('idusuario' TEXT NOT NULL, 'nivel' INTEGER DEFAULT 0, 'exp' INTEGER DEFAULT 0, 'rep' INTEGER DEFAULT 0, 'pat' INTEGER DEFAULT 0, 'hug' INTEGER DEFAULT 0, 'sape' INTEGER DEFAULT 0, 'color' BLOB, 'frase' BLOB, 'foto' BLOB, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0, 'work' DATETIME,'crime' DATETIME, 'rob' DATETIME, 'daily' DATETIME, 'crep' DATETIME)`)
   
 })();
 
@@ -724,6 +724,7 @@ client.on('messageCreate', async message => {
     //let i = message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')
     let i = 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif'
     let f = 'No hay frase agregada'
+    let color = 'DEFAULT'
     let sentencia = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ${id}`)
 
     /*db.get(sentencia, (err, filas) => {
@@ -731,7 +732,7 @@ client.on('messageCreate', async message => {
 
     if (!sentencia){
 
-      await client.db.run(`INSERT INTO usuarios (idusuario, nivel, exp, rep, frase, foto, dinero, banco, total) VALUES (?,?,?,?,?,?,?,?,?)`, id,'0','1','0',f,i,'0','0','0')
+      await client.db.run(`INSERT INTO usuarios (idusuario, nivel, exp, rep, color, frase, foto, dinero, banco, total) VALUES (?,?,?,?,?,?,?,?,?,?)`, id,'0','1','0',color,f,i,'0','0','0')
       
       //let insert = `INSERT INTO usuarios(idusuario, nivel, exp, rep, frase, foto) VALUES(${id}, 0, 1, 0, "${f}", "${i}")`
 
@@ -913,7 +914,7 @@ client.on('messageCreate', async message => {
               .addField('<a:megaphone:912163796737486908> Frase', '<a:flech:915156906258071554> '+select.frase, true)
               .addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:Dinero:880594188792635422> **Economía**',false)
               .addField(`**Total:**`, '<a:money:901702063908606004>  '+select.total, true)
-              .setColor("RANDOM")
+              .setColor(select.color)
               .setFooter(`Midgard's VIP`,client.user.avatarURL())
             message.channel.send({ embeds: [embed] });
       
@@ -1107,7 +1108,7 @@ client.on('messageCreate', async message => {
           .addField('<a:megaphone:912163796737486908> Frase', '<a:flech:915156906258071554> '+select.frase, true)
           .addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:Dinero:880594188792635422> **Economía**',false)
           .addField(`**Total:**`, '<a:money:901702063908606004>  '+select.total, true)
-          .setColor("RANDOM")
+          .setColor(select.color)
           .setFooter(`Midgard's VIP`,client.user.avatarURL())
         message.channel.send({ embeds: [embed] });
   
@@ -1578,6 +1579,89 @@ client.on('messageCreate', async message => {
     }
     
     // COMANDOS DE ECONOMÍA
+
+    // STORE
+
+    const shop1 = new Discord.MessageEmbed()
+      .setAuthor(server.name+' | Store 🏪', server.iconURL({ dynamic: true }))
+      .setDescription('Para adquirir un item, debes usar el comando `_buy <name>`') 
+      .addField(`<a:money:901702063908606004> 10 - Chicken`, 'Item para apuestas', true)  
+      .addField(`<a:money:901702063908606004> 10,000 - Rojo`, 'Color para tu perfil', true)  	
+      .addField(`<a:money:901702063908606004> 10,000 - Fucsia`, 'Color para tu perfil', true)  		
+      .addField(`<a:money:901702063908606004> 10,000 - Naranja`, 'Color para tu perfil', true)  		
+      .addField(`<a:money:901702063908606004> 10,000 - Morado`, 'Color para tu perfil', true)  		
+      .addField(`<a:money:901702063908606004> 10,000 - Dorado`, 'Color para tu perfil', true)  		
+      .addField(`<a:money:901702063908606004> 10,000 - Amarillo`, 'Color para tu perfil', true)			
+      .setColor("RANDOM")
+      .setFooter(`Página 1/2`,client.user.avatarURL())
+      message.channel.send({ embeds: [embed] })
+
+    const shop2 = new Discord.MessageEmbed()
+      .setAuthor(server.name+' | Store 🏪', server.iconURL({ dynamic: true }))
+      .setDescription('Para adquirir un item, debes usar el comando `_buy <name>`')   
+      .addField(`<a:money:901702063908606004> 10,000 - Aqua`, 'Color para tu perfil', true)  	
+      .addField(`<a:money:901702063908606004> 10,000 - Verde`, 'Color para tu perfil', true)  		
+      .addField(`<a:money:901702063908606004> 10,000 - Azul`, 'Color para tu perfil', true)  		
+      .addField(`<a:money:901702063908606004> 10,000 - Gris`, 'Color para tu perfil', true)  		
+      .addField(`<a:money:901702063908606004> 10,000 - Blanco`, 'Color para tu perfil', true)  		
+      .addField(`<a:money:901702063908606004> 10,000 - Negro`, 'Color para tu perfil', true) 			
+      .setColor("RANDOM")
+      .setFooter(`Página 2/2`,client.user.avatarURL())
+
+    const b1 = new MessageActionRow().addComponents([
+      
+        new MessageButton()
+          .setCustomId("p1")
+          .setLabel("🛒 | 1")
+          .setStyle("PRIMARY"),
+        new MessageButton()
+          .setCustomId("p2")
+          .setLabel("🛒 | 2")
+          .setStyle("PRIMARY"),
+      ])
+
+    if(command === 'shop'){
+
+      message.channel.send({
+        embeds: [shop1],
+        components: [b1]
+      }).then(async m => {
+        
+        let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
+       
+        const collector = m.createMessageComponentCollector({ filter, time: 60000 /* Tiempo para que el miembro interatue con los botones */ });
+        
+        collector.on("collect", async int => {
+          
+          int.deferUpdate();
+       
+          if (int.customId === "p1") {
+            
+            m.edit({
+              embeds: [shop1],
+              components: [b1]
+            });
+  
+          }else if (int.customId === "p2") {
+            
+            m.edit({
+              embeds: [shop2],
+              components: [b1]
+            });
+  
+          }
+  
+        });
+  
+        collector.on("end", colected => {
+          
+          if(colected.size < 1) return
+          
+        });
+        
+      });
+
+    }
 
     //<-- COMANDO BALANCE -->
 
@@ -2256,6 +2340,106 @@ client.on('messageCreate', async message => {
       }
     }
 
+    if(command === 'removemoney'){
+
+      let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
+  
+      if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
+  
+      let miembro = message.mentions.users.first();
+
+      if (message.mentions.users.size < 1) {
+
+        let idm = args[1]
+
+        if(!idm) return message.reply({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | Debes mencionar a alguien o colocar su id!`)
+        ]}).catch(console.error);
+
+        let id = await client.users.fetch(idm)
+  
+        if(id.bot) return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | No puedes quitarle dinero a un bot!`)
+        ]})
+
+        let usuario1 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, id.id)
+        
+        if(!usuario1) return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | No puedes quitarle dinero a un pobre!`)
+        ]})
+
+        let opcion = args[0]
+        if(isNaN(args[2])) return  message.channel.send(`**Pon una cantidad, solo puedo quitar números.**`).then(m => setTimeout(() => m.delete(), 5000));
+    
+        let monto = parseInt(args[2])
+    
+        if(opcion === 'cash')
+        {
+          await client.db.run(`UPDATE usuarios SET dinero=dinero-?, total=total-? WHERE idusuario=?`, monto, monto, id.id)
+        }else if(opcion === 'bank')
+        {
+          await client.db.run(`UPDATE usuarios SET banco=banco-?, total=total-? WHERE idusuario=?`, monto, monto, id.id)
+        }
+
+        const e = new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('GREEN')
+        .setDescription(`<a:Verify1:880315279391985744> | Has quitado <a:money:901702063908606004> `+ monto + ' del balance de <@'+id.id+'>')
+        .setTimestamp()
+        
+        message.channel.send({embeds: [e]})
+
+      } else if(miembro){
+
+        if(miembro.bot) return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | No puedes darle dinero a un bot!`)
+        ]})
+
+        let usuario1 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, miembro.id)
+        
+        if(!usuario1) return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | No puedes quitarle dinero a un pobre!`)
+        ]})
+
+        let opcion = args[0]
+        if(isNaN(args[2])) return  message.channel.send(`**Pon una cantidad, solo puedo quitar números.**`).then(m => setTimeout(() => m.delete(), 5000));
+    
+        let monto = parseInt(args[2])
+    
+        if(opcion === 'cash')
+        {
+          await client.db.run(`UPDATE usuarios SET dinero=dinero-?, total=total-? WHERE idusuario=?`, monto, monto, miembro.id)
+        }else if(opcion === 'bank')
+        {
+          await client.db.run(`UPDATE usuarios SET banco=banco-?, total=total-? WHERE idusuario=?`, monto, monto, miembro.id)
+        }
+
+        const e = new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('GREEN')
+        .setDescription(`<a:Verify1:880315279391985744> | Has quitado <a:money:901702063908606004> `+ monto + ' del balance de <@'+miembro.id+'>')
+        .setTimestamp()
+        
+        message.channel.send({embeds: [e]})
+
+      }
+    }
+
     // COMANDOS DE PROGRAMADOR
 
     if(command === 'malta'){
@@ -2287,7 +2471,7 @@ client.on('messageCreate', async message => {
   
         }
   
-      }
+    }
 
 
     // COMANDOS DE MÚSICA
