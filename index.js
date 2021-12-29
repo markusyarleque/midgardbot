@@ -6442,13 +6442,18 @@ client.on('messageCreate', async message => {
     
         let img = message.mentions.users.first()
         let ramdonkiss = kiss[Math.floor(Math.random()*kiss.length)]
-     
+
+        if(img.bot) return message.channel.send('¡Qué lindo eres besando a un bot!')
+
         if (!img || img.id===message.author.id) {
     
             message.channel.send('¿Te besarías a ti mism@? <:pepemaje:846893345678950420>');
     
         } else {
     
+          let usuario1 = await client.db.get(`SELECT * FROM kiss WHERE u1 = ?`, message.author.id)
+          let usuario2 = await client.db.get(`SELECT * FROM kiss WHERE u2 = ?`, img.id)
+
             const embed = new Discord.MessageEmbed()
             .setAuthor(`Midgard's Love`,client.user.avatarURL())
             //.setTitle('Imagen completa')
