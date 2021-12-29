@@ -1225,7 +1225,99 @@ client.on('messageCreate', async message => {
           embed.setFooter(`MidgardBot`,client.user.avatarURL())
           message.channel.send({ embeds: [embed] });
 
-        } 
+        } else if(args[0].toLowerCase() === 'rep'){
+        
+          let lista = await client.db.all(`SELECT idusuario, rep FROM usuarios ORDER BY rep DESC LIMIT 10`)
+
+          let embed = new Discord.MessageEmbed()
+
+          let datos = [];
+
+          let c = 1
+
+          for(let ls of lista){
+
+            let usuario = client.users.resolve(ls.idusuario)
+            datos.push('**'+c+'.** <@' + usuario.id + '> <a:flechad:880330587678838784> **'+ls.rep+'**')
+            c = c + 1
+          }
+ 
+          embed.setAuthor(server.name+' | Top Carisma 💟', server.iconURL({ dynamic: true }))
+          embed.setDescription(datos.join('\n\n'))   	
+          embed.setColor("RANDOM")
+          embed.setFooter(`MidgardBot`,client.user.avatarURL())
+          message.channel.send({ embeds: [embed] });
+
+        }  else if(args[0].toLowerCase() === 'pat'){
+        
+          let lista = await client.db.all(`SELECT idusuario, pat FROM usuarios ORDER BY pat DESC LIMIT 10`)
+
+          let embed = new Discord.MessageEmbed()
+
+          let datos = [];
+
+          let c = 1
+
+          for(let ls of lista){
+
+            let usuario = client.users.resolve(ls.idusuario)
+            datos.push('**'+c+'.** <@' + usuario.id + '> <a:flechad:880330587678838784> **'+ls.pat+'**')
+            c = c + 1
+          }
+ 
+          embed.setAuthor(server.name+' | Top Pats ❣', server.iconURL({ dynamic: true }))
+          embed.setDescription(datos.join('\n\n'))   	
+          embed.setColor("RANDOM")
+          embed.setFooter(`MidgardBot`,client.user.avatarURL())
+          message.channel.send({ embeds: [embed] });
+
+        }  else if(args[0].toLowerCase() === 'hug'){
+        
+          let lista = await client.db.all(`SELECT idusuario, hug FROM usuarios ORDER BY hug DESC LIMIT 10`)
+
+          let embed = new Discord.MessageEmbed()
+
+          let datos = [];
+
+          let c = 1
+
+          for(let ls of lista){
+
+            let usuario = client.users.resolve(ls.idusuario)
+            datos.push('**'+c+'.** <@' + usuario.id + '> <a:flechad:880330587678838784> **'+ls.hug+'**')
+            c = c + 1
+          }
+ 
+          embed.setAuthor(server.name+' | Top Abrazos 🤗', server.iconURL({ dynamic: true }))
+          embed.setDescription(datos.join('\n\n'))   	
+          embed.setColor("RANDOM")
+          embed.setFooter(`MidgardBot`,client.user.avatarURL())
+          message.channel.send({ embeds: [embed] });
+
+        }  else if(args[0].toLowerCase() === 'sape'){
+        
+          let lista = await client.db.all(`SELECT idusuario, sape FROM usuarios ORDER BY sape DESC LIMIT 10`)
+
+          let embed = new Discord.MessageEmbed()
+
+          let datos = [];
+
+          let c = 1
+
+          for(let ls of lista){
+
+            let usuario = client.users.resolve(ls.idusuario)
+            datos.push('**'+c+'.** <@' + usuario.id + '> <a:flechad:880330587678838784> **'+ls.sape+'**')
+            c = c + 1
+          }
+ 
+          embed.setAuthor(server.name+' | Top Sapes 🤡', server.iconURL({ dynamic: true }))
+          embed.setDescription(datos.join('\n\n'))   	
+          embed.setColor("RANDOM")
+          embed.setFooter(`MidgardBot`,client.user.avatarURL())
+          message.channel.send({ embeds: [embed] });
+
+        }  
 
       }
 
