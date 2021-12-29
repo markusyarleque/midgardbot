@@ -1123,7 +1123,7 @@ client.on('messageCreate', async message => {
         .setAuthor(server.name, server.iconURL({ dynamic: true }))
         .setTitle('Carisma Diario 💵')
         .setColor('RANDOM')
-        .setDescription(`Felicidades! | <@${id.id}> | Has recibido **1** punto de carisma.\n`+'Ahora tienes `'+usuario1.rep+'` puntos!')
+        .setDescription(`Felicidades! | <@${id.id}> | Has recibido **1** punto de carisma.\n`+'Ahora tienes `'+(usuario1.rep+1)+'` puntos!')
         .setTimestamp()
         .setFooter(`MidgardBot`,client.user.avatarURL())
         
@@ -1208,7 +1208,7 @@ client.on('messageCreate', async message => {
         .setAuthor(server.name, server.iconURL({ dynamic: true }))
         .setTitle('Carisma Diario 💟')
         .setColor('RANDOM')
-        .setDescription(`Felicidades! | <@${usuario.id}> | Has recibido **1** punto de carisma.\n`+'Ahora tienes `'+usuario1.rep+'` puntos!')
+        .setDescription(`Felicidades! | <@${usuario.id}> | Has recibido **1** punto de carisma.\n`+'Ahora tienes `'+(usuario1.rep+1)+'` puntos!')
         .setTimestamp()
         .setFooter(`MidgardBot`,client.user.avatarURL())
         
