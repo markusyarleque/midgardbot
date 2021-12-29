@@ -1666,9 +1666,67 @@ client.on('messageCreate', async message => {
 
       let it = args[0]
 
-      if(it.toLowerCase()==='rojo'){
+      let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario='`+ message.author.id + "'")
+
+      if(!buscarUsuario) return message.channel.send({embeds: [
+          
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription('<a:Verify2:880315278347616329> | No tienes suficientes coins para adquirir este item!')
         
+      ]})
+
+      if(buscarUsuario.dinero < 10000) return message.channel.send({embeds: [
+          
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription('<a:Verify2:880315278347616329> | No tienes suficientes coins para adquirir este item!')
+        
+      ]})
+
+      let col
+
+      if(it.toLowerCase()==='rojo'){
+        col = 'RED'
+      }else if(it.toLowerCase()==='aqua'){
+        col = 'AQUA'
+      }else if(it.toLowerCase()==='verde'){
+        col = 'GREEN'
+      }else if(it.toLowerCase()==='azul'){
+        col = 'BLUE'
+      }else if(it.toLowerCase()==='morado'){
+        col = 'PURPLE'
+      }else if(it.toLowerCase()==='dorado'){
+        col = 'GOLD'
+      }else if(it.toLowerCase()==='naranja'){
+        col = 'ORANGE'
+      }else if(it.toLowerCase()==='gris'){
+        col = 'GREY'
+      }else if(it.toLowerCase()==='amarillo'){
+        col = 'YELLOW'
+      }else if(it.toLowerCase()==='blanco'){
+        col = 'WHITE'
+      }else if(it.toLowerCase()==='negro'){
+        col = 'BLACK'
+      }else if(it.toLowerCase()==='fucsia'){
+        col = 'FUSCHIA'
+      }else {
+        message.channel.send({embeds: [
+          
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription('<a:Verify2:880315278347616329> | Ingresa el nombre correcto del item!')
+          
+        ]})
       }
+      
+      await client.db.run(`UPDATE usuarios SET dinero=dinero-?, total=total-?, color=? WHERE idusuario=?`,10000,10000, col,message.author.id)
+
+      message.channel.send('<a:Dancing_Duck:894716883033538630> | Acabas de actualizar el color de tu perfil!');
+
     }
 
     //<-- COMANDO BALANCE -->
