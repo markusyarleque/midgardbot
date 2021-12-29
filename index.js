@@ -11741,6 +11741,8 @@ client.on('messageCreate', async message => {
     })
   }*/
 
+  await client.db.close();
+
 });
 
 client.on('error', (e) => console.error(e));
