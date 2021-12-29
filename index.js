@@ -2156,6 +2156,106 @@ client.on('messageCreate', async message => {
 
     }
 
+    if(command === 'addmoney'){
+
+      let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
+  
+      if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
+  
+      let miembro = message.mentions.users.first();
+
+      if (message.mentions.users.size < 1) {
+
+        let idm = args.join(" ")
+
+        if(!idm) return message.reply({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | Debes mencionar a alguien o colocar su id!`)
+        ]}).catch(console.error);
+
+        let id = await client.users.fetch(idm)
+  
+        if(id.bot)return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | No puedes darle dinero a un bot!`)
+        ]})
+
+        let usuario1 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, id.id)
+        
+        if(!usuario1){
+
+          await client.db.run(`INSERT INTO usuarios (idusuario, dinero, banco, total) VALUES (?,?,?,?)`, id.id,0,0,0)
+          usuario1 = {idusuario: id.id, dinero: 0, banco: 0, total: 0}
+
+        }
+
+        let opcion = args[0]
+        if(isNaN(args[2])) return  message.channel.send(`**Pon una cantidad, solo puedo agregar números.**`).then(m => setTimeout(() => m.delete(), 5000));
+    
+        let monto = parseInt(args[2])
+    
+        if(opcion === 'cash')
+        {
+          await client.db.run(`UPDATE usuarios SET dinero=dinero+?, total=total+? WHERE idusuario=?`, monto, monto, id.id)
+        }else if(opcion === 'bank')
+        {
+          await client.db.run(`UPDATE usuarios SET banco=banco+?, total=total+? WHERE idusuario=?`, monto, monto, id.id)
+        }
+
+        const e = new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('GREEN')
+        .setDescription(`<a:Verify1:880315279391985744> | Has agreado <a:money:901702063908606004> `+ monto + ' al balance de <@'+id.id+'>')
+        .setTimestamp()
+        
+        message.channel.send({embeds: [e]})
+
+      } else if(miembro){
+
+        if(miembro.bot)return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | No puedes darle dinero a un bot!`)
+        ]})
+
+        let usuario1 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, miembro.id)
+        
+        if(!usuario1){
+
+          await client.db.run(`INSERT INTO usuarios (idusuario, dinero, banco, total) VALUES (?,?,?,?)`, miembro.id,0,0,0)
+          usuario1 = {idusuario: miembro.id, dinero: 0, banco: 0, total: 0}
+
+        }
+
+        let opcion = args[0]
+        if(isNaN(args[2])) return  message.channel.send(`**Pon una cantidad, solo puedo agregar números.**`).then(m => setTimeout(() => m.delete(), 5000));
+    
+        let monto = parseInt(args[2])
+    
+        if(opcion === 'cash')
+        {
+          await client.db.run(`UPDATE usuarios SET dinero=dinero+?, total=total+? WHERE idusuario=?`, monto, monto, miembro.id)
+        }else if(opcion === 'bank')
+        {
+          await client.db.run(`UPDATE usuarios SET banco=banco+?, total=total+? WHERE idusuario=?`, monto, monto, miembro.id)
+        }
+
+        const e = new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('GREEN')
+        .setDescription(`<a:Verify1:880315279391985744> | Has agreado <a:money:901702063908606004> `+ monto + ' al balance de <@'+miembro.id+'>')
+        .setTimestamp()
+        
+        message.channel.send({embeds: [e]})
+
+      }
+    }
+
     // COMANDOS DE PROGRAMADOR
 
     if(command === 'malta'){
