@@ -794,9 +794,8 @@ client.on('messageCreate', async message => {
           if (!select) return message.channel.send('No hay perfil registrado para ese usuario.')
      
           let nivel = select.nivel
-          let xp = select.xp
+          let xp = select.exp
 
-          console.log('Nivel : '+ nivel+' Xp: '+xp)
           if(nivel === 0){
             xp = '('+xp+'/'+100+' XP)'
           } else if(nivel === 1){
