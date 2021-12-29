@@ -1622,6 +1622,8 @@ client.on('messageCreate', async message => {
 
     if(command === 'shop'){
 
+      var server = message.guild;
+      
       message.channel.send({
         embeds: [shop1],
         components: [b1]
@@ -1656,7 +1658,7 @@ client.on('messageCreate', async message => {
         collector.on("end", colected => {
           
           if(colected.size < 1) return
-          
+
         });
         
       });
