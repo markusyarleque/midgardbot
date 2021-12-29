@@ -2331,6 +2331,121 @@ client.on('messageCreate', async message => {
 
     }
 
+    if(command === 'cf' || command === 'cock-fight'){
+
+      let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario='`+ message.author.id + "'")
+
+      if(!buscarUsuario || buscarUsuario.ck < 1) return message.channel.send({embeds: [
+          
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription('<a:Verify2:880315278347616329> | No cuentas con tu propio pollito! Adquiere uno usando el comando `_buy ck`')
+        
+      ]})
+
+      if(buscarUsuario.ck >= 1)
+      {
+        if(!args[0]) return message.channel.send({embeds: [
+
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | Ingresa un monto para apostar!`)
+  
+        ]})
+
+        else if(buscarUsuario.dinero === 0) return message.channel.send({embeds: [
+
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | No tienes dinero para apostar!`)
+  
+        ]})
+  
+        else if(buscarUsuario.dinero < parseInt(args[0])) return message.channel.send({embeds: [
+  
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | No tienes ese monto para apostar. Actualmente tienes <a:money:901702063908606004> `+ buscarUsuario.dinero)
+  
+        ]})
+
+        let chance = Math.floor(Math.random()*10)
+
+        if(args[0].toLowerCase() === 'all'){
+
+          if(chance < 6){
+
+            await client.db.run(`UPDATE usuarios SET dinero=dinero+?, total=total+? WHERE idusuario=?`, buscarUsuario.dinero, buscarUsuario.dinero, message.author.id)
+          
+            const e = new Discord.MessageEmbed()
+            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setColor('GREEN')
+            .setDescription(`<a:Verify1:880315279391985744> |Tu pollito ganó la pelea y obtuviste <a:money:901702063908606004> `+ (buscarUsuario.dinero*2))
+            .setTimestamp()
+          
+            message.channel.send({embeds: [e]})
+
+          } else {
+
+            await client.db.run(`UPDATE usuarios SET dinero=dinero-?, total=total-? WHERE idusuario=?`, buscarUsuario.dinero, buscarUsuario.dinero, message.author.id)
+          
+            const e = new Discord.MessageEmbed()
+            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setColor('GREEN')
+            .setDescription(`<a:Verify2:880315278347616329> |Tu pollito murió 💀 y perdiste toda la apuesta!`)
+            .setTimestamp()
+          
+            message.channel.send({embeds: [e]})
+          }
+          
+        } else {
+  
+          if(isNaN(parseInt(args[0]))) return message.channel.send({embeds: [
+  
+            new Discord.MessageEmbed()
+            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setColor('RED')
+            .setDescription(`<a:Verify2:880315278347616329> | Ingresa un número válido para apostar!`)
+  
+            ]})
+  
+          let numero = parseInt(args[0])
+
+          if(chance < 6){
+
+            await client.db.run(`UPDATE usuarios SET dinero=dinero+?, total=total+? WHERE idusuario=?`, numero, numero, message.author.id)
+          
+            const e = new Discord.MessageEmbed()
+            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setColor('GREEN')
+            .setDescription(`<a:Verify1:880315279391985744> |Tu pollito ganó la pelea y obtuviste <a:money:901702063908606004> `+ (numero*2))
+            .setTimestamp()
+          
+            message.channel.send({embeds: [e]})
+
+          } else {
+
+            await client.db.run(`UPDATE usuarios SET dinero=dinero-?, total=total-? WHERE idusuario=?`, numero, numero, message.author.id)
+          
+            const e = new Discord.MessageEmbed()
+            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setColor('GREEN')
+            .setDescription(`<a:Verify2:880315278347616329> |Tu pollito murió 💀 y perdiste toda la apuesta!`)
+            .setTimestamp()
+          
+            message.channel.send({embeds: [e]})
+          }
+  
+        }
+        
+      }
+
+    }
+
     if(command === 'addmoney'){
 
       let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
