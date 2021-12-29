@@ -2166,7 +2166,7 @@ client.on('messageCreate', async message => {
 
       if (message.mentions.users.size < 1) {
 
-        let idm = args.join(" ")
+        let idm = args[1]
 
         if(!idm) return message.reply({embeds: [
           new Discord.MessageEmbed()
