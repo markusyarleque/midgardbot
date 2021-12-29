@@ -59,7 +59,7 @@ const sqlite3 = require('sqlite3'),
 
   })
 
-  await client.db.exec(`CREATE TABLE IF NOT EXISTS usuarios ('idusuario' TEXT NOT NULL, 'nivel' INTEGER DEFAULT 0, 'exp' INTEGER DEFAULT 0, 'rep' INTEGER DEFAULT 0, 'pat' INTEGER DEFAULT 0, 'hug' INTEGER DEFAULT 0, 'sape' INTEGER DEFAULT 0, 'color' BLOB, 'frase' BLOB, 'foto' BLOB, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0, 'work' DATETIME,'crime' DATETIME, 'rob' DATETIME, 'daily' DATETIME, 'crep' DATETIME)`)
+  await client.db.exec(`CREATE TABLE IF NOT EXISTS usuarios ('idusuario' TEXT NOT NULL, 'nivel' INTEGER DEFAULT 0, 'exp' INTEGER DEFAULT 0, 'rep' INTEGER DEFAULT 0, 'pat' INTEGER DEFAULT 0, 'hug' INTEGER DEFAULT 0, 'sape' INTEGER DEFAULT 0, 'color' BLOB, 'frase' BLOB, 'foto' BLOB, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0, 'work' DATETIME,'crime' DATETIME, 'rob' DATETIME, 'daily' DATETIME, 'crep' DATETIME, 'ck' INTEGER DEFAULT 0)`)
   
 })();
 
@@ -1676,6 +1676,32 @@ client.on('messageCreate', async message => {
         .setDescription('<a:Verify2:880315278347616329> | No tienes suficientes coins para adquirir este item!')
         
       ]})
+
+      if(it.toLowerCase()==='ck' || it.toLowerCase()==='chicken'){
+
+        if(buscarUsuario.dinero < 10) return message.channel.send({embeds: [
+          
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription('<a:Verify2:880315278347616329> | No tienes suficientes coins para adquirir este item!')
+          
+        ]})
+
+        if(buscarUsuario.ck >= 1) return message.channel.send({embeds: [
+          
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription('<a:Verify2:880315278347616329> | Ya cuentas con tu propio pollito!')
+          
+        ]})
+
+        await client.db.run(`UPDATE usuarios SET dinero=dinero-?, total=total-?, ck=? WHERE idusuario=?`,10,10,1,message.author.id)
+
+        return message.channel.send('<a:Dancing_Duck:894716883033538630> | Acabas de adquirir un pollito!');
+  
+      }
 
       if(buscarUsuario.dinero < 10000) return message.channel.send({embeds: [
           
