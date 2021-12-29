@@ -10943,7 +10943,7 @@ client.on('messageCreate', async message => {
     const helpprincipal = new Discord.MessageEmbed()
     .setTitle('Bienvenido al apartado de Ayuda 💌')
     .setAuthor('MidgardBot',client.user.avatarURL())
-    .setDescription('Bienvenid@ a la Lista de Comandos y funciones de **MidgardBot**, te invitamos a unirte a nuestro [servidor](https://discord.gg/CM9yAmXPfC) de soporte.\n\nPara ver los comandos, debes clickear al botón respectivo:\n\n> 📌 • Comandos de Información\n> 💡 • Comandos de Utilidad\n> 🔒 • Comandos de Moderación\n> 🤣 • Comandos de Diversión\n> 😎 • Comandos de Reacción\n> ☕ • Comandos de Cafetería\n> 🥂 • Comandos de Bar\n> 💃 • Comandos de Disco\n> 🔞 • Comandos NSFW\n\n<a:flech:915156906258071554> **Muchas gracias por utilizar nuestro bot** <a:darkcrown2:886466286773739530>')
+    .setDescription('Bienvenid@ a la Lista de Comandos y funciones de **MidgardBot**, te invitamos a unirte a nuestro [servidor](https://discord.gg/CM9yAmXPfC) de soporte.\n\nPara ver los comandos, debes clickear al botón respectivo:\n\n> 📌 • Comandos de Información\n> 💡 • Comandos de Utilidad\n> 🔒 • Comandos de Moderación\n> 💰 • Comandos de Economía\n> 🤣 • Comandos de Diversión\n> 😎 • Comandos de Reacción\n> ☕ • Comandos de Cafetería\n> 🥂 • Comandos de Bar\n> 💃 • Comandos de Disco\n> 🔞 • Comandos NSFW\n\n<a:flech:915156906258071554> **Muchas gracias por utilizar nuestro bot** <a:darkcrown2:886466286773739530>')
     .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
     .setTimestamp(new Date())
     .setColor('RANDOM')
@@ -10975,6 +10975,15 @@ client.on('messageCreate', async message => {
     .setThumbnail('https://elblogdelauz.files.wordpress.com/2018/10/gif-seguridad.gif')
     .setColor('RANDOM')
     .setDescription('> **role**\n> Muestra información de un rol mencionado. | Uso: `' +prefix +'role <nombre/@rol>`\n\n> **roleid**\n> Muestra información de un rol por id. | Uso: `' +prefix +'roleid <id>`\n\n> **addrol**\n> Agrega un rol a un usuario del servidor. | Uso: `' +prefix +'addrol <@user> <rol>`\n\n> **removerol**\n> Remueve un rol a un usuario del servidor. | Uso: `' +prefix +'removerol <@user> <rol>`\n\n> **lock**\n> Bloquea un canal del servidor. | Uso: `' +prefix +'lock <#canal>`\n> Si no menciona el canal, se bloqueará el canal donde se ejecute el comando\n\n> **unlock**\n> Desbloquea un canal del servidor. | Uso: `' +prefix +'unlock <#canal>`\n> Si no menciona el canal, se desbloqueará el canal donde se ejecute el comando\n\n> **clear**\n> Elimina mensajes de un canal. | Uso: `' +prefix +'clear <cantidad>`\n\n> **kick**\n> Expulsa a un miembro mencionado. | Uso: `' +prefix +'kick <@user>`\n\n> **ban**\n> Banea a un miembro mencionado. | Uso: `' +prefix +'ban <@user>`')
+    
+  const helpeco = new Discord.MessageEmbed()
+    .setTitle('💰 • Comandos de Economía')
+    .setAuthor('MidgardBot',client.user.avatarURL())
+    .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
+    .setTimestamp(new Date())
+    .setThumbnail('https://blogs.unitec.mx/content/dam/blogs/imagenes/corp_samara/finazas-economia-quieres-ser-un-john-law-1.gif')
+    .setColor('RANDOM')
+    .setDescription('> **perfil**\n> Muestra tu perfil o el de un usuario. | Uso: `' +prefix +'perfil </@user>`\n\n> **top**\n> Muestra el top de Economía y Stats. | Uso: \n`' +prefix +'top`\n`' +prefix +'top <cash | xp | rep | pat | hug | sape>`\n\n> **shop**\n> Muestra la tienda del Bot en el servidor. | Uso: `' +prefix +'shop`\n\n> **buy**\n> Compra un item de la tienda. | Uso: `' +prefix +'buy <item>`\n\n> **bal**\n> Mira tu balance o el de un usuario en el servidor. | Uso: `' +prefix +'bal <@user>`\n\n> **work**\n> Trabajar para obtener coins. | Uso: `' +prefix +'work`\n\n> **crime**\n> Ejecuta un crimen. | Uso: `' +prefix +'crime`\n\n> **rob**\n> Roba a un miembro mencionado. | Uso: `' +prefix +'rob <@user>`\n\n> **dep**\n> Deposita tu dinero en el banco. | Uso: `' +prefix +'dep <cantidad | all>`\n\n> **with**\n> Retira tu dinero del banco. | Uso: `' +prefix +'with <cantidad | all>`\n\n> **daily**\n> Reclama tu recompensa diaria. | Uso: `' +prefix +'daily`\n\n> **cf**\n> Apuesta en las peleas de pollos. | Uso: `' +prefix +'cf <cantidad | all>`')
   
   const helpdiv = new Discord.MessageEmbed()
     .setTitle('🤣 • Comandos de Diversión')
@@ -11015,10 +11024,6 @@ client.on('messageCreate', async message => {
   const btns_options1 = new MessageActionRow().addComponents([
       
         new MessageButton()
-          .setCustomId("mp")
-          .setLabel("🌎 Inicio")
-          .setStyle("PRIMARY"),
-        new MessageButton()
           .setCustomId("inf")
           .setLabel("📌 Información")
           .setStyle("PRIMARY"),
@@ -11030,6 +11035,10 @@ client.on('messageCreate', async message => {
           .setCustomId("mod")
           .setLabel("🔒 Moderación")
           .setStyle("PRIMARY"),
+        new MessageButton()
+            .setCustomId("eco")
+            .setLabel("💰 Economía")
+            .setStyle("PRIMARY"),
         new MessageButton()
           .setCustomId("m2")
           .setLabel("📋 Más Opciones")
@@ -11100,6 +11109,13 @@ client.on('messageCreate', async message => {
           
           m.edit({
             embeds: [helpmod],
+            components: [btns_options1]
+          });
+
+        } else if (int.customId === "eco") {
+          
+          m.edit({
+            embeds: [helpeco],
             components: [btns_options1]
           });
 
