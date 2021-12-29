@@ -6082,17 +6082,29 @@ client.on('messageCreate', async message => {
   
       let pat = star.pat()
       let img = message.mentions.users.first()
-   
+
+      if(img.bot) return message.channel.send('¡Qué lindo eres acariciando a un bot!')
+
       if (!img || img.id===message.author.id) {
 
         message.channel.send('Acariciame <:Toma_esta:880300803594788925>')
 
       } else {
 
+        let usuario2 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, img.id)
+
+        if(!usuario2){
+
+          await client.db.run(`INSERT INTO usuarios (idusuario, pat) VALUES (?,?)`, img.id, 0)
+          usuario2 = {idusuario: img.id, pat: 0}
+        }
+    
+        await client.db.run(`UPDATE usuarios SET pat=pat+? WHERE idusuario=?`, 1, img.id)
+        
         const embed = new Discord.MessageEmbed()
         .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
         //.setTitle('Imagen completa')
-        .setDescription(`**${message.author.username}** está acariciando a **${img.username}** <a:elmo_timido:894721783066918953>`)
+        .setDescription(`**${message.author.username}** está acariciando a **${img.username}**. <a:elmo_timido:894721783066918953>\n<a:flechad:880330587678838784> *${img.username}* ha recibido **${(usuario2.pat+1)}** caricias en total.`)
         .setImage(pat)
         .setColor('RANDOM')
         .setTimestamp(new Date())
@@ -6328,17 +6340,29 @@ client.on('messageCreate', async message => {
     
         let img = message.mentions.users.first()
         let ramdonsape = sape[Math.floor(Math.random()*sape.length)]
-      
+
+        if(img.bot) return message.channel.send('¡Qué lindo eres sapeando a un bot!')
+
         if (!img || img.id===message.author.id) {
     
             message.channel.send('¿Te darías un autosape? <:pepemaje:846893345678950420>');
     
         } else {
     
+          let usuario2 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, img.id)
+
+          if(!usuario2){
+
+            await client.db.run(`INSERT INTO usuarios (idusuario, sape) VALUES (?,?)`, img.id, 0)
+            usuario2 = {idusuario: img.id, sape: 0}
+          }
+    
+          await client.db.run(`UPDATE usuarios SET sape=sape+? WHERE idusuario=?`, 1, img.id)
+        
             const embed = new Discord.MessageEmbed()
             .setAuthor(`Midgard's Love`,client.user.avatarURL())
             //.setTitle('Imagen completa')
-            .setDescription(`**${message.author.username}** le dió un sape a **${img.username}**.`)
+            .setDescription(`**${message.author.username}** le dió un sape a **${img.username}**. <:nojao:891551822387486721>\n<a:flechad:880330587678838784> *${img.username}* ha recibido **${(usuario2.sape+1)}** sapes en total.`)
             .setImage(ramdonsape)
             .setColor('RANDOM')
             .setTimestamp(new Date())
