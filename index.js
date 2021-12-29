@@ -724,7 +724,7 @@ client.on('messageCreate', async message => {
     //let i = message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')
     let i = 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif'
     let f = 'No hay frase agregada'
-    let color = 'DEFAULT'
+    let color = '#607D8B'
     let sentencia = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ${id}`)
 
     /*db.get(sentencia, (err, filas) => {
@@ -1585,25 +1585,25 @@ client.on('messageCreate', async message => {
     const shop1 = new Discord.MessageEmbed()
       .setAuthor(message.guild.name+' | Store 🏪', message.guild.iconURL({ dynamic: true }))
       .setDescription('Para adquirir un item, debes usar el comando `_buy <name>`') 
-      .addField(`<a:money:901702063908606004> 10 - Chicken`, 'Item para apuestas', true)  
-      .addField(`<a:money:901702063908606004> 10,000 - Rojo`, 'Color para tu perfil', true)  	
-      .addField(`<a:money:901702063908606004> 10,000 - Fucsia`, 'Color para tu perfil', true)  		
-      .addField(`<a:money:901702063908606004> 10,000 - Naranja`, 'Color para tu perfil', true)  		
-      .addField(`<a:money:901702063908606004> 10,000 - Morado`, 'Color para tu perfil', true)  		
-      .addField(`<a:money:901702063908606004> 10,000 - Dorado`, 'Color para tu perfil', true)  		
-      .addField(`<a:money:901702063908606004> 10,000 - Amarillo`, 'Color para tu perfil', true)			
+      .addField(`<a:money:901702063908606004> 10 - Chicken`, 'Item para apuestas', false)  
+      .addField(`<a:money:901702063908606004> 10,000 - Rojo`, 'Color para tu perfil', false)  	
+      .addField(`<a:money:901702063908606004> 10,000 - Fucsia`, 'Color para tu perfil', false)  		
+      .addField(`<a:money:901702063908606004> 10,000 - Naranja`, 'Color para tu perfil', false)  		
+      .addField(`<a:money:901702063908606004> 10,000 - Morado`, 'Color para tu perfil', false)  		
+      .addField(`<a:money:901702063908606004> 10,000 - Dorado`, 'Color para tu perfil', false)  		
+      .addField(`<a:money:901702063908606004> 10,000 - Amarillo`, 'Color para tu perfil', false)			
       .setColor("RANDOM")
       .setFooter(`Página 1/2`,client.user.avatarURL())
 
     const shop2 = new Discord.MessageEmbed()
       .setAuthor(message.guild.name+' | Store 🏪', message.guild.iconURL({ dynamic: true }))
       .setDescription('Para adquirir un item, debes usar el comando `_buy <name>`')   
-      .addField(`<a:money:901702063908606004> 10,000 - Aqua`, 'Color para tu perfil', true)  	
-      .addField(`<a:money:901702063908606004> 10,000 - Verde`, 'Color para tu perfil', true)  		
-      .addField(`<a:money:901702063908606004> 10,000 - Azul`, 'Color para tu perfil', true)  		
-      .addField(`<a:money:901702063908606004> 10,000 - Gris`, 'Color para tu perfil', true)  		
-      .addField(`<a:money:901702063908606004> 10,000 - Blanco`, 'Color para tu perfil', true)  		
-      .addField(`<a:money:901702063908606004> 10,000 - Negro`, 'Color para tu perfil', true) 			
+      .addField(`<a:money:901702063908606004> 10,000 - Aqua`, 'Color para tu perfil', false)  	
+      .addField(`<a:money:901702063908606004> 10,000 - Verde`, 'Color para tu perfil', false)  		
+      .addField(`<a:money:901702063908606004> 10,000 - Azul`, 'Color para tu perfil', false)  		
+      .addField(`<a:money:901702063908606004> 10,000 - Gris`, 'Color para tu perfil', false)  		
+      .addField(`<a:money:901702063908606004> 10,000 - Blanco`, 'Color para tu perfil', false)  		
+      .addField(`<a:money:901702063908606004> 10,000 - Negro`, 'Color para tu perfil', false) 			
       .setColor("RANDOM")
       .setFooter(`Página 2/2`,client.user.avatarURL())
 
@@ -1660,6 +1660,15 @@ client.on('messageCreate', async message => {
         
       });
 
+    }
+
+    if(command === 'buy'){
+
+      let it = args[0]
+
+      if(it.toLowerCase()==='rojo'){
+        
+      }
     }
 
     //<-- COMANDO BALANCE -->
