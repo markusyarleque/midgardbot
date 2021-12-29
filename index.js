@@ -10983,7 +10983,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://blogs.unitec.mx/content/dam/blogs/imagenes/corp_samara/finazas-economia-quieres-ser-un-john-law-1.gif')
     .setColor('RANDOM')
-    .setDescription('> **perfil**\n> Muestra tu perfil o el de un usuario. | Uso: `' +prefix +'perfil </@user>`\n\n> **top**\n> Muestra el top de Economía y Stats. | Uso: \n`' +prefix +'top`\n`' +prefix +'top <cash | xp | rep | pat | hug | sape>`\n\n> **shop**\n> Muestra la tienda del Bot en el servidor. | Uso: `' +prefix +'shop`\n\n> **buy**\n> Compra un item de la tienda. | Uso: `' +prefix +'buy <item>`\n\n> **bal**\n> Mira tu balance o el de un usuario en el servidor. | Uso: `' +prefix +'bal <@user>`\n\n> **work**\n> Trabajar para obtener coins. | Uso: `' +prefix +'work`\n\n> **crime**\n> Ejecuta un crimen. | Uso: `' +prefix +'crime`\n\n> **rob**\n> Roba a un miembro mencionado. | Uso: `' +prefix +'rob <@user>`\n\n> **dep**\n> Deposita tu dinero en el banco. | Uso: `' +prefix +'dep <cantidad | all>`\n\n> **with**\n> Retira tu dinero del banco. | Uso: `' +prefix +'with <cantidad | all>`\n\n> **daily**\n> Reclama tu recompensa diaria. | Uso: `' +prefix +'daily`\n\n> **cf**\n> Apuesta en las peleas de pollos. | Uso: `' +prefix +'cf <cantidad | all>`')
+    .setDescription('> **perfil**\n> Muestra tu perfil o el de un usuario.\n\n> **top**\n> Muestra el top de Economía y Stats. | Uso: \n>`' +prefix +'top`\n>`' +prefix +'top <cash | xp | rep | pat | hug | sape>`\n\n> **shop**\n> Muestra la tienda del Bot en el servidor.`\n\n> **buy**\n> Compra un item de la tienda. | Uso: `' +prefix +'buy <item>`\n\n> **bal**\n> Mira tu balance o el de un usuario en el servidor.\n\n> **work**\n> Trabajar para obtener coins.\n\n> **crime**\n> Ejecuta un crimen.\n\n> **rob**\n> Roba a un miembro mencionado. | Uso: `' +prefix +'rob <@user>`\n\n> **dep**\n> Deposita tu dinero en el banco. | Uso: `' +prefix +'dep <cantidad | all>`\n\n> **with**\n> Retira tu dinero del banco. | Uso: `' +prefix +'with <cantidad | all>`\n\n> **daily**\n> Reclama tu recompensa diaria.\n\n> **cf**\n> Apuesta en las peleas de pollos. | Uso: `' +prefix +'cf <cantidad | all>`')
   
   const helpdiv = new Discord.MessageEmbed()
     .setTitle('🤣 • Comandos de Diversión')
@@ -11010,7 +11010,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://i.pinimg.com/originals/54/ce/5a/54ce5ae304bd82e54b7d45f639693213.gif')
     .setColor('RANDOM')
-    .setDescription('> **hi**\n> Saluda a alguien o a todos.\n\n> **hug**\n> Abraza a alguien o a ti mismo.\n\n> **kiss**\n> Besa a un usuario.\n\n> **happy**\n> Mood Feliz.\n\n> **sleep**\n> Ya tienes sueño?\n\n> **dance**\n> Baila solo o acompañado.\n\n> **blush**\n> Sonrojad@ de nuevo?.\n\n> **confused**\n> Confundido Potter?\n\n> **lick**\n> Dale una lamida a alguien.\n\n> **feed**\n> Dale de comer a alguien.\n\n> **pat**\n> Acaricia a alguien.\n\n> **sad**\n> Modo Sad.\n\n> **cry**\n> Modo Sad 2.0.\n\n> **suicide**\n> Hacer la automorision.\n\n> **sape**\n> Dale un sape a alguien.\n\n> **punch**\n> Tira un golpe a alguien.\n\n> **kickbut**\n> Dale una patada a alguien.\n\n> **slap**\n> Abofetea a alguien.\n\n> **kill**\n> Mata a un usario.')
+    .setDescription('> **hi**\n> Saluda a alguien o a todos.\n\n> **hug**\n> Abraza a alguien o a ti mismo.\n\n> **kiss**\n> Besa a un usuario.\n\n> **happy**\n> Mood Feliz.\n\n> **sleep**\n> Ya tienes sueño?\n\n> **dance**\n> Baila solo o acompañado.\n\n> **blush**\n> Sonrojad@ de nuevo?.\n\n> **confused**\n> Confundido Potter?\n\n> **lick**\n> Dale una lamida a alguien.\n\n> **feed**\n> Dale de comer a alguien.\n\n> **pat**\n> Acaricia a alguien.> **rep**\n> Da un punto de carisma.\n\n> **sad**\n> Modo Sad.\n\n> **cry**\n> Modo Sad 2.0.\n\n> **suicide**\n> Hacer la automorision.\n\n> **sape**\n> Dale un sape a alguien.\n\n> **punch**\n> Tira un golpe a alguien.\n\n> **kickbut**\n> Dale una patada a alguien.\n\n> **slap**\n> Abofetea a alguien.\n\n> **kill**\n> Mata a un usario.')
 
   const helpnsfw = new Discord.MessageEmbed()
     .setTitle('🔞 • Comandos NSFW')
@@ -11122,7 +11122,6 @@ client.on('messageCreate', async message => {
         } else if (int.customId === "m2") {
           
           m.edit({
-            embeds: [helpprincipal],
             components: [btns_options2]
           });
 
