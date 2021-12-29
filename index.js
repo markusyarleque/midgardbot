@@ -796,6 +796,7 @@ client.on('messageCreate', async message => {
           let nivel = select.nivel
           let xp = select.xp
 
+          console.log('Nivel : '+ nivel+' Xp: '+xp)
           if(nivel === 0){
             xp = '('+xp+'/'+100+' XP)'
           } else if(nivel === 1){
