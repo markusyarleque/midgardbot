@@ -1185,67 +1185,13 @@ client.on('messageCreate', async message => {
         ]})
 
         let usuario1 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, usuario.id)
-        let usuario2 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, message.author.id)
-
+       
         if(!usuario1){
 
-          await client.db.run(`INSERT INTO usuarios (idusuario) VALUES (?)`, usuario.id)
-          usuario1 = {idusuario: usuario.id, dinero: 0, banco: 0, total: 0}
+          await client.db.run(`INSERT INTO usuarios (idusuario,rep) VALUES (?,?)`, usuario.id, 0)
+          usuario1 = {idusuario: usuario.id, rep: 0}
 
-        } else if(!usuario2){
-
-          await client.db.run(`INSERT INTO usuarios (idusuario) VALUES (?)`, message.author.id)
-          usuario2 = {idusuario: message.author.id, dinero: 0, banco: 0, total: 0}
         }
-
-        let cooldown = ((usuario2.crep - Date.now())/1000)
-        let h = ((cooldown / 3600)-1).toFixed()
-        let m = ((((cooldown % 3600)-1)/60)-1).toFixed()
-        let mensaje
-
-        // condition ? val1 : val2 
-        
-        if(h>1)
-        {
-          if(m>1)
-          {
-            mensaje = h + ' horas y ' + m + ' minutos'
-          } else if(m===1)
-          {
-            mensaje = h + ' horas y ' + m + ' minuto'
-          } else if(m<1)
-          {
-            mensaje = h + ' horas'
-          }
-        } else if(h===1){
-          if(m>1)
-          {
-            mensaje = h + ' hora y ' + m + ' minutos'
-          } else if(m===1)
-          {
-            mensaje = h + ' hora y ' + m + ' minuto'
-          } else if(m<1)
-          {
-            mensaje = h + ' hora'
-          }
-        } else if(h<1){
-          if(m>1)
-          {
-            mensaje = m + ' minutos'
-          } else if(m===1)
-          {
-            mensaje = m + ' minuto'
-          }
-        }
-
-        if(usuario2.crep > Date.now()) return message.channel.send({embeds: [
-          
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription('<a:tiempogif:922403546492702720> | Puedes volver a dar rep en : **'+ mensaje+'**')
-          
-        ]})
 
         await client.db.run(`UPDATE usuarios SET rep=rep+? WHERE idusuario=?`, 1, usuario.id)
         await client.db.run(`UPDATE usuarios SET crep=? WHERE idusuario=?`, (Date.now() + (6 * (60 * (1000 * 60)))), message.author.id)
@@ -1260,7 +1206,7 @@ client.on('messageCreate', async message => {
   
         const e = new Discord.MessageEmbed()
         .setAuthor(server.name, server.iconURL({ dynamic: true }))
-        .setTitle('Carisma Diario 💵')
+        .setTitle('Carisma Diario 💟')
         .setColor('RANDOM')
         .setDescription(`Felicidades! | <@${usuario.id}> | Has recibido **1** punto de carisma.\n`+'Ahora tienes `'+usuario1.rep+'` puntos!')
         .setTimestamp()
