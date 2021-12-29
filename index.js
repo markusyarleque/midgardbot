@@ -906,6 +906,9 @@ client.on('messageCreate', async message => {
               .addField('<a:start:880922179280207934> Nivel', '<a:flech:915156906258071554> '+nivel+' '+xp, true)
               //.addField('<a:d_Fijao:897243194943737866> XP', '<a:flech:915156906258071554> '+select.exp, true)
               .addField('<a:CorazonMulticolor:880315280759345163> Carisma', '<a:flech:915156906258071554> '+select.rep, false)
+              .addField('<a:CorazonMulticolor:880315280759345163> Pats', '<a:flech:915156906258071554> '+select.pat, false)
+              .addField('<a:CorazonMulticolor:880315280759345163> Abrazos', '<a:flech:915156906258071554> '+select.hug, false)
+              .addField('<a:CorazonMulticolor:880315280759345163> Sapes', '<a:flech:915156906258071554> '+select.sape, false)
               //.addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>',false)
               .addField('<a:megaphone:912163796737486908> Frase', '<a:flech:915156906258071554> '+select.frase, true)
               .addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:Dinero:880594188792635422> **Economía**',false)
@@ -983,13 +986,123 @@ client.on('messageCreate', async message => {
           if (err) return console.error(err.message)*/
 
         if (!select) return message.channel.send('No hay perfil registrado para ese usuario.')
- 
+        
+        let nivel = select.nivel
+        let xp = select.exp
+
+        if(nivel === 0){
+          xp = '('+xp+'/'+100+' XP)'
+        } else if(nivel === 1){
+          xp = '('+(xp-100)+'/'+300+' XP)'
+        } else if(nivel === 2){
+          xp = '('+(xp-400)+'/'+500+' XP)'
+        } else if(nivel === 3){
+          xp = '('+(xp-900)+'/'+700+' XP)'
+        } else if(nivel === 4){
+          xp = '('+(xp-1600)+'/'+900+' XP)'
+        } else if(nivel === 5){
+          xp = '('+(xp-2500)+'/'+1100+' XP)'
+        } else if(nivel === 6){
+          xp = '('+(xp-3600)+'/'+1300+' XP)'
+        } else if(nivel === 7){
+          xp = '('+(xp-4900)+'/'+1500+' XP)'
+        } else if(nivel === 8){
+          xp = '('+(xp-6400)+'/'+1700+' XP)'
+        } else if(nivel === 9){
+          xp = '('+(xp-8100)+'/'+1900+' XP)'
+        } else if(nivel === 10){
+          xp = '('+(xp-10000)+'/'+2100+' XP)'
+        } else if(nivel === 11){
+          xp = '('+(xp-12100)+'/'+2300+' XP)'
+        } else if(nivel === 12){
+          xp = '('+(xp-14400)+'/'+2500+' XP)'
+        } else if(nivel === 13){
+          xp = '('+(xp-16900)+'/'+2700+' XP)'
+        } else if(nivel === 14){
+          xp = '('+(xp-19600)+'/'+2900+' XP)'
+        } else if(nivel === 15){
+          xp = '('+(xp-22500)+'/'+3100+' XP)'
+        } else if(nivel === 16){
+          xp = '('+(xp-25600)+'/'+3300+' XP)'
+        } else if(nivel === 17){
+          xp = '('+(xp-28900)+'/'+3500+' XP)'
+        } else if(nivel === 18){
+          xp = '('+(xp-32400)+'/'+3700+' XP)'
+        } else if(nivel === 19){
+          xp = '('+(xp-36100)+'/'+3900+' XP)'
+        } else if(nivel === 20){
+          xp = '('+(xp-40000)+'/'+4100+' XP)'
+        } else if(nivel === 21){
+          xp = '('+(xp-44100)+'/'+4300+' XP)'
+        } else if(nivel === 22){
+          xp = '('+(xp-48400)+'/'+4500+' XP)'
+        } else if(nivel === 23){
+          xp = '('+(xp-52900)+'/'+4700+' XP)'
+        } else if(nivel === 24){
+          xp = '('+(xp-57600)+'/'+4900+' XP)'
+        } else if(nivel === 25){
+          xp = '('+(xp-62500)+'/'+5100+' XP)'
+        } else if(nivel === 26){
+          xp = '('+(xp-67600)+'/'+5300+' XP)'
+        } else if(nivel === 27){
+          xp = '('+(xp-72900)+'/'+5500+' XP)'
+        } else if(nivel === 28){
+          xp = '('+(xp-78400)+'/'+5700+' XP)'
+        } else if(nivel === 29){
+          xp = '('+(xp-84100)+'/'+5900+' XP)'
+        } else if(nivel === 30){
+          xp = '('+(xp-90000)+'/'+6100+' XP)'
+        } else if(nivel === 31){
+          xp = '('+(xp-96100)+'/'+6300+' XP)'
+        } else if(nivel === 32){
+          xp = '('+(xp-102400)+'/'+6500+' XP)'
+        } else if(nivel === 33){
+          xp = '('+(xp-108900)+'/'+6700+' XP)'
+        } else if(nivel === 34){
+          xp = '('+(xp-115600)+'/'+6900+' XP)'
+        } else if(nivel === 35){
+          xp = '('+(xp-122500)+'/'+7100+' XP)'
+        } else if(nivel === 36){
+          xp = '('+(xp-129600)+'/'+7300+' XP)'
+        } else if(nivel === 37){
+          xp = '('+(xp-136900)+'/'+7500+' XP)'
+        } else if(nivel === 38){
+          xp = '('+(xp-144400)+'/'+7700+' XP)'
+        } else if(nivel === 39){
+          xp = '('+(xp-152100)+'/'+7900+' XP)'
+        } else if(nivel === 40){
+          xp = '('+(xp-160000)+'/'+8100+' XP)'
+        } else if(nivel === 41){
+          xp = '('+(xp-168100)+'/'+8300+' XP)'
+        } else if(nivel === 42){
+          xp = '('+(xp-176400)+'/'+8500+' XP)'
+        } else if(nivel === 43){
+          xp = '('+(xp-184900)+'/'+8700+' XP)'
+        } else if(nivel === 44){
+          xp = '('+(xp-193600)+'/'+8900+' XP)'
+        } else if(nivel === 45){
+          xp = '('+(xp-202500)+'/'+9100+' XP)'
+        } else if(nivel === 46){
+          xp = '('+(xp-211600)+'/'+9300+' XP)'
+        } else if(nivel === 47){
+          xp = '('+(xp-220900)+'/'+9500+' XP)'
+        } else if(nivel === 48){
+          xp = '('+(xp-230400)+'/'+9700+' XP)'
+        } else if(nivel === 49){
+          xp = '('+(xp-240100)+'/'+9900+' XP)'
+        } else if(nivel === 50){
+          xp = '('+(xp-250000)+'/'+11100+' XP)'
+        }
+
         let embed = new Discord.MessageEmbed()
           .setAuthor('Perfil de ' + img.username, img.displayAvatarURL())
           .setThumbnail(select.foto ? select.foto : 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif')
-          .addField('<a:start:880922179280207934> Nivel', '<a:flech:915156906258071554> '+select.nivel, true)
-          .addField('<a:d_Fijao:897243194943737866> XP', '<a:flech:915156906258071554> '+select.exp, true)
+          .addField('<a:start:880922179280207934> Nivel', '<a:flech:915156906258071554> '+nivel+' '+xp, true)
+          //.addField('<a:d_Fijao:897243194943737866> XP', '<a:flech:915156906258071554> '+select.exp, true)
           .addField('<a:CorazonMulticolor:880315280759345163> Carisma', '<a:flech:915156906258071554> '+select.rep, false)
+          .addField('<a:CorazonMulticolor:880315280759345163> Pats', '<a:flech:915156906258071554> '+select.pat, false)
+          .addField('<a:CorazonMulticolor:880315280759345163> Abrazos', '<a:flech:915156906258071554> '+select.hug, false)
+          .addField('<a:CorazonMulticolor:880315280759345163> Sapes', '<a:flech:915156906258071554> '+select.sape, false)
             //.addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>',false)
           .addField('<a:megaphone:912163796737486908> Frase', '<a:flech:915156906258071554> '+select.frase, true)
           .addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:Dinero:880594188792635422> **Economía**',false)
@@ -5679,6 +5792,8 @@ client.on('messageCreate', async message => {
         let ramdonhug = hug[Math.floor(Math.random()*hug.length)]
         let ramdonhug2 = hug2[Math.floor(Math.random()*hug2.length)]
     
+        if(img.bot) return message.channel.send('¡Qué lindo eres abrazando a un bot!')
+
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
@@ -5692,11 +5807,21 @@ client.on('messageCreate', async message => {
             message.channel.send({ embeds: [embed] });
     
         } else {
+
+          let usuario2 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, img.id)
+
+          if(!usuario2){
+
+            await client.db.run(`INSERT INTO usuarios (idusuario, hug) VALUES (?,?)`, img.id, 0)
+            usuario2 = {idusuario: img.id, hug: 0}
+          }
     
+          await client.db.run(`UPDATE usuarios SET hug=hug+? WHERE idusuario=?`, 1, img.id)
+        
             const embed = new Discord.MessageEmbed()
             .setAuthor(`Midgard's Love`,client.user.avatarURL())
             //.setTitle('Imagen completa')
-            .setDescription(`**${message.author.username}** está abrazando a **${img.username}**.`)
+            .setDescription(`**${message.author.username}** está abrazando a **${img.username}**. <:burbujita:887054889350483978>\n<a:flechad:880330587678838784> *${img.username}* ha recibido **${usuario2.hug}** abrazos en total.`)
             .setImage(ramdonhug)
             .setColor('RANDOM')
             .setTimestamp(new Date())
