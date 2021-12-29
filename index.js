@@ -10956,7 +10956,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://mimeti.co/wp-content/uploads/2015/01/01-gif-traduction-localise.gif')
     .setColor('RANDOM')
-    .setDescription('> **ping**\n> Comprueba la latencia del bot y de tus mensajes.\n\n> **stats**\n> Muestra la info y estado del bot.\n\n> **help**\n> Menú de ayuda con los comandos del bot\n\n> **server**\n> Muestra información de un servidor determinado.\n\n> **report**\n> Reportar un bug del bot.\n\n> **suggestion**\n> Enviar una sugerencia para mejorar el bot.\n\n')
+    .setDescription('> **ping**\n> Comprueba la latencia del bot y de tus mensajes.\n\n> **stats**\n> Muestra la info y estado del bot.\n\n> **help | h**\n> Menú de ayuda con los comandos del bot\n\n> **server**\n> Muestra información de un servidor determinado.\n\n> **report**\n> Reportar un bug del bot.\n\n> **suggestion**\n> Enviar una sugerencia para mejorar el bot.\n\n')
 
   const helputil = new Discord.MessageEmbed()
     .setTitle('💡 • Comandos de Utilidad')
@@ -10965,7 +10965,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://jonmgomes.com/wp-content/uploads/2020/03/Liquid-Lightbulb-Animation-V2-800x600-1.gif')
     .setColor('RANDOM')
-    .setDescription('> **user**\n> Muestra información sobre un usuario mencionado. | Uso: `' +prefix +'user <@user>`\n> Si no hay mención, mostrará la información del usuario que ejecute el comando.\n\n> **avatar**\n> Muestra el avatar de un usuario. | Uso: `' +prefix +'avatar <@user>`\n> Si no hay mención, mostrará el avatar del usuario que ejecute el comando.\n\n> **welcome**\n> Muestra un embed de bienvenida. | Uso: `' +prefix +'welcome <@user>`\n\n> **remindme**\n> Establece un recordatorio. | Uso: `' +prefix +'remindme <tiempo en s,m,h> <recordatorio>`\n\n> **snipe**\n> Recupera el último mensaje eliminado.\n\n> **jumbo**\n> Ver en grande un emoji.\n\n> **poll**\n> Crea una encuentas. | Uso: `' +prefix +'poll pregunta / opción1 / opción2 / opción3 [opcional]...`\n\n')
+    .setDescription('> **user**\n> Muestra información sobre un usuario mencionado.\n\n> **avatar**\n> Muestra el avatar de un usuario.\n\n> **welcome | wlc**\n> Muestra un embed de bienvenida.\n> Uso:\n> `' +prefix +'welcome <@user>`\n> `' +prefix +'wlc <@user>`\n\n> **remindme | rm**\n> Establece un recordatorio.\n> Uso: `' +prefix +'remindme <tiempo en s,m,h> <recordatorio>`\n\n> **snipe**\n> Recupera el último mensaje eliminado.\n\n> **jumbo**\n> Ver en grande un emoji.\n\n> **poll**\n> Crea una encuenta.\n> Uso: `' +prefix +'poll pregunta / opción1 / opción2 / opción3 [opcional]...`\n\n')
   
   const helpmod = new Discord.MessageEmbed()
     .setTitle('🔒 • Comandos de Moderación')
@@ -10974,7 +10974,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://elblogdelauz.files.wordpress.com/2018/10/gif-seguridad.gif')
     .setColor('RANDOM')
-    .setDescription('> **role**\n> Muestra información de un rol mencionado. | Uso: `' +prefix +'role <nombre/@rol>`\n\n> **roleid**\n> Muestra información de un rol por id. | Uso: `' +prefix +'roleid <id>`\n\n> **addrol**\n> Agrega un rol a un usuario del servidor. | Uso: `' +prefix +'addrol <@user> <rol>`\n\n> **removerol**\n> Remueve un rol a un usuario del servidor. | Uso: `' +prefix +'removerol <@user> <rol>`\n\n> **lock**\n> Bloquea un canal del servidor. | Uso: `' +prefix +'lock <#canal>`\n> Si no menciona el canal, se bloqueará el canal donde se ejecute el comando\n\n> **unlock**\n> Desbloquea un canal del servidor. | Uso: `' +prefix +'unlock <#canal>`\n> Si no menciona el canal, se desbloqueará el canal donde se ejecute el comando\n\n> **clear**\n> Elimina mensajes de un canal. | Uso: `' +prefix +'clear <cantidad>`\n\n> **kick**\n> Expulsa a un miembro mencionado. | Uso: `' +prefix +'kick <@user>`\n\n> **ban**\n> Banea a un miembro mencionado. | Uso: `' +prefix +'ban <@user>`')
+    .setDescription('> **role**\n> Muestra información de un rol mencionado.\n> Uso: `' +prefix +'role <nombre/@rol>`\n\n> **roleid**\n> Muestra información de un rol por id.\n> Uso: `' +prefix +'roleid <id>`\n\n> **addrol**\n> Agrega un rol a un usuario del servidor.\n> Uso: `' +prefix +'addrol <@user> <rol>`\n\n> **removerol**\n> Remueve un rol a un usuario del servidor.\n> Uso: `' +prefix +'removerol <@user> <rol>`\n\n> **lock**\n> Bloquea un canal del servidor.\n> Uso: `' +prefix +'lock <#canal>`\n\n> **unlock**\n> Desbloquea un canal del servidor.\n> Uso: `' +prefix +'unlock <#canal>`\n\n> **clear**\n> Elimina mensajes de un canal.\n> Uso: `' +prefix +'clear <cantidad>`\n\n> **kick**\n> Expulsa a un miembro mencionado.\n> Uso: `' +prefix +'kick <@user>`\n\n> **ban**\n> Banea a un miembro mencionado.\n> Uso: `' +prefix +'ban <@user>`')
     
   const helpeco = new Discord.MessageEmbed()
     .setTitle('💰 • Comandos de Economía')
@@ -10983,7 +10983,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://blogs.unitec.mx/content/dam/blogs/imagenes/corp_samara/finazas-economia-quieres-ser-un-john-law-1.gif')
     .setColor('RANDOM')
-    .setDescription('> **perfil**\n> Muestra tu perfil o el de un usuario.\n\n> **top**\n> Muestra el top de Economía y Stats. | Uso:\n>`' +prefix +'top`\n>`' +prefix +'top <cash | xp | rep | pat | hug | sape>`\n\n> **shop**\n> Muestra la tienda del Bot en el servidor.`\n\n> **buy**\n> Compra un item de la tienda. | Uso: `' +prefix +'buy <item>`\n\n> **bal**\n> Mira tu balance o el de un usuario en el servidor.\n\n> **work**\n> Trabajar para obtener coins.\n\n> **crime**\n> Ejecuta un crimen.\n\n> **rob**\n> Roba a un miembro mencionado. | Uso: `' +prefix +'rob <@user>`\n\n> **dep**\n> Deposita tu dinero en el banco. | Uso: `' +prefix +'dep <cantidad | all>`\n\n> **with**\n> Retira tu dinero del banco. | Uso: `' +prefix +'with <cantidad | all>`\n\n> **daily**\n> Reclama tu recompensa diaria.\n\n> **cf**\n> Apuesta en las peleas de pollos. | Uso: `' +prefix +'cf <cantidad | all>`')
+    .setDescription('> **perfil**\n> Muestra tu perfil o el de un usuario.\n\n> **top**\n> Muestra el top de Economía y Stats. | Uso:\n> `' +prefix +'top`\n> `' +prefix +'top <cash | xp | rep | pat | hug | sape>`\n\n> **shop**\n> Muestra la tienda del Bot en el servidor.`\n\n> **buy**\n> Compra un item de la tienda. | Uso: `' +prefix +'buy <item>`\n\n> **bal**\n> Mira tu balance o el de un usuario en el servidor.\n\n> **work**\n> Trabajar para obtener coins.\n\n> **crime**\n> Ejecuta un crimen.\n\n> **rob**\n> Roba a un miembro mencionado. | Uso: `' +prefix +'rob <@user>`\n\n> **dep**\n> Deposita tu dinero en el banco. | Uso: `' +prefix +'dep <cantidad | all>`\n\n> **with**\n> Retira tu dinero del banco. | Uso: `' +prefix +'with <cantidad | all>`\n\n> **daily**\n> Reclama tu recompensa diaria.\n\n> **cf**\n> Apuesta en las peleas de pollos. | Uso: `' +prefix +'cf <cantidad | all>`')
   
   const helpdiv = new Discord.MessageEmbed()
     .setTitle('🤣 • Comandos de Diversión')
@@ -10992,7 +10992,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://i.gifer.com/HqGV.gif')
     .setColor('RANDOM')
-    .setDescription('> **say**\n> Hace que el bot diga un mensaje.\n\n> **8ball**\n> El bot responderá a tus preguntas.\n\n> **roll**\n> Lanza un dado al azar.\n\n> **impostor**\n> Averigua quién es el impostor de este mundo.\n\n> **buscaminas**\n> Envía un tablero del clásico juego.\n\n> **ship**\n> Mide tu nivel de amor con un usuario mencionado. | Uso: `' +prefix +'ship <@user>`\n\n> **meme**\n> Envía memes al azar.\n\n> **ttt**\n> Clásico Tic Tac Toe. | Uso: `' +prefix +'ttt <@user>`\n\n> **infiel**\n> Descubre tu % de infidelidad.\n\n> **carta**\n> Envía una carta navideña con el mensaje que quieras.\n\n')
+    .setDescription('> **say**\n> Hace que el bot diga un mensaje.\n\n> **8ball**\n> El bot responderá a tus preguntas.\n\n> **roll**\n> Lanza un dado al azar.\n\n> **impostor**\n> Averigua quién es el impostor de este mundo.\n\n> **buscaminas**\n> Envía un tablero del clásico juego.\n\n> **ship**\n> Mide tu nivel de amor con un usuario mencionado.\n> Uso: `' +prefix +'ship <@user>`\n\n> **meme**\n> Envía memes al azar.\n\n> **ttt**\n> Clásico Tic Tac Toe.\n> Uso: `' +prefix +'ttt <@user>`\n\n> **infiel**\n> Descubre tu % de infidelidad.\n\n> **carta**\n> Envía una carta a un usuario con el mensaje que quieras.\n> Para más información ejecuta: `' +prefix +'carta`\n\n')
   
    const helpcbd = new Discord.MessageEmbed()
     .setTitle('• Comandos Exclusivos •')
@@ -11069,7 +11069,7 @@ client.on('messageCreate', async message => {
           .setStyle("PRIMARY"),
       ])
 
-  if(command === 'help'){
+  if(command === 'help' || command === 'h'){
 
     message.channel.send({
       embeds: [helpprincipal],
