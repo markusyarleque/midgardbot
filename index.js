@@ -5821,7 +5821,7 @@ client.on('messageCreate', async message => {
             const embed = new Discord.MessageEmbed()
             .setAuthor(`Midgard's Love`,client.user.avatarURL())
             //.setTitle('Imagen completa')
-            .setDescription(`**${message.author.username}** está abrazando a **${img.username}**. <:burbujita:887054889350483978>\n<a:flechad:880330587678838784> *${img.username}* ha recibido **${usuario2.hug}** abrazos en total.`)
+            .setDescription(`**${message.author.username}** está abrazando a **${img.username}**. <:burbujita:887054889350483978>\n<a:flechad:880330587678838784> *${img.username}* ha recibido **${(usuario2.hug+1)}** abrazos en total.`)
             .setImage(ramdonhug)
             .setColor('RANDOM')
             .setTimestamp(new Date())
