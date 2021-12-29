@@ -1583,7 +1583,7 @@ client.on('messageCreate', async message => {
     // STORE
 
     const shop1 = new Discord.MessageEmbed()
-      .setAuthor(server.name+' | Store 🏪', server.iconURL({ dynamic: true }))
+      .setAuthor(message.guild.name+' | Store 🏪', message.guild.iconURL({ dynamic: true }))
       .setDescription('Para adquirir un item, debes usar el comando `_buy <name>`') 
       .addField(`<a:money:901702063908606004> 10 - Chicken`, 'Item para apuestas', true)  
       .addField(`<a:money:901702063908606004> 10,000 - Rojo`, 'Color para tu perfil', true)  	
@@ -1597,7 +1597,7 @@ client.on('messageCreate', async message => {
       message.channel.send({ embeds: [embed] })
 
     const shop2 = new Discord.MessageEmbed()
-      .setAuthor(server.name+' | Store 🏪', server.iconURL({ dynamic: true }))
+      .setAuthor(message.guild.name+' | Store 🏪', message.guild.iconURL({ dynamic: true }))
       .setDescription('Para adquirir un item, debes usar el comando `_buy <name>`')   
       .addField(`<a:money:901702063908606004> 10,000 - Aqua`, 'Color para tu perfil', true)  	
       .addField(`<a:money:901702063908606004> 10,000 - Verde`, 'Color para tu perfil', true)  		
@@ -1622,8 +1622,6 @@ client.on('messageCreate', async message => {
 
     if(command === 'shop'){
 
-      var server = message.guild;
-      
       message.channel.send({
         embeds: [shop1],
         components: [b1]
