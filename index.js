@@ -1712,8 +1712,7 @@ client.on('messageCreate', async message => {
         col = 'BLACK'
       }else if(it.toLowerCase()==='fucsia'){
         col = 'FUSCHIA'
-      }else {
-        message.channel.send({embeds: [
+      }else return message.channel.send({embeds: [
           
           new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
@@ -1721,7 +1720,7 @@ client.on('messageCreate', async message => {
           .setDescription('<a:Verify2:880315278347616329> | Ingresa el nombre correcto del item!')
           
         ]})
-      }
+      
       
       await client.db.run(`UPDATE usuarios SET dinero=dinero-?, total=total-?, color=? WHERE idusuario=?`,10000,10000, col,message.author.id)
 
