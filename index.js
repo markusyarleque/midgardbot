@@ -2391,7 +2391,7 @@ client.on('messageCreate', async message => {
 
           } else {
 
-            await client.db.run(`UPDATE usuarios SET dinero=dinero-?, total=total-? WHERE idusuario=?`, buscarUsuario.dinero, buscarUsuario.dinero, message.author.id)
+            await client.db.run(`UPDATE usuarios SET dinero=dinero-?, total=total-?, ck=? WHERE idusuario=?`, buscarUsuario.dinero, buscarUsuario.dinero, 0, message.author.id)
           
             const e = new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
@@ -2429,7 +2429,7 @@ client.on('messageCreate', async message => {
 
           } else {
 
-            await client.db.run(`UPDATE usuarios SET dinero=dinero-?, total=total-? WHERE idusuario=?`, numero, numero, message.author.id)
+            await client.db.run(`UPDATE usuarios SET dinero=dinero-?, total=total-?, ck=? WHERE idusuario=?`, numero, numero, 0, message.author.id)
           
             const e = new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
