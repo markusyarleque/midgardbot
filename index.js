@@ -59,7 +59,7 @@ const sqlite3 = require('sqlite3'),
 
   })
 
-  await client.db.exec(`CREATE TABLE IF NOT EXISTS usuarios ('idusuario' TEXT NOT NULL, 'nivel' INTEGER DEFAULT 0, 'exp' INTEGER DEFAULT 0, 'rep' INTEGER DEFAULT 0, 'frase' BLOB, 'foto' BLOB, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0, 'work' DATETIME,'crime' DATETIME, 'rob' DATETIME, 'daily' DATETIME)`)
+  await client.db.exec(`CREATE TABLE IF NOT EXISTS usuarios ('idusuario' TEXT NOT NULL, 'nivel' INTEGER DEFAULT 0, 'exp' INTEGER DEFAULT 0, 'rep' INTEGER DEFAULT 0, 'frase' BLOB, 'foto' BLOB, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0, 'work' DATETIME,'crime' DATETIME, 'rob' DATETIME, 'daily' DATETIME, 'crep' DATETIME)`)
   
 })();
 
@@ -1011,6 +1011,311 @@ client.on('messageCreate', async message => {
 
     }
 
+    if(command === "rep"){
+
+      let usuario = message.mentions.users.first()
+
+      if (message.mentions.users.size < 1) {
+
+        let idm = args.join(" ")
+
+        if(!idm) return message.reply({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | Debe mencionar a alguien o colocar su id!`)
+        ]}).catch(console.error);
+
+        let id = await client.users.fetch(idm)
+
+        if(id === message.author.id)return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | No te puedes dar **rep** a ti mismo!`)
+        ]})
+  
+        if(id.bot)return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | No puedes dar **rep** a un bot!`)
+        ]})
+
+        let usuario1 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, id.id)
+        let usuario2 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, message.author.id)
+
+        if(!usuario1){
+
+          await client.db.run(`INSERT INTO usuarios (idusuario) VALUES (?)`, id.id)
+          usuario1 = {idusuario: id.id, dinero: 0, banco: 0, total: 0}
+
+        } else if(!usuario2){
+
+          await client.db.run(`INSERT INTO usuarios (idusuario) VALUES (?)`, message.author.id)
+          usuario2 = {idusuario: message.author.id, dinero: 0, banco: 0, total: 0}
+        }
+
+        let cooldown = ((usuario2.crep - Date.now())/1000)
+        let h = ((cooldown / 3600)-1).toFixed()
+        let m = ((((cooldown % 3600)-1)/60)-1).toFixed()
+        let mensaje
+
+        // condition ? val1 : val2 
+        
+        if(h>1)
+        {
+          if(m>1)
+          {
+            mensaje = h + ' horas y ' + m + ' minutos'
+          } else if(m===1)
+          {
+            mensaje = h + ' horas y ' + m + ' minuto'
+          } else if(m<1)
+          {
+            mensaje = h + ' horas'
+          }
+        } else if(h===1){
+          if(m>1)
+          {
+            mensaje = h + ' hora y ' + m + ' minutos'
+          } else if(m===1)
+          {
+            mensaje = h + ' hora y ' + m + ' minuto'
+          } else if(m<1)
+          {
+            mensaje = h + ' hora'
+          }
+        } else if(h<1){
+          if(m>1)
+          {
+            mensaje = m + ' minutos'
+          } else if(m===1)
+          {
+            mensaje = m + ' minuto'
+          }
+        }
+
+        if(usuario2.crep > Date.now()) return message.channel.send({embeds: [
+          
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription('<a:tiempogif:922403546492702720> | Puedes volver a dar rep en : **'+ mensaje+'**')
+          
+        ]})
+
+        await client.db.run(`UPDATE usuarios SET rep=rep+? WHERE idusuario=?`, 1, id.id)
+        await client.db.run(`UPDATE usuarios SET crep=? WHERE idusuario=?`, (Date.now() + (6 * (60 * (1000 * 60)))), message.author.id)
+
+        function reminder() {
+    
+          message.author.send('<a:exclama2:880930071731392512> | ¡Ya puedes volver a dar rep!')
+  
+        }
+  
+        const server = message.guild
+  
+        const e = new Discord.MessageEmbed()
+        .setAuthor(server.name, server.iconURL({ dynamic: true }))
+        .setTitle('Carisma Diario 💵')
+        .setColor('RANDOM')
+        .setDescription(`Felicidades! | <@${id.id}> | Has recibido **1** punto de carisma.\n`+'Ahora tienes `'+usuario1.rep+'` puntos!')
+        .setTimestamp()
+        .setFooter(`MidgardBot`,client.user.avatarURL())
+        
+        message.channel.send({embeds: [e], components: [
+  
+          new MessageActionRow()
+          .addComponents(
+  
+            new MessageButton()
+  
+            .setCustomId('primary')
+            .setLabel('Recuérdame')
+            .setStyle('PRIMARY')
+            .setEmoji('⏰')
+  
+          )
+        ]}).then(async m => {
+        
+          let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
+         
+          const collector = m.createMessageComponentCollector({ filter, time: 60000 /* Tiempo para que el miembro interatue con los botones */ });
+          
+          collector.on("collect", async int => {
+            
+            int.deferUpdate();
+         
+            if (int.customId === "primary") {
+              
+              var msDelay = 6*3600000
+              await message.reply({ content: '<a:reloj:915171222961135646> | Acabas de establecer un recordatorio en 6 horas para volver a dar rep. No olvides de activar los mensajes directos!', ephemeral: true});
+              setTimeout(reminder, msDelay);
+    
+            }
+    
+          });
+    
+          collector.on("end", colected => {
+            
+            if(colected.size < 1) return
+            
+          });
+          
+        })
+      
+      } else if(usuario){
+     
+        if(usuario.id === message.author.id)return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | No te puedes dar **rep** a ti mismo!`)
+        ]})
+  
+        if(usuario.bot)return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | No puedes dar **rep** a un bot!`)
+        ]})
+
+        let usuario1 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, usuario.id)
+        let usuario2 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, message.author.id)
+
+        if(!usuario1){
+
+          await client.db.run(`INSERT INTO usuarios (idusuario) VALUES (?)`, usuario.id)
+          usuario1 = {idusuario: usuario.id, dinero: 0, banco: 0, total: 0}
+
+        } else if(!usuario2){
+
+          await client.db.run(`INSERT INTO usuarios (idusuario) VALUES (?)`, message.author.id)
+          usuario2 = {idusuario: message.author.id, dinero: 0, banco: 0, total: 0}
+        }
+
+        let cooldown = ((usuario2.crep - Date.now())/1000)
+        let h = ((cooldown / 3600)-1).toFixed()
+        let m = ((((cooldown % 3600)-1)/60)-1).toFixed()
+        let mensaje
+
+        // condition ? val1 : val2 
+        
+        if(h>1)
+        {
+          if(m>1)
+          {
+            mensaje = h + ' horas y ' + m + ' minutos'
+          } else if(m===1)
+          {
+            mensaje = h + ' horas y ' + m + ' minuto'
+          } else if(m<1)
+          {
+            mensaje = h + ' horas'
+          }
+        } else if(h===1){
+          if(m>1)
+          {
+            mensaje = h + ' hora y ' + m + ' minutos'
+          } else if(m===1)
+          {
+            mensaje = h + ' hora y ' + m + ' minuto'
+          } else if(m<1)
+          {
+            mensaje = h + ' hora'
+          }
+        } else if(h<1){
+          if(m>1)
+          {
+            mensaje = m + ' minutos'
+          } else if(m===1)
+          {
+            mensaje = m + ' minuto'
+          }
+        }
+
+        if(usuario2.crep > Date.now()) return message.channel.send({embeds: [
+          
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription('<a:tiempogif:922403546492702720> | Puedes volver a dar rep en : **'+ mensaje+'**')
+          
+        ]})
+
+        await client.db.run(`UPDATE usuarios SET rep=rep+? WHERE idusuario=?`, 1, usuario.id)
+        await client.db.run(`UPDATE usuarios SET crep=? WHERE idusuario=?`, (Date.now() + (6 * (60 * (1000 * 60)))), message.author.id)
+
+        function reminder() {
+    
+          message.author.send('<a:exclama2:880930071731392512> | ¡Ya puedes volver a dar rep!')
+  
+        }
+  
+        const server = message.guild
+  
+        const e = new Discord.MessageEmbed()
+        .setAuthor(server.name, server.iconURL({ dynamic: true }))
+        .setTitle('Carisma Diario 💵')
+        .setColor('RANDOM')
+        .setDescription(`Felicidades! | <@${usuario.id}> | Has recibido **1** punto de carisma.\n`+'Ahora tienes `'+usuario1.rep+'` puntos!')
+        .setTimestamp()
+        .setFooter(`MidgardBot`,client.user.avatarURL())
+        
+        message.channel.send({embeds: [e], components: [
+  
+          new MessageActionRow()
+          .addComponents(
+  
+            new MessageButton()
+  
+            .setCustomId('primary')
+            .setLabel('Recuérdame')
+            .setStyle('PRIMARY')
+            .setEmoji('⏰')
+  
+          )
+        ]}).then(async m => {
+        
+          let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
+         
+          const collector = m.createMessageComponentCollector({ filter, time: 60000 /* Tiempo para que el miembro interatue con los botones */ });
+          
+          collector.on("collect", async int => {
+            
+            int.deferUpdate();
+         
+            if (int.customId === "primary") {
+              
+              var msDelay = 6*3600000
+              await message.reply({ content: '<a:reloj:915171222961135646> | Acabas de establecer un recordatorio en 6 horas para volver a dar rep. No olvides de activar los mensajes directos!', ephemeral: true});
+              setTimeout(reminder, msDelay);
+    
+            }
+    
+          });
+    
+          collector.on("end", colected => {
+            
+            if(colected.size < 1) return
+            
+          });
+          
+        })
+
+      } else {
+
+        const e = new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | Debe mencionar a alguien o colocar su id!`)
+        
+         message.channel.send({embeds: [e]})
+      }
+      
+    }
+    
     // COMANDOS DE ECONOMÍA
 
     //<-- COMANDO BALANCE -->
