@@ -1775,7 +1775,7 @@ client.on('messageCreate', async message => {
         }
   
         const e = new Discord.MessageEmbed()
-          .setColor('RANDOM')
+          .setColor(buscarUsuario.color)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
           .setTitle(`Balance`)
           .addField(`**Dinero:**`, '<a:money:901702063908606004>  '+buscarUsuario.dinero, true)
@@ -1802,7 +1802,7 @@ client.on('messageCreate', async message => {
         }
   
         const e = new Discord.MessageEmbed()
-          .setColor('RANDOM')
+          .setColor(buscarUsuario.color)
           .setAuthor(img.tag, img.displayAvatarURL({dynamic: true}))
           .setTitle(`Balance`)
           .addField(`**Dinero:**`, '<a:money:901702063908606004>  '+buscarUsuario.dinero, true)
@@ -2283,7 +2283,7 @@ client.on('messageCreate', async message => {
       const e = new Discord.MessageEmbed()
       .setAuthor(server.name, server.iconURL({ dynamic: true }))
       .setTitle('Recompensa Diaria 💵')
-      .setColor('RANDOM')
+      .setColor(buscarUsuario.color)
       .setDescription(`Felicidades **${message.author.username}**! Has recibido <a:money:901702063908606004> **` + numero + `** como recompensa diaria.\n¡Muchas gracias por usar mis comandos!`)
       .setTimestamp()
       .setFooter(`MidgardBot`,client.user.avatarURL())
@@ -2395,7 +2395,7 @@ client.on('messageCreate', async message => {
           
             const e = new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
-            .setColor('GREEN')
+            .setColor('RED')
             .setDescription(`<a:Verify2:880315278347616329> |Tu pollito murió 💀 y perdiste toda la apuesta!`)
             .setTimestamp()
           
@@ -2433,7 +2433,7 @@ client.on('messageCreate', async message => {
           
             const e = new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
-            .setColor('GREEN')
+            .setColor('RED')
             .setDescription(`<a:Verify2:880315278347616329> |Tu pollito murió 💀 y perdiste toda la apuesta!`)
             .setTimestamp()
           
