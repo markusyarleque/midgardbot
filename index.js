@@ -6602,7 +6602,6 @@ client.on('messageCreate', async message => {
       'https://cdn2.actitudfem.com/media/files/tumblr_inline_ncfqd7sxks1seszfd.gif',
       'https://www.filo.news/export/sites/claro/img/2017/07/31/-906866726-animation_x16x.gif',
       'https://www.laguiadelvaron.com/wp-content/uploads/2019/01/enlaplaya.gif',
-      'https://media.giphy.com/media/TA67UwOh6vpMQ/giphy.gif',
       'https://i0.wp.com/25.media.tumblr.com/8b50b8dfe089e86052ffcc3ca97fde68/tumblr_mvrrfkF4qR1qbbjduo1_250.gif',
       'http://37.media.tumblr.com/61b788ee4c5b2146848728ab3ed3fe55/tumblr_n3d5owAg6c1r5nd69o4_250.gif',
       'http://i.imgur.com/K2uCLlt.gif'
