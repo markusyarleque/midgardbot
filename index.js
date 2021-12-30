@@ -6411,8 +6411,6 @@ client.on('messageCreate', async message => {
         let img = message.mentions.users.first()
         let ramdonhug = hug[Math.floor(Math.random()*hug.length)]
         let ramdonhug2 = hug2[Math.floor(Math.random()*hug2.length)]
-    
-        if(img.bot) return message.channel.send('¡Qué lindo eres abrazando a un bot!')
 
         if (!img || img.id===message.author.id) {
     
@@ -6426,6 +6424,10 @@ client.on('messageCreate', async message => {
             .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if(img.bot){
+
+          return message.channel.send('¡Qué lindo eres abrazando a un bot!')
+
         } else {
 
           let usuario2 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, img.id)
@@ -6924,41 +6926,36 @@ client.on('messageCreate', async message => {
       let pat = star.pat()
       let img = message.mentions.users.first()
 
+      if (!img || img.id===message.author.id) return message.channel.send('Acariciame <:esta:925931250303250512>')
+
       if(img.bot) return message.channel.send('¡Qué lindo eres acariciando a un bot!')
 
-      if (!img || img.id===message.author.id) {
+      let usuario2 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, img.id)
+      let text 
 
-        message.channel.send('Acariciame <:esta:925931250303250512>')
+      if(!usuario2){
 
-      } else {
-
-        let usuario2 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, img.id)
-        let text 
-
-        if(!usuario2){
-
-          await client.db.run(`INSERT INTO usuarios (idusuario, pat) VALUES (?,?)`, img.id, 0)
-          usuario2 = {idusuario: img.id, pat: 0}
-        }
-    
-        await client.db.run(`UPDATE usuarios SET pat=pat+? WHERE idusuario=?`, 1, img.id)
-
-        if((usuario2.pat+1) === 1){
-          text = '**'+(usuario2.pat+1)+'** caricia'
-        } else{
-          text = '**'+(usuario2.pat+1)+'** caricias'
-        }
-        const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
-        //.setTitle('Imagen completa')
-        .setDescription(`**${message.author.username}** está acariciando a **${img.username}**. <a:elmo_timido:894721783066918953>\n<a:flechad:880330587678838784> *${img.username}* ha recibido ${text} en total.`)
-        .setImage(pat)
-        .setColor('RANDOM')
-        .setTimestamp(new Date())
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-        message.channel.send({ embeds: [embed] });
-
+        await client.db.run(`INSERT INTO usuarios (idusuario, pat) VALUES (?,?)`, img.id, 0)
+        usuario2 = {idusuario: img.id, pat: 0}
       }
+    
+      await client.db.run(`UPDATE usuarios SET pat=pat+? WHERE idusuario=?`, 1, img.id)
+
+      if((usuario2.pat+1) === 1){
+        text = '**'+(usuario2.pat+1)+'** caricia'
+      } else{
+        text = '**'+(usuario2.pat+1)+'** caricias'
+      }
+      
+      const embed = new Discord.MessageEmbed()
+      .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+      //.setTitle('Imagen completa')
+      .setDescription(`**${message.author.username}** está acariciando a **${img.username}**. <a:elmo_timido:894721783066918953>\n<a:flechad:880330587678838784> *${img.username}* ha recibido ${text} en total.`)
+      .setImage(pat)
+      .setColor('RANDOM')
+      .setTimestamp(new Date())
+      .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+      message.channel.send({ embeds: [embed] });
   
     }
 
@@ -7188,41 +7185,37 @@ client.on('messageCreate', async message => {
         let img = message.mentions.users.first()
         let ramdonsape = sape[Math.floor(Math.random()*sape.length)]
 
+        if (!img || img.id===message.author.id) return message.channel.send('¿Te darías un autosape? <:maje:925927838492811295>');
+
         if(img.bot) return message.channel.send('¡Qué lindo eres sapeando a un bot!')
 
-        if (!img || img.id===message.author.id) {
-    
-            message.channel.send('¿Te darías un autosape? <:maje:925927838492811295>');
-    
-        } else {
-    
-          let usuario2 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, img.id)
-          let text
+        let usuario2 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, img.id)
+        let text
 
-          if(!usuario2){
+        if(!usuario2){
 
-            await client.db.run(`INSERT INTO usuarios (idusuario, sape) VALUES (?,?)`, img.id, 0)
-            usuario2 = {idusuario: img.id, sape: 0}
-          }
+          await client.db.run(`INSERT INTO usuarios (idusuario, sape) VALUES (?,?)`, img.id, 0)
+          usuario2 = {idusuario: img.id, sape: 0}
+
+        }
     
-          await client.db.run(`UPDATE usuarios SET sape=sape+? WHERE idusuario=?`, 1, img.id)
+        await client.db.run(`UPDATE usuarios SET sape=sape+? WHERE idusuario=?`, 1, img.id)
         
-          if((usuario2.sape+1) === 1){
-            text = '**'+(usuario2.sape+1)+'** sape'
-          } else{
-            text = '**'+(usuario2.sape+1)+'** sapes'
-          }
-            const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Love`,client.user.avatarURL())
-            //.setTitle('Imagen completa')
-            .setDescription(`**${message.author.username}** le dió un sape a **${img.username}**. <:nojao:891551822387486721>\n<a:flechad:880330587678838784> *${img.username}* ha recibido ${text} en total.`)
-            .setImage(ramdonsape)
-            .setColor('RANDOM')
-            .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-            message.channel.send({ embeds: [embed] });
-      
-        };
+        if((usuario2.sape+1) === 1){
+          text = '**'+(usuario2.sape+1)+'** sape'
+        } else{
+          text = '**'+(usuario2.sape+1)+'** sapes'
+        }
+          
+        const embed = new Discord.MessageEmbed()
+        .setAuthor(`Midgard's Love`,client.user.avatarURL())
+        //.setTitle('Imagen completa')
+        .setDescription(`**${message.author.username}** le dió un sape a **${img.username}**. <:nojao:891551822387486721>\n<a:flechad:880330587678838784> *${img.username}* ha recibido ${text} en total.`)
+        .setImage(ramdonsape)
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        message.channel.send({ embeds: [embed] });
     
     }
     
