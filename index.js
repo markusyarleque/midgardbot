@@ -11968,6 +11968,72 @@ client.on('messageCreate', async message => {
       
     }
 
+    if (message.content.startsWith(prefix +"reglas")){
+
+      let permiso = message.member.hasPermission("ADMINISTRATOR");
+  
+      if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
+  
+        const embed = new Discord.MessageEmbed()
+        .setThumbnail('https://i.gifer.com/8AMQ.gif')
+        .setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
+        .setTitle(`𝚁𝙴𝙶𝙻𝙰𝚂 𝙳𝙴𝙻 𝚂𝙴𝚁𝚅𝙸𝙳𝙾𝚁`)
+        .setDescription(
+        `<a:sparkless:880922179280207934> Totalmente prohibido compartir links de otros servidores que no estén relacionados con este servidor, ya sea por canales de texto o al MD de nuestros Terrícolas.\n\n
+        <a:sparkless:880922179280207934> Es obligatorio usar bien los canales de texto, evitar el flood de comandos, emojis, y no contenido NSFW.\n\n
+        <a:sparkless:880922179280207934> Está prohibido compartir redes sociales de cualquier tipo en los canales del servidor.\n\n
+        <a:sparkless:880922179280207934> Está prohibido compartir información privada (fotos, nombres, números de teléfono, IP/Direcciones, etc.), ya sea personal o de otros usuarios sin consentimiento, con el fin de cuidar la privacidad de cada uno de los miembros.\n\n
+        <a:sparkless:880922179280207934> No faltar el respeto al staff.\n\n
+        <a:sparkless:880922179280207934> Sí un staff pide cambiar el tema de conversación ya que lo considera apropiado se deberá hacer.\n\n
+        <a:sparkless:880922179280207934> Tienes el derecho de reportar a un miembro de staff si consideras que ha abusado de su poder.\n\n
+        <a:sparkless:880922179280207934> No se permiten Nicknames, avatares, ni nombres de usuario con contenido sexual explícito o contenido violento.\n\n
+        <a:sparkless:880922179280207934> No se aceptan los sonidos, gritos, ruidos molestos, saturación de micrófonos, ni entrar o salir repetidamente, con la intención de interrumpir en los canales de voz.\n\n
+        <a:sparkless:880922179280207934> No se permite el acoso, bullying, amenzas, bardeo, lenguaje ofensivo, blackmail, hate speech, ni discriminación de ningúna índole.\n\n
+        <a:sparkless:880922179280207934> Prohibido cualquier tipo de atentado contra el servidor o algún miembro del mismo. \n\n
+        <a:sparkless:880922179280207934> Incluir a los nuevos miembros, sin trolleos.\n\n
+        <a:sparkless:880922179280207934> Si existe algún problema con algún miembro o staff del servidor, se deberá hablar con administradores e intentar llegar a un acuerdo.\n\n
+        <a:sparkless:880922179280207934> Intenta reducir los sonidos de fondo de tu micrófono en los canales de voice.\n\n
+        <a:sparkless:880922179280207934> Usa correctamente cada canal de texto y voz, y sobretodo... **Pásala bien y Diviértete!!!**\n\n`)
+        .setImage(`https://media.discordapp.net/attachments/840161683732693033/880298925574193162/reglas-del-juego-game-rules.gif?width=448&height=252`)
+        .setColor("GREEN")
+       message.channel.send({embeds: [embed]});
+       setTimeout(() => message.delete(), 100)
+    } 
+  
+    if (message.content.startsWith(prefix +"relite")){
+  
+      let permiso = message.member.hasPermission("ADMINISTRATOR");
+  
+      if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
+  
+        const embed = new Discord.MessageEmbed()
+        .setThumbnail("https://cdn.discordapp.com/emojis/897240681075060736.gif")
+        .setAuthor('𝙻𝙰 É𝙻𝙸𝚃𝙴', "https://images-ext-1.discordapp.net/external/IzNo1dr-frPAQcFnWvpctrA5HLshMSSpn4xkzUC_gKk/%3Fsize%3D2048/https/cdn.discordapp.com/banners/777620055344545842/4999aa780156b9aa214241948f7ec65a.png?width=832&height=498")
+        .setTitle(`<a:FuegoRojo:882761255381790750> 𝐑𝐄𝐆𝐋𝐀𝐒  𝐆𝐄𝐍𝐄𝐑𝐀𝐋𝐄𝐒 <a:FuegoRojo:882761255381790750>`)
+        .setDescription("Bienvenido al Equipo!!! Te invitamos a seguir las siguientes reglas, por el bien de la comunidad. <:tierno:881618338759966800>")
+        .addField('\u200B','\u200B')
+        .addField(`<a:d_Fijao:897243194943737866> RESPETO`, `<a:sparkless:880922179280207934> Ser respetuosos con sus propios compañeros de equipo y del servidor en general. No importa los rangos ni los roles, **TODOS** somos iguales y merecemos respeto.`, false)
+        .addField('\u200B','\u200B')
+        .addField(`<a:d_Fijao:897243194943737866> CONFIDENCIALIDAD`, `<a:sparkless:880922179280207934> Ser cautelosos con lo que se habla en nuestro equipo. Lo que se diga en el canal de texto o voz, debe quedar aquí.`, false)
+        .addField('\u200B','\u200B')
+        .addField(`<a:d_Fijao:897243194943737866> COMPROMISO`, `<a:sparkless:880922179280207934> Estar completamente comprometidos con el equipo y sobre todo con el servidor.`, false)
+        .addField('\u200B','\u200B')
+        .addField(`<a:d_Fijao:897243194943737866> RESPONSABILIDAD`, `<a:sparkless:880922179280207934> Ser responsable en cada evento o actividad que tengas a cargo, ya sea como Presentador o Soporte.`, false)
+        .addField('\u200B','\u200B')
+        .addField(`<a:d_Fijao:897243194943737866> PUNTUALIDAD`, `<a:sparkless:880922179280207934> Iniciar cada evento o actividad a la hora programada, salvo motivo de fuerza mayor que debe avisarse con anterioridad.`, false)
+        .addField('\u200B','\u200B')
+        .addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>',`<a:emoji_115:882776364581785640> La falta contra alguna de las reglas, dependiendo la gravedad, puede llevar a la suspensión temporal hasta permanente del equipo. <a:Sara:880304101215334401>`,false)
+        .setImage(`https://images-ext-1.discordapp.net/external/Bk8i6i3GZXEtRbl1nKor8E7mHxwbWf9EnttRysAM_oU/https/c.tenor.com/wVorRymbWc8AAAAC/sigue-las-reglas-vapor.gif`)
+        .setColor("RANDOM")
+        .setFooter(message.guild.name +" • ¡Que comience el juego!","https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif");
+        //.setFooter(`🌎┃「Midgard」`,"https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif");
+        message.channel.send(embed);
+        message.delete({timeout: 100})
+        //console.log("autor: "+autor+" titulo: "+titulo+" emoji1: "+emoji1+" rol1: "+rol1+" emoji2: "+emoji2+" rol2: "+rol2+" imagen: "+imag)
+  
+    }
+
+
     if(command === 'enviarmd'){
 
         let permisos = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
