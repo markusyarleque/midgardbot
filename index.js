@@ -59,7 +59,7 @@ const sqlite3 = require('sqlite3'),
 
   })
 
-  await client.db.exec(`CREATE TABLE IF NOT EXISTS usuarios ('idusuario' INTEGER PRIMARY KEY NOT NULL, 'nivel' INTEGER DEFAULT 0, 'exp' INTEGER DEFAULT 0, 'rep' INTEGER DEFAULT 0, 'pat' INTEGER DEFAULT 0, 'hug' INTEGER DEFAULT 0, 'sape' INTEGER DEFAULT 0, 'color' BLOB, 'frase' BLOB, 'foto' BLOB, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0, 'work' DATETIME,'crime' DATETIME, 'rob' DATETIME, 'daily' DATETIME, 'crep' DATETIME, 'ck' INTEGER DEFAULT 0)`)
+  await client.db.exec(`CREATE TABLE IF NOT EXISTS usuarios ('idusuario' INTEGER PRIMARY KEY NOT NULL, 'nivel' INTEGER DEFAULT 0, 'exp' INTEGER DEFAULT 0, 'marry' TEXT NO NULL, 'rep' INTEGER DEFAULT 0, 'pat' INTEGER DEFAULT 0, 'hug' INTEGER DEFAULT 0, 'sape' INTEGER DEFAULT 0, 'color' BLOB, 'frase' BLOB, 'foto' BLOB, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0, 'work' DATETIME,'crime' DATETIME, 'rob' DATETIME, 'daily' DATETIME, 'crep' DATETIME, 'ck' INTEGER DEFAULT 0)`)
   await client.db.exec(`CREATE TABLE IF NOT EXISTS kiss ('idkiss' INTEGER PRIMARY KEY AUTOINCREMENT, 'u1' TEXT NOT NULL, 'u2' TEXT NOT NULL, 'c' INTEGER DEFAULT 0)`)
   
 })();
@@ -82,7 +82,7 @@ const tresenraya = require('tresenraya');
 const CARTA_TIEMPO_MIN = 2;
 const CARTA_TIEMPO_MAX = 5;
 const MENSAJE_AYUDA_CARTA = new Discord.MessageEmbed()
-.setDescription('<a:d_Fijao:897243194943737866> Carta - Envia una carta a otro usuario <:abby:880300168514252811>')
+.setDescription('<a:d_Fijao:897243194943737866> Carta - Envia una carta a otro usuario <:abby:925920578840440873>')
 .addField('<a:flech:915156906258071554> Uso: ','`carta <tag> <anónimo> <mensaje>`')
 .addField('<a:flech:915156906258071554> Argumentos: ','- tag: El tag del usuario / @user\n- anónimo: Enviar anónimamente el mensaje (s = sí, n = no)\n- mensaje: El mensaje que deseas enviar.')
 .setColor('RANDOM')
@@ -124,12 +124,12 @@ client.on('guildMemberAdd', async member => {
   /*if (newUsers.size > 1000000) {
 
     const userlist = newUsers.map(u => u.toString()).join(' ');
-    channel.send('¡Bienvenid@s Terrícolas!'+ `${userlist}`+', a este nuevo**Universo**. <:ShyLove:880410907635748924> Les invito a pasar por <#855582327514202132> y <#785685918270488656> Y si tienen una queja, duda o sugerencia, pasen por <#815654349912801280>. Cualquier duda o pregunta aquí estará todo el equipo de Staff a su disposición. <a:pasito:877116925291946094> Pásenla increíble, lindo día, tarde o noche. <a:abdul_dance:880930576683630662>');
+    channel.send('¡Bienvenid@s Terrícolas!'+ `${userlist}`+', a este nuevo**Universo**. <:shylove:925923567776964619> Les invito a pasar por <#855582327514202132> y <#785685918270488656> Y si tienen una queja, duda o sugerencia, pasen por <#815654349912801280>. Cualquier duda o pregunta aquí estará todo el equipo de Staff a su disposición. <a:pasito:877116925291946094> Pásenla increíble, lindo día, tarde o noche. <a:abdul_dance:880930576683630662>');
     newUsers.clear();
 
   }*/
 
-  channel.send('¡Bienvenid@ Terrícola!' + `${member.user}` + ', a este nuestro **Universo**. <:ShyLove:880410907635748924>. Espero que te lo pases genial en este server libre de toxicidad, con muchos eventos programados, premios y más sorpresas!!! <a:Sara:880304101215334401> Recuerda pasar por <#777623227321155614> y <#880268322921414657> Y si tienes alguna queja, duda o sugerencia, pasa por <#880402803825188874>. Cualquier incoveniente aquí estará todo el equipo de Staff a su disposición. <a:dc_party1:881033439367815239>');
+  channel.send('¡Bienvenid@ Terrícola!' + `${member.user}` + ', a este nuestro **Universo**. <:shylove:925923567776964619>. Espero que te lo pases genial en este server libre de toxicidad, con muchos eventos programados, premios y más sorpresas!!! <a:Sara:880304101215334401> Recuerda pasar por <#777623227321155614> y <#880268322921414657> Y si tienes alguna queja, duda o sugerencia, pasa por <#880402803825188874>. Cualquier incoveniente aquí estará todo el equipo de Staff a su disposición. <a:dc_party1:881033439367815239>');
   
     
 });
@@ -522,7 +522,7 @@ client.on('messageCreate', async message => {
               if (int.customId === "accept") {
                 
                 m.edit({
-                  content: `<@${img}> Te buscan por aquí <:yonofui:920215733387018280>`,
+                  content: `<@${img}> Te buscan por aquí <:yonofui:925922618492727357>`,
                   components: []
                 });
       
@@ -531,7 +531,7 @@ client.on('messageCreate', async message => {
                 
                  // Editamos el mensaje y quitamos los botones.
                 m.edit({
-                  content: "Gracias, si necesitas algo, no dudes en contactarme. <:tierno:881618338759966800>",
+                  content: "Gracias, si necesitas algo, no dudes en contactarme. <:tierno:925922783978999848>",
                   components: []
                 });
               
@@ -542,7 +542,7 @@ client.on('messageCreate', async message => {
               /* Si no dio click en ningun boton durante los 60s ...*/
               
               if(colected.size < 1) return m.edit({
-                content: "**¡No confirmaste a tiempo!** <:enojado:882877729266098186>",
+                content: "**¡No confirmaste a tiempo!** <:enojado:925926424362242078>",
                 components: []
               });
               
@@ -592,7 +592,7 @@ client.on('messageCreate', async message => {
         if (message.content.match(ana))
         {
           if(bl.tiene(message.author.id)) return;
-          message.channel.send(`<:emoji_233:890722279074451506> Días,tardes,noches,madrugadas <:mmsi:890721733991104583> porque Buena está la persona que me acaba de mencionar <a:Zuii:890684724673150996> <a:Ytodomedavuelta:890721775699259422>`)
+          message.channel.send(`<:emoji_233:890722279074451506> Días,tardes,noches,madrugadas <:mmsi:925934342016995379> porque Buena está la persona que me acaba de mencionar <a:Zuii:890684724673150996> <a:Ytodomedavuelta:890721775699259422>`)
   
         }
 
@@ -726,6 +726,7 @@ client.on('messageCreate', async message => {
     let i = 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif'
     let f = 'No hay frase agregada'
     let color = '#607D8B'
+    let marry = 'Soltero(a)'
     let sentencia = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ${id}`)
 
     /*db.get(sentencia, (err, filas) => {
@@ -733,7 +734,7 @@ client.on('messageCreate', async message => {
 
     if (!sentencia){
 
-      await client.db.run(`INSERT INTO usuarios (idusuario, nivel, exp, rep, color, frase, foto, dinero, banco, total) VALUES (?,?,?,?,?,?,?,?,?,?)`, id,'0','1','0',color,f,i,'0','0','0')
+      await client.db.run(`INSERT INTO usuarios (idusuario, nivel, exp, marry, rep, color, frase, foto, dinero, banco, total) VALUES (?,?,?,?,?,?,?,?,?,?,?)`, id,'0','1',marry,'0',color,f,i,'0','0','0')
       
       //let insert = `INSERT INTO usuarios(idusuario, nivel, exp, rep, frase, foto) VALUES(${id}, 0, 1, 0, "${f}", "${i}")`
 
@@ -902,6 +903,16 @@ client.on('messageCreate', async message => {
             xp = '('+(xp-250000)+'/'+11100+' XP)'
           }
 
+          let tmarry
+
+          if(select.marry === 'Soltero(a)')
+          {
+            tmarry = 'Soltero(a)'
+          }else {
+            let id = await client.users.fetch(select.marry)
+            tmarry = '💞 '+id.username+'#'+id.discriminator
+          }
+
             let embed = new Discord.MessageEmbed()
               .setAuthor('Perfil de ' + message.author.username, message.author.displayAvatarURL())
               .setThumbnail(select.foto ? select.foto : 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif')
@@ -913,6 +924,7 @@ client.on('messageCreate', async message => {
               .addField('<a:CorazonMulticolor:880315280759345163> Sapes', '<a:flech:915156906258071554> '+select.sape, false)
               //.addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>',false)
               .addField('<a:megaphone:912163796737486908> Frase', '<a:flech:915156906258071554> '+select.frase, true)
+              .addField('<:GatoLove:925929538863628318> Matrimonio', '<a:flech:915156906258071554> '+tmarry, true)
               .addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:Dinero:880594188792635422> **Economía**',false)
               .addField(`**Total:**`, '<a:money:901702063908606004>  '+select.total, true)
               .setColor(select.color)
@@ -1096,6 +1108,16 @@ client.on('messageCreate', async message => {
           xp = '('+(xp-250000)+'/'+11100+' XP)'
         }
 
+        let tmarry
+
+        if(select.marry === 'Soltero(a)')
+        {
+          tmarry = 'Soltero(a)'
+        }else {
+          let id = await client.users.fetch(select.marry)
+          tmarry = '💞 '+id.username+'#'+id.discriminator
+        }
+
         let embed = new Discord.MessageEmbed()
           .setAuthor('Perfil de ' + img.username, img.displayAvatarURL())
           .setThumbnail(select.foto ? select.foto : 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif')
@@ -1107,6 +1129,7 @@ client.on('messageCreate', async message => {
           .addField('<a:CorazonMulticolor:880315280759345163> Sapes', '<a:flech:915156906258071554> '+select.sape, false)
             //.addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>',false)
           .addField('<a:megaphone:912163796737486908> Frase', '<a:flech:915156906258071554> '+select.frase, true)
+          .addField('<:GatoLove:925929538863628318> Matrimonio', '<a:flech:915156906258071554> '+tmarry, true)
           .addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:Dinero:880594188792635422> **Economía**',false)
           .addField(`**Total:**`, '<a:money:901702063908606004>  '+select.total, true)
           .setColor(select.color)
@@ -2950,15 +2973,15 @@ client.on('messageCreate', async message => {
     let prohibidos = ['ID1', 'ID2'];
 
     const embedercancel = new Discord.MessageEmbed()
-    .setDescription('Reporte cancelado. <:aisaMexicana:880315292381773856>')
+    .setDescription('Reporte cancelado. <:aisaMexicana:925926704097161216>')
     .setColor('RANDOM')
 
     const embedescancel = new Discord.MessageEmbed()
-    .setDescription('Sugerencia cancelada. <:aisaMexicana:880315292381773856>')
+    .setDescription('Sugerencia cancelada. <:aisaMexicana:925926704097161216>')
     .setColor('RANDOM')
 
     const embednoconf = new Discord.MessageEmbed()
-    .setDescription('¡No confirmaste a tiempo! <:enojado:882877729266098186>')
+    .setDescription('¡No confirmaste a tiempo! <:enojado:925926424362242078>')
     .setColor('RANDOM')
 
     if(command === 'report'){
@@ -3109,10 +3132,10 @@ client.on('messageCreate', async message => {
       .setAuthor(`Midgard's Staff`,client.user.avatarURL())
       .setThumbnail('https://logos-marcas.com/wp-content/uploads/2020/12/Discord-Logo.png')
       .setTitle('Vota por Nuestro Servidor <a:elmo_timido:894721783066918953>')
-      .setDescription(`Estaremos eternamente agradecidos que votes por Midgard! <:abby:880300168514252811>`)
+      .setDescription(`Estaremos eternamente agradecidos que votes por Midgard! <:abby:925920578840440873>`)
       .addField('Top.gg','[Click aquí para votar](https://top.gg/servers/777620055344545842/vote)\n\n',false)
       //.addField('\u200B','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>')
-      .addField('Recompensas por tu voto <a:CorazonMulticolor:880315280759345163>','Recibirás un Rol muy especial que te diferenciará de los demás:\n\n <a:dc_zFlecha3:880315279903703060> <@&886772939549184052> \n\nAdemás, este rol te dará una cierta cantidad de coins de nuestro casino cada cierto tiempo... \n\nDescúbrelo!!! <:tierno:881618338759966800>',true)
+      .addField('Recompensas por tu voto <a:CorazonMulticolor:880315280759345163>','Recibirás un Rol muy especial que te diferenciará de los demás:\n\n <a:dc_zFlecha3:880315279903703060> <@&886772939549184052> \n\nAdemás, este rol te dará una cierta cantidad de coins de nuestro casino cada cierto tiempo... \n\nDescúbrelo!!! <:tierno:925922783978999848>',true)
       .setColor('RANDOM')
       .setTimestamp(new Date())
       .setFooter(`🌎┃「Midgard」• Muchas gracias por tu voto!`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
@@ -3243,14 +3266,14 @@ client.on('messageCreate', async message => {
     
         if (!img || img.id===message.author.id) {
     
-            message.channel.send(`<:yojoo:880315297846947860> Necesitas mencionar a un usuario <a:pasito:877116925291946094>`);
+            message.channel.send(`<:ojooo:925928526119571457> Necesitas mencionar a un usuario <a:pasito:877116925291946094>`);
     
         } else {
     
             const embed = new Discord.MessageEmbed()
             .setThumbnail(`${img.displayAvatarURL({ dynamic: true }).replace('webp','png')}`)
             //.setAuthor('Midgarddd', https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png')
-            .setTitle(`Bienvenid@ <:cosita:880300168514252811> **${img.username}** <a:pepedance:880928616416968745>`)
+            .setTitle(`Bienvenid@ <:cosita:925928055745155113> **${img.username}** <a:pepedance:880928616416968745>`)
             .setDescription(`<a:exclama2:880930071731392512> Gracias por unirte!!! <a:sc_ositobailin:880930467774365707> Espero que lo disfrutes. <a:abdul_dance:880930576683630662>`)
             .setImage(ramdonwelcome)
             .setColor(10773200)
@@ -3269,14 +3292,14 @@ client.on('messageCreate', async message => {
     
         if (!img || img.id===message.author.id) {
     
-            message.channel.send(`<:yojoo:880315297846947860> Necesitas mencionar a un usuario <a:pasito:877116925291946094>`);
+            message.channel.send(`<:ojooo:925928526119571457> Necesitas mencionar a un usuario <a:pasito:877116925291946094>`);
     
         } else {
     
             const embed = new Discord.MessageEmbed()
             .setThumbnail(`${img.displayAvatarURL({ dynamic: true }).replace('webp','png')}`)
             //.setAuthor(`Midgard`,client.user.avatarURL())
-            .setTitle(`Bienvenid@ <:cosita:880300168514252811> **${img.username}** <a:pepedance:880928616416968745>`)
+            .setTitle(`Bienvenid@ <:cosita:925928055745155113> **${img.username}** <a:pepedance:880928616416968745>`)
             .setDescription(`<a:exclama2:880930071731392512> Gracias por unirte!!! <a:sc_ositobailin:880930467774365707> Espero que lo disfrutes. <a:abdul_dance:880930576683630662>`)
             .setImage(ramdonwelcome)
             .setColor(10773200)
@@ -3361,7 +3384,7 @@ client.on('messageCreate', async message => {
 
         if(channel===conf)
         {
-          return message.channel.send("Así te quería atrapar puerco! <:yojoo:880315297846947860> No puedes hacer eso aquí <:burbuja:877115812362747904>")
+          return message.channel.send("Así te quería atrapar puerco! <:ojooo:925928526119571457> No puedes hacer eso aquí <:burbuja:925928080680292352>")
           .then(m => setTimeout(() => m.delete(), 10000));
         } else
         {
@@ -5040,7 +5063,7 @@ client.on('messageCreate', async message => {
           .setAuthor(`Midgard's Love`,client.user.avatarURL())
           .setThumbnail(message.author.displayAvatarURL({ dynamic: true }).replace('webp','png'))
           .setTitle(`📩 | Cartas Navideñas 🎄`)
-          .setDescription(tag.username + ' Te ha llegado una **carta navideña** <:tierno:881618338759966800>\n\n<a:flech:915156906258071554> *Enviado por:*\n<a:corazones_fn:906775240795901982> **'+ message.author.username+'**\n\n<a:d_Fijao:897243194943737866>\n```'+mensaje+'```\n')
+          .setDescription(tag.username + ' Te ha llegado una **carta navideña** <:tierno:925922783978999848>\n\n<a:flech:915156906258071554> *Enviado por:*\n<a:corazones_fn:906775240795901982> **'+ message.author.username+'**\n\n<a:d_Fijao:897243194943737866>\n```'+mensaje+'```\n')
           .setImage(`https://media.discordapp.net/attachments/920564115355889674/920594418711543838/FinalVideo_1638643044.278044.gif?width=512&height=288`)
           .setColor('RANDOM')
           .setTimestamp(new Date())
@@ -5050,7 +5073,7 @@ client.on('messageCreate', async message => {
           .setAuthor(`Midgard's Love`,client.user.avatarURL())
           .setThumbnail(ramdong)
           .setTitle(`📩 | Cartas Navideñas 🎄`)
-          .setDescription(tag.username + ' Te ha llegado una **carta navideña** <:tierno:881618338759966800>\n\n<a:flech:915156906258071554> *Enviado por:*\n<a:corazones_fn:906775240795901982> **Anónimo**\n\n<a:d_Fijao:897243194943737866>\n```'+mensaje+'```\n')
+          .setDescription(tag.username + ' Te ha llegado una **carta navideña** <:tierno:925922783978999848>\n\n<a:flech:915156906258071554> *Enviado por:*\n<a:corazones_fn:906775240795901982> **Anónimo**\n\n<a:d_Fijao:897243194943737866>\n```'+mensaje+'```\n')
           .setImage(`https://media.discordapp.net/attachments/920564115355889674/920594418711543838/FinalVideo_1638643044.278044.gif?width=512&height=288`)
           .setColor('RANDOM')
           .setTimestamp(new Date())
@@ -6281,7 +6304,7 @@ client.on('messageCreate', async message => {
             const embed = new Discord.MessageEmbed()
             .setAuthor(`Midgard's Disco`,client.user.avatarURL())
             //.setTitle('Imagen completa')
-            .setDescription(`**${message.author.username}** pidió una colegiala y no la quiere compartir. <:jaaa:846566909239099403>`)
+            .setDescription(`**${message.author.username}** pidió una colegiala y no la quiere compartir. <:gaaa:925926944254611487>`)
             .setImage(ramdoncolegiala)
             .setColor('RANDOM')
             .setTimestamp(new Date())
@@ -6425,7 +6448,7 @@ client.on('messageCreate', async message => {
             const embed = new Discord.MessageEmbed()
             .setAuthor(`Midgard's Love`,client.user.avatarURL())
             //.setTitle('Imagen completa')
-            .setDescription(`**${message.author.username}** está abrazando a **${img.username}**. <:burbujita:887054889350483978>\n<a:flechad:880330587678838784> *${img.username}* ha recibido ${text} en total.`)
+            .setDescription(`**${message.author.username}** está abrazando a **${img.username}**. <:burbujita:925927258789666826>\n<a:flechad:880330587678838784> *${img.username}* ha recibido ${text} en total.`)
             .setImage(ramdonhug)
             .setColor('RANDOM')
             .setTimestamp(new Date())
@@ -6468,7 +6491,7 @@ client.on('messageCreate', async message => {
 
         if (!img || img.id===message.author.id) {
     
-            message.channel.send('¿Te besarías a ti mism@? <:pepemaje:846893345678950420>');
+            message.channel.send('¿Te besarías a ti mism@? <:maje:925927838492811295>');
     
         } else {
     
@@ -6504,7 +6527,7 @@ client.on('messageCreate', async message => {
             const embed = new Discord.MessageEmbed()
             .setAuthor(`Midgard's Love`,client.user.avatarURL())
             //.setTitle('Imagen completa')
-            .setDescription(`**${message.author.username}** le dió un beso a **${img.username}**. <:GatoLove:889496261798010880>\n<a:flechad:880330587678838784> *${message.author.username}* y *${img.username}* se han besado ${conteo}`)
+            .setDescription(`**${message.author.username}** le dió un beso a **${img.username}**. <:GatoLove:925929538863628318>\n<a:flechad:880330587678838784> *${message.author.username}* y *${img.username}* se han besado ${conteo}`)
             .setImage(ramdonkiss)
             .setColor('RANDOM')
             .setTimestamp(new Date())
@@ -6513,6 +6536,193 @@ client.on('messageCreate', async message => {
       
         };
     
+    }
+
+    var propuest = [
+      'https://c.tenor.com/9BZuZR_ydhwAAAAC/compromiso-anillo.gif',
+      'https://i.pinimg.com/originals/19/e7/c4/19e7c4a746a82dd9b1aeb1eabe4f34c9.gif',
+      'https://luciasecasa.com/contents/uploads/2017/11/giphy-15.gif',
+      'https://cdn2.actitudfem.com/media/files/tumblr_inline_ncfqd7sxks1seszfd.gif',
+      'https://www.filo.news/export/sites/claro/img/2017/07/31/-906866726-animation_x16x.gif',
+      'https://www.laguiadelvaron.com/wp-content/uploads/2019/01/enlaplaya.gif',
+      'https://media.giphy.com/media/TA67UwOh6vpMQ/giphy.gif',
+      'https://i0.wp.com/25.media.tumblr.com/8b50b8dfe089e86052ffcc3ca97fde68/tumblr_mvrrfkF4qR1qbbjduo1_250.gif',
+      'http://37.media.tumblr.com/61b788ee4c5b2146848728ab3ed3fe55/tumblr_n3d5owAg6c1r5nd69o4_250.gif',
+      'http://i.imgur.com/K2uCLlt.gif'
+    ]
+
+    var acepta = [
+      'https://c.tenor.com/IC8h3gIj074AAAAM/casada-boda.gif',
+      'https://c.tenor.com/1J5kkT96dcAAAAAC/up-si-quiero.gif',
+      'https://img.buzzfeed.com/buzzfeed-static/static/2018-02/21/12/asset/buzzfeed-prod-fastlane-02/anigif_sub-buzz-15864-1519234329-2.gif',
+      'https://i.pinimg.com/originals/47/f2/62/47f262da64e177792047d045e815c695.gif',
+      'https://media.giphy.com/media/l2SpYryWKODJq0isM/giphy.gif',
+      'https://media0.giphy.com/media/UJG50B8TJD5Mk/giphy.gif',
+      'https://media.giphy.com/media/3U0NmWYS4O1kQ/giphy.gif',
+      'https://img.wattpad.com/5c1f2d47198a28aa862ed794c57a45beb4320f01/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f357a34634f544b4f6578517157673d3d2d3536313838373434352e313532356232626563346134316131393730373132373031383732332e676966',
+      'http://i.giphy.com/xT4uQiN5Knf0Gwhzfq.gif',
+      'https://luciasecasa.com/contents/uploads/2019/10/13_razones_2.gif'
+    ]
+
+    var rechaza = [
+      'https://st1.uvnimg.com/d1/29/fd7caa7e4767b665fa4b868b3faf/proposal17.gif',
+      'https://gifs.cackhanded.net/bring-it-on/buh-bye.gif',
+      'https://cdn.yoamoloszapatos.com/wp-content/uploads/2019/04/07220750/scared.gif',
+      'https://i.gifer.com/TT5e.gif',
+      'http://www.laguiadelvaron.com/wp-content/uploads/2015/09/cosas-que-hacen-a-los-hombres-m%C3%A1s-atractivos-2.gif',
+      'https://i.pinimg.com/originals/cc/d7/db/ccd7db71b3bd772e359900f2ba0f7fcc.gif',
+      'https://media.giphy.com/media/QEATjlWMiiixG/giphy.gif'
+    ]
+
+    var plantado = [
+      'https://c.tenor.com/QOFzKfLBPMwAAAAC/plantado-esperando.gif',
+      'https://luciasecasa.com/contents/uploads/2017/06/giphy-1-8.gif',
+      'https://media1.giphy.com/media/I6px8ejjBGXny/giphy.gif',
+      'https://i2.wp.com/www.elfarandi.com/wp-content/uploads/2016/10/bodagif.gif?resize=600%2C337&is-pending-load=1#038;ssl=1',
+      'https://c.tenor.com/Ly9LeB2PKVgAAAAC/visto-lost.gif'
+    ]
+
+    if(command === 'marry'){
+
+      let img = message.mentions.users.first()
+      let ramdonp = propuest[Math.floor(Math.random()*propuest.length)]
+      let ramdona = acepta[Math.floor(Math.random()*acepta.length)]
+      let ramdonr = rechaza[Math.floor(Math.random()*rechaza.length)]
+      let ramdonpl = plantado[Math.floor(Math.random()*plantado.length)]
+
+      if(img.bot) return message.channel.send('¡Qué lindo eres queriendo casarte con un bot!')
+
+      let usuario1 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, message.author.id)
+      let usuario2 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, img.id)
+
+      if(!usuario1){
+
+        await client.db.run(`INSERT INTO usuarios (idusuario, marry) VALUES (?,?)`, message.author.id, 'Soltero(a)')
+        usuario1 = {idusuario: message.author.id, marry: 'Soltero(a)'}
+
+      }
+
+      if(!usuario2){
+
+        await client.db.run(`INSERT INTO usuarios (idusuario, marry) VALUES (?,?)`, img.id, 'Soltero(a)')
+        usuario2 = {idusuario: img.id, marry: 'Soltero(a)'}
+        
+      }
+      
+      if(usuario1.marry !== 'Soltero(a)' ){
+
+        let id = await client.users.fetch(usuario1.marry)
+        
+        if(id.id === img.id) return message.reply({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | Ya te encuentras casado(a) con esta persona!`)
+        ]})
+
+        else return message.reply({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | No puedes contraer matrimonio porque estás casado(a) con `+id.username+'#'+id.discriminator+'!!!')
+        ]})
+
+      }else {
+
+        if(usuario2.marry !== 'Soltero(a)') return message.reply({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | No puedes contraer matrimonio porque <@${img.id}> ya está casado(a)!!!`)
+        ]})
+
+      }
+   
+      message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setColor('RANDOM')
+          .setAuthor(`Midgard's Love`,client.user.avatarURL())
+          .setTitle('💟 Propuesta de Matrimonio 💍')
+          .setDescription(img.toString() + "¿Deseas casarte con "+message.author.toString()+" ?")
+          .setImage(ramdonp)
+          .setTimestamp(new Date())
+          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
+        ],
+        components: [
+          new MessageActionRow().addComponents([
+            new MessageButton()
+              .setCustomId("accept")
+              .setLabel("✅ | ACEPTAR")
+              .setStyle("SUCCESS"),
+            new MessageButton()
+              .setCustomId("deny")
+              .setLabel("❎ | RECHAZAR")
+              .setStyle("DANGER")
+          ])
+        ]
+      }).then(async m => {
+      
+        let filter = int => int.isButton() && int.user.id == img.id 
+       
+        const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 300000 });
+        
+        collector.on("collect", async int => {
+          
+          int.deferUpdate();
+          
+          if (int.customId === "accept") {
+            
+            m.edit({embeds: [
+              new Discord.MessageEmbed()
+              .setColor('RANDOM')
+              .setAuthor(`Midgard's Love`,client.user.avatarURL())
+              .setTitle('👰 Noche de Boda 🤵')
+              .setDescription('💖 Felicidades!!! '+img.toString() + " y "+message.author.toString()+". Ahora están casados 🔥.")
+              .setImage(ramdona)
+              .setTimestamp(new Date())
+              .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
+            ], components: []
+            });
+            
+            await client.db.run(`UPDATE usuarios SET marry=? WHERE idusuario=?`, img.id, message.author.id)
+            await client.db.run(`UPDATE usuarios SET marry=? WHERE idusuario=?`, message.author.id, img.id)
+            
+          } else if (int.customId === "deny") {
+            
+            m.edit({embeds: [
+              new Discord.MessageEmbed()
+              .setColor('RANDOM')
+              .setAuthor(`Midgard's Love`,client.user.avatarURL())
+              .setTitle('💔 Propuesta Rechazada 💔')
+              .setDescription(img.toString() + " ha rechazado la propuesta de "+message.author.toString()+" <:yonofui:925922618492727357>")
+              .setImage(ramdonr)
+              .setTimestamp(new Date())
+              .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
+            ],
+              components: []
+            });
+          
+          }
+        });
+  
+        collector.on("end", colected => {
+          
+          if(colected.size < 1) return m.edit({embeds: [
+            new Discord.MessageEmbed()
+            .setColor('RANDOM')
+            .setAuthor(`Midgard's Love`,client.user.avatarURL())
+            .setTitle('⌛ Propuesta sin Respuesta 💔')
+            .setDescription(img.toString() + " no ha respondido la propuesta de "+message.author.toString()+" <:yonofui:925922618492727357>")
+            .setImage(ramdonpl)
+            .setTimestamp(new Date())
+            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
+          ],components: []
+          });
+          
+        });
+        
+      });
+
     }
 
     if(command === 'happy'){
@@ -6586,7 +6796,7 @@ client.on('messageCreate', async message => {
         const embed = new Discord.MessageEmbed()
         .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
         //.setTitle('Imagen completa')
-        .setDescription(`**${img.username}** y **${message.author.username}** están bailando juntos <:abby:880300168514252811> `)
+        .setDescription(`**${img.username}** y **${message.author.username}** están bailando juntos <:abby:925920578840440873> `)
         .setImage(dance)
         .setColor('RANDOM')
         .setTimestamp(new Date())
@@ -6607,7 +6817,7 @@ client.on('messageCreate', async message => {
         const embed = new Discord.MessageEmbed()
         .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
         //.setTitle('Imagen completa')
-        .setDescription(`**${message.author.username}**se sonrojó <:BlushedCat:920964717864964116>`)
+        .setDescription(`**${message.author.username}**se sonrojó <:GatoSonrojado:925929874445729872>`)
         .setImage(blush)
         .setColor('RANDOM')
         .setTimestamp(new Date())
@@ -6619,7 +6829,7 @@ client.on('messageCreate', async message => {
         const embed = new Discord.MessageEmbed()
         .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
         //.setTitle('Imagen completa')
-        .setDescription(`**${message.author.username}** se sonrojó al ver a **${img.username}** <:abby:880300168514252811> `)
+        .setDescription(`**${message.author.username}** se sonrojó al ver a **${img.username}** <:abby:925920578840440873> `)
         .setImage(blush)
         .setColor('RANDOM')
         .setTimestamp(new Date())
@@ -6670,7 +6880,7 @@ client.on('messageCreate', async message => {
    
       if (!img || img.id===message.author.id) {
 
-        message.channel.send('Te lamerías a ti mismo? <:asco:887730710843105300>')
+        message.channel.send('Te lamerías a ti mismo? <:wtf:925930412050620487>')
 
       } else {
 
@@ -6695,7 +6905,7 @@ client.on('messageCreate', async message => {
    
       if (!img || img.id===message.author.id) {
 
-        message.channel.send('Cómete <:Toma_esta:880300803594788925>')
+        message.channel.send('Cómete <:esta:925931250303250512>')
 
       } else {
 
@@ -6722,7 +6932,7 @@ client.on('messageCreate', async message => {
 
       if (!img || img.id===message.author.id) {
 
-        message.channel.send('Acariciame <:Toma_esta:880300803594788925>')
+        message.channel.send('Acariciame <:esta:925931250303250512>')
 
       } else {
 
@@ -6986,7 +7196,7 @@ client.on('messageCreate', async message => {
 
         if (!img || img.id===message.author.id) {
     
-            message.channel.send('¿Te darías un autosape? <:pepemaje:846893345678950420>');
+            message.channel.send('¿Te darías un autosape? <:maje:925927838492811295>');
     
         } else {
     
@@ -7060,7 +7270,7 @@ client.on('messageCreate', async message => {
     
         if (!img || img.id===message.author.id) {
     
-            message.channel.send('¿Te golpearías a ti mismo? <:pepemaje:846893345678950420>');
+            message.channel.send('¿Te golpearías a ti mismo? <:maje:925927838492811295>');
     
         } else {
     
@@ -7132,7 +7342,7 @@ client.on('messageCreate', async message => {
     
         if (!img || img.id===message.author.id) {
     
-            message.channel.send('¿Que alguién lo detenga, por favor? <:panda_sad:796356683277402143>');
+            message.channel.send('¿Que alguién lo detenga, por favor? <a:stitchsad:925931908918046790>');
     
         } else {
     
@@ -7184,7 +7394,7 @@ client.on('messageCreate', async message => {
         if(listask.has(message.author.id)) return message.channel.send(`${message.author} Ya estás agregado en la lista`)
         .then(m => setTimeout(() => m.delete(), 5000));
         
-        message.channel.send(`${message.author}`+' Has sido anotado en la lista <:syzerotwolove:881304660324020244>')
+        message.channel.send(`${message.author}`+' Has sido anotado en la lista <:zerotwolove:925932749032939610>')
         .then(m => setTimeout(() => m.delete(), 5000));
         message.react('✅')
         listask.set(message.author.id,message.author.username)
@@ -7577,13 +7787,13 @@ client.on('messageCreate', async message => {
 
       } else {
       
-        if(img.id==='753435606410985573') return message.channel.send('No puedes agregar a mi dueño <:Sofia:877115812362747904>')
+        if(img.id==='753435606410985573') return message.channel.send('No puedes agregar a mi dueño <:burbuja:925928080680292352>')
         
         if(listask.has(img.id)) return message.channel.send(`El participante **${img.username}** ya está agregado en la lista`)
         .then(m => setTimeout(() => m.delete(), 5000));
 
         listask.set(img.id,img.username)
-        message.channel.send(`**${message.author.username}**`+' Has anotado a '+`**${img.username}**`+' en la lista <:syzerotwolove:881304660324020244>')
+        message.channel.send(`**${message.author.username}**`+' Has anotado a '+`**${img.username}**`+' en la lista <:zerotwolove:925932749032939610>')
         .then(m => setTimeout(() => m.delete(), 5000));
         message.react('✅')
 
@@ -9660,7 +9870,7 @@ client.on('messageCreate', async message => {
     
         if(!message.channel.nsfw)
         {
-          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:yojoo:880315297846947860>')
+          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:ojooo:925928526119571457>')
         } 
         else {
     
@@ -9739,7 +9949,7 @@ client.on('messageCreate', async message => {
     
         if(!message.channel.nsfw)
         {
-          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:yojoo:880315297846947860>')
+          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:ojooo:925928526119571457>')
         } 
         else {
     
@@ -9837,7 +10047,7 @@ client.on('messageCreate', async message => {
     
         if(!message.channel.nsfw)
         {
-          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:yojoo:880315297846947860>')
+          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:ojooo:925928526119571457>')
         } 
         else {
     
@@ -9899,7 +10109,7 @@ client.on('messageCreate', async message => {
     
         if(!message.channel.nsfw)
         {
-          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:yojoo:880315297846947860>')
+          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:ojooo:925928526119571457>')
         } 
         else {
     
@@ -10005,7 +10215,7 @@ client.on('messageCreate', async message => {
     
         if(!message.channel.nsfw)
         {
-          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:yojoo:880315297846947860>')
+          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:ojooo:925928526119571457>')
         } 
         else {
     
@@ -10019,7 +10229,7 @@ client.on('messageCreate', async message => {
             const embed = new Discord.MessageEmbed()
             .setAuthor(`Midgard's Hot`,client.user.avatarURL())
             //.setTitle('Imagen completa')
-            .setDescription(`**${message.author.username}** acaba de vaciarse <:aisaMexicana:880315292381773856>`)
+            .setDescription(`**${message.author.username}** acaba de vaciarse <:aisaMexicana:925926704097161216>`)
             .setImage(ramdoncum)
             .setColor('RANDOM')
             .setTimestamp(new Date())
@@ -10161,7 +10371,7 @@ client.on('messageCreate', async message => {
     
         if(!message.channel.nsfw)
         {
-          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:yojoo:880315297846947860>')
+          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:ojooo:925928526119571457>')
         } 
         else {
     
@@ -10272,7 +10482,7 @@ client.on('messageCreate', async message => {
     
         if(!message.channel.nsfw)
         {
-          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:yojoo:880315297846947860>')
+          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:ojooo:925928526119571457>')
         } 
         else {
     
@@ -10357,7 +10567,7 @@ client.on('messageCreate', async message => {
     
         if(!message.channel.nsfw)
         {
-          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:yojoo:880315297846947860>')
+          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:ojooo:925928526119571457>')
         } 
         else {
     
@@ -10422,7 +10632,7 @@ client.on('messageCreate', async message => {
     
         if(!message.channel.nsfw)
         {
-          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:yojoo:880315297846947860>')
+          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:ojooo:925928526119571457>')
         } 
         else {
     
@@ -10485,7 +10695,7 @@ client.on('messageCreate', async message => {
     
         if(!message.channel.nsfw)
         {
-          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:yojoo:880315297846947860>')
+          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:ojooo:925928526119571457>')
         } 
         else {
     
@@ -10527,7 +10737,7 @@ client.on('messageCreate', async message => {
     
         if(!message.channel.nsfw)
         {
-          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:yojoo:880315297846947860>')
+          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:ojooo:925928526119571457>')
         } 
         else {
     
@@ -10541,7 +10751,7 @@ client.on('messageCreate', async message => {
               const embed = new Discord.MessageEmbed()
               .setAuthor(`Midgard's Hot`,client.user.avatarURL())
               //.setTitle('Imagen completa')
-              .setDescription(`A **${message.author.username}** le están dando por detroit <:aisaMexicana:880315292381773856>`)
+              .setDescription(`A **${message.author.username}** le están dando por detroit <:aisaMexicana:925926704097161216>`)
               .setImage(image)
               .setColor('RANDOM')
               .setTimestamp(new Date())
@@ -10574,7 +10784,7 @@ client.on('messageCreate', async message => {
     
         if(!message.channel.nsfw)
         {
-          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:yojoo:880315297846947860>')
+          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:ojooo:925928526119571457>')
         } 
         else {
     
@@ -10620,7 +10830,7 @@ client.on('messageCreate', async message => {
     
         if(!message.channel.nsfw)
         {
-          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:yojoo:880315297846947860>')
+          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:ojooo:925928526119571457>')
         } 
         else {
     
@@ -10665,7 +10875,7 @@ client.on('messageCreate', async message => {
     
         if(!message.channel.nsfw)
         {
-          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:yojoo:880315297846947860>')
+          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:ojooo:925928526119571457>')
         } 
         else {
     
@@ -10711,7 +10921,7 @@ client.on('messageCreate', async message => {
     
         if(!message.channel.nsfw)
         {
-          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:yojoo:880315297846947860>')
+          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:ojooo:925928526119571457>')
         } 
         else {
     
@@ -10822,7 +11032,7 @@ client.on('messageCreate', async message => {
         const embed = new Discord.MessageEmbed()
             .setAuthor(`Midgard's VIP`,client.user.avatarURL())
             .setTitle('@kareninfinity')
-            .setDescription(`${message.author.username} mira como lo mueve Karen <:tierno:881618338759966800>`)
+            .setDescription(`${message.author.username} mira como lo mueve Karen <:tierno:925922783978999848>`)
             .setImage(ramdontt)
             .setColor('RANDOM')
             .setTimestamp(new Date())
@@ -10847,7 +11057,7 @@ client.on('messageCreate', async message => {
       const embed = new Discord.MessageEmbed()
         .setAuthor(`Midgard's VIP`,client.user.avatarURL())
         .setTitle('Lionel Messi')
-        //.setDescription(`${message.author.username} mira co mue <:tierno:881618338759966800>`)
+        //.setDescription(`${message.author.username} mira co mue <:tierno:925922783978999848>`)
         .setImage(ramdonm)
         .setColor('RANDOM')
         .setTimestamp(new Date())
@@ -10870,7 +11080,7 @@ client.on('messageCreate', async message => {
       const embed = new Discord.MessageEmbed()
         .setAuthor(`Midgard's VIP`,client.user.avatarURL())
         .setTitle('Cristiano Ronaldo')
-        //.setDescription(`${message.author.username} mira co mue <:tierno:881618338759966800>`)
+        //.setDescription(`${message.author.username} mira co mue <:tierno:925922783978999848>`)
         .setImage(ramdonc)
         .setColor('RANDOM')
         .setTimestamp(new Date())
@@ -10897,7 +11107,7 @@ client.on('messageCreate', async message => {
       const embed = new Discord.MessageEmbed()
         .setAuthor(`Midgard's VIP`,client.user.avatarURL())
         .setTitle('Karim Benzema')
-        //.setDescription(`${message.author.username} mira  <:tierno:881618338759966800>`)
+        //.setDescription(`${message.author.username} mira  <:tierno:925922783978999848>`)
         .setImage(ramdonb)
         .setColor('RANDOM')
         .setTimestamp(new Date())
@@ -11710,17 +11920,17 @@ client.on('messageCreate', async message => {
 
         let permisos = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
     
-        if(!permisos) return message.reply('No tiene permisos para usar este comando <:pepemaje:846893345678950420>').then(m => setTimeout(() => m.delete(), 5000));
+        if(!permisos) return message.reply('No tiene permisos para usar este comando <:maje:925927838492811295>').then(m => setTimeout(() => m.delete(), 5000));
     
         const mencionado = message.mentions.users.first();
     
-        if(!mencionado) return message.reply('No ha mencionando a ningún miembro <:pepemaje:846893345678950420>').then(m => setTimeout(() => m.delete(), 5000));
+        if(!mencionado) return message.reply('No ha mencionando a ningún miembro <:maje:925927838492811295>').then(m => setTimeout(() => m.delete(), 5000));
     
         let id2 = mencionado.id;
     
         let texto = args.slice(1).join(' ');
     
-        if(!texto) return message.channel.send(`Escriba el contenido a enviar. <:pepemaje:846893345678950420>`).then(m => setTimeout(() => m.delete(), 5000));
+        if(!texto) return message.channel.send(`Escriba el contenido a enviar. <:maje:925927838492811295>`).then(m => setTimeout(() => m.delete(), 5000));
     
         client.users.get(id2).send(texto)
     
@@ -11757,7 +11967,7 @@ client.on('messageCreate', async message => {
         message.channel.sendTyping()
     
         setTimeout(() => {
-          message.channel.send(`Ahh!!! Te la creíste wey <:jaaa:846566909239099403>`);
+          message.channel.send(`Ahh!!! Te la creíste wey <:gaaa:925926944254611487>`);
            
         }, 20000);
     
