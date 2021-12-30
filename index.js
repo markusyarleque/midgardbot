@@ -11986,11 +11986,11 @@ client.on('messageCreate', async message => {
         <a:sparkless:880922179280207934> Para ver el avatar de cualquier Terrícola, deberás pedir el permiso correspondiente, caso contrario, serás muteado de todos los canales de texto por un tiempo definido por el Staff.\n\n
         <a:sparkless:880922179280207934> Los nombres de usuario, apodos o avatares con contenido sexual explícito o violento **NO** están permitidos. La omisión de esta regla, te puede llevar hasta el baneo indefinido del servidor.\n\n
         <a:sparkless:880922179280207934> Tampoco está permitido el acoso, bullying, amenazas, lenguaje violento u ofensivo, xenofobia, homofobia ni cualquier tipo de discriminación.\n\n
-        <a:sparkless:880922179280207934> Por un ambiente tranquilo, **NO** toleramos ningún tipo de sonido molesto, ni entrar y salir constantemente de los canales de voz.\n\
+        <a:sparkless:880922179280207934> Por un ambiente tranquilo, **NO** toleramos ningún tipo de sonido molesto, ni entrar y salir constantemente de los canales de voz.\n\N
         <a:sparkless:880922179280207934> Si un miembro de Staff pide cambiar el tema de conversación por considerarlo inapropiado, se deberá hacer, caso contrario, recibirás una sanción correspondiente. Pero si crees que ha habido un abuso de poder, puedes y debes reportarlo en cualquier momento.`)
         .setImage(`https://media.discordapp.net/attachments/840161683732693033/880298925574193162/reglas-del-juego-game-rules.gif?width=448&height=252`)
         .setColor("GREEN")
-        .setFooter('**Pásala bien y Diviértete!**')
+        .setFooter('¡Pásala bien y Diviértete!')
        message.channel.send({embeds: [embed]});
        setTimeout(() => message.delete(), 100)
     } 
