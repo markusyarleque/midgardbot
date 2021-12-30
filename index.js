@@ -1356,7 +1356,6 @@ client.on('messageCreate', async message => {
 
           for(let ls of lista){
 
-            let id = await client.users.fetch(idm)
             let usuario = client.users.resolve(ls.idusuario)
             datos.push('**'+c+'.** <@' + usuario.id + '> <a:flechad:880330587678838784> **'+ls.hug+'**')
             c = c + 1
