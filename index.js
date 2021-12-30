@@ -59,7 +59,7 @@ const sqlite3 = require('sqlite3'),
 
   })
 
-  await client.db.exec(`CREATE TABLE IF NOT EXISTS usuarios ('idusuario' INTEGER PRIMARY KEY NOT NULL, 'nivel' INTEGER DEFAULT 0, 'exp' INTEGER DEFAULT 0, 'marry' TEXT NO NULL, 'rep' INTEGER DEFAULT 0, 'pat' INTEGER DEFAULT 0, 'hug' INTEGER DEFAULT 0, 'sape' INTEGER DEFAULT 0, 'color' BLOB, 'frase' BLOB, 'foto' BLOB, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0, 'work' DATETIME,'crime' DATETIME, 'rob' DATETIME, 'daily' DATETIME, 'crep' DATETIME, 'ck' INTEGER DEFAULT 0)`)
+  await client.db.exec(`CREATE TABLE IF NOT EXISTS usuarios ('idusuario' TEXT NOT NULL, 'nivel' INTEGER DEFAULT 0, 'exp' INTEGER DEFAULT 0, 'marry' TEXT NO NULL, 'rep' INTEGER DEFAULT 0, 'pat' INTEGER DEFAULT 0, 'hug' INTEGER DEFAULT 0, 'sape' INTEGER DEFAULT 0, 'color' BLOB, 'frase' BLOB, 'foto' BLOB, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0, 'work' DATETIME,'crime' DATETIME, 'rob' DATETIME, 'daily' DATETIME, 'crep' DATETIME, 'ck' INTEGER DEFAULT 0)`)
   await client.db.exec(`CREATE TABLE IF NOT EXISTS kiss ('idkiss' INTEGER PRIMARY KEY AUTOINCREMENT, 'u1' TEXT NOT NULL, 'u2' TEXT NOT NULL, 'c' INTEGER DEFAULT 0)`)
   
 })();
@@ -1348,8 +1348,6 @@ client.on('messageCreate', async message => {
             .setFooter(`MidgardBot`,client.user.avatarURL())
           ]})
 
-          else{
-
           let embed = new Discord.MessageEmbed()
 
           let datos = [];
@@ -1358,6 +1356,7 @@ client.on('messageCreate', async message => {
 
           for(let ls of lista){
 
+            let id = await client.users.fetch(idm)
             let usuario = client.users.resolve(ls.idusuario)
             datos.push('**'+c+'.** <@' + usuario.id + '> <a:flechad:880330587678838784> **'+ls.hug+'**')
             c = c + 1
@@ -1368,7 +1367,6 @@ client.on('messageCreate', async message => {
           embed.setColor("RANDOM")
           embed.setFooter(`MidgardBot`,client.user.avatarURL())
           message.channel.send({ embeds: [embed] });
-        }
 
         }  else if(args[0].toLowerCase() === 'sape'){
         
