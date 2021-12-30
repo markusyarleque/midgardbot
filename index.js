@@ -1348,6 +1348,8 @@ client.on('messageCreate', async message => {
             .setFooter(`MidgardBot`,client.user.avatarURL())
           ]})
 
+          else{
+
           let embed = new Discord.MessageEmbed()
 
           let datos = [];
@@ -1366,6 +1368,7 @@ client.on('messageCreate', async message => {
           embed.setColor("RANDOM")
           embed.setFooter(`MidgardBot`,client.user.avatarURL())
           message.channel.send({ embeds: [embed] });
+        }
 
         }  else if(args[0].toLowerCase() === 'sape'){
         
