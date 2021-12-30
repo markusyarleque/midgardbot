@@ -6461,12 +6461,13 @@ client.on('messageCreate', async message => {
             if(!consulta2){
 
               await client.db.run(`INSERT INTO kiss (u1, u2, c) VALUES (?,?,?)`, message.author.id, img.id, 0)
-              consulta2 = {u1: message.author.id, u2: img.id, c: 0}
-            }
+              consulta1 = {u1: message.author.id, u2: img.id, c: 0}
+            } else {
 
-            await client.db.run(`UPDATE kiss SET c=c+? WHERE u1=? AND u2=?`, 1, img.id, message.author.id)
+              await client.db.run(`UPDATE kiss SET c=c+? WHERE u1=? AND u2=?`, 1, img.id, message.author.id)
         
-            conteo=(consulta2.c+1)
+              conteo=(consulta2.c+1)
+            }
           }
 
           await client.db.run(`UPDATE kiss SET c=c+? WHERE u1=? AND u2=?`, 1, message.author.id, img.id)
