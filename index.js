@@ -6560,11 +6560,15 @@ client.on('messageCreate', async message => {
 
             await client.db.run(`INSERT INTO kiss (u1, u2, c) VALUES (?,?,?)`, message.author.id, img.id, 0)
             consulta1 = {u1: message.author.id, u2: img.id, c: 0}
+            
+            await client.db.run(`UPDATE kiss SET c=c+? WHERE u1=? AND u2=?`, 1, message.author.id, img.id)
+            
+            conteo=(consulta1.c+1)
 
           } else {
 
             await client.db.run(`UPDATE kiss SET c=c+? WHERE u1=? AND u2=?`, 1, img.id, message.author.id)
-        
+            
             conteo=(consulta2.c+1)
           }
         } else {
@@ -6574,7 +6578,7 @@ client.on('messageCreate', async message => {
           console.log('conteo: '+consulta1.c+' ... c: '+(consulta1.c+1))
           conteo=(consulta1.c+1)
         }
-        
+
         if(conteo === 1){
           conteo='**'+conteo+'** vez.'
         }else {
