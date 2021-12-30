@@ -6487,7 +6487,7 @@ client.on('messageCreate', async message => {
         let img = message.mentions.users.first()
         let ramdonkiss = kiss[Math.floor(Math.random()*kiss.length)]
 
-        if(img.bot) return message.channel.send('¡Qué lindo eres besando a un bot!')
+        if(img.bot()) return message.channel.send('¡Qué lindo eres besando a un bot!')
 
         if (!img || img.id===message.author.id) {
     
