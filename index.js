@@ -6487,54 +6487,48 @@ client.on('messageCreate', async message => {
         let img = message.mentions.users.first()
         let ramdonkiss = kiss[Math.floor(Math.random()*kiss.length)]
 
-        if(img.bot()) return message.channel.send('¡Qué lindo eres besando a un bot!')
-
-        if (!img || img.id===message.author.id) {
+        if (!img || img.id===message.author.id) return message.channel.send('¿Te besarías a ti mism@? <:maje:925927838492811295>');
     
-            message.channel.send('¿Te besarías a ti mism@? <:maje:925927838492811295>');
-    
-        } else {
-    
-          let consulta1 = await client.db.get(`SELECT * FROM kiss WHERE u1 = ? AND u2 = ?`, message.author.id, img.id)
-          let conteo
+        if(img.bot) return message.channel.send('¡Qué lindo eres besando a un bot!')
 
-          if(!consulta1){
+        let consulta1 = await client.db.get(`SELECT * FROM kiss WHERE u1 = ? AND u2 = ?`, message.author.id, img.id)
+        let conteo
 
-            let consulta2 = await client.db.get(`SELECT * FROM kiss WHERE u1 = ? AND u2 = ?`, img.id, message.author.id)
+        if(!consulta1){
 
-            if(!consulta2){
+          let consulta2 = await client.db.get(`SELECT * FROM kiss WHERE u1 = ? AND u2 = ?`, img.id, message.author.id)
 
-              await client.db.run(`INSERT INTO kiss (u1, u2, c) VALUES (?,?,?)`, message.author.id, img.id, 0)
-              consulta1 = {u1: message.author.id, u2: img.id, c: 0}
-            } else {
+          if(!consulta2){
 
-              await client.db.run(`UPDATE kiss SET c=c+? WHERE u1=? AND u2=?`, 1, img.id, message.author.id)
+            await client.db.run(`INSERT INTO kiss (u1, u2, c) VALUES (?,?,?)`, message.author.id, img.id, 0)
+            consulta1 = {u1: message.author.id, u2: img.id, c: 0}
+          } else {
+
+            await client.db.run(`UPDATE kiss SET c=c+? WHERE u1=? AND u2=?`, 1, img.id, message.author.id)
         
-              conteo=(consulta2.c+1)
-            }
+            conteo=(consulta2.c+1)
           }
+        }
 
-          await client.db.run(`UPDATE kiss SET c=c+? WHERE u1=? AND u2=?`, 1, message.author.id, img.id)
+        await client.db.run(`UPDATE kiss SET c=c+? WHERE u1=? AND u2=?`, 1, message.author.id, img.id)
 
-          conteo=(consulta1.c+1)
+        conteo=(consulta1.c+1)
 
-          if(conteo === 1){
-            conteo='**'+conteo+'** vez.'
-          }else {
-            conteo='**'+conteo+'** veces.'
-          }
+        if(conteo === 1){
+          conteo='**'+conteo+'** vez.'
+        }else {
+          conteo='**'+conteo+'** veces.'
+        }
 
-            const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Love`,client.user.avatarURL())
-            //.setTitle('Imagen completa')
-            .setDescription(`**${message.author.username}** le dió un beso a **${img.username}**. <:GatoLove:925929538863628318>\n<a:flechad:880330587678838784> *${message.author.username}* y *${img.username}* se han besado ${conteo}`)
-            .setImage(ramdonkiss)
-            .setColor('RANDOM')
-            .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-            message.channel.send({ embeds: [embed] });
-      
-        };
+          const embed = new Discord.MessageEmbed()
+          .setAuthor(`Midgard's Love`,client.user.avatarURL())
+          //.setTitle('Imagen completa')
+          .setDescription(`**${message.author.username}** le dió un beso a **${img.username}**. <:GatoLove:925929538863628318>\n<a:flechad:880330587678838784> *${message.author.username}* y *${img.username}* se han besado ${conteo}`)
+          .setImage(ramdonkiss)
+          .setColor('RANDOM')
+          .setTimestamp(new Date())
+          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          message.channel.send({ embeds: [embed] });
     
     }
 
