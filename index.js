@@ -11970,7 +11970,7 @@ client.on('messageCreate', async message => {
 
     if (message.content.startsWith(prefix +"reglas")){
 
-      let permiso = message.member.hasPermission("ADMINISTRATOR");
+      let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
   
       if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
   
