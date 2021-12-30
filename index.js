@@ -6590,6 +6590,8 @@ client.on('messageCreate', async message => {
       let ramdonr = rechaza[Math.floor(Math.random()*rechaza.length)]
       let ramdonpl = plantado[Math.floor(Math.random()*plantado.length)]
 
+      if(!img || img.id === message.author.id) return message.channel.send('¡Debes mencionar a alguien!')
+
       if(img.bot) return message.channel.send('¡Qué lindo eres queriendo casarte con un bot!')
 
       let usuario1 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, message.author.id)
@@ -6608,23 +6610,23 @@ client.on('messageCreate', async message => {
         usuario2 = {idusuario: img.id, marry: 'Soltero(a)'}
         
       }
-      
+
       if(usuario1.marry !== 'Soltero(a)' ){
 
         let id = await client.users.fetch(usuario1.marry)
         
-        if(id.id === img.id) return message.reply({embeds: [
+        if(id.id === img.id) return message.channel.send({embeds: [
           new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('RED')
-          .setDescription(`<a:Verify2:880315278347616329> | Ya te encuentras casado(a) con esta persona!`)
+          .setDescription(`<:GatoLove:925929538863628318> | Que lindo(a) eres! Ya estás casado(a) con **`+img.username+'** <:yonofui:925922618492727357>')
         ]})
 
         else return message.reply({embeds: [
           new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('RED')
-          .setDescription(`<a:Verify2:880315278347616329> | No puedes contraer matrimonio porque estás casado(a) con `+id.username+'#'+id.discriminator+'!!!')
+          .setDescription(`<a:Verify2:880315278347616329> | No puedes contraer matrimonio porque estás casado(a) con **`+id.username+'#'+id.discriminator+'**!!!')
         ]})
 
       }else {
