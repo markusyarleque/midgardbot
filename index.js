@@ -749,7 +749,7 @@ client.on('messageCreate', async message => {
 
       if(curLevel > sentencia.nivel) {
 
-        await client.db.run(`UPDATE usuarios SET exp = ${sentencia.exp + 1}, nivel = ${curLevel}, banco = ${sentencia.banco+100}, total = ${sentencia.dinero+sentencia.banco+100} WHERE idusuario = ${id}`)
+        await client.db.run(`UPDATE usuarios SET exp = ${sentencia.exp + 1}, nivel = ${curLevel}, banco = ${sentencia.banco+500}, total = ${sentencia.dinero+sentencia.banco+500} WHERE idusuario = ${id}`)
 
         //let update = `UPDATE usuarios SET exp = ${filas.exp + 1}, nivel = ${curLevel} WHERE idusuario = ${id}`;
 
@@ -761,7 +761,7 @@ client.on('messageCreate', async message => {
 
       }
 
-      await client.db.run(`UPDATE usuarios SET exp = ${sentencia.exp + 1}, dinero = ${sentencia.dinero + 10}, total = ${sentencia.dinero+sentencia.banco+10} WHERE idusuario = ${id}`)
+      await client.db.run(`UPDATE usuarios SET exp = ${sentencia.exp + 1}, dinero = ${sentencia.dinero + 15}, total = ${sentencia.dinero+sentencia.banco+15} WHERE idusuario = ${id}`)
 
       //let update = `UPDATE usuarios SET exp = ${filas.exp + 1} WHERE idusuario = ${id}`;
       
@@ -1414,7 +1414,8 @@ client.on('messageCreate', async message => {
         ]})
 
         let usuario1 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, id.id)
-        
+        let text
+
         if(!usuario1){
 
           await client.db.run(`INSERT INTO usuarios (idusuario, rep) VALUES (?,?)`, id.id,0)
@@ -1431,13 +1432,19 @@ client.on('messageCreate', async message => {
   
         }
   
+        if((usuario1.rep+1) === 1){
+          text = '`'+(usuario1.rep+1)+'` punto'
+        } else{
+          text = '`'+(usuario1.rep+1)+'` puntos'
+        }
+
         const server = message.guild
   
         const e = new Discord.MessageEmbed()
         .setAuthor(server.name, server.iconURL({ dynamic: true }))
         .setTitle('Carisma Diario 💟')
         .setColor('RANDOM')
-        .setDescription(`Felicidades! | <@${id.id}> | Has recibido **1** punto de carisma.\n`+'Ahora tienes `'+(usuario1.rep+1)+'` puntos!')
+        .setDescription(`Felicidades! | <@${id.id}> | Has recibido **1** punto de carisma.\n`+'Ahora tienes '+text+' en total!')
         .setTimestamp()
         .setFooter(`MidgardBot`,client.user.avatarURL())
         
@@ -1499,7 +1506,8 @@ client.on('messageCreate', async message => {
         ]})
 
         let usuario1 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, usuario.id)
-       
+        let text
+
         if(!usuario1){
 
           await client.db.run(`INSERT INTO usuarios (idusuario,rep) VALUES (?,?)`, usuario.id, 0)
@@ -1515,6 +1523,12 @@ client.on('messageCreate', async message => {
           message.author.send('<a:exclama2:880930071731392512> | ¡Ya puedes volver a dar rep!')
   
         }
+
+        if((usuario1.rep+1) === 1){
+          text = '`'+(usuario1.rep+1)+'` punto'
+        } else{
+          text = '`'+(usuario1.rep+1)+'` puntos'
+        }
   
         const server = message.guild
   
@@ -1522,7 +1536,7 @@ client.on('messageCreate', async message => {
         .setAuthor(server.name, server.iconURL({ dynamic: true }))
         .setTitle('Carisma Diario 💟')
         .setColor('RANDOM')
-        .setDescription(`Felicidades! | <@${usuario.id}> | Has recibido **1** punto de carisma.\n`+'Ahora tienes `'+(usuario1.rep+1)+'` puntos!')
+        .setDescription(`Felicidades! | <@${usuario.id}> | Has recibido **1** punto de carisma.\n`+'Ahora tienes '+text+' en total!')
         .setTimestamp()
         .setFooter(`MidgardBot`,client.user.avatarURL())
         
@@ -6392,6 +6406,7 @@ client.on('messageCreate', async message => {
         } else {
 
           let usuario2 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, img.id)
+          let text
 
           if(!usuario2){
 
@@ -6400,11 +6415,17 @@ client.on('messageCreate', async message => {
           }
     
           await client.db.run(`UPDATE usuarios SET hug=hug+? WHERE idusuario=?`, 1, img.id)
+
+          if((usuario2.hug+1) === 1){
+            text = '**'+(usuario2.hug+1)+'** abrazo'
+          } else{
+            text = '**'+(usuario2.hug+1)+'** abrazos'
+          }
         
             const embed = new Discord.MessageEmbed()
             .setAuthor(`Midgard's Love`,client.user.avatarURL())
             //.setTitle('Imagen completa')
-            .setDescription(`**${message.author.username}** está abrazando a **${img.username}**. <:burbujita:887054889350483978>\n<a:flechad:880330587678838784> *${img.username}* ha recibido **${(usuario2.hug+1)}** abrazos en total.`)
+            .setDescription(`**${message.author.username}** está abrazando a **${img.username}**. <:burbujita:887054889350483978>\n<a:flechad:880330587678838784> *${img.username}* ha recibido ${text} en total.`)
             .setImage(ramdonhug)
             .setColor('RANDOM')
             .setTimestamp(new Date())
@@ -6474,10 +6495,16 @@ client.on('messageCreate', async message => {
 
           conteo=(consulta1.c+1)
 
+          if(conteo === 1){
+            conteo='**'+conteo+'** vez.'
+          }else {
+            conteo='**'+conteo+'** veces.'
+          }
+
             const embed = new Discord.MessageEmbed()
             .setAuthor(`Midgard's Love`,client.user.avatarURL())
             //.setTitle('Imagen completa')
-            .setDescription(`**${message.author.username}** le dió un beso a **${img.username}**. <:GatoLove:889496261798010880>\n<a:flechad:880330587678838784> *${message.author.username}* y *${img.username}* se han besado **${conteo}** veces.`)
+            .setDescription(`**${message.author.username}** le dió un beso a **${img.username}**. <:GatoLove:889496261798010880>\n<a:flechad:880330587678838784> *${message.author.username}* y *${img.username}* se han besado ${conteo}`)
             .setImage(ramdonkiss)
             .setColor('RANDOM')
             .setTimestamp(new Date())
@@ -6700,6 +6727,7 @@ client.on('messageCreate', async message => {
       } else {
 
         let usuario2 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, img.id)
+        let text 
 
         if(!usuario2){
 
@@ -6708,11 +6736,16 @@ client.on('messageCreate', async message => {
         }
     
         await client.db.run(`UPDATE usuarios SET pat=pat+? WHERE idusuario=?`, 1, img.id)
-        
+
+        if((usuario2.pat+1) === 1){
+          text = '**'+(usuario2.pat+1)+'** caricia'
+        } else{
+          text = '**'+(usuario2.pat+1)+'** caricias'
+        }
         const embed = new Discord.MessageEmbed()
         .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
         //.setTitle('Imagen completa')
-        .setDescription(`**${message.author.username}** está acariciando a **${img.username}**. <a:elmo_timido:894721783066918953>\n<a:flechad:880330587678838784> *${img.username}* ha recibido **${(usuario2.pat+1)}** caricias en total.`)
+        .setDescription(`**${message.author.username}** está acariciando a **${img.username}**. <a:elmo_timido:894721783066918953>\n<a:flechad:880330587678838784> *${img.username}* ha recibido ${text} en total.`)
         .setImage(pat)
         .setColor('RANDOM')
         .setTimestamp(new Date())
@@ -6958,6 +6991,7 @@ client.on('messageCreate', async message => {
         } else {
     
           let usuario2 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, img.id)
+          let text
 
           if(!usuario2){
 
@@ -6967,10 +7001,15 @@ client.on('messageCreate', async message => {
     
           await client.db.run(`UPDATE usuarios SET sape=sape+? WHERE idusuario=?`, 1, img.id)
         
+          if((usuario2.sape+1) === 1){
+            text = '**'+(usuario2.sape+1)+'** sape'
+          } else{
+            text = '**'+(usuario2.sape+1)+'** sapes'
+          }
             const embed = new Discord.MessageEmbed()
             .setAuthor(`Midgard's Love`,client.user.avatarURL())
             //.setTitle('Imagen completa')
-            .setDescription(`**${message.author.username}** le dió un sape a **${img.username}**. <:nojao:891551822387486721>\n<a:flechad:880330587678838784> *${img.username}* ha recibido **${(usuario2.sape+1)}** sapes en total.`)
+            .setDescription(`**${message.author.username}** le dió un sape a **${img.username}**. <:nojao:891551822387486721>\n<a:flechad:880330587678838784> *${img.username}* ha recibido ${text} en total.`)
             .setImage(ramdonsape)
             .setColor('RANDOM')
             .setTimestamp(new Date())
