@@ -923,7 +923,7 @@ client.on('messageCreate', async message => {
               .addField('<a:CorazonMulticolor:880315280759345163> Abrazos', '<a:flech:915156906258071554> '+select.hug, false)
               .addField('<a:CorazonMulticolor:880315280759345163> Sapes', '<a:flech:915156906258071554> '+select.sape, false)
               //.addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>',false)
-              .addField('<a:megaphone:912163796737486908> Frase', '<a:flech:915156906258071554> '+select.frase, true)
+              .addField('<a:megaphone:912163796737486908> Frase', '<a:flech:915156906258071554> '+select.frase, false)
               .addField('<:GatoLove:925929538863628318> Matrimonio', '<a:flech:915156906258071554> '+tmarry, true)
               .addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:Dinero:880594188792635422> **Economía**',false)
               .addField(`**Total:**`, '<a:money:901702063908606004>  '+select.total, true)
