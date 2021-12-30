@@ -6570,6 +6570,7 @@ client.on('messageCreate', async message => {
 
         await client.db.run(`UPDATE kiss SET c=c+? WHERE u1=? AND u2=?`, 1, message.author.id, img.id)
 
+        console.log('conteo: '+consulta1.c+' ... c: '+(consulta1.c+1))
         conteo=(consulta1.c+1)
 
         if(conteo === 1){
