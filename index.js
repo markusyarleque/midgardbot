@@ -6451,13 +6451,32 @@ client.on('messageCreate', async message => {
     
         } else {
     
-          let usuario1 = await client.db.get(`SELECT * FROM kiss WHERE u1 = ?`, message.author.id)
-          let usuario2 = await client.db.get(`SELECT * FROM kiss WHERE u2 = ?`, img.id)
+          let consulta1 = await client.db.get(`SELECT * FROM kiss WHERE u1 = ? AND u2 = ?`, message.author.id, img.id)
+          let conteo
+
+          if(!consulta1){
+
+            let consulta2 = await client.db.get(`SELECT * FROM kiss WHERE u1 = ? AND u2 = ?`, img.id, message.author.id)
+
+            if(!consulta2){
+
+              await client.db.run(`INSERT INTO kiss (u1, u2, c) VALUES (?,?,?)`, message.author.id, img.id, 0)
+              consulta2 = {u1: message.author.id, u2: img.id, c: 0}
+            }
+
+            await client.db.run(`UPDATE kiss SET c=c+? WHERE u1=? AND u2=?`, 1, img.id, message.author.id)
+        
+            conteo=(consulta2.c+1)
+          }
+
+          await client.db.run(`UPDATE kiss SET c=c+? WHERE u1=? AND u2=?`, 1, message.author.id, img.id)
+
+          conteo=(consulta1.c+1)
 
             const embed = new Discord.MessageEmbed()
             .setAuthor(`Midgard's Love`,client.user.avatarURL())
             //.setTitle('Imagen completa')
-            .setDescription(`**${message.author.username}** le dió un beso a **${img.username}**.`)
+            .setDescription(`**${message.author.username}** le dió un beso a **${img.username}**. <:GatoLove:889496261798010880>\n<a:flechad:880330587678838784> *${message.author.username}* y *${img.username}* se han besado **${conteo}** veces.`)
             .setImage(ramdonkiss)
             .setColor('RANDOM')
             .setTimestamp(new Date())
@@ -11740,8 +11759,6 @@ client.on('messageCreate', async message => {
 
     })
   }*/
-
-  await client.db.close();
 
 });
 
