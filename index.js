@@ -1172,6 +1172,14 @@ client.on('messageCreate', async message => {
 
         let lista = await client.db.all(`SELECT idusuario, total FROM usuarios ORDER BY total DESC LIMIT 10`)
 
+        if(!lista) return message.channel.send({embeds:[
+          new Discord.MessageEmbed()
+          .setAuthor(server.name+' | Top Global 🏦', server.iconURL({ dynamic: true }))
+          .setDescription('Aún no hay usuarios en el Top <:tierno:925922783978999848>')   	
+          .setColor("RANDOM")
+          .setFooter(`MidgardBot`,client.user.avatarURL())
+        ]})
+
         let embed = new Discord.MessageEmbed()
 
         let datos = [];
@@ -1196,6 +1204,14 @@ client.on('messageCreate', async message => {
         if(args[0].toLowerCase() === 'xp'){
 
           let lista = await client.db.all(`SELECT idusuario, nivel, exp FROM usuarios ORDER BY exp DESC LIMIT 10`)
+
+          if(!lista) return message.channel.send({embeds:[
+            new Discord.MessageEmbed()
+            .setAuthor(server.name+' | Top XP ⭐', server.iconURL({ dynamic: true }))
+            .setDescription('Aún no hay usuarios en el Top <:tierno:925922783978999848>')   	
+            .setColor("RANDOM")
+            .setFooter(`MidgardBot`,client.user.avatarURL())
+          ]})
 
           //let lista = `SELECT idusuario, nivel, exp FROM usuarios ORDER BY exp DESC LIMIT 10`
 
@@ -1231,6 +1247,14 @@ client.on('messageCreate', async message => {
         
           let lista = await client.db.all(`SELECT idusuario, dinero FROM usuarios ORDER BY dinero DESC LIMIT 10`)
 
+          if(!lista) return message.channel.send({embeds:[
+            new Discord.MessageEmbed()
+            .setAuthor(server.name+' | Top Cash 💵', server.iconURL({ dynamic: true }))
+            .setDescription('Aún no hay usuarios en el Top <:tierno:925922783978999848>')   	
+            .setColor("RANDOM")
+            .setFooter(`MidgardBot`,client.user.avatarURL())
+          ]})
+
           let embed = new Discord.MessageEmbed()
 
           let datos = [];
@@ -1253,6 +1277,14 @@ client.on('messageCreate', async message => {
         } else if(args[0].toLowerCase() === 'rep'){
         
           let lista = await client.db.all(`SELECT idusuario, rep FROM usuarios ORDER BY rep DESC LIMIT 10`)
+
+          if(!lista) return message.channel.send({embeds:[
+            new Discord.MessageEmbed()
+            .setAuthor(server.name+' | Top Carisma 💟', server.iconURL({ dynamic: true }))
+            .setDescription('Aún no hay usuarios en el Top <:tierno:925922783978999848>')   	
+            .setColor("RANDOM")
+            .setFooter(`MidgardBot`,client.user.avatarURL())
+          ]})
 
           let embed = new Discord.MessageEmbed()
 
@@ -1277,6 +1309,14 @@ client.on('messageCreate', async message => {
         
           let lista = await client.db.all(`SELECT idusuario, pat FROM usuarios ORDER BY pat DESC LIMIT 10`)
 
+          if(!lista) return message.channel.send({embeds:[
+            new Discord.MessageEmbed()
+            .setAuthor(server.name+' | Top Pats ❣', server.iconURL({ dynamic: true }))
+            .setDescription('Aún no hay usuarios en el Top <:tierno:925922783978999848>')   	
+            .setColor("RANDOM")
+            .setFooter(`MidgardBot`,client.user.avatarURL())
+          ]})
+
           let embed = new Discord.MessageEmbed()
 
           let datos = [];
@@ -1300,6 +1340,14 @@ client.on('messageCreate', async message => {
         
           let lista = await client.db.all(`SELECT idusuario, hug FROM usuarios ORDER BY hug DESC LIMIT 10`)
 
+          if(!lista) return message.channel.send({embeds:[
+            new Discord.MessageEmbed()
+            .setAuthor(server.name+' | Top Abrazos 🤗', server.iconURL({ dynamic: true }))
+            .setDescription('Aún no hay usuarios en el Top <:tierno:925922783978999848>')   	
+            .setColor("RANDOM")
+            .setFooter(`MidgardBot`,client.user.avatarURL())
+          ]})
+
           let embed = new Discord.MessageEmbed()
 
           let datos = [];
@@ -1322,6 +1370,14 @@ client.on('messageCreate', async message => {
         }  else if(args[0].toLowerCase() === 'sape'){
         
           let lista = await client.db.all(`SELECT idusuario, sape FROM usuarios ORDER BY sape DESC LIMIT 10`)
+
+          if(!lista) return message.channel.send({embeds:[
+            new Discord.MessageEmbed()
+            .setAuthor(server.name+' | Top Sapes 🤡', server.iconURL({ dynamic: true }))
+            .setDescription('Aún no hay usuarios en el Top <:tierno:925922783978999848>')   	
+            .setColor("RANDOM")
+            .setFooter(`MidgardBot`,client.user.avatarURL())
+          ]})
 
           let embed = new Discord.MessageEmbed()
 
