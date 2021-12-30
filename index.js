@@ -1153,8 +1153,6 @@ client.on('messageCreate', async message => {
 
       let remover = await client.db.get(`DELETE FROM usuarios WHERE idusuario = ${miembro.id}`)
 
-      //let remover = ``;
-
       /*db.run(remover, function(err) {
         if (err) return console.error(err.message)*/
 
