@@ -916,15 +916,15 @@ client.on('messageCreate', async message => {
             let embed = new Discord.MessageEmbed()
               .setAuthor('Perfil de ' + message.author.username, message.author.displayAvatarURL())
               .setThumbnail(select.foto ? select.foto : 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif')
-              .addField('<a:start:880922179280207934> Nivel', '<a:flech:915156906258071554> '+nivel+' '+xp, true)
+              .addField('Nivel', '<a:start:880922179280207934>  '+nivel+' '+xp, true)
               //.addField('<a:d_Fijao:897243194943737866> XP', '<a:flech:915156906258071554> '+select.exp, true)
-              .addField('<a:CorazonMulticolor:880315280759345163> Carisma', '<a:flech:915156906258071554> '+select.rep, false)
-              .addField('<a:CorazonMulticolor:880315280759345163> Pats', '<a:flech:915156906258071554> '+select.pat, false)
-              .addField('<a:CorazonMulticolor:880315280759345163> Abrazos', '<a:flech:915156906258071554> '+select.hug, false)
-              .addField('<a:CorazonMulticolor:880315280759345163> Sapes', '<a:flech:915156906258071554> '+select.sape, false)
-              //.addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>',false)
-              .addField('<a:megaphone:912163796737486908> Frase', '<a:flech:915156906258071554> '+select.frase, false)
-              .addField('<:GatoLove:925929538863628318> Matrimonio', '<a:flech:915156906258071554> '+tmarry, true)
+              .addField('Carisma', '<a:CorazonMulticolor:880315280759345163> '+select.rep, false)
+              .addField('Pats', '<a:elmo_timido:894721783066918953> '+select.pat, false)
+              .addField('Abrazos', '<:burbujita:925927258789666826> '+select.hug, false)
+              .addField('Sapes', '<:maje:925927838492811295> '+select.sape, false)
+                //.addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>',false)
+              .addField('Frase', '<a:megaphone:912163796737486908>  '+select.frase, true)
+              .addField('<:GatoLove:925929538863628318> Matrimonio', tmarry ? tmarry : 'Soltero(a)', true)
               .addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:Dinero:880594188792635422> **Economía**',false)
               .addField(`**Total:**`, '<a:money:901702063908606004>  '+select.total, true)
               .setColor(select.color)
@@ -1121,15 +1121,15 @@ client.on('messageCreate', async message => {
         let embed = new Discord.MessageEmbed()
           .setAuthor('Perfil de ' + img.username, img.displayAvatarURL())
           .setThumbnail(select.foto ? select.foto : 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif')
-          .addField('<a:start:880922179280207934> Nivel', '<a:flech:915156906258071554> '+nivel+' '+xp, true)
+          .addField('Nivel', '<a:start:880922179280207934>  '+nivel+' '+xp, true)
           //.addField('<a:d_Fijao:897243194943737866> XP', '<a:flech:915156906258071554> '+select.exp, true)
-          .addField('<a:CorazonMulticolor:880315280759345163> Carisma', '<a:flech:915156906258071554> '+select.rep, false)
-          .addField('<a:CorazonMulticolor:880315280759345163> Pats', '<a:flech:915156906258071554> '+select.pat, false)
-          .addField('<a:CorazonMulticolor:880315280759345163> Abrazos', '<a:flech:915156906258071554> '+select.hug, false)
-          .addField('<a:CorazonMulticolor:880315280759345163> Sapes', '<a:flech:915156906258071554> '+select.sape, false)
+          .addField('Carisma', '<a:CorazonMulticolor:880315280759345163> '+select.rep, false)
+          .addField('Pats', '<a:elmo_timido:894721783066918953> '+select.pat, false)
+          .addField('Abrazos', '<:burbujita:925927258789666826> '+select.hug, false)
+          .addField('Sapes', '<:maje:925927838492811295> '+select.sape, false)
             //.addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>',false)
-          .addField('<a:megaphone:912163796737486908> Frase', '<a:flech:915156906258071554> '+select.frase, true)
-          .addField('<:GatoLove:925929538863628318> Matrimonio', '<a:flech:915156906258071554> '+tmarry, true)
+          .addField('Frase', '<a:megaphone:912163796737486908>  '+select.frase, true)
+          .addField('<:GatoLove:925929538863628318> Matrimonio', tmarry ? tmarry : 'Soltero(a)', true)
           .addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:Dinero:880594188792635422> **Economía**',false)
           .addField(`**Total:**`, '<a:money:901702063908606004>  '+select.total, true)
           .setColor(select.color)
@@ -11979,23 +11979,18 @@ client.on('messageCreate', async message => {
         .setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
         .setTitle(`𝚁𝙴𝙶𝙻𝙰𝚂 𝙳𝙴𝙻 𝚂𝙴𝚁𝚅𝙸𝙳𝙾𝚁`)
         .setDescription(
-        `<a:sparkless:880922179280207934> Totalmente prohibido compartir links de otros servidores que no estén relacionados con este servidor, ya sea por canales de texto o al MD de nuestros Terrícolas.\n\n
-        <a:sparkless:880922179280207934> Es obligatorio usar bien los canales de texto, evitar el flood de comandos, emojis, y no contenido NSFW.\n\n
-        <a:sparkless:880922179280207934> Está prohibido compartir redes sociales de cualquier tipo en los canales del servidor.\n\n
-        <a:sparkless:880922179280207934> Está prohibido compartir información privada (fotos, nombres, números de teléfono, IP/Direcciones, etc.), ya sea personal o de otros usuarios sin consentimiento, con el fin de cuidar la privacidad de cada uno de los miembros.\n\n
-        <a:sparkless:880922179280207934> No faltar el respeto al staff.\n\n
-        <a:sparkless:880922179280207934> Sí un staff pide cambiar el tema de conversación ya que lo considera apropiado se deberá hacer.\n\n
-        <a:sparkless:880922179280207934> Tienes el derecho de reportar a un miembro de staff si consideras que ha abusado de su poder.\n\n
-        <a:sparkless:880922179280207934> No se permiten Nicknames, avatares, ni nombres de usuario con contenido sexual explícito o contenido violento.\n\n
-        <a:sparkless:880922179280207934> No se aceptan los sonidos, gritos, ruidos molestos, saturación de micrófonos, ni entrar o salir repetidamente, con la intención de interrumpir en los canales de voz.\n\n
-        <a:sparkless:880922179280207934> No se permite el acoso, bullying, amenzas, bardeo, lenguaje ofensivo, blackmail, hate speech, ni discriminación de ningúna índole.\n\n
-        <a:sparkless:880922179280207934> Prohibido cualquier tipo de atentado contra el servidor o algún miembro del mismo. \n\n
-        <a:sparkless:880922179280207934> Incluir a los nuevos miembros, sin trolleos.\n\n
-        <a:sparkless:880922179280207934> Si existe algún problema con algún miembro o staff del servidor, se deberá hablar con administradores e intentar llegar a un acuerdo.\n\n
-        <a:sparkless:880922179280207934> Intenta reducir los sonidos de fondo de tu micrófono en los canales de voice.\n\n
-        <a:sparkless:880922179280207934> Usa correctamente cada canal de texto y voz, y sobretodo... **Pásala bien y Diviértete!!!**\n\n`)
+        `<a:sparkless:880922179280207934> Somos un server **NO** Tóxico, por tanto, están prohibidas las faltas de respeto a cualquier miembro.\n\n
+        <a:sparkless:880922179280207934> El Spam **NO** está permitido, sea dentro del servidor o al DM de los Terrícolas. (Se entiende por Spam: links de otros servidores, maliciosos o publicitarios).\n\n
+        <a:sparkless:880922179280207934> Usar adecuadamente cada canal del servidor, evitando el flood de comandos fuera de <#895828102578589716> y contenido NSFW fuera de <#848755526347128872>.\n\n
+        <a:sparkless:880922179280207934> Cuidamos la privacidad de cada Terrícola, por tanto **NO** se puede compartir redes sociales o información privada (fotos, nombres, números telefónicos, direcciones IP, ubicación) en los canales del servidor, sin el consentimiento respectivo.\n\n
+        <a:sparkless:880922179280207934> Para ver el avatar de cualquier Terrícola, deberás pedir el permiso correspondiente, caso contrario, serás muteado de todos los canales de texto por un tiempo definido por el Staff.\n\n
+        <a:sparkless:880922179280207934> Los nombres de usuario, apodos o avatares con contenido sexual explícito o violento **NO** están permitidos. La omisión de esta regla, te puede llevar hasta el baneo indefinido del servidor.\n\n
+        <a:sparkless:880922179280207934> Tampoco está permitido el acoso, bullying, amenazas, lenguaje violento u ofensivo, xenofobia, homofobia ni cualquier tipo de discriminación.\n\n
+        <a:sparkless:880922179280207934> Por un ambiente tranquilo, **NO** toleramos ningún tipo de sonido molesto, ni entrar y salir constantemente de los canales de voz.\n\
+        <a:sparkless:880922179280207934> Si un miembro de Staff pide cambiar el tema de conversación por considerarlo inapropiado, se deberá hacer, caso contrario, recibirás una sanción correspondiente. Pero si crees que ha habido un abuso de poder, puedes y debes reportarlo en cualquier momento.`)
         .setImage(`https://media.discordapp.net/attachments/840161683732693033/880298925574193162/reglas-del-juego-game-rules.gif?width=448&height=252`)
         .setColor("GREEN")
+        .setFooter('**Pásala bien y Diviértete!**')
        message.channel.send({embeds: [embed]});
        setTimeout(() => message.delete(), 100)
     } 
