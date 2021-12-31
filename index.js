@@ -117,7 +117,7 @@ client.on('guildMemberAdd', async member => {
 
   console.log(`Nuevo usuario:  ${member.user.username} se ha unido a ${guild.name}.`);
 
-  const channel = guild.channels.cache.find(ch => ch.id === '779566489429737472');
+  const channel = guild.channels.cache.find(ch => ch.id === '926412412570198076');
 
   var welcome = [
     'https://media.discordapp.net/attachments/853500788848853002/873245600936788048/1.gif',
