@@ -155,6 +155,7 @@ client.on('guildMemberAdd', async member => {
 
   //channel.send('¡Bienvenid@ Terrícola!' + `${member.user}` + ', a este nuestro **Universo**. <:shylove:925923567776964619>. Espero que te lo pases genial en este server libre de toxicidad, con muchos eventos programados, premios y más sorpresas!!! <a:Sara:880304101215334401> Recuerda pasar por <#777623227321155614> y <#880268322921414657> Y si tienes alguna queja, duda o sugerencia, pasa por <#880402803825188874>. Cualquier incoveniente aquí estará todo el equipo de Staff a su disposición. <a:dc_party1:881033439367815239>');
   channel.send({embeds:[embed]})
+  channel.send('https://images-ext-2.discordapp.net/external/7FVUYUkaL6CyRFlyWrcFK6Q7j6v9OWeBvJS2pWDDtRs/https/media.discordapp.net/attachments/777623227321155614/880925149069725696/bar.gif?width=600&height=86')
     
 });
 
@@ -11999,15 +12000,15 @@ client.on('messageCreate', async message => {
         .setThumbnail('https://i.gifer.com/8AMQ.gif')
         .setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
         .setTitle(`𝚁𝙴𝙶𝙻𝙰𝚂 𝙳𝙴𝙻 𝚂𝙴𝚁𝚅𝙸𝙳𝙾𝚁`)
-        .setDescription(
-        `<a:sparkless:880922179280207934> Somos un server **NO** Tóxico, por tanto, están prohibidas las faltas de respeto a cualquier miembro.\n\n
+        .setDescription(` \n\n
+        <a:sparkless:880922179280207934> Somos un server **NO** Tóxico, por tanto, están prohibidas las faltas de respeto a cualquier miembro.\n\n
         <a:sparkless:880922179280207934> El Spam **NO** está permitido, sea dentro del servidor o al DM de los Terrícolas. (Se entiende por Spam: links de otros servidores, maliciosos o publicitarios).\n\n
         <a:sparkless:880922179280207934> Usar adecuadamente cada canal del servidor, evitando el flood de comandos fuera de <#895828102578589716> y contenido NSFW fuera de <#848755526347128872>.\n\n
         <a:sparkless:880922179280207934> Cuidamos la privacidad de cada Terrícola, por tanto **NO** se puede compartir redes sociales o información privada (fotos, nombres, números telefónicos, direcciones IP, ubicación) en los canales del servidor, sin el consentimiento respectivo.\n\n
         <a:sparkless:880922179280207934> Para ver el avatar de cualquier Terrícola, deberás pedir el permiso correspondiente, caso contrario, serás muteado de todos los canales de texto por un tiempo definido por el Staff.\n\n
         <a:sparkless:880922179280207934> Los nombres de usuario, apodos o avatares con contenido sexual explícito o violento **NO** están permitidos. La omisión de esta regla, te puede llevar hasta el baneo indefinido del servidor.\n\n
         <a:sparkless:880922179280207934> Tampoco está permitido el acoso, bullying, amenazas, lenguaje violento u ofensivo, xenofobia, homofobia ni cualquier tipo de discriminación.\n\n
-        <a:sparkless:880922179280207934> Por un ambiente tranquilo, **NO** toleramos ningún tipo de sonido molesto, ni entrar y salir constantemente de los canales de voz.\n\N
+        <a:sparkless:880922179280207934> Por un ambiente tranquilo, **NO** toleramos ningún tipo de sonido molesto, ni entrar y salir constantemente de los canales de voz.\n\n
         <a:sparkless:880922179280207934> Si un miembro de Staff pide cambiar el tema de conversación por considerarlo inapropiado, se deberá hacer, caso contrario, recibirás una sanción correspondiente. Pero si crees que ha habido un abuso de poder, puedes y debes reportarlo en cualquier momento.`)
         .setImage(`https://media.discordapp.net/attachments/840161683732693033/880298925574193162/reglas-del-juego-game-rules.gif?width=448&height=252`)
         .setColor("GREEN")
