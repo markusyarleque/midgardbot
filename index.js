@@ -12058,7 +12058,7 @@ client.on('messageCreate', async message => {
 
       const embed = new Discord.MessageEmbed()
         .setThumbnail(message.guild.bannerURL())
-        .setAuthor(`𝗚𝗲́𝗻𝗲𝗿𝗼`,client.user.displayAvatarURL({ dynamic: true }).replace('webp','png'))
+        .setAuthor(`𝗚𝗲́𝗻𝗲𝗿𝗼`,message.guild.iconURL({ dynamic: true }).replace('webp','png'))
         .setTitle(`Reacciona según tu género:`)
         .setDescription(`👦 <a:flechad:880330587678838784> <@&816140766345953300>\n\n👧 <a:flechad:880330587678838784> <@&816141138922307594>\n\n🏳️‍🌈 <a:flechad:880330587678838784> <@&816141333180842007>`)
         .setColor("RANDOM")
@@ -12068,6 +12068,55 @@ client.on('messageCreate', async message => {
       message.delete({timeout: 100})
       
     }
+
+    if (command === 'rolese'){
+
+      let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
+  
+      if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
+
+      const embed = new Discord.MessageEmbed()
+        .setThumbnail(message.guild.bannerURL())
+        .setAuthor(`𝗘𝗱𝗮𝗱`,message.guild.iconURL({ dynamic: true }).replace('webp','png'))
+        .setTitle(`Reacciona según tu edad:`)
+        .setDescription(`🔞 <a:flechad:880330587678838784> <@&816168012335022100>\n\n😈 <a:flechad:880330587678838784> <@&816167169477312542>`)
+        .setColor("RANDOM")
+        .setImage('https://images-ext-2.discordapp.net/external/d2pb0CbJdkBTXK8diIE11-HbEjCGCJVuDRM94EbT2xQ/%3Fwidth%3D432%26height%3D227/https/images-ext-2.discordapp.net/external/nRu05pX3UQJa5pvw1X7RAkv6ZNPJ-hqQKEt2dNYTPd4/https/i.gifer.com/fxt5.gif?width=346&height=182')
+        .setFooter(message.guild.name,client.user.displayAvatarURL({ dynamic: true }).replace('webp','png'));
+      message.channel.send({ embeds: [embed] });
+      message.delete({timeout: 100})
+      
+    }
+
+    if (command === 'rolesp'){
+
+      let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
+  
+      if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
+
+      const embed = new Discord.MessageEmbed()
+        .setThumbnail(message.guild.bannerURL())
+        .setAuthor(`𝗣𝗮𝗶́𝘀`,message.guild.iconURL({ dynamic: true }).replace('webp','png'))
+        .setTitle(`Reacciona según tu país:`)
+        .setDescription(`
+        🇵🇪 <a:flechad:880330587678838784> <@&816174082432303125>\n\n
+        🇲🇽 <a:flechad:880330587678838784> <@&816167169477312542>\n\n
+        🔞 <a:flechad:880330587678838784> <@&816168012335022100>\n\n
+        😈 <a:flechad:880330587678838784> <@&816167169477312542>\n\n
+        🔞 <a:flechad:880330587678838784> <@&816168012335022100>\n\n
+        😈 <a:flechad:880330587678838784> <@&816167169477312542>\n\n
+        🔞 <a:flechad:880330587678838784> <@&816168012335022100>\n\n
+        😈 <a:flechad:880330587678838784> <@&816167169477312542>\n\n
+        🔞 <a:flechad:880330587678838784> <@&816168012335022100>\n\n
+        😈 <a:flechad:880330587678838784> <@&816167169477312542>\n\n`)
+        .setColor("RANDOM")
+        .setImage('https://images-ext-2.discordapp.net/external/jWGnzp-_kMuK_h_7svc5EVVuafKyCE48-bvJK5fggKw/%3Fwidth%3D562%26height%3D562/https/images-ext-1.discordapp.net/external/tnCC5EhfePEKIobserftTKZfjP9giUm9b5RFw53vPYM/https/static.wixstatic.com/media/b595a3_14d84be3a50f4c2c9fe72be39edef819~mv2.gif?width=450&height=450')
+        .setFooter(message.guild.name,client.user.displayAvatarURL({ dynamic: true }).replace('webp','png'));
+      message.channel.send({ embeds: [embed] });
+      message.delete({timeout: 100})
+      
+    }
+
 
     if(command === 'enviarmd'){
 
