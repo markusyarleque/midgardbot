@@ -12057,7 +12057,7 @@ client.on('messageCreate', async message => {
       if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
 
       const embed = new Discord.MessageEmbed()
-        .setThumbnail(message.guild.banner)
+        .setThumbnail(message.guild.bannerURL())
         .setAuthor(`𝗚𝗲́𝗻𝗲𝗿𝗼`,client.user.displayAvatarURL({ dynamic: true }).replace('webp','png'))
         .setTitle(`Reacciona según tu género:`)
         .setDescription(`👦 <a:flechad:880330587678838784> <@&816140766345953300>\n\n👧 <a:flechad:880330587678838784> <@&816141138922307594>\n\n🏳️‍🌈 <a:flechad:880330587678838784> <@&816141333180842007>`)
