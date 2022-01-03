@@ -12099,18 +12099,109 @@ client.on('messageCreate', async message => {
         .setAuthor(`𝗣𝗮𝗶́𝘀`,message.guild.iconURL({ dynamic: true }).replace('webp','png'))
         .setTitle(`Reacciona según tu país:`)
         .setDescription(`
+        🇦🇷 <a:flechad:880330587678838784> <@&816176071661191208>\n\n
+        🇧🇷 <a:flechad:880330587678838784> <@&880372263445200906>\n\n
+        🇨🇱 <a:flechad:880330587678838784> <@&816174936070160384>\n\n
+        🇨🇴 <a:flechad:880330587678838784> <@&816174999219208202>\n\n
+        🇨🇷 <a:flechad:880330587678838784> <@&816174581861449758>\n\n
+        🇪🇨 <a:flechad:880330587678838784> <@&816177046697934880>\n\n
+        🇸🇻 <a:flechad:880330587678838784> <@&880373978517106689>\n\n
+        🇪🇸 <a:flechad:880330587678838784> <@&880281489240100896>\n\n
+        🇺🇸 <a:flechad:880330587678838784> <@&880372376611733514>\n\n
+        🇬🇹 <a:flechad:880330587678838784> <@&816174669811286041>\n\n
+        🇭🇳 <a:flechad:880330587678838784> <@&816174284393152522>\n\n
+        🇲🇽 <a:flechad:880330587678838784> <@&880311276503449631>\n\n
+        🇵🇦 <a:flechad:880330587678838784> <@&880436609286287420>\n\n
+        🇵🇾 <a:flechad:880330587678838784> <@&880372257476722728>\n\n
         🇵🇪 <a:flechad:880330587678838784> <@&816174082432303125>\n\n
-        🇲🇽 <a:flechad:880330587678838784> <@&816167169477312542>\n\n
-        🔞 <a:flechad:880330587678838784> <@&816168012335022100>\n\n
-        😈 <a:flechad:880330587678838784> <@&816167169477312542>\n\n
-        🔞 <a:flechad:880330587678838784> <@&816168012335022100>\n\n
-        😈 <a:flechad:880330587678838784> <@&816167169477312542>\n\n
-        🔞 <a:flechad:880330587678838784> <@&816168012335022100>\n\n
-        😈 <a:flechad:880330587678838784> <@&816167169477312542>\n\n
-        🔞 <a:flechad:880330587678838784> <@&816168012335022100>\n\n
-        😈 <a:flechad:880330587678838784> <@&816167169477312542>\n\n`)
+        🇵🇷 <a:flechad:880330587678838784> <@&880375260120223807>\n\n
+        🇩🇴 <a:flechad:880330587678838784> <@&880375722869411840>\n\n
+        🇺🇾 <a:flechad:880330587678838784> <@&816176187504197662>\n\n
+        🇻🇪 <a:flechad:880330587678838784> <@&816174760131952680>\n\n`)
         .setColor("RANDOM")
-        .setImage('https://images-ext-2.discordapp.net/external/jWGnzp-_kMuK_h_7svc5EVVuafKyCE48-bvJK5fggKw/%3Fwidth%3D562%26height%3D562/https/images-ext-1.discordapp.net/external/tnCC5EhfePEKIobserftTKZfjP9giUm9b5RFw53vPYM/https/static.wixstatic.com/media/b595a3_14d84be3a50f4c2c9fe72be39edef819~mv2.gif?width=450&height=450')
+        .setImage('https://images-ext-2.discordapp.net/external/iYRJjc56RMtN2RT8BObhMa4odkXJ5igZIoNAPYXJzDE/%3Fwidth%3D518%26height%3D294/https/images-ext-2.discordapp.net/external/bhY7Uhw-axRgouddTIpNW9UlECUhr0jpy-sB_w_sTKQ/%253Fwidth%253D576%2526height%253D327/https/media.discordapp.net/attachments/840161683732693033/880296992289484861/Ataques-mundiales.gif?width=414&height=235')
+        .setFooter(message.guild.name,client.user.displayAvatarURL({ dynamic: true }).replace('webp','png'));
+      message.channel.send({ embeds: [embed] });
+      message.delete({timeout: 100})
+      
+    }
+
+    if (command === 'roless'){
+
+      let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
+  
+      if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
+
+      const embed = new Discord.MessageEmbed()
+        .setThumbnail(message.guild.bannerURL())
+        .setAuthor(`𝗦𝗶𝗴𝗻𝗼𝘀 𝗭𝗼𝗱𝗶𝗮𝗰𝗮𝗹𝗲𝘀`,message.guild.iconURL({ dynamic: true }).replace('webp','png'))
+        .setTitle(`Reacciona según tu signo:`)
+        .setDescription(`
+        ♈ <a:flechad:880330587678838784> <@&880432087973380107>\n\n
+        ♉ <a:flechad:880330587678838784> <@&880431618848862278>\n\n
+        ♊ <a:flechad:880330587678838784> <@&880431545867988992>\n\n
+        ♋ <a:flechad:880330587678838784> <@&880432534746431539>\n\n
+        ♌ <a:flechad:880330587678838784> <@&880432484230262795>\n\n
+        ♍ <a:flechad:880330587678838784> <@&880431681780219995>\n\n
+        ♎ <a:flechad:880330587678838784> <@&880432422183911424>\n\n
+        ♏ <a:flechad:880330587678838784> <@&880431441006190613>\n\n
+        ♐ <a:flechad:880330587678838784> <@&880431928099102742>\n\n
+        ♑ <a:flechad:880330587678838784> <@&880431999851049010>\n\n
+        ♒ <a:flechad:880330587678838784> <@&880431859404800000>\n\n
+        ♓ <a:flechad:880330587678838784> <@&880431766941347860>\n\n`)
+        .setColor("RANDOM")
+        .setImage('https://images-ext-2.discordapp.net/external/ED6S9Wyp3YqQDwI8tIskd2XinBL7tNuoZTCWedHiqbo/%3Fwidth%3D389%26height%3D194/https/images-ext-2.discordapp.net/external/JWJjNRSRHIDnkxiVq0PvvnMU08Yw6mYjMohtpNbDZ88/%253Fwidth%253D432%2526height%253D216/https/media.discordapp.net/attachments/840161683732693033/880292308413739018/giphy.gif?width=311&height=155')
+        .setFooter(message.guild.name,client.user.displayAvatarURL({ dynamic: true }).replace('webp','png'));
+      message.channel.send({ embeds: [embed] });
+      message.delete({timeout: 100})
+      
+    }
+
+    if (command === 'rolesa'){
+
+      let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
+  
+      if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
+
+      const embed = new Discord.MessageEmbed()
+        .setThumbnail(message.guild.bannerURL())
+        .setAuthor(`𝗔𝗰𝘁𝗶𝘃𝗶𝗱𝗮𝗱𝗲𝘀`,message.guild.iconURL({ dynamic: true }).replace('webp','png'))
+        .setTitle(`Reacciona según tu gusto:`)
+        .setDescription(`
+        🎉 <a:flechad:880330587678838784> <@&880949612175843358>\n\n
+        💕 <a:flechad:880330587678838784> <@&880949777569841182>\n\n
+        💥 <a:flechad:880330587678838784> <@&880949785362829362>\n\n
+        🎧 <a:flechad:880330587678838784> <@&883438018009124959>\n\n
+        🎤 <a:flechad:880330587678838784> <@&883435087952248952>\n\n
+        😎 <a:flechad:880330587678838784> <@&883435331746160721>\n\n
+        🎥 <a:flechad:880330587678838784> <@&816465728336691275>\n\n
+        🥂 <a:flechad:880330587678838784> <@&880950057669623909>\n\n`)
+        .setColor("RANDOM")
+        .setImage('https://images-ext-1.discordapp.net/external/SHUVHAaDdmIAvjWSC5NY0wiC5JcHk-zvv0Ey7a4EPmk/%3Fwidth%3D538%26height%3D403/https/media.discordapp.net/attachments/879633476532453386/883455087295483964/mp4.gif?width=430&height=322')
+        .setFooter(message.guild.name,client.user.displayAvatarURL({ dynamic: true }).replace('webp','png'));
+      message.channel.send({ embeds: [embed] });
+      message.delete({timeout: 100})
+      
+    }
+
+    if (command === 'rolesec'){
+
+      let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
+  
+      if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
+
+      const embed = new Discord.MessageEmbed()
+        .setThumbnail(message.guild.bannerURL())
+        .setAuthor(`𝗘𝗰𝗼𝗻𝗼𝗺𝗶́𝗮`,message.guild.iconURL({ dynamic: true }).replace('webp','png'))
+        .setTitle(`Reacciona según tu preferencia:`)
+        .setDescription(`
+        🌸 <a:flechad:880330587678838784> <@&897701707847434240>\n\n
+        ⛩️ <a:flechad:880330587678838784> <@&897701882158530590>\n\n
+        🎁 <a:flechad:880330587678838784> <@&897701860176166912>\n\n
+        🎰 <a:flechad:880330587678838784> <@&897933020361818133>\n\n
+        💰 <a:flechad:880330587678838784> <@&897933095720878080>\n\n`)
+        .setColor("RANDOM")
+        .setImage('https://blogs.unitec.mx/content/dam/blogs/imagenes/corp_samara/finazas-economia-quieres-ser-un-john-law-1.gif')
         .setFooter(message.guild.name,client.user.displayAvatarURL({ dynamic: true }).replace('webp','png'));
       message.channel.send({ embeds: [embed] });
       message.delete({timeout: 100})
