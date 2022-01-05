@@ -12063,7 +12063,7 @@ client.on('messageCreate', async message => {
         .setDescription(`\n\n 💡 ¿Cómo te identificas? 💡\n
         👦 <a:flechad:880330587678838784> <@&816140766345953300>\n\n
         👧 <a:flechad:880330587678838784> <@&816141138922307594>\n\n
-        🏳️‍🌈 <a:flechad:880330587678838784> <@&816141333180842007>`)
+        🏳️‍🌈 <a:flechad:880330587678838784> <@&816141333180842007>\n\n`)
         .setColor("RANDOM")
         .setImage('https://images-ext-2.discordapp.net/external/jWGnzp-_kMuK_h_7svc5EVVuafKyCE48-bvJK5fggKw/%3Fwidth%3D562%26height%3D562/https/images-ext-1.discordapp.net/external/tnCC5EhfePEKIobserftTKZfjP9giUm9b5RFw53vPYM/https/static.wixstatic.com/media/b595a3_14d84be3a50f4c2c9fe72be39edef819~mv2.gif?width=450&height=450')
         .setFooter(message.guild.name,client.user.displayAvatarURL({ dynamic: true }).replace('webp','png'));
