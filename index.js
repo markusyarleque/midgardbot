@@ -12098,7 +12098,7 @@ client.on('messageCreate', async message => {
         .setThumbnail(message.guild.bannerURL())
         .setAuthor(`𝗣𝗮𝗶́𝘀`,message.guild.iconURL({ dynamic: true }).replace('webp','png'))
         .setTitle(`Reacciona según tu país:`)
-        .setDescription(`\n\n Puedes elegir más de 1 🌎\n\n
+        .setDescription(`\n\n 🌎 Puedes elegir más de 1... 🌎\n
         🇦🇷 <a:flechad:880330587678838784> <@&816176071661191208>\n\n
         🇧🇷 <a:flechad:880330587678838784> <@&880372263445200906>\n\n
         🇨🇱 <a:flechad:880330587678838784> <@&816174936070160384>\n\n
@@ -12136,7 +12136,7 @@ client.on('messageCreate', async message => {
         .setThumbnail(message.guild.bannerURL())
         .setAuthor(`𝗦𝗶𝗴𝗻𝗼𝘀 𝗭𝗼𝗱𝗶𝗮𝗰𝗮𝗹𝗲𝘀`,message.guild.iconURL({ dynamic: true }).replace('webp','png'))
         .setTitle(`Reacciona según tu signo:`)
-        .setDescription(`
+        .setDescription(`\n\n 🔮 ¿Quieres saber tu horóscopo diario? 🔮\n
         ♈ <a:flechad:880330587678838784> <@&880432087973380107>\n\n
         ♉ <a:flechad:880330587678838784> <@&880431618848862278>\n\n
         ♊ <a:flechad:880330587678838784> <@&880431545867988992>\n\n
@@ -12167,7 +12167,7 @@ client.on('messageCreate', async message => {
         .setThumbnail(message.guild.bannerURL())
         .setAuthor(`𝗔𝗰𝘁𝗶𝘃𝗶𝗱𝗮𝗱𝗲𝘀`,message.guild.iconURL({ dynamic: true }).replace('webp','png'))
         .setTitle(`Reacciona según tu gusto:`)
-        .setDescription(`
+        .setDescription(`\n\n 🔥 Tenemos actividades todos los días 🔥\n
         🎉 <a:flechad:880330587678838784> <@&880949612175843358>\n\n
         💕 <a:flechad:880330587678838784> <@&880949777569841182>\n\n
         💥 <a:flechad:880330587678838784> <@&880949785362829362>\n\n
@@ -12194,7 +12194,7 @@ client.on('messageCreate', async message => {
         .setThumbnail(message.guild.bannerURL())
         .setAuthor(`𝗘𝗰𝗼𝗻𝗼𝗺𝗶́𝗮`,message.guild.iconURL({ dynamic: true }).replace('webp','png'))
         .setTitle(`Reacciona según tu preferencia:`)
-        .setDescription(`
+        .setDescription(`\n\n 💎 Dos grandes bots: <@429457053791158281> y <@292953664492929025> 💎\n
         🌸 <a:flechad:880330587678838784> <@&897701707847434240>\n\n
         ⛩️ <a:flechad:880330587678838784> <@&897701882158530590>\n\n
         🎁 <a:flechad:880330587678838784> <@&897701860176166912>\n\n
