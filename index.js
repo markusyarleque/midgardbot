@@ -12098,7 +12098,7 @@ client.on('messageCreate', async message => {
         .setThumbnail(message.guild.bannerURL())
         .setAuthor(`𝗣𝗮𝗶́𝘀`,message.guild.iconURL({ dynamic: true }).replace('webp','png'))
         .setTitle(`Reacciona según tu país:`)
-        .setDescription(`
+        .setDescription(`\n\n Puedes elegir más de 1 🌎\n\n
         🇦🇷 <a:flechad:880330587678838784> <@&816176071661191208>\n\n
         🇧🇷 <a:flechad:880330587678838784> <@&880372263445200906>\n\n
         🇨🇱 <a:flechad:880330587678838784> <@&816174936070160384>\n\n
