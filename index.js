@@ -12057,10 +12057,10 @@ client.on('messageCreate', async message => {
       if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
 
       const embed = new Discord.MessageEmbed()
-        .setThumbnail(message.guild.bannerURL())
+        .setThumbnail('https://media.discordapp.net/attachments/880312288593195028/928212628432621608/MIDGARD_Presentacion_169.gif?width=766&height=431')
         .setAuthor(`𝗚𝗲́𝗻𝗲𝗿𝗼`,message.guild.iconURL({ dynamic: true }).replace('webp','png'))
         .setTitle(`Reacciona según tu género:`)
-        .setDescription(`\n\n 💡 ¿cómo te identificas? 💡\n
+        .setDescription(`\n\n 💡 ¿Cómo te identificas? 💡\n
         👦 <a:flechad:880330587678838784> <@&816140766345953300>\n\n
         👧 <a:flechad:880330587678838784> <@&816141138922307594>\n\n
         🏳️‍🌈 <a:flechad:880330587678838784> <@&816141333180842007>`)
@@ -12079,7 +12079,7 @@ client.on('messageCreate', async message => {
       if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
 
       const embed = new Discord.MessageEmbed()
-        .setThumbnail(message.guild.bannerURL())
+        .setThumbnail('https://media.discordapp.net/attachments/880312288593195028/928212628432621608/MIDGARD_Presentacion_169.gif?width=766&height=431')
         .setAuthor(`𝗘𝗱𝗮𝗱`,message.guild.iconURL({ dynamic: true }).replace('webp','png'))
         .setTitle(`Reacciona según tu edad:`)
         .setDescription(`\n\n 🥱 ¿Legal o Ilegal? 🥵\n
@@ -12100,7 +12100,7 @@ client.on('messageCreate', async message => {
       if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
 
       const embed = new Discord.MessageEmbed()
-        .setThumbnail(message.guild.bannerURL())
+        .setThumbnail('https://media.discordapp.net/attachments/880312288593195028/928212628432621608/MIDGARD_Presentacion_169.gif?width=766&height=431')
         .setAuthor(`𝗣𝗮𝗶́𝘀`,message.guild.iconURL({ dynamic: true }).replace('webp','png'))
         .setTitle(`Reacciona según tu país:`)
         .setDescription(`\n\n 🌎 Puedes elegir más de 1... 🌎\n
@@ -12138,7 +12138,7 @@ client.on('messageCreate', async message => {
       if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
 
       const embed = new Discord.MessageEmbed()
-        .setThumbnail(message.guild.bannerURL())
+        .setThumbnail('https://media.discordapp.net/attachments/880312288593195028/928212628432621608/MIDGARD_Presentacion_169.gif?width=766&height=431')
         .setAuthor(`𝗦𝗶𝗴𝗻𝗼𝘀 𝗭𝗼𝗱𝗶𝗮𝗰𝗮𝗹𝗲𝘀`,message.guild.iconURL({ dynamic: true }).replace('webp','png'))
         .setTitle(`Reacciona según tu signo:`)
         .setDescription(`\n\n 🔮 ¿Quieres saber tu horóscopo diario? 🔮\n
@@ -12169,7 +12169,7 @@ client.on('messageCreate', async message => {
       if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
 
       const embed = new Discord.MessageEmbed()
-        .setThumbnail(message.guild.bannerURL())
+        .setThumbnail('https://media.discordapp.net/attachments/880312288593195028/928212628432621608/MIDGARD_Presentacion_169.gif?width=766&height=431')
         .setAuthor(`𝗔𝗰𝘁𝗶𝘃𝗶𝗱𝗮𝗱𝗲𝘀`,message.guild.iconURL({ dynamic: true }).replace('webp','png'))
         .setTitle(`Reacciona según tu gusto:`)
         .setDescription(`\n\n 🔥 Tenemos actividades todos los días 🔥\n
@@ -12196,7 +12196,7 @@ client.on('messageCreate', async message => {
       if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
 
       const embed = new Discord.MessageEmbed()
-        .setThumbnail(message.guild.bannerURL())
+        .setThumbnail('https://media.discordapp.net/attachments/880312288593195028/928212628432621608/MIDGARD_Presentacion_169.gif?width=766&height=431')
         .setAuthor(`𝗘𝗰𝗼𝗻𝗼𝗺𝗶́𝗮`,message.guild.iconURL({ dynamic: true }).replace('webp','png'))
         .setTitle(`Reacciona según tu preferencia:`)
         .setDescription(`\n\n 💎 Dos grandes bots: <@429457053791158281> y <@292953664492929025> 💎\n
