@@ -4077,7 +4077,7 @@ client.on('messageCreate', async message => {
         
         let user = message.mentions.users.first();
         let razon = args.slice(1).join(' ') ? args.slice(1).join(' ') : "Razon sin especificar";
-        let permiso = message.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS);
+        let permiso = message.member.permissions.has(Permissions.FLAGSBAN._MEMBERS);
     
         if(!permiso) return message.channel.send('`Error` `|` No tienes Permisos para usar este comando.');
     
@@ -4168,16 +4168,13 @@ client.on('messageCreate', async message => {
 
         } else {
        
-          if (!message.guild.members.resolve(user.id)){
+          if (!message.guild.members.resolve(user.id)) return message.channel.send('No se ha encontrado al usuario en el servidor.')
 
-            if (message.member.roles.highest.comparePositionTo(user.roles.highest) <= 0) {
-              return message.channel.send('No puedes banear a un usuario con mayor o igual rango que tú.')
-            }
-            if (!user.bannable) {
-              return message.channel.send('No puedo banear a este usuario')
-            }
+          if (message.member.roles.highest.comparePositionTo(user.roles.highest) <= 0) return message.channel.send('No puedes banear a un usuario con mayor o igual rango que tú.')
+          
+          if (!user.bannable) return message.channel.send('No puedo banear a este usuario')
 
-          }
+          if (user.id === message.author.id) return message.channel.send('¿Qué me crees? No te puedes banear a ti mismo 🤡')
 
           message.channel.send({
           content: message.author.toString() + " Estás seguro de banear a " + user.toString() + "?",
@@ -4219,7 +4216,6 @@ client.on('messageCreate', async message => {
                 content: `**${user.username}**, fue baneado del servidor, razón: ${razon}.`,
                 components: []
               });
-    
               
             } else if (int.customId === "deny") {
               
