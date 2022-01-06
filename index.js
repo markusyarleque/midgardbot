@@ -12316,7 +12316,7 @@ client.on('debug', (e) => console.info(e));
 
 client.login(process.env.TOKEN); 
 
-// <-- FUNCION PLAY (REPRODUCIR)::: -->
+// <-- FUNCION PLAY (REPRODUCIR):: -->
 
 function play(guild, song) {
 
