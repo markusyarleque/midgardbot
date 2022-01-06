@@ -4072,8 +4072,8 @@ client.on('messageCreate', async message => {
         message.channel.send(`**${user.username}**, fue kickeado del servidor, razón: ${razon}.`);
     
     }
-    
-    if(command === 'ban'){
+    if(command === 'ban') return message.channel.send('Comando en remodelación!')
+    /*if(command === 'ban'){
 
       const embed = new Discord.MessageEmbed()
       .setAuthor(message.author.username, message.author.displayAvatarURL())
@@ -4197,7 +4197,7 @@ client.on('messageCreate', async message => {
           
       });
 
-    }
+    }*/
 
     //COMANDOS DE DIVERSIÓN
 
