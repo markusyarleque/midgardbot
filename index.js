@@ -4074,174 +4074,121 @@ client.on('messageCreate', async message => {
     }
     
     if(command === 'ban'){
-        
-        let user = message.mentions.users.first();
-        let razon = args.slice(1).join(' ') ? args.slice(1).join(' ') : "Razon sin especificar";
-        let permiso = message.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS);
+
+      const embed = new Discord.MessageEmbed()
+      .setAuthor(message.author.username, message.author.displayAvatarURL())
+      .setFooter(message.guild.name, message.guild.iconURL())
+
+      if(!args[0]){
+
+        embed.setDescription('Debe mencionar a alguien o colocar su id')
+        embed.setColor('RED')
+        return message.channel.send(embed).then(m => setTimeout(() => m.delete(), 5000))
+
+      }
+
+      let user = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+
+      if(!user || user.id === message.author.id) {
+
+        embed.setDescription('¿Qué me crees? No te puedes banear a ti mismo 🤡')
+        embed.setColor('RED')
+        return message.channel.send(embed).then(m => setTimeout(() => m.delete(), 5000))
+
+      }
+
+      let permiso = message.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS);
     
-        if(!permiso) return message.channel.send('`Error` `|` No tienes Permisos para usar este comando.');
-    
-        if (message.mentions.users.size < 1) {
+      if(!permiso) {
 
-          let idm = args.join(" ")
-          if(!idm) return message.reply('Debe mencionar a alguien o colocar su id').catch(console.error);
+        embed.setDescription('`Error` `|` No tienes Permisos para usar este comando.')
+        embed.setColor('RED')
+        return message.channel.send(embed).then(m => setTimeout(() => m.delete(), 5000))
 
-          let id = await client.users.fetch(idm)
+      }
+      
+      if (message.guild.members.resolve(user.id)){
 
-          if (!message.guild.members.resolve(id.id)){
+        if (message.member.roles.highest.comparePositionTo(user.roles.highest) <= 0) {
 
-            if (message.member.roles.highest.comparePositionTo(id.roles.highest) <= 0) {
-              return message.channel.send('No puedes banear a un usuario con mayor o igual rango que tú.')
-            }
-            if (!id.bannable) {
-              return message.channel.send('No puedo banear a este usuario')
-            }
+          embed.setDescription('`Error` `|` No puedes banear a un usuario con mayor o igual rango que tú.')
+          embed.setColor('RED')
+          return message.channel.send(embed).then(m => setTimeout(() => m.delete(), 5000))
 
-          }
-
-          message.channel.send({
-          content: message.author.toString() + " Estás seguro de banear a " + id.toString() + "?",
-          components: [
-            /* Botones para aceptar y rechazar el juego */
-            new MessageActionRow().addComponents([
-              new MessageButton()
-                .setCustomId("accept")
-                .setLabel("SI")
-                .setStyle("SUCCESS"),
-              new MessageButton()
-                .setCustomId("deny")
-                .setLabel("NO")
-                .setStyle("DANGER")
-            ])
-          ]
-          }).then(async m => {
-        
-          /* Creamos un collector de componentes para detectar lainteracción con los botones */
-          
-          let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
-         
-          const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 30000 /* Tiempo para que el miembro interatue con los botones */ });
-          
-          
-          collector.on("collect", async int => {
-            
-            /* Cuando el miembro mencionado de click en un boton */
-            
-            int.deferUpdate();
-            
-            /* Si dio click en el boton aceptar ... */
-            
-            if (int.customId === "accept") {
-              
-              /* Creamos una nueva partida con los jugadores y lo guardamos en una constante llamada "game", el id es para detectar si ya esta en una partida */
-              message.guild.members.ban(id.id, { reason: 'razon' });
-              m.edit({
-                content: `**${id.username}**, fue baneado del servidor, razón: ${razon}.`,
-                components: []
-              });
-    
-              
-            } else if (int.customId === "deny") {
-              
-              /* Si el juego fue rechazado ... */
-              
-              // Editamos el mensaje y quitamos los botones.
-              m.edit({
-                content: "Baneo cancelado...",
-                components: []
-              });
-            
-            }
-          });
-    
-          collector.on("end", colected => {
-            /* Si no dio click en ningun boton durante los 60s ...*/
-            
-            if(colected.size < 1) return m.edit({
-              content: "**Tardaste mucho en responder!.**",
-              components: []
-            });
-            
-          });
-          
-          });
-
-        } else {
-       
-          if (!message.guild.members.resolve(user.id)) return message.channel.send('No se ha encontrado al usuario en el servidor.')
-
-          if (message.member.roles.highest.comparePositionTo(user.roles.highest) <= 0) return message.channel.send('No puedes banear a un usuario con mayor o igual rango que tú.')
-          
-          if (!user.bannable) return message.channel.send('No puedo banear a este usuario')
-
-          if (user.id === message.author.id) return message.channel.send('¿Qué me crees? No te puedes banear a ti mismo 🤡')
-
-          message.channel.send({
-          content: message.author.toString() + " Estás seguro de banear a " + user.toString() + "?",
-          components: [
-            /* Botones para aceptar y rechazar el juego */
-            new MessageActionRow().addComponents([
-              new MessageButton()
-                .setCustomId("accept")
-                .setLabel("SI")
-                .setStyle("SUCCESS"),
-              new MessageButton()
-                .setCustomId("deny")
-                .setLabel("NO")
-                .setStyle("DANGER")
-            ])
-          ]
-          }).then(async m => {
-        
-          /* Creamos un collector de componentes para detectar lainteracción con los botones */
-          
-          let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
-         
-          const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 30000 /* Tiempo para que el miembro interatue con los botones */ });
-          
-          
-          collector.on("collect", async int => {
-            
-            /* Cuando el miembro mencionado de click en un boton */
-            
-            int.deferUpdate();
-            
-            /* Si dio click en el boton aceptar ... */
-            
-            if (int.customId === "accept") {
-              
-              /* Creamos una nueva partida con los jugadores y lo guardamos en una constante llamada "game", el id es para detectar si ya esta en una partida */
-              message.guild.members.ban(user.id, { reason: 'razon' });
-              m.edit({
-                content: `**${user.username}**, fue baneado del servidor, razón: ${razon}.`,
-                components: []
-              });
-              
-            } else if (int.customId === "deny") {
-              
-              /* Si el juego fue rechazado ... */
-              
-              // Editamos el mensaje y quitamos los botones.
-              m.edit({
-                content: "Baneo cancelado...",
-                components: []
-              });
-            
-            }
-          });
-    
-          collector.on("end", colected => {
-            /* Si no dio click en ningun boton durante los 60s ...*/
-            
-            if(colected.size < 1) return m.edit({
-              content: "**Tardaste mucho en responder!.**",
-              components: []
-            });
-            
-          });
-          
-          });
         }
+        
+        if (!user.bannable) {
+          
+          embed.setDescription('`Error` `|` No puedo banear a este usuario')
+          embed.setColor('RED')
+          return message.channel.send(embed).then(m => setTimeout(() => m.delete(), 5000))
+
+        }
+
+      }
+      
+      let razon = args.slice(1).join(' ') ? args.slice(1).join(' ') : "No se ha especificado una Razón"
+   
+      message.channel.send({
+
+        content: message.author.toString() + " Estás seguro de banear a " + id.toString() + "?",
+        components: [
+          
+          new MessageActionRow().addComponents([
+            new MessageButton()
+              .setCustomId("accept")
+              .setLabel("SI")
+              .setStyle("SUCCESS"),
+            new MessageButton()
+              .setCustomId("deny")
+              .setLabel("NO")
+              .setStyle("DANGER")
+          ])
+        ]
+      }).then(async m => {
+        
+        let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
+         
+        const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 30000 /* Tiempo para que el miembro interatue con los botones */ });
+        
+        collector.on("collect", async int => {
+          
+          int.deferUpdate();
+            
+          if (int.customId === "accept") {
+              
+            message.guild.members.ban(id.id, { reason: 'razon' });
+            m.edit({
+
+              content: `**${id.username}**, fue baneado del servidor, razón: ${razon}.`,
+              components: []
+
+            });
+    
+          } else if (int.customId === "deny") {
+              
+            m.edit({
+
+              content: "Baneo cancelado...",
+              components: []
+            });
+            
+          }
+        })
+    
+        collector.on("end", colected => {
+          
+          if(colected.size < 1) return m.edit({
+              
+            content: "**Tardaste mucho en responder!.**",
+            components: []
+            
+          });
+            
+        });
+          
+      });
+
     }
 
     //COMANDOS DE DIVERSIÓN
