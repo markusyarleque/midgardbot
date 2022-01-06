@@ -4109,7 +4109,7 @@ client.on('messageCreate', async message => {
       
       if (message.guild.members.resolve(user.id)){
 
-        if (message.member.roles.highest.comparePositionTo(user.roles.highest) <= 0) {
+        if (message.member.roles.highest.comparePositionTo(user.roles) <= 0) {
 
           embed.setDescription('`Error` `|` No puedes banear a un usuario con mayor o igual rango que tú.')
           embed.setColor('RED')
@@ -4131,7 +4131,7 @@ client.on('messageCreate', async message => {
    
       message.channel.send({
 
-        content: message.author.toString() + " Estás seguro de banear a " + id.toString() + "?",
+        embeds: [embed.setDescription(message.author.toString() + " Estás seguro de banear a " + user.toString() + "?").setColor('YELLOW')],
         components: [
           
           new MessageActionRow().addComponents([
@@ -4147,9 +4147,9 @@ client.on('messageCreate', async message => {
         ]
       }).then(async m => {
         
-        let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
+        let filter = int => int.isButton() && int.user.id == message.author.id 
          
-        const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 30000 /* Tiempo para que el miembro interatue con los botones */ });
+        const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 30000 });
         
         collector.on("collect", async int => {
           
@@ -4157,10 +4157,17 @@ client.on('messageCreate', async message => {
             
           if (int.customId === "accept") {
               
-            message.guild.members.ban(id.id, { reason: 'razon' });
+            message.guild.members.ban(user.id, { reason: razon });
             m.edit({
 
-              content: `**${id.username}**, fue baneado del servidor, razón: ${razon}.`,
+              embeds: [embed
+                .setThumbnail(!!user.user ? user.user.displayAvatarURL() : user.displayAvatarURL())
+                .setTitle('¡Baneo exitoso!')
+                .addField(`> Usuario Baneado:`, !!user.user ? user.user.username : user.username)
+                .addField('> Razón:', razon)
+                .setColor('GREEN')
+                .setTimestamp()
+              ],
               components: []
 
             });
@@ -4169,8 +4176,9 @@ client.on('messageCreate', async message => {
               
             m.edit({
 
-              content: "Baneo cancelado...",
+              embeds: [embed.setDescription("Baneo cancelado...").setColor('AQUA')],
               components: []
+
             });
             
           }
@@ -4180,7 +4188,7 @@ client.on('messageCreate', async message => {
           
           if(colected.size < 1) return m.edit({
               
-            content: "**Tardaste mucho en responder!.**",
+            embeds: [embed.setDescription("**Tardaste mucho en responder!.**").setColor('AQUA')],
             components: []
             
           });
