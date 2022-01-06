@@ -4083,7 +4083,7 @@ client.on('messageCreate', async message => {
 
         embed.setDescription('Debe mencionar a alguien o colocar su id')
         embed.setColor('RED')
-        return message.channel.send(embed).then(m => setTimeout(() => m.delete(), 5000))
+        return message.channel.send({embeds: [embed] }).then(m => setTimeout(() => m.delete(), 5000))
 
       }
 
@@ -4093,7 +4093,7 @@ client.on('messageCreate', async message => {
 
         embed.setDescription('¿Qué me crees? No te puedes banear a ti mismo 🤡')
         embed.setColor('RED')
-        return message.channel.send(embed).then(m => setTimeout(() => m.delete(), 5000))
+        return message.channel.send({embeds: [embed] }).then(m => setTimeout(() => m.delete(), 5000))
 
       }
 
@@ -4103,7 +4103,7 @@ client.on('messageCreate', async message => {
 
         embed.setDescription('`Error` `|` No tienes Permisos para usar este comando.')
         embed.setColor('RED')
-        return message.channel.send(embed).then(m => setTimeout(() => m.delete(), 5000))
+        return message.channel.send({embeds: [embed] }).then(m => setTimeout(() => m.delete(), 5000))
 
       }
       
@@ -4113,7 +4113,7 @@ client.on('messageCreate', async message => {
 
           embed.setDescription('`Error` `|` No puedes banear a un usuario con mayor o igual rango que tú.')
           embed.setColor('RED')
-          return message.channel.send(embed).then(m => setTimeout(() => m.delete(), 5000))
+          return message.channel.send({embeds: [embed] }).then(m => setTimeout(() => m.delete(), 5000))
 
         }
         
@@ -4121,7 +4121,7 @@ client.on('messageCreate', async message => {
           
           embed.setDescription('`Error` `|` No puedo banear a este usuario')
           embed.setColor('RED')
-          return message.channel.send(embed).then(m => setTimeout(() => m.delete(), 5000))
+          return message.channel.send({embeds: [embed] }).then(m => setTimeout(() => m.delete(), 5000))
 
         }
 
