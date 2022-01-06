@@ -4077,7 +4077,7 @@ client.on('messageCreate', async message => {
         
         let user = message.mentions.users.first();
         let razon = args.slice(1).join(' ') ? args.slice(1).join(' ') : "Razon sin especificar";
-        let permiso = message.member.permissions.has(Permissions.FLAGSBAN._MEMBERS);
+        let permiso = message.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS);
     
         if(!permiso) return message.channel.send('`Error` `|` No tienes Permisos para usar este comando.');
     
