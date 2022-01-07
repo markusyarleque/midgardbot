@@ -137,7 +137,7 @@ client.on('guildMemberAdd', async member => {
   const embed = new Discord.MessageEmbed()
   .setThumbnail(`${member.displayAvatarURL({ dynamic: true }).replace('webp','png')}`)
   .setTitle(`Bienvenid@ Terrícola! **${member.user.username}** <:cosita:925928055745155113> , a este nuestro **Universo**. <a:pepedance:880928616416968745>`)
-  .setDescription(`<:shylove:925923567776964619> Gracias por unirte <a:exclama2:880930071731392512> <a:sc_ositobailin:880930467774365707> Espero que lo pases genial en este server libre de toxicidad <a:abdul_dance:880930576683630662>, con muchos eventos programados, premios y más sorpresas!!! <a:Sara:880304101215334401> Recuerda pasar por <#777623227321155614> y <#880268322921414657> Y si tienes alguna queja, duda o sugerencia, pasa por <#880402803825188874>. Cualquier incoveniente aquí estará todo el equipo de Staff a su disposición. <a:dc_party1:881033439367815239>`)
+  .setDescription(`<:shylove:925923567776964619> Gracias por unirte <a:exclama2:880930071731392512> <a:sc_ositobailin:880930467774365707> Espero que lo pases genial en este server libre de toxicidad <a:abdul_dance:880930576683630662>, con muchos eventos programados, premios y más sorpresas!!! <a:Sara:880304101215334401> Recuerda pasar por <#777623227321155614> y <#926556796838109226> Y si tienes alguna queja, duda o sugerencia, pasa por <#880402803825188874>. Cualquier incoveniente aquí estará todo el equipo de Staff a su disposición. <a:dc_party1:881033439367815239>`)
   .setImage(ramdonwelcome)
   .setColor('RANDOM')
   .setTimestamp(new Date())
@@ -153,7 +153,7 @@ client.on('guildMemberAdd', async member => {
 
   }*/
 
-  //channel.send('¡Bienvenid@ Terrícola!' + `${member.user}` + ', a este nuestro **Universo**. <:shylove:925923567776964619>. Espero que te lo pases genial en este server libre de toxicidad, con muchos eventos programados, premios y más sorpresas!!! <a:Sara:880304101215334401> Recuerda pasar por <#777623227321155614> y <#880268322921414657> Y si tienes alguna queja, duda o sugerencia, pasa por <#880402803825188874>. Cualquier incoveniente aquí estará todo el equipo de Staff a su disposición. <a:dc_party1:881033439367815239>');
+  //channel.send('¡Bienvenid@ Terrícola!' + `${member.user}` + ', a este nuestro **Universo**. <:shylove:925923567776964619>. Espero que te lo pases genial en este server libre de toxicidad, con muchos eventos programados, premios y más sorpresas!!! <a:Sara:880304101215334401> Recuerda pasar por <#777623227321155614> y <#926556796838109226> Y si tienes alguna queja, duda o sugerencia, pasa por <#880402803825188874>. Cualquier incoveniente aquí estará todo el equipo de Staff a su disposición. <a:dc_party1:881033439367815239>');
   channel.send({embeds:[embed]})
   channel.send('https://images-ext-2.discordapp.net/external/7FVUYUkaL6CyRFlyWrcFK6Q7j6v9OWeBvJS2pWDDtRs/https/media.discordapp.net/attachments/777623227321155614/880925149069725696/bar.gif?width=600&height=86')
     
@@ -12155,6 +12155,30 @@ client.on('messageCreate', async message => {
         ⛩️ <a:flechad:880330587678838784> <@&897701882158530590>\n\n
         🎁 <a:flechad:880330587678838784> <@&897701860176166912>\n\n
         🎰 <a:flechad:880330587678838784> <@&897933020361818133>\n\n
+        💰 <a:flechad:880330587678838784> <@&897933095720878080>\n\n`)
+        .setColor("RANDOM")
+        .setImage('https://blogs.unitec.mx/content/dam/blogs/imagenes/corp_samara/finazas-economia-quieres-ser-un-john-law-1.gif')
+        .setFooter(message.guild.name,client.user.displayAvatarURL({ dynamic: true }).replace('webp','png'));
+      message.channel.send({ embeds: [embed] });
+      message.delete({timeout: 100})
+      
+    }
+
+    if (command === 'rolesg'){
+
+      let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
+  
+      if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
+
+      const embed = new Discord.MessageEmbed()
+        .setThumbnail('https://media.discordapp.net/attachments/880312288593195028/928212628432621608/MIDGARD_Presentacion_169.gif?width=766&height=431')
+        .setAuthor(`𝐆𝐚𝐦𝐢𝐧𝐠`,message.guild.iconURL({ dynamic: true }).replace('webp','png'))
+        .setTitle(`Reacciona según lo que juegues:`)
+        .setDescription(`\n\n 🎮 Y tú... ¿qué prefieres? 🎮\n
+        🔪 <a:flechad:880330587678838784> <@&897701707847434240>\n\n
+        💣 <a:flechad:880330587678838784> <@&897701882158530590>\n\n
+        🔫 <a:flechad:880330587678838784> <@&897701860176166912>\n\n
+        🪓 <a:flechad:880330587678838784> <@&897933020361818133>\n\n
         💰 <a:flechad:880330587678838784> <@&897933095720878080>\n\n`)
         .setColor("RANDOM")
         .setImage('https://blogs.unitec.mx/content/dam/blogs/imagenes/corp_samara/finazas-economia-quieres-ser-un-john-law-1.gif')
