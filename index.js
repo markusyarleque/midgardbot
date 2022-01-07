@@ -12200,7 +12200,7 @@ client.on('messageCreate', async message => {
       
       function reminder() {
 
-        const image = await nsfw3.pgif();
+        const image = nsfw3.pgif();
     
         const embed = new Discord.MessageEmbed()
         .setAuthor(`Midgard's Hot`,client.user.avatarURL())
