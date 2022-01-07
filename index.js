@@ -12196,21 +12196,21 @@ client.on('messageCreate', async message => {
     
       const channel = message.guild.channels.cache.find(ch => ch.id === '880312288593195028');
 
-      const image = await nsfw3.pgif();
-    
       let c = 0
-
-      const embed = new Discord.MessageEmbed()
-      .setAuthor(`Midgard's Hot`,client.user.avatarURL())
-      //.setTitle('Imagen completa')
-      .setDescription(`Disfruten este pequeño aporte gratis! <a:run:880304386826465300>`)
-      .setImage(image)
-      .setColor('RANDOM')
-      .setTimestamp(new Date())
-      .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-
+      
       function reminder() {
+
+        const image = await nsfw3.pgif();
     
+        const embed = new Discord.MessageEmbed()
+        .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+        //.setTitle('Imagen completa')
+        .setDescription(`Disfruten este pequeño aporte gratis! <a:run:880304386826465300>`)
+        .setImage(image)
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+  
         channel.send({ embeds: [embed] });
 
       }
