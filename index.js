@@ -3523,7 +3523,7 @@ client.on('messageCreate', async message => {
             .setDescription(`<a:Verify2:880315278347616329> | No tengo los permisos para agregar emojis!!!`)
           ]}) // Si el bot no tiene permisos
 
-          const emojis = server.emojis.cache.size;
+          const emojis = message.guild.emojis.cache.size;
 
           if(emojis === 500) return message.reply({embeds: [
             new Discord.MessageEmbed()
@@ -12188,7 +12188,7 @@ client.on('messageCreate', async message => {
       
     }
 
-    if(command === 'pornoauto'){
+    /*if(command === 'pornoauto'){
 
       let permisos = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
     
@@ -12200,7 +12200,7 @@ client.on('messageCreate', async message => {
       
       function reminder() {
 
-        const image = nsfw3.pgif();
+        const image = await nsfw3.pgif();
     
         const embed = new Discord.MessageEmbed()
         .setAuthor(`Midgard's Hot`,client.user.avatarURL())
@@ -12223,7 +12223,7 @@ client.on('messageCreate', async message => {
 
       }
 
-    }
+    }*/
 
 
     if(command === 'enviarmd'){
