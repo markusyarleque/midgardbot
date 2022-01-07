@@ -12194,7 +12194,7 @@ client.on('messageCreate', async message => {
     
       if(!permisos) return message.reply('No tiene permisos para usar este comando <:maje:925927838492811295>').then(m => setTimeout(() => m.delete(), 5000));
     
-      const channel = guild.channels.cache.find(ch => ch.id === '880312288593195028');
+      const channel = message.guild.channels.cache.find(ch => ch.id === '880312288593195028');
 
       const image = await nsfw3.pgif();
     
