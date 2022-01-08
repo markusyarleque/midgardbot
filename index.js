@@ -1172,7 +1172,7 @@ client.on('messageCreate', async message => {
   
       if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
   
-      let miembro = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+      let miembro = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
 
       if(!miembro) return message.channel.send('Debe mencionar a un usuario a eliminar.')
 
@@ -1786,7 +1786,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'bal' || command === 'balance'){
 
-      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
       
       if(!img){
 
@@ -1976,7 +1976,7 @@ client.on('messageCreate', async message => {
           .setDescription(`<a:Verify2:880315278347616329> | Necesitas mencionar a alguien!`)
         ]})
       
-      let usuario = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+      let usuario = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
 
       if(!usuario)return message.channel.send({embeds: [
         new Discord.MessageEmbed()
@@ -3210,7 +3210,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'avatar'){
 
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         if (!img) {
     
             const embed = new Discord.MessageEmbed()
@@ -3258,7 +3258,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'welcome'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonwelcome = welcome[Math.floor(Math.random()*welcome.length)]
     
         if (!img || img.id===message.author.id) {
@@ -3284,7 +3284,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'wlc'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonwelcome = welcome[Math.floor(Math.random()*welcome.length)]
     
         if (!img || img.id===message.author.id) {
@@ -4005,7 +4005,7 @@ client.on('messageCreate', async message => {
 
       }
 
-      let user = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+      let user = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
 
       if(!user || user.id === message.author.id) {
 
@@ -5075,7 +5075,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'cafe'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdoncafe = cafe[Math.floor(Math.random()*cafe.length)]
     
         if (!img || img.id===message.author.id) {
@@ -5122,7 +5122,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'agua'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonagua = agua[Math.floor(Math.random()*agua.length)]
     
         if (!img || img.id===message.author.id) {
@@ -5168,7 +5168,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'te'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonte = te[Math.floor(Math.random()*te.length)]
     
         if (!img || img.id===message.author.id) {
@@ -5213,7 +5213,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'jugo'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonjugo = jugo[Math.floor(Math.random()*jugo.length)]
       
         if (!img || img.id===message.author.id) {
@@ -5246,7 +5246,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'tacos'){
 
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdontacos = tacos[Math.floor(Math.random()*tacos.length)]
     
         if (!img || img.id===message.author.id) {
@@ -5292,7 +5292,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'chocolate'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonchocolate = chocolate[Math.floor(Math.random()*chocolate.length)]
       
         if (!img || img.id===message.author.id) {
@@ -5337,7 +5337,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'galletas'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdongalletas = galletas[Math.floor(Math.random()*galletas.length)]
         
         if (!img || img.id===message.author.id) {
@@ -5382,7 +5382,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'helado'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonhelado = helado[Math.floor(Math.random()*helado.length)]
        
         if (!img || img.id===message.author.id) {
@@ -5428,7 +5428,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'hamburguesa'){
 
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonhamburguesa = hamburguesa[Math.floor(Math.random()*hamburguesa.length)]
     
         if (!img || img.id===message.author.id) {
@@ -5477,7 +5477,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'pizza'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonpizza = pizza[Math.floor(Math.random()*pizza.length)]
         
         if (!img || img.id===message.author.id) {
@@ -5524,7 +5524,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'cocacola'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdoncocacola = cocacola[Math.floor(Math.random()*cocacola.length)]
      
         if (!img || img.id===message.author.id) {
@@ -5570,7 +5570,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'redbull'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonredbull = redbull[Math.floor(Math.random()*redbull.length)]
       
         if (!img || img.id===message.author.id) {
@@ -5615,7 +5615,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'cerveza'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdoncerveza = cerveza[Math.floor(Math.random()*cerveza.length)]
       
         if (!img || img.id===message.author.id) {
@@ -5659,7 +5659,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'vino'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonvino = vino[Math.floor(Math.random()*vino.length)]
        
         if (!img || img.id===message.author.id) {
@@ -5704,7 +5704,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'tequila'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdontequila = tequila[Math.floor(Math.random()*tequila.length)]
         
         if (!img || img.id===message.author.id) {
@@ -5750,7 +5750,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'ron'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonron = ron[Math.floor(Math.random()*ron.length)]
       
         if (!img || img.id===message.author.id) {
@@ -5795,7 +5795,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'coctel'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdoncoctel = coctel[Math.floor(Math.random()*coctel.length)]
         
         if (!img || img.id===message.author.id) {
@@ -5838,7 +5838,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'porro'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonporro = porro[Math.floor(Math.random()*porro.length)]
         
         if (!img || img.id===message.author.id) {
@@ -5883,7 +5883,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'cigarro'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdoncigarro = cigarro[Math.floor(Math.random()*cigarro.length)]
         
         if (!img || img.id===message.author.id) {
@@ -5930,7 +5930,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'huca'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonhuca = huca[Math.floor(Math.random()*huca.length)]
       
         if (!img || img.id===message.author.id) {
@@ -6022,7 +6022,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'perreo'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonperreo = perreo[Math.floor(Math.random()*perreo.length)]
         
         if (!img || img.id===message.author.id) {
@@ -6072,7 +6072,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'bachata'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonbachata = bachata[Math.floor(Math.random()*bachata.length)]
       
         if (!img || img.id===message.author.id) {
@@ -6127,7 +6127,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'salsa'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonsalsa = salsa[Math.floor(Math.random()*salsa.length)]
         let ramdonsalsa2 = salsa2[Math.floor(Math.random()*salsa2.length)]
      
@@ -6187,7 +6187,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'cumbia'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdoncumbia = cumbia[Math.floor(Math.random()*cumbia.length)]
         let ramdoncumbia2 = cumbia2[Math.floor(Math.random()*cumbia2.length)]
      
@@ -6262,7 +6262,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'colegiala'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdoncolegiala = colegiala[Math.floor(Math.random()*colegiala.length)]
       
         if (!img || img.id===message.author.id) {
@@ -6315,7 +6315,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'hi'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonhi = hi[Math.floor(Math.random()*hi.length)]
     
         if (!img || img.id===message.author.id) {
@@ -6374,7 +6374,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'hug'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonhug = hug[Math.floor(Math.random()*hug.length)]
         let ramdonhug2 = hug2[Math.floor(Math.random()*hug2.length)]
 
@@ -6452,7 +6452,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'kiss'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonkiss = kiss[Math.floor(Math.random()*kiss.length)]
 
         if (!img || img.id===message.author.id) return message.channel.send('¿Te besarías a ti mism@? <:maje:925927838492811295>');
@@ -6552,7 +6552,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'marry'){
 
-      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
       let ramdonp = propuest[Math.floor(Math.random()*propuest.length)]
       let ramdona = acepta[Math.floor(Math.random()*acepta.length)]
       let ramdonr = rechaza[Math.floor(Math.random()*rechaza.length)]
@@ -6714,7 +6714,7 @@ client.on('messageCreate', async message => {
     if(command === 'sleep'){
   
       let sleep = star.sleep()
-      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
    
       if (!img || img.id===message.author.id) {
 
@@ -6747,7 +6747,7 @@ client.on('messageCreate', async message => {
     if(command === 'dance'){
   
       let dance = star.dance()
-      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
    
       if (!img || img.id===message.author.id) {
 
@@ -6780,7 +6780,7 @@ client.on('messageCreate', async message => {
     if(command === 'blush'){
   
       let blush = star.blush()
-      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
    
       if (!img || img.id===message.author.id) {
 
@@ -6813,7 +6813,7 @@ client.on('messageCreate', async message => {
     if(command === 'confused'){
   
       let confus = star.confused()
-      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
    
       if (!img || img.id===message.author.id) {
 
@@ -6846,7 +6846,7 @@ client.on('messageCreate', async message => {
     if(command === 'lick'){
   
       let lick = star.lick()
-      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
    
       if (!img || img.id===message.author.id) {
 
@@ -6871,7 +6871,7 @@ client.on('messageCreate', async message => {
     if(command === 'feed'){
   
       let feed = star.feed()
-      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
    
       if (!img || img.id===message.author.id) {
 
@@ -6896,7 +6896,7 @@ client.on('messageCreate', async message => {
     if(command === 'pat'){
   
       let pat = star.pat()
-      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
 
       if (!img || img.id===message.author.id) return message.channel.send('Acariciame <:esta:925931250303250512>')
 
@@ -6934,7 +6934,7 @@ client.on('messageCreate', async message => {
     if(command === 'kickbut'){
   
       let kick = star.kick()
-      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
    
       if (!img || img.id===message.author.id) {
 
@@ -6981,7 +6981,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'sad'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonsad = sad[Math.floor(Math.random()*sad.length)]
     
         if (!img || img.id===message.author.id) {
@@ -7026,7 +7026,7 @@ client.on('messageCreate', async message => {
   
   if(command === 'clorox'){
   
-      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
       let ramdonclorox = clorox[Math.floor(Math.random()*clorox.length)]
      
       if (!img || img.id===message.author.id) {
@@ -7082,7 +7082,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'cry'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdoncry = cry[Math.floor(Math.random()*cry.length)]
     
         if (!img || img.id===message.author.id) {
@@ -7154,7 +7154,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'sape'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonsape = sape[Math.floor(Math.random()*sape.length)]
 
         if (!img || img.id===message.author.id) return message.channel.send('¿Te darías un autosape? <:maje:925927838492811295>');
@@ -7226,7 +7226,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'punch'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonpunch = punch[Math.floor(Math.random()*punch.length)]
     
         if (!img || img.id===message.author.id) {
@@ -7251,7 +7251,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'slap'){
           
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         //let ramdonkill = kill[Math.floor(Math.random()*kill.length)]
     
         if (!img || img.id===message.author.id) {
@@ -7298,7 +7298,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'kill'){
           
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
         let ramdonkill = kill[Math.floor(Math.random()*kill.length)]
     
         if (!img || img.id===message.author.id) {
@@ -7348,7 +7348,7 @@ client.on('messageCreate', async message => {
     } else{
 
       let canalis = client.channels.cache.get('880355911078645770')
-      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
 
       if (!img || !img.bot) {
 
@@ -8565,7 +8565,7 @@ client.on('messageCreate', async message => {
     } else{
 
       let canalis = client.channels.cache.get('880355911078645770')
-      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
 
       if (!img || !img.bot) {
 
@@ -9835,7 +9835,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
           let ramdontetas = tetas[Math.floor(Math.random()*tetas.length)]
     
         if (!img || img.id===message.author.id) {
@@ -9914,7 +9914,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
           let ramdonpussy = pussy[Math.floor(Math.random()*pussy.length)]
     
           if (!img || img.id===message.author.id) {
@@ -10012,7 +10012,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
           let ramdonculo = culo[Math.floor(Math.random()*culo.length)]
     
           if (!img || img.id===message.author.id) {
@@ -10074,7 +10074,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
           let ramdondick = dick[Math.floor(Math.random()*dick.length)]
     
           if (!img || img.id===message.author.id) {
@@ -10180,7 +10180,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
           let ramdoncum = cum[Math.floor(Math.random()*cum.length)]
           let ramdoncum2 = cum2[Math.floor(Math.random()*cum2.length)]
     
@@ -10336,7 +10336,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
           let ramdonfuck = fuck[Math.floor(Math.random()*fuck.length)]
     
           if(!img || img.id===message.author.id)
@@ -10447,7 +10447,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
           let ramdonlick = lick[Math.floor(Math.random()*lick.length)]
     
           if(!img || img.id===message.author.id)
@@ -10532,7 +10532,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
           let ramdonsuck = suck[Math.floor(Math.random()*suck.length)]
     
           if(!img || img.id===message.author.id)
@@ -10597,7 +10597,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
           let ramdonsuckb = suckb[Math.floor(Math.random()*suckb.length)]
     
           if(!img || img.id===message.author.id)
@@ -10660,7 +10660,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
           let ramdonsboobs = sboobs[Math.floor(Math.random()*sboobs.length)]
     
           if(!img || img.id===message.author.id)
@@ -10702,7 +10702,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
     
           if(!img)
           {
@@ -10749,7 +10749,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
     
           if(!img)
           {
@@ -10795,7 +10795,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
     
           if(!img)
           {
@@ -10840,7 +10840,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
     
           if(!img)
           {
@@ -10886,7 +10886,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
     
           if(!img)
           {
@@ -11582,7 +11582,7 @@ client.on('messageCreate', async message => {
 
       let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
   
-      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
   
       if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
   
