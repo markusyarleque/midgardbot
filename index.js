@@ -1429,6 +1429,17 @@ client.on('messageCreate', async message => {
 
     if(command === "rep"){
 
+      if(!args[0]){
+
+        const e = new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | Debes mencionar a alguien o colocar su id!`)
+        
+         return message.channel.send({embeds: [e]})
+
+      }
+
       let usuario = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0]);
 
       if(!usuario) {
@@ -1436,7 +1447,7 @@ client.on('messageCreate', async message => {
         const e = new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('RED')
-          .setDescription(`<a:Verify2:880315278347616329> | Debes mencionar a alguien o colocar su id!`)
+          .setDescription(`<a:Verify2:880315278347616329> | Debes mencionar correctamente a alguien o colocar una id válida!`)
         
          return message.channel.send({embeds: [e]})
       }
@@ -1958,13 +1969,20 @@ client.on('messageCreate', async message => {
 
     if(command === 'rob'){
 
+      if(!args[0]) return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | Necesitas mencionar a alguien!`)
+        ]})
+      
       let usuario = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
 
       if(!usuario)return message.channel.send({embeds: [
         new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
         .setColor('RED')
-        .setDescription(`<a:Verify2:880315278347616329> | Necesitas mencionar a alguien!`)
+        .setDescription(`<a:Verify2:880315278347616329> | Necesitas mencionar correctamente a alguien!`)
       ]})
 
       if(usuario.id === message.author.id)return message.channel.send({embeds: [
