@@ -1817,7 +1817,7 @@ client.on('messageCreate', async message => {
   
       } else {
 
-        console.log('id: '+img.id+' username: '+img.username+'#'+img.discriminator)
+        console.log('id: '+img.id+' username: '+img.user.username+'#'+img.discriminator)
         let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario='`+ img.id + "'")
 
         if(!buscarUsuario){
@@ -1832,7 +1832,7 @@ client.on('messageCreate', async message => {
   
         const e = new Discord.MessageEmbed()
           .setColor(buscarUsuario.color)
-          .setAuthor(img.username+'#'+img.discriminator, img.displayAvatarURL({dynamic: true}))
+          .setAuthor(img.user.username+'#'+img.discriminator, img.displayAvatarURL({dynamic: true}))
           .setTitle(`Balance`)
           .addField(`**Dinero:**`, '<a:money:901702063908606004>  '+buscarUsuario.dinero, true)
           .addField(`**Banco:**`, '<a:money:901702063908606004>  '+buscarUsuario.banco, true)
