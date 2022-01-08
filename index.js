@@ -1431,6 +1431,16 @@ client.on('messageCreate', async message => {
 
       let usuario = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
 
+      if(!usuario) {
+
+        const e = new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | Debes mencionar a alguien o colocar su id!`)
+        
+         return message.channel.send({embeds: [e]})
+      }
+
       let usuario2 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, message.author.id)
 
       if(!usuario2){
@@ -1581,14 +1591,6 @@ client.on('messageCreate', async message => {
           
         })
 
-      } else {
-
-        const e = new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:880315278347616329> | Debes mencionar a alguien o colocar su id!`)
-        
-         message.channel.send({embeds: [e]})
       }
       
     }
@@ -1956,7 +1958,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'rob'){
 
-      let usuario = message.mentions.users.first()
+      let usuario = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
 
       if(!usuario)return message.channel.send({embeds: [
         new Discord.MessageEmbed()
