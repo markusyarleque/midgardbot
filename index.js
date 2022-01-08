@@ -1831,7 +1831,7 @@ client.on('messageCreate', async message => {
   
         const e = new Discord.MessageEmbed()
           .setColor(buscarUsuario.color)
-          .setAuthor(img.toString(), img.displayAvatarURL({dynamic: true}))
+          .setAuthor(img.username+'#'+img.discriminator, img.displayAvatarURL({dynamic: true}))
           .setTitle(`Balance`)
           .addField(`**Dinero:**`, '<a:money:901702063908606004>  '+buscarUsuario.dinero, true)
           .addField(`**Banco:**`, '<a:money:901702063908606004>  '+buscarUsuario.banco, true)
