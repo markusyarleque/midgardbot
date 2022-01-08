@@ -804,6 +804,7 @@ client.on('messageCreate', async message => {
     if(command === "perfil"){
 
       let img = message.mentions.users.first()
+      let user =  message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() == args[0]) || await client.users.fetch(args[0])
 
       if(!img){
 
@@ -3217,7 +3218,7 @@ client.on('messageCreate', async message => {
       .addField('Recompensas por tu voto <a:CorazonMulticolor:880315280759345163>','Recibirás un Rol muy especial que te diferenciará de los demás:\n\n <a:dc_zFlecha3:880315279903703060> <@&886772939549184052> \n\nAdemás, este rol te dará una cierta cantidad de coins de nuestro casino cada cierto tiempo... \n\nDescúbrelo!!! <:tierno:925922783978999848>',true)
       .setColor('RANDOM')
       .setTimestamp(new Date())
-      .setFooter(`🌎┃「Midgard」• Muchas gracias por tu voto!`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+      .setFooter(`${message.guild.name}• Muchas gracias por tu voto!`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
       
       const row = new MessageActionRow()
       .addComponents(
@@ -3261,7 +3262,7 @@ client.on('messageCreate', async message => {
             .setColor(0x66b3ff)
     
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
              
            message.channel.send({ embeds: [embed] });
 
@@ -3283,7 +3284,7 @@ client.on('messageCreate', async message => {
             .setColor('RANDOM')
     
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
              
             message.channel.send({ embeds: [embed] });
         }
@@ -3302,7 +3303,7 @@ client.on('messageCreate', async message => {
             .setImage(`${message.author.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`)
             .setColor(0x66b3ff)
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else if (img.avatarURL === null) {
@@ -3318,7 +3319,7 @@ client.on('messageCreate', async message => {
             .setImage(`${img.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`)
             .setColor(0x66b3ff)
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         }
@@ -3357,7 +3358,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonwelcome)
             .setColor(10773200)
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         }
@@ -3383,7 +3384,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonwelcome)
             .setColor(10773200)
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         }
@@ -3602,7 +3603,7 @@ client.on('messageCreate', async message => {
     .addField('<a:uno:854651170713632808> **' + split[1] + '**', '..........')
     .addField('<a:dos:854651170780872746> **' + split[2] + '**', '..........')
     .setTimestamp(new Date())
-    .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+    .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
 
     if (!split[2]) return message.reply('<a:alerta:915361125510545438> `|` Uso: `' +prefix +'poll pregunta / opción1 / opción2 / opción3 [opcional]... `');
 
@@ -3762,7 +3763,7 @@ client.on('messageCreate', async message => {
       .setTitle(votar)
       .setDescription('¡Vota ahora!')
       .setTimestamp(new Date())
-      .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+      .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
 
       let msg = await canal.send({
         embed: embed
@@ -3801,7 +3802,7 @@ client.on('messageCreate', async message => {
                 '**----------------------------------------**', true)
         .addField('Resultado:',`${total}\n`+'**----------------------------------------**', true)
         .setTimestamp(new Date())
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
 
         await msg.edit('¡Votacion terminada!', {
           embed: embed2
@@ -3861,7 +3862,7 @@ client.on('messageCreate', async message => {
             
           .setColor('RANDOM')
           .setTimestamp(new Date())
-          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             
         /*let miembroroles = message.guild.roles.cache.get(role.id).members;
         message.channel.send(`Tienes a **${miembroroles.size}** miembro(s) con el rol **${args}**.`);*/
@@ -3890,7 +3891,7 @@ client.on('messageCreate', async message => {
             
           .setColor('RANDOM')
           .setTimestamp(new Date())
-          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             
         /*let miembroroles = message.guild.roles.cache.get(role.id).members;
         message.channel.send(`Tienes a **${miembroroles.size}** miembro(s) con el rol **${args}**.`);*/
@@ -4235,7 +4236,7 @@ client.on('messageCreate', async message => {
         .setImage(dado)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
         message.channel.send({ embeds: [embed] });
 
     }
@@ -4514,7 +4515,7 @@ client.on('messageCreate', async message => {
           .setImage(`${image}`)
           .setColor('RANDOM')
           .setTimestamp(new Date())
-          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] })
 
         }
@@ -4532,7 +4533,7 @@ client.on('messageCreate', async message => {
           .setImage(`${image}`)
           .setColor('RANDOM')
           .setTimestamp(new Date())
-          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] })
 
         }
@@ -4556,7 +4557,7 @@ client.on('messageCreate', async message => {
                 .setImage(post.url)
                 .setColor('RAMDOM')
                 .setTimestamp(new Date())
-                .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+                .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
     
                 if(!post.url){
                     return message.channel.send('No encontré memes <:POLQUE:856670987499208775>')
@@ -4578,7 +4579,7 @@ client.on('messageCreate', async message => {
         .setDescription('Tienes 15 Segundos para responder ⌛')
         .setImage(pokemon.imageURL)
         .setTimestamp(new Date())
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
       
         message.channel.send({ embeds: [embed] }).then(msj => {
 
@@ -4590,7 +4591,7 @@ client.on('messageCreate', async message => {
                 .setDescription('El Pokemon es **'+pokemon.name+'**')
                 .setImage(pokemon.imageURL)
                 .setTimestamp(new Date())
-                .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+                .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           
                 msj.edit(embed2)
         
@@ -4602,7 +4603,7 @@ client.on('messageCreate', async message => {
                 .setDescription('El Pokemon era **'+pokemon.name+'**')
                 .setImage(pokemon.imageURL)
                 .setTimestamp(new Date())
-                .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+                .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
          
                 msj.edit(embed3)
 
@@ -5009,7 +5010,7 @@ client.on('messageCreate', async message => {
           .setImage(`https://i.pinimg.com/originals/fc/8a/07/fc8a0764969fcf2d587434f1bf3c014a.gif`)
           .setColor('RANDOM')
           .setTimestamp(new Date())
-          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] })
         } else {
 
@@ -5020,7 +5021,7 @@ client.on('messageCreate', async message => {
           .setImage(`${image}`)
           .setColor('RANDOM')
           .setTimestamp(new Date())
-          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] })
         }
 
@@ -5037,7 +5038,7 @@ client.on('messageCreate', async message => {
           .setImage(`https://i.pinimg.com/originals/fc/8a/07/fc8a0764969fcf2d587434f1bf3c014a.gif`)
           .setColor('RANDOM')
           .setTimestamp(new Date())
-          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] })
         } else {
 
@@ -5048,7 +5049,7 @@ client.on('messageCreate', async message => {
           .setImage(`${image}`)
           .setColor('RANDOM')
           .setTimestamp(new Date())
-          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] })
           
         }
@@ -5078,13 +5079,13 @@ client.on('messageCreate', async message => {
         var tiempo = Math.random() * (CARTA_TIEMPO_MAX - CARTA_TIEMPO_MIN) + CARTA_TIEMPO_MIN;
 
         var gif = [
-          'https://i.pinimg.com/originals/77/17/b4/7717b4e45fd9c15e0309ab3bc86531f7.gif',
-          'http://www.detodonavidad.com/wp-content/uploads/2011/12/Gifs-con-frases-de-Navidad.gif',
-          'https://i.pinimg.com/originals/77/2a/d3/772ad37dd84ed52eacd713673eb8fdc8.gif',
-          'https://3.bp.blogspot.com/-6w5TCuDoTOE/UrXNLMbd6PI/AAAAAAACEHE/iImqsk-eZlk/s1600/imagenes-de-navidad-postales-navide%C3%B1as-con-mensajes+(6).gif',
-          'https://1.bp.blogspot.com/-mAg3GfPw13E/X4hlvpikYRI/AAAAAAAGwLg/0zno8snoT0kznaIKp_0mnrglJxiuYh5UgCLcBGAsYHQ/s16000/mensajes-bonitos-para-navidad.gif',
-          'https://www.imagenesdeamor.cc/wp-content/uploads/2016/12/Imagenes-de-navidad-con-movimiento-gratis-10.gif',
-          'https://thumbs.gfycat.com/BrilliantEvergreenBuzzard-size_restricted.gif'
+          '',
+          '',
+          '',
+          '',
+          '',
+          '',
+          ''
         ]
 
         let ramdong = gif[Math.floor(Math.random()*gif.length)]
@@ -5092,22 +5093,22 @@ client.on('messageCreate', async message => {
         const embcarta = new Discord.MessageEmbed()
           .setAuthor(`Midgard's Love`,client.user.avatarURL())
           .setThumbnail(message.author.displayAvatarURL({ dynamic: true }).replace('webp','png'))
-          .setTitle(`📩 | Cartas Navideñas 🎄`)
-          .setDescription(tag.username + ' Te ha llegado una **carta navideña** <:tierno:925922783978999848>\n\n<a:flech:915156906258071554> *Enviado por:*\n<a:corazones_fn:906775240795901982> **'+ message.author.username+'**\n\n<a:d_Fijao:897243194943737866>\n```'+mensaje+'```\n')
-          .setImage(`https://media.discordapp.net/attachments/920564115355889674/920594418711543838/FinalVideo_1638643044.278044.gif?width=512&height=288`)
+          .setTitle(`📩 | Cartas & Dedicatorias 💕`)
+          .setDescription(tag.username + ' Te ha llegado una **dedicatoria** <:tierno:925922783978999848>\n\n<a:flech:915156906258071554> *Enviado por:*\n<a:corazones_fn:906775240795901982> **'+ message.author.username+'**\n\n<a:d_Fijao:897243194943737866>\n```'+mensaje+'```\n')
+          //.setImage(`https://media.discordapp.net/attachments/920564115355889674/920594418711543838/FinalVideo_1638643044.278044.gif?width=512&height=288`)
           .setColor('RANDOM')
           .setTimestamp(new Date())
-          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
 
         const embcartano = new Discord.MessageEmbed()
           .setAuthor(`Midgard's Love`,client.user.avatarURL())
-          .setThumbnail(ramdong)
-          .setTitle(`📩 | Cartas Navideñas 🎄`)
-          .setDescription(tag.username + ' Te ha llegado una **carta navideña** <:tierno:925922783978999848>\n\n<a:flech:915156906258071554> *Enviado por:*\n<a:corazones_fn:906775240795901982> **Anónimo**\n\n<a:d_Fijao:897243194943737866>\n```'+mensaje+'```\n')
-          .setImage(`https://media.discordapp.net/attachments/920564115355889674/920594418711543838/FinalVideo_1638643044.278044.gif?width=512&height=288`)
+          .setThumbnail(target.displayAvatarURL({ dynamic: true }).replace('webp','png'))
+          .setTitle(`📩 | Cartas & Dedicatorias 💕`)
+          .setDescription(tag.username + ' Te ha llegado una **dedicatoria** <:tierno:925922783978999848>\n\n<a:flech:915156906258071554> *Enviado por:*\n<a:corazones_fn:906775240795901982> **Anónimo**\n\n<a:d_Fijao:897243194943737866>\n```'+mensaje+'```\n')
+          //.setImage(`https://media.discordapp.net/attachments/920564115355889674/920594418711543838/FinalVideo_1638643044.278044.gif?width=512&height=288`)
           .setColor('RANDOM')
           .setTimestamp(new Date())
-          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
 
         if(anon === 's')
         {
@@ -5169,7 +5170,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdoncafe)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -5181,7 +5182,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdoncafe)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -5216,7 +5217,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonagua)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         }  else {
@@ -5228,7 +5229,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonagua)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -5262,7 +5263,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonte)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -5274,7 +5275,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonte)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -5307,7 +5308,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonjugo)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -5319,7 +5320,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonjugo)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -5340,7 +5341,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdontacos)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -5352,7 +5353,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdontacos)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -5386,7 +5387,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonchocolate)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -5398,7 +5399,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonchocolate)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -5431,7 +5432,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdongalletas)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -5443,7 +5444,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdongalletas)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -5476,7 +5477,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonhelado)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -5488,7 +5489,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonhelado)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -5522,7 +5523,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonhamburguesa)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -5534,7 +5535,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonhamburguesa)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -5571,7 +5572,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonpizza)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -5583,7 +5584,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonpizza)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -5618,7 +5619,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdoncocacola)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -5630,7 +5631,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdoncocacola)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -5664,7 +5665,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonredbull)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -5676,7 +5677,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonredbull)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -5709,7 +5710,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdoncerveza)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -5721,7 +5722,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdoncerveza)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -5753,7 +5754,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonvino)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -5765,7 +5766,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonvino)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -5798,7 +5799,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdontequila)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -5810,7 +5811,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdontequila)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -5844,7 +5845,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonron)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -5856,7 +5857,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonron)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -5889,7 +5890,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdoncoctel)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -5901,7 +5902,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdoncoctel)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -5932,7 +5933,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonporro)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -5944,7 +5945,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonporro)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -5977,7 +5978,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdoncigarro)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -5989,7 +5990,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdoncigarro)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -6024,7 +6025,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonhuca)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -6036,7 +6037,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonhuca)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -6116,7 +6117,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonperreo)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -6128,7 +6129,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonperreo)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -6166,7 +6167,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonbachata)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -6178,7 +6179,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonbachata)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -6222,7 +6223,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonsalsa2)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -6234,7 +6235,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonsalsa)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -6282,7 +6283,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdoncumbia2)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -6294,7 +6295,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdoncumbia)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -6321,7 +6322,25 @@ client.on('messageCreate', async message => {
         'https://media.discordapp.net/attachments/853500788848853002/874073599777062932/17.gif?width=293&height=562',
         'https://media.discordapp.net/attachments/853500788848853002/874073609969221702/18.gif?width=449&height=562',
         'https://media.discordapp.net/attachments/853500788848853002/874073616545906758/19.gif?width=449&height=562',
-        'https://media.discordapp.net/attachments/853500788848853002/874073630051557446/20.gif'
+        'https://media.discordapp.net/attachments/853500788848853002/874073630051557446/20.gif',
+        'https://pornocolegialas.org/wp-content/uploads/2017/03/Gifs-de-Colegialas-encueradas-jovencitas-ardientes-12.gif',
+        'https://c.tenor.com/7kVk6UGlzQgAAAAC/twerk-twerking.gif',
+        'https://c.tenor.com/URGzSpjvC8EAAAAd/twerk-twerking.gif',
+        'http://www.gifspx.com/gifs-animados-x/gspx_gfis-de-rubia-con-coletas-y-grandes-tetas-quiere-comertela.gif',
+        'https://c.tenor.com/GQyuoR5g9PoAAAAd/twerk-twerking.gif',
+        'https://nenastetonas.com/wp-content/uploads/2016/07/tumblr_o5c1n2mSdS1tobld4o2_400.gif',
+        'https://c.tenor.com/pbkNo-XY6rEAAAAM/sofia-gomez.gif',
+        'https://c.tenor.com/FL3tKO2fKNAAAAAd/tiktok-pigtails.gif',
+        'https://c.tenor.com/cPX0dpKPyb8AAAAM/tiktok.gif',
+        'https://c.tenor.com/KXhx7sQ5GLAAAAAM/tiktok.gif',
+        'https://culosonline.com/wp-content/uploads/2021/07/Naughty-4-019.gif',
+        'https://i.imgbox.com/wp6weOKl.gif',
+        'https://pornocolegialas.org/wp-content/uploads/2017/03/Gifs-de-Colegialas-encueradas-jovencitas-ardientes-2.gif',
+        'https://cdn.sex.com/images/pinporn/2018/04/01/19313693.gif?width=620',
+        'https://cdn.sex.com/images/pinporn/2021/10/07/26023884.gif?width=620',
+        'https://j.gifs.com/KkwRo2.gif',
+        'https://culosonline.com/wp-content/uploads/2021/07/Naughty-4-019.gif',
+        'https://vayagifporno.com/wp-content/uploads/2021/05/Gifs-calientes-Remy-LaCroix.gif'
     ]
     
     if(command === 'colegiala'){
@@ -6338,7 +6357,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdoncolegiala)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else {
@@ -6350,7 +6369,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdoncolegiala)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -6391,7 +6410,7 @@ client.on('messageCreate', async message => {
           .setImage(ramdonhi)
           .setColor(6666609)
           .setTimestamp(new Date())
-          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] });
     
         } else {
@@ -6403,7 +6422,7 @@ client.on('messageCreate', async message => {
           .setImage(ramdonhi)
           .setColor(6666609)
           .setTimestamp(new Date())
-          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] });
     
         };
@@ -6451,7 +6470,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonhug2)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
         } else if(img.bot){
@@ -6484,7 +6503,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonhug)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -6566,7 +6585,7 @@ client.on('messageCreate', async message => {
           .setImage(ramdonkiss)
           .setColor('RANDOM')
           .setTimestamp(new Date())
-          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] });
     
     }
@@ -6680,7 +6699,7 @@ client.on('messageCreate', async message => {
           .setDescription(img.toString() + "¿Deseas casarte con "+message.author.toString()+" ?")
           .setImage(ramdonp)
           .setTimestamp(new Date())
-          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
         ],
         components: [
           new MessageActionRow().addComponents([
@@ -6714,7 +6733,7 @@ client.on('messageCreate', async message => {
               .setDescription('💖 Felicidades!!! '+img.toString() + " y "+message.author.toString()+". Ahora están casados 🔥.")
               .setImage(ramdona)
               .setTimestamp(new Date())
-              .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
+              .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
             ], components: []
             });
             
@@ -6731,7 +6750,7 @@ client.on('messageCreate', async message => {
               .setDescription(img.toString() + " ha rechazado la propuesta de "+message.author.toString()+" <:yonofui:925922618492727357>")
               .setImage(ramdonr)
               .setTimestamp(new Date())
-              .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
+              .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
             ],
               components: []
             });
@@ -6749,7 +6768,7 @@ client.on('messageCreate', async message => {
             .setDescription(img.toString() + " no ha respondido la propuesta de "+message.author.toString()+" <:yonofui:925922618492727357>")
             .setImage(ramdonpl)
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
           ],components: []
           });
           
@@ -6770,7 +6789,7 @@ client.on('messageCreate', async message => {
         .setImage(happy)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
       message.channel.send({ embeds: [embed] });
   
     }
@@ -6789,7 +6808,7 @@ client.on('messageCreate', async message => {
         .setImage(sleep)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
         message.channel.send({ embeds: [embed] });
 
       } else {
@@ -6801,7 +6820,7 @@ client.on('messageCreate', async message => {
         .setImage(sleep)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
         message.channel.send({ embeds: [embed] });
 
       }
@@ -6822,7 +6841,7 @@ client.on('messageCreate', async message => {
         .setImage(dance)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
         message.channel.send({ embeds: [embed] });
 
       } else {
@@ -6834,7 +6853,7 @@ client.on('messageCreate', async message => {
         .setImage(dance)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
         message.channel.send({ embeds: [embed] });
 
       }
@@ -6855,7 +6874,7 @@ client.on('messageCreate', async message => {
         .setImage(blush)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
         message.channel.send({ embeds: [embed] });
 
       } else {
@@ -6867,7 +6886,7 @@ client.on('messageCreate', async message => {
         .setImage(blush)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
         message.channel.send({ embeds: [embed] });
 
       }
@@ -6888,7 +6907,7 @@ client.on('messageCreate', async message => {
         .setImage(confus)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
         message.channel.send({ embeds: [embed] });
 
       } else {
@@ -6900,7 +6919,7 @@ client.on('messageCreate', async message => {
         .setImage(confus)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
         message.channel.send({ embeds: [embed] });
 
       }
@@ -6925,7 +6944,7 @@ client.on('messageCreate', async message => {
         .setImage(lick)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
         message.channel.send({ embeds: [embed] });
 
       }
@@ -6950,7 +6969,7 @@ client.on('messageCreate', async message => {
         .setImage(feed)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
         message.channel.send({ embeds: [embed] });
 
       }
@@ -6990,7 +7009,7 @@ client.on('messageCreate', async message => {
       .setImage(pat)
       .setColor('RANDOM')
       .setTimestamp(new Date())
-      .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+      .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
       message.channel.send({ embeds: [embed] });
   
     }
@@ -7013,7 +7032,7 @@ client.on('messageCreate', async message => {
         .setImage(kick)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
         message.channel.send({ embeds: [embed] });
 
       }
@@ -7057,7 +7076,7 @@ client.on('messageCreate', async message => {
           .setImage(ramdonsad)
           .setColor('RANDOM')
           .setTimestamp(new Date())
-          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] });
     
         } else {
@@ -7069,7 +7088,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonsad)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -7102,7 +7121,7 @@ client.on('messageCreate', async message => {
           .setImage(ramdonclorox)
           .setColor('RANDOM')
           .setTimestamp(new Date())
-          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] });
   
       } else {
@@ -7114,7 +7133,7 @@ client.on('messageCreate', async message => {
           .setImage(ramdonclorox)
           .setColor('RANDOM')
           .setTimestamp(new Date())
-          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] });
     
       };
@@ -7158,7 +7177,7 @@ client.on('messageCreate', async message => {
           .setImage(ramdoncry)
           .setColor('RANDOM')
           .setTimestamp(new Date())
-          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] });
     
         } else {
@@ -7170,7 +7189,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdoncry)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -7188,7 +7207,7 @@ client.on('messageCreate', async message => {
         .setImage(suic)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
       message.channel.send({ embeds: [embed] });
 
     }
@@ -7250,7 +7269,7 @@ client.on('messageCreate', async message => {
         .setImage(ramdonsape)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
         message.channel.send({ embeds: [embed] });
     
     }
@@ -7306,7 +7325,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonpunch)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -7333,7 +7352,7 @@ client.on('messageCreate', async message => {
             .setImage(neko.url)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
           })
@@ -7378,7 +7397,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonkill)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
         };
@@ -7515,7 +7534,7 @@ client.on('messageCreate', async message => {
               //.setImage(ramdonsape)
               .setColor(5929128)
               .setTimestamp(new Date())
-              .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+              .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
               m.edit({embeds : [embed]});
   
           } else if (listask.size === 5) {
@@ -7913,7 +7932,7 @@ client.on('messageCreate', async message => {
               //.setImage(ramdonsape)
               .setColor(5929128)
               .setTimestamp(new Date())
-              .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+              .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
               m.edit({embeds : [embed]});
   
           } else if (listask.size === 5) {
@@ -8320,7 +8339,7 @@ client.on('messageCreate', async message => {
               //.setImage(ramdonsape)
               .setColor(5929128)
               .setTimestamp(new Date())
-              .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+              .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
               m.edit({embeds : [embed]});
   
           } else if (listask.size === 5) {
@@ -8731,7 +8750,7 @@ client.on('messageCreate', async message => {
               //.setImage(ramdonsape)
               .setColor(5929128)
               .setTimestamp(new Date())
-              .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+              .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
               m.edit({embeds : [embed]});
   
           } else if (listask.size === 5) {
@@ -9127,7 +9146,7 @@ client.on('messageCreate', async message => {
               //.setImage(ramdonsape)
               .setColor(5929128)
               .setTimestamp(new Date())
-              .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+              .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
               m.edit({embeds : [embed]});
   
           } else if (listask.size === 5) {
@@ -9547,7 +9566,7 @@ client.on('messageCreate', async message => {
               //.setImage(ramdonsape)
               .setColor(5929128)
               .setTimestamp(new Date())
-              .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+              .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
               m.edit({embeds : [embed]});
   
           } else if (listask.size === 5) {
@@ -9911,7 +9930,7 @@ client.on('messageCreate', async message => {
           .setImage(ramdontetas)
           .setColor('RANDOM')
           .setTimestamp(new Date())
-          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] });
     
         } else {
@@ -9923,7 +9942,7 @@ client.on('messageCreate', async message => {
           .setImage(ramdontetas)
           .setColor('RANDOM')
           .setTimestamp(new Date())
-          .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] });
         }
         }   
@@ -9990,7 +10009,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonpussy)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
           }else {
@@ -10002,7 +10021,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonpussy)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
           }
     
@@ -10088,7 +10107,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonculo)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
           } else{
@@ -10100,7 +10119,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonculo)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
           }
@@ -10150,7 +10169,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdondick)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
           }else {
@@ -10162,7 +10181,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdondick)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
           }
     
@@ -10258,7 +10277,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdoncum)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
           } else {
@@ -10270,7 +10289,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdoncum2)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
              message.channel.send({ embeds: [embed] });
             
           }
@@ -10413,7 +10432,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonfuck)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
           } else {
@@ -10425,7 +10444,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonfuck)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
              message.channel.send({ embeds: [embed] });
             
           }
@@ -10524,7 +10543,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonlick)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
           } else {
@@ -10536,7 +10555,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonlick)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
              message.channel.send({ embeds: [embed] });
             
           }
@@ -10609,7 +10628,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonsuck)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
           } else {
@@ -10621,7 +10640,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonsuck)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
              message.channel.send({ embeds: [embed] });
             
           }
@@ -10674,7 +10693,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonsuckb)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
           } else {
@@ -10686,7 +10705,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonsuckb)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
              message.channel.send({ embeds: [embed] });
             
           }
@@ -10737,7 +10756,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonsboobs)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
           } else {
@@ -10749,7 +10768,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdonsboobs)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
              message.channel.send({ embeds: [embed] });
             
           }
@@ -10780,7 +10799,7 @@ client.on('messageCreate', async message => {
               .setImage(image)
               .setColor('RANDOM')
               .setTimestamp(new Date())
-              .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+              .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
               message.channel.send({ embeds: [embed] });
             
     
@@ -10795,7 +10814,7 @@ client.on('messageCreate', async message => {
               .setImage(image)
               .setColor('RANDOM')
               .setTimestamp(new Date())
-              .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+              .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
               message.channel.send({ embeds: [embed] });
             }
             
@@ -10827,7 +10846,7 @@ client.on('messageCreate', async message => {
               .setImage(image)
               .setColor('RANDOM')
               .setTimestamp(new Date())
-              .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+              .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
               message.channel.send({ embeds: [embed] });
             
           } else {
@@ -10842,7 +10861,7 @@ client.on('messageCreate', async message => {
               .setImage(image)
               .setColor('RANDOM')
               .setTimestamp(new Date())
-              .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+              .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
               message.channel.send({ embeds: [embed] });
             
         }
@@ -10873,7 +10892,7 @@ client.on('messageCreate', async message => {
               .setImage(image)
               .setColor('RANDOM')
               .setTimestamp(new Date())
-              .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+              .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
               message.channel.send({ embeds: [embed] });
     
           } else {
@@ -10887,7 +10906,7 @@ client.on('messageCreate', async message => {
               .setImage(image)
               .setColor('RANDOM')
               .setTimestamp(new Date())
-              .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+              .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
               message.channel.send({ embeds: [embed] });
            
         }
@@ -10918,7 +10937,7 @@ client.on('messageCreate', async message => {
               .setImage(image)
               .setColor('RANDOM')
               .setTimestamp(new Date())
-              .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+              .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
               message.channel.send({ embeds: [embed] });
            
     
@@ -10933,7 +10952,7 @@ client.on('messageCreate', async message => {
               .setImage(image)
               .setColor('RANDOM')
               .setTimestamp(new Date())
-              .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+              .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
               message.channel.send({ embeds: [embed] });
             
         }
@@ -10963,7 +10982,7 @@ client.on('messageCreate', async message => {
               .setImage(image)
               .setColor('RANDOM')
               .setTimestamp(new Date())
-              .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+              .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
               message.channel.send({ embeds: [embed] });
     
           } else {
@@ -10977,7 +10996,7 @@ client.on('messageCreate', async message => {
               .setImage(image)
               .setColor('RANDOM')
               .setTimestamp(new Date())
-              .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+              .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
               message.channel.send({ embeds: [embed] });
           
         }
@@ -11061,7 +11080,7 @@ client.on('messageCreate', async message => {
             .setImage(ramdontt)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
       
       }
@@ -11086,7 +11105,7 @@ client.on('messageCreate', async message => {
         .setImage(ramdonm)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
         message.channel.send({ embeds: [embed] });
     }
 
@@ -11109,7 +11128,7 @@ client.on('messageCreate', async message => {
         .setImage(ramdonc)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
         message.channel.send({ embeds: [embed] });
     }
 
@@ -11136,7 +11155,7 @@ client.on('messageCreate', async message => {
         .setImage(ramdonb)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
         message.channel.send({ embeds: [embed] });
     }
     
@@ -11162,7 +11181,7 @@ client.on('messageCreate', async message => {
         .setDescription(`${message.author.username} la pregunta es la siguiente: ${ramdonf}\n Tienes 30 segundos para responder!`)
         //.setImage(ramdonc)
         .setColor('RANDOM')
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
         message.channel.send({ embeds: [embed] });
 
     }*/
@@ -11679,7 +11698,7 @@ client.on('messageCreate', async message => {
         .addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>', `<a:d_Fijao:897243194943737866> ${desc}`, false)
         .setImage(imagen)
         .setColor("RANDOM")
-        .setFooter(`🌎┃「Midgard」⁞ Monto base: 500k 💰` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
+        .setFooter(`${message.guild.name}⁞ Monto base: 500k 💰` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
         message.channel.send({ embeds: [embed] });
         message.delete({timeout: 100})
       }
@@ -11714,7 +11733,7 @@ client.on('messageCreate', async message => {
         .addField(`<a:diamante:887714567084449892> ${f3}`, `${d3}` , false)
         .setColor("RANDOM")
         .setImage(imagen)
-        .setFooter(`🌎┃「Midgard」` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
+        .setFooter(`${message.guild.name}` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
         message.channel.send({ embeds: [embed] });
         message.delete({timeout: 100})
       
@@ -11746,7 +11765,7 @@ client.on('messageCreate', async message => {
         .addField(`<a:diamante:887714567084449892> ${f2}`, `${d2}` , false)
         .setColor("RANDOM")
         .setImage(imagen)
-        .setFooter(`🌎┃「Midgard」` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
+        .setFooter(`${message.guild.name}` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
         message.channel.send({ embeds: [embed] });
         message.delete({timeout: 100})
       
@@ -11801,7 +11820,7 @@ client.on('messageCreate', async message => {
         .addField(`<a:diamante:887714567084449892> ${f10}`, `${d10}` , false)
         .setColor("RANDOM")
         .setImage(imagen)
-        .setFooter(`🌎┃「Midgard」` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
+        .setFooter(`${message.guild.name}` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
         message.channel.send({ embeds: [embed] });
         message.delete({timeout: 100})
       
@@ -11835,7 +11854,7 @@ client.on('messageCreate', async message => {
         .addField(`<a:diamante:887714567084449892> ${f3}`, `${d3}` , false)
         .setColor("RANDOM")
         .setImage(imagen)
-        .setFooter(`🌎┃「Midgard」` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
+        .setFooter(`${message.guild.name}` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
         message.channel.send({ embeds: [embed] });
         message.delete({timeout: 100})
       
@@ -11870,7 +11889,7 @@ client.on('messageCreate', async message => {
         .addField(`<a:d_Fijao:897243194943737866> ${f3}`, `${d3}` , false)
         .setColor("RANDOM")
         .setImage(imagen)
-        .setFooter(`🌎┃「Midgard」` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
+        .setFooter(`${message.guild.name}` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
         message.channel.send({ embeds: [embed] });
         message.delete({timeout: 100})
       
@@ -11909,7 +11928,7 @@ client.on('messageCreate', async message => {
         .addField(`<a:diamante:887714567084449892>`, `${d5}` , false)
         .setColor("RANDOM")
         .setImage(imagen)
-        .setFooter(`🌎┃「Midgard」` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
+        .setFooter(`${message.guild.name}` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
         message.channel.send({ embeds: [embed] });
         message.delete({timeout: 100})
       
@@ -11935,7 +11954,7 @@ client.on('messageCreate', async message => {
         .setDescription(`<a:d_Fijao:897243194943737866> ${desc}`)
         .setColor("RANDOM")
         .setImage(imagen)
-        .setFooter(`🌎┃「Midgard」` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
+        .setFooter(`${message.guild.name}` ,"https://media.discordapp.net/attachments/880312288593195028/902270934499610704/Midgard_GIF_AVATAR.gif");
         message.channel.send({ embeds: [embed] });
         message.delete({timeout: 100})
       
@@ -11994,7 +12013,7 @@ client.on('messageCreate', async message => {
         .setImage(`https://images-ext-1.discordapp.net/external/Bk8i6i3GZXEtRbl1nKor8E7mHxwbWf9EnttRysAM_oU/https/c.tenor.com/wVorRymbWc8AAAAC/sigue-las-reglas-vapor.gif`)
         .setColor("RANDOM")
         .setFooter(message.guild.name +" • ¡Que comience el juego!","https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif");
-        //.setFooter(`🌎┃「Midgard」`,"https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif");
+        //.setFooter(`${message.guild.name}`,"https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif");
         message.channel.send(embed);
         message.delete({timeout: 100})
         //console.log("autor: "+autor+" titulo: "+titulo+" emoji1: "+emoji1+" rol1: "+rol1+" emoji2: "+emoji2+" rol2: "+rol2+" imagen: "+imag)
@@ -12209,7 +12228,7 @@ client.on('messageCreate', async message => {
         .setImage(image)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`🌎┃「Midgard」`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
   
         channel.send({ embeds: [embed] });
 
