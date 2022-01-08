@@ -1817,6 +1817,7 @@ client.on('messageCreate', async message => {
   
       } else {
 
+        console.log('id: '+img.id+' username: '+img.username+'#'+img.discriminator)
         let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario='`+ img.id + "'")
 
         if(!buscarUsuario){
