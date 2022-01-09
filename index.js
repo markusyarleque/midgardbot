@@ -2501,7 +2501,7 @@ client.on('messageCreate', async message => {
           .setDescription(`<a:Verify2:880315278347616329> | Debes mencionar a alguien o colocar su id!`)
         ]}).catch(console.error);
 
-        let id = await client.users.fetch(idm).catch(console.error)
+        let id = await client.users.fetch(idm)
   
         if(id.bot)return message.channel.send({embeds: [
           new Discord.MessageEmbed()
