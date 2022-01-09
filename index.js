@@ -1817,7 +1817,7 @@ client.on('messageCreate', async message => {
   
       } else {
 
-        console.log('id: '+img.id+' username: '+img.user.username+'#'+img.discriminator)
+        console.log('id: '+img.id+' username: '+img.user.username+'#'+img.user.discriminator)
         let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario='`+ img.id + "'")
 
         if(!buscarUsuario){
@@ -1832,7 +1832,7 @@ client.on('messageCreate', async message => {
   
         const e = new Discord.MessageEmbed()
           .setColor(buscarUsuario.color)
-          .setAuthor(img.user.username+'#'+img.discriminator, img.displayAvatarURL({dynamic: true}))
+          .setAuthor(img.user.username+'#'+img.user.discriminator, img.displayAvatarURL({dynamic: true}))
           .setTitle(`Balance`)
           .addField(`**Dinero:**`, '<a:money:901702063908606004>  '+buscarUsuario.dinero, true)
           .addField(`**Banco:**`, '<a:money:901702063908606004>  '+buscarUsuario.banco, true)
@@ -2488,7 +2488,7 @@ client.on('messageCreate', async message => {
   
       if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
   
-      let miembro = message.mentions.users.first();
+      let miembro = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
 
       if (message.mentions.users.size < 1) {
 
@@ -2501,7 +2501,7 @@ client.on('messageCreate', async message => {
           .setDescription(`<a:Verify2:880315278347616329> | Debes mencionar a alguien o colocar su id!`)
         ]}).catch(console.error);
 
-        let id = await client.users.fetch(idm)
+        let id = await client.users.fetch(idm).catch(console.error)
   
         if(id.bot)return message.channel.send({embeds: [
           new Discord.MessageEmbed()
