@@ -2545,59 +2545,16 @@ client.on('messageCreate', async message => {
   
       if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
   
-      let miembro = message.mentions.users.first();
-
-      if (message.mentions.users.size < 1) {
-
-        let idm = args[1]
-
-        if(!idm) return message.reply({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:880315278347616329> | Debes mencionar a alguien o colocar su id!`)
-        ]}).catch(console.error);
-
-        let id = await client.users.fetch(idm)
-  
-        if(id.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:880315278347616329> | No puedes quitarle dinero a un bot!`)
-        ]})
-
-        let usuario1 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, id.id)
-        
-        if(!usuario1) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:880315278347616329> | No puedes quitarle dinero a un pobre!`)
-        ]})
-
-        let opcion = args[0]
-        if(isNaN(args[2])) return  message.channel.send(`**Pon una cantidad, solo puedo quitar números.**`).then(m => setTimeout(() => m.delete(), 5000));
-    
-        let monto = parseInt(args[2])
-    
-        if(opcion === 'cash')
-        {
-          await client.db.run(`UPDATE usuarios SET dinero=dinero-?, total=total-? WHERE idusuario=?`, monto, monto, id.id)
-        }else if(opcion === 'bank')
-        {
-          await client.db.run(`UPDATE usuarios SET banco=banco-?, total=total-? WHERE idusuario=?`, monto, monto, id.id)
-        }
-
-        const e = new Discord.MessageEmbed()
+      let miembro = message.mentions.users.first() || message.guild.members.resolve(args[1]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[1]) || await client.users.fetch(args[1])
+      
+      if(!miembro) return message.channel.send({embeds: [
+        new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
-        .setColor('GREEN')
-        .setDescription(`<a:Verify1:880315279391985744> | Has quitado <a:money:901702063908606004> `+ monto + ' del balance de <@'+id.id+'>')
-        .setTimestamp()
-        
-        message.channel.send({embeds: [e]})
+        .setColor('RED')
+        .setDescription('Debes mencionar o colocar id!')
+      ]})
 
-      } else if(miembro){
+      if(miembro){
 
         if(miembro.bot) return message.channel.send({embeds: [
           new Discord.MessageEmbed()
@@ -2834,7 +2791,7 @@ client.on('messageCreate', async message => {
 
     }
 
-    if(message.content.startsWith(prefix + 'stats')){
+    if(command === 'stats'){
 
         const embed = new Discord.MessageEmbed()
         .setThumbnail('https://media.giphy.com/media/3rgXBsmYd60rL3w7sc/giphy.gif')
@@ -3115,54 +3072,79 @@ client.on('messageCreate', async message => {
 
     if(command === 'user'){
 
-        let userm = message.mentions.users.first()
+      if(!args[0]) {
 
-        if(!userm){
-            
-            var user = message.author;
+        var user = message.author;
           
-            const embed = new Discord.MessageEmbed()
-            .setThumbnail(user.displayAvatarURL({ dynamic: true }).replace('webp','png'))
-            .setAuthor('Información del Usuario', client.user.avatarURL())
-            //.addField('Jugando a', user.presence.game != null ? user.presence.game.name : 'Nada', true)
-            //.addField('Estado:', user.presence.status, true)
-            .addField('Color:', message.member.displayHexColor, true)
-            .addField('Usuario:', user.username+'#'+user.discriminator, true)
-            .addField('Apodo:', message.member.nickname ? message.member.nickname : 'No tiene', true)
-            .addField('ID:', user.id, true)
+        const embed = new Discord.MessageEmbed()
+          .setThumbnail(user.displayAvatarURL({ dynamic: true }).replace('webp','png'))
+          .setAuthor('Información del Usuario', client.user.avatarURL())
+          //.addField('Jugando a', user.presence.game != null ? user.presence.game.name : 'Nada', true)
+          //.addField('Estado:', user.presence.status, true)
+          .addField('Color:', message.member.displayHexColor, true)
+          .addField('Usuario:', user.username+'#'+user.discriminator, true)
+          .addField('Apodo:', message.member.nickname ? message.member.nickname : 'No tiene', true)
+          .addField('ID:', user.id, true)
     
-            .addField('Cuenta Creada', user.createdAt.toLocaleDateString()+', '+user.createdAt.toLocaleTimeString(), true)
-            .addField('Fecha de Ingreso', message.member.joinedAt.toLocaleDateString()+', '+message.member.joinedAt.toLocaleTimeString(), true)
-            .addField('Roles', message.member.roles.cache.map(roles => `\`${roles.name}\``).join(', '))
-            .setColor(0x66b3ff)
+          .addField('Cuenta Creada', user.createdAt.toLocaleDateString()+', '+user.createdAt.toLocaleTimeString(), true)
+          .addField('Fecha de Ingreso', message.member.joinedAt.toLocaleDateString()+', '+message.member.joinedAt.toLocaleTimeString(), true)
+          .addField('Roles', message.member.roles.cache.map(roles => `\`${roles.name}\``).join(', '))
+          .setColor(0x66b3ff)
     
-            .setTimestamp(new Date())
-            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          .setTimestamp(new Date())
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
              
-           message.channel.send({ embeds: [embed] });
+        return message.channel.send({ embeds: [embed] });
 
-        } else{
+      }
 
-            const embed = new Discord.MessageEmbed()
-            .setThumbnail(userm.displayAvatarURL({ dynamic: true }).replace('webp','png'))
-            .setAuthor('Información del Usuario', client.user.avatarURL())
-            //.addField('Jugando a', userm.presence.game != null ? userm.presence.game.name : 'Nada', true)
-            //.addField('Estado:', userm.presence.status, true)
-            .addField('Color:', userm.hexAccentColor ? userm.hexAccentColor : 'No tiene', true)
-            .addField('Usuario:', userm.username+'#'+userm.discriminator, true)
-            .addField('Apodo:', userm.nickname ? userm.nickname : 'No tiene', true)
-            .addField('ID:', userm.id, true)
+      let userm = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0]) || await client.users.fetch(args[0])
+
+      if(!userm){
+            
+        var user = message.author;
+          
+        const embed = new Discord.MessageEmbed()
+          .setThumbnail(user.displayAvatarURL({ dynamic: true }).replace('webp','png'))
+          .setAuthor('Información del Usuario', client.user.avatarURL())
+          //.addField('Jugando a', user.presence.game != null ? user.presence.game.name : 'Nada', true)
+          //.addField('Estado:', user.presence.status, true)
+          .addField('Color:', message.member.displayHexColor, true)
+          .addField('Usuario:', user.username+'#'+user.discriminator, true)
+          .addField('Apodo:', message.member.nickname ? message.member.nickname : 'No tiene', true)
+          .addField('ID:', user.id, true)
     
-            .addField('Cuenta Creada', userm.createdAt.toLocaleDateString()+', '+userm.createdAt.toLocaleTimeString(), true)
-            .addField('Fecha de Ingreso', message.member.joinedAt.toLocaleDateString()+', '+message.member.joinedAt.toLocaleTimeString(), true )
-            .addField('Roles', message.member.roles.cache.map(roles => `\`${roles.name}\``).join(', '))
-            .setColor('RANDOM')
+          .addField('Cuenta Creada', user.createdAt.toLocaleDateString()+', '+user.createdAt.toLocaleTimeString(), true)
+          .addField('Fecha de Ingreso', message.member.joinedAt.toLocaleDateString()+', '+message.member.joinedAt.toLocaleTimeString(), true)
+          .addField('Roles', message.member.roles.cache.map(roles => `\`${roles.name}\``).join(', '))
+          .setColor(0x66b3ff)
     
-            .setTimestamp(new Date())
-            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          .setTimestamp(new Date())
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
              
-            message.channel.send({ embeds: [embed] });
-        }
+        message.channel.send({ embeds: [embed] });
+
+      } else{
+
+        const embed = new Discord.MessageEmbed()
+          .setThumbnail(userm.displayAvatarURL({ dynamic: true }).replace('webp','png'))
+          .setAuthor('Información del Usuario', client.user.avatarURL())
+          //.addField('Jugando a', userm.presence.game != null ? userm.presence.game.name : 'Nada', true)
+          //.addField('Estado:', userm.presence.status, true)
+          .addField('Color:', userm.hexAccentColor ? userm.hexAccentColor : 'No tiene', true)
+          .addField('Usuario:', userm.username+'#'+userm.discriminator, true)
+          .addField('Apodo:', userm.nickname ? userm.nickname : 'No tiene', true)
+          .addField('ID:', userm.id, true)
+          .addField('Cuenta Creada', userm.createdAt.toLocaleDateString()+', '+userm.createdAt.toLocaleTimeString(), true)
+          .addField('Fecha de Ingreso', message.member.joinedAt.toLocaleDateString()+', '+message.member.joinedAt.toLocaleTimeString(), true )
+          .addField('Roles', message.member.roles.cache.map(roles => `\`${roles.name}\``).join(', '))
+          .setColor('RANDOM')
+          .setTimestamp(new Date())
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+             
+        message.channel.send({ embeds: [embed] });
+      
+      }
         
     }
 
