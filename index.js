@@ -635,7 +635,7 @@ client.on('messageCreate', async message => {
         if (message.content.match(nia))
         {
           if(bl.tiene(message.author.id)) return;
-          message.channel.send(`¿¡𝑸𝒖𝒆 𝒏𝒆𝒄𝒆𝒔𝒊𝒅𝒂𝒅 𝒅𝒆 𝒑𝒊𝒏𝒈𝒆𝒂𝒂𝒂𝒂𝒓!? <:catnojao:930391573672386601>`)
+          message.channel.send(`¿¡𝑸𝒖𝒆 𝒏𝒆𝒄𝒆𝒔𝒊𝒅𝒂𝒅 𝒅𝒆 𝒑𝒊𝒏𝒈𝒆𝒂𝒂𝒂𝒂𝒓!? <:gatoNojao:930403164266565642>`)
   
         }
   
@@ -987,7 +987,7 @@ client.on('messageCreate', async message => {
                 /*db.run(update, function(err) {      
                   if (err) return console.error("Error actualizar "+update+" --- "+err.message)*/
 
-              message.channel.send('<a:Dancing_Duck:894716883033538630> | Acabas de actualizar tu foto de perfil!');
+              message.channel.send('<a:Dancing_Duck:930402083625111613> | Acabas de actualizar tu foto de perfil!');
      
               break
             }
@@ -1009,7 +1009,7 @@ client.on('messageCreate', async message => {
                 /*db.run(update, function(err) {      
                   if (err) return console.error("Error actualizar "+update+" --- "+err.message)*/
 
-              message.channel.send('<a:Dancing_Duck:894716883033538630> | Acabas de actualizar tu frase de perfil!');
+              message.channel.send('<a:Dancing_Duck:930402083625111613> | Acabas de actualizar tu frase de perfil!');
 
               break
             }
@@ -1703,6 +1703,15 @@ client.on('messageCreate', async message => {
 
       let it = args[0]
 
+      if(!it) return message.channel.send({embeds: [
+          
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription('<a:Verify2:880315278347616329> | Necesitas mencionar un ítem a comprar. Para más detalles ejectua: ```_shop```')
+        
+      ]})
+
       let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario='`+ message.author.id + "'")
 
       if(!buscarUsuario) return message.channel.send({embeds: [
@@ -1736,7 +1745,7 @@ client.on('messageCreate', async message => {
 
         await client.db.run(`UPDATE usuarios SET dinero=dinero-?, total=total-?, ck=? WHERE idusuario=?`,10,10,1,message.author.id)
 
-        return message.channel.send('<a:Dancing_Duck:894716883033538630> | Acabas de adquirir un pollito!');
+        return message.channel.send('<a:Dancing_Duck:930402083625111613> | Acabas de adquirir un pollito!');
   
       }
 
@@ -1787,7 +1796,7 @@ client.on('messageCreate', async message => {
       
       await client.db.run(`UPDATE usuarios SET dinero=dinero-?, total=total-?, color=? WHERE idusuario=?`,10000,10000, col,message.author.id)
 
-      message.channel.send('<a:Dancing_Duck:894716883033538630> | Acabas de actualizar el color de tu perfil!');
+      message.channel.send('<a:Dancing_Duck:930402083625111613> | Acabas de actualizar el color de tu perfil!');
 
     }
 
