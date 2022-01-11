@@ -3101,7 +3101,7 @@ client.on('messageCreate', async message => {
       let userm = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
 
       await client.users.fetch(userm)
-      
+
       if(!userm){
             
         var user = message.author;
@@ -3137,7 +3137,7 @@ client.on('messageCreate', async message => {
           .addField('Usuario:', userm.username+'#'+userm.discriminator, true)
           .addField('Apodo:', userm.nickname ? userm.nickname : 'No tiene', true)
           .addField('ID:', userm.id, true)
-          .addField('Cuenta Creada', userm.createdAt.toLocaleDateString()+', '+userm.createdAt.toLocaleTimeString(), true)
+          .addField('Cuenta Creada', userm.user.createdAt.toLocaleDateString()+', '+userm.user.createdAt.toLocaleTimeString(), true)
           .addField('Fecha de Ingreso', message.member.joinedAt.toLocaleDateString()+', '+message.member.joinedAt.toLocaleTimeString(), true )
           .addField('Roles', message.member.roles.cache.map(roles => `\`${roles.name}\``).join(', '))
           .setColor('RANDOM')
