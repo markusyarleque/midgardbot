@@ -960,7 +960,7 @@ client.on('messageCreate', async message => {
               .addField('Frase', '<a:megaphone:912163796737486908>  '+select.frase ? select.frase : 'No hay frase agregada', false)
               .addField('<:GatoLove:925929538863628318> Matrimonio', tmarry ? tmarry : 'Soltero(a)', true)
               .addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:Dinero:880594188792635422> **Economía**',false)
-              .addField(`**Total:**`, '<a:money:901702063908606004>  '+select.total, true)
+              .addField(`**Total:**`, '<a:money:930397094924124180>  '+select.total, true)
               .setColor(select.color)
               .setFooter(`Midgard's VIP`,client.user.avatarURL())
             message.channel.send({ embeds: [embed] });
@@ -1164,7 +1164,7 @@ client.on('messageCreate', async message => {
           .addField('Frase', '<a:megaphone:912163796737486908>  '+select.frase ? select.frase : 'No hay frase agregada', false)
           .addField('<:GatoLove:925929538863628318> Matrimonio', tmarry ? tmarry : 'Soltero(a)', true)
           .addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','<a:Dinero:880594188792635422> **Economía**',false)
-          .addField(`**Total:**`, '<a:money:901702063908606004>  '+select.total, true)
+          .addField(`**Total:**`, '<a:money:930397094924124180>  '+select.total, true)
           .setColor(select.color)
           .setFooter(`Midgard's VIP`,client.user.avatarURL())
         message.channel.send({ embeds: [embed] });
@@ -1221,7 +1221,7 @@ client.on('messageCreate', async message => {
         for(let ls of lista){
 
           let usuario = client.users.resolve(ls.idusuario)
-          datos.push('**'+c+'.** <@' + usuario.id + '> <a:money:901702063908606004> **'+ls.total+'**')
+          datos.push('**'+c+'.** <@' + usuario.id + '> <a:money:930397094924124180> **'+ls.total+'**')
           c = c + 1
         }
  
@@ -1296,7 +1296,7 @@ client.on('messageCreate', async message => {
           for(let ls of lista){
 
             let usuario = client.users.resolve(ls.idusuario)
-            datos.push('**'+c+'.** <@' + usuario.id + '> <a:money:901702063908606004> **'+ls.dinero+'**')
+            datos.push('**'+c+'.** <@' + usuario.id + '> <a:money:930397094924124180> **'+ls.dinero+'**')
             c = c + 1
           }
  
@@ -1622,25 +1622,25 @@ client.on('messageCreate', async message => {
     const shop1 = new Discord.MessageEmbed()
       .setAuthor(message.guild.name+' | Store 🏪', message.guild.iconURL({ dynamic: true }))
       .setDescription('Para adquirir un item, debes usar el comando `_buy <name>`') 
-      .addField(`<a:money:901702063908606004> 10 - Chicken`, 'Item para apuestas', false)  
-      .addField(`<a:money:901702063908606004> 10,000 - Rojo`, 'Color para tu perfil', false)  	
-      .addField(`<a:money:901702063908606004> 10,000 - Fucsia`, 'Color para tu perfil', false)  		
-      .addField(`<a:money:901702063908606004> 10,000 - Naranja`, 'Color para tu perfil', false)  		
-      .addField(`<a:money:901702063908606004> 10,000 - Morado`, 'Color para tu perfil', false)  		
-      .addField(`<a:money:901702063908606004> 10,000 - Dorado`, 'Color para tu perfil', false)  		
-      .addField(`<a:money:901702063908606004> 10,000 - Amarillo`, 'Color para tu perfil', false)			
+      .addField(`<a:money:930397094924124180> 10 - Chicken`, 'Item para apuestas', false)  
+      .addField(`<a:money:930397094924124180> 10,000 - Rojo`, 'Color para tu perfil', false)  	
+      .addField(`<a:money:930397094924124180> 10,000 - Fucsia`, 'Color para tu perfil', false)  		
+      .addField(`<a:money:930397094924124180> 10,000 - Naranja`, 'Color para tu perfil', false)  		
+      .addField(`<a:money:930397094924124180> 10,000 - Morado`, 'Color para tu perfil', false)  		
+      .addField(`<a:money:930397094924124180> 10,000 - Dorado`, 'Color para tu perfil', false)  		
+      .addField(`<a:money:930397094924124180> 10,000 - Amarillo`, 'Color para tu perfil', false)			
       .setColor("RANDOM")
       .setFooter(`Página 1/2`,client.user.avatarURL())
 
     const shop2 = new Discord.MessageEmbed()
       .setAuthor(message.guild.name+' | Store 🏪', message.guild.iconURL({ dynamic: true }))
       .setDescription('Para adquirir un item, debes usar el comando `_buy <name>`')   
-      .addField(`<a:money:901702063908606004> 10,000 - Aqua`, 'Color para tu perfil', false)  	
-      .addField(`<a:money:901702063908606004> 10,000 - Verde`, 'Color para tu perfil', false)  		
-      .addField(`<a:money:901702063908606004> 10,000 - Azul`, 'Color para tu perfil', false)  		
-      .addField(`<a:money:901702063908606004> 10,000 - Gris`, 'Color para tu perfil', false)  		
-      .addField(`<a:money:901702063908606004> 10,000 - Blanco`, 'Color para tu perfil', false)  		
-      .addField(`<a:money:901702063908606004> 10,000 - Negro`, 'Color para tu perfil', false) 			
+      .addField(`<a:money:930397094924124180> 10,000 - Aqua`, 'Color para tu perfil', false)  	
+      .addField(`<a:money:930397094924124180> 10,000 - Verde`, 'Color para tu perfil', false)  		
+      .addField(`<a:money:930397094924124180> 10,000 - Azul`, 'Color para tu perfil', false)  		
+      .addField(`<a:money:930397094924124180> 10,000 - Gris`, 'Color para tu perfil', false)  		
+      .addField(`<a:money:930397094924124180> 10,000 - Blanco`, 'Color para tu perfil', false)  		
+      .addField(`<a:money:930397094924124180> 10,000 - Negro`, 'Color para tu perfil', false) 			
       .setColor("RANDOM")
       .setFooter(`Página 2/2`,client.user.avatarURL())
 
@@ -1815,9 +1815,9 @@ client.on('messageCreate', async message => {
           .setColor(buscarUsuario.color)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
           .setTitle(`Balance`)
-          .addField(`**Dinero:**`, '<a:money:901702063908606004>  '+buscarUsuario.dinero, true)
-          .addField(`**Banco:**`, '<a:money:901702063908606004>  '+buscarUsuario.banco, true)
-          .addField(`**Total:**`, '<a:money:901702063908606004>  '+buscarUsuario.total, true)
+          .addField(`**Dinero:**`, '<a:money:930397094924124180>  '+buscarUsuario.dinero, true)
+          .addField(`**Banco:**`, '<a:money:930397094924124180>  '+buscarUsuario.banco, true)
+          .addField(`**Total:**`, '<a:money:930397094924124180>  '+buscarUsuario.total, true)
           .setTimestamp(new Date())
           .setFooter(`Midgard's VIP`,client.user.avatarURL())
   
@@ -1843,9 +1843,9 @@ client.on('messageCreate', async message => {
           .setColor(buscarUsuario.color)
           .setAuthor(img.user.username+'#'+img.user.discriminator, img.displayAvatarURL({dynamic: true}))
           .setTitle(`Balance`)
-          .addField(`**Dinero:**`, '<a:money:901702063908606004>  '+buscarUsuario.dinero, true)
-          .addField(`**Banco:**`, '<a:money:901702063908606004>  '+buscarUsuario.banco, true)
-          .addField(`**Total:**`, '<a:money:901702063908606004>  '+buscarUsuario.total, true)
+          .addField(`**Dinero:**`, '<a:money:930397094924124180>  '+buscarUsuario.dinero, true)
+          .addField(`**Banco:**`, '<a:money:930397094924124180>  '+buscarUsuario.banco, true)
+          .addField(`**Total:**`, '<a:money:930397094924124180>  '+buscarUsuario.total, true)
           .setTimestamp(new Date())
           .setFooter(`Midgard's VIP`,client.user.avatarURL())
   
@@ -1859,12 +1859,12 @@ client.on('messageCreate', async message => {
     //<-- COMANDO WORK -->
 
     var w = [
-      'Gracias por ayudarme a programar, aquí tienes tu recompensa: <a:money:901702063908606004> ',
-      'Felicidades por tu trabajo, te mereces esto: <a:money:901702063908606004> ',
-      'Excelente trabajo crack, aquí tienes: <a:money:901702063908606004> ',
-      'Por cuidar del server todo el día, te has ganado: <a:money:901702063908606004> ',
-      'Gracias por usar mis comandos, aquí tienes buen terrícola: <a:money:901702063908606004> ',
-      'Sin hacer nada, ya ganaste: <a:money:901702063908606004> '
+      'Gracias por ayudarme a programar, aquí tienes tu recompensa: <a:money:930397094924124180> ',
+      'Felicidades por tu trabajo, te mereces esto: <a:money:930397094924124180> ',
+      'Excelente trabajo crack, aquí tienes: <a:money:930397094924124180> ',
+      'Por cuidar del server todo el día, te has ganado: <a:money:930397094924124180> ',
+      'Gracias por usar mis comandos, aquí tienes buen terrícola: <a:money:930397094924124180> ',
+      'Sin hacer nada, ya ganaste: <a:money:930397094924124180> '
     ]
     
     if(command === 'work' || command === 'w'){
@@ -1907,12 +1907,12 @@ client.on('messageCreate', async message => {
     //<-- COMANDO CRIME -->
 
     var crime = [
-      'Junto con tus amigos, han asaltado el banco de Midgard y lograron robar: <a:money:901702063908606004> ',
-      'La mafia agradece tus trabajos y te da estas monedas de recompensa: <a:money:901702063908606004> ',
-      'El hackeo al banco de Midgard resultó muy bien, lograste obtener: <a:money:901702063908606004> ',
-      'Pero que buen asalto! En total conseguiste: <a:money:901702063908606004> ',
-      'Tus crímenes son bien recompensados por la mafia: <a:money:901702063908606004> ',
-      'Que pro eres hackeando, aquí tienes: <a:money:901702063908606004> '
+      'Junto con tus amigos, han asaltado el banco de Midgard y lograron robar: <a:money:930397094924124180> ',
+      'La mafia agradece tus trabajos y te da estas monedas de recompensa: <a:money:930397094924124180> ',
+      'El hackeo al banco de Midgard resultó muy bien, lograste obtener: <a:money:930397094924124180> ',
+      'Pero que buen asalto! En total conseguiste: <a:money:930397094924124180> ',
+      'Tus crímenes son bien recompensados por la mafia: <a:money:930397094924124180> ',
+      'Que pro eres hackeando, aquí tienes: <a:money:930397094924124180> '
     ]
     
     if(command === 'crime'){
@@ -1954,7 +1954,7 @@ client.on('messageCreate', async message => {
           const e = new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('RED')
-          .setDescription(`<a:Verify2:880315278347616329> | Qué malo eres cometiendo crímenes, acabas de ser capturado y perdiste <a:money:901702063908606004> `+ r)
+          .setDescription(`<a:Verify2:880315278347616329> | Qué malo eres cometiendo crímenes, acabas de ser capturado y perdiste <a:money:930397094924124180> `+ r)
           .setTimestamp()
 
           message.channel.send({embeds: [e]})
@@ -1968,7 +1968,7 @@ client.on('messageCreate', async message => {
         const e = new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('RED')
-          .setDescription(`<a:Verify2:880315278347616329> | Eres muy novato para estos trabajos, mejor te obsequio estas monedas : <a:money:901702063908606004> `+ 50)
+          .setDescription(`<a:Verify2:880315278347616329> | Eres muy novato para estos trabajos, mejor te obsequio estas monedas : <a:money:930397094924124180> `+ 50)
           .setTimestamp()
 
         message.channel.send({embeds: [e]})
@@ -2054,7 +2054,7 @@ client.on('messageCreate', async message => {
         const e = new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
         .setColor('GREEN')
-        .setDescription(`<a:Verify1:880315279391985744> | Le has robado <a:money:901702063908606004> `+ ganarob + ' a ' + usuario.toString())
+        .setDescription(`<a:Verify1:880315279391985744> | Le has robado <a:money:930397094924124180> `+ ganarob + ' a ' + usuario.toString())
         .setTimestamp()
         message.channel.send({embeds: [e]})
     
@@ -2065,7 +2065,7 @@ client.on('messageCreate', async message => {
         const e = new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
         .setColor('RED')
-        .setDescription(`<a:Verify2:880315278347616329> | Qué malo eres robando, acabas de ser capturado y perdiste <a:money:901702063908606004> `+ pierderob)
+        .setDescription(`<a:Verify2:880315278347616329> | Qué malo eres robando, acabas de ser capturado y perdiste <a:money:930397094924124180> `+ pierderob)
         .setTimestamp()
         message.channel.send({embeds: [e]})
     
@@ -2107,7 +2107,7 @@ client.on('messageCreate', async message => {
         new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
         .setColor('RED')
-        .setDescription(`<a:Verify2:880315278347616329> | No tienes ese monto para depositar. Actualmente tienes <a:money:901702063908606004> `+ buscarUsuario.dinero)
+        .setDescription(`<a:Verify2:880315278347616329> | No tienes ese monto para depositar. Actualmente tienes <a:money:930397094924124180> `+ buscarUsuario.dinero)
 
       ]})
 
@@ -2118,7 +2118,7 @@ client.on('messageCreate', async message => {
         const e = new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('GREEN')
-          .setDescription(`<a:Verify1:880315279391985744> | Has depositado <a:money:901702063908606004> `+ buscarUsuario.dinero+ ' al banco')
+          .setDescription(`<a:Verify1:880315279391985744> | Has depositado <a:money:930397094924124180> `+ buscarUsuario.dinero+ ' al banco')
           .setTimestamp()
         
         message.channel.send({embeds: [e]})
@@ -2141,7 +2141,7 @@ client.on('messageCreate', async message => {
         const e = new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('GREEN')
-          .setDescription(`<a:Verify1:880315279391985744> | Has depositado <a:money:901702063908606004> `+ numero + ' al banco')
+          .setDescription(`<a:Verify1:880315279391985744> | Has depositado <a:money:930397094924124180> `+ numero + ' al banco')
           .setTimestamp()
           
         message.channel.send({embeds: [e]})
@@ -2184,7 +2184,7 @@ client.on('messageCreate', async message => {
         new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
         .setColor('RED')
-        .setDescription(`<a:Verify2:880315278347616329> | No tienes ese monto para retirar. Actualmente tienes en tu banco <a:money:901702063908606004> `+ buscarUsuario.banco)
+        .setDescription(`<a:Verify2:880315278347616329> | No tienes ese monto para retirar. Actualmente tienes en tu banco <a:money:930397094924124180> `+ buscarUsuario.banco)
 
       ]})
 
@@ -2195,7 +2195,7 @@ client.on('messageCreate', async message => {
         const e = new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('GREEN')
-          .setDescription(`<a:Verify1:880315279391985744> | Has retirado <a:money:901702063908606004> `+ buscarUsuario.banco+ ' del banco')
+          .setDescription(`<a:Verify1:880315279391985744> | Has retirado <a:money:930397094924124180> `+ buscarUsuario.banco+ ' del banco')
           .setTimestamp()
         
         message.channel.send({embeds: [e]})
@@ -2218,7 +2218,7 @@ client.on('messageCreate', async message => {
         const e = new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('GREEN')
-          .setDescription(`<a:Verify1:880315279391985744> | Has retirado <a:money:901702063908606004> `+ numero + ' del banco')
+          .setDescription(`<a:Verify1:880315279391985744> | Has retirado <a:money:930397094924124180> `+ numero + ' del banco')
           .setTimestamp()
           
         message.channel.send({embeds: [e]})
@@ -2329,7 +2329,7 @@ client.on('messageCreate', async message => {
       .setAuthor(server.name, server.iconURL({ dynamic: true }))
       .setTitle('Recompensa Diaria 💵')
       .setColor(buscarUsuario.color)
-      .setDescription(`Felicidades **${message.author.username}**! Has recibido <a:money:901702063908606004> **` + numero + `** como recompensa diaria.\n¡Muchas gracias por usar mis comandos!`)
+      .setDescription(`Felicidades **${message.author.username}**! Has recibido <a:money:930397094924124180> **` + numero + `** como recompensa diaria.\n¡Muchas gracias por usar mis comandos!`)
       .setTimestamp()
       .setFooter(`MidgardBot`,client.user.avatarURL())
       
@@ -2414,7 +2414,7 @@ client.on('messageCreate', async message => {
           new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('RED')
-          .setDescription(`<a:Verify2:880315278347616329> | No tienes ese monto para apostar. Actualmente tienes <a:money:901702063908606004> `+ buscarUsuario.dinero)
+          .setDescription(`<a:Verify2:880315278347616329> | No tienes ese monto para apostar. Actualmente tienes <a:money:930397094924124180> `+ buscarUsuario.dinero)
   
         ]})
 
@@ -2429,7 +2429,7 @@ client.on('messageCreate', async message => {
             const e = new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
             .setColor('GREEN')
-            .setDescription(`<a:Verify1:880315279391985744> |Tu pollito ganó la pelea y obtuviste <a:money:901702063908606004> `+ (buscarUsuario.dinero*2))
+            .setDescription(`<a:Verify1:880315279391985744> |Tu pollito ganó la pelea y obtuviste <a:money:930397094924124180> `+ (buscarUsuario.dinero*2))
             .setTimestamp()
           
             message.channel.send({embeds: [e]})
@@ -2467,7 +2467,7 @@ client.on('messageCreate', async message => {
             const e = new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
             .setColor('GREEN')
-            .setDescription(`<a:Verify1:880315279391985744> |Tu pollito ganó la pelea y obtuviste <a:money:901702063908606004> `+ (numero*2))
+            .setDescription(`<a:Verify1:880315279391985744> |Tu pollito ganó la pelea y obtuviste <a:money:930397094924124180> `+ (numero*2))
             .setTimestamp()
           
             message.channel.send({embeds: [e]})
@@ -2540,7 +2540,7 @@ client.on('messageCreate', async message => {
         const e = new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
         .setColor('GREEN')
-        .setDescription(`<a:Verify1:880315279391985744> | Has agreado <a:money:901702063908606004> `+ monto + ' al balance de <@'+miembro.id+'>')
+        .setDescription(`<a:Verify1:880315279391985744> | Has agreado <a:money:930397094924124180> `+ monto + ' al balance de <@'+miembro.id+'>')
         .setTimestamp()
         
         message.channel.send({embeds: [e]})
@@ -2597,7 +2597,7 @@ client.on('messageCreate', async message => {
         const e = new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
         .setColor('GREEN')
-        .setDescription(`<a:Verify1:880315279391985744> | Has quitado <a:money:901702063908606004> `+ monto + ' del balance de <@'+miembro.id+'>')
+        .setDescription(`<a:Verify1:880315279391985744> | Has quitado <a:money:930397094924124180> `+ monto + ' del balance de <@'+miembro.id+'>')
         .setTimestamp()
         
         message.channel.send({embeds: [e]})
