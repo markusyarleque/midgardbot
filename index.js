@@ -533,7 +533,7 @@ client.on('messageCreate', async message => {
             
             let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
            
-            const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 30000 /* Tiempo para que el miembro interatue con los botones */ });
+            const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 300000 /* Tiempo para que el miembro interatue con los botones */ });
             
             
             collector.on("collect", async int => {
@@ -627,6 +627,15 @@ client.on('messageCreate', async message => {
         {
           if(bl.tiene(message.author.id)) return;
           message.channel.send(`Que necesidad de etiquetar <:nojao:891551822387486721>`)
+  
+        }
+
+        let nia = new RegExp(`^<@!?${'743960732542042203'}>( |)$`);
+  
+        if (message.content.match(nia))
+        {
+          if(bl.tiene(message.author.id)) return;
+          message.channel.send(`¿¡𝑸𝒖𝒆 𝒏𝒆𝒄𝒆𝒔𝒊𝒅𝒂𝒅 𝒅𝒆 𝒑𝒊𝒏𝒈𝒆𝒂𝒂𝒂𝒂𝒓!? <:catnojao:930391573672386601>`)
   
         }
   
@@ -3089,7 +3098,7 @@ client.on('messageCreate', async message => {
           .addField('Cuenta Creada', user.createdAt.toLocaleDateString()+', '+user.createdAt.toLocaleTimeString(), true)
           .addField('Fecha de Ingreso', message.member.joinedAt.toLocaleDateString()+', '+message.member.joinedAt.toLocaleTimeString(), true)
           .addField('Roles', message.member.roles.cache.map(roles => `\`${roles.name}\``).join(', '))
-          .setColor(0x66b3ff)
+          .setColor('RANDOM')
     
           .setTimestamp(new Date())
           .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
@@ -3133,8 +3142,8 @@ client.on('messageCreate', async message => {
           .setAuthor('Información del Usuario', client.user.avatarURL())
           //.addField('Jugando a', userm.presence.game != null ? userm.presence.game.name : 'Nada', true)
           //.addField('Estado:', userm.presence.status, true)
-          .addField('Color:', userm.hexAccentColor ? userm.hexAccentColor : 'No tiene', true)
-          .addField('Usuario:', userm.username+'#'+userm.discriminator, true)
+          .addField('Color:', userm.user.hexAccentColor ? userm.hexAccentColor : 'No tiene', true)
+          .addField('Usuario:', userm.user.username+'#'+userm.user.discriminator, true)
           .addField('Apodo:', userm.nickname ? userm.nickname : 'No tiene', true)
           .addField('ID:', userm.id, true)
           .addField('Cuenta Creada', userm.user.createdAt.toLocaleDateString()+', '+userm.user.createdAt.toLocaleTimeString(), true)
@@ -3152,34 +3161,48 @@ client.on('messageCreate', async message => {
 
     if(command === 'avatar'){
 
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
-        if (!img) {
+      if(!args[0]){
+
+        const embed = new Discord.MessageEmbed()
+        .setAuthor(`Avatar de ${message.author.username}#${message.author.discriminator}`,client.user.avatarURL())
+        .setTitle('Imagen completa')
+        .setDescription('[Click aquí]('+`${message.author.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`+')')
+        .setImage(`${message.author.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`)
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        return message.channel.send({ embeds: [embed] });
+      }
+
+      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
+        
+      if (!img) {
     
-            const embed = new Discord.MessageEmbed()
-            .setAuthor(`Avatar de ${message.author.username}#${message.author.discriminator}`,client.user.avatarURL())
-            .setTitle('Imagen completa')
-            .setDescription('[Click aquí]('+`${message.author.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`+')')
-            .setImage(`${message.author.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`)
-            .setColor(0x66b3ff)
-            .setTimestamp(new Date())
-            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-            message.channel.send({ embeds: [embed] });
+        const embed = new Discord.MessageEmbed()
+        .setAuthor(`Avatar de ${message.author.username}#${message.author.discriminator}`,client.user.avatarURL())
+        .setTitle('Imagen completa')
+        .setDescription('[Click aquí]('+`${message.author.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`+')')
+        .setImage(`${message.author.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`)
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        message.channel.send({ embeds: [embed] });
     
-        } else if (img.avatarURL === null) {
+      } else if (img.avatarURL === null) {
     
-            message.channel.sendMessage('El usuario ('+ img.username +') no tiene avatar!');
+        message.channel.sendMessage('El usuario ('+ img.username +') no tiene avatar!');
     
-        } else {
+      } else {
     
-            const embed = new Discord.MessageEmbed()
-            .setAuthor(`Avatar de ${img.username}#${img.discriminator}`,client.user.avatarURL())
-            .setTitle('Imagen completa')
-            .setDescription('[Click aquí]('+`${img.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`+')')
-            .setImage(`${img.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`)
-            .setColor(0x66b3ff)
-            .setTimestamp(new Date())
-            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-            message.channel.send({ embeds: [embed] });
+        const embed = new Discord.MessageEmbed()
+        .setAuthor(`Avatar de ${img.user.username}#${img.user.discriminator}`,client.user.avatarURL())
+        .setTitle('Imagen completa')
+        .setDescription('[Click aquí]('+`${img.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`+')')
+        .setImage(`${img.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`)
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        message.channel.send({ embeds: [embed] });
       
         }
     
@@ -3198,58 +3221,33 @@ client.on('messageCreate', async message => {
         'https://media.discordapp.net/attachments/853500788848853002/873245621820215326/10.gif'
     ] 
     
-    if(command === 'welcome'){
+    if(command === 'welcome' || command === 'wlc'){
     
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
-        let ramdonwelcome = welcome[Math.floor(Math.random()*welcome.length)]
+      if(!args[0]) return message.channel.send(`<:ojooo:925928526119571457> Necesitas mencionar a un usuario <a:pasito:877116925291946094>`);
     
-        if (!img || img.id===message.author.id) {
+      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
+      let ramdonwelcome = welcome[Math.floor(Math.random()*welcome.length)]
     
-            message.channel.send(`<:ojooo:925928526119571457> Necesitas mencionar a un usuario <a:pasito:877116925291946094>`);
+      if (!img || img.id===message.author.id) {
     
-        } else {
+        message.channel.send(`<:ojooo:925928526119571457> Necesitas mencionar a un usuario <a:pasito:877116925291946094>`);
     
-            const embed = new Discord.MessageEmbed()
-            .setThumbnail(`${img.displayAvatarURL({ dynamic: true }).replace('webp','png')}`)
-            //.setAuthor('Midgarddd', https://images-ext-2.discordapp.net/external/18X-qDE3JIOunpBItNM1A9YQsvqOq3-EkOwvsNgn76k/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/904290001196556369/e7854088a43de999fb373b4599c5a6d3.png')
-            .setTitle(`Bienvenid@ <:cosita:925928055745155113> **${img.username}** <a:pepedance:880928616416968745>`)
-            .setDescription(`<a:exclama2:880930071731392512> Gracias por unirte!!! <a:sc_ositobailin:880930467774365707> Espero que lo disfrutes. <a:abdul_dance:880930576683630662>`)
-            .setImage(ramdonwelcome)
-            .setColor(10773200)
-            .setTimestamp(new Date())
-            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-            message.channel.send({ embeds: [embed] });
+      } else {
+    
+        const embed = new Discord.MessageEmbed()
+        .setThumbnail(`${img.displayAvatarURL({ dynamic: true }).replace('webp','png')}`)
+        .setTitle(`Bienvenid@ <:cosita:925928055745155113> **${img.user.username}** <a:pepedance:880928616416968745>`)
+        .setDescription(`<a:exclama2:880930071731392512> Gracias por unirte!!! <a:sc_ositobailin:880930467774365707> Espero que lo disfrutes. <a:abdul_dance:880930576683630662>`)
+        .setImage(ramdonwelcome)
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        message.channel.send({ embeds: [embed] });
       
-        }
+      }
     
     }
     
-    if(command === 'wlc'){
-    
-        let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
-        let ramdonwelcome = welcome[Math.floor(Math.random()*welcome.length)]
-    
-        if (!img || img.id===message.author.id) {
-    
-            message.channel.send(`<:ojooo:925928526119571457> Necesitas mencionar a un usuario <a:pasito:877116925291946094>`);
-    
-        } else {
-    
-            const embed = new Discord.MessageEmbed()
-            .setThumbnail(`${img.displayAvatarURL({ dynamic: true }).replace('webp','png')}`)
-            //.setAuthor(`Midgard`,client.user.avatarURL())
-            .setTitle(`Bienvenid@ <:cosita:925928055745155113> **${img.username}** <a:pepedance:880928616416968745>`)
-            .setDescription(`<a:exclama2:880930071731392512> Gracias por unirte!!! <a:sc_ositobailin:880930467774365707> Espero que lo disfrutes. <a:abdul_dance:880930576683630662>`)
-            .setImage(ramdonwelcome)
-            .setColor(10773200)
-            .setTimestamp(new Date())
-            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-            message.channel.send({ embeds: [embed] });
-      
-        }
-    
-    }
-
     if(command === 'remindme' || command === 'rm'){
 
         let obtener = args[0]
@@ -3314,26 +3312,25 @@ client.on('messageCreate', async message => {
     
       }
     
-      if(command === 'snipe')
-      {
+    if(command === 'snipe'){
 
-        const conf = message.guild.channels.cache.find(ch => ch.id === '881432157602611230');
+      const conf = message.guild.channels.cache.find(ch => ch.id === '881432157602611230');
 
-        const channel = message.mentions.channels.first() || message.channel;
+      const channel = message.mentions.channels.first() || message.channel;
 
-        if(channel===conf)
-        {
-          return message.channel.send("Así te quería atrapar puerco! <:ojooo:925928526119571457> No puedes hacer eso aquí <:burbuja:925928080680292352>")
+      if(channel===conf){
+          
+        return message.channel.send("Así te quería atrapar puerco! <:ojooo:925928526119571457> No puedes hacer eso aquí <:burbuja:925928080680292352>")
           .then(m => setTimeout(() => m.delete(), 10000));
-        } else
-        {
+
+      } else{
           
         const msg = client.snipes.get(channel.id);
     
-        if (!msg)
-        {
+        if (!msg){
+          
           message.channel.send('No se ha borrado recientemente ningun mensaje!')
-              .then(m => setTimeout(() => m.delete(), 5000));
+          .then(m => setTimeout(() => m.delete(), 5000));
         
         } else {
     
@@ -3349,60 +3346,73 @@ client.on('messageCreate', async message => {
 
     if(command === 'jumbo'){
 
-        if(!args[0]) return message.reply({embeds: [
+      if(!args[0]) return message.reply({embeds: [
+
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:880315278347616329> | Uso incorrecto del comando\nDebe ser: _jumbo <emoji> \n*Si quieres añadirlo al servidor añade --s al final*`)
+
+      ]}) // Si no usa args[0]
+        
+      const emoticon = require('discord.js').Util.parseEmoji(args[0]) // Usaremos el metodo que nos da discord.js para obtener info del emoji
+          
+      if(emoticon.id == null) return message.reply({embeds: [
+          
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:880315278347616329> | Emoji inválido!!!`)
+
+      ]}) // Si no es un emoji personalizado o no lo encuentra la id seria null para evitar problemas devolvera
+        
+      let palta = `https://cdn.discordapp.com/emojis/` + `${emoticon.id}.` + (emoticon.animated ? 'gif' : 'png') // Conseguimos el url 
+          
+      if(message.content.endsWith('--s')) { // Si termina con --s
+        
+        if(!message.member.permissions.has(Permissions.FLAGS.MANAGE_EMOJIS_AND_STICKERS)) return message.reply({embeds: [
+            
           new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('RED')
-          .setDescription(`<a:Verify2:880315278347616329> | Uso incorrecto del comando\nDebe ser: _jumbo <emoji> \n*Si quieres añadirlo al servidor añade --s al final*`)
-        ]}) // Si no usa args[0]
+          .setDescription(`<a:Verify2:880315278347616329> | No tienes permisos para agregar emojis!!!`)
+
+        ]}) // Si no tiene permisos el usuario
         
-        const emoticon = require('discord.js').Util.parseEmoji(args[0]) // Usaremos el metodo que nos da discord.js para obtener info del emoji
-          
-        if(emoticon.id == null) return message.reply({embeds: [
+        if(!message.guild.me.permissions.has(Permissions.FLAGS.MANAGE_EMOJIS_AND_STICKERS)) return message.reply({embeds: [
+            
           new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('RED')
-          .setDescription(`<a:Verify2:880315278347616329> | Emoji inválido!!!`)
-        ]}) // Si no es un emoji personalizado o no lo encuentra la id seria null para evitar problemas devolvera
-        
-        let palta = `https://cdn.discordapp.com/emojis/` + `${emoticon.id}.` + (emoticon.animated ? 'gif' : 'png') // Conseguimos el url 
+          .setDescription(`<a:Verify2:880315278347616329> | No tengo los permisos para agregar emojis!!!`)
+
+        ]}) // Si el bot no tiene permisos
+
+        const emojis = message.guild.emojis.cache.size;
+
+        if(emojis === 500) return message.reply({embeds: [
+            
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:880315278347616329> | No hay espacio suficiente para agregar el emoji!!!`)
+
+        ]})
+
+        message.guild.emojis.create(palta, emoticon.name) // Creamos un emoji con la imagen del emoji 
           
-        if(message.content.endsWith('--s')) { // Si termina con --s
-        
-          if(!message.member.permissions.has(Permissions.FLAGS.MANAGE_EMOJIS_AND_STICKERS)) return message.reply({embeds: [
-            new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
-            .setColor('RED')
-            .setDescription(`<a:Verify2:880315278347616329> | No tienes permisos para agregar emojis!!!`)
-          ]}) // Si no tiene permisos el usuario
-        
-          if(!message.guild.me.permissions.has(Permissions.FLAGS.MANAGE_EMOJIS_AND_STICKERS)) return message.reply({embeds: [
-            new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
-            .setColor('RED')
-            .setDescription(`<a:Verify2:880315278347616329> | No tengo los permisos para agregar emojis!!!`)
-          ]}) // Si el bot no tiene permisos
+        return message.channel.send({embeds: [
+          
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('GREEN')
+          .setDescription(`<a:Verify1:880315279391985744> |Emoji agregado correctamente : **`+ emoticon.name+'**')
+          .setTimestamp()
+        ]}) // Mensaje de confirmacioon 
 
-          const emojis = message.guild.emojis.cache.size;
-
-          if(emojis === 500) return message.reply({embeds: [
-            new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
-            .setColor('RED')
-            .setDescription(`<a:Verify2:880315278347616329> | No hay espacio suficiente para agregar el emoji!!!`)
-          ]})
-
-          message.guild.emojis.create(palta, emoticon.name) // Creamos un emoji con la imagen del emoji 
-          return message.channel.send({embeds: [
-            new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
-            .setColor('GREEN')
-            .setDescription(`<a:Verify1:880315279391985744> |Emoji agregado correctamente : **`+ emoticon.name+'**')
-            .setTimestamp()
-            ]}) // Mensaje de confirmacioon 
-
-        } // Cerramos condicion
-          message.channel.send(palta) // Enviamos el url del emoticon
+      } // Cerramos condicion
+          
+      message.channel.send(palta) // Enviamos el url del emoticon
           /*const embed = new Discord.MessageEmbed()
           .setImage(palta)
           message.channel.send({ embeds: [embed] });*/
@@ -3410,38 +3420,38 @@ client.on('messageCreate', async message => {
 
     if(command === 'conteo'){
 
-        if(!args[0]) return message.channel.send('Pon una cantidad para hacer una cuenta regresiva.').then(m => setTimeout(() => m.delete(), 5000));
+      if(!args[0]) return message.channel.send('Pon una cantidad para hacer una cuenta regresiva.').then(m => setTimeout(() => m.delete(), 5000));
     
-        if(isNaN(args[0])) return  message.channel.send(`**Pon una cantidad, solo puedo contar numeros.**`).then(m => setTimeout(() => m.delete(), 5000));
+      if(isNaN(args[0])) return  message.channel.send(`**Pon una cantidad, solo puedo contar numeros.**`).then(m => setTimeout(() => m.delete(), 5000));
     
-        let time = parseInt(args[0])
+      let time = parseInt(args[0])
     
-        if(time > 7200) return  message.channel.send(`**No puedo contar más de 2 horas**`).then(m => setTimeout(() => m.delete(), 5000));
+      if(time > 7200) return  message.channel.send(`**No puedo contar más de 2 horas**`).then(m => setTimeout(() => m.delete(), 5000));
     
        
-          let msg = await message.channel.send(String(time))
+      let msg = await message.channel.send(String(time))
     
-          if(time < 60) {
+      if(time < 60) {
     
-            let count1 = setInterval(async () => {
+        let count1 = setInterval(async () => {
     
-              await msg.edit(time <= 0 ? `${message.author}... Se acabó el tiempo ⌛` : String(time))
-              // message.channel.send(`${message.author} La cuenta regresiva ha terminado!`)
-              time <= 0 ? clearInterval(count1) : time -= 2
+          await msg.edit(time <= 0 ? `${message.author}... Se acabó el tiempo ⌛` : String(time))
+          // message.channel.send(`${message.author} La cuenta regresiva ha terminado!`)
+          time <= 0 ? clearInterval(count1) : time -= 2
     
-            }, 2000)
+        }, 2000)
     
 
-          } else {
+      } else {
     
-            let count2 = setInterval(async () => {
+        let count2 = setInterval(async () => {
     
-              await msg.edit(time <= 0  ? `... Se acabó el tiempo ⌛` : String(time))
-              time <= 0 ? clearInterval(count2) : time -= 3
+          await msg.edit(time <= 0  ? `... Se acabó el tiempo ⌛` : String(time))
+          time <= 0 ? clearInterval(count2) : time -= 3
     
-            }, 3000)
+        }, 3000)
             
-          }
+      }
 
     }
 
