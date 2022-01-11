@@ -959,7 +959,7 @@ client.on('messageCreate', async message => {
                 //.addField('<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>','<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>',false)
               .addField('Frase', '<a:megaphone:912163796737486908>  '+select.frase ? select.frase : 'No hay frase agregada', false)
               .addField('<:GatoLove:925929538863628318> Matrimonio', tmarry ? tmarry : 'Soltero(a)', true)
-              .addField('<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>','<a:Dinero:880594188792635422> **Economía**',false)
+              .addField('<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>','<a:dinero:930404747326914590> **Economía**',false)
               .addField(`**Total:**`, '<a:money:930397094924124180>  '+select.total, true)
               .setColor(select.color)
               .setFooter(`Midgard's VIP`,client.user.avatarURL())
@@ -1163,7 +1163,7 @@ client.on('messageCreate', async message => {
             //.addField('<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>','<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>',false)
           .addField('Frase', '<a:megaphone:912163796737486908>  '+select.frase ? select.frase : 'No hay frase agregada', false)
           .addField('<:GatoLove:925929538863628318> Matrimonio', tmarry ? tmarry : 'Soltero(a)', true)
-          .addField('<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>','<a:Dinero:880594188792635422> **Economía**',false)
+          .addField('<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>','<a:dinero:930404747326914590> **Economía**',false)
           .addField(`**Total:**`, '<a:money:930397094924124180>  '+select.total, true)
           .setColor(select.color)
           .setFooter(`Midgard's VIP`,client.user.avatarURL())
@@ -1804,6 +1804,34 @@ client.on('messageCreate', async message => {
 
     if(command === 'bal' || command === 'balance'){
 
+      if(!args[0]){
+
+        let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario='`+ message.author.id + "'")
+
+        if(!buscarUsuario){
+        
+          await client.db.run(`INSERT INTO usuarios (idusuario) VALUES (?)`, message.author.id)
+  
+          buscarUsuario = {id: message.author.id, dinero: 0, banco: 0, total: 0}
+  
+          console.log('Balance de : '+message.author.id+' - '+buscarUsuario)
+  
+        }
+  
+        const e = new Discord.MessageEmbed()
+          .setColor(buscarUsuario.color)
+          .setAuthor(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+          .setTitle(`Balance`)
+          .addField(`**Dinero:**`, '<a:money:930397094924124180>  '+buscarUsuario.dinero, true)
+          .addField(`**Banco:**`, '<a:money:930397094924124180>  '+buscarUsuario.banco, true)
+          .addField(`**Total:**`, '<a:money:930397094924124180>  '+buscarUsuario.total, true)
+          .setTimestamp(new Date())
+          .setFooter(`Midgard's VIP`,client.user.avatarURL())
+  
+        return message.channel.send({embeds: [e]})
+        console.log('Balance de : '+message.author.id+' - '+'dinero: '+buscarUsuario.dinero+', banco: '+buscarUsuario.banco+', total: '+buscarUsuario.total)
+      }
+      
       let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
       
       if(!img){
