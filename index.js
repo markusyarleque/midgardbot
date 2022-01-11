@@ -959,7 +959,7 @@ client.on('messageCreate', async message => {
                 //.addField('<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>','<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>',false)
               .addField('Frase', '<a:megaphone:912163796737486908>  '+select.frase ? select.frase : 'No hay frase agregada', false)
               .addField('<:GatoLove:925929538863628318> Matrimonio', tmarry ? tmarry : 'Soltero(a)', true)
-              .addField('<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>','<a:dinero:930404747326914590> **Economía**',false)
+              .addField('<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>','<a:dinero:930404747326914590> **Economía**',false)
               .addField(`**Total:**`, '<a:money:930397094924124180>  '+select.total, true)
               .setColor(select.color)
               .setFooter(`Midgard's VIP`,client.user.avatarURL())
@@ -1708,7 +1708,7 @@ client.on('messageCreate', async message => {
         new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
         .setColor('RED')
-        .setDescription('<a:Verify2:880315278347616329> | Necesitas mencionar un ítem a comprar. Para más detalles ejectua: ```_shop```')
+        .setDescription('<a:Verify2:880315278347616329> | Necesitas mencionar un ítem a comprar. Para más detalles ejectua: `_shop`')
         
       ]})
 
@@ -1831,7 +1831,7 @@ client.on('messageCreate', async message => {
         return message.channel.send({embeds: [e]})
         console.log('Balance de : '+message.author.id+' - '+'dinero: '+buscarUsuario.dinero+', banco: '+buscarUsuario.banco+', total: '+buscarUsuario.total)
       }
-      
+
       let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
       
       if(!img){
