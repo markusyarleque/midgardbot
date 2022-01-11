@@ -3098,8 +3098,10 @@ client.on('messageCreate', async message => {
 
       }
 
-      let userm = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0]) || await client.users.fetch(args[0])
+      let userm = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
 
+      await client.users.fetch(userm)
+      
       if(!userm){
             
         var user = message.author;
