@@ -463,27 +463,27 @@ client.on('messageCreate', async message => {
       
         if (message.content === 'Buenas'){
           //Si escribiera Buenos días, nos contestará con un mensaje personalizado
-          message.channel.send('Las tienes <a:perreo:909678732866891796>');
+          message.channel.send('Las tienes <a:perreom:930719549131735040>');
           //message.react(`<a:pasito:877116925291946094>`)
-          //message.react(`<a:perreo:909678732866891796>`)
+          //message.react(`<a:perreom:930719549131735040>`)
         }
         if (message.content === 'Wenas'){
           //Si escribiera Buenos días, nos contestará con un mensaje personalizado
-          message.channel.send('Las tienes <a:perreo:909678732866891796>');
+          message.channel.send('Las tienes <a:perreom:930719549131735040>');
           //message.react(`<a:pasito:877116925291946094>`)
-          //message.react(`<a:perreo:909678732866891796>`)
+          //message.react(`<a:perreom:930719549131735040>`)
         }
         if (message.content === 'buenas'){
           //Si escribiera Buenos días, nos contestará con un mensaje personalizado
-          message.channel.send('Las tienes <a:perreo:909678732866891796>');
+          message.channel.send('Las tienes <a:perreom:930719549131735040>');
           //message.react(`<a:pasito:877116925291946094>`)
-          //message.react(`<a:perreo:909678732866891796>`)
+          //message.react(`<a:perreom:930719549131735040>`)
         }
         if (message.content === 'wenas'){
           //Si escribiera Buenos días, nos contestará con un mensaje personalizado
-          message.channel.send('Las tienes <a:perreo:909678732866891796>');
+          message.channel.send('Las tienes <a:perreom:930719549131735040>');
           //message.react(`<a:pasito:877116925291946094>`)
-          //message.react(`<a:perreo:909678732866891796>`)
+          //message.react(`<a:perreom:930719549131735040>`)
         }
         if (message.content === 'wlc'){
           //Si escribiera Buenos días, nos contestará con un mensaje personalizado
@@ -6031,7 +6031,7 @@ client.on('messageCreate', async message => {
             const embed = new Discord.MessageEmbed()
             .setAuthor(`Midgard's Disco`,client.user.avatarURL())
             //.setTitle('Imagen completa')
-            .setDescription(`**${img.username}**, ${message.author.username} te está perreando duro contra el muro. <a:perreo:909678732866891796>`)
+            .setDescription(`**${img.username}**, ${message.author.username} te está perreando duro contra el muro. <a:perreom:930719549131735040>`)
             .setImage(ramdonperreo)
             .setColor('RANDOM')
             .setTimestamp(new Date())
