@@ -2380,20 +2380,19 @@ client.on('messageCreate', async message => {
       .setDescription(`Felicidades **${message.author.username}**! Has recibido <a:money:930397094924124180> **` + numero + `** como recompensa diaria.\n¡Muchas gracias por usar mis comandos!`)
       .setTimestamp()
       .setFooter(`MidgardBot`,client.user.avatarURL())
+
+      const bRm = new MessageButton()
+  
+        .setCustomId('primary')
+        .setLabel('Recuérdame')
+        .setStyle('PRIMARY')
+        .setEmoji('⏰')
       
       message.channel.send({embeds: [e], components: [
 
         new MessageActionRow()
-        .addComponents(
+        .addComponents(bRm)
 
-          new MessageButton()
-
-          .setCustomId('primary')
-					.setLabel('Recuérdame')
-					.setStyle('PRIMARY')
-          .setEmoji('⏰')
-
-        )
       ]}).then(async m => {
       
         let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
@@ -2409,6 +2408,13 @@ client.on('messageCreate', async message => {
             var msDelay = 12*3600000
             await message.reply({ content: '<a:reloj:915171222961135646> | Acabas de establecer un recordatorio en 12 horas para votar nuevamente. No olvides de activar los mensajes directos!', ephemeral: true});
             setTimeout(reminder, msDelay);
+
+            m.edit({components: [
+
+              new MessageActionRow()
+              .addComponents(bRm.setDisabled(true))
+
+            ]})
   
           }
   
@@ -2416,8 +2422,12 @@ client.on('messageCreate', async message => {
   
         collector.on("end", colected => {
           
-          if(colected.size < 1) return
-          
+          m.edit({components: [
+
+            new MessageActionRow()
+            .addComponents(bRm.setDisabled(true))
+
+          ]})
         });
         
       })
@@ -6677,7 +6687,7 @@ client.on('messageCreate', async message => {
   
         collector.on("end", colected => {
           
-          if(colected.size < 1) return m.edit({embeds: [
+          m.edit({embeds: [
             new Discord.MessageEmbed()
             .setColor('RANDOM')
             .setAuthor(`Midgard's Love`,client.user.avatarURL())
