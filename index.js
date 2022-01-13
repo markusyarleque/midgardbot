@@ -155,7 +155,7 @@ client.on('guildMemberAdd', async member => {
 
   //channel.send('¡Bienvenid@ Terrícola!' + `${member.user}` + ', a este nuestro **Universo**. <:shylove:925923567776964619>. Espero que te lo pases genial en este server libre de toxicidad, con muchos eventos programados, premios y más sorpresas!!! <a:Sara:880304101215334401> Recuerda pasar por <#777623227321155614> y <#926556796838109226> Y si tienes alguna queja, duda o sugerencia, pasa por <#880402803825188874>. Cualquier incoveniente aquí estará todo el equipo de Staff a su disposición. <a:dc_party1:881033439367815239>');
   channel.send({embeds:[embed]})
-  channel.send('https://images-ext-2.discordapp.net/external/7FVUYUkaL6CyRFlyWrcFK6Q7j6v9OWeBvJS2pWDDtRs/https/media.discordapp.net/attachments/777623227321155614/880925149069725696/bar.gif?width=600&height=86')
+  channel.send('https://images-ext-2.discordapp.net/external/9iPHKFXXnKKSQpcFazlW79dr1zbbtdo7QT7-xxtfDY4/%3Fwidth%3D600%26height%3D86/https/media.discordapp.net/attachments/897951731462316073/915663567213199390/bar-1.gif?width=480&height=69')
     
 });
 
