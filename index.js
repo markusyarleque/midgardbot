@@ -1604,7 +1604,10 @@ client.on('messageCreate', async message => {
     
           collector.on("end", colected => {
             
-            if(colected.size < 1) return m.edit({embeds: [e], components: [bRm.setDisabled(true)]})
+            if(colected.size < 1) return m.edit({embeds: [e], components: [
+              new MessageActionRow()
+              .addComponents(bRm.setDisabled(true))
+            ]})
             
           });
           
