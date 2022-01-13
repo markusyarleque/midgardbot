@@ -534,7 +534,7 @@ client.on('messageCreate', async message => {
             
             let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
            
-            const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 30000 /* Tiempo para que el miembro interatue con los botones */ });
+            const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 300000 /* Tiempo para que el miembro interatue con los botones */ });
             
             
             collector.on("collect", async int => {
@@ -567,11 +567,10 @@ client.on('messageCreate', async message => {
             collector.on("end", colected => {
               /* Si no dio click en ningun boton durante los 60s ...*/
               
-              if(colected.size < 1) return
-              
-              /*if(colected.size < 1) return m.edit({
-                content: "**¡No confirmaste a tiempo!** <:enojado:925926424362242078>"
-              });*/
+              if(colected.size < 1) return m.edit({
+                content: "**¡No confirmaste a tiempo!** <:enojado:925926424362242078>",
+                components: []
+              });
               
             });
             
@@ -1571,20 +1570,18 @@ client.on('messageCreate', async message => {
         .setDescription(`Felicidades! | <@${usuario.id}> | Has recibido **1** punto de carisma.\n`+'Ahora tienes '+text+' en total!')
         .setTimestamp()
         .setFooter(`MidgardBot`,client.user.avatarURL())
-        
+
+        const bRm = new MessageButton()
+  
+        .setCustomId('primary')
+        .setLabel('Recuérdame')
+        .setStyle('PRIMARY')
+        .setEmoji('⏰')
+
         message.channel.send({embeds: [e], components: [
   
           new MessageActionRow()
-          .addComponents(
-  
-            new MessageButton()
-  
-            .setCustomId('primary')
-            .setLabel('Recuérdame')
-            .setStyle('PRIMARY')
-            .setEmoji('⏰')
-  
-          )
+          .addComponents(bRm)
         ]}).then(async m => {
         
           let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
@@ -1607,7 +1604,7 @@ client.on('messageCreate', async message => {
     
           collector.on("end", colected => {
             
-            if(colected.size < 1) return
+            if(colected.size < 1) return m.edit({embeds: [e], components: [bRm.setDisabled(true)]})
             
           });
           
