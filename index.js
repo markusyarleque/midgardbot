@@ -1682,14 +1682,14 @@ client.on('messageCreate', async message => {
             
             m.edit({
               embeds: [shop1],
-              components: [new MessageActionRow().addComponents([bS1.setDisabled(true),bS2])]
+              components: [new MessageActionRow().addComponents([bS1.setDisabled(true),bS2.setDisabled(false)])]
             });
   
           }else if (int.customId === "p2") {
             
             m.edit({
               embeds: [shop2],
-              components: [new MessageActionRow().addComponents([bS1,bS2.setDisabled(true)])]
+              components: [new MessageActionRow().addComponents([bS1.setDisabled(false),bS2.setDisabled(true)])]
             });
   
           }
