@@ -1646,23 +1646,23 @@ client.on('messageCreate', async message => {
       .setColor("RANDOM")
       .setFooter(`Página 2/2`,client.user.avatarURL())
 
-    const b1 = new MessageActionRow().addComponents([
+      const bS1 = new MessageButton()
+        .setCustomId("p1")
+        .setLabel("🛒 | 1")
+        .setStyle("PRIMARY")
       
-        new MessageButton()
-          .setCustomId("p1")
-          .setLabel("🛒 | 1")
-          .setStyle("PRIMARY"),
-        new MessageButton()
-          .setCustomId("p2")
-          .setLabel("🛒 | 2")
-          .setStyle("PRIMARY"),
-      ])
+      const bS2 = new MessageButton()
+        .setCustomId("p2")
+        .setLabel("🛒 | 2")
+        .setStyle("PRIMARY")
 
     if(command === 'shop'){
 
       message.channel.send({
         embeds: [shop1],
-        components: [b1]
+        components: [
+          new MessageActionRow().addComponents([bS1,bS2])
+        ]
       }).then(async m => {
         
         let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
@@ -1693,7 +1693,11 @@ client.on('messageCreate', async message => {
   
         collector.on("end", colected => {
           
-          if(colected.size < 1) return
+          m.edit({
+            components: [
+              new MessageActionRow().addComponents([bS1.setDisabled(true),bS2.setDisabled(true)])
+            ]
+          })
 
         });
         
