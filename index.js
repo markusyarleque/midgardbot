@@ -567,7 +567,7 @@ client.on('messageCreate', async message => {
             collector.on("end", colected => {
               /* Si no dio click en ningun boton durante los 60s ...*/
               
-              if(colected.size < 1) return m.edit({
+              m.edit({
                 content: "**¡No confirmaste a tiempo!** <:enojado:925926424362242078>",
                 components: []
               });
@@ -1597,14 +1597,19 @@ client.on('messageCreate', async message => {
               var msDelay = 6*3600000
               await message.reply({ content: '<a:reloj:915171222961135646> | Acabas de establecer un recordatorio en 6 horas para volver a dar rep. No olvides de activar los mensajes directos!', ephemeral: true});
               setTimeout(reminder, msDelay);
-    
+
+              m.edit({ components: [
+                new MessageActionRow()
+                  .addComponents(bRm.setDisabled(true))
+              ]})
+
             }
     
           });
     
           collector.on("end", colected => {
             
-            if(colected.size < 1) return m.edit({embeds: [e], components: [
+            m.edit({components: [
               new MessageActionRow()
               .addComponents(bRm.setDisabled(true))
             ]})
