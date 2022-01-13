@@ -1666,7 +1666,7 @@ client.on('messageCreate', async message => {
       message.channel.send({
         embeds: [shop1],
         components: [
-          new MessageActionRow().addComponents([bS1,bS2])
+          new MessageActionRow().addComponents([bS1.setDisabled(true),bS2])
         ]
       }).then(async m => {
         
@@ -1682,14 +1682,14 @@ client.on('messageCreate', async message => {
             
             m.edit({
               embeds: [shop1],
-              components: [new MessageActionRow().addComponents([bS1,bS2])]
+              components: [new MessageActionRow().addComponents([bS1.setDisabled(true),bS2])]
             });
   
           }else if (int.customId === "p2") {
             
             m.edit({
               embeds: [shop2],
-              components: [new MessageActionRow().addComponents([bS1,bS2])]
+              components: [new MessageActionRow().addComponents([bS1,bS2.setDisabled(true)])]
             });
   
           }
