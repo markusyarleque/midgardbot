@@ -567,7 +567,7 @@ client.on('messageCreate', async message => {
             collector.on("end", colected => {
               /* Si no dio click en ningun boton durante los 60s ...*/
               
-              m.edit({
+              if(colected.size < 1) return m.edit({
                 content: "**¡No confirmaste a tiempo!** <:enojado:925926424362242078>",
                 components: []
               });
@@ -1609,7 +1609,7 @@ client.on('messageCreate', async message => {
     
           collector.on("end", colected => {
             
-            m.edit({components: [
+            if(colected < 1) return m.edit({components: [
               new MessageActionRow()
               .addComponents(bRm.setDisabled(true))
             ]})
@@ -2422,7 +2422,7 @@ client.on('messageCreate', async message => {
   
         collector.on("end", colected => {
           
-          m.edit({components: [
+          if(colected < 1) return m.edit({components: [
 
             new MessageActionRow()
             .addComponents(bRm.setDisabled(true))
@@ -6687,7 +6687,7 @@ client.on('messageCreate', async message => {
   
         collector.on("end", colected => {
           
-          m.edit({embeds: [
+          if(colected < 1) return m.edit({embeds: [
             new Discord.MessageEmbed()
             .setColor('RANDOM')
             .setAuthor(`Midgard's Love`,client.user.avatarURL())
