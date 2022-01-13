@@ -507,6 +507,16 @@ client.on('messageCreate', async message => {
         }
   
         let img = '753435606410985573'
+
+        const bSi = new MessageButton()
+          .setCustomId("accept")
+          .setLabel("SI")
+          .setStyle("SUCCESS")
+
+        const bNo = new MessageButton()
+          .setCustomId("deny")
+          .setLabel("NO")
+          .setStyle("DANGER")
   
         if (message.content === 'malta' || message.content === 'Malta' || message.content === 'MALTA' || message.content === 'MAlta' || message.content === 'maltazar' || message.content === 'Maltazar' || message.content === 'MALTAZAR' || message.content === 'MAltazar' || message.content === 'maltazard' || message.content === 'Maltazard' || message.content === 'MALTAZARD' || message.content === 'MAltazard')
         {
@@ -516,16 +526,7 @@ client.on('messageCreate', async message => {
             content: message.author.toString() + "¿Deseas contactar a Malta?",
             components: [
               /* Botones para aceptar y rechazar el juego */
-              new MessageActionRow().addComponents([
-                new MessageButton()
-                  .setCustomId("accept")
-                  .setLabel("SI")
-                  .setStyle("SUCCESS"),
-                new MessageButton()
-                  .setCustomId("deny")
-                  .setLabel("NO")
-                  .setStyle("DANGER")
-              ])
+              new MessageActionRow().addComponents([bSi,bNo])
             ]
           }).then(async m => {
           
@@ -533,7 +534,7 @@ client.on('messageCreate', async message => {
             
             let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
            
-            const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 300000 /* Tiempo para que el miembro interatue con los botones */ });
+            const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 30000 /* Tiempo para que el miembro interatue con los botones */ });
             
             
             collector.on("collect", async int => {
@@ -567,8 +568,7 @@ client.on('messageCreate', async message => {
               /* Si no dio click en ningun boton durante los 60s ...*/
               
               if(colected.size < 1) return m.edit({
-                content: "**¡No confirmaste a tiempo!** <:enojado:925926424362242078>",
-                components: []
+                content: "**¡No confirmaste a tiempo!** <:enojado:925926424362242078>"
               });
               
             });
