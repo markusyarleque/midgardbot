@@ -567,9 +567,11 @@ client.on('messageCreate', async message => {
             collector.on("end", colected => {
               /* Si no dio click en ningun boton durante los 60s ...*/
               
-              if(colected.size < 1) return m.edit({
+              if(colected.size < 1) return
+              
+              /*if(colected.size < 1) return m.edit({
                 content: "**¡No confirmaste a tiempo!** <:enojado:925926424362242078>"
-              });
+              });*/
               
             });
             
