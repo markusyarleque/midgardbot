@@ -3416,7 +3416,7 @@ client.on('messageCreate', async message => {
           const snipe = +args[0] - 1 || 0
           const targer = snipes[snipe]
 
-          if(!targer)message.reply({ allowedMentions: { repliedUser: false}, content: `**Solamente hay ${snipes.length} snipes**`})
+          if(!targer) return message.reply({ allowedMentions: { repliedUser: false}, content: `**Solamente hay ${snipes.length} snipes**`})
 
           const {msg, time, image, canal} = targer
     
