@@ -1497,7 +1497,7 @@ client.on('messageCreate', async message => {
           
       ]})
 
-      if(!args[0]){
+      if(!args[0] || !message.mentions.users.first()){
 
         const e = new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
@@ -1815,7 +1815,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'bal' || command === 'balance'){
 
-      if(!args[0]){
+      if(!args[0] || !message.mentions.users.first()){
 
         let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario='`+ message.author.id + "'")
 
@@ -2027,7 +2027,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'rob'){
 
-      if(!args[0]) return message.channel.send({embeds: [
+      if(!args[0] || !message.mentions.users.first()) return message.channel.send({embeds: [
           new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('RED')
@@ -3139,7 +3139,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'user'){
 
-      if(!args[0]) {
+      if(!args[0] || !message.mentions.users.first()) {
 
         var user = message.author;
           
@@ -3219,7 +3219,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'avatar'){
 
-      if(!args[0]){
+      if(!args[0] || !message.mentions.users.first()){
 
         const embed = new Discord.MessageEmbed()
         .setAuthor(`Avatar de ${message.author.username}#${message.author.discriminator}`,client.user.avatarURL())
@@ -3281,7 +3281,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'welcome' || command === 'wlc'){
     
-      if(!args[0]) return message.channel.send(`<:ojooo:925928526119571457> Necesitas mencionar a un usuario <a:pasito:877116925291946094>`);
+      if(!args[0] || !message.mentions.users.first()) return message.channel.send(`<:ojooo:925928526119571457> Necesitas mencionar a un usuario <a:pasito:877116925291946094>`);
     
       let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
       let ramdonwelcome = welcome[Math.floor(Math.random()*welcome.length)]
@@ -3411,7 +3411,7 @@ client.on('messageCreate', async message => {
         .setColor('RED')
         .setDescription(`<a:Verify2:880315278347616329> | Uso incorrecto del comando\nDebe ser: _jumbo <emoji> \n*Si quieres añadirlo al servidor añade --s al final*`)
 
-      ]}) // Si no usa args[0]
+      ]}) // Si no us args[0]
         
       const emoticon = require('discord.js').Util.parseEmoji(args[0]) // Usaremos el metodo que nos da discord.js para obtener info del emoji
           
@@ -4191,7 +4191,7 @@ client.on('messageCreate', async message => {
 
         if(!mencionado){
 
-          if(!args[0]){
+          if(!args[0] || !message.mentions.users.first()){
 
             if (!impost.some(id => message.author.id == id))
             {
