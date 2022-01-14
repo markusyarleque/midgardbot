@@ -745,6 +745,20 @@ client.on('messageCreate', async message => {
   
         }
 
+    let id = message.author.id
+    //let i = message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')
+    let i = 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif'
+    let f = 'No hay frase agregada'
+    let color = '#607D8B'
+    let marry = 'Soltero(a)'
+    let sentencia2 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ${id}`)
+
+    if (!sentencia2){
+
+      await client.db.run(`INSERT INTO usuarios (idusuario, nivel, exp, marry, rep, color, frase, foto, dinero, banco, total) VALUES (?,?,?,?,?,?,?,?,?,?,?)`, id,'0','1',marry,'0',color,f,i,'0','0','0')
+ 
+    }
+
     if(!message.content.startsWith(process.env.PREFIX)) return;
     
     const serverQueue = queue.get(message.guild.id);
@@ -756,12 +770,11 @@ client.on('messageCreate', async message => {
 
     //<-- INSERT USUARIO -->
 
-    let id = message.author.id
-    //let i = message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')
+    /*let id = message.author.id
     let i = 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif'
     let f = 'No hay frase agregada'
     let color = '#607D8B'
-    let marry = 'Soltero(a)'
+    let marry = 'Soltero(a)'*/
     let sentencia = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ${id}`)
 
     /*db.get(sentencia, (err, filas) => {
@@ -1596,10 +1609,7 @@ client.on('messageCreate', async message => {
               await message.reply({ content: '<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en 6 horas para volver a dar rep. No olvides de activar los mensajes directos!', ephemeral: true});
               setTimeout(reminder, msDelay);
 
-              m.edit({ components: [
-                new MessageActionRow()
-                  .addComponents(bRm.setDisabled(true))
-              ]})
+              m.edit({ components: []})
 
             }
     
@@ -2407,12 +2417,7 @@ client.on('messageCreate', async message => {
             await message.reply({ content: '<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en 12 horas para votar nuevamente. No olvides de activar los mensajes directos!', ephemeral: true});
             setTimeout(reminder, msDelay);
 
-            m.edit({components: [
-
-              new MessageActionRow()
-              .addComponents(bRm.setDisabled(true))
-
-            ]})
+            m.edit({components: []})
   
           }
   
@@ -6630,11 +6635,11 @@ client.on('messageCreate', async message => {
           new MessageActionRow().addComponents([
             new MessageButton()
               .setCustomId("accept")
-              .setLabel("✅ | ACEPTAR")
+              .setLabel("✅")
               .setStyle("SUCCESS"),
             new MessageButton()
               .setCustomId("deny")
-              .setLabel("❎ | RECHAZAR")
+              .setLabel("❎")
               .setStyle("DANGER")
           ])
         ]
@@ -6755,11 +6760,11 @@ client.on('messageCreate', async message => {
             new MessageActionRow().addComponents([
               new MessageButton()
                 .setCustomId("accept")
-                .setLabel("✅ | ACEPTAR")
+                .setLabel("✅")
                 .setStyle("SUCCESS"),
               new MessageButton()
                 .setCustomId("deny")
-                .setLabel("❎ | RECHAZAR")
+                .setLabel("❎")
                 .setStyle("DANGER")
             ])
           ]
@@ -11393,7 +11398,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://i.pinimg.com/originals/54/ce/5a/54ce5ae304bd82e54b7d45f639693213.gif')
     .setColor('RANDOM')
-    .setDescription('> **hi**\n> Saluda a alguien o a todos.\n\n> **hug**\n> Abraza a alguien o a ti mismo.\n\n> **kiss**\n> Besa a un usuario.\n\n> **happy**\n> Mood Feliz.\n\n> **sleep**\n> Ya tienes sueño?\n\n> **dance**\n> Baila solo o acompañado.\n\n> **blush**\n> Sonrojad@ de nuevo?.\n\n> **confused**\n> Confundido Potter?\n\n> **lick**\n> Dale una lamida a alguien.\n\n> **feed**\n> Dale de comer a alguien.\n\n> **pat**\n> Acaricia a alguien.\n\n> **rep**\n> Da un punto de carisma.\n\n> **sad**\n> Modo Sad.\n\n> **cry**\n> Modo Sad 2.0.\n\n> **suicide**\n> Hacer la automorision.\n\n> **sape**\n> Dale un sape a alguien.\n\n> **punch**\n> Tira un golpe a alguien.\n\n> **kickbut**\n> Dale una patada a alguien.\n\n> **slap**\n> Abofetea a alguien.\n\n> **kill**\n> Mata a un usario.')
+    .setDescription('> **hi**\n> Saluda a alguien o a todos.\n\n> **hug**\n> Abraza a alguien o a ti mismo.\n\n> **kiss**\n> Besa a un usuario.\n\n> **happy**\n> Mood Feliz.\n\n> **sleep**\n> Ya tienes sueño?\n\n> **dance**\n> Baila solo o acompañado.\n\n> **blush**\n> Sonrojad@ de nuevo?.\n\n> **confused**\n> Confundido Potter?\n\n> **lick**\n> Dale una lamida a alguien.\n\n> **feed**\n> Dale de comer a alguien.\n\n> **pat**\n> Acaricia a alguien.\n\n> **rep**\n> Da un punto de carisma.\n\n> **sad**\n> Modo Sad.\n\n> **cry**\n> Modo Sad 2.0.\n\n> **suicide**\n> Hacer la automorision.\n\n> **sape**\n> Dale un sape a alguien.\n\n> **punch**\n> Tira un golpe a alguien.\n\n> **kickbut**\n> Dale una patada a alguien.\n\n> **slap**\n> Abofetea a alguien.\n\n> **kill**\n> Mata a un usario.\n\n> **marry**\n> Cásate con un usario.\n\n> **divorce**\n> Divórciate de un usario.')
 
   const helpnsfw = new Discord.MessageEmbed()
     .setTitle('🔞 • Comandos NSFW')
