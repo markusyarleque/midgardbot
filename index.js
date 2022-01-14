@@ -3424,7 +3424,7 @@ client.on('messageCreate', async message => {
           .setAuthor(`${msg.author.tag}`, msg.author.displayAvatarURL())
           .setImage(image)
           .setTimestamp(new Date())
-          .setDescription(`> \`Mensaje eliminado:\` ${msg.content}\n\n__**Información Extra**__\n\n> \`Tiempo:\` <t:${Math.floor(time / 1000)}:R>\n> \`Canal\` ${msg.channel}\n> \`Snipe número\` **${snipe + 1} / ${snipes.length}**`)
+          .setDescription(`> \`Mensaje eliminado:\` ${msg.content}\n\n__**Información Extra**__\n\n> \`Tiempo:\` <t:${Math.floor(time / 1000)}:R>\n> \`Canal:\` ${msg.channel}\n> \`Snipe número:\` **${snipe + 1} / ${snipes.length}**`)
           message.channel.send({embeds: [imgdelete]});
 
           /*imgdelete.setColor('RANDOM')
