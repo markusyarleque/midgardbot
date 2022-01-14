@@ -35,6 +35,7 @@
     "nekos.life": "^2.0.7",
     "opusscript": "^0.0.8",
     "poke-over": "^1.0.5",
+    "rae-api": "^1.2.4-a",
     "reddit-fetch": "^1.5.1",
     "sqlite": "^4.0.23",
     "sqlite3": "^5.0.2",

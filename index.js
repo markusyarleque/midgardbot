@@ -96,6 +96,8 @@ const queue = new Map();
 
 const { joinVoiceChannel } = require('@discordjs/voice');
 
+const { RAE } = require('rae-api')
+
 client.on('ready', () => {
   
   client.user.setPresence({
@@ -970,9 +972,9 @@ client.on('messageCreate', async message => {
               .addField('Pats', '<a:gatoasomar:930399873113677834> '+select.pat, false)
               .addField('Abrazos', '<:burbujita:925927258789666826> '+select.hug, false)
               .addField('Sapes', '<:maje:925927838492811295> '+select.sape, false)
-              .addField('Frase', '<a:megaphone:912163796737486908>  '+select.frase ? select.frase : 'No hay frase agregada', false)
-              .addField('<:GatoLove:925929538863628318> Matrimonio', tmarry ? tmarry : 'Soltero(a)', true)
-              .addField('<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>','<a:dinero:930404747326914590> **Economía**',false)
+              .addField('Frase', '<a:megaphone:912163796737486908> '+select.frase, false)
+              .addField('Matrimonio <:GatoLove:925929538863628318>', tmarry ? tmarry : 'Soltero(a)', true)
+              .addField('<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>','<a:dinero:930404747326914590> **Economía**',false)
               .addField(`**Total:**`, '<a:money:930397094924124180>  '+select.total, true)
               .setColor(select.color)
               .setFooter(`Midgard's VIP`,client.user.avatarURL())
@@ -1650,6 +1652,7 @@ client.on('messageCreate', async message => {
     const shop2 = new Discord.MessageEmbed()
       .setAuthor(message.guild.name+' | Store 🏪', message.guild.iconURL({ dynamic: true }))
       .setDescription('Para adquirir un item, debes usar el comando `_buy <name>`')   
+      .addField(`<a:money:930397094924124180> 10,000 - Rosa`, 'Color para tu perfil', false)  
       .addField(`<a:money:930397094924124180> 10,000 - Aqua`, 'Color para tu perfil', false)  	
       .addField(`<a:money:930397094924124180> 10,000 - Verde`, 'Color para tu perfil', false)  		
       .addField(`<a:money:930397094924124180> 10,000 - Azul`, 'Color para tu perfil', false)  		
@@ -1781,6 +1784,8 @@ client.on('messageCreate', async message => {
 
       if(it.toLowerCase()==='rojo'){
         col = 'RED'
+      }else if(it.toLowerCase()==='rosa'){
+        col = 'PINK'
       }else if(it.toLowerCase()==='aqua'){
         col = 'AQUA'
       }else if(it.toLowerCase()==='verde'){
@@ -5070,6 +5075,51 @@ client.on('messageCreate', async message => {
 
     }
 
+    if(command === 'rae'){
+
+      const palabra = args.slice(0).join(' ')
+
+      if(!palabra) return message.channel.send({embeds:[
+
+        new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Introduce una palabra o texto para buscar!`)
+        
+      ]})
+
+      try {
+        
+        const rae = new RAE()
+        const search = await rae.searchWord(palabra)
+        const wordId = search.getRes()[0].getId()
+
+        const result = await rae.fetchWord(wordId)
+        const definition = result.getDefinitions()
+        const first = definition[0].getDefinition()
+
+        const embed =  new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RANDOM')
+        .setDescription('<a:flech:931432469935312937> | Resultado obtenido:\n\n  `'+first+'`')
+
+        message.channel.send({embeds:[embed]})
+      
+
+      } catch (err) {
+
+        return message.channel.send({embeds:[
+
+          new Discord.MessageEmbed()
+            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setColor('RED')
+            .setDescription(`<a:Verify2:931463492677017650> | No encontré significado para esa palabra!`)
+          
+        ]})
+
+      }
+    }
+
     //COMANDOS DE CAFETERÍA
 
     var cafe = [
@@ -7490,7 +7540,7 @@ client.on('messageCreate', async message => {
   .setTimestamp(new Date())
   .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
 
-  if(command === 'k'){
+  /*if(command === 'k'){
 
     if (message.channel.id != '880317466557952000')
     {
@@ -9932,7 +9982,10 @@ client.on('messageCreate', async message => {
       }
     }
 
-    }
+    }*/
+
+    if(command === 'k' || command === 'karaoke') return message.channel.send('Comando en Mantenimiento!')
+
 
     //COMANDOS NSFW
 
