@@ -12,7 +12,8 @@ const { MessageActionRow, MessageButton } = require('discord.js');
 
 const newUsers = new Discord.Collection();
 const listask = new Discord.Collection();
-client.snipes = new Map();
+//client.snipes = new Map();
+client.snipes = new Discord.Collection()
 
 const NSFW = require('discord-nsfw');
 const nsfw3 = new NSFW();
@@ -167,13 +168,25 @@ client.on('guildMemberRemove', (member) => {
 
 const imgdelete = new Discord.MessageEmbed() 
 
-client.on('messageDelete', (message) => {
+client.on('messageDelete', async (message) => {
 
-    client.snipes.set(message.channel.id, {
+    /*client.snipes.set(message.channel.id, {
         content: message.content,
         delete: message.author,
         canal: message.channel
-    });
+    });*/
+
+    let snipes = client.snipes.get(message.channel.id) || [] 
+
+    if(snipes.length > 10) snipes = snipes.slice(0, 10)
+
+    snipes.unshift({//guardamos todo
+      msg: message,//mensaje
+      image: message.attachments.first() ? message.attachments.first().proxyURL : null, //Imagen si es que la hay
+      time: Date.now() })//fecha y cerramos
+
+    client.snipes.set(message.channel.id, snipes)//establecemos todo en la coleccion
+
 
     let sv = client.guilds.cache.get('851924635930329098')
     let channel = sv.channels.cache.get('880280265216389140')
@@ -3391,20 +3404,34 @@ client.on('messageCreate', async message => {
 
       } else{
           
-        const msg = client.snipes.get(channel.id);
+        const snipes = client.snipes.get(channel.id);
     
-        if (!msg){
+        if (!snipes){
           
-          message.channel.send('No se ha borrado recientemente ningun mensaje!')
+          message.channel.send('No se ha borrado recientemente ningún mensaje!')
           .then(m => setTimeout(() => m.delete(), 5000));
         
         } else {
+
+          const snipe = +args[0] - 1 || 0
+          const targer = snipes[snipe]
+
+          if(!targer)message.reply({ allowedMentions: { repliedUser: false}, content: `${emoji[2]} **Solamente hay ${snipes.length} snipes**`})
+
+          const {msg, time, image, canal} = targer
     
           imgdelete.setColor('RANDOM')
+          .setAuthor(`${msg.author.tag}`, msg.author.displayAvatarURL())
+          .setImage(image)
+          .setTimestamp(new Date())
+          .setDescription(`> \`Mensaje eliminado:\` ${msg.content}\n\n__**Información Extra**__\n> \`Tiempo:\` <t:${Math.floor(time / 1000)}:R>\n> \`Canal\`${msg.channel}\n> \`Snipe número\`**${snipe + 1} / ${snipes.length}**`)
+          message.channel.send({embeds: [imgdelete]});
+
+          /*imgdelete.setColor('RANDOM')
           .setAuthor(`${msg.delete.tag}`, msg.delete.displayAvatarURL())
           .setTimestamp(new Date())
           .setDescription(`${msg.content}`)
-          message.channel.send({embeds: [imgdelete]});
+          message.channel.send({embeds: [imgdelete]});*/
     
         }
       }
@@ -11433,7 +11460,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://i.gifer.com/HqGV.gif')
     .setColor('RANDOM')
-    .setDescription('> **say**\n> Hace que el bot diga un mensaje.\n\n> **8ball**\n> El bot responderá a tus preguntas.\n\n> **roll**\n> Lanza un dado al azar.\n\n> **impostor**\n> Averigua quién es el impostor de este mundo.\n\n> **buscaminas**\n> Envía un tablero del clásico juego.\n\n> **ship**\n> Mide tu nivel de amor con un usuario mencionado.\n> Uso:\n> `' +prefix +'ship <@user>`\n\n> **meme**\n> Envía memes al azar.\n\n> **ttt**\n> Clásico Tic Tac Toe.\n> Uso:\n> `' +prefix +'ttt <@user>`\n\n> **infiel**\n> Descubre tu % de infidelidad.\n\n> **carta**\n> Envía una carta a un usuario con el mensaje que quieras.\n> Para más información ejecuta:\n> `' +prefix +'carta`\n\n')
+    .setDescription('> **say**\n> Hace que el bot diga un mensaje.\n\n> **8ball**\n> El bot responderá a tus preguntas.\n\n> **roll**\n> Lanza un dado al azar.\n\n> **impostor**\n> Averigua quién es el impostor de este mundo.\n\n> **buscaminas**\n> Envía un tablero del clásico juego.\n\n> **ship**\n> Mide tu nivel de amor con un usuario mencionado.\n> Uso:\n> `' +prefix +'ship <@user>`\n\n> **meme**\n> Envía memes al azar.\n\n> **ttt**\n> Clásico Tic Tac Toe.\n> Uso:\n> `' +prefix +'ttt <@user>`\n\n> **infiel**\n> Descubre tu % de infidelidad.\n\n> **carta**\n> Envía una carta a un usuario con el mensaje que quieras.\n> Para más información ejecuta:\n> `' +prefix +'carta`\n\n> **rae**\n> Busca el significado de cualquier palabra.\n\n')
   
    const helpcbd = new Discord.MessageEmbed()
     .setTitle('• Comandos Exclusivos •')
