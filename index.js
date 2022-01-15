@@ -3190,7 +3190,7 @@ client.on('messageCreate', async message => {
           .addField('Usuario:', userm.username+'#'+userm.discriminator, true)
           .addField('Apodo:', userm.nickname ? userm.nickname : 'No tiene', true)
           .addField('ID:', userm.id, true)
-          .addField('Cuenta Creada', userm.user.createdAt.toLocaleDateString()+', '+userm.user.createdAt.toLocaleTimeString(), true)
+          .addField('Cuenta Creada', userm.createdAt.toLocaleDateString()+', '+userm.createdAt.toLocaleTimeString(), true)
           .addField('Fecha de Ingreso', message.member.joinedAt.toLocaleDateString()+', '+message.member.joinedAt.toLocaleTimeString(), true )
           .addField('Roles', message.member.roles.cache.map(roles => `\`${roles.name}\``).join(', '))
           .setColor(message.member.displayColor)
