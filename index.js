@@ -3481,42 +3481,43 @@ client.on('messageCreate', async message => {
 
         ]}) // Si el bot no tiene permisos
 
+        const emojis = message.guild.emojis.cache.size;
+
+        if(emojis === 500) return message.reply({embeds: [
+            
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | No hay espacio suficiente para agregar el emoji!!!`)
+
+        ]})
+
         try {
 
-          const emojis = message.guild.emojis.cache.size;
-
-          if(emojis === 500) return message.reply({embeds: [
-            
-            new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
-            .setColor('RED')
-            .setDescription(`<a:Verify2:931463492677017650> | No hay espacio suficiente para agregar el emoji!!!`)
-
-          ]})
-
           message.guild.emojis.create(palta, emoticon.name) // Creamos un emoji con la imagen del emoji 
-          
-          return message.channel.send({embeds: [
-          
-            new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
-            .setColor('GREEN')
-            .setDescription(`<a:Verify1:931463354357276742> |Emoji agregado correctamente : **`+ emoticon.name+'**')
-            .setTimestamp()
-          ]}) // Mensaje de confirmacioon 
-          
+            
         } catch (error) {
-          
+            
           return message.reply({embeds: [
             
             new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | Ocurrió un error al agregar emoji!\n\n**Error:**\n> `+error)
-
+  
           ]})
-        }
 
+        }
+          
+        return message.channel.send({embeds: [
+          
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('GREEN')
+          .setDescription(`<a:Verify1:931463354357276742> |Emoji agregado correctamente : **`+ emoticon.name+'**')
+          .setTimestamp()
+        ]}) // Mensaje de confirmacioon 
+          
       } // Cerramos condicion
           
       message.channel.send(palta) // Enviamos el url del emoticon
