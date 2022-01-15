@@ -1478,8 +1478,6 @@ client.on('messageCreate', async message => {
       let h = ((cooldown / 3600)-1).toFixed()
       let m = ((((cooldown % 3600)-1)/60)-1).toFixed()
       let mensaje
-
-      // condition ? val1 : val2 
         
       if(h>1)
       {
