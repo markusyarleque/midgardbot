@@ -841,7 +841,7 @@ client.on('messageCreate', async message => {
 
     if(command === "perfil"){
 
-      let img = message.mentions.members.first() || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || await client.users.fetch(args[0])
 
       if(!img){
 
@@ -1208,7 +1208,7 @@ client.on('messageCreate', async message => {
   
       if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
   
-      let miembro = message.mentions.members.first() || await client.users.fetch(args[0])
+      let miembro = message.mentions.users.first() || await client.users.fetch(args[0])
 
       if(!miembro) return message.channel.send('Debe mencionar a un usuario a eliminar.')
 
@@ -1521,7 +1521,7 @@ client.on('messageCreate', async message => {
           
       ]})
 
-      let usuario = message.mentions.members.first() || await client.users.fetch(args[0])
+      let usuario = message.mentions.users.first() || await client.users.fetch(args[0])
 
       if(!usuario) {
 
@@ -1828,7 +1828,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'bal' || command === 'balance'){
 
-      let img = message.mentions.members.first() || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || await client.users.fetch(args[0])
       
       if(!img){
 
@@ -2012,7 +2012,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'rob'){
 
-      let usuario = message.mentions.members.first() || await client.users.fetch(args[0])
+      let usuario = message.mentions.users.first() || await client.users.fetch(args[0])
 
       if(!usuario) return message.channel.send({embeds: [
         new Discord.MessageEmbed()
@@ -3132,7 +3132,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'user'){
 
-      let userm = message.mentions.members.first()
+      let userm = message.mentions.users.first()
 
       if(!userm){
 
@@ -3205,7 +3205,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'avatar'){
       
-      let img = message.mentions.members.first()
+      let img = message.mentions.users.first()
 
       if(!img){
 
@@ -3863,7 +3863,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'addrol'){
     
-        let miembro = message.mentions.members.first();
+        let miembro = message.mentions.users.first();
         let nombrerol = args.slice(1).join(' ');
     
         let role = message.guild.roles.cache.find('name', nombrerol);
@@ -3882,7 +3882,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'removerol'){
     
-        let miembro = message.mentions.members.first();
+        let miembro = message.mentions.users.first();
         let nombrerol = args.slice(1).join(' ');
     
         let role = message.guild.roles.cache.find('name', nombrerol);
@@ -4050,7 +4050,7 @@ client.on('messageCreate', async message => {
 
       }
 
-      let user = message.mentions.members.first() || await client.users.fetch(args[0])
+      let user = message.mentions.users.first() || await client.users.fetch(args[0])
 
       if(!user || user.id === message.author.id) {
 
@@ -4205,7 +4205,21 @@ client.on('messageCreate', async message => {
 
     if(command === 'impostor'){
 
-        const mencionado = message.mentions.members.first()
+      let img = message.mentions.users.first()
+
+      if(!img){
+
+        try {
+          
+          img = await client.users.fetch(args[0])
+
+        } catch (error) {
+
+          img = message.author
+          
+        }
+
+      }
         
         /*let random = [
           "No era el impostor",
@@ -4224,9 +4238,7 @@ client.on('messageCreate', async message => {
           '626771394063237138'
         ]
 
-        if(!mencionado){
-
-          if(!args[0] || !message.mentions.users.first()){
+        if(!img || img.id === message.author.id){
 
             if (!impost.some(id => message.author.id == id))
             {
@@ -4259,45 +4271,9 @@ client.on('messageCreate', async message => {
 
             }
 
-          } else {
-
-            let mid = await client.users.fetch(args[0])
-
-            if (!impost.some(id => mid.id == id))
-            {
-    
-              return message.channel.send(`. 　　　。　　　　•　 　ﾟ　　。 　　.
-    
-    　　　.　　　 　　.　　　　　。　　 。　. 　
-    
-    .　　 。　　　　　 ඞ 。 . 　　 • 　　　　•
-    
-    　　ﾟ　ﾟ　。  ${mid.username} No era el impostor  •　 。　.
-    
-    　　'　　ﾟ   •   　 ${impost.length} Impostores restantes 　 　　。  .
-    
-    　　ﾟ　　　.　　　. ,　　　　.　 .`)
-    
-            } else {
-    
-              return message.channel.send(`. 　　　。　　　　•　 　ﾟ　　。 　　.
-    
-    　　　.　　　 　　.　　　　　。　　 。　. 　
-    
-    .　　 。　　　　　 ඞ 。 . 　　 • 　　　　•
-    
-    　　ﾟ　ﾟ　。  ${mid.username} Sí era el impostor  •　 。　.
-    
-    　　'　　ﾟ   •   　 ${impost.length} Impostores restantes 　 　　。  .
-    
-    　　ﾟ　　　.　　　. ,　　　　.　 .`)
-    
-            }
-          }
-          
         } else{
     
-          if (!impost.some(id => mencionado.id == id))
+          if (!impost.some(id => img.id == id))
           {
     
             return message.channel.send(`. 　　　。　　　　•　 　ﾟ　　。 　　.
@@ -4306,7 +4282,7 @@ client.on('messageCreate', async message => {
     
     .　　 。　　　　　 ඞ 。 . 　　 • 　　　　•
     
-    　　ﾟ　ﾟ　。  ${mencionado.user.username} No es el impostor  •　 。　.
+    　　ﾟ　ﾟ　。  ${img.username} No es el impostor  •　 。　.
     
     　　'　　ﾟ   •   　 ${impost.length-1} Impostores restantes 　 　　。  .
     
@@ -4320,7 +4296,7 @@ client.on('messageCreate', async message => {
     
     .　　 。　　　　　 ඞ 。 . 　　 • 　　　　•
     
-    　　ﾟ　ﾟ　。  ${mencionado.user.username} Sí era el impostor  •　 。　.
+    　　ﾟ　ﾟ　。  ${img.username} Sí era el impostor  •　 。　.
     
     　　'　　ﾟ   •   　 ${impost.length-1} Impostores restantes 　 　　。  .
     
@@ -4431,11 +4407,36 @@ client.on('messageCreate', async message => {
 
     if(command === 'ship'){
 
-        let users =  message.mentions.users.first();
-    
-        if (users === message.author) return message.channel.send('**No puedes hacer eso contigo mismo**');
-        if (users === client.user) return message.channel.send('**No puedo calcular eso conmigo!**')
-    
+        let users = message.mentions.users.first()
+
+        if(!users){
+  
+          try {
+            
+            users = await client.users.fetch(args[0])
+  
+          } catch (error) {
+  
+            users = message.author
+            
+          }
+  
+        }
+
+        if(users.bot) return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | No puedo calcular eso con un bot!`)
+        ]})
+        
+        if(users.id===message.author.id) return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | No puedes hacer eso contigo mismo!`)
+        ]})
+
         const random = Math.floor(Math.random() * 100);
         let heard = '';
         let image = '';
@@ -4480,9 +4481,7 @@ client.on('messageCreate', async message => {
           .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] })
 
-        }
-    
-        else {
+        } else {
 
           let resp = [`El porcetanje de ${message.author.username} & ${users.username} es: `,`Oh vaya, calculo que el amor de ${message.author.username} & ${users.username} es un: `,`${message.author.username} & ${users.username} tienen un: `]
     
@@ -4582,7 +4581,7 @@ client.on('messageCreate', async message => {
         setTimeout(() => m.delete(), 10000)
       });
 
-      let member = message.guild.members.resolve(message.mentions.members.first() || client.users.cache.get(args[0]));
+      let member = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
 
       /* Verificamos los argumentos */
     
@@ -4914,8 +4913,28 @@ client.on('messageCreate', async message => {
 
     if(command === 'infiel'){
 
-      let users =  message.mentions.users.first();
-      if (users === client.user) return message.channel.send('**En serio crees que yo soy infiel como tú???**')
+      let users = message.mentions.users.first()
+
+      if(!users){
+
+        try {
+          
+          users = await client.users.fetch(args[0])
+
+        } catch (error) {
+
+          users = message.author
+          
+        }
+
+      }
+
+      if(users.bot) return message.channel.send({embeds: [
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:931463492677017650> | **¿En serio crees que es infiel como tú?**...Los bots son los más leales!`)
+      ]})
     
       const random = Math.floor(Math.random() * 101);
 
@@ -4959,7 +4978,7 @@ client.on('messageCreate', async message => {
     
       }
 
-      if(!users){
+      if(!users || users.id === message.author.id){
 
         if(message.author.id==='753435606410985573')
         {
@@ -5166,7 +5185,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'cafe'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdoncafe = cafe[Math.floor(Math.random()*cafe.length)]
     
         if (!img || img.id===message.author.id) {
@@ -5213,7 +5232,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'agua'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdonagua = agua[Math.floor(Math.random()*agua.length)]
     
         if (!img || img.id===message.author.id) {
@@ -5259,7 +5278,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'te'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdonte = te[Math.floor(Math.random()*te.length)]
     
         if (!img || img.id===message.author.id) {
@@ -5304,7 +5323,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'jugo'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdonjugo = jugo[Math.floor(Math.random()*jugo.length)]
       
         if (!img || img.id===message.author.id) {
@@ -5337,7 +5356,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'tacos'){
 
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdontacos = tacos[Math.floor(Math.random()*tacos.length)]
     
         if (!img || img.id===message.author.id) {
@@ -5383,7 +5402,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'chocolate'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdonchocolate = chocolate[Math.floor(Math.random()*chocolate.length)]
       
         if (!img || img.id===message.author.id) {
@@ -5428,7 +5447,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'galletas'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdongalletas = galletas[Math.floor(Math.random()*galletas.length)]
         
         if (!img || img.id===message.author.id) {
@@ -5473,7 +5492,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'helado'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdonhelado = helado[Math.floor(Math.random()*helado.length)]
        
         if (!img || img.id===message.author.id) {
@@ -5519,7 +5538,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'hamburguesa'){
 
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdonhamburguesa = hamburguesa[Math.floor(Math.random()*hamburguesa.length)]
     
         if (!img || img.id===message.author.id) {
@@ -5568,7 +5587,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'pizza'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdonpizza = pizza[Math.floor(Math.random()*pizza.length)]
         
         if (!img || img.id===message.author.id) {
@@ -5615,7 +5634,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'cocacola'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdoncocacola = cocacola[Math.floor(Math.random()*cocacola.length)]
      
         if (!img || img.id===message.author.id) {
@@ -5661,7 +5680,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'redbull'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdonredbull = redbull[Math.floor(Math.random()*redbull.length)]
       
         if (!img || img.id===message.author.id) {
@@ -5706,7 +5725,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'cerveza'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdoncerveza = cerveza[Math.floor(Math.random()*cerveza.length)]
       
         if (!img || img.id===message.author.id) {
@@ -5750,7 +5769,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'vino'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdonvino = vino[Math.floor(Math.random()*vino.length)]
        
         if (!img || img.id===message.author.id) {
@@ -5795,7 +5814,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'tequila'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdontequila = tequila[Math.floor(Math.random()*tequila.length)]
         
         if (!img || img.id===message.author.id) {
@@ -5841,7 +5860,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'ron'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdonron = ron[Math.floor(Math.random()*ron.length)]
       
         if (!img || img.id===message.author.id) {
@@ -5886,7 +5905,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'coctel'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdoncoctel = coctel[Math.floor(Math.random()*coctel.length)]
         
         if (!img || img.id===message.author.id) {
@@ -5929,7 +5948,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'porro'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdonporro = porro[Math.floor(Math.random()*porro.length)]
         
         if (!img || img.id===message.author.id) {
@@ -5974,7 +5993,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'cigarro'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdoncigarro = cigarro[Math.floor(Math.random()*cigarro.length)]
         
         if (!img || img.id===message.author.id) {
@@ -6021,7 +6040,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'huca'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdonhuca = huca[Math.floor(Math.random()*huca.length)]
       
         if (!img || img.id===message.author.id) {
@@ -6113,7 +6132,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'perreo'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdonperreo = perreo[Math.floor(Math.random()*perreo.length)]
         
         if (!img || img.id===message.author.id) {
@@ -6163,7 +6182,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'bachata'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdonbachata = bachata[Math.floor(Math.random()*bachata.length)]
       
         if (!img || img.id===message.author.id) {
@@ -6218,7 +6237,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'salsa'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdonsalsa = salsa[Math.floor(Math.random()*salsa.length)]
         let ramdonsalsa2 = salsa2[Math.floor(Math.random()*salsa2.length)]
      
@@ -6278,7 +6297,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'cumbia'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdoncumbia = cumbia[Math.floor(Math.random()*cumbia.length)]
         let ramdoncumbia2 = cumbia2[Math.floor(Math.random()*cumbia2.length)]
      
@@ -6353,7 +6372,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'colegiala'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdoncolegiala = colegiala[Math.floor(Math.random()*colegiala.length)]
       
         if (!img || img.id===message.author.id) {
@@ -6406,7 +6425,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'hi'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdonhi = hi[Math.floor(Math.random()*hi.length)]
     
         if (!img || img.id===message.author.id) {
@@ -6465,7 +6484,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'hug'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdonhug = hug[Math.floor(Math.random()*hug.length)]
         let ramdonhug2 = hug2[Math.floor(Math.random()*hug2.length)]
 
@@ -6543,7 +6562,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'kiss'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdonkiss = kiss[Math.floor(Math.random()*kiss.length)]
 
         if (!img || img.id===message.author.id) return message.channel.send('¿Te besarías a ti mism@? <:maje:925927838492811295>');
@@ -6643,7 +6662,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'marry'){
 
-      let img = message.mentions.members.first() || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || await client.users.fetch(args[0])
       let ramdonp = propuest[Math.floor(Math.random()*propuest.length)]
       let ramdona = acepta[Math.floor(Math.random()*acepta.length)]
       let ramdonr = rechaza[Math.floor(Math.random()*rechaza.length)]
@@ -6796,7 +6815,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'divorce'){
 
-      let img = message.mentions.members.first() || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || await client.users.fetch(args[0])
       let ramdond = divorce[Math.floor(Math.random()*divorce.length)]
       let ramdona = acepta[Math.floor(Math.random()*acepta.length)]
       
@@ -6944,7 +6963,7 @@ client.on('messageCreate', async message => {
     if(command === 'sleep'){
   
       let sleep = star.sleep()
-      let img = message.mentions.members.first() || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || await client.users.fetch(args[0])
    
       if (!img || img.id===message.author.id) {
 
@@ -6977,7 +6996,7 @@ client.on('messageCreate', async message => {
     if(command === 'dance'){
   
       let dance = star.dance()
-      let img = message.mentions.members.first() || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || await client.users.fetch(args[0])
    
       if (!img || img.id===message.author.id) {
 
@@ -7010,7 +7029,7 @@ client.on('messageCreate', async message => {
     if(command === 'blush'){
   
       let blush = star.blush()
-      let img = message.mentions.members.first() || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || await client.users.fetch(args[0])
    
       if (!img || img.id===message.author.id) {
 
@@ -7043,7 +7062,7 @@ client.on('messageCreate', async message => {
     if(command === 'confused'){
   
       let confus = star.confused()
-      let img = message.mentions.members.first() || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || await client.users.fetch(args[0])
    
       if (!img || img.id===message.author.id) {
 
@@ -7076,7 +7095,7 @@ client.on('messageCreate', async message => {
     if(command === 'lick'){
   
       let lick = star.lick()
-      let img = message.mentions.members.first() || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || await client.users.fetch(args[0])
    
       if (!img || img.id===message.author.id) {
 
@@ -7101,7 +7120,7 @@ client.on('messageCreate', async message => {
     if(command === 'feed'){
   
       let feed = star.feed()
-      let img = message.mentions.members.first() || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || await client.users.fetch(args[0])
    
       if (!img || img.id===message.author.id) {
 
@@ -7126,7 +7145,7 @@ client.on('messageCreate', async message => {
     if(command === 'pat'){
   
       let pat = star.pat()
-      let img = message.mentions.members.first() || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || await client.users.fetch(args[0])
 
       if (!img || img.id===message.author.id) return message.channel.send('Acariciame <:esta:925931250303250512>')
 
@@ -7164,7 +7183,7 @@ client.on('messageCreate', async message => {
     if(command === 'kickbut'){
   
       let kick = star.kick()
-      let img = message.mentions.members.first() || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || await client.users.fetch(args[0])
    
       if (!img || img.id===message.author.id) {
 
@@ -7211,7 +7230,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'sad'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdonsad = sad[Math.floor(Math.random()*sad.length)]
     
         if (!img || img.id===message.author.id) {
@@ -7256,7 +7275,7 @@ client.on('messageCreate', async message => {
   
   if(command === 'clorox'){
   
-      let img = message.mentions.members.first() || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || await client.users.fetch(args[0])
       let ramdonclorox = clorox[Math.floor(Math.random()*clorox.length)]
      
       if (!img || img.id===message.author.id) {
@@ -7312,7 +7331,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'cry'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdoncry = cry[Math.floor(Math.random()*cry.length)]
     
         if (!img || img.id===message.author.id) {
@@ -7384,7 +7403,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'sape'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdonsape = sape[Math.floor(Math.random()*sape.length)]
 
         if (!img || img.id===message.author.id) return message.channel.send('¿Te darías un autosape? <:maje:925927838492811295>');
@@ -7456,7 +7475,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'punch'){
     
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdonpunch = punch[Math.floor(Math.random()*punch.length)]
     
         if (!img || img.id===message.author.id) {
@@ -7481,7 +7500,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'slap'){
           
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         //let ramdonkill = kill[Math.floor(Math.random()*kill.length)]
     
         if (!img || img.id===message.author.id) {
@@ -7528,7 +7547,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'kill'){
           
-        let img = message.mentions.members.first() || await client.users.fetch(args[0])
+        let img = message.mentions.users.first() || await client.users.fetch(args[0])
         let ramdonkill = kill[Math.floor(Math.random()*kill.length)]
     
         if (!img || img.id===message.author.id) {
@@ -7578,7 +7597,7 @@ client.on('messageCreate', async message => {
     } else{
 
       let canalis = client.channels.cache.get('880355911078645770')
-      let img = message.mentions.members.first() || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || await client.users.fetch(args[0])
 
       if (!img || !img.bot) {
 
@@ -8795,7 +8814,7 @@ client.on('messageCreate', async message => {
     } else{
 
       let canalis = client.channels.cache.get('880355911078645770')
-      let img = message.mentions.members.first() || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || await client.users.fetch(args[0])
 
       if (!img || !img.bot) {
 
@@ -10068,7 +10087,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.members.first() || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || await client.users.fetch(args[0])
           let ramdontetas = tetas[Math.floor(Math.random()*tetas.length)]
     
         if (!img || img.id===message.author.id) {
@@ -10147,7 +10166,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.members.first() || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || await client.users.fetch(args[0])
           let ramdonpussy = pussy[Math.floor(Math.random()*pussy.length)]
     
           if (!img || img.id===message.author.id) {
@@ -10245,7 +10264,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.members.first() || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || await client.users.fetch(args[0])
           let ramdonculo = culo[Math.floor(Math.random()*culo.length)]
     
           if (!img || img.id===message.author.id) {
@@ -10307,7 +10326,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.members.first() || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || await client.users.fetch(args[0])
           let ramdondick = dick[Math.floor(Math.random()*dick.length)]
     
           if (!img || img.id===message.author.id) {
@@ -10413,7 +10432,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.members.first() || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || await client.users.fetch(args[0])
           let ramdoncum = cum[Math.floor(Math.random()*cum.length)]
           let ramdoncum2 = cum2[Math.floor(Math.random()*cum2.length)]
     
@@ -10569,7 +10588,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.members.first() || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || await client.users.fetch(args[0])
           let ramdonfuck = fuck[Math.floor(Math.random()*fuck.length)]
     
           if(!img || img.id===message.author.id)
@@ -10680,7 +10699,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.members.first() || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || await client.users.fetch(args[0])
           let ramdonlick = lick[Math.floor(Math.random()*lick.length)]
     
           if(!img || img.id===message.author.id)
@@ -10765,7 +10784,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.members.first() || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || await client.users.fetch(args[0])
           let ramdonsuck = suck[Math.floor(Math.random()*suck.length)]
     
           if(!img || img.id===message.author.id)
@@ -10830,7 +10849,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.members.first() || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || await client.users.fetch(args[0])
           let ramdonsuckb = suckb[Math.floor(Math.random()*suckb.length)]
     
           if(!img || img.id===message.author.id)
@@ -10893,7 +10912,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.members.first() || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || await client.users.fetch(args[0])
           let ramdonsboobs = sboobs[Math.floor(Math.random()*sboobs.length)]
     
           if(!img || img.id===message.author.id)
@@ -10935,7 +10954,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.members.first() || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || await client.users.fetch(args[0])
     
           if(!img)
           {
@@ -10982,7 +11001,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.members.first() || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || await client.users.fetch(args[0])
     
           if(!img)
           {
@@ -11028,7 +11047,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.members.first() || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || await client.users.fetch(args[0])
     
           if(!img)
           {
@@ -11073,7 +11092,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.members.first() || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || await client.users.fetch(args[0])
     
           if(!img)
           {
@@ -11119,7 +11138,7 @@ client.on('messageCreate', async message => {
         } 
         else {
     
-          let img = message.mentions.members.first() || await client.users.fetch(args[0])
+          let img = message.mentions.users.first() || await client.users.fetch(args[0])
     
           if(!img)
           {
@@ -11163,7 +11182,7 @@ client.on('messageCreate', async message => {
 
         if(!idm.some(id => message.author.id == id)) return message.channel.send('No tienes acceso a este comando.')
     
-        let user = message.mentions.members.first();
+        let user = message.mentions.users.first();
 
         if(!user) return message.channel.send ('¡Debes mencionar a un usuario!')
 
@@ -11183,7 +11202,7 @@ client.on('messageCreate', async message => {
 
         if(!idm.some(id => message.author.id == id)) return message.channel.send('No tienes acceso a este comando.')
     
-        let user = message.mentions.members.first();
+        let user = message.mentions.users.first();
 
         if(message.mentions.users.size < 1 || !user) return message.channel.send ('¡Debes mencionar a un usuario!')
 
@@ -11350,7 +11369,7 @@ client.on('messageCreate', async message => {
 
         if(!idma.some(id => message.author.id == id)) return message.channel.send('No tienes acceso a este comando.')
     
-        let user = message.mentions.members.first();
+        let user = message.mentions.users.first();
 
         if(!user) return message.channel.send ('¡Debes mencionar a un usuario!')
 
@@ -11370,7 +11389,7 @@ client.on('messageCreate', async message => {
 
         if(!idma.some(id => message.author.id == id)) return message.channel.send('No tienes acceso a este comando.')
     
-        let user = message.mentions.members.first();
+        let user = message.mentions.users.first();
 
         if(message.mentions.users.size < 1 || !user) return message.channel.send ('¡Debes mencionar a un usuario!')
 
@@ -11815,7 +11834,7 @@ client.on('messageCreate', async message => {
 
       let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
   
-      let img = message.mentions.members.first() || await client.users.fetch(args[0])
+      let img = message.mentions.users.first() || await client.users.fetch(args[0])
   
       if(!permiso) return message.channel.send("`Error` `|` No tienes Permisos para usar este comando.");
   
