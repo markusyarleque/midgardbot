@@ -3187,7 +3187,7 @@ client.on('messageCreate', async message => {
           //.addField('Jugando a', userm.presence.game != null ? userm.presence.game.name : 'Nada', true)
           //.addField('Estado:', userm.presence.status, true)
           .addField('Color:', message.member.displayHexColor, true)
-          .addField('Usuario:', userm.user.username+'#'+userm.user.discriminator, true)
+          .addField('Usuario:', userm.username+'#'+userm.discriminator, true)
           .addField('Apodo:', userm.nickname ? userm.nickname : 'No tiene', true)
           .addField('ID:', userm.id, true)
           .addField('Cuenta Creada', userm.user.createdAt.toLocaleDateString()+', '+userm.user.createdAt.toLocaleTimeString(), true)
