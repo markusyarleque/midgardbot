@@ -3101,7 +3101,7 @@ client.on('messageCreate', async message => {
     if(command === 'vote'){
 
       const embed = new Discord.MessageEmbed()
-      .setAuthor(`Midgard's Staff`,client.user.avatarURL())
+      .setAuthor(`Midgard's Staff`,message.guild.iconURL({ dynamic: true }))
       .setThumbnail('https://logos-marcas.com/wp-content/uploads/2020/12/Discord-Logo.png')
       .setTitle('Vota por Nuestro Servidor <a:gatoasomar:930399873113677834>')
       .setDescription(`Estaremos eternamente agradecidos que votes por Midgard! <:abby:931432327354155038>`)
@@ -3161,7 +3161,7 @@ client.on('messageCreate', async message => {
           
         const embed = new Discord.MessageEmbed()
           .setThumbnail(user.displayAvatarURL({ dynamic: true }).replace('webp','png'))
-          .setAuthor('Información del Usuario', client.user.avatarURL())
+          .setAuthor('Información del Usuario', message.guild.iconURL({ dynamic: true }))
           //.addField('Jugando a', user.presence.game != null ? user.presence.game.name : 'Nada', true)
           //.addField('Estado:', user.presence.status, true)
           .addField('Color:', message.member.displayHexColor, true)
@@ -3183,7 +3183,7 @@ client.on('messageCreate', async message => {
 
         const embed = new Discord.MessageEmbed()
           .setThumbnail(userm.displayAvatarURL({ dynamic: true }).replace('webp','png'))
-          .setAuthor('Información del Usuario', client.user.avatarURL())
+          .setAuthor('Información del Usuario', message.guild.iconURL({ dynamic: true }))
           //.addField('Jugando a', userm.presence.game != null ? userm.presence.game.name : 'Nada', true)
           //.addField('Estado:', userm.presence.status, true)
           .addField('Color:', message.member.displayHexColor, true)
@@ -3224,7 +3224,7 @@ client.on('messageCreate', async message => {
       if(!img || img.id === message.author.id){
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor(`Avatar de ${message.author.username}#${message.author.discriminator}`,client.user.avatarURL())
+        .setAuthor(`Avatar de ${message.author.username}#${message.author.discriminator}`,message.guild.iconURL({ dynamic: true }))
         .setTitle('Imagen completa')
         .setDescription('[Click aquí]('+`${message.author.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`+')')
         .setImage(`${message.author.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`)
@@ -3240,7 +3240,7 @@ client.on('messageCreate', async message => {
       } else {
     
         const embed = new Discord.MessageEmbed()
-        .setAuthor(`Avatar de ${img.username}#${img.discriminator}`,client.user.avatarURL())
+        .setAuthor(`Avatar de ${img.username}#${img.discriminator}`,message.guild.iconURL({ dynamic: true }))
         .setTitle('Imagen completa')
         .setDescription('[Click aquí]('+`${img.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`+')')
         .setImage(`${img.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`)
@@ -4192,7 +4192,7 @@ client.on('messageCreate', async message => {
         var dado = links[Math.floor(Math.random() * links.length)]
 
         const embed = new Discord.MessageEmbed() 
-        .setAuthor(`Midgard's Fun`,client.user.avatarURL())
+        .setAuthor(`Midgard's Fun`,message.guild.iconURL({ dynamic: true }))
         .setTitle(`${message.author.username} ha tirado el dado.`)
         .setDescription('El dado a caído en:')
         .setImage(dado)
@@ -4471,7 +4471,7 @@ client.on('messageCreate', async message => {
           let msg = resp[Math.floor(Math.random() * resp.length)] 
 
           const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Love`,client.user.avatarURL())
+          .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
           .setTitle(`${msg}`)
           .setDescription(`${heard} ${random} % ${heard}`)
           .setImage(`${image}`)
@@ -4489,7 +4489,7 @@ client.on('messageCreate', async message => {
           let msg = resp[Math.floor(Math.random() * resp.length)] 
           
           const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Love`,client.user.avatarURL())
+          .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
           .setTitle(`${msg}`)
           .setDescription(`${heard} ${random} % ${heard}`)
           .setImage(`${image}`)
@@ -4514,7 +4514,7 @@ client.on('messageCreate', async message => {
         }).then(post =>
             {
                 const embed = new Discord.MessageEmbed()
-                .setAuthor(`Midgard's Fun`,client.user.avatarURL())
+                .setAuthor(`Midgard's Fun`,message.guild.iconURL({ dynamic: true }))
                 .setTitle(post.title)
                 .setImage(post.url)
                 .setColor('RAMDOM')
@@ -4966,7 +4966,7 @@ client.on('messageCreate', async message => {
           const r = Math.floor(Math.random() * 11);
           
           const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Love`,client.user.avatarURL())
+          .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
           .setTitle(`Nivel de Infidelidad`)
           .setDescription(`${message.author.username} es ${r}% infiel! 😎`)
           .setImage(`https://i.pinimg.com/originals/fc/8a/07/fc8a0764969fcf2d587434f1bf3c014a.gif`)
@@ -4977,7 +4977,7 @@ client.on('messageCreate', async message => {
         } else {
 
           const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Love`,client.user.avatarURL())
+          .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
           .setTitle(`Nivel de Infidelidad`)
           .setDescription(`${message.author.username} es ${random}% infiel! ${heard}`)
           .setImage(`${image}`)
@@ -4994,7 +4994,7 @@ client.on('messageCreate', async message => {
           const r = Math.floor(Math.random() * 11);
 
           const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Love`,client.user.avatarURL())
+          .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
           .setTitle(`Nivel de Infidelidad`)
           .setDescription(`${users.username} es ${r}% infiel! 😎`)
           .setImage(`https://i.pinimg.com/originals/fc/8a/07/fc8a0764969fcf2d587434f1bf3c014a.gif`)
@@ -5005,7 +5005,7 @@ client.on('messageCreate', async message => {
         } else {
 
           const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Love`,client.user.avatarURL())
+          .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
           .setTitle(`Nivel de Infidelidad`)
           .setDescription(`${users.username} es ${random}% infiel! ${heard}`)
           .setImage(`${image}`)
@@ -5053,7 +5053,7 @@ client.on('messageCreate', async message => {
         let ramdong = gif[Math.floor(Math.random()*gif.length)]
 
         const embcarta = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Love`,client.user.avatarURL())
+          .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
           .setThumbnail(message.author.displayAvatarURL({ dynamic: true }).replace('webp','png'))
           .setTitle(`📩 | Cartas & Dedicatorias 💕`)
           .setDescription(tag.username + ' Te ha llegado una **dedicatoria** <:tierno:931433334960160799>\n\n<a:flech:931432469935312937> *Enviado por:*\n<a:corazones_fn:906775240795901982> **'+ message.author.username+'**\n\n<a:fijadito:931432134797848607>\n```'+mensaje+'```\n')
@@ -5063,7 +5063,7 @@ client.on('messageCreate', async message => {
           .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
 
         const embcartano = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Love`,client.user.avatarURL())
+          .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
           .setThumbnail(target.displayAvatarURL({ dynamic: true }).replace('webp','png'))
           .setTitle(`📩 | Cartas & Dedicatorias 💕`)
           .setDescription(tag.username + ' Te ha llegado una **dedicatoria** <:tierno:931433334960160799>\n\n<a:flech:931432469935312937> *Enviado por:*\n<a:corazones_fn:906775240795901982> **Anónimo**\n\n<a:fijadito:931432134797848607>\n```'+mensaje+'```\n')
@@ -5172,7 +5172,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,client.user.avatarURL())
+            .setAuthor(`Midgard's Cafe`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** tomó una taza de café.`)
             .setImage(ramdoncafe)
@@ -5184,7 +5184,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,client.user.avatarURL())
+            .setAuthor(`Midgard's Cafe`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${img.username}**, ${message.author.username} te invitó una taza de café.`)
             .setImage(ramdoncafe)
@@ -5219,7 +5219,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,client.user.avatarURL())
+            .setAuthor(`Midgard's Cafe`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** está tomando awita.`)
             .setImage(ramdonagua)
@@ -5231,7 +5231,7 @@ client.on('messageCreate', async message => {
         }  else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,client.user.avatarURL())
+            .setAuthor(`Midgard's Cafe`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${img.username}**, ${message.author.username} te invitó un poquito de awita.`)
             .setImage(ramdonagua)
@@ -5265,7 +5265,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,client.user.avatarURL())
+            .setAuthor(`Midgard's Cafe`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** está relajándose con un tesito.`)
             .setImage(ramdonte)
@@ -5277,7 +5277,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,client.user.avatarURL())
+            .setAuthor(`Midgard's Cafe`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${img.username}**, ponte cómodo y relájate, que ${message.author.username} te ha invitado un tesito.`)
             .setImage(ramdonte)
@@ -5310,7 +5310,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,client.user.avatarURL())
+            .setAuthor(`Midgard's Cafe`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** está tomando un delicioso juguito.`)
             .setImage(ramdonjugo)
@@ -5322,7 +5322,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,client.user.avatarURL())
+            .setAuthor(`Midgard's Cafe`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${img.username}**, ${message.author.username} te invitó un juguito.`)
             .setImage(ramdonjugo)
@@ -5343,7 +5343,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,client.user.avatarURL())
+            .setAuthor(`Midgard's Cafe`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** está comiendo unos tacos.`)
             .setImage(ramdontacos)
@@ -5355,7 +5355,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,client.user.avatarURL())
+            .setAuthor(`Midgard's Cafe`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${img.username}**, ${message.author.username} te invitó un rico taco.`)
             .setImage(ramdontacos)
@@ -5389,7 +5389,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,client.user.avatarURL())
+            .setAuthor(`Midgard's Cafe`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** está comiendo un delicioso chocolate.`)
             .setImage(ramdonchocolate)
@@ -5401,7 +5401,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,client.user.avatarURL())
+            .setAuthor(`Midgard's Cafe`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${img.username}**, ${message.author.username} te invitó un rico chocolate.`)
             .setImage(ramdonchocolate)
@@ -5434,7 +5434,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,client.user.avatarURL())
+            .setAuthor(`Midgard's Cafe`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`A **${message.author.username}** se le antojaron unas galletitas.`)
             .setImage(ramdongalletas)
@@ -5446,7 +5446,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,client.user.avatarURL())
+            .setAuthor(`Midgard's Cafe`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${img.username}**, ${message.author.username} te invitó unas sabrosas galletitas.`)
             .setImage(ramdongalletas)
@@ -5479,7 +5479,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,client.user.avatarURL())
+            .setAuthor(`Midgard's Cafe`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** está comiendo un refrescante helado.`)
             .setImage(ramdonhelado)
@@ -5491,7 +5491,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,client.user.avatarURL())
+            .setAuthor(`Midgard's Cafe`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${img.username}**, ${message.author.username} te invitó un poquito de helado.`)
             .setImage(ramdonhelado)
@@ -5525,7 +5525,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,client.user.avatarURL())
+            .setAuthor(`Midgard's Cafe`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** está comiendo una sabrosa hamburguesa.`)
             .setImage(ramdonhamburguesa)
@@ -5537,7 +5537,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,client.user.avatarURL())
+            .setAuthor(`Midgard's Cafe`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${img.username}**, ${message.author.username} te invitó una gran hamburguesa.`)
             .setImage(ramdonhamburguesa)
@@ -5574,7 +5574,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,client.user.avatarURL())
+            .setAuthor(`Midgard's Cafe`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** está comiendo una riquísima pizza.`)
             .setImage(ramdonpizza)
@@ -5586,7 +5586,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Cafe`,client.user.avatarURL())
+            .setAuthor(`Midgard's Cafe`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${img.username}**, ${message.author.username} te invitó una sabrosa pizza.`)
             .setImage(ramdonpizza)
@@ -5621,7 +5621,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,client.user.avatarURL())
+            .setAuthor(`Midgard's Bar`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** está refrescándose con una Coca Cola.`)
             .setImage(ramdoncocacola)
@@ -5633,7 +5633,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,client.user.avatarURL())
+            .setAuthor(`Midgard's Bar`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${img.username}**, ${message.author.username} te invitó una Coca Cola... Disfrútala!`)
             .setImage(ramdoncocacola)
@@ -5667,7 +5667,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,client.user.avatarURL())
+            .setAuthor(`Midgard's Bar`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** está energizándose con un Red Bull.`)
             .setImage(ramdonredbull)
@@ -5679,7 +5679,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,client.user.avatarURL())
+            .setAuthor(`Midgard's Bar`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${img.username}**, ${message.author.username} te invitó una lata de Red Bull.`)
             .setImage(ramdonredbull)
@@ -5712,7 +5712,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,client.user.avatarURL())
+            .setAuthor(`Midgard's Bar`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** está tomando una cervecita.`)
             .setImage(ramdoncerveza)
@@ -5724,7 +5724,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,client.user.avatarURL())
+            .setAuthor(`Midgard's Bar`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`Hey, **${img.username}**, disfruta tu cerveza invitada por ${message.author.username}.`)
             .setImage(ramdoncerveza)
@@ -5756,7 +5756,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,client.user.avatarURL())
+            .setAuthor(`Midgard's Bar`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** está disfrutando un rico vino.`)
             .setImage(ramdonvino)
@@ -5768,7 +5768,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,client.user.avatarURL())
+            .setAuthor(`Midgard's Bar`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${img.username}**, aquí te traigo una copa de vino invitado por ${message.author.username}.`)
             .setImage(ramdonvino)
@@ -5801,7 +5801,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,client.user.avatarURL())
+            .setAuthor(`Midgard's Bar`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** está disfrutando un tequilita.`)
             .setImage(ramdontequila)
@@ -5813,7 +5813,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,client.user.avatarURL())
+            .setAuthor(`Midgard's Bar`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`Hey, **${img.username}**, toma este tequila invitado por ${message.author.username}.`)
             .setImage(ramdontequila)
@@ -5847,7 +5847,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,client.user.avatarURL())
+            .setAuthor(`Midgard's Bar`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** está celebrando con un roncito.`)
             .setImage(ramdonron)
@@ -5859,7 +5859,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,client.user.avatarURL())
+            .setAuthor(`Midgard's Bar`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${img.username}**, agradécele a ${message.author.username} porque te está invitando un ron.`)
             .setImage(ramdonron)
@@ -5892,7 +5892,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,client.user.avatarURL())
+            .setAuthor(`Midgard's Bar`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** está saboreando su delicioso coctel.`)
             .setImage(ramdoncoctel)
@@ -5904,7 +5904,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,client.user.avatarURL())
+            .setAuthor(`Midgard's Bar`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${img.username}**, disfruta este coctel que te ha invitado ${message.author.username}.`)
             .setImage(ramdoncoctel)
@@ -5935,7 +5935,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,client.user.avatarURL())
+            .setAuthor(`Midgard's Bar`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** está volando con un porro de mota.`)
             .setImage(ramdonporro)
@@ -5947,7 +5947,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,client.user.avatarURL())
+            .setAuthor(`Midgard's Bar`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${img.username}**, disfruta de esta mota que te ha invitado ${message.author.username}.`)
             .setImage(ramdonporro)
@@ -5980,7 +5980,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,client.user.avatarURL())
+            .setAuthor(`Midgard's Bar`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** está fumando un cigarrito.`)
             .setImage(ramdoncigarro)
@@ -5992,7 +5992,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,client.user.avatarURL())
+            .setAuthor(`Midgard's Bar`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`Hey **${img.username}**, ${message.author.username} ha compartido un cigarro contigo.`)
             .setImage(ramdoncigarro)
@@ -6027,7 +6027,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,client.user.avatarURL())
+            .setAuthor(`Midgard's Bar`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`A **${message.author.username}** le apeteció una pipa bien potente.`)
             .setImage(ramdonhuca)
@@ -6039,7 +6039,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,client.user.avatarURL())
+            .setAuthor(`Midgard's Bar`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${img.username}**, disfruta de la hookah que te invitó ${message.author.username}.`)
             .setImage(ramdonhuca)
@@ -6119,7 +6119,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Disco`,client.user.avatarURL())
+            .setAuthor(`Midgard's Disco`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** está perreando hasta el piso.`)
             .setImage(ramdonperreo)
@@ -6131,7 +6131,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Disco`,client.user.avatarURL())
+            .setAuthor(`Midgard's Disco`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${img.username}**, ${message.author.username} te está perreando duro contra el muro. <a:perreom:930719549131735040>`)
             .setImage(ramdonperreo)
@@ -6169,7 +6169,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Disco`,client.user.avatarURL())
+            .setAuthor(`Midgard's Disco`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`Miren a **${message.author.username}** como disfruta esa bachata.`)
             .setImage(ramdonbachata)
@@ -6181,7 +6181,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Disco`,client.user.avatarURL())
+            .setAuthor(`Midgard's Disco`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${img.username}**, está bachateando con ${message.author.username}.`)
             .setImage(ramdonbachata)
@@ -6225,7 +6225,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Disco`,client.user.avatarURL())
+            .setAuthor(`Midgard's Disco`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** salsea como los dioses.`)
             .setImage(ramdonsalsa2)
@@ -6237,7 +6237,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Disco`,client.user.avatarURL())
+            .setAuthor(`Midgard's Disco`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${img.username}** y ${message.author.username} están salseando juntos.`)
             .setImage(ramdonsalsa)
@@ -6285,7 +6285,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Disco`,client.user.avatarURL())
+            .setAuthor(`Midgard's Disco`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** está bailando un pinche cumbión bien loco.`)
             .setImage(ramdoncumbia2)
@@ -6297,7 +6297,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Disco`,client.user.avatarURL())
+            .setAuthor(`Midgard's Disco`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`A **${img.username}** y ${message.author.username} les va bien los pasitos de cumbia.`)
             .setImage(ramdoncumbia)
@@ -6359,7 +6359,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Disco`,client.user.avatarURL())
+            .setAuthor(`Midgard's Disco`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** pidió una colegiala y no la quiere compartir. <:gaaa:925926944254611487>`)
             .setImage(ramdoncolegiala)
@@ -6371,7 +6371,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Disco`,client.user.avatarURL())
+            .setAuthor(`Midgard's Disco`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`Opa! **${img.username}**, mira esta colegiala que ${message.author.username} te trajo. <:uyy:880315359197024286>`)
             .setImage(ramdoncolegiala)
@@ -6412,7 +6412,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
           const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+          .setAuthor(`Midgard's Emotions`,message.guild.iconURL({ dynamic: true }))
           //.setTitle('Imagen completa')
           .setDescription(`**${message.author.username}** está saludando a todos.`)
           .setImage(ramdonhi)
@@ -6424,7 +6424,7 @@ client.on('messageCreate', async message => {
         } else {
     
           const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Love`,client.user.avatarURL())
+          .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
           //.setTitle('Imagen completa')
           .setDescription(`**${img.username}**, está saludando a ${message.author.username}.`)
           .setImage(ramdonhi)
@@ -6472,7 +6472,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Love`,client.user.avatarURL())
+            .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** se está abrazando a sí mismo.`)
             .setImage(ramdonhug2)
@@ -6505,7 +6505,7 @@ client.on('messageCreate', async message => {
           }
         
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Love`,client.user.avatarURL())
+            .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** está abrazando a **${img.username}**. <:burbujita:925927258789666826>\n<a:flechad:880330587678838784> *${img.username}* ha recibido ${text} en total.`)
             .setImage(ramdonhug)
@@ -6587,7 +6587,7 @@ client.on('messageCreate', async message => {
         }
 
           const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Love`,client.user.avatarURL())
+          .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
           //.setTitle('Imagen completa')
           .setDescription(`**${message.author.username}** le dió un beso a **${img.username}**. <:GatoLove:925929538863628318>\n<a:flechad:880330587678838784> *${message.author.username}* y *${img.username}* se han besado ${conteo}`)
           .setImage(ramdonkiss)
@@ -6702,7 +6702,7 @@ client.on('messageCreate', async message => {
       message.channel.send({embeds: [
           new Discord.MessageEmbed()
           .setColor('RANDOM')
-          .setAuthor(`Midgard's Love`,client.user.avatarURL())
+          .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
           .setTitle('💟 Propuesta de Matrimonio 💍')
           .setDescription(img.toString() + "¿Deseas casarte con "+message.author.toString()+" ?")
           .setImage(ramdonp)
@@ -6736,7 +6736,7 @@ client.on('messageCreate', async message => {
             m.edit({embeds: [
               new Discord.MessageEmbed()
               .setColor('RANDOM')
-              .setAuthor(`Midgard's Love`,client.user.avatarURL())
+              .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
               .setTitle('👰 Noche de Boda 🤵')
               .setDescription('💖 Felicidades!!! '+img.toString() + " y "+message.author.toString()+". Ahora están casados 🔥.")
               .setImage(ramdona)
@@ -6753,7 +6753,7 @@ client.on('messageCreate', async message => {
             m.edit({embeds: [
               new Discord.MessageEmbed()
               .setColor('RANDOM')
-              .setAuthor(`Midgard's Love`,client.user.avatarURL())
+              .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
               .setTitle('💔 Propuesta Rechazada 💔')
               .setDescription(img.toString() + " ha rechazado la propuesta de "+message.author.toString()+" <:yonofui:931433119859503194>")
               .setImage(ramdonr)
@@ -6771,7 +6771,7 @@ client.on('messageCreate', async message => {
           if(colected < 1) return m.edit({embeds: [
             new Discord.MessageEmbed()
             .setColor('RANDOM')
-            .setAuthor(`Midgard's Love`,client.user.avatarURL())
+            .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
             .setTitle('⌛ Propuesta sin Respuesta 💔')
             .setDescription(img.toString() + " no ha respondido la propuesta de "+message.author.toString()+" <:yonofui:931433119859503194>")
             .setImage(ramdonpl)
@@ -6828,7 +6828,7 @@ client.on('messageCreate', async message => {
           message.channel.send({embeds: [
             new Discord.MessageEmbed()
             .setColor('RANDOM')
-            .setAuthor(`Midgard's Love`,client.user.avatarURL())
+            .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
             .setTitle('💔 Propuesta de Divorcio 💔')
             .setDescription(message.author.toString()+' ¿Estás seguro de querer divorciarte de '+img.toString()+" ?")
             .setTimestamp(new Date())
@@ -6861,7 +6861,7 @@ client.on('messageCreate', async message => {
               m.edit({embeds: [
                 new Discord.MessageEmbed()
                 .setColor('RANDOM')
-                .setAuthor(`Midgard's Love`,client.user.avatarURL())
+                .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
                 .setTitle('🖤 Divorcio Completado 🤵')
                 .setDescription('💥 Felicidades!!! '+message.author.toString() + " Te has divorciado correctamente de "+img.toString()+" 🔥")
                 .setImage(ramdond)
@@ -6878,7 +6878,7 @@ client.on('messageCreate', async message => {
               m.edit({embeds: [
                 new Discord.MessageEmbed()
                 .setColor('RANDOM')
-                .setAuthor(`Midgard's Love`,client.user.avatarURL())
+                .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
                 .setTitle('❤ Divorcio Rechazao 💟')
                 .setDescription('Aún hay esperanzas en el amor... '+message.author.toString() + " aún sigues casado con "+img.toString()+" <:tierno:931433334960160799>")
                 .setImage(ramdona)
@@ -6930,7 +6930,7 @@ client.on('messageCreate', async message => {
       let happy = star.happy()
 
       const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        .setAuthor(`Midgard's Emotions`,message.guild.iconURL({ dynamic: true }))
         //.setTitle('Imagen completa')
         .setDescription(`**${message.author.username}** se puso modo feliz <a:6975wolfparty:901266259256168508>`)
         .setImage(happy)
@@ -6949,7 +6949,7 @@ client.on('messageCreate', async message => {
       if (!img || img.id===message.author.id) {
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        .setAuthor(`Midgard's Emotions`,message.guild.iconURL({ dynamic: true }))
         //.setTitle('Imagen completa')
         .setDescription(`**${message.author.username}** se fue a dormir <a:Mimido:920963402355064852>`)
         .setImage(sleep)
@@ -6961,7 +6961,7 @@ client.on('messageCreate', async message => {
       } else {
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        .setAuthor(`Midgard's Emotions`,message.guild.iconURL({ dynamic: true }))
         //.setTitle('Imagen completa')
         .setDescription(`**${img.username}**, ${message.author.username} te ha invitado a dormir juntos <a:Mimido:920963402355064852>`)
         .setImage(sleep)
@@ -6982,7 +6982,7 @@ client.on('messageCreate', async message => {
       if (!img || img.id===message.author.id) {
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        .setAuthor(`Midgard's Emotions`,message.guild.iconURL({ dynamic: true }))
         //.setTitle('Imagen completa')
         .setDescription(`**${message.author.username}** está tirando los pasos prohibidos. <a:pasito:877116925291946094>`)
         .setImage(dance)
@@ -6994,7 +6994,7 @@ client.on('messageCreate', async message => {
       } else {
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        .setAuthor(`Midgard's Emotions`,message.guild.iconURL({ dynamic: true }))
         //.setTitle('Imagen completa')
         .setDescription(`**${img.username}** y **${message.author.username}** están bailando juntos <:abby:931432327354155038> `)
         .setImage(dance)
@@ -7015,7 +7015,7 @@ client.on('messageCreate', async message => {
       if (!img || img.id===message.author.id) {
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        .setAuthor(`Midgard's Emotions`,message.guild.iconURL({ dynamic: true }))
         //.setTitle('Imagen completa')
         .setDescription(`**${message.author.username}**se sonrojó <:GatoSonrojado:925929874445729872>`)
         .setImage(blush)
@@ -7027,7 +7027,7 @@ client.on('messageCreate', async message => {
       } else {
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        .setAuthor(`Midgard's Emotions`,message.guild.iconURL({ dynamic: true }))
         //.setTitle('Imagen completa')
         .setDescription(`**${message.author.username}** se sonrojó al ver a **${img.username}** <:abby:931432327354155038> `)
         .setImage(blush)
@@ -7048,7 +7048,7 @@ client.on('messageCreate', async message => {
       if (!img || img.id===message.author.id) {
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        .setAuthor(`Midgard's Emotions`,message.guild.iconURL({ dynamic: true }))
         //.setTitle('Imagen completa')
         .setDescription(`**${message.author.username}** está confundido <a:ConfusedDog:920965537020907541>`)
         .setImage(confus)
@@ -7060,7 +7060,7 @@ client.on('messageCreate', async message => {
       } else {
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        .setAuthor(`Midgard's Emotions`,message.guild.iconURL({ dynamic: true }))
         //.setTitle('Imagen completa')
         .setDescription(`**${message.author.username}** está confundiendo a **${img.username}** <a:ConfusedDog:920965537020907541> `)
         .setImage(confus)
@@ -7085,7 +7085,7 @@ client.on('messageCreate', async message => {
       } else {
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        .setAuthor(`Midgard's Emotions`,message.guild.iconURL({ dynamic: true }))
         //.setTitle('Imagen completa')
         .setDescription(`**${message.author.username}** está lamiendo a **${img.username}** <:mmm:880308330894090241>`)
         .setImage(lick)
@@ -7110,7 +7110,7 @@ client.on('messageCreate', async message => {
       } else {
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        .setAuthor(`Midgard's Emotions`,message.guild.iconURL({ dynamic: true }))
         //.setTitle('Imagen completa')
         .setDescription(`**${message.author.username}** le dió de comer a **${img.username}** <a:Zuii:890684724673150996>`)
         .setImage(feed)
@@ -7150,7 +7150,7 @@ client.on('messageCreate', async message => {
       }
       
       const embed = new Discord.MessageEmbed()
-      .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+      .setAuthor(`Midgard's Emotions`,message.guild.iconURL({ dynamic: true }))
       //.setTitle('Imagen completa')
       .setDescription(`**${message.author.username}** está acariciando a **${img.username}**. <a:gatoasomar:930399873113677834>\n<a:flechad:880330587678838784> *${img.username}* ha recibido ${text} en total.`)
       .setImage(pat)
@@ -7173,7 +7173,7 @@ client.on('messageCreate', async message => {
       } else {
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's Emotions`,client.user.avatarURL())
+        .setAuthor(`Midgard's Emotions`,message.guild.iconURL({ dynamic: true }))
         //.setTitle('Imagen completa')
         .setDescription(`**${img.username}**, ${message.author.username} te dió una patada <a:ThisGonnaBGud_retrasados:887057491081449512>`)
         .setImage(kick)
@@ -7217,7 +7217,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
           const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Sad`,client.user.avatarURL())
+          .setAuthor(`Midgard's Sad`,message.guild.iconURL({ dynamic: true }))
           //.setTitle('Imagen completa')
           .setDescription(`**${message.author.username}** se puso modo depre.`)
           .setImage(ramdonsad)
@@ -7229,7 +7229,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Sad`,client.user.avatarURL())
+            .setAuthor(`Midgard's Sad`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** y **${img.username}** andan modo sad.`)
             .setImage(ramdonsad)
@@ -7262,7 +7262,7 @@ client.on('messageCreate', async message => {
       if (!img || img.id===message.author.id) {
   
           const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Sad`,client.user.avatarURL())
+          .setAuthor(`Midgard's Sad`,message.guild.iconURL({ dynamic: true }))
           //.setTitle('Imagen completa')
           .setDescription(`**${message.author.username}** se ahoga con un buen clorox!`)
           .setImage(ramdonclorox)
@@ -7274,7 +7274,7 @@ client.on('messageCreate', async message => {
       } else {
   
           const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Sad`,client.user.avatarURL())
+          .setAuthor(`Midgard's Sad`,message.guild.iconURL({ dynamic: true }))
           //.setTitle('Imagen complseta')
           .setDescription(`**${img.username}**, vamos a ahogarnos en la soledad con un clorox invitado por ${message.author.username}.`)
           .setImage(ramdonclorox)
@@ -7318,7 +7318,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
           const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Sad`,client.user.avatarURL())
+          .setAuthor(`Midgard's Sad`,message.guild.iconURL({ dynamic: true }))
           //.setTitle('Imagen completa')
           .setDescription(`**${message.author.username}** no llores, Te queremos ❤`)
           .setImage(ramdoncry)
@@ -7330,7 +7330,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Sad`,client.user.avatarURL())
+            .setAuthor(`Midgard's Sad`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** y **${img.username}** no lloren, el Staff Los quiere ❤`)
             .setImage(ramdoncry)
@@ -7348,7 +7348,7 @@ client.on('messageCreate', async message => {
       let suic = star.suicide()
   
       const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's Sad`,client.user.avatarURL())
+        .setAuthor(`Midgard's Sad`,message.guild.iconURL({ dynamic: true }))
         //.setTitle('Imagen completa')
         .setDescription(`**${message.author.username}** se ha suicidado... <a:suicide:881550681239064626>`)
         .setImage(suic)
@@ -7410,7 +7410,7 @@ client.on('messageCreate', async message => {
         }
           
         const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's Love`,client.user.avatarURL())
+        .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
         //.setTitle('Imagen completa')
         .setDescription(`**${message.author.username}** le dió un sape a **${img.username}**. <:nojao:891551822387486721>\n<a:flechad:880330587678838784> *${img.username}* ha recibido ${text} en total.`)
         .setImage(ramdonsape)
@@ -7466,7 +7466,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Love`,client.user.avatarURL())
+            .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** le dió un puñetazo a **${img.username}**.`)
             .setImage(ramdonpunch)
@@ -7493,7 +7493,7 @@ client.on('messageCreate', async message => {
           neko.sfw.slap().then(neko => {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Love`,client.user.avatarURL())
+            .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** abofeteó a **${img.username}**.`)
             .setImage(neko.url)
@@ -7538,7 +7538,7 @@ client.on('messageCreate', async message => {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Love`,client.user.avatarURL())
+            .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** acaba de masacrar a **${img.username}**.`)
             .setImage(ramdonkill)
@@ -7556,7 +7556,7 @@ client.on('messageCreate', async message => {
 
     const embed = new Discord.MessageEmbed()
   .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-  .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+  .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
   .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
   .setDescription('-------------------------------------------------- ')
   .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> No hay nadie agregado ', false)
@@ -7597,7 +7597,7 @@ client.on('messageCreate', async message => {
 
           const embed = new Discord.MessageEmbed()
           .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-          .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+          .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
           .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
           .setDescription('-------------------------------------------------- ')
           .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> No hay nadie agregado ', false)
@@ -7615,7 +7615,7 @@ client.on('messageCreate', async message => {
   
           const embed = new Discord.MessageEmbed()
           .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-          .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+          .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
           .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
           .setDescription('-------------------------------------------------- ')
           .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -7633,7 +7633,7 @@ client.on('messageCreate', async message => {
 
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-            .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+            .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
             .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
             .setDescription('-------------------------------------------------- ')
             .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -7651,7 +7651,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -7669,7 +7669,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -7688,7 +7688,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -7706,7 +7706,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -7724,7 +7724,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -7742,7 +7742,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -7760,7 +7760,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -7778,7 +7778,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -7796,7 +7796,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -7814,7 +7814,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -7832,7 +7832,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -7850,7 +7850,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -7868,7 +7868,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -7886,7 +7886,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -7904,7 +7904,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -7922,7 +7922,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -7940,7 +7940,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -7958,7 +7958,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -7995,7 +7995,7 @@ client.on('messageCreate', async message => {
 
           const embed = new Discord.MessageEmbed()
           .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-          .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+          .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
           .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
           .setDescription('-------------------------------------------------- ')
           .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> No hay nadie agregado ', false)
@@ -8013,7 +8013,7 @@ client.on('messageCreate', async message => {
   
           const embed = new Discord.MessageEmbed()
           .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-          .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+          .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
           .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
           .setDescription('-------------------------------------------------- ')
           .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8031,7 +8031,7 @@ client.on('messageCreate', async message => {
 
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-            .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+            .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
             .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
             .setDescription('-------------------------------------------------- ')
             .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8049,7 +8049,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8067,7 +8067,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8086,7 +8086,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8104,7 +8104,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8122,7 +8122,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8140,7 +8140,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8158,7 +8158,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8176,7 +8176,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8194,7 +8194,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8212,7 +8212,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8230,7 +8230,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8248,7 +8248,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8266,7 +8266,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8284,7 +8284,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8302,7 +8302,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8320,7 +8320,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8338,7 +8338,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8356,7 +8356,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8402,7 +8402,7 @@ client.on('messageCreate', async message => {
 
           const embed = new Discord.MessageEmbed()
           .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-          .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+          .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
           .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
           .setDescription('-------------------------------------------------- ')
           .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> No hay nadie agregado ', false)
@@ -8420,7 +8420,7 @@ client.on('messageCreate', async message => {
   
           const embed = new Discord.MessageEmbed()
           .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-          .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+          .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
           .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
           .setDescription('-------------------------------------------------- ')
           .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8438,7 +8438,7 @@ client.on('messageCreate', async message => {
 
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-            .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+            .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
             .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
             .setDescription('-------------------------------------------------- ')
             .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8456,7 +8456,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8474,7 +8474,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8493,7 +8493,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8511,7 +8511,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8529,7 +8529,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8547,7 +8547,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8565,7 +8565,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8583,7 +8583,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8601,7 +8601,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8619,7 +8619,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8637,7 +8637,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8655,7 +8655,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8673,7 +8673,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8691,7 +8691,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8709,7 +8709,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8727,7 +8727,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8745,7 +8745,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8763,7 +8763,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8813,7 +8813,7 @@ client.on('messageCreate', async message => {
 
           const embed = new Discord.MessageEmbed()
           .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-          .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+          .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
           .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
           .setDescription('-------------------------------------------------- ')
           .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> No hay nadie agregado ', false)
@@ -8831,7 +8831,7 @@ client.on('messageCreate', async message => {
   
           const embed = new Discord.MessageEmbed()
           .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-          .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+          .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
           .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
           .setDescription('-------------------------------------------------- ')
           .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8849,7 +8849,7 @@ client.on('messageCreate', async message => {
 
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-            .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+            .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
             .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
             .setDescription('-------------------------------------------------- ')
             .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8867,7 +8867,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8885,7 +8885,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8904,7 +8904,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8922,7 +8922,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8940,7 +8940,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8958,7 +8958,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8976,7 +8976,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -8994,7 +8994,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9012,7 +9012,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9030,7 +9030,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9048,7 +9048,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9066,7 +9066,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9084,7 +9084,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9102,7 +9102,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9120,7 +9120,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9138,7 +9138,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9156,7 +9156,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9174,7 +9174,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9209,7 +9209,7 @@ client.on('messageCreate', async message => {
 
           const embed = new Discord.MessageEmbed()
           .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-          .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+          .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
           .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
           .setDescription('-------------------------------------------------- ')
           .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> No hay nadie agregado ', false)
@@ -9227,7 +9227,7 @@ client.on('messageCreate', async message => {
   
           const embed = new Discord.MessageEmbed()
           .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-          .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+          .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
           .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
           .setDescription('-------------------------------------------------- ')
           .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9245,7 +9245,7 @@ client.on('messageCreate', async message => {
 
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-            .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+            .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
             .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
             .setDescription('-------------------------------------------------- ')
             .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9263,7 +9263,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9281,7 +9281,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9300,7 +9300,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9318,7 +9318,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9336,7 +9336,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9354,7 +9354,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9372,7 +9372,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9390,7 +9390,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9408,7 +9408,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9426,7 +9426,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9444,7 +9444,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9462,7 +9462,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9480,7 +9480,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9498,7 +9498,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9516,7 +9516,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9534,7 +9534,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9552,7 +9552,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9570,7 +9570,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9629,7 +9629,7 @@ client.on('messageCreate', async message => {
 
           const embed = new Discord.MessageEmbed()
           .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-          .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+          .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
           .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
           .setDescription('-------------------------------------------------- ')
           .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> No hay nadie agregado ', false)
@@ -9647,7 +9647,7 @@ client.on('messageCreate', async message => {
   
           const embed = new Discord.MessageEmbed()
           .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-          .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+          .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
           .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
           .setDescription('-------------------------------------------------- ')
           .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9665,7 +9665,7 @@ client.on('messageCreate', async message => {
 
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-            .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+            .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
             .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
             .setDescription('-------------------------------------------------- ')
             .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9683,7 +9683,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9701,7 +9701,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9720,7 +9720,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9738,7 +9738,7 @@ client.on('messageCreate', async message => {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9756,7 +9756,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9774,7 +9774,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9792,7 +9792,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9810,7 +9810,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9828,7 +9828,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9846,7 +9846,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9864,7 +9864,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9882,7 +9882,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9900,7 +9900,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9918,7 +9918,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9936,7 +9936,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9954,7 +9954,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9972,7 +9972,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -9990,7 +9990,7 @@ client.on('messageCreate', async message => {
       
             const embed = new Discord.MessageEmbed()
             .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
-              .setAuthor(`Midgard's Karaoke`,client.user.avatarURL())
+              .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
               .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
               .setDescription('-------------------------------------------------- ')
               .addField('Turno de : <a:Microfono:880524826459140126>', '<a:flechad:880330587678838784> '+listask.first(), false)
@@ -10074,7 +10074,7 @@ client.on('messageCreate', async message => {
         if (!img || img.id===message.author.id) {
     
           const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+          .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
           //.setTitle('Imagen completa')
           .setDescription(`**${message.author.username}** mira estos melones <a:pandanoveo:880306441926352916> `)
           .setImage(ramdontetas)
@@ -10086,7 +10086,7 @@ client.on('messageCreate', async message => {
         } else {
     
           const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+          .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
           //.setTitle('Imagen completa')
           .setDescription(`Hey **${img.username}**, mira estos melones que **${message.author.username}** te trajo <a:pandanoveo:880306441926352916> `)
           .setImage(ramdontetas)
@@ -10153,7 +10153,7 @@ client.on('messageCreate', async message => {
           if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen')
             .setDescription(`**${message.author.username}** mira esa papaya <a:pandanoveo:880306441926352916> `)
             .setImage(ramdonpussy)
@@ -10165,7 +10165,7 @@ client.on('messageCreate', async message => {
           }else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`Hey **${img.username}**, mira esa papaya que **${message.author.username}** te está mostrando <a:pandanoveo:880306441926352916> `)
             .setImage(ramdonpussy)
@@ -10251,7 +10251,7 @@ client.on('messageCreate', async message => {
           if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** mira ese perro culazo <a:pandanoveo:880306441926352916> `)
             .setImage(ramdonculo)
@@ -10263,7 +10263,7 @@ client.on('messageCreate', async message => {
           } else{
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`Omg!!! **${img.username}** mira ese perro culazo que tiene **${message.author.username}** <a:pandanoveo:880306441926352916> `)
             .setImage(ramdonculo)
@@ -10313,7 +10313,7 @@ client.on('messageCreate', async message => {
           if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`A **${message.author.username}** le provocó una rica polla <a:pandanoveo:880306441926352916> `)
             .setImage(ramdondick)
@@ -10325,7 +10325,7 @@ client.on('messageCreate', async message => {
           }else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** anda viendo la verga de **${img.username}** <a:pandanoveo:880306441926352916> `)
             .setImage(ramdondick)
@@ -10421,7 +10421,7 @@ client.on('messageCreate', async message => {
           {
             
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** acaba de vaciarse <:aisaMexicana:925926704097161216>`)
             .setImage(ramdoncum)
@@ -10433,7 +10433,7 @@ client.on('messageCreate', async message => {
           } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** se vino dentro de **${img.username}**.`)
             .setImage(ramdoncum2)
@@ -10576,7 +10576,7 @@ client.on('messageCreate', async message => {
           {
             
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`Señoraaaa!!! su hijo **${message.author.username}** está viendo nopor <a:run:880304386826465300>`)
             .setImage(ramdonfuck)
@@ -10588,7 +10588,7 @@ client.on('messageCreate', async message => {
           } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** se está follando a **${img.username}** <a:sabroso:880695816497541180>.`)
             .setImage(ramdonfuck)
@@ -10687,7 +10687,7 @@ client.on('messageCreate', async message => {
           {
             
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`A **${message.author.username}** le provocó lamer coños <a:sabroso:880695816497541180>`)
             .setImage(ramdonlick)
@@ -10699,7 +10699,7 @@ client.on('messageCreate', async message => {
           } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** le está haciendo un buen oral a **${img.username}** <a:sabroso:880695816497541180>.`)
             .setImage(ramdonlick)
@@ -10772,7 +10772,7 @@ client.on('messageCreate', async message => {
           {
             
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`A **${message.author.username}** le provocó chupar pollas <a:sabroso:880695816497541180>`)
             .setImage(ramdonsuck)
@@ -10784,7 +10784,7 @@ client.on('messageCreate', async message => {
           } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** se está comiendo la verga de **${img.username}** <a:sabroso:880695816497541180>.`)
             .setImage(ramdonsuck)
@@ -10837,7 +10837,7 @@ client.on('messageCreate', async message => {
           {
             
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`A **${message.author.username}** le gusta chupar bolas <a:sabroso:880695816497541180>`)
             .setImage(ramdonsuckb)
@@ -10849,7 +10849,7 @@ client.on('messageCreate', async message => {
           } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** se está comiendo las pelotas de **${img.username}** <a:sabroso:880695816497541180>.`)
             .setImage(ramdonsuckb)
@@ -10900,7 +10900,7 @@ client.on('messageCreate', async message => {
           {
             
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** está chupando tetas <a:sabroso:880695816497541180>`)
             .setImage(ramdonsboobs)
@@ -10912,7 +10912,7 @@ client.on('messageCreate', async message => {
           } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${img.username}**, **${message.author.username}** te está chupando los melones que tienes <a:sabroso:880695816497541180>.`)
             .setImage(ramdonsboobs)
@@ -10943,7 +10943,7 @@ client.on('messageCreate', async message => {
               const image = await nsfw3.anal();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+              .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
               //.setTitle('Imagen completa')
               .setDescription(`A **${message.author.username}** le están dando por detroit <:aisaMexicana:925926704097161216>`)
               .setImage(image)
@@ -10958,7 +10958,7 @@ client.on('messageCreate', async message => {
               const image = await nsfw3.anal();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+              .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
               //.setTitle('Imagen completa')
               .setDescription(`**${message.author.username}** le está dando a **${img.username}** por la retaguardia`)
               .setImage(image)
@@ -10990,7 +10990,7 @@ client.on('messageCreate', async message => {
               const image = await nsfw3.pgif();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+              .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
               //.setTitle('Imagen completa')
               .setDescription(`Señoraaaa!!! su hijo **${message.author.username}** está viendo nopor <a:run:880304386826465300>`)
               .setImage(image)
@@ -11005,7 +11005,7 @@ client.on('messageCreate', async message => {
               const image = await nsfw3.pgif();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+              .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
               //.setTitle('Imagen completa')
               .setDescription(`**${message.author.username}** está viendo nopor con **${img.username}** <a:run:880304386826465300>`)
               .setImage(image)
@@ -11036,7 +11036,7 @@ client.on('messageCreate', async message => {
               const image = await nsfw3.fourk();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+              .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
               //.setTitle('Imagen completa')
               .setDescription(`A **${message.author.username}** le gusta en 4k <a:run:880304386826465300>`)
               .setImage(image)
@@ -11050,7 +11050,7 @@ client.on('messageCreate', async message => {
               const image = await nsfw3.fourk();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+              .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
               //.setTitle('Imagen completa')
               .setDescription(`**${message.author.username}** y **${img.username}** están viendo 4k <a:run:880304386826465300>`)
               .setImage(image)
@@ -11081,7 +11081,7 @@ client.on('messageCreate', async message => {
               const image = await nsfw3.gonewild();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+              .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
               //.setTitle('Imagen completa')
               .setDescription(`**${message.author.username}**, disfrútalo!`)
               .setImage(image)
@@ -11096,7 +11096,7 @@ client.on('messageCreate', async message => {
               const image = await nsfw3.gonewild();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+              .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
               //.setTitle('Imagen plet')
               .setDescription(`**${message.author.username}** y **${img.username}** disfrútenlo!`)
               .setImage(image)
@@ -11126,7 +11126,7 @@ client.on('messageCreate', async message => {
               const image = await nsfw3.solo();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+              .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
               //.setTitle('Imagen completa')
               //.setDescription(`**${message.author.username}** se está masturbando.`)
               .setImage(image)
@@ -11140,7 +11140,7 @@ client.on('messageCreate', async message => {
             const image = await nsfw3.solo();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+              .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
               //.setTitle('Imagen completa')
               //.setDescription(`**${message.author.username}** le da una mano a **${img.username}**.`)
               .setImage(image)
@@ -11224,7 +11224,7 @@ client.on('messageCreate', async message => {
         let ramdontt = tt[Math.floor(Math.random()*tt.length)]
 
         const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's VIP`,client.user.avatarURL())
+            .setAuthor(`Midgard's VIP`,message.guild.iconURL({ dynamic: true }))
             .setTitle('@kareninfinity')
             .setDescription(`${message.author.username} mira como lo mueve Karen <:tierno:931433334960160799>`)
             .setImage(ramdontt)
@@ -11249,7 +11249,7 @@ client.on('messageCreate', async message => {
       let ramdonm = messi[Math.floor(Math.random()*messi.length)]
 
       const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's VIP`,client.user.avatarURL())
+        .setAuthor(`Midgard's VIP`,message.guild.iconURL({ dynamic: true }))
         .setTitle('Lionel Messi')
         //.setDescription(`${message.author.username} mira co mue <:tierno:931433334960160799>`)
         .setImage(ramdonm)
@@ -11272,7 +11272,7 @@ client.on('messageCreate', async message => {
       let ramdonc = cr7[Math.floor(Math.random()*cr7.length)]
 
       const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's VIP`,client.user.avatarURL())
+        .setAuthor(`Midgard's VIP`,message.guild.iconURL({ dynamic: true }))
         .setTitle('Cristiano Ronaldo')
         //.setDescription(`${message.author.username} mira co mue <:tierno:931433334960160799>`)
         .setImage(ramdonc)
@@ -11299,7 +11299,7 @@ client.on('messageCreate', async message => {
       let ramdonb = ben[Math.floor(Math.random()*ben.length)]
 
       const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's VIP`,client.user.avatarURL())
+        .setAuthor(`Midgard's VIP`,message.guild.iconURL({ dynamic: true }))
         .setTitle('Karim Benzema')
         //.setDescription(`${message.author.username} mira  <:tierno:931433334960160799>`)
         .setImage(ramdonb)
@@ -11326,7 +11326,7 @@ client.on('messageCreate', async message => {
       let ramdonf = pregf[Math.floor(Math.random()*pregf.length)]
 
       const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's VIP`,client.user.avatarURL())
+        .setAuthor(`Midgard's VIP`,message.guild.iconURL({ dynamic: true }))
         .setTitle('Trivia de Fútbol')
         .setDescription(`${message.author.username} la pregunta es la siguiente: ${ramdonf}\n Tienes 30 segundos para responder!`)
         //.setImage(ramdonc)
