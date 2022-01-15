@@ -3140,6 +3140,12 @@ client.on('messageCreate', async message => {
 
           userm = await client.users.fetch(args[0])
 
+          if(!userm){
+
+            userm = message.author
+            
+          }
+
         }
         
       } catch (error) {
@@ -3172,7 +3178,7 @@ client.on('messageCreate', async message => {
           .addField('Cuenta Creada', user.createdAt.toLocaleDateString()+', '+user.createdAt.toLocaleTimeString(), true)
           .addField('Fecha de Ingreso', message.member.joinedAt.toLocaleDateString()+', '+message.member.joinedAt.toLocaleTimeString(), true)
           .addField('Roles', message.member.roles.cache.map(roles => `\`${roles.name}\``).join(', '))
-          .setColor('RANDOM')
+          .setColor(message.member.displayColor)
     
           .setTimestamp(new Date())
           .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
@@ -3193,7 +3199,7 @@ client.on('messageCreate', async message => {
           .addField('Cuenta Creada', userm.user.createdAt.toLocaleDateString()+', '+userm.user.createdAt.toLocaleTimeString(), true)
           .addField('Fecha de Ingreso', message.member.joinedAt.toLocaleDateString()+', '+message.member.joinedAt.toLocaleTimeString(), true )
           .addField('Roles', message.member.roles.cache.map(roles => `\`${roles.name}\``).join(', '))
-          .setColor('RANDOM')
+          .setColor(message.member.displayColor)
           .setTimestamp(new Date())
           .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
              
@@ -3220,7 +3226,7 @@ client.on('messageCreate', async message => {
         return message.channel.send('Ocurrió el siguiente error: '+error)
         
       }
-      
+
       if(!img || img.id === message.author.id){
 
         const embed = new Discord.MessageEmbed()
