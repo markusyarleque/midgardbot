@@ -3143,14 +3143,14 @@ client.on('messageCreate', async message => {
           if(!userm){
 
             userm = message.author
-            
+
           }
 
         }
         
       } catch (error) {
 
-        return message.channel.send('Ocurrió el siguiente error: '+error)
+        userm = message.author
         
       }
 
