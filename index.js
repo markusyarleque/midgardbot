@@ -3186,7 +3186,7 @@ client.on('messageCreate', async message => {
           .setAuthor('Información del Usuario', client.user.avatarURL())
           //.addField('Jugando a', userm.presence.game != null ? userm.presence.game.name : 'Nada', true)
           //.addField('Estado:', userm.presence.status, true)
-          .addField('Color:', userm.user.hexAccentColor ? userm.hexAccentColor : 'No tiene', true)
+          .addField('Color:', userm.user.hexAccentColor ? userm.user.hexAccentColor : 'No tiene', true)
           .addField('Usuario:', userm.user.username+'#'+userm.user.discriminator, true)
           .addField('Apodo:', userm.nickname ? userm.nickname : 'No tiene', true)
           .addField('ID:', userm.id, true)
@@ -3283,7 +3283,7 @@ client.on('messageCreate', async message => {
         }
 
       }
-      
+
       if(img.bot) return message.channel.send({embeds: [
         new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
