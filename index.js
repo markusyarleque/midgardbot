@@ -1523,7 +1523,7 @@ client.on('messageCreate', async message => {
           
       ]})
 
-      if(!args[0] || !message.mentions.users.first()){
+      if(!args[0] || !message.mentions.members.first()){
 
         const e = new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
