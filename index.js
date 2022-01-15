@@ -1523,7 +1523,10 @@ client.on('messageCreate', async message => {
           
       ]})
 
-      if(!args[0] || !message.mentions.members.first()){
+    
+      let img = message.mentions.members.first()
+
+      if(!args[0] || !img){
 
         const e = new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
