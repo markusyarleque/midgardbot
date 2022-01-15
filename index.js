@@ -55,7 +55,7 @@ const sqlite3 = require('sqlite3'),
   
   client.db = await open({
 
-    filename:'./DATABASES/bd.db',
+    filename:'./bd.db',
     driver: sqlite3.Database
 
   })
@@ -3274,7 +3274,7 @@ client.on('messageCreate', async message => {
       } else {
     
         const embed = new Discord.MessageEmbed()
-        .setAuthor(`Avatar de ${img.user.username}#${img.user.discriminator}`,client.user.avatarURL())
+        .setAuthor(`Avatar de ${img.username}#${img.discriminator}`,client.user.avatarURL())
         .setTitle('Imagen completa')
         .setDescription('[Click aquí]('+`${img.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`+')')
         .setImage(`${img.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`)
@@ -3450,7 +3450,7 @@ client.on('messageCreate', async message => {
         
       const emoticon = require('discord.js').Util.parseEmoji(args[0]) // Usaremos el metodo que nos da discord.js para obtener info del emoji
           
-      if(emoticon.id == null) return message.reply({embeds: [
+      if(emoticon.id === null) return message.reply({embeds: [
           
         new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
@@ -3481,27 +3481,41 @@ client.on('messageCreate', async message => {
 
         ]}) // Si el bot no tiene permisos
 
-        const emojis = message.guild.emojis.cache.size;
+        try {
 
-        if(emojis === 500) return message.reply({embeds: [
+          const emojis = message.guild.emojis.cache.size;
+
+          if(emojis === 500) return message.reply({embeds: [
             
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | No hay espacio suficiente para agregar el emoji!!!`)
+            new Discord.MessageEmbed()
+            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setColor('RED')
+            .setDescription(`<a:Verify2:931463492677017650> | No hay espacio suficiente para agregar el emoji!!!`)
 
-        ]})
+          ]})
 
-        message.guild.emojis.create(palta, emoticon.name) // Creamos un emoji con la imagen del emoji 
+          message.guild.emojis.create(palta, emoticon.name) // Creamos un emoji con la imagen del emoji 
           
-        return message.channel.send({embeds: [
+          return message.channel.send({embeds: [
           
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('GREEN')
-          .setDescription(`<a:Verify1:931463354357276742> |Emoji agregado correctamente : **`+ emoticon.name+'**')
-          .setTimestamp()
-        ]}) // Mensaje de confirmacioon 
+            new Discord.MessageEmbed()
+            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setColor('GREEN')
+            .setDescription(`<a:Verify1:931463354357276742> |Emoji agregado correctamente : **`+ emoticon.name+'**')
+            .setTimestamp()
+          ]}) // Mensaje de confirmacioon 
+          
+        } catch (error) {
+          
+          return message.reply({embeds: [
+            
+            new Discord.MessageEmbed()
+            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setColor('RED')
+            .setDescription(`<a:Verify2:931463492677017650> | Ocurrió un error al agregar emoji!\n\n**Error:**\n> `+error)
+
+          ]})
+        }
 
       } // Cerramos condicion
           
@@ -5147,7 +5161,7 @@ client.on('messageCreate', async message => {
       }
     }
 
-    
+
     //COMANDOS DE CAFETERÍA
 
     var cafe = [
