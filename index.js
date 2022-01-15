@@ -3132,10 +3132,15 @@ client.on('messageCreate', async message => {
 
     if(command === 'user'){
 
-      let userm
+      let userm = message.mentions.members.first()
+
       try {
-        
-        userm = message.mentions.members.first() || await client.users.fetch(args[0])
+
+        if(!userm){
+
+          userm = await client.users.fetch(args[0])
+
+        }
         
       } catch (error) {
 
@@ -3200,8 +3205,22 @@ client.on('messageCreate', async message => {
 
     if(command === 'avatar'){
       
-      let img = message.mentions.members.first() || await client.users.fetch(args[0])
+      let userm = message.mentions.members.first()
 
+      try {
+
+        if(!userm){
+
+          userm = await client.users.fetch(args[0])
+
+        }
+        
+      } catch (error) {
+
+        return message.channel.send('Ocurrió el siguiente error: '+error)
+        
+      }
+      
       if(!img || img.id === message.author.id){
 
         const embed = new Discord.MessageEmbed()
