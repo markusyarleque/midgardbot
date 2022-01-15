@@ -3132,7 +3132,15 @@ client.on('messageCreate', async message => {
 
     if(command === 'user'){
 
-      let userm = message.mentions.members.first() || await client.users.fetch(args[0])
+      try {
+        
+        let userm = message.mentions.members.first() || await client.users.fetch(args[0])
+        
+      } catch (error) {
+
+        return message.channel.send('Ocurrió el siguiente error: '+error)
+        
+      }
 
       if(userm.bot) return message.channel.send({embeds: [
         new Discord.MessageEmbed()
