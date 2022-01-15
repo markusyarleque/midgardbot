@@ -1524,9 +1524,9 @@ client.on('messageCreate', async message => {
       ]})
 
     
-      let img = message.mentions.members.first()
+      let img = message.mentions.members.first() || await client.users.fetch(args[0])
 
-      if(!args[0] || !img){
+      if(!img){
 
         const e = new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
