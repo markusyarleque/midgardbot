@@ -3134,24 +3134,18 @@ client.on('messageCreate', async message => {
 
       let userm = message.mentions.members.first()
 
-      try {
+      if(!userm){
 
-        if(!userm){
-
+        try {
+          
           userm = await client.users.fetch(args[0])
 
-          if(!userm){
+        } catch (error) {
 
-            userm = message.author
-
-          }
-
+          userm = message.author
+          
         }
-        
-      } catch (error) {
 
-        userm = message.author
-        
       }
 
       if(userm.bot) return message.channel.send({embeds: [
@@ -3211,20 +3205,20 @@ client.on('messageCreate', async message => {
 
     if(command === 'avatar'){
       
-      let userm = message.mentions.members.first()
+      let img = message.mentions.members.first()
 
-      try {
+      if(!img){
 
-        if(!userm){
+        try {
+          
+          img = await client.users.fetch(args[0])
 
-          userm = await client.users.fetch(args[0])
+        } catch (error) {
 
+          img = message.author
+          
         }
-        
-      } catch (error) {
 
-        return message.channel.send('Ocurrió el siguiente error: '+error)
-        
       }
 
       if(!img || img.id === message.author.id){
@@ -3274,8 +3268,22 @@ client.on('messageCreate', async message => {
     
     if(command === 'welcome' || command === 'wlc'){
 
-      let img = message.mentions.members.first() || await client.users.fetch(args[0])
+      let img = message.mentions.members.first()
 
+      if(!img){
+
+        try {
+          
+          img = await client.users.fetch(args[0])
+
+        } catch (error) {
+
+          img = message.author
+          
+        }
+
+      }
+      
       if(img.bot) return message.channel.send({embeds: [
         new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
