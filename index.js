@@ -3268,7 +3268,7 @@ client.on('messageCreate', async message => {
     
     if(command === 'welcome' || command === 'wlc'){
 
-      let img = message.mentions.members.first()
+      let img = message.mentions.users.first()
 
       if(!img){
 
