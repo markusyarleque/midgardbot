@@ -3302,19 +3302,18 @@ client.on('messageCreate', async message => {
     
     if(command === 'welcome' || command === 'wlc'){
     
-      if(!args[0] || !message.mentions.users.first()) return message.channel.send(`<:ojooo:931434369283944468>Necesitas mencionar a un usuario <a:pasito:877116925291946094>`);
+      if(!args[0] || !message.mentions.users.first()) return message.channel.send(`<:ojooo:931434369283944468> Necesitas mencionar a un usuario <a:pasito:877116925291946094>`);
     
-      let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
+      //let img = message.mentions.users.first() || message.guild.members.resolve(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0])
       let ramdonwelcome = welcome[Math.floor(Math.random()*welcome.length)]
     
-      let u1 = message.guild.members.cache.get(args[0])
-      let ima = message.mentions.members.first()
+      let img = message.mentions.members.first() || message.guild.members.cache.get(args[0])
 
-      console.log('Usuario 1: '+ img+' | Usuario 2: '+ima+ ' | Mención por id 1 : '+img+' | Mención por id 2: '+ u1)
+      console.log('Usuario 1: '+ img+' | Mención por id 1 : '+img)
 
       if (!img || img.id===message.author.id) {
     
-        message.channel.send(`<:ojooo:931434369283944468>Necesitas mencionar a un usuario <a:pasito:877116925291946094>`);
+        message.channel.send(`<:ojooo:931434369283944468> Necesitas mencionar a un usuario <a:pasito:877116925291946094>`);
     
       } else {
     
