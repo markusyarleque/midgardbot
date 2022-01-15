@@ -3132,9 +3132,10 @@ client.on('messageCreate', async message => {
 
     if(command === 'user'){
 
+      let userm
       try {
         
-        let userm = message.mentions.members.first() || await client.users.fetch(args[0])
+        userm = message.mentions.members.first() || await client.users.fetch(args[0])
         
       } catch (error) {
 
