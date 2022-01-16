@@ -2976,7 +2976,7 @@ client.on('messageCreate', async message => {
     .setDescription('¡No confirmaste a tiempo! <:enojado:931434000751394867>')
     .setColor('RANDOM')
 
-    if(command === 'report'){
+    if(command === 'report' || command === 'reporte' || command === 'reportar'){
 
     if(prohibidos.includes(message.author.id)) return message.channel.send('¡Tienes prohibido usar este comando por mal usarlo!');
 
@@ -3335,7 +3335,7 @@ client.on('messageCreate', async message => {
     if(command === 'remindme' || command === 'rm'){
 
         let obtener = args[0]
-        let mensaje = args[1]
+        let mensaje = message.content.split(' ').slice(1).join(' ')
     
         if (!obtener) {
           
@@ -5230,7 +5230,7 @@ client.on('messageCreate', async message => {
           .setColor('RED')
           .setDescription(`<a:Verify2:931463492677017650> | Mucho café nos pone nerviosos! <:nogarsias:932172183453712415>`)
           ]})
-          
+
         } else {
     
             const embed = new Discord.MessageEmbed()
