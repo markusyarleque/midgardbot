@@ -4584,6 +4584,8 @@ client.on('messageCreate', async message => {
 
             message.channel.awaitMessages(x => x.content.toLowerCase() === pokemon.name.toLowerCase() && x.author.id === message.author.id, { max: 1, time: 30000, errors: ['time'] }).then(col => {
 
+              if(col){
+
                 const embed2 = new Discord.MessageEmbed() //el Embed si el autor adivino el Pokemon
                 .setColor('GREEN')
                 .setTitle('𝐀𝐂𝐄𝐑𝐓𝐀𝐒𝐓𝐄!')
@@ -4592,9 +4594,13 @@ client.on('messageCreate', async message => {
                 .setTimestamp(new Date())
                 .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           
-                col.edit(embed2)
-        
+                msj.edit(embed2)
+
+              }
+
             }).catch(col => {
+
+              if(col < 1){
 
                 const embed3 = new Discord.MessageEmbed() //Embed de Fallo
                 .setColor('RED')
@@ -4605,7 +4611,8 @@ client.on('messageCreate', async message => {
                 .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
          
                 col.edit(embed3)
-
+              }
+              
             })
 
         })
