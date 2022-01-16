@@ -3722,7 +3722,7 @@ client.on('messageCreate', async message => {
 
   }
 
-  if (command === 'votacion'){
+  /*if (command === 'votacion'){
 
     const acuerdo = '✅';
     const desacuerdo = '❎';
@@ -3763,7 +3763,6 @@ client.on('messageCreate', async message => {
         return;
       }
 
-     
       const embed = new Discord.MessageEmbed()
       .setColor('RANDOM')
       .setAuthor(`Iniciado/a por: <@${message.author.id}>`, message.author.displayAvatarURL({ dynamic: true }))
@@ -3785,24 +3784,24 @@ client.on('messageCreate', async message => {
       var no = reacciones.get(desacuerdo);
       var yes = reacciones.get(acuerdo);
 
-      if (no == undefined) {
+      if (no === undefined) {
         var no = 1;
       } else {
         var no = reacciones.get(desacuerdo).count;
       }
-        if (yes == undefined) {
+        if (yes === undefined) {
             var yes = 1;
         } else {
             var yes = reacciones.get(acuerdo).count;
         }
 
         var total = yes > no ? 'Positivo.' : 'Negativo.';
-        if (yes == no) total = 'Empate.';
+        if (yes === no) total = 'Empate.';
 
         const embed2 = new Discord.MessageEmbed()
         .setColor('RANDOM')
         .setAuthor(`Iniciado/a por: ${message.author}`, message.author.displayAvatarURL({ dynamic: true }))
-        .setTitle(`${votar.replace(/([^\W_]+[^\s-]*) */g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase() })}`)
+        .setTitle(`${votar.replace(/([^\W_]+[^\s-]*) *//*g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase() })}`)
         .setDescription('**----------------------------------------**\n' +
                 'Votos totales (Sí): ' + `${yes - 1}\n` +
                 'Votos totales (No): ' + `${no - 1}\n` +
@@ -3815,7 +3814,7 @@ client.on('messageCreate', async message => {
           embed: embed2
         });
 
-    }
+  }*/
 
     /*if(command === 'tts'){
 
