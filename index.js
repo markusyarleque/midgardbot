@@ -4039,7 +4039,7 @@ client.on('messageCreate', async message => {
     
     }
 
-    if(command === 'kick' ){
+    /*if(command === 'kick' ){
 
         let user = message.mentions.users.first();
         let razon = args.slice(1).join(' ');
@@ -4054,8 +4054,8 @@ client.on('messageCreate', async message => {
         message.guild.member(user).kick(razon);
         message.channel.send(`**${user.username}**, fue kickeado del servidor, razón: ${razon}.`);
     
-    }
-    if(command === 'ban') return message.channel.send('Comando en remodelación!')
+    }*/
+    if(command === 'ban' || command === 'kick') return message.channel.send('Comando en remodelación!')
     /*if(command === 'ban'){
 
       const embed = new Discord.MessageEmbed()
@@ -6715,9 +6715,12 @@ client.on('messageCreate', async message => {
           let text
 
           if(!usuario2){
-
-            await client.db.run(`INSERT INTO usuarios (idusuario, hug) VALUES (?,?)`, img.id, 0)
-            usuario2 = {idusuario: img.id, hug: 0}
+ 
+            await client.db.run(
+              `INSERT INTO usuarios (idusuario, nivel, exp, marry, rep, pat, hug, sape, color, frase, foto, dinero, banco, total, ck) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`, img.id, '0', '0', marry, '0', '0', '0', '0', color, f, i, '0', '0', '0', '0'
+              )
+            usuario2 = {idusuario: img.id, nivel: 0, exp: 0, marry: marry, rep: 0, pat: 0, hug: 0, sape: 0, color: color, frase: f, foto: i, dinero: 0, banco: 0, total: 0, ck: 0}
+    
           }
     
           await client.db.run(`UPDATE usuarios SET hug=hug+? WHERE idusuario=?`, 1, img.id)
@@ -6901,17 +6904,21 @@ client.on('messageCreate', async message => {
       let usuario2 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, img.id)
 
       if(!usuario1){
-
-        await client.db.run(`INSERT INTO usuarios (idusuario, marry) VALUES (?,?)`, message.author.id, 'Soltero(a)')
-        usuario1 = {idusuario: message.author.id, marry: 'Soltero(a)'}
+ 
+        await client.db.run(
+          `INSERT INTO usuarios (idusuario, nivel, exp, marry, rep, pat, hug, sape, color, frase, foto, dinero, banco, total, ck) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`, message.author.id, '0', '0', marry, '0', '0', '0', '0', color, f, i, '0', '0', '0', '0'
+          )
+        usuario1 = {idusuario: message.author.id, nivel: 0, exp: 0, marry: marry, rep: 0, pat: 0, hug: 0, sape: 0, color: color, frase: f, foto: i, dinero: 0, banco: 0, total: 0, ck: 0}
 
       }
 
       if(!usuario2){
+ 
+        await client.db.run(
+          `INSERT INTO usuarios (idusuario, nivel, exp, marry, rep, pat, hug, sape, color, frase, foto, dinero, banco, total, ck) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`, img.id, '0', '0', marry, '0', '0', '0', '0', color, f, i, '0', '0', '0', '0'
+          )
+        usuario2 = {idusuario: img.id, nivel: 0, exp: 0, marry: marry, rep: 0, pat: 0, hug: 0, sape: 0, color: color, frase: f, foto: i, dinero: 0, banco: 0, total: 0, ck: 0}
 
-        await client.db.run(`INSERT INTO usuarios (idusuario, marry) VALUES (?,?)`, img.id, 'Soltero(a)')
-        usuario2 = {idusuario: img.id, marry: 'Soltero(a)'}
-        
       }
 
       if(usuario1.marry !== 'Soltero(a)' ){
@@ -6957,11 +6964,11 @@ client.on('messageCreate', async message => {
           new MessageActionRow().addComponents([
             new MessageButton()
               .setCustomId("accept")
-              .setLabel("✅")
+              .setLabel("SI")
               .setStyle("SUCCESS"),
             new MessageButton()
               .setCustomId("deny")
-              .setLabel("❎")
+              .setLabel("NO")
               .setStyle("DANGER")
           ])
         ]
@@ -6969,7 +6976,7 @@ client.on('messageCreate', async message => {
       
         let filter = int => int.isButton() && int.user.id == img.id 
        
-        const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 300000 });
+        const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 60000 });
         
         collector.on("collect", async int => {
           
@@ -7062,17 +7069,21 @@ client.on('messageCreate', async message => {
       let usuario2 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, img.id)
 
       if(!usuario1){
-
-        await client.db.run(`INSERT INTO usuarios (idusuario, marry) VALUES (?,?)`, message.author.id, 'Soltero(a)')
-        usuario1 = {idusuario: message.author.id, marry: 'Soltero(a)'}
+ 
+        await client.db.run(
+          `INSERT INTO usuarios (idusuario, nivel, exp, marry, rep, pat, hug, sape, color, frase, foto, dinero, banco, total, ck) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`, message.author.id, '0', '0', marry, '0', '0', '0', '0', color, f, i, '0', '0', '0', '0'
+          )
+        usuario1 = {idusuario: message.author.id, nivel: 0, exp: 0, marry: marry, rep: 0, pat: 0, hug: 0, sape: 0, color: color, frase: f, foto: i, dinero: 0, banco: 0, total: 0, ck: 0}
 
       }
 
       if(!usuario2){
+ 
+        await client.db.run(
+          `INSERT INTO usuarios (idusuario, nivel, exp, marry, rep, pat, hug, sape, color, frase, foto, dinero, banco, total, ck) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`, img.id, '0', '0', marry, '0', '0', '0', '0', color, f, i, '0', '0', '0', '0'
+          )
+        usuario2 = {idusuario: img.id, nivel: 0, exp: 0, marry: marry, rep: 0, pat: 0, hug: 0, sape: 0, color: color, frase: f, foto: i, dinero: 0, banco: 0, total: 0, ck: 0}
 
-        await client.db.run(`INSERT INTO usuarios (idusuario, marry) VALUES (?,?)`, img.id, 'Soltero(a)')
-        usuario2 = {idusuario: img.id, marry: 'Soltero(a)'}
-        
       }
 
       if(usuario1.marry !== 'Soltero(a)' ){
@@ -7092,11 +7103,11 @@ client.on('messageCreate', async message => {
             new MessageActionRow().addComponents([
               new MessageButton()
                 .setCustomId("accept")
-                .setLabel("✅")
+                .setLabel("SI")
                 .setStyle("SUCCESS"),
               new MessageButton()
                 .setCustomId("deny")
-                .setLabel("❎")
+                .setLabel("NO")
                 .setStyle("DANGER")
             ])
           ]
@@ -7452,9 +7463,12 @@ client.on('messageCreate', async message => {
       let text 
 
       if(!usuario2){
+ 
+        await client.db.run(
+          `INSERT INTO usuarios (idusuario, nivel, exp, marry, rep, pat, hug, sape, color, frase, foto, dinero, banco, total, ck) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`, img.id, '0', '0', marry, '0', '0', '0', '0', color, f, i, '0', '0', '0', '0'
+          )
+        usuario2 = {idusuario: img.id, nivel: 0, exp: 0, marry: marry, rep: 0, pat: 0, hug: 0, sape: 0, color: color, frase: f, foto: i, dinero: 0, banco: 0, total: 0, ck: 0}
 
-        await client.db.run(`INSERT INTO usuarios (idusuario, pat) VALUES (?,?)`, img.id, 0)
-        usuario2 = {idusuario: img.id, pat: 0}
       }
     
       await client.db.run(`UPDATE usuarios SET pat=pat+? WHERE idusuario=?`, 1, img.id)
@@ -7754,9 +7768,11 @@ client.on('messageCreate', async message => {
         let text
 
         if(!usuario2){
-
-          await client.db.run(`INSERT INTO usuarios (idusuario, sape) VALUES (?,?)`, img.id, 0)
-          usuario2 = {idusuario: img.id, sape: 0}
+ 
+          await client.db.run(
+            `INSERT INTO usuarios (idusuario, nivel, exp, marry, rep, pat, hug, sape, color, frase, foto, dinero, banco, total, ck) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`, img.id, '0', '0', marry, '0', '0', '0', '0', color, f, i, '0', '0', '0', '0'
+            )
+          usuario2 = {idusuario: img.id, nivel: 0, exp: 0, marry: marry, rep: 0, pat: 0, hug: 0, sape: 0, color: color, frase: f, foto: i, dinero: 0, banco: 0, total: 0, ck: 0}
 
         }
     
@@ -7959,7 +7975,7 @@ client.on('messageCreate', async message => {
   .addField('N° :', '1', true)
   .addField('Participantes: <a:start:930399379800592394>', 'No hay nadie más agregado', true)
   .setImage('https://c.tenor.com/GMAIgevURGQAAAAd/peter-griffin-karaoke.gif')
-  .setColor(5929128)
+  .setColor('RANDOM')
   .setTimestamp(new Date())
   .setFooter(`🔥 La Élite 🔥`,'https://media.discordapp.net/attachments/840161683732693033/880292518690963466/GTA-5-city-at-night-purple-style-skyscrapers_3840x2160.jpg?width=862&height=485');
 
