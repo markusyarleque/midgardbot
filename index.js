@@ -5212,7 +5212,7 @@ client.on('messageCreate', async message => {
             const embed = new Discord.MessageEmbed()
             .setAuthor(`Midgard's Cafe`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
-            .setDescription(`**${img.username}**, ${message.author.username} te invitó una taza de café.`)
+            .setDescription(`**${img.user.username}**, ${message.author.username} te invitó una taza de café.`)
             .setImage(ramdoncafe)
             .setColor('RANDOM')
             .setTimestamp(new Date())
