@@ -4038,7 +4038,7 @@ client.on('messageCreate', async message => {
           message.channel.send('No Tienes Permisos Para Utilizar Este Comando');
         }else {
     
-            setTimeout(() => message.delete(), 100);
+            setTimeout(() => message.delete());
             if (!args[0])
     
                 return message.channel.send(`Por Favor, especifica una cantidad`)
@@ -4056,7 +4056,7 @@ client.on('messageCreate', async message => {
             message.channel.bulkDelete(args[0]).then(Message => {
     
             message.channel.send('```'+ args[0] +' mensajes han sido borrados.'+'```')
-            .then(msg => msg.delete({ timeout: 2000 }));
+            .then(msg => msg.delete({ timeout: 5000 }));
 
             });
         }
