@@ -4600,7 +4600,7 @@ client.on('messageCreate', async message => {
 
             }).catch(col => {
 
-              if(col < 1){
+              if(!col){
 
                 const embed3 = new Discord.MessageEmbed() //Embed de Fallo
                 .setColor('RED')
@@ -4612,11 +4612,11 @@ client.on('messageCreate', async message => {
          
                 col.edit(embed3)
               }
-              
+
             })
 
         })
-        })
+        }).catch((e) => message.channel.send('Hubo un error: ' + e))
     }
 
     if(command === 'ttt')
