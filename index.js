@@ -3572,15 +3572,15 @@ client.on('messageCreate', async message => {
   {
     const split = args.slice(1).join(' ').split('-');
 
-    if(!split[0]) return message.channel.send('Ingrese una pregunta')
+    if(!split[0]) return message.channel.send('Ingrese una pregunta!\n\n_Uso:_\n\n> _poll-pregunta-opción 1-opcion 2-...')
 
-    if(!split[1]) return message.channel.send('Necesitas ingresar al menos 2 opciones')
+    if(!split[1]) return message.channel.send('Necesitas ingresar al menos 2 opciones!\n\n_Uso:_\n\n> _poll-pregunta-opción 1-opcion 2-...')
 
-    if(!split[2]) return message.channel.send('Necesitas ingresar al menos 2 opciones')
+    if(!split[2]) return message.channel.send('Necesitas ingresar al menos 2 opciones!\n\n_Uso:_\n\n> _poll-pregunta-opción 1-opcion 2-...')
 
     const embed = new Discord.MessageEmbed()
     .setColor('RANDOM')
-    .setAuthor(`Encuesta realizada por: ${message.author}`, message.author.displayAvatarURL({ dynamic: true }))
+    .setAuthor(`Encuesta realizada por: ${message.author.toString()}`, message.author.displayAvatarURL({ dynamic: true }))
     .setTitle('**' + split[0] + '**')
     .addField('<a:uno:932368116749594674> **' + split[1] + '**', '..........')
     .addField('<a:dos:932368203458445362> **' + split[2] + '**', '..........')
