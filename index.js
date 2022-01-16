@@ -1187,7 +1187,7 @@ client.on('messageCreate', async message => {
         }
 
         let embed = new Discord.MessageEmbed()
-          .setAuthor('Perfil de ' + img.username, img.displayAvatarURL())
+          .setAuthor('Perfil de ' + img.user.username, img.displayAvatarURL())
           .setThumbnail(select.foto ? select.foto : 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif')
           .addField('Nivel', '<a:start:930399379800592394>  '+nivel+' '+xp, true)
           //.addField('<a:fijadito:931432134797848607> XP', '<a:flech:931432469935312937> '+select.exp, true)
