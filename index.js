@@ -624,7 +624,7 @@ client.on('messageCreate', async message => {
         if (message.content.match(ian))
         {
           if(bl.tiene(message.author.id)) return;
-          message.channel.send(`<a:megaphone:912163796737486908> Alo? Tierra llamando al **argentino con más flow** <a:darkcrown2:886466286773739530>, Ian en camino bebé <a:bmirusboyrunfast:880411644893724672>`)
+          message.channel.send(`<a:megaphone:932192877449191424> Alo? Tierra llamando al **argentino con más flow** <a:darkcrown2:886466286773739530>, Ian en camino bebé <a:bmirusboyrunfast:880411644893724672>`)
   
         }
 
@@ -985,7 +985,7 @@ client.on('messageCreate', async message => {
               .addField('Pats', '<a:gatoasomar:930399873113677834> '+select.pat, false)
               .addField('Abrazos', '<:burbujita:925927258789666826> '+select.hug, false)
               .addField('Sapes', '<:maje:925927838492811295> '+select.sape, false)
-              .addField('Frase', '<a:megaphone:912163796737486908> '+select.frase, false)
+              .addField('Frase', '<a:megaphone:932192877449191424> '+select.frase, false)
               .addField('Matrimonio <:GatoLove:925929538863628318>', tmarry ? tmarry : 'Soltero(a)', true)
               .addField('<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>','<a:dinero:930404747326914590> **Economía**',false)
               .addField(`**Total:**`, '<a:money:930397094924124180>  '+select.total, true)
@@ -1195,7 +1195,7 @@ client.on('messageCreate', async message => {
           .addField('Pats', '<a:gatoasomar:930399873113677834> '+select.pat, false)
           .addField('Abrazos', '<:burbujita:925927258789666826> '+select.hug, false)
           .addField('Sapes', '<:maje:925927838492811295> '+select.sape, false)
-          .addField('Frase', '<a:megaphone:912163796737486908> '+select.frase ? select.frase : 'No hay frase agregada', false)
+          .addField('Frase', '<a:megaphone:932192877449191424> '+select.frase ? select.frase : 'No hay frase agregada', false)
           .addField('<:GatoLove:925929538863628318> Matrimonio', tmarry ? tmarry : 'Soltero(a)', true)
           .addField('<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>','<a:dinero:930404747326914590> **Economía**',false)
           .addField(`**Total:**`, '<a:money:930397094924124180>  '+select.total, true)
@@ -1476,8 +1476,10 @@ client.on('messageCreate', async message => {
 
       if(!usuario2){
 
-        await client.db.run(`INSERT INTO usuarios (idusuario, crep) VALUES (?,?)`, message.author.id, Date.now())
-        usuario2 = {idusuario: message.author.id, crep: Date.now()}
+        await client.db.run(
+          `INSERT INTO usuarios (idusuario, nivel, exp, marry, rep, pat, hug, sape, color, frase, foto, dinero, banco, total, crep, ck) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`, message.author.id, '0', '0', marry, '0', '0', '0', '0', color, f, i, '0', '0', '0', Date.now(), '0'
+          )
+        usuario2 = {idusuario: message.author.id, nivel: 0, exp: 0, marry: marry, rep: 0, pat: 0, hug: 0, sape: 0, color: color, frase: f, foto: i, dinero: 0, banco: 0, total: 0, crep: Date.now(), ck: 0}
 
       }
 
@@ -1561,9 +1563,11 @@ client.on('messageCreate', async message => {
 
         if(!usuario1){
 
-          await client.db.run(`INSERT INTO usuarios (idusuario,rep) VALUES (?,?)`, usuario.id, 0)
-          usuario1 = {idusuario: usuario.id, rep: 0}
-
+          await client.db.run(
+            `INSERT INTO usuarios (idusuario, nivel, exp, marry, rep, pat, hug, sape, color, frase, foto, dinero, banco, total, ck) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`, usuario.id, '0', '0', marry, '0', '0', '0', '0', color, f, i, '0', '0', '0', '0'
+            )
+          usuario1 = {idusuario: usuario.id, nivel: 0, exp: 0, marry: marry, rep: 0, pat: 0, hug: 0, sape: 0, color: color, frase: f, foto: i, dinero: 0, banco: 0, total: 0, ck: 0}
+  
         }
 
         await client.db.run(`UPDATE usuarios SET rep=rep+? WHERE idusuario=?`, 1, usuario.id)
@@ -1843,9 +1847,10 @@ client.on('messageCreate', async message => {
 
         if(!buscarUsuario){
         
-          await client.db.run(`INSERT INTO usuarios (idusuario) VALUES (?)`, message.author.id)
-  
-          buscarUsuario = {id: message.author.id, dinero: 0, banco: 0, total: 0}
+          await client.db.run(
+            `INSERT INTO usuarios (idusuario, nivel, exp, marry, rep, pat, hug, sape, color, frase, foto, dinero, banco, total, ck) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`, message.author.id, '0', '0', marry, '0', '0', '0', '0', color, f, i, '0', '0', '0', '0'
+            )
+          buscarUsuario = {idusuario: message.author.id, nivel: 0, exp: 0, marry: marry, rep: 0, pat: 0, hug: 0, sape: 0, color: color, frase: f, foto: i, dinero: 0, banco: 0, total: 0, ck: 0}
   
           console.log('Balance de : '+message.author.id+' - '+buscarUsuario)
   
@@ -1871,9 +1876,10 @@ client.on('messageCreate', async message => {
 
         if(!buscarUsuario){
         
-          await client.db.run(`INSERT INTO usuarios (idusuario) VALUES (?)`, img.id)
-  
-          buscarUsuario = {id: img.id, dinero: 0, banco: 0, total: 0}
+          await client.db.run(
+            `INSERT INTO usuarios (idusuario, nivel, exp, marry, rep, pat, hug, sape, color, frase, foto, dinero, banco, total, ck) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`, img.id, '0', '0', marry, '0', '0', '0', '0', color, f, i, '0', '0', '0', '0'
+            )
+          buscarUsuario = {idusuario: img.id, nivel: 0, exp: 0, marry: marry, rep: 0, pat: 0, hug: 0, sape: 0, color: color, frase: f, foto: i, dinero: 0, banco: 0, total: 0, ck: 0}
   
           console.log('Balance de : '+img.id+' - '+buscarUsuario)
   
@@ -2047,13 +2053,18 @@ client.on('messageCreate', async message => {
 
       if(!usuario1){
 
-        await client.db.run(`INSERT INTO usuarios (idusuario) VALUES (?)`, message.author.id)
-        usuario1 = {idusuario: message.author.id, dinero: 0, banco: 0, total: 0}
+        await client.db.run(
+          `INSERT INTO usuarios (idusuario, nivel, exp, marry, rep, pat, hug, sape, color, frase, foto, dinero, banco, total, ck) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`, message.author.id, '0', '0', marry, '0', '0', '0', '0', color, f, i, '0', '0', '0', '0'
+          )
+        usuario1 = {idusuario: message.author.id, nivel: 0, exp: 0, marry: marry, rep: 0, pat: 0, hug: 0, sape: 0, color: color, frase: f, foto: i, dinero: 0, banco: 0, total: 0, ck: 0}
 
       } else if(!usuario2){
 
-        await client.db.run(`INSERT INTO usuarios (idusuario) VALUES (?)`, usuario.id)
-        usuario2 = {idusuario: usuario.id, dinero: 0, banco: 0, total: 0}
+        await client.db.run(
+          `INSERT INTO usuarios (idusuario, nivel, exp, marry, rep, pat, hug, sape, color, frase, foto, dinero, banco, total, ck) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`, usuario.id, '0', '0', marry, '0', '0', '0', '0', color, f, i, '0', '0', '0', '0'
+          )
+        usuario2 = {idusuario: usuario.id, nivel: 0, exp: 0, marry: marry, rep: 0, pat: 0, hug: 0, sape: 0, color: color, frase: f, foto: i, dinero: 0, banco: 0, total: 0, ck: 0}
+
       }
 
       if(usuario1.rob > Date.now()) return message.channel.send({embeds: [
@@ -2556,10 +2567,12 @@ client.on('messageCreate', async message => {
         let usuario1 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, miembro.id)
         
         if(!usuario1){
-
-          await client.db.run(`INSERT INTO usuarios (idusuario, dinero, banco, total) VALUES (?,?,?,?)`, miembro.id,0,0,0)
-          usuario1 = {idusuario: miembro.id, dinero: 0, banco: 0, total: 0}
-
+ 
+          await client.db.run(
+            `INSERT INTO usuarios (idusuario, nivel, exp, marry, rep, pat, hug, sape, color, frase, foto, dinero, banco, total, ck) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`, miembro.id, '0', '0', marry, '0', '0', '0', '0', color, f, i, '0', '0', '0', '0'
+            )
+          usuario1 = {idusuario: miembro.id, nivel: 0, exp: 0, marry: marry, rep: 0, pat: 0, hug: 0, sape: 0, color: color, frase: f, foto: i, dinero: 0, banco: 0, total: 0, ck: 0}
+  
         }
 
         let opcion = args[0]
