@@ -1175,7 +1175,7 @@ client.on('messageCreate', async message => {
         {
           tmarry = 'Soltero(a)'
         }else {
-          let id = await client.users.fetch(select.marry)
+          let id = message.guild.members.resolve(client.users.cache.get(select.marry))
           tmarry = '💞 '+id.username+'#'+id.discriminator
         }
 
