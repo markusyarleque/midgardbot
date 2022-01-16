@@ -4442,19 +4442,19 @@ client.on('messageCreate', async message => {
           }
   
         }
-
-        if(users.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | No puedo calcular eso con un bot!`)
-        ]})
         
         if(users.id===message.author.id) return message.channel.send({embeds: [
           new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('RED')
           .setDescription(`<a:Verify2:931463492677017650> | No puedes hacer eso contigo mismo!`)
+        ]})
+
+        if(users.bot) return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | No puedo calcular eso con un bot!`)
         ]})
 
         const random = Math.floor(Math.random() * 100);
@@ -5073,6 +5073,8 @@ client.on('messageCreate', async message => {
         var target = message.guild.members.cache.find(m => m.user.id == tag.id);
 
         if (!target) return message.channel.send("Error: No se ha encontrado al destinatario!");
+
+        if (target.user.bot) return message.channel.send("Error: No puedes enviarle a un bot!");
 
         anon = anon.toLowerCase();
 		    if (anon != "s" && anon != "n") return message.channel.send("Error: Argumento `anónimo` inválido (Respuestas válidas: s, n)") 
@@ -6623,7 +6625,7 @@ client.on('messageCreate', async message => {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonhi = hi[Math.floor(Math.random()*hi.length)]
      
-        if (img.user.bot) return message.channel.send({embeds: [
+        if (img.bot) return message.channel.send({embeds: [
           new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('RED')
