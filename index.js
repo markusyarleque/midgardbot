@@ -4221,7 +4221,7 @@ client.on('messageCreate', async message => {
 
         let texto = args.join(' ');
     
-        var rpts = ['Sí', 'No', '¿Por qué?', 'Por favor', 'Tal vez', 'No sé', 'Definitivamente?', ' ¡Claro! ',' Por supuesto! ','Por supuesto que no', 'De ninguna manera', 'Probablemente', 'Es muy posible'];
+        var rpts = ['Sí', 'No', '¿Por qué?', 'Por favor, no me preguntes eso', 'Tal vez', 'No sé', 'Definitivamente?', ' ¡Claro! ',' Por supuesto! ','Por supuesto que no', 'De ninguna manera', 'Probablemente', 'Es muy posible'];
         if (!texto) return message.reply(`Escriba una pregunta.`);
         message.channel.send(message.author.username+' a su pregunta `'+texto+'` mi respuesta es: `'+ rpts[Math.floor(Math.random() * rpts.length)]+'`');
     
@@ -4465,20 +4465,6 @@ client.on('messageCreate', async message => {
           }
   
         }
-        
-        if(users.id===message.author.id) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | No puedes hacer eso contigo mismo!`)
-        ]})
-
-        if(users.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | No puedo calcular eso con un bot!`)
-        ]})
 
         const random = Math.floor(Math.random() * 100);
         let heard = '';
@@ -4506,7 +4492,7 @@ client.on('messageCreate', async message => {
     
         }
 
-        if (!users) {
+        if (!users || users.id===message.author.id) {
           
           const rand = message.guild.members.cache.random();
 
@@ -4524,9 +4510,18 @@ client.on('messageCreate', async message => {
           .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] })
 
+        } else if(users.bot){
+
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | No puedo calcular eso con un bot!`)
+        ]})
+
         } else {
 
-          let resp = [`El porcetanje de ${message.author.username} & ${users.username} es: `,`Oh vaya, calculo que el amor de ${message.author.username} & ${users.username} es un: `,`${message.author.username} & ${users.username} tienen un: `]
+          let resp = ['El porcetanje de `'+message.author.username+'` & `'+users.username+'` es: ','Oh vaya, calculo que el amor de `'+message.author.username+'` & `'+users.username+'` es un: ','`'+message.author.username+'` & `'+users.username+'` tienen un: ']
     
           let msg = resp[Math.floor(Math.random() * resp.length)] 
           
@@ -4559,7 +4554,7 @@ client.on('messageCreate', async message => {
                 .setAuthor(`Midgard's Fun`,message.guild.iconURL({ dynamic: true }))
                 .setTitle(post.title)
                 .setImage(post.url)
-                .setColor('RAMDOM')
+                .setColor('RANDOM')
                 .setTimestamp(new Date())
                 .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
     
