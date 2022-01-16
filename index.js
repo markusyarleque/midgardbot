@@ -4053,12 +4053,11 @@ client.on('messageCreate', async message => {
                 return message.channel.send(`No puedo eliminar más de 100 mensajes`)
                 .then(m => setTimeout(() => m.delete(), 5000));
           
-            message.channel.bulkDelete(args[0]).then(Message => {
-    
+            message.channel.bulkDelete(args[0])
+            
             message.channel.send('```'+ args[0] +' mensajes han sido borrados.'+'```')
             .then(msg => msg.delete({ timeout: 5000 }));
 
-            });
         }
     
     }
@@ -7699,7 +7698,7 @@ client.on('messageCreate', async message => {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdoncry = cry[Math.floor(Math.random()*cry.length)]
     
-        if (img.user.bot) return message.channel.send({embeds: [
+        if (img .user.bot) return message.channel.send({embeds: [
           new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('RED')
