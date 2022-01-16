@@ -3773,7 +3773,7 @@ client.on('messageCreate', async message => {
       .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
 
       let msg = await canal.send({
-        embed: embed
+        embeds: embed
       });
       await msg.react(acuerdo);
       await msg.react(desacuerdo);
