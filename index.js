@@ -4054,9 +4054,9 @@ client.on('messageCreate', async message => {
                 .then(m => setTimeout(() => m.delete(), 5000));
           
             message.channel.bulkDelete(args[0])
-            
+
             message.channel.send('```'+ args[0] +' mensajes han sido borrados.'+'```')
-            .then(msg => msg.delete({ timeout: 5000 }));
+            .then(msg => setTimeout(() => msg.delete(), 5000));
 
         }
     
