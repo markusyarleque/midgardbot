@@ -1170,13 +1170,20 @@ client.on('messageCreate', async message => {
         }
 
         let tmarry
+        let id
 
         if(select.marry === 'Soltero(a)')
         {
           tmarry = 'Soltero(a)'
-        }else {
-          let id = message.guild.members.resolve(client.users.cache.get(select.marry))
-          tmarry = '💞 '+id.user.username+'#'+id.user.discriminator
+        }else if (select.marry !== 'Soltero(a)') {
+          
+          try {
+            id = message.guild.members.resolve(client.users.cache.get(select.marry))
+            tmarry = '💞 '+id.user.username+'#'+id.user.discriminator
+          } catch (error) {
+            tmarry = 'Soltero(a)'
+          }
+          
         }
 
         let embed = new Discord.MessageEmbed()
