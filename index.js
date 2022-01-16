@@ -4496,8 +4496,8 @@ client.on('messageCreate', async message => {
           
           const rand = message.guild.members.cache.random();
 
-          let resp = [`El porcetanje de ${message.author.username} & ${rand.user.username} es: `,`Oh vaya, calculo que el amor de ${message.author.username} & ${rand.user.username} es un: `,`${message.author.username} & ${rand.user.username} tienen un: `]
-
+          let resp = ['El porcetanje de `'+message.author.username+'` & `'+rand.user.username+'` es: ','Oh vaya, calculo que el amor de `'+message.author.username+'` & `'+rand.user.username+'` es un: ','`'+message.author.username+'` & `'+rand.user.username+'` tienen un: ']
+    
           let msg = resp[Math.floor(Math.random() * resp.length)] 
 
           const embed = new Discord.MessageEmbed()
@@ -4575,14 +4575,14 @@ client.on('messageCreate', async message => {
         const embed = new Discord.MessageEmbed()
         .setColor('RANDOM')
         .setTitle('¿𝚀𝚞𝚒é𝚗 𝚎𝚜 𝚎𝚜𝚎 𝙿𝚘𝚔é𝚖𝚘𝚗?')
-        .setDescription('Tienes 15 Segundos para responder ⌛')
+        .setDescription('Tienes 30 Segundos para responder ⌛')
         .setImage(pokemon.imageURL)
         .setTimestamp(new Date())
         .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
       
         message.channel.send({ embeds: [embed] }).then(msj => {
 
-            message.channel.awaitMessages(x => x.content.toLowerCase() === pokemon.name.toLowerCase() && x.author.id === message.author.id, { max: 1, time: 15000, errors: ['time'] }).then(col => {
+            message.channel.awaitMessages(x => x.content.toLowerCase() === pokemon.name.toLowerCase() && x.author.id === message.author.id, { max: 1, time: 30000, errors: ['time'] }).then(col => {
 
                 const embed2 = new Discord.MessageEmbed() //el Embed si el autor adivino el Pokemon
                 .setColor('GREEN')
@@ -4592,7 +4592,7 @@ client.on('messageCreate', async message => {
                 .setTimestamp(new Date())
                 .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           
-                msj.edit(embed2)
+                col.edit(embed2)
         
             }).catch(col => {
 
@@ -4604,7 +4604,7 @@ client.on('messageCreate', async message => {
                 .setTimestamp(new Date())
                 .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
          
-                msj.edit(embed3)
+                col.edit(embed3)
 
             })
 
