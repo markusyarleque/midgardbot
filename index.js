@@ -3572,22 +3572,22 @@ client.on('messageCreate', async message => {
   {
     const split = args.slice(1).join(' ').split('-');
 
-    if(!split[0]) return message.channel.send('Ingrese una pregunta!\n\n_Uso:_\n\n> _poll-pregunta-opción 1-opcion 2-...')
+    if(!split[0]) return message.channel.send('<a:alerta:915361125510545438> `|` Ingrese una pregunta!\n\n Uso: `' +prefix +'poll - pregunta - opción1 - opción2 - opción3 [opcional]... `')
 
-    if(!split[1]) return message.channel.send('Necesitas ingresar al menos 2 opciones!\n\n_Uso:_\n\n> _poll-pregunta-opción 1-opcion 2-...')
+    if(!split[1]) return message.channel.send('<a:alerta:915361125510545438> `|` Necesitas ingresar al menos 2 opciones!\n\n Uso: `' +prefix +'poll - pregunta - opción1 - opción2 - opción3 [opcional]... `')
 
-    if(!split[2]) return message.channel.send('Necesitas ingresar al menos 2 opciones!\n\n_Uso:_\n\n> _poll-pregunta-opción 1-opcion 2-...')
+    if(!split[2]) return message.channel.send('<a:alerta:915361125510545438> `|` Necesitas ingresar al menos 2 opciones!\n\n Uso: `' +prefix +'poll - pregunta - opción1 - opción2 - opción3 [opcional]... `')
 
     const embed = new Discord.MessageEmbed()
     .setColor('RANDOM')
-    .setAuthor(`Encuesta realizada por: ${message.author.toString()}`, message.author.displayAvatarURL({ dynamic: true }))
+    .setAuthor(`Encuesta realizada por: <@${message.author.id}>`, message.author.displayAvatarURL({ dynamic: true }))
     .setTitle('**' + split[0] + '**')
     .addField('<a:uno:932368116749594674> **' + split[1] + '**', '..........')
     .addField('<a:dos:932368203458445362> **' + split[2] + '**', '..........')
     .setTimestamp(new Date())
     .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
 
-    if (!split[2]) return message.reply('<a:alerta:915361125510545438> `|` Uso: `' +prefix +'poll pregunta / opción1 / opción2 / opción3 [opcional]... `');
+    if (!split[2]) return message.reply('<a:alerta:915361125510545438> `|` Uso: `' +prefix +'poll - pregunta - opción1 - opción2 - opción3 [opcional]... `');
 
     if (split[3]) embed.addField('<a:tres:932368254335340614> **' + split[3] + '**', '..........');
     if (split[4]) embed.addField('<a:cuatro:932368291249397780> **' + split[4] + '**', '..........');
