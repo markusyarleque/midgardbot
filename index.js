@@ -5210,7 +5210,7 @@ client.on('messageCreate', async message => {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdoncafe = cafe[Math.floor(Math.random()*cafe.length)]
  
-        if (img.user.bot) return message.channel.send({embeds: [
+        if (img.bot) return message.channel.send({embeds: [
           new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('RED')
