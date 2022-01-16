@@ -3582,20 +3582,20 @@ client.on('messageCreate', async message => {
     .setColor('RANDOM')
     .setAuthor(`Encuesta realizada por: ${message.author}`, message.author.displayAvatarURL({ dynamic: true }))
     .setTitle('**' + split[0] + '**')
-    .addField('<a:uno:854651170713632808> **' + split[1] + '**', '..........')
-    .addField('<a:dos:854651170780872746> **' + split[2] + '**', '..........')
+    .addField('<a:uno:932368116749594674> **' + split[1] + '**', '..........')
+    .addField('<a:dos:932368203458445362> **' + split[2] + '**', '..........')
     .setTimestamp(new Date())
     .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
 
     if (!split[2]) return message.reply('<a:alerta:915361125510545438> `|` Uso: `' +prefix +'poll pregunta / opción1 / opción2 / opción3 [opcional]... `');
 
-    if (split[3]) embed.addField('<a:tres:854651172525834270> **' + split[3] + '**', '..........');
-    if (split[4]) embed.addField('<a:cuatro:854651171465854976> **' + split[4] + '**', '..........');
-    if (split[5]) embed.addField('<a:cinco:854651171850158123> **' + split[5] + '**', '..........');
-    if (split[6]) embed.addField('<a:seis:854651172597268480> **' + split[6] + '**', '..........');
-    if (split[7]) embed.addField('<a:siete:854651171066740736> **' + split[7] + '**', '..........');
-    if (split[8]) embed.addField('<a:ocho:854651172512989194> **' + split[8] + '**', '..........');
-    if (split[9]) embed.addField('<a:nueve:854651170638790676> **' + split[9] + '**', '..........');
+    if (split[3]) embed.addField('<a:tres:932368254335340614> **' + split[3] + '**', '..........');
+    if (split[4]) embed.addField('<a:cuatro:932368291249397780> **' + split[4] + '**', '..........');
+    if (split[5]) embed.addField('<a:cinco:932368321578426449> **' + split[5] + '**', '..........');
+    if (split[6]) embed.addField('<a:seis:932368350187757671> **' + split[6] + '**', '..........');
+    if (split[7]) embed.addField('<a:siete:932368376909693008> **' + split[7] + '**', '..........');
+    if (split[8]) embed.addField('<a:ocho:932368405372223528> **' + split[8] + '**', '..........');
+    if (split[9]) embed.addField('<a:nueve:932368436774981642> **' + split[9] + '**', '..........');
 
     if (split[10]) return message.reply('<a:alerta:915361125510545438> `|` Demasiadas opciones');
 
@@ -3605,92 +3605,92 @@ client.on('messageCreate', async message => {
 
       message.channel.send({ embeds: [embed] }).then(async function(message) {
 
-        message.react('<a:uno:854651170713632808>');
-        message.react('<a:dos:854651170780872746>');
+        message.react('<a:uno:932368116749594674>');
+        message.react('<a:dos:932368203458445362>');
 
       });
     } else if (!split[4]){
 
       message.channel.send({ embeds: [embed] }).then(async function(message) {
 
-        message.react('<a:uno:854651170713632808>');
-        message.react('<a:dos:854651170780872746>');
-        message.react('<a:tres:854651172525834270>');
+        message.react('<a:uno:932368116749594674>');
+        message.react('<a:dos:932368203458445362>');
+        message.react('<a:tres:932368254335340614>');
 
       });
     } else if (!split[5]){
 
       message.channel.send({ embeds: [embed] }).then(async function(message) {
 
-        message.react('<a:uno:854651170713632808>');
-        message.react('<a:dos:854651170780872746>');
-        message.react('<a:tres:854651172525834270>');
-        message.react('<a:cuatro:854651171465854976>');
+        message.react('<a:uno:932368116749594674>');
+        message.react('<a:dos:932368203458445362>');
+        message.react('<a:tres:932368254335340614>');
+        message.react('<a:cuatro:932368291249397780>');
 
       });
     } else if (!split[6]){
 
       message.channel.send({ embeds: [embed] }).then(async function(message) {
 
-        message.react('<a:uno:854651170713632808>');
-        message.react('<a:dos:854651170780872746>');
-        message.react('<a:tres:854651172525834270>');
-        message.react('<a:cuatro:854651171465854976>');
-        message.react('<a:cinco:854651171850158123>');
+        message.react('<a:uno:932368116749594674>');
+        message.react('<a:dos:932368203458445362>');
+        message.react('<a:tres:932368254335340614>');
+        message.react('<a:cuatro:932368291249397780>');
+        message.react('<a:cinco:932368321578426449>');
 
       });
     } else if (!split[7]){
 
       message.channel.send({ embeds: [embed] }).then(async function(message) {
 
-        message.react('<a:uno:854651170713632808>');
-        message.react('<a:dos:854651170780872746>');
-        message.react('<a:tres:854651172525834270>');
-        message.react('<a:cuatro:854651171465854976>');
-        message.react('<a:cinco:854651171850158123>');
-        message.react('<a:seis:854651172597268480>');
+        message.react('<a:uno:932368116749594674>');
+        message.react('<a:dos:932368203458445362>');
+        message.react('<a:tres:932368254335340614>');
+        message.react('<a:cuatro:932368291249397780>');
+        message.react('<a:cinco:932368321578426449>');
+        message.react('<a:seis:932368350187757671>');
 
       });
     } else if (!split[8]){
 
       message.channel.send({ embeds: [embed] }).then(async function(message) {
 
-        message.react('<a:uno:854651170713632808>');
-        message.react('<a:dos:854651170780872746>');
-        message.react('<a:tres:854651172525834270>');
-        message.react('<a:cuatro:854651171465854976>');
-        message.react('<a:cinco:854651171850158123>');
-        message.react('<a:seis:854651172597268480>');
-        message.react('<a:siete:854651171066740736>');
+        message.react('<a:uno:932368116749594674>');
+        message.react('<a:dos:932368203458445362>');
+        message.react('<a:tres:932368254335340614>');
+        message.react('<a:cuatro:932368291249397780>');
+        message.react('<a:cinco:932368321578426449>');
+        message.react('<a:seis:932368350187757671>');
+        message.react('<a:siete:932368376909693008>');
 
       });
     } else if (!split[9]){
 
       message.channel.send({ embeds: [embed] }).then(async function(message) {
 
-        message.react('<a:uno:854651170713632808>');
-        message.react('<a:dos:854651170780872746>');
-        message.react('<a:tres:854651172525834270>');
-        message.react('<a:cuatro:854651171465854976>');
-        message.react('<a:cinco:854651171850158123>');
-        message.react('<a:seis:854651172597268480>');
-        message.react('<a:siete:854651171066740736>');
-        message.react('<a:ocho:854651172512989194>');
+        message.react('<a:uno:932368116749594674>');
+        message.react('<a:dos:932368203458445362>');
+        message.react('<a:tres:932368254335340614>');
+        message.react('<a:cuatro:932368291249397780>');
+        message.react('<a:cinco:932368321578426449>');
+        message.react('<a:seis:932368350187757671>');
+        message.react('<a:siete:932368376909693008>');
+        message.react('<a:ocho:932368405372223528>');
 
       });
     } else if (!split[10]){
 
       message.channel.send({ embeds: [embed] }).then(async function(message) {
 
-        message.react('<a:uno:854651170713632808>');
-        message.react('<a:dos:854651170780872746>');
-        message.react('<a:tres:854651172525834270>');
-        message.react('<a:cuatro:854651171465854976>');
-        message.react('<a:cinco:854651171850158123>');
-        message.react('<a:seis:854651172597268480>');
-        message.react('<a:siete:854651171066740736>');
-        message.react('<a:ocho:854651172512989194>');
-        message.react('<a:nueve:854651170638790676>');
+        message.react('<a:uno:932368116749594674>');
+        message.react('<a:dos:932368203458445362>');
+        message.react('<a:tres:932368254335340614>');
+        message.react('<a:cuatro:932368291249397780>');
+        message.react('<a:cinco:932368321578426449>');
+        message.react('<a:seis:932368350187757671>');
+        message.react('<a:siete:932368376909693008>');
+        message.react('<a:ocho:932368405372223528>');
+        message.react('<a:nueve:932368436774981642>');
 
       });
     }
