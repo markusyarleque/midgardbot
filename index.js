@@ -2990,7 +2990,7 @@ client.on('messageCreate', async message => {
 
     const embed = new Discord.MessageEmbed()
     .setThumbnail(`https://assets.sutori.com/user-uploads/image/bc331db1-aa9d-4684-b73e-8a1fcb7d751b/aa64184f325ce5cc6abe613d51383870.gif`)
-    .setTitle('<a:alerta:915361125510545438> | Reporte')
+    .setTitle('<a:alerta:932374957206421614> | Reporte')
     .setDescription(`**${usera.username}** ¿Estás segur@ que quieres reportar este bug? ¡Usar mal el comando causará la prohibición!`)
     .addField('Bug a reportar:', reporte)
     .setColor('RANDOM')
@@ -3568,15 +3568,30 @@ client.on('messageCreate', async message => {
 
     }
 
-    if(command === 'poll')
-  {
+    if(command === 'poll'){
+
     const split = args.slice(1).join(' ').split('-');
 
-    if(!split[0]) return message.channel.send('<a:alerta:915361125510545438> `|` Ingrese una pregunta!\n\n Uso: `' +prefix +'poll - pregunta - opción1 - opción2 - opción3 [opcional]... `')
+    if(!split[0]) return message.channel.send({embeds: [
+      new Discord.MessageEmbed()
+      .setAuthor(message.author.tag, message.author.displayAvatarURL())
+      .setColor('RED')
+      .setDescription('<a:alerta:932374957206421614> `|` Ingrese una pregunta!\n\n Uso: `' +prefix +'poll - pregunta - opción1 - opción2 - opción3 [opcional]... `')
+    ]})
 
-    if(!split[1]) return message.channel.send('<a:alerta:915361125510545438> `|` Necesitas ingresar al menos 2 opciones!\n\n Uso: `' +prefix +'poll - pregunta - opción1 - opción2 - opción3 [opcional]... `')
+    if(!split[1]) return message.channel.send({embeds: [
+      new Discord.MessageEmbed()
+      .setAuthor(message.author.tag, message.author.displayAvatarURL())
+      .setColor('RED')
+      .setDescription('<a:alerta:932374957206421614> `|` Necesitas ingresar al menos 2 opciones!\n\n Uso: `' +prefix +'poll - pregunta - opción1 - opción2 - opción3 [opcional]... `')
+    ]})
 
-    if(!split[2]) return message.channel.send('<a:alerta:915361125510545438> `|` Necesitas ingresar al menos 2 opciones!\n\n Uso: `' +prefix +'poll - pregunta - opción1 - opción2 - opción3 [opcional]... `')
+    if(!split[2]) return message.channel.send({embeds: [
+      new Discord.MessageEmbed()
+      .setAuthor(message.author.tag, message.author.displayAvatarURL())
+      .setColor('RED')
+      .setDescription('<a:alerta:932374957206421614> `|` Necesitas ingresar al menos 2 opciones!\n\n Uso: `' +prefix +'poll - pregunta - opción1 - opción2 - opción3 [opcional]... `')
+    ]})
 
     const embed = new Discord.MessageEmbed()
     .setColor('RANDOM')
@@ -3587,7 +3602,12 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
 
-    if (!split[2]) return message.reply('<a:alerta:915361125510545438> `|` Uso: `' +prefix +'poll - pregunta - opción1 - opción2 - opción3 [opcional]... `');
+    if (!split[2]) return message.channel.send({embeds: [
+      new Discord.MessageEmbed()
+      .setAuthor(message.author.tag, message.author.displayAvatarURL())
+      .setColor('RED')
+      .setDescription('<a:alerta:932374957206421614> `|` Uso: `' +prefix +'poll - pregunta - opción1 - opción2 - opción3 [opcional]... `')
+    ]})
 
     if (split[3]) embed.addField('<a:tres:932368254335340614> **' + split[3] + '**', '..........');
     if (split[4]) embed.addField('<a:cuatro:932368291249397780> **' + split[4] + '**', '..........');
@@ -3597,7 +3617,12 @@ client.on('messageCreate', async message => {
     if (split[8]) embed.addField('<a:ocho:932368405372223528> **' + split[8] + '**', '..........');
     if (split[9]) embed.addField('<a:nueve:932368436774981642> **' + split[9] + '**', '..........');
 
-    if (split[10]) return message.reply('<a:alerta:915361125510545438> `|` Demasiadas opciones');
+    if (split[10]) return message.channel.send({embeds: [
+      new Discord.MessageEmbed()
+      .setAuthor(message.author.tag, message.author.displayAvatarURL())
+      .setColor('RED')
+      .setDescription('<a:alerta:932374957206421614> `|` Demasiadas opciones!')
+    ]})
 
     setTimeout(() => message.delete(), 100);
 
@@ -3718,8 +3743,8 @@ client.on('messageCreate', async message => {
         votar = args.splice(1, args.length);
       }
 
-      if (tiempo == '' && votar == '') return message.reply('¡No puedo desplegar un voto sin parametros! Uso: _votacion (#canal) [tiempo en segundos] [tema]');
-      if (votar == '') return message.reply('¡No puedo desplegar un voto sin parametros! Uso: _votacion (#canal) [tiempo en segundos] [tema]');
+      if (tiempo === '' && votar === '') return message.reply('¡No puedo desplegar un voto sin parametros! Uso: _votacion (#canal) [tiempo en segundos] [tema]');
+      if (votar === '') return message.reply('¡No puedo desplegar un voto sin parametros! Uso: _votacion (#canal) [tiempo en segundos] [tema]');
 
       if (isNaN(tiempo)) {
         
@@ -3741,7 +3766,7 @@ client.on('messageCreate', async message => {
      
       const embed = new Discord.MessageEmbed()
       .setColor('RANDOM')
-      .setAuthor(`Iniciado/a por: ${message.author}`, message.author.displayAvatarURL({ dynamic: true }))
+      .setAuthor(`Iniciado/a por: <@${message.author.id}>`, message.author.displayAvatarURL({ dynamic: true }))
       .setTitle(votar)
       .setDescription('¡Vota ahora!')
       .setTimestamp(new Date())
