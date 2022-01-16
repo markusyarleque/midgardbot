@@ -3335,7 +3335,7 @@ client.on('messageCreate', async message => {
     if(command === 'remindme' || command === 'rm'){
 
         let obtener = args[0]
-        let mensaje = args[1].join(' ')
+        let mensaje = args.slice(1).join(' ')
     
         if (!obtener) {
           
