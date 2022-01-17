@@ -5082,7 +5082,7 @@ client.on('messageCreate', async message => {
       }
     }
 
-    if(command === 'carta'){
+    if(command === 'carta'){ 
 
       if (args.length < 2) { // Si no se han dado todos los argumentos, envíar un mensaje de ayuda
         
@@ -5275,13 +5275,6 @@ client.on('messageCreate', async message => {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonagua = agua[Math.floor(Math.random()*agua.length)]
     
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Los bots no toman agüita! <:nogarsias:932172183453712415>`)
-        ]})
-
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
@@ -5294,7 +5287,16 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
-        }  else {
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Los bots no toman agüita! <:nogarsias:932172183453712415>`)
+          ]})
+
+        } else {
     
             const embed = new Discord.MessageEmbed()
             .setAuthor(`Midgard's Cafe`,message.guild.iconURL({ dynamic: true }))
@@ -5327,14 +5329,7 @@ client.on('messageCreate', async message => {
     
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonte = te[Math.floor(Math.random()*te.length)]
-        
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Nada mal un buen tesito! <:nogarsias:932172183453712415>`)
-        ]})
-
+      
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
@@ -5347,6 +5342,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Nada mal un buen tesito! <:nogarsias:932172183453712415>`)
+          ]})
+
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -5380,13 +5384,6 @@ client.on('messageCreate', async message => {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonjugo = jugo[Math.floor(Math.random()*jugo.length)]
        
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Los bots no toman juguito! <:nogarsias:932172183453712415>`)
-        ]})
-
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
@@ -5399,6 +5396,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Los bots no toman juguito! <:nogarsias:932172183453712415>`)
+          ]})
+
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -5419,13 +5425,6 @@ client.on('messageCreate', async message => {
 
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdontacos = tacos[Math.floor(Math.random()*tacos.length)]
-     
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Se me antoja... pero <:nogarsias:932172183453712415>`)
-        ]})
 
         if (!img || img.id===message.author.id) {
     
@@ -5439,6 +5438,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Se me antoja... pero <:nogarsias:932172183453712415>`)
+          ]})
+
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -5472,13 +5480,6 @@ client.on('messageCreate', async message => {
     
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonchocolate = chocolate[Math.floor(Math.random()*chocolate.length)]
-       
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Nos encanta el chocolate! Pero... <:nogarsias:932172183453712415>`)
-        ]})
 
         if (!img || img.id===message.author.id) {
     
@@ -5492,6 +5493,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Nos encanta el chocolate! Pero... <:nogarsias:932172183453712415>`)
+          ]})
+
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -5524,13 +5534,6 @@ client.on('messageCreate', async message => {
     
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdongalletas = galletas[Math.floor(Math.random()*galletas.length)]
-         
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Los bots no comen galletas! <:nogarsias:932172183453712415>`)
-        ]})
 
         if (!img || img.id===message.author.id) {
     
@@ -5544,6 +5547,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Los bots no comen galletas! <:nogarsias:932172183453712415>`)
+          ]})
+
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -5576,13 +5588,6 @@ client.on('messageCreate', async message => {
     
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonhelado = helado[Math.floor(Math.random()*helado.length)]
-        
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Hace mucho frío! <:nogarsias:932172183453712415>`)
-        ]})
 
         if (!img || img.id===message.author.id) {
     
@@ -5596,6 +5601,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Hace mucho frío! <:nogarsias:932172183453712415>`)
+          ]})
+          
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -5630,13 +5644,6 @@ client.on('messageCreate', async message => {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonhamburguesa = hamburguesa[Math.floor(Math.random()*hamburguesa.length)]
      
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Los bots no comen carne! <:nogarsias:932172183453712415>`)
-        ]})
-
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
@@ -5649,6 +5656,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Los bots no comen carne! <:nogarsias:932172183453712415>`)
+          ]})
+          
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -5685,13 +5701,6 @@ client.on('messageCreate', async message => {
     
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonpizza = pizza[Math.floor(Math.random()*pizza.length)]
-         
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | La pizza nos causa indigestión! <:nogarsias:932172183453712415>`)
-        ]})
 
         if (!img || img.id===message.author.id) {
     
@@ -5705,6 +5714,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | La pizza nos causa indigestión! <:nogarsias:932172183453712415>`)
+          ]})
+          
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -5739,13 +5757,6 @@ client.on('messageCreate', async message => {
     
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdoncocacola = cocacola[Math.floor(Math.random()*cocacola.length)]
-      
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | La cocacola daña nuestros circuitos! <:nogarsias:932172183453712415>`)
-        ]})
 
         if (!img || img.id===message.author.id) {
     
@@ -5759,6 +5770,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | La cocacola daña nuestros circuitos! <:nogarsias:932172183453712415>`)
+          ]})
+          
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -5792,13 +5812,6 @@ client.on('messageCreate', async message => {
     
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonredbull = redbull[Math.floor(Math.random()*redbull.length)]
-       
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Con o sin redbull podemos estar despiertos toda la noche! <:nogarsias:932172183453712415>`)
-        ]})
 
         if (!img || img.id===message.author.id) {
     
@@ -5812,6 +5825,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Con o sin redbull podemos estar despiertos toda la noche! <:nogarsias:932172183453712415>`)
+          ]})
+          
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -5844,13 +5866,6 @@ client.on('messageCreate', async message => {
     
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdoncerveza = cerveza[Math.floor(Math.random()*cerveza.length)]
-       
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Los bots no toman cerveza, no nos causa nada pero igual! <:nogarsias:932172183453712415>`)
-        ]})
 
         if (!img || img.id===message.author.id) {
     
@@ -5864,6 +5879,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Los bots no toman cerveza, no nos causa nada pero igual! <:nogarsias:932172183453712415>`)
+          ]})
+          
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -5896,13 +5920,6 @@ client.on('messageCreate', async message => {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonvino = vino[Math.floor(Math.random()*vino.length)]
         
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Eso si estaría cool! <:nogarsias:932172183453712415>`)
-        ]})
-
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
@@ -5915,6 +5932,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Eso si estaría cool! <:nogarsias:932172183453712415>`)
+          ]})
+          
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -5948,13 +5974,6 @@ client.on('messageCreate', async message => {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdontequila = tequila[Math.floor(Math.random()*tequila.length)]
          
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Delicioso, pero... <:nogarsias:932172183453712415>`)
-        ]})
-
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
@@ -5967,6 +5986,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Delicioso, pero... <:nogarsias:932172183453712415>`)
+          ]})
+          
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -6000,13 +6028,6 @@ client.on('messageCreate', async message => {
     
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonron = ron[Math.floor(Math.random()*ron.length)]
-       
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Los bots no toman ron! <:nogarsias:932172183453712415>`)
-        ]})
 
         if (!img || img.id===message.author.id) {
     
@@ -6020,6 +6041,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Los bots no toman ron! <:nogarsias:932172183453712415>`)
+          ]})
+          
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -6053,13 +6083,6 @@ client.on('messageCreate', async message => {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdoncoctel = coctel[Math.floor(Math.random()*coctel.length)]
          
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Se ve delicioso! <:nogarsias:932172183453712415>`)
-        ]})
-
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
@@ -6072,6 +6095,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Se ve delicioso! <:nogarsias:932172183453712415>`)
+          ]})
+          
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -6102,14 +6134,7 @@ client.on('messageCreate', async message => {
     
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonporro = porro[Math.floor(Math.random()*porro.length)]
-         
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Los bots no necesitan porro! <:nogarsias:932172183453712415>`)
-        ]})
-
+      
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
@@ -6122,6 +6147,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Los bots no necesitan porro! <:nogarsias:932172183453712415>`)
+          ]})
+          
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -6155,13 +6189,6 @@ client.on('messageCreate', async message => {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdoncigarro = cigarro[Math.floor(Math.random()*cigarro.length)]
          
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Los bots no fuman! <:nogarsias:932172183453712415>`)
-        ]})
-
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
@@ -6174,6 +6201,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Los bots no fuman! <:nogarsias:932172183453712415>`)
+          ]})
+          
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -6209,13 +6245,6 @@ client.on('messageCreate', async message => {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonhuca = huca[Math.floor(Math.random()*huca.length)]
        
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | ¿Huca? ¿Qué es eso? <:nogarsias:932172183453712415>`)
-        ]})
-
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
@@ -6228,6 +6257,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | ¿Huca? ¿Qué es eso? <:nogarsias:932172183453712415>`)
+          ]})
+        
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -6307,13 +6345,6 @@ client.on('messageCreate', async message => {
     
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonperreo = perreo[Math.floor(Math.random()*perreo.length)]
-         
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Los bots no vamos a fiestas! <:nogarsias:932172183453712415>`)
-        ]})
 
         if (!img || img.id===message.author.id) {
     
@@ -6327,6 +6358,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Los bots no vamos a fiestas! <:nogarsias:932172183453712415>`)
+          ]})
+          
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -6365,13 +6405,6 @@ client.on('messageCreate', async message => {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonbachata = bachata[Math.floor(Math.random()*bachata.length)]
        
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | ¿Quieres ver como bailo? <:nogarsias:932172183453712415>`)
-        ]})
-
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
@@ -6384,6 +6417,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | ¿Quieres ver como bailo? <:nogarsias:932172183453712415>`)
+          ]})
+          
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -6428,13 +6470,6 @@ client.on('messageCreate', async message => {
         let ramdonsalsa = salsa[Math.floor(Math.random()*salsa.length)]
         let ramdonsalsa2 = salsa2[Math.floor(Math.random()*salsa2.length)]
       
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Yo si salseo como los dioses! <:nogarsias:932172183453712415>`)
-        ]})
-
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
@@ -6447,6 +6482,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Yo si salseo como los dioses! <:nogarsias:932172183453712415>`)
+          ]})
+          
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -6494,13 +6538,6 @@ client.on('messageCreate', async message => {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdoncumbia = cumbia[Math.floor(Math.random()*cumbia.length)]
         let ramdoncumbia2 = cumbia2[Math.floor(Math.random()*cumbia2.length)]
-      
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Soy un bot, no bailo! <:nogarsias:932172183453712415>`)
-        ]})
 
         if (!img || img.id===message.author.id) {
     
@@ -6514,6 +6551,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Soy un bot, no bailo! <:nogarsias:932172183453712415>`)
+          ]})
+          
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -6575,13 +6621,6 @@ client.on('messageCreate', async message => {
     
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdoncolegiala = colegiala[Math.floor(Math.random()*colegiala.length)]
-       
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Rico, pero <:nogarsias:932172183453712415>`)
-        ]})
 
         if (!img || img.id===message.author.id) {
     
@@ -6595,6 +6634,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Rico, pero <:nogarsias:932172183453712415>`)
+          ]})
+          
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -6636,13 +6684,6 @@ client.on('messageCreate', async message => {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonhi = hi[Math.floor(Math.random()*hi.length)]
      
-        if (img.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Holi, soy tu bot de confianza! <:burbujita:930399322183458867>`)
-        ]})
-
         if (!img || img.id===message.author.id) {
     
           const embed = new Discord.MessageEmbed()
@@ -6655,6 +6696,15 @@ client.on('messageCreate', async message => {
           .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] });
     
+        } else if (img.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Holi, soy tu bot de confianza! <:burbujita:930399322183458867>`)
+          ]})
+          
         } else {
     
           const embed = new Discord.MessageEmbed()
@@ -6703,13 +6753,6 @@ client.on('messageCreate', async message => {
         let ramdonhug = hug[Math.floor(Math.random()*hug.length)]
         let ramdonhug2 = hug2[Math.floor(Math.random()*hug2.length)]
 
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Gracias por ese abrazo, lo necesitaba! <:burbujita:930399322183458867>`)
-        ]})
-
         if (!img || img.id===message.author.id) {
     
             const embed = new Discord.MessageEmbed()
@@ -6722,6 +6765,15 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Gracias por ese abrazo, lo necesitaba! <:burbujita:930399322183458867>`)
+          ]})
+          
         } else {
 
           let usuario2 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, img.id)
@@ -7223,14 +7275,7 @@ client.on('messageCreate', async message => {
   
       let sleep = star.sleep()
       let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
-       
-      if (img.user.bot) return message.channel.send({embeds: [
-        new Discord.MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL())
-        .setColor('RED')
-        .setDescription(`<a:Verify2:931463492677017650> | Yo no duermo, gracias! <:nogarsias:932172183453712415>`)
-      ]})
-
+      
       if (!img || img.id===message.author.id) {
 
         const embed = new Discord.MessageEmbed()
@@ -7243,6 +7288,15 @@ client.on('messageCreate', async message => {
         .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
         message.channel.send({ embeds: [embed] });
 
+      } else if (img.user.bot){
+        
+        return message.channel.send({embeds: [
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:931463492677017650> | Yo no duermo, gracias! <:nogarsias:932172183453712415>`)
+        ]})
+        
       } else {
 
         const embed = new Discord.MessageEmbed()
@@ -7263,13 +7317,6 @@ client.on('messageCreate', async message => {
   
       let dance = star.dance()
       let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
-    
-      if (img.user.bot) return message.channel.send({embeds: [
-        new Discord.MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL())
-        .setColor('RED')
-        .setDescription(`<a:Verify2:931463492677017650> | Yo no bailo, gracias! <:nogarsias:932172183453712415>`)
-      ]})
 
       if (!img || img.id===message.author.id) {
 
@@ -7283,6 +7330,15 @@ client.on('messageCreate', async message => {
         .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
         message.channel.send({ embeds: [embed] });
 
+      } else if (img.user.bot){
+        
+        return message.channel.send({embeds: [
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:931463492677017650> | Yo no bailo, gracias! <:nogarsias:932172183453712415>`)
+        ]})
+        
       } else {
 
         const embed = new Discord.MessageEmbed()
@@ -7304,13 +7360,6 @@ client.on('messageCreate', async message => {
       let blush = star.blush()
       let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
    
-      if (img.user.bot) return message.channel.send({embeds: [
-        new Discord.MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL())
-        .setColor('RED')
-        .setDescription(`<a:Verify2:931463492677017650> | Yo jamás me sonrojo! <:nogarsias:932172183453712415>`)
-      ]})
-
       if (!img || img.id===message.author.id) {
 
         const embed = new Discord.MessageEmbed()
@@ -7323,6 +7372,15 @@ client.on('messageCreate', async message => {
         .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
         message.channel.send({ embeds: [embed] });
 
+      } else if (img.user.bot){
+        
+        return message.channel.send({embeds: [
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:931463492677017650> | Yo jamás me sonrojo! <:nogarsias:932172183453712415>`)
+        ]})
+        
       } else {
 
         const embed = new Discord.MessageEmbed()
@@ -7344,13 +7402,6 @@ client.on('messageCreate', async message => {
       let confus = star.confused()
       let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
    
-      if (img.user.bot) return message.channel.send({embeds: [
-        new Discord.MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL())
-        .setColor('RED')
-        .setDescription(`<a:Verify2:931463492677017650> | No quieras confundirme! <:nogarsias:932172183453712415>`)
-      ]})
-
       if (!img || img.id===message.author.id) {
 
         const embed = new Discord.MessageEmbed()
@@ -7363,6 +7414,15 @@ client.on('messageCreate', async message => {
         .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
         message.channel.send({ embeds: [embed] });
 
+      } else if (img.user.bot){
+        
+        return message.channel.send({embeds: [
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:931463492677017650> | No quieras confundirme! <:nogarsias:932172183453712415>`)
+        ]})
+        
       } else {
 
         const embed = new Discord.MessageEmbed()
@@ -7383,13 +7443,6 @@ client.on('messageCreate', async message => {
   
       let lick = star.lick()
       let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
-   
-      if (img.user.bot) return message.channel.send({embeds: [
-        new Discord.MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL())
-        .setColor('RED')
-        .setDescription(`<a:Verify2:931463492677017650> | <:nogarsias:932172183453712415>`)
-      ]})
 
       if (!img || img.id===message.author.id) {
 
@@ -7400,6 +7453,15 @@ client.on('messageCreate', async message => {
           .setDescription(`<a:Verify2:931463492677017650> | ¿Te lamerías a ti mismo? <:pepemaje:932177727589589013>`)
         ]})
 
+      } else if (img.user.bot){
+        
+        return message.channel.send({embeds: [
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:931463492677017650> | <:nogarsias:932172183453712415>`)
+        ]})
+        
       } else {
 
         const embed = new Discord.MessageEmbed()
@@ -7420,13 +7482,6 @@ client.on('messageCreate', async message => {
   
       let feed = star.feed()
       let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
-   
-      if (img.user.bot) return message.channel.send({embeds: [
-        new Discord.MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL())
-        .setColor('RED')
-        .setDescription(`<a:Verify2:931463492677017650> | Ya comí! <:nogarsias:932172183453712415>`)
-      ]})
 
       if (!img || img.id===message.author.id) {
 
@@ -7437,6 +7492,15 @@ client.on('messageCreate', async message => {
           .setDescription(`<a:Verify2:931463492677017650> | Cómete <:esta:925931250303250512>`)
         ]})
 
+      } else if (img.user.bot){
+        
+        return message.channel.send({embeds: [
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:931463492677017650> | Ya comí! <:nogarsias:932172183453712415>`)
+        ]})
+        
       } else {
 
         const embed = new Discord.MessageEmbed()
@@ -7504,18 +7568,11 @@ client.on('messageCreate', async message => {
   
     }
 
-    if(command === 'kickbut' || command === 'patear'){
+    if(command === 'kickbutt' || command === 'patear'){
   
       let kick = star.kick()
       let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
    
-      if (img.user.bot) return message.channel.send({embeds: [
-        new Discord.MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL())
-        .setColor('RED')
-        .setDescription(`<a:Verify2:931463492677017650> | ¡No puedes conmigo! <:nogarsias:932172183453712415>`)
-      ]})
-
       if (!img || img.id === message.author.id) {
 
         return message.channel.send({embeds: [
@@ -7525,6 +7582,15 @@ client.on('messageCreate', async message => {
           .setDescription(`<a:Verify2:931463492677017650> | ¿A quién quieres patear? <:pepemaje:880303225109110814>`)
         ]})
 
+      } else if (img.user.bot){
+        
+        return message.channel.send({embeds: [
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:931463492677017650> | ¡No puedes conmigo! <:nogarsias:932172183453712415>`)
+        ]})
+        
       } else {
 
         const embed = new Discord.MessageEmbed()
@@ -7569,13 +7635,6 @@ client.on('messageCreate', async message => {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonsad = sad[Math.floor(Math.random()*sad.length)]
     
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | ¡Yo no ando sad! <:nogarsias:932172183453712415>`)
-        ]})
-  
         if (!img || img.id===message.author.id) {
     
           const embed = new Discord.MessageEmbed()
@@ -7588,6 +7647,15 @@ client.on('messageCreate', async message => {
           .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] });
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | ¡Yo no ando sad! <:nogarsias:932172183453712415>`)
+          ]})
+          
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -7620,13 +7688,6 @@ client.on('messageCreate', async message => {
   
       let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
       let ramdonclorox = clorox[Math.floor(Math.random()*clorox.length)]
-     
-      if (img.user.bot) return message.channel.send({embeds: [
-        new Discord.MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL())
-        .setColor('RED')
-        .setDescription(`<a:Verify2:931463492677017650> | ¿Clorox? <:nogarsias:932172183453712415>`)
-      ]})
 
       if (!img || img.id===message.author.id) {
   
@@ -7640,6 +7701,15 @@ client.on('messageCreate', async message => {
           .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] });
   
+      } else if (img.user.bot){
+        
+        return message.channel.send({embeds: [
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:931463492677017650> | ¿Clorox? <:nogarsias:932172183453712415>`)
+        ]})
+        
       } else {
   
           const embed = new Discord.MessageEmbed()
@@ -7684,13 +7754,6 @@ client.on('messageCreate', async message => {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdoncry = cry[Math.floor(Math.random()*cry.length)]
     
-        if (img .user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | ¡Si pudiera llorar, te ayudaría! <:procesando:932177969017925632>`)
-        ]})
-  
         if (!img || img.id===message.author.id) {
     
           const embed = new Discord.MessageEmbed()
@@ -7703,6 +7766,15 @@ client.on('messageCreate', async message => {
           .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] });
     
+        } else if (img .user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | ¡Si pudiera llorar, te ayudaría! <:procesando:932177969017925632>`)
+          ]})
+          
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -7847,13 +7919,6 @@ client.on('messageCreate', async message => {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonpunch = punch[Math.floor(Math.random()*punch.length)]
     
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | ¡Qué lindo eres pegándole a un bot! <:procesando:932177969017925632>`)
-        ]})
-  
         if (!img || img.id===message.author.id) {
     
           return message.channel.send({embeds: [
@@ -7863,6 +7928,15 @@ client.on('messageCreate', async message => {
             .setDescription(`<a:Verify2:931463492677017650> | ¿Te golpearías a ti mismo? <:maje:925927838492811295>`)
           ]})
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | ¡Qué lindo eres pegándole a un bot! <:procesando:932177969017925632>`)
+          ]})
+          
         } else {
     
             const embed = new Discord.MessageEmbed()
@@ -7884,13 +7958,6 @@ client.on('messageCreate', async message => {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         //let ramdonkill = kill[Math.floor(Math.random()*kill.length)]
     
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | ¡Qué lindo eres pegándole a un bot! <:procesando:932177969017925632>`)
-        ]})
-  
         if (!img || img.id===message.author.id) {
     
           return message.channel.send({embeds: [
@@ -7900,6 +7967,15 @@ client.on('messageCreate', async message => {
             .setDescription(`<a:Verify2:931463492677017650> | ¿Te quieres autolesionar? <:procesando:932177969017925632>`)
           ]})
 
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | ¡Qué lindo eres pegándole a un bot! <:procesando:932177969017925632>`)
+          ]})
+          
         } else {
     
           neko.sfw.slap().then(neko => {
@@ -7943,13 +8019,6 @@ client.on('messageCreate', async message => {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonkill = kill[Math.floor(Math.random()*kill.length)]
     
-        if (img.user.bot) return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | ¡No puedes matar a un bot! <:pepemaje:932177727589589013>`)
-        ]})
-  
         if (!img || img.id===message.author.id) {
     
           return message.channel.send({embeds: [
@@ -7959,6 +8028,15 @@ client.on('messageCreate', async message => {
             .setDescription(`<a:Verify2:931463492677017650> | ¡Que alguién lo detenga, por favor! <a:stitchsad:925931908918046790>`)
           ]})
     
+        } else if (img.user.bot){
+          
+          return message.channel.send({embeds: [
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | ¡No puedes matar a un bot! <:pepemaje:932177727589589013>`)
+          ]})
+          
         } else {
     
             const embed = new Discord.MessageEmbed()
