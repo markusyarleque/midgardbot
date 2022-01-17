@@ -84,8 +84,8 @@ const CARTA_TIEMPO_MIN = 2;
 const CARTA_TIEMPO_MAX = 5;
 const MENSAJE_AYUDA_CARTA = new Discord.MessageEmbed()
 .setDescription('<a:fijadito:931432134797848607> Carta - Envia una carta a otro usuario <:abby:931432327354155038>')
-.addField('<a:flech:931432469935312937> Uso: ','`carta <tag> <anónimo> <mensaje>`')
-.addField('<a:flech:931432469935312937> Argumentos: ','- tag: El tag del usuario / @user\n- anónimo: Enviar anónimamente el mensaje (s = sí, n = no)\n- mensaje: El mensaje que deseas enviar.')
+.addField('<a:flech:931432469935312937> Uso: ','`carta <tag> <mensaje>`')
+.addField('<a:flech:931432469935312937> Argumentos: ','- tag: El tag del usuario / @user / id\n- mensaje: El mensaje que deseas enviar.\n\n-Si deseas que aparezca tu nombre, solo coloca `-n` al final del mensaje.')
 .setColor('RANDOM')
 .setFooter('Utiliza con moderación el comando, caso contrario, serás reportado en la lista negra del Bot!', `https://c.tenor.com/Gh9SFp64h8wAAAAC/banned-and-you-are-banned.gif`);
 
@@ -4637,7 +4637,7 @@ client.on('messageCreate', async message => {
       if (member.user.bot) return message.reply("No puedes competir contra un bot") //Si el mencionado es un bot retornamos.
 
       message.channel.send({
-        content: member.toString() + " Acepta jugar **Tres en raya** contra " + message.author.toString() + "?",
+        content: member.toString() + ", ¿aceptas jugar **Tres en raya** contra " + message.author.toString() + "?",
         components: [
           /* Botones para aceptar y rechazar el juego */
           new MessageActionRow().addComponents([
@@ -5084,45 +5084,29 @@ client.on('messageCreate', async message => {
 
     if(command === 'carta'){
 
-      if (args.length < 3) { // Si no se han dado todos los argumentos, envíar un mensaje de ayuda
+      if (args.length < 2) { // Si no se han dado todos los argumentos, envíar un mensaje de ayuda
         
         message.channel.send({embeds: [MENSAJE_AYUDA_CARTA]});
 
       } else {
 
-        var tag = message.mentions.users.first() // tag
-		    var anon = args[1]; // anónimo
+        var target = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0])); // tag
         
-		    var mensaje = args.slice(2).join(" ")
+		    var mensaje = args.slice(1).join(" ")
 
-        var target = message.guild.members.cache.find(m => m.user.id == tag.id);
+        if (!target) return message.channel.send("Error: No se ha encontrado al destinatario!")
 
-        if (!target) return message.channel.send("Error: No se ha encontrado al destinatario!");
-
+        if (target.id === message.author.id) return message.channel.send("Error: No puedes autoenviarte una carta!");
+        
         if (target.user.bot) return message.channel.send("Error: No puedes enviarle a un bot!");
 
-        anon = anon.toLowerCase();
-		    if (anon != "s" && anon != "n") return message.channel.send("Error: Argumento `anónimo` inválido (Respuestas válidas: s, n)") 
-
         var tiempo = Math.random() * (CARTA_TIEMPO_MAX - CARTA_TIEMPO_MIN) + CARTA_TIEMPO_MIN;
-
-        var gif = [
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
-          ''
-        ]
-
-        let ramdong = gif[Math.floor(Math.random()*gif.length)]
 
         const embcarta = new Discord.MessageEmbed()
           .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
           .setThumbnail(message.author.displayAvatarURL({ dynamic: true }).replace('webp','png'))
           .setTitle(`📩 | Cartas & Dedicatorias 💕`)
-          .setDescription(tag.username + ' Te ha llegado una **dedicatoria** <:tierno:931433334960160799>\n\n<a:flech:931432469935312937> *Enviado por:*\n<a:corazones_fn:906775240795901982> **'+ message.author.username+'**\n\n<a:fijadito:931432134797848607>\n```'+mensaje+'```\n')
+          .setDescription(target.user.username + ' Te ha llegado una **dedicatoria** <:tierno:931433334960160799>\n\n<a:flech:931432469935312937> *Enviado por:*\n<a:corazones_fn:906775240795901982> **'+ message.author.username+'**\n\n<a:fijadito:931432134797848607>\n```'+mensaje+'```\n')
           //.setImage(`https://media.discordapp.net/attachments/920564115355889674/920594418711543838/FinalVideo_1638643044.278044.gif?width=512&height=288`)
           .setColor('RANDOM')
           .setTimestamp(new Date())
@@ -5132,17 +5116,17 @@ client.on('messageCreate', async message => {
           .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
           .setThumbnail(target.displayAvatarURL({ dynamic: true }).replace('webp','png'))
           .setTitle(`📩 | Cartas & Dedicatorias 💕`)
-          .setDescription(tag.username + ' Te ha llegado una **dedicatoria** <:tierno:931433334960160799>\n\n<a:flech:931432469935312937> *Enviado por:*\n<a:corazones_fn:906775240795901982> **Anónimo**\n\n<a:fijadito:931432134797848607>\n```'+mensaje+'```\n')
+          .setDescription(target.user.username + ' Te ha llegado una **dedicatoria** <:tierno:931433334960160799>\n\n<a:flech:931432469935312937> *Enviado por:*\n<a:corazones_fn:906775240795901982> **Anónimo**\n\n<a:fijadito:931432134797848607>\n```'+mensaje+'```\n')
           //.setImage(`https://media.discordapp.net/attachments/920564115355889674/920594418711543838/FinalVideo_1638643044.278044.gif?width=512&height=288`)
           .setColor('RANDOM')
           .setTimestamp(new Date())
           .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
 
-        if(anon === 's')
+        if(message.content.endsWith('-n'))
         {
           setTimeout(() => {
 
-            target.user.send({embeds: [embcartano]}).catch(err => message.reply("El receptor no acepta mensajes directos, por favor, contáctalo, para que pueda escribirle <a:facherita:881034171571646464>"))
+            target.user.send({embeds: [embcarta]}).catch(err => message.reply("El receptor no acepta mensajes directos, por favor, contáctalo, para que pueda escribirle <a:facherita:881034171571646464>"))
 
           }, tiempo * 60 * 1000)
 
@@ -5150,7 +5134,7 @@ client.on('messageCreate', async message => {
 
           setTimeout(() => {
 
-            target.user.send({embeds: [embcarta]}).catch(err => message.reply("El receptor no acepta mensajes directos, por favor, contáctalo, para que pueda escribirle <a:facherita:881034171571646464>"))
+            target.user.send({embeds: [embcartano]}).catch(err => message.reply("El receptor no acepta mensajes directos, por favor, contáctalo, para que pueda escribirle <a:facherita:881034171571646464>"))
 
           }, tiempo * 60 * 1000)
 
