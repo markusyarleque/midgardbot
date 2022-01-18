@@ -3905,7 +3905,7 @@ client.on('messageCreate', async message => {
         
     }
     
-    if(command === 'addrol'){
+    /*if(command === 'addrol'){
     
         let miembro = message.mentions.users.first();
         let nombrerol = args.slice(1).join(' ');
@@ -3941,7 +3941,7 @@ client.on('messageCreate', async message => {
         miembro.removeRole(role).catch(console.error);
         message.channel.send(`El rol **${role.name}** del miembro **${miembro.user.username}** fue removido  correctamente.`);
     
-    }
+    }*/
 
     if(command === 'lock'){
 
