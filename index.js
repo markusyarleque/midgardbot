@@ -592,15 +592,6 @@ client.on('messageCreate', async message => {
           });
         }
   
-        if (message.content === 'reven'){
-  
-          message.channel.send('𝐷𝑖𝑓𝑖́𝑐𝑖𝑙 𝑑𝑒𝑠𝑖𝑐𝑖𝑜́𝑛,𝑗𝑢𝑔𝑎𝑟 𝑐𝑜𝑛 𝑙𝑎 𝑝𝑒𝑙𝑜𝑡𝑎?\n𝑜 𝑐𝑜𝑛 𝑡𝑢 𝑐𝑜𝑟𝑎𝑧𝑜́𝑛 <a:sabroso:880695816497541180> ');
-        }
-        if (message.content === 'Reven'){
-  
-          message.channel.send('𝐷𝑖𝑓𝑖́𝑐𝑖𝑙 𝑑𝑒𝑠𝑖𝑐𝑖𝑜́𝑛,𝑗𝑢𝑔𝑎𝑟 𝑐𝑜𝑛 𝑙𝑎 𝑝𝑒𝑙𝑜𝑡𝑎?\n𝑜 𝑐𝑜𝑛 𝑡𝑢 𝑐𝑜𝑟𝑎𝑧𝑜́𝑛 <a:sabroso:880695816497541180> ');
-        }
-  
         let reven = new RegExp(`^<@!?${'710588969557164113'}>( |)$`);
   
         if (message.content.match(reven))
