@@ -5152,7 +5152,7 @@ client.on('messageCreate', async message => {
         heard='🤡';
         image='https://media.giphy.com/media/eYaRlI7BxVWvK/giphy.gif';
     
-      }else if(random = 100){
+      }else if(random === 100){
           
         heard='🚩';
         image='https://c.tenor.com/xV8ISXEKTOUAAAAC/exponiendo-infieles-badabun.gif';
@@ -5163,7 +5163,7 @@ client.on('messageCreate', async message => {
 
         if(message.author.id==='753435606410985573')
         {
-          const r = Math.floor(Math.random() * 11);
+          const r = Math.floor(Math.random() * 10 + 1);
           
           const embed = new Discord.MessageEmbed()
           .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
@@ -5191,7 +5191,7 @@ client.on('messageCreate', async message => {
 
         if(users.id==='753435606410985573')
         {
-          const r = Math.floor(Math.random() * 11);
+          const r = Math.floor(Math.random() * 10 + 1);
 
           const embed = new Discord.MessageEmbed()
           .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
@@ -5273,7 +5273,7 @@ client.on('messageCreate', async message => {
         heard='🤡';
         image='https://c.tenor.com/0qqmmIO-R6AAAAAd/excuse-me-excuse-you.gif';
     
-      }else if(random = 0){
+      }else if(random === 0){
           
         heard='🚩';
         image='https://thumbs.gfycat.com/FlusteredUnevenAfricanwildcat-size_restricted.gif';
@@ -5297,6 +5297,7 @@ client.on('messageCreate', async message => {
           .setTimestamp(new Date())
           .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] })
+
         } else {
 
           const embed = new Discord.MessageEmbed()
