@@ -3910,7 +3910,7 @@ client.on('messageCreate', async message => {
         let miembro = message.mentions.users.first();
         let nombrerol = args.slice(1).join(' ');
     
-        let role = message.guild.roles.cache.find('name', nombrerol);
+        let role = message.guild.roles.cache.find(n => n.name === nombrerol);
         let perms = message.member.permissions.has(Permissions.FLAGS.MANAGE_ROLES_OR_PERMISSIONS);
     
         if(!perms) return message.channel.send('`Error` `|` No tienes Permisos para usar este comando.');
@@ -3929,7 +3929,7 @@ client.on('messageCreate', async message => {
         let miembro = message.mentions.users.first();
         let nombrerol = args.slice(1).join(' ');
     
-        let role = message.guild.roles.cache.find('name', nombrerol);
+        let role = message.guild.roles.cache.find(n => n.name === nombrerol);
         let perms = message.member.permissions.has(Permissions.FLAGS.MANAGE_ROLES_OR_PERMISSIONS);
     
         if(!perms) return message.channel.send('`Error` `|` No tienes Permisos para usar este comando.');
