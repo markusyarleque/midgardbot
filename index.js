@@ -2862,7 +2862,7 @@ client.on('messageCreate', async message => {
 
     }
 
-    if(command === 'stats' || message.content.startsWith(bot)){
+    if(command === 'stats'){
 
         const embed = new Discord.MessageEmbed()
         .setThumbnail('https://media.giphy.com/media/3rgXBsmYd60rL3w7sc/giphy.gif')
@@ -2882,7 +2882,7 @@ client.on('messageCreate', async message => {
         
     }
 
-    if(command === 'mbservers' || message.content.startsWith(bot)){
+    if(command === 'mbservers'){
 
       const embed = new Discord.MessageEmbed()
         .setThumbnail('https://media.giphy.com/media/3rgXBsmYd60rL3w7sc/giphy.gif')
