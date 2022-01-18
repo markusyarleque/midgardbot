@@ -55,7 +55,7 @@ const sqlite3 = require('sqlite3'),
   
   client.db = await open({
 
-    filename:'./bd.db',
+    filename:'./DATABASES/bd.db',
     driver: sqlite3.Database
 
   })
@@ -2862,7 +2862,7 @@ client.on('messageCreate', async message => {
 
     }
 
-    if(command === 'stats'){
+    if(command === 'stats' || message.content.startsWith(bot)){
 
         const embed = new Discord.MessageEmbed()
         .setThumbnail('https://media.giphy.com/media/3rgXBsmYd60rL3w7sc/giphy.gif')
@@ -2880,6 +2880,21 @@ client.on('messageCreate', async message => {
             
         message.channel.send({ embeds: [embed] });
         
+    }
+
+    if(command === 'mbservers' || message.content.startsWith(bot)){
+
+      const embed = new Discord.MessageEmbed()
+        .setThumbnail('https://media.giphy.com/media/3rgXBsmYd60rL3w7sc/giphy.gif')
+        .setAuthor('MidgardBot', client.user.avatarURL())
+        .setTitle('Developers')
+        .setDescription('**Desarrollador:**\nMaltazard#1207\n\nActualmente estoy en: **'+client.guilds.cache.size+'** servers.\n\n**'+client.users.cache.size+'** usuarios usan mis comandos.\n\n**Servidores:**\n\n'+client.guilds.cache.map(r => r.name).join(". \n"))
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(`Malta's Bot`, `${message.author.displayAvatarURL()}`);
+            
+        message.channel.send({ embeds: [embed] });
+
     }
 
     //SERVER INFO
@@ -4972,7 +4987,7 @@ client.on('messageCreate', async message => {
         .setDescription(`<a:Verify2:931463492677017650> | **¿En serio crees que es infiel como tú?**...Los bots son los más leales!`)
       ]})
     
-      const random = Math.floor(Math.random() * 101);
+      const random = Math.floor(Math.random() * 100 + 1);
 
       let heard = '';
       let image = '';
@@ -5063,6 +5078,130 @@ client.on('messageCreate', async message => {
           .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
           .setTitle(`Nivel de Infidelidad`)
           .setDescription(`${users.username} es ${random}% infiel! ${heard}`)
+          .setImage(`${image}`)
+          .setColor('RANDOM')
+          .setTimestamp(new Date())
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          message.channel.send({ embeds: [embed] })
+          
+        }
+      }
+    }
+
+    if(command === 'berenjena'){
+
+      let users = message.mentions.users.first()
+
+      if(!users){
+
+        try {
+          
+          users = await client.users.fetch(args[0])
+
+        } catch (error) {
+
+          users = message.author
+          
+        }
+
+      }
+
+      if(users.bot) return message.channel.send({embeds: [
+        new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:931463492677017650> | **¿En serio quieres ver cuánto me mide?**...Los bots somos poderosos por algo! <a:ositovino:932917500218339379>`)
+      ]})
+    
+      const random = Math.floor(Math.random() * 20 + 1);
+
+      let heard = '';
+      let image = '';
+
+      if(random === 20){
+          
+        heard='😎';
+        image='https://c.tenor.com/_C2LQYYZSLYAAAAC/shocked-surprised.gif';
+    
+      } else if(random < 20 && random > 15){
+          
+        heard='😲';
+        image='https://c.tenor.com/2JAEiE6XJJwAAAAC/eugenio-dervez-eugenio.gif';
+    
+      } else if(random < 15 && random > 10){
+          
+        heard='🤨';
+        image='https://c.tenor.com/T4_6YgD60VgAAAAd/que-hombre-golosa.gif';
+    
+      }else if(random < 10 && random > 5){
+          
+        heard='😬';
+        image='https://c.tenor.com/vkliz2XrL0oAAAAC/boca-abierta-mono.gif';
+    
+      }else if(random < 5 && random > 0){
+          
+        heard='🤡';
+        image='https://c.tenor.com/0qqmmIO-R6AAAAAd/excuse-me-excuse-you.gif';
+    
+      }else if(random = 0){
+          
+        heard='🚩';
+        image='https://thumbs.gfycat.com/FlusteredUnevenAfricanwildcat-size_restricted.gif';
+    
+      }
+
+      if(!users || users.id === message.author.id){
+
+        if(message.author.id==='753435606410985573')
+        {
+
+          var rm = ['15','16','17','18','19','20']
+          const r = rm[Math.floor(Math.random()*rm.length)]
+          
+          const embed = new Discord.MessageEmbed()
+          .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
+          .setTitle(`¿Cuánto te mide? 🍆`)
+          .setDescription(`La berenjena de ${message.author.username} mide ${r} centímetros 😎`)
+          .setImage(`https://c.tenor.com/_C2LQYYZSLYAAAAC/shocked-surprised.gif`)
+          .setColor('RANDOM')
+          .setTimestamp(new Date())
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          message.channel.send({ embeds: [embed] })
+        } else {
+
+          const embed = new Discord.MessageEmbed()
+          .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
+          .setTitle(`¿Cuánto te mide? 🍆`)
+          .setDescription(`La berenjena de ${message.author.username} mide ${random} centímetros ${heard}`)
+          .setImage(`${image}`)
+          .setColor('RANDOM')
+          .setTimestamp(new Date())
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          message.channel.send({ embeds: [embed] })
+        }
+
+      } else {
+
+        if(users.id==='753435606410985573')
+        {
+          var rm = ['15','16','17','18','19','20']
+          const r = rm[Math.floor(Math.random()*rm.length)]
+          
+          const embed = new Discord.MessageEmbed()
+          .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
+          .setTitle(`¿Cuánto te mide? 🍆`)
+          .setDescription(`La berenjena de ${users.username} mide ${r} centímetros 😎`)
+          .setImage(`https://c.tenor.com/_C2LQYYZSLYAAAAC/shocked-surprised.gif`)
+          .setColor('RANDOM')
+          .setTimestamp(new Date())
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+          message.channel.send({ embeds: [embed] })
+        } else {
+
+          const embed = new Discord.MessageEmbed()
+          .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
+          .setTitle(`¿Cuánto te mide? 🍆`)
+          .setDescription(`La berenjena de ${users.username} mide ${random} centímetroos ${heard}`)
           .setImage(`${image}`)
           .setColor('RANDOM')
           .setTimestamp(new Date())
@@ -11952,7 +12091,7 @@ client.on('messageCreate', async message => {
     .setTimestamp(new Date())
     .setThumbnail('https://i.gifer.com/HqGV.gif')
     .setColor('RANDOM')
-    .setDescription('> **say**\n> Hace que el bot diga un mensaje.\n\n> **8ball**\n> El bot responderá a tus preguntas.\n\n> **roll**\n> Lanza un dado al azar.\n\n> **impostor**\n> Averigua quién es el impostor de este mundo.\n\n> **buscaminas**\n> Envía un tablero del clásico juego.\n\n> **ship**\n> Mide tu nivel de amor con un usuario mencionado.\n> Uso:\n> `' +prefix +'ship <@user>`\n\n> **meme**\n> Envía memes al azar.\n\n> **ttt**\n> Clásico Tic Tac Toe.\n> Uso:\n> `' +prefix +'ttt <@user>`\n\n> **infiel**\n> Descubre tu % de infidelidad.\n\n> **carta**\n> Envía una carta a un usuario con el mensaje que quieras.\n> Para más información ejecuta:\n> `' +prefix +'carta`\n\n> **rae**\n> Busca el significado de cualquier palabra.\n\n')
+    .setDescription('> **say**\n> Hace que el bot diga un mensaje.\n\n> **8ball**\n> El bot responderá a tus preguntas.\n\n> **roll**\n> Lanza un dado al azar.\n\n> **impostor**\n> Averigua quién es el impostor de este mundo.\n\n> **buscaminas**\n> Envía un tablero del clásico juego.\n\n> **ship**\n> Mide tu nivel de amor con un usuario mencionado.\n> Uso:\n> `' +prefix +'ship <@user>`\n\n> **meme**\n> Envía memes al azar.\n\n> **ttt**\n> Clásico Tic Tac Toe.\n> Uso:\n> `' +prefix +'ttt <@user>`\n\n> **infiel**\n> Descubre tu % de infidelidad.\n\n> **berenjena**\n> Descubre cuánto te mide 😈\n\n> **carta**\n> Envía una carta a un usuario con el mensaje que quieras.\n> Para más información ejecuta:\n> `' +prefix +'carta`\n\n> **rae**\n> Busca el significado de cualquier palabra.\n\n')
   
    const helpcbd = new Discord.MessageEmbed()
     .setTitle('• Comandos Exclusivos •')
