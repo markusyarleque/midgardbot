@@ -2900,7 +2900,7 @@ client.on('messageCreate', async message => {
         .setThumbnail('https://media.giphy.com/media/3rgXBsmYd60rL3w7sc/giphy.gif')
         .setAuthor('MidgardBot', client.user.avatarURL())
         .setTitle('Developers')
-        .setDescription('**Desarrollador:**\nMaltazard#1207\n\nActualmente estoy en **'+client.guilds.cache.size+'** servers.\n\n**'+client.users.cache.size+'** usuarios usan mis comandos.\n\n**Servidores:**\n\n> '+client.guilds.cache.map(r => r.name).join(". \n"))
+        .setDescription('**Desarrollador:**\nMaltazard#1207\n\nActualmente estoy en **'+client.guilds.cache.size+'** servers.\n\n**'+client.users.cache.size+'** usuarios usan mis comandos.\n\n**Servidores:**\n\n> '+client.guilds.cache.map(r => r.name).join(". \n> "))
         .setColor('RANDOM')
         .setTimestamp(new Date())
         .setFooter(`Malta's Bot`, `${message.author.displayAvatarURL()}`);
