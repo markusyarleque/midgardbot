@@ -50,18 +50,18 @@ db.run(crear, function(err) {
 const sqlite3 = require('sqlite3'),
 { open } = require('sqlite');
 
-
 (async()=>{
   
   client.db = await open({
 
-    filename:'./DATABASES/bd.db',
+    filename:'./Database/bd.db',
     driver: sqlite3.Database
 
   })
 
   await client.db.exec(`CREATE TABLE IF NOT EXISTS usuarios ('idusuario' TEXT NOT NULL, 'nivel' INTEGER DEFAULT 0, 'exp' INTEGER DEFAULT 0, 'marry' TEXT NO NULL, 'rep' INTEGER DEFAULT 0, 'pat' INTEGER DEFAULT 0, 'hug' INTEGER DEFAULT 0, 'sape' INTEGER DEFAULT 0, 'color' BLOB, 'frase' BLOB, 'foto' BLOB, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0, 'work' DATETIME,'crime' DATETIME, 'rob' DATETIME, 'daily' DATETIME, 'crep' DATETIME, 'ck' INTEGER DEFAULT 0)`)
   await client.db.exec(`CREATE TABLE IF NOT EXISTS kiss ('idkiss' INTEGER PRIMARY KEY AUTOINCREMENT, 'u1' TEXT NOT NULL, 'u2' TEXT NOT NULL, 'c' INTEGER DEFAULT 0)`)
+  await client.db.exec(`BACKUP DATABASE bd TO DISK = 'D:\backups\testDB.bak' WITH DIFFERENTIAL;`)
   
 })();
 
@@ -1542,7 +1542,7 @@ client.on('messageCreate', async message => {
           .setDescription(`<a:Verify2:931463492677017650> | No te puedes dar **rep** a ti mismo!`)
         ]})
   
-        if(usuario.bot)return message.channel.send({embeds: [
+        if(usuario.user.bot)return message.channel.send({embeds: [
           new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('RED')
@@ -2032,7 +2032,7 @@ client.on('messageCreate', async message => {
         .setDescription(`<a:Verify2:931463492677017650> | No te puedes robar a ti mismo!`)
       ]})
 
-      if(usuario.bot)return message.channel.send({embeds: [
+      if(usuario.user.bot)return message.channel.send({embeds: [
         new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
         .setColor('RED')
@@ -2548,7 +2548,7 @@ client.on('messageCreate', async message => {
 
       if(miembro){
 
-        if(miembro.bot)return message.channel.send({embeds: [
+        if(miembro.user.bot)return message.channel.send({embeds: [
           new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('RED')
@@ -2621,7 +2621,7 @@ client.on('messageCreate', async message => {
           new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | No puedes darle dinero a un bot!`)
+          .setDescription(`<a:Verify2:931463492677017650> | No puedes quitarle dinero a un bot!`)
         ]})
 
         let usuario1 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, miembro.id)
@@ -5492,7 +5492,7 @@ client.on('messageCreate', async message => {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             message.channel.send({ embeds: [embed] });
     
-        } else  if (img.user.bot) {
+        } else if (img.user.bot) {
 
           return message.channel.send({embeds: [
           new Discord.MessageEmbed()
@@ -8027,7 +8027,7 @@ client.on('messageCreate', async message => {
           .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
           message.channel.send({ embeds: [embed] });
     
-        } else if (img .user.bot){
+        } else if (img.user.bot){
           
           return message.channel.send({embeds: [
           new Discord.MessageEmbed()
