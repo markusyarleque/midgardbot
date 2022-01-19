@@ -54,7 +54,7 @@ const sqlite3 = require('sqlite3'),
   
   client.db = await open({
 
-    filename:'./Database/bd.db',
+    filename:'./DATABASES/bd.db',
     driver: sqlite3.Database
 
   })
