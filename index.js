@@ -61,10 +61,11 @@ const sqlite3 = require('sqlite3'),
 
   await client.db.exec(`CREATE TABLE IF NOT EXISTS usuarios ('idusuario' TEXT NOT NULL, 'nivel' INTEGER DEFAULT 0, 'exp' INTEGER DEFAULT 0, 'marry' TEXT NO NULL, 'rep' INTEGER DEFAULT 0, 'pat' INTEGER DEFAULT 0, 'hug' INTEGER DEFAULT 0, 'sape' INTEGER DEFAULT 0, 'color' BLOB, 'frase' BLOB, 'foto' BLOB, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0, 'work' DATETIME,'crime' DATETIME, 'rob' DATETIME, 'daily' DATETIME, 'crep' DATETIME, 'ck' INTEGER DEFAULT 0)`)
   await client.db.exec(`CREATE TABLE IF NOT EXISTS kiss ('idkiss' INTEGER PRIMARY KEY AUTOINCREMENT, 'u1' TEXT NOT NULL, 'u2' TEXT NOT NULL, 'c' INTEGER DEFAULT 0)`)
-  await client.db.exec(`BACKUP DATABASE bd TO DISK = 'D:\MaltaBot\db.bak' WITH DIFFERENTIAL;`)
   
 })();
 
+await client.db.exec(`BACKUP DATABASE bd TO DISK = 'D:\MaltaBot\db.bak' WITH DIFFERENTIAL;`)
+  
 
 const tresenraya = require('tresenraya');
 
