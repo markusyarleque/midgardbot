@@ -64,8 +64,9 @@ const sqlite3 = require('sqlite3'),
   
 })();
 
-await client.db.exec(`BACKUP DATABASE bd TO DISK = 'D:\MaltaBot\db.bak' WITH DIFFERENTIAL;`)
-  
+(async()=>{
+  await client.db.exec(`BACKUP DATABASE bd TO DISK = 'D:\MaltaBot\db.bak' WITH DIFFERENTIAL;`)
+})();
 
 const tresenraya = require('tresenraya');
 
