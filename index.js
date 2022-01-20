@@ -57,7 +57,7 @@ const sqlite3 = require('sqlite3'),
 
     client.db = await open({
 
-    filename:'Database/bd.sqlite3',
+    filename:'Database/bd.db',
     driver: sqlite3.Database
 
     })
@@ -805,8 +805,17 @@ client.on('messageCreate', async message => {
 
     if (!sentencia2){
 
-      await client.db.run(`INSERT INTO usuarios (idusuario, nivel, exp, marry, rep, color, frase, foto, dinero, banco, total) VALUES (?,?,?,?,?,?,?,?,?,?,?)`, id,'0','1',marry,'0',color,f,i,'0','0','0')
- 
+      try {
+        
+        await client.db.run(`INSERT INTO usuarios (idusuario, nivel, exp, marry, rep, color, frase, foto, dinero, banco, total) VALUES (?,?,?,?,?,?,?,?,?,?,?)`, id,'0','1',marry,'0',color,f,i,'0','0','0')
+        console.log('Datos insertados en la tabla usuarios para : '+id)
+        
+      } catch (error) {
+
+        console.log('Error al insertar datos para : '+id+' Error: '+error)
+
+      }
+      
     }
 
     if(!message.content.startsWith(process.env.PREFIX)) return;
@@ -2878,7 +2887,7 @@ client.on('messageCreate', async message => {
   
     }*/
 
-    
+
     // <-- CODIGO CMD SKIP (SALTAR): -->
 
     // <-- CODIGO CMD STOP (DETENER): -->
