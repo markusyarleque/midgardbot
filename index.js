@@ -55,7 +55,7 @@ const sqlite3 = require('sqlite3'),
   
   client.db = await open({
 
-    filename:'./DATABASES/bd.sqlite3',
+    filename:'DATABASES/bd.sqlite3',
     driver: sqlite3.Database
 
   })
@@ -2885,7 +2885,7 @@ client.on('messageCreate', async message => {
         .setThumbnail('https://media.giphy.com/media/3rgXBsmYd60rL3w7sc/giphy.gif')
         .setAuthor('MidgardBot', client.user.avatarURL())
         .setTitle('Estadísticas')
-        .addField('Desarrollador: ', 'Maltazard#1207')
+        .addField('Desarrollador: ', 'Maltazard#0610')
         .addField('Lenguaje: ', 'JavaScript')
         .addField(`Versión:`, `1.2.1`)
         .addField(`Librería:`, Discord.version)
@@ -2920,7 +2920,7 @@ client.on('messageCreate', async message => {
         .setThumbnail('https://media.giphy.com/media/3rgXBsmYd60rL3w7sc/giphy.gif')
         .setAuthor('MidgardBot', client.user.avatarURL())
         .setTitle('Developers')
-        .setDescription('**Desarrollador:**\nMaltazard#1207\n\nActualmente estoy en **'+client.guilds.cache.size+'** servers.\n\n**'+client.users.cache.size+'** usuarios usan mis comandos.\n\n**Servidores:**\n\n> '+client.guilds.cache.map(r => r.name).join(". \n> "))
+        .setDescription('**Desarrollador:**\nMaltazard#0610\n\nActualmente estoy en **'+client.guilds.cache.size+'** servers.\n\n**'+client.users.cache.size+'** usuarios usan mis comandos.\n\n**Servidores:**\n\n> '+client.guilds.cache.map(r => r.name).join(". \n> "))
         .setColor('RANDOM')
         .setTimestamp(new Date())
         .setFooter(`Malta's Bot`, `${message.author.displayAvatarURL()}`);
