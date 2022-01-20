@@ -53,16 +53,22 @@ const sqlite3 = require('sqlite3'),
 
 (async()=>{
   
-  client.db = await open({
+  try {
+    
+    client.db = await open({
 
     filename:'DATABASES/bd.db',
     driver: sqlite3.Database
 
-  }).then(() => {
-  console.log('Archivo creado correctamente')
-  }).catch((e) => {
-  console.log('Error al crear archivo: '+e)
-  });
+    })
+    
+    console.log('Archivo creado correctamente')
+  
+  } catch (error) {
+
+    console.log('Error al crear archivo: '+error)
+  
+  }
 
   try {
 
