@@ -3015,7 +3015,6 @@ client.on('messageCreate', async message => {
               
             } else if (int.customId === "deny") {
               
-               // Editamos el mensaje y quitamos los botones.
               m.edit({
                 embeds: [
                   new Discord.MessageEmbed()
