@@ -54,10 +54,10 @@ const sqlite3 = require('sqlite3'),
 (async()=>{
   
   try {
-    
+
     client.db = await open({
 
-    filename:'DATABASES/bd.db',
+    filename:'Database/bd.db',
     driver: sqlite3.Database
 
     })
