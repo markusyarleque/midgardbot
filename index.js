@@ -68,7 +68,7 @@ const sqlite3 = require('sqlite3'),
 
 const mongoose = require ('mongoose');
 
-mongoose.connect('',{
+mongoose.connect('mongodb+srv://maltabot69:m.y@r!3qu3&2o22#drako@cluster0.ggzaa.mongodb.net/MidgardBotDB?retryWrites=true&w=majority',{
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {
