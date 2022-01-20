@@ -2882,7 +2882,7 @@ client.on('messageCreate', async message => {
 
         const embed = new Discord.MessageEmbed()
         .setThumbnail('https://media.giphy.com/media/3rgXBsmYd60rL3w7sc/giphy.gif')
-        .setAuthor('MidgardBot', client.user.displayAvatarURL({ size: '1024', format: 'png' }))
+        .setAuthor('MidgardBot', client.user.avatarURL())
         .setTitle('Estadísticas')
         .addField('Desarrollador: ', 'Maltazard#1207')
         .addField('Lenguaje: ', 'JavaScript')
