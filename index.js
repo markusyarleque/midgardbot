@@ -2878,6 +2878,7 @@ client.on('messageCreate', async message => {
   
     }*/
 
+    
     // <-- CODIGO CMD SKIP (SALTAR): -->
 
     // <-- CODIGO CMD STOP (DETENER): -->
