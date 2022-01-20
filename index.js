@@ -64,6 +64,21 @@ const sqlite3 = require('sqlite3'),
   
 })();
 
+// ----- MONGODB -----
+
+const mongoose = require ('mongoose');
+
+mongoose.connect('',{
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => {
+  console.log('Conectado exitosamente a MongoDB');
+}).catch((e) => {
+  console.log('Error al conectar: '+e);
+});
+
+// ----- ******* -----
+
 const tresenraya = require('tresenraya');
 
 // const Canvas = require('canvas')
