@@ -27,7 +27,8 @@ const neko = new clientN();
 
 const star = require('star-labs')
 
-const moment = require("moment")
+const moment = require('moment');
+require('moment-duration-format');
 
 const dbv = require('megadb');
 // const db_marry = new dbv.crearDB('marry');
@@ -2877,16 +2878,21 @@ client.on('messageCreate', async message => {
 
     if(command === 'stats'){
 
+      const actividad = moment.duration(client.uptime).format(' D [dias], H [hrs], m [mins], s [secs]');
+
         const embed = new Discord.MessageEmbed()
         .setThumbnail('https://media.giphy.com/media/3rgXBsmYd60rL3w7sc/giphy.gif')
-        .setAuthor('MidgardBot', client.user.avatarURL())
+        .setAuthor('MidgardBot', client.user.displayAvatarURL({ size: '1024', format: 'png' }))
         .setTitle('Estadísticas')
         .addField('Desarrollador: ', 'Maltazard#1207')
+        .addField('Lenguaje: ', 'JavaScript')
+        .addField(`Versión:`, `1.2.1`)
+        .addField(`Librería:`, Discord.version)
+        .addField('RAM: ', ` ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`)
+        .addField(`Actividad:`, `${actividad}`)
         .addField('Servidores: ', `${client.guilds.cache.size}`)
         .addField('Usuarios: ', ` ${client.users.cache.size}`)
-        .addField('Ram: ', ` ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`)
-        .addField('Lenguaje: ', 'JavaScript')
-        .addField('Libreria', 'Discord.js v13.3.0')
+        .addField(`Canales`, `${client.channels.cache.size}`)
         .setColor('RANDOM')
         .setTimestamp(new Date())
         .setFooter(`Malta's Bot`, `${message.author.displayAvatarURL()}`);
@@ -4264,17 +4270,17 @@ client.on('messageCreate', async message => {
       
       if (message.guild.members.resolve(user.id)){
 
-        if (message.member.roles.highest.comparePositionTo(user.roles) <= 0) {
-
-          embed.setDescription('`Error` `|` No puedes banear a un usuario con mayor o igual rango que tú.')
+        if (!user.bannable) {
+          
+          embed.setDescription('`Error` `|` No puedo banear a este usuario')
           embed.setColor('RED')
           return message.channel.send({embeds: [embed] }).then(m => setTimeout(() => m.delete(), 5000))
 
         }
-        
-        if (!user.bannable) {
-          
-          embed.setDescription('`Error` `|` No puedo banear a este usuario')
+
+        if (user.roles.highest.comparePositionTo(message.member.roles.highest) > 0) {
+
+          embed.setDescription('`Error` `|` No puedes banear a un usuario con mayor o igual rango que tú.')
           embed.setColor('RED')
           return message.channel.send({embeds: [embed] }).then(m => setTimeout(() => m.delete(), 5000))
 
@@ -4312,7 +4318,8 @@ client.on('messageCreate', async message => {
             
           if (int.customId === "accept") {
               
-            message.guild.members.ban(user.id, { reason: razon });
+            message.guild.members.ban(user.id, { reason: razon, Baneado por message.author.tag })
+              .catch((e) => message.reply('Ocurrió un **error** desconocido: '+e))
             m.edit({
 
               embeds: [embed
