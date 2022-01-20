@@ -2878,7 +2878,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'stats'){
 
-      const actividad = moment.duration(client.uptime).format(' D [dias], H [hrs], m [mins], s [secs]');
+      const actividad = moment.duration(client.uptime).format(' D [dias], H [hrs], m [mins], s [segs]');
 
         const embed = new Discord.MessageEmbed()
         .setThumbnail('https://media.giphy.com/media/3rgXBsmYd60rL3w7sc/giphy.gif')
