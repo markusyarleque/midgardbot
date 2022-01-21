@@ -36,11 +36,17 @@ const vip = new dbv.crearDB('vip');
 const bl = new dbv.crearDB('blacklist');
 const fs = require('fs');
 
-/*const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database("./bd.sqlite");
+const sqlite3 = require('sqlite3').verbose();
+
+/*const db = new sqlite3.Database("./bdmidgard.sqlite3",sqlite3.OPEN_READWRITE, (err) => {
+  
+  if(err) return console.error(err.message);
+
+  console.log('Conectado a SQLite exitosamente')
+});*/
 
 
-<-- CREATE TABLE USUARIO -->
+/*<-- CREATE TABLE USUARIO -->
   
 let crear = "CREATE TABLE IF NOT EXISTS usuarios (idusuario TEXT, nivel INTEGER, exp INTEGER, rep INTEGER, frase BLOB, foto BLOB)"
 
@@ -57,7 +63,7 @@ const sqlite3 = require('sqlite3'),
 
     client.db = await open({
 
-    filename: 'Database\bdmidgard.sqlite3',
+    filename: './Database/bdmidgard.sqlite3',
     driver: sqlite3.Database
 
     })
@@ -1151,6 +1157,8 @@ client.on('messageCreate', async message => {
       if(!args[0]){
 
         let lista = await client.db.all(`SELECT idusuario, total FROM usuarios ORDER BY total DESC LIMIT 10`)
+
+        console.log('Lista de top cash: '+ lista)
 
         if(!lista) return message.channel.send({embeds:[
           new Discord.MessageEmbed()
