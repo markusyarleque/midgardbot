@@ -3209,7 +3209,7 @@ client.on('messageCreate', async message => {
     if(command === 'pruebabot'){
 
       message.channel.send('Lo hiciste bien')
-      
+
     }
 
     //COMANDOS DE UTILIDAD
@@ -8246,7 +8246,7 @@ client.on('messageCreate', async message => {
 
     //COMANDOS DE KARAOKE
 
-    const embed = new Discord.MessageEmbed()
+    const embedk = new Discord.MessageEmbed()
   .setThumbnail('https://prodimages.everythingneon.com/giant/l100-0250-karaoke-logo-led-sign.gif')
   .setAuthor(`Midgard's Karaoke`,message.guild.iconURL({ dynamic: true }))
   .setTitle('Lista de participantes <a:corazonBlack_FD:880526799736557679>')
