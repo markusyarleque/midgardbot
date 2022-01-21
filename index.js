@@ -3206,6 +3206,12 @@ client.on('messageCreate', async message => {
       // message.channel.send({ content: 'Pong!', components: [ { components : [row], type: 1}] })
     }
 
+    if(command === 'pruebabot'){
+
+      message.channel.send('Lo hiciste bien')
+      
+    }
+
     //COMANDOS DE UTILIDAD
 
     if(command === 'user'){
