@@ -233,11 +233,15 @@ client.on('messageDelete', async (message) => {
 
 
     let sv = client.guilds.cache.get('851924635930329098')
-    let channel = sv.channels.cache.get('880280265216389140')
+    let channel = sv.channels.cache.get('933903109305028688')
 
+    if(message.content.length>=1000) return channel.send('El mensaje eliminado en el canal: <#'+message.channel.id+'> es demasiado largo. Ha sido enviado  por: '+message.author)
+  
     const embed = new Discord.MessageEmbed()
     .setAuthor('MaltaBot', client.user.avatarURL())
+    .setThumbnail(message.guild.iconURL({ dynamic: true }))
     .setTitle('📢 | Mensajes Borrados')
+    .addField('Servidor: ', `<a:flech:931432469935312937> ${message.guild.name}`)
     .addField('Canal: ', `<a:flech:931432469935312937> <#${message.channel.id}>`)
     .addField('Autor: ', `<a:flech:931432469935312937> ${message.author}`)
     .addField('Mensaje: ', message.content ? message.content: 'Ningún mensaje registrado')
@@ -291,404 +295,264 @@ client.on('messageCreate', async message => {
   
     }
   
-    if(message.channel.id==='880290686107275304')
-    {
+    let sv = client.guilds.cache.get('851924635930329098')
+    let channel
+    let idcanal = message.channel.id
 
-      let sv = client.guilds.cache.get('851924635930329098')
-      let channel = sv.channels.cache.get('880267684950999050')
+    const em = new Discord.MessageEmbed()
+    .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
+    .setAuthor('MaltaBot', client.user.avatarURL())
+    .setTitle('📢 | Mensaje Enviado')
+    .addField('Canal: ', `<a:flech:931432469935312937> <#${idcanal}>`)
+    .addField('Autor: ', `<a:flech:931432469935312937> ${message.author}`)
+    .addField('Mensaje: ', message.content ? message.content: 'Ningún mensaje registrado')
+    .setColor('RANDOM')
+    .setTimestamp(new Date())
+    .setFooter(`Id: ${message.author.id}`, `${message.author.displayAvatarURL()}`)
 
-      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en alto cargo por: '+message.author)
-  
-      const embed = new Discord.MessageEmbed()
-      .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
-      .setAuthor('MaltaBot', client.user.avatarURL())
-      .setTitle('📢 | Mensaje Enviado1')
-      .addField('Canal: ', `<a:flech:931432469935312937> <#${message.channel.id}>`)
-      .addField('Autor: ', `<a:flech:931432469935312937> ${message.author}`)
-      .addField('Mensaje: ', message.content ? message.content: 'Ningún mensaje registrado')
-      .setColor('RANDOM')
-      .setTimestamp(new Date())
-      .setFooter(`Id: ${message.author.id}`, `${message.author.displayAvatarURL()}`)
-      
-      channel.send({ embeds: [embed] });
-  
-    } else if(message.channel.id==='880292291443556383')
+    if(idcanal === '880290686107275304')
     {
-      
-      let sv = client.guilds.cache.get('851924635930329098')
-      let channel = sv.channels.cache.get('880280405993996339')
-  
-      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en élite por: '+message.author)
-  
-      const embed = new Discord.MessageEmbed()
-      .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
-      .setAuthor('MaltaBot', client.user.avatarURL())
-      .setTitle('📢 | Mensaje Enviado2')
-      .addField('Canal: ', `<a:flech:931432469935312937> <#${message.channel.id}>`)
-      .addField('Autor: ', `<a:flech:931432469935312937> ${message.author}`)
-      .addField('Mensaje: ', message.content ? message.content: 'Ningún mensaje registrado')
-      .setColor('RANDOM')
-      .setTimestamp(new Date())
-      .setFooter(`Id: ${message.author.id}`, `${message.author.displayAvatarURL()}`)
-      
-      channel.send({ embeds: [embed] });
-  
-    } else if(message.channel.id==='840161683732693033')
-    {
+      channel = sv.channels.cache.get('880267684950999050')
 
-      let sv = client.guilds.cache.get('851924635930329098')
-      let channel = sv.channels.cache.get('880280308732272640')
-  
-      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en staff por: '+message.author)
-  
-      const embed = new Discord.MessageEmbed()
-      .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
-      .setAuthor('MaltaBot', client.user.avatarURL())
-      .setTitle('📢 | Mensaje Enviado3')
-      .addField('Canal: ', `<a:flech:931432469935312937> <#${message.channel.id}>`)
-      .addField('Autor: ', `<a:flech:931432469935312937> ${message.author}`)
-      .addField('Mensaje: ', message.content ? message.content: 'Ningún mensaje registrado')
-      .setColor('RANDOM')
-      .setTimestamp(new Date())
-      .setFooter(`Id: ${message.author.id}`, `${message.author.displayAvatarURL()}`)
-      
-      channel.send({ embeds: [embed] });
-  
-    } else if(message.channel.id==='909722451745837106')
-    {
+      if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en alto cargo por: '+message.author)
 
-      let sv = client.guilds.cache.get('851924635930329098')
-      let channel = sv.channels.cache.get('880280346208395305')
+      channel.send({ embeds: [em] });
   
-      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en admin por: '+message.author)
-  
-      const embed = new Discord.MessageEmbed()
-      .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
-      .setAuthor('MaltaBot', client.user.avatarURL())
-      .setTitle('📢 | Mensaje Enviado4')
-      .addField('Canal: ', `<a:flech:931432469935312937> <#${message.channel.id}>`)
-      .addField('Autor: ', `<a:flech:931432469935312937> ${message.author}`)
-      .addField('Mensaje: ', message.content ? message.content: 'Ningún mensaje registrado')
-      .setColor('RANDOM')
-      .setTimestamp(new Date())
-      .setFooter(`Id: ${message.author.id}`, `${message.author.displayAvatarURL()}`)
-      
-      channel.send({ embeds: [embed] });
-  
-    } else if(message.channel.id==='870195067338506271')
+    } else if(idcanal === '880292291443556383')
     {
+      channel = sv.channels.cache.get('880280405993996339')
+  
+      if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en élite por: '+message.author)
       
-      let sv = client.guilds.cache.get('851924635930329098')
-      let channel = sv.channels.cache.get('880280535304372234')
+      channel.send({ embeds: [em] });
   
-      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en chat general por: '+message.author)
-  
-      const embed = new Discord.MessageEmbed()
-      .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
-      .setAuthor('MaltaBot', client.user.avatarURL())
-      .setTitle('📢 | Mensaje Enviado5')
-      .addField('Canal: ', `<a:flech:931432469935312937> <#${message.channel.id}>`)
-      .addField('Autor: ', `<a:flech:931432469935312937> ${message.author}`)
-      .addField('Mensaje: ', message.content ? message.content: 'Ningún mensaje registrado')
-      .setColor('RANDOM')
-      .setTimestamp(new Date())
-      .setFooter(`Id: ${message.author.id}`, `${message.author.displayAvatarURL()}`)
-      
-      channel.send({ embeds: [embed] });
-  
-    } else if(message.channel.id==='880384504240422972')
+    } else if(idcanal === '840161683732693033')
     {
-      
-      let sv = client.guilds.cache.get('851924635930329098')
-      let channel = sv.channels.cache.get('880280557051858974')
+      channel = sv.channels.cache.get('880280308732272640')
   
-      if(message.content.length>=1000) return channel.send('Mensaje demasiado largo, enviado en chat solteroskis por: '+message.author)
+      if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en staff por: '+message.author)
   
-      const embed = new Discord.MessageEmbed()
-      .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
-      .setAuthor('MaltaBot', client.user.avatarURL())
-      .setTitle('📢 | Mensaje Enviado6')
-      .addField('Canal: ', `<a:flech:931432469935312937> <#${message.channel.id}>`)
-      .addField('Autor: ', `<a:flech:931432469935312937> ${message.author}`)
-      .addField('Mensaje: ', message.content ? message.content: 'Ningún mensaje registrado')
-      .setColor('RANDOM')
-      .setTimestamp(new Date())
-      .setFooter(`Id: ${message.author.id}`, `${message.author.displayAvatarURL()}`)
+      channel.send({ embeds: [em] });
+  
+    } else if(idcanal === '923716261542781018')
+    {
+      channel = sv.channels.cache.get('933917185695428628')
+  
+      if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en supervisores por: '+message.author)
+  
+      channel.send({ embeds: [em] });
+
+    } else if(idcanal === '909722451745837106')
+    {
+      channel = sv.channels.cache.get('880280346208395305')
+  
+      if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en admin por: '+message.author)
+  
+      channel.send({ embeds: [em] });
+  
+    } else if(idcanal === '870195067338506271')
+    {
+      channel = sv.channels.cache.get('880280535304372234')
+  
+      if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en chat general por: '+message.author)
       
-      channel.send({ embeds: [embed] });
+      channel.send({ embeds: [em] });
   
     } else
     {
-      
-      let sv = client.guilds.cache.get('851924635930329098')
-      let channel = sv.channels.cache.get('880280265216389140')
-  
-      if(message.content.length>=1000) return channel.send(`Mensaje demasiado largo, enviado en <#${message.channel.id}> por: `+message.author)
-  
-      const embed = new Discord.MessageEmbed()
-      .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
-      .setAuthor('MaltaBot', client.user.avatarURL())
-      .setTitle('📢 | Mensaje Enviado7')
-      .addField('Canal: ', `<a:flech:931432469935312937> <#${message.channel.id}>`)
-      .addField('Autor: ', `<a:flech:931432469935312937> ${message.author}`)
-      .addField('Mensaje: ', message.content ? message.content: 'Ningún mensaje registrado')
-      .setColor('RANDOM')
-      .setTimestamp(new Date())
-      .setFooter(`Id: ${message.author.id}`, `${message.author.displayAvatarURL()}`)
-      
-      channel.send({ embeds: [embed] });
+      var canalrestringidos = [
+        '880280265216389140','880267684950999050',
+        '880280405993996339', '880280308732272640',
+        '880280346208395305', '880280369126051861',
+        '880280535304372234', '880280557051858974',
+        '933903109305028688', '933917185695428628'
+      ]
+
+      if(!canalrestringidos.some(id => idcanal == id))
+      {
+        channel = sv.channels.cache.get('880280265216389140')
+    
+        if(message.content.length>=1000) return channel.send(`Mensaje demasiado largo, enviado en <#${idcanal}> por: `+message.author)
+    
+        channel.send({ embeds: [embed] });
+
+      } else {
+        return
+      }
   
     }
   
     if (message.author.bot) return;
   
-      if (message.content === 'Hola'){
+      if (message.content === 'Hola' || message.content === 'hola' || message.content === 'Holas' || message.content === 'holas'){
         
-          message.channel.send('Hola '+message.author.username+', cómo va tu día?');
-        }
-        if (message.content === 'hola'){
-          //Si escribiera Hola, nos contestará con un mensaje 
-          message.channel.send('Hola '+message.author.username+', cómo va tu día?');
-        }
-        if (message.content === 'ola'){
-          //Si escribiera Hola, nos contestará con un mensaje personalizado
-          message.channel.send('del mar 🌊');
-        }
-        if (message.content === 'Ola'){
-          //Si escribiera Hola, nos contestará con un mensaje personalizado
-          message.channel.send('del mar 🌊');
-        }
-      
-        if (message.content === 'Holas'){
-          //Si escribiera Hola, nos contestará con un mensaje personalizado
-          message.channel.send('Hola '+message.author.username+', cómo va tu día?');
-        }
-        if (message.content === 'holas'){
-          //Si escribiera Hola, nos contestará con un mensaje personalizado
-          message.channel.send('Hola '+message.author.username+', cómo va tu día?');
-        }
-        if (message.content === 'olas'){
-          //Si escribiera Hola, nos contestará con un mensaje personalizado
-          message.channel.send('del mar 🌊');
-        }
-        if (message.content === 'Olas'){
-          //Si escribiera Hola, nos contestará con un mensaje personalizado
-          message.channel.send('del mar 🌊');
-        }
-      
-        if (message.content === 'Buen día'){
-          //Si escribiera Buenos días, nos contestará con un mensaje personalizado
-          message.channel.send('Buen día precios@ ❤');
-        }
-        if (message.content === 'buen día'){
-          //
-          message.channel.send('Buen día precios@ ❤');
-        }
-      
-        if (message.content === 'Buenos días'){
-          //Si escribiera Buenos días, nos contestará con un mensaje personalizado
-          message.channel.send('Buen día precios@ ❤');
-        }
-        if (message.content === 'buenos días'){
-          //Si escribiera Buenos días, nos contestará con un mensaje personalizado
-          message.channel.send('Buen día precios@ ❤');
-        }
-        if (message.content === 'Buenos dias'){
-          //Si escribiera Buenos días, nos contestará con un mensaje personalizado
-          message.channel.send('Buen día precios@ ❤');
-        }
-        if (message.content === 'buenos dias'){
-          //Si escribiera Buenos días, nos contestará con un mensaje personalizado
-          message.channel.send('Buen día precios@ ❤');
-        }
-      
-        if (message.content === 'Buenas tardes'){
-          //Si escribiera Buenos días, nos contestará con un men
-          message.channel.send('Buenas tardes precios@ ❤');
-        }
-        if (message.content === 'buenas tardes'){
-          //Si escribiera Buenos días, nos contestará con un mensaje personalizado
-          message.channel.send('Buenas tardes precios@ ❤');
-        }
-      
-        if (message.content === 'Buenas noches'){
-          //Si escribiera Buenos días, nos contestará con un mensaje personalizado
-          message.channel.send('Buenas noches precios@ ❤');
-        }
-        if (message.content === 'buenas noches'){
-          //Si escribiera Buenos días, nos contestará con un mensaje personalizado
-          message.channel.send('Buenas noches precios@ ❤');
-        }
-      
-        if (message.content === 'Buenas'){
-          //Si escribiera Buenos días, nos contestará con un mensaje personalizado
-          message.channel.send('Las tienes <a:perreom:930719549131735040>');
-          //message.react(`<a:pasito:877116925291946094>`)
-          //message.react(`<a:perreom:930719549131735040>`)
-        }
-        if (message.content === 'Wenas'){
-          //Si escribiera Buenos días, nos contestará con un mensaje personalizado
-          message.channel.send('Las tienes <a:perreom:930719549131735040>');
-          //message.react(`<a:pasito:877116925291946094>`)
-          //message.react(`<a:perreom:930719549131735040>`)
-        }
-        if (message.content === 'buenas'){
-          //Si escribiera Buenos días, nos contestará con un mensaje personalizado
-          message.channel.send('Las tienes <a:perreom:930719549131735040>');
-          //message.react(`<a:pasito:877116925291946094>`)
-          //message.react(`<a:perreom:930719549131735040>`)
-        }
-        if (message.content === 'wenas'){
-          //Si escribiera Buenos días, nos contestará con un mensaje personalizado
-          message.channel.send('Las tienes <a:perreom:930719549131735040>');
-          //message.react(`<a:pasito:877116925291946094>`)
-          //message.react(`<a:perreom:930719549131735040>`)
-        }
-        if (message.content === 'wlc'){
-          //Si escribiera Buenos días, nos contestará con un mensaje personalizado
-          message.react(`<a:pasito:877116925291946094>`)
-          message.react(`<a:cerveza:880635824021065738>`)
-        }
-        if (message.content === 'welcome'){
-          //Si escribiera Buenos días, nos contestará con un mensaje perso
-          message.react(`<a:pasito:877116925291946094>`)
-          message.react(`<a:cerveza:880635824021065738>`)
-        }
-        if (message.content === 'Wlc'){
-          //Si escribiera Buenos días, nos contestará con un mensaje personalizado
-          message.react(`<a:pasito:877116925291946094>`)
-          message.react(`<a:cerveza:880635824021065738>`)
-        }
-        if (message.content === 'Welcome'){
-          //Si escribiera Buenos días, nos contestará con un mensaje personalizado
-          message.react(`<a:pasito:877116925291946094>`)
-          message.react(`<a:cerveza:880635824021065738>`)
-        }
-  
-        let img = '753435606410985573'
+        message.channel.send('Hola '+message.author.username+', cómo va tu día?')
 
-        const bSi = new MessageButton()
-          .setCustomId("accept")
-          .setLabel("SI")
-          .setStyle("SUCCESS")
+      }
+      if (message.content === 'ola' || message.content === 'Ola' || message.content === 'olas' || message.content === 'Olas'){
 
-        const bNo = new MessageButton()
-          .setCustomId("deny")
-          .setLabel("NO")
-          .setStyle("DANGER")
+        message.channel.send('del mar 🌊')
+
+      }
+      if (message.content === 'Buen día' || message.content === 'buen día' || message.content === 'Buen dia' || message.content === 'buen dia'){
+        
+        message.channel.send('Buen día precios@ ❤');
+        
+      }
+      if (message.content === 'Buenos días' || message.content === 'buenos días' || message.content === 'Buenos dias' || message.content === 'buenos dias'){
+        
+        message.channel.send('Buenos días precios@ ❤');
+        
+      }
+      if (message.content === 'Buenas tardes' || message.content === 'buenas tardes'){
+        
+        message.channel.send('Buenas tardes precios@ ❤');
+        
+      }
+      if (message.content === 'Buenas noches' || message.content === 'buenas noches'){
+        
+        message.channel.send('Buenas noches precios@ ❤');
+        
+      }
+      if (message.content === 'Buenas' || message.content === 'Wenas' || message.content === 'buenas' || message.content === 'wenas'){
+          
+        message.channel.send('Las tienes <a:perreom:930719549131735040>');
+
+      }
+      if (message.content === 'wlc' || message.content === 'Wlc' || message.content === 'welcome' || message.content === 'Welcome'){
+        
+        message.react(`<a:pasito:877116925291946094>`)
+        message.react(`<a:cerveza:880635824021065738>`)
+        
+      }
+
+      let img = '753435606410985573'
+
+      const bSi = new MessageButton()
+        .setCustomId("accept")
+        .setLabel("SI")
+        .setStyle("SUCCESS")
+
+      const bNo = new MessageButton()
+        .setCustomId("deny")
+        .setLabel("NO")
+        .setStyle("DANGER")
   
-        if (message.content === 'malta' || message.content === 'Malta' || message.content === 'MALTA' || message.content === 'MAlta' || message.content === 'maltazar' || message.content === 'Maltazar' || message.content === 'MALTAZAR' || message.content === 'MAltazar' || message.content === 'maltazard' || message.content === 'Maltazard' || message.content === 'MALTAZARD' || message.content === 'MAltazard')
-        {
-          if(bl.tiene(message.author.id)) return;
+      if (message.content === 'malta' || message.content === 'Malta' || message.content === 'MALTA' || message.content === 'MAlta' || message.content === 'maltazar' || message.content === 'Maltazar' || message.content === 'MALTAZAR' || message.content === 'MAltazar' || message.content === 'maltazard' || message.content === 'Maltazard' || message.content === 'MALTAZARD' || message.content === 'MAltazard')
+      {
+        if(bl.tiene(message.author.id)) return;
   
-          message.channel.send({
-            content: message.author.toString() + "¿Deseas contactar a Malta?",
-            components: [
+        message.channel.send({
+          content: message.author.toString() + "¿Deseas contactar a Malta?",
+          components: [
               /* Botones para aceptar y rechazar el juego */
-              new MessageActionRow().addComponents([bSi,bNo])
-            ]
-          }).then(async m => {
+            new MessageActionRow().addComponents([bSi,bNo])
+          ]
+        }).then(async m => {
           
             /* Creamos un collector de componentes para detectar lainteracción con los botones */
             
-            let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
+          let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
            
-            const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 300000 /* Tiempo para que el miembro interatue con los botones */ });
-            
-            
-            collector.on("collect", async int => {
+          const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 300000 /* Tiempo para que el miembro interatue con los botones */ });
+          
+          collector.on("collect", async int => {
               
               /* Cuando el miembro mencionado de click en un boton */
               
-              int.deferUpdate();
+            int.deferUpdate();
               
               /* Si dio click en el boton aceptar ... */
               
-              if (int.customId === "accept") {
+            if (int.customId === "accept") {
                 
-                m.edit({
-                  content: `<@${img}> Te buscan por aquí <:yonofui:931433119859503194>`,
-                  components: []
-                });
-      
-                
-              } else if (int.customId === "deny") {
+              m.edit({
+                content: `<@${img}> Te buscan por aquí <:yonofui:931433119859503194>`,
+                components: []
+              });
+       
+            } else if (int.customId === "deny") {
                 
                  // Editamos el mensaje y quitamos los botones.
-                m.edit({
-                  content: "Gracias, si necesitas algo, no dudes en contactarme. <:tierno:931433334960160799>",
-                  components: []
-                });
-              
-              }
-            });
-      
-            collector.on("end", colected => {
-              /* Si no dio click en ningun boton durante los 60s ...*/
-              
-              if(colected.size < 1) return m.edit({
-                content: "**¡No confirmaste a tiempo!** <:enojado:931434000751394867>",
+              m.edit({
+                content: "Gracias, si necesitas algo, no dudes en contactarme. <:tierno:931433334960160799>",
                 components: []
               });
               
-            });
-            
+            }
           });
-        }
+      
+          collector.on("end", colected => {
+              /* Si no dio click en ningun boton durante los 60s ...*/
+              
+            if(colected.size < 1) return m.edit({
+              content: "**¡No confirmaste a tiempo!** <:enojado:931434000751394867>",
+              components: []
+            });
+              
+          });
+            
+        });
+      }
   
-        let reven = new RegExp(`^<@!?${'710588969557164113'}>( |)$`);
+      let reven = new RegExp(`^<@!?${'710588969557164113'}>( |)$`);
   
-        if (message.content.match(reven))
-        {
+      if (message.content.match(reven))
+      {
   
-          message.channel.send(`𝑬𝒍 𝒖́𝒍𝒕𝒊𝒎𝒐 𝒇𝒊𝒆𝒍 𝒒𝒖𝒆 𝒒𝒖𝒆𝒅𝒂 𝒆𝒏 𝒆𝒔𝒕𝒆 𝒎𝒖𝒏𝒅𝒐 <a:FuegoRojo:882761255381790750>`)
+        message.channel.send(`𝑬𝒍 𝒖́𝒍𝒕𝒊𝒎𝒐 𝒇𝒊𝒆𝒍 𝒒𝒖𝒆 𝒒𝒖𝒆𝒅𝒂 𝒆𝒏 𝒆𝒔𝒕𝒆 𝒎𝒖𝒏𝒅𝒐 <a:FuegoRojo:882761255381790750>`)
   
-        }
+      }
   
-        let malta = new RegExp(`^<@!?${'753435606410985573'}>( |)$`);
+      let malta = new RegExp(`^<@!?${'753435606410985573'}>( |)$`);
   
-        if (message.content.match(malta))
-        {
-          if(bl.tiene(message.author.id)) return;
-          message.channel.send(`¿Qué necesitas de mi dueño? <a:ositovino:880306728867078165>`)
+      if (message.content.match(malta))
+      {
+        
+        if(bl.tiene(message.author.id)) return;
+        message.channel.send(`¿Qué necesitas de mi dueño? <a:ositovino:880306728867078165>`)
   
-        }
+      }
 
-        let ian = new RegExp(`^<@!?${'603344396351438889'}>( |)$`);
+      let ian = new RegExp(`^<@!?${'603344396351438889'}>( |)$`);
   
-        if (message.content.match(ian))
-        {
-          if(bl.tiene(message.author.id)) return;
-          message.channel.send(`<a:megaphone:932192877449191424> Alo? Tierra llamando al **argentino con más flow** <a:darkcrown2:886466286773739530>, Ian en camino bebé <a:bmirusboyrunfast:880411644893724672>`)
+      if (message.content.match(ian))
+      {
+        
+        if(bl.tiene(message.author.id)) return;
+        message.channel.send(`<a:megaphone:932192877449191424> Alo? Tierra llamando al **argentino con más flow** <a:darkcrown2:886466286773739530>, Ian en camino bebé <a:bmirusboyrunfast:880411644893724672>`)
   
-        }
+      }
 
-        let ana = new RegExp(`^<@!?${'883633609498570762'}>( |)$`);
+      let ana = new RegExp(`^<@!?${'883633609498570762'}>( |)$`);
   
-        if (message.content.match(ana))
-        {
-          if(bl.tiene(message.author.id)) return;
-          message.channel.send(`<:emoji_233:890722279074451506> Días,tardes,noches,madrugadas <:mmsi:925934342016995379> porque Buena está la persona que me acaba de mencionar <a:Zuii:890684724673150996> <a:Ytodomedavuelta:890721775699259422>`)
+      if (message.content.match(ana))
+      {
+          
+        if(bl.tiene(message.author.id)) return;
+        message.channel.send(`<:emoji_233:890722279074451506> Días,tardes,noches,madrugadas <:mmsi:925934342016995379> porque Buena está la persona que me acaba de mencionar <a:Zuii:890684724673150996> <a:Ytodomedavuelta:890721775699259422>`)
   
-        }
+      }
 
-        let scarlett = new RegExp(`^<@!?${'754792358104793158'}>( |)$`);
+      let scarlett = new RegExp(`^<@!?${'754792358104793158'}>( |)$`);
   
-        if (message.content.match(scarlett))
-        {
-          if(bl.tiene(message.author.id)) return;
-          message.channel.send(`Que necesidad de etiquetar <:nojao:891551822387486721>`)
+      if (message.content.match(scarlett))
+      {
+          
+        if(bl.tiene(message.author.id)) return;
+        message.channel.send(`Que necesidad de etiquetar <:nojao:891551822387486721>`)
   
-        }
+      }
 
-        let nia = new RegExp(`^<@!?${'743960732542042203'}>( |)$`);
+      let nia = new RegExp(`^<@!?${'743960732542042203'}>( |)$`);
   
-        if (message.content.match(nia))
-        {
-          if(bl.tiene(message.author.id)) return;
-          message.channel.send(`¿¡𝑸𝒖𝒆 𝒏𝒆𝒄𝒆𝒔𝒊𝒅𝒂𝒅 𝒅𝒆 𝒑𝒊𝒏𝒈𝒆𝒂𝒂𝒂𝒂𝒓!? <:gatoNojao:930403164266565642>`)
+      if (message.content.match(nia))
+      {
+        
+        if(bl.tiene(message.author.id)) return;
+        message.channel.send(`¿¡𝑸𝒖𝒆 𝒏𝒆𝒄𝒆𝒔𝒊𝒅𝒂𝒅 𝒅𝒆 𝒑𝒊𝒏𝒈𝒆𝒂𝒂𝒂𝒂𝒓!? <:gatoNojao:930403164266565642>`)
   
-        }
+      }
   
         /*let princesa = new RegExp(`^<@!?${'748192032098353193'}>( |)$`);
   
@@ -699,41 +563,41 @@ client.on('messageCreate', async message => {
   
         }*/
   
-        if (message.content === 'piropo' || message.content === 'Piropo')
-        {
+      if (message.content === 'piropo' || message.content === 'Piropo')
+      {
   
-          var piropo = [
-            'El amor será ciego, pero hay que ver lo mucho que alegras la vista.','Con esos ojos mirándome, ya no me hace falta la luz del sol.',
-            'Por la luna daría un beso, daría todo por el sol, pero por la luz de tu mirada, doy mi vida y corazón.','Si yo fuera un avión y tú un aeropuerto, me la pasaría aterrizando por tu hermoso cuerpo.',
-            'Me gusta el café, pero prefiero tener-té.','No eres google, pero tienes todo lo que yo busco.',
-            'Mis ganas de ti no se quitan, se acumulan.','Cuando te multen por exceso de belleza, yo pagaré tu fianza.',
-            'Si cada gota de agua sobre tu cuerpo es un beso, entonces quiero convertirme en aguacero.','Estás como para invitarte a dormir, y no dormir.',
-            'Si tu cuerpo fuera cárcel y tus brazos cadenas, ese sería el lugar perfecto para cumplir condena.','Qué bonitos ojos tienes, tan redondos como el sol, se parecen a los ceros que me pone el profesor.',
-            'Eres como la chancha de mi mamá, te veo venir y se me acelera el corazón.','Si lo bonito fuera pecado, tú no tendrías el perdón de Dios.',
-            'Ni en clase de matemáticas me perdía tanto como en tu mirada.','Quisiera olvidarte, pero sin el olvi.',
-            'Se te ha caído el papel que te envuelve, bombón.','Me gustas más que dormir hasta tarde.',
-            '¿Me haces un favor? Sal de mis sueños y entra en mi realidad.','Ni en el mejor libro de recetas se encuentra semejante bombón.',
-            '¿Están lloviendo estrellas o solo tú caíste del cielo?','Mi amor, quién fuera cemento para sostener ese monumento.',
-            'Si tuviera que regalarte algo, te regalaría un espejo, porque después de este mundo, lo más bonito es tu reflejo.','No me gusta atarme, pero por ti, yo me encadeno.',
-            'Eres tan dulce que solo con mirarte engordo.','Si los besos transmiten gérmenes, yo contigo sí empiezo una epidemia.',
-            '¿De que panadería te escapaste bizcochito?','Y Dios dijo: «Hágase lo más hermoso del universo» y nació la hermosura que está leyendo esto.',
-            'Quien fuera mago para echarte un polvo y desaparecer.','Quisiera ser hamburguesa y que me llenes de mayonesa.',
-            'Tienes la sonrisa que quiero darle a mis hijos.','Dios te guarde y me dé la llave.',
-            'Ningún «Escribiendo…» me pone tan feliz como el tuyo.','Tú eres Coca Cola y yo un hielito, ¡no me toques que me derrito!',
-            '¿Tienes algo que hacer? Podemos hacer turismo por mi cuarto.','Eres como el chocolate, te me antojas a cada ratito.',
-            'Perdí mi número de teléfono, ¿me das el tuyo?','Tu amor me ha contagiado, como un virus imposible de curar.',
-            'Acabo de perder tres besos bajo tu camiseta, ¿me ayudas a buscarlos?','Que bonito sería despertarme a mitad de noche y verte ahí, a mi lado.',
-            'Si solo con ver tu nombre me haces suspirar, imagínate cuando te veo.','Quisiera ser pensamiento y estar dentro de ti, y así saber el momento en que te acuerdas de mi.',
-            'Te quiero, pero no sé en qué posición, ¿me ayudas a elegir?','¿Crees en el amor a primera vista o tengo que darme otra vuelta y volver a pasar?',
-            '¿Quién te crees para gustarme tanto?','La distancia y el tiempo no saben la falta que le haces a mi corazón.',
-            'Eres la canción que hace sonar mi guitarra.','No pretendo decir algo bonito, lo que te digo es muy sincero: el cariño que siento es infinito y mi amor por ti es verdadero.',
-            'Si ser bella fuese delito, te condenarían de por vida.','Si Cristóbal Colón te viese, diría; «Santa María, pero qué Pinta tiene esa Niña».',
-            'Quisiera ser hormiguita para subir por tu balcón y decirte al oído; guapa, bonita, bombón.','Cómo me gustaría ser tu secador de pelo… para que todos los días me agarres del mango.',
-            'A lo mejor mi hogar no es un palacio, pero me gustaría que tú fueras mi princesa.','La belleza de una rosa no tiene comparación con la dulzura de tu rostros y la hermosura de tu corazón.',
-            'Aprovecha que estoy en rebajas guapa y te dejo dos besos por el precio de uno.','¿Estás preparada para subir a la Luna? Porque tengo el cohete preparado.',
-            'Si un día olvido lo hermosa que eres, ayúdame a recordarlo con la luz de tu sonrisa y el sabor de tus labios.','Tú con tantas curvas y yo sin frenos.',
-            'No es el whisky ni la cerveza, eres tú quien se me ha subido a la cabeza.','Me encanta la soltería, pero por ti me lo pensaría.'
-          ]
+        var piropo = [
+          'El amor será ciego, pero hay que ver lo mucho que alegras la vista.','Con esos ojos mirándome, ya no me hace falta la luz del sol.',
+          'Por la luna daría un beso, daría todo por el sol, pero por la luz de tu mirada, doy mi vida y corazón.','Si yo fuera un avión y tú un aeropuerto, me la pasaría aterrizando por tu hermoso cuerpo.',
+          'Me gusta el café, pero prefiero tener-té.','No eres google, pero tienes todo lo que yo busco.',
+          'Mis ganas de ti no se quitan, se acumulan.','Cuando te multen por exceso de belleza, yo pagaré tu fianza.',
+          'Si cada gota de agua sobre tu cuerpo es un beso, entonces quiero convertirme en aguacero.','Estás como para invitarte a dormir, y no dormir.',
+          'Si tu cuerpo fuera cárcel y tus brazos cadenas, ese sería el lugar perfecto para cumplir condena.','Qué bonitos ojos tienes, tan redondos como el sol, se parecen a los ceros que me pone el profesor.',
+          'Eres como la chancha de mi mamá, te veo venir y se me acelera el corazón.','Si lo bonito fuera pecado, tú no tendrías el perdón de Dios.',
+          'Ni en clase de matemáticas me perdía tanto como en tu mirada.','Quisiera olvidarte, pero sin el olvi.',
+          'Se te ha caído el papel que te envuelve, bombón.','Me gustas más que dormir hasta tarde.',
+          '¿Me haces un favor? Sal de mis sueños y entra en mi realidad.','Ni en el mejor libro de recetas se encuentra semejante bombón.',
+          '¿Están lloviendo estrellas o solo tú caíste del cielo?','Mi amor, quién fuera cemento para sostener ese monumento.',
+          'Si tuviera que regalarte algo, te regalaría un espejo, porque después de este mundo, lo más bonito es tu reflejo.','No me gusta atarme, pero por ti, yo me encadeno.',
+          'Eres tan dulce que solo con mirarte engordo.','Si los besos transmiten gérmenes, yo contigo sí empiezo una epidemia.',
+          '¿De que panadería te escapaste bizcochito?','Y Dios dijo: «Hágase lo más hermoso del universo» y nació la hermosura que está leyendo esto.',
+          'Quien fuera mago para echarte un polvo y desaparecer.','Quisiera ser hamburguesa y que me llenes de mayonesa.',
+          'Tienes la sonrisa que quiero darle a mis hijos.','Dios te guarde y me dé la llave.',
+          'Ningún «Escribiendo…» me pone tan feliz como el tuyo.','Tú eres Coca Cola y yo un hielito, ¡no me toques que me derrito!',
+          '¿Tienes algo que hacer? Podemos hacer turismo por mi cuarto.','Eres como el chocolate, te me antojas a cada ratito.',
+          'Perdí mi número de teléfono, ¿me das el tuyo?','Tu amor me ha contagiado, como un virus imposible de curar.',
+          'Acabo de perder tres besos bajo tu camiseta, ¿me ayudas a buscarlos?','Que bonito sería despertarme a mitad de noche y verte ahí, a mi lado.',
+          'Si solo con ver tu nombre me haces suspirar, imagínate cuando te veo.','Quisiera ser pensamiento y estar dentro de ti, y así saber el momento en que te acuerdas de mi.',
+          'Te quiero, pero no sé en qué posición, ¿me ayudas a elegir?','¿Crees en el amor a primera vista o tengo que darme otra vuelta y volver a pasar?',
+          '¿Quién te crees para gustarme tanto?','La distancia y el tiempo no saben la falta que le haces a mi corazón.',
+          'Eres la canción que hace sonar mi guitarra.','No pretendo decir algo bonito, lo que te digo es muy sincero: el cariño que siento es infinito y mi amor por ti es verdadero.',
+          'Si ser bella fuese delito, te condenarían de por vida.','Si Cristóbal Colón te viese, diría; «Santa María, pero qué Pinta tiene esa Niña».',
+          'Quisiera ser hormiguita para subir por tu balcón y decirte al oído; guapa, bonita, bombón.','Cómo me gustaría ser tu secador de pelo… para que todos los días me agarres del mango.',
+          'A lo mejor mi hogar no es un palacio, pero me gustaría que tú fueras mi princesa.','La belleza de una rosa no tiene comparación con la dulzura de tu rostros y la hermosura de tu corazón.',
+          'Aprovecha que estoy en rebajas guapa y te dejo dos besos por el precio de uno.','¿Estás preparada para subir a la Luna? Porque tengo el cohete preparado.',
+          'Si un día olvido lo hermosa que eres, ayúdame a recordarlo con la luz de tu sonrisa y el sabor de tus labios.','Tú con tantas curvas y yo sin frenos.',
+          'No es el whisky ni la cerveza, eres tú quien se me ha subido a la cabeza.','Me encanta la soltería, pero por ti me lo pensaría.'
+        ]
   
         let rpiropo = piropo[Math.floor(Math.random()*piropo.length)]
   
@@ -741,59 +605,59 @@ client.on('messageCreate', async message => {
         .setColor('RANDOM')
         .setDescription(rpiropo)
         message.channel.send({ embeds: [embed] })
-        }
+
+      }
   
   
-        if (message.content === 'chiste' || message.content === 'Chiste')
-        {
+      if (message.content === 'chiste' || message.content === 'Chiste')
+      {
   
-          var chiste = [
-            '- ¿Tienes WiFi?\n- Sí\n- ¿Y cuál es la clave?\n- Tener dinero y pagarlo.',
-            'En una entrevista de trabajo:\n- ¿Nivel de inglés?\n- Alto\n- Bien. Traduzca *mirar*.\n- Look.\n- Perfecto. Úselo en una frase.\n- *Luke*, yo soy tu padre.\n- Contratado.',
-            '¿Cuál es el café más peligroso del mundo?\nEl ex-preso',
-            '- Mamá, mamá, los spaghetti se están pegando.\n- Déjalos que se maten',
-            '- Soy Rosa.\n- Ah, perdóname, es que soy daltónico.',
-            '- Oye, ¿cuál es tu plato favorito y por qué?\n- Pues el hondo, porque cabe más comida…',
-            '¿Qué pasa si tiras un pato al agua?.\nNada.',
-            '- Ayer llamé a la policía porque unos ladrones robaron en mi casa y se llevaron hasta los vasos.\n- ¿Y los detuvo?\n-Sí, sí, los de tubo también.',
-            '¿Cómo te llamas?\n- Lancelot.\n- Pues atrápalot…',
-            '- Papá, ¿qué está más lejos, Córdoba o la Luna?.\n - Pero vamos a ver, ¿tú ves desde aquí Córdoba?',
-            'Mi ordenador me gana al ajedrez, pero yo le gano boxeando.',
-            'General: Soldado, ice la bandera\n Soldado: Pues le quedó muy bonita',
-            '- A las 10 te pito y bajas.\n- ¿Te has comprado un coche?\n- No, un pito.',
-            '¿Cuál es el coche favorito de un fotógrafo?\nEl Ford Focus',
-            'Oye, ¿cuánto te costó esa terapia que hiciste para dejar de pensar en comida todo el rato?\n- Pimientos euros.',
-            'Pero mira que te he dicho diez mil millones de veces que no exageres…',
-            '¿Te gusta el rock progresivo?\n- Cada vez más.',
-            '- Buf, me ha caído mal el estofado.\n- ¡Pues no le hables, hombre!',
-            '- A mí me gustaría vivir en una isla desierta.\n- A mí también.',
-            'Errar es humano, pero lo es todavía más echarle las culpas a otro.',
-            'Pues sí, el viaje a la India me cambió la vida.\n- ¿Más langosta, señor?\n- Pero ponle curry.',
-            'Suena el teléfono:\n- ¿Hola?\n- Hola.\n- ¿Es aquí donde lavan ropa?\n- No.\n- Pues sí que son guarros.',
-            'Llaman a la puerta y es un técnico del ayuntamiento.\n- Perdone, pero vamos a proceder al derribo del edificio contiguo.\n- ¿Conmigo?'
-          ]
+        var chiste = [
+          '- ¿Tienes WiFi?\n- Sí\n- ¿Y cuál es la clave?\n- Tener dinero y pagarlo.',
+          'En una entrevista de trabajo:\n- ¿Nivel de inglés?\n- Alto\n- Bien. Traduzca *mirar*.\n- Look.\n- Perfecto. Úselo en una frase.\n- *Luke*, yo soy tu padre.\n- Contratado.',
+          '¿Cuál es el café más peligroso del mundo?\nEl ex-preso',
+          '- Mamá, mamá, los spaghetti se están pegando.\n- Déjalos que se maten',
+          '- Soy Rosa.\n- Ah, perdóname, es que soy daltónico.',
+          '- Oye, ¿cuál es tu plato favorito y por qué?\n- Pues el hondo, porque cabe más comida…',
+          '¿Qué pasa si tiras un pato al agua?.\nNada.',
+          '- Ayer llamé a la policía porque unos ladrones robaron en mi casa y se llevaron hasta los vasos.\n- ¿Y los detuvo?\n-Sí, sí, los de tubo también.',
+          '¿Cómo te llamas?\n- Lancelot.\n- Pues atrápalot…',
+          '- Papá, ¿qué está más lejos, Córdoba o la Luna?.\n - Pero vamos a ver, ¿tú ves desde aquí Córdoba?',
+          'Mi ordenador me gana al ajedrez, pero yo le gano boxeando.',
+          'General: Soldado, ice la bandera\n Soldado: Pues le quedó muy bonita',
+          '- A las 10 te pito y bajas.\n- ¿Te has comprado un coche?\n- No, un pito.',
+          '¿Cuál es el coche favorito de un fotógrafo?\nEl Ford Focus',
+          'Oye, ¿cuánto te costó esa terapia que hiciste para dejar de pensar en comida todo el rato?\n- Pimientos euros.',
+          'Pero mira que te he dicho diez mil millones de veces que no exageres…',
+          '¿Te gusta el rock progresivo?\n- Cada vez más.',
+          '- Buf, me ha caído mal el estofado.\n- ¡Pues no le hables, hombre!',
+          '- A mí me gustaría vivir en una isla desierta.\n- A mí también.',
+          'Errar es humano, pero lo es todavía más echarle las culpas a otro.',
+          'Pues sí, el viaje a la India me cambió la vida.\n- ¿Más langosta, señor?\n- Pero ponle curry.',
+          'Suena el teléfono:\n- ¿Hola?\n- Hola.\n- ¿Es aquí donde lavan ropa?\n- No.\n- Pues sí que son guarros.',
+          'Llaman a la puerta y es un técnico del ayuntamiento.\n- Perdone, pero vamos a proceder al derribo del edificio contiguo.\n- ¿Conmigo?'
+        ]
   
-          let rchiste = chiste[Math.floor(Math.random()*chiste.length)]
+        let rchiste = chiste[Math.floor(Math.random()*chiste.length)]
   
           const embed = new Discord.MessageEmbed()
           .setColor('RANDOM')
           .setDescription(rchiste)
           message.channel.send({ embeds: [embed] })
-        }
+      }
   
+      let bot = new RegExp(`^<@!?${'904290001196556369'}>( |)$`);
   
-        let bot = new RegExp(`^<@!?${'904290001196556369'}>( |)$`);
+      if (message.content.match(bot))
+      {
   
-        if (message.content.match(bot))
-        {
+        const embed = new Discord.MessageEmbed()
+        .setAuthor(message.author.username+'#'+message.author.discriminator, `${message.author.displayAvatarURL()}`)
+        .setDescription('Hola! **'+ message.author.username +'** Mi Prefix es: `_` Puedes ver mis comandos disponibles usando: `_help`. Para enviar un reporte usa: `_report` y para una sugerencia: `_suggestion`.')
+        .setColor('RANDOM')
+        message.channel.send({ embeds: [embed] })
   
-          const embed = new Discord.MessageEmbed()
-          .setAuthor(message.author.username+'#'+message.author.discriminator, `${message.author.displayAvatarURL()}`)
-          .setDescription('Hola! **'+ message.author.username +'** Mi Prefix es: `_` Puedes ver mis comandos disponibles usando: `_help`. Para enviar un reporte usa: `_report` y para una sugerencia: `_suggestion`.')
-          .setColor('RANDOM')
-          message.channel.send({ embeds: [embed] })
-  
-        }
+      }
 
     let id = message.author.id
     //let i = message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')
@@ -3189,7 +3053,7 @@ client.on('messageCreate', async message => {
     .addField('Bug a reportar:', reporte)
     .setColor('RANDOM')
     .setTimestamp(new Date())
-    .setFooter(`Developer Team - Midgard Club`, `${message.author.displayAvatarURL()}`);
+    .setFooter(`Developer Team - Midgard Bot`, `${message.author.displayAvatarURL()}`);
     setTimeout(() => message.delete(), 100);
     message.channel.send({ embeds: [embed] }).then(m => {
 
@@ -3260,7 +3124,7 @@ client.on('messageCreate', async message => {
     .addField('Sugerencia:', reporte)
     .setColor('RANDOM')
     .setTimestamp(new Date())
-    .setFooter(`Developer Team - Midgard Club`, `${message.author.displayAvatarURL()}`);
+    .setFooter(`Developer Team - Midgard Bot`, `${message.author.displayAvatarURL()}`);
     setTimeout(() => message.delete(), 100);
     message.channel.send({ embeds: [embed] }).then(m => {
 
