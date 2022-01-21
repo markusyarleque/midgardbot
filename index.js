@@ -36,9 +36,9 @@ const vip = new dbv.crearDB('vip');
 const bl = new dbv.crearDB('blacklist');
 const fs = require('fs');
 
-const sqlite3 = require('sqlite3').verbose();
+/*const sqlite3 = require('sqlite3').verbose();
 
-/*const db = new sqlite3.Database("./bdmidgard.sqlite3",sqlite3.OPEN_READWRITE, (err) => {
+const db = new sqlite3.Database("./bdmidgard.sqlite3",sqlite3.OPEN_READWRITE, (err) => {
   
   if(err) return console.error(err.message);
 
@@ -54,7 +54,7 @@ db.run(crear, function(err) {
   if (err) return console.error('Error crear tabla: '+err.message)
 })*/
 
-const sqlite3 = require('sqlite3'),
+const sqlite3 = require('sqlite3').verbose(),
 { open } = require('sqlite');
 
 (async()=>{
