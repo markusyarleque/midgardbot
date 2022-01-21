@@ -3214,7 +3214,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'pruebabot'){
 
-      message.channel.send('Si lees esto, salió bien')
+      message.channel.send('Será esta la vencida?')
       console.log('OK')
     }
 
