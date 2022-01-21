@@ -374,7 +374,7 @@ client.on('messageCreate', async message => {
     
         if(message.content.length>=1000) return channel.send(`Mensaje demasiado largo, enviado en <#${idcanal}> por: `+message.author)
     
-        channel.send({ embeds: [embed] });
+        channel.send({ embeds: [em] });
 
       } else {
         return
