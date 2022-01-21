@@ -65,7 +65,7 @@ const sqlite3 = require('sqlite3').verbose(),
 
     filename: 'bdmidgard.db',
     driver: sqlite3.Database,
-    mode: sqlite3.OPEN_READWRITE
+    mode: sqlite3.OPEN_READONLY
 
     })
     
