@@ -2480,7 +2480,7 @@ client.on('messageCreate', async message => {
 
       if(miembro){
 
-        if(miembro.user.bot)return message.channel.send({embeds: [
+        if(miembro.bot) return message.channel.send({embeds: [
           new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setColor('RED')
