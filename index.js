@@ -48,6 +48,7 @@ db.run(crear, function(err) {
   if (err) return console.error('Error crear tabla: '+err.message)
 })*/
 
+
 const sqlite3 = require('sqlite3'),
 { open } = require('sqlite');
 
