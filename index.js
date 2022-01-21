@@ -695,6 +695,7 @@ client.on('messageCreate', async message => {
 
     if(bl.tiene(message.author.id)) return message.channel.send('Estás prohibido de usar estos comandos, contacta con el equipo de desarrolladores para más información.!');
 
+
     //<-- INSERT USUARIO -->
 
     /*let id = message.author.id
@@ -702,6 +703,7 @@ client.on('messageCreate', async message => {
     let f = 'No hay frase agregada'
     let color = '#607D8B'
     let marry = 'Soltero(a)'*/
+
     let sentencia = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ${id}`)
 
     /*db.get(sentencia, (err, filas) => {
@@ -3212,7 +3214,7 @@ client.on('messageCreate', async message => {
 
     if(command === 'pruebabot'){
 
-      message.channel.send('Lo hiciste bien')
+      message.channel.send('Lo hiciste bien ESTA VEZ ')
       console.log('OK')
     }
 
