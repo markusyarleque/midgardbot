@@ -64,7 +64,8 @@ const sqlite3 = require('sqlite3').verbose(),
     client.db = await open({
 
     filename: './Database/bdmidgard.sqlite3',
-    driver: sqlite3.Database
+    driver: sqlite3.Database,
+    mode: sqlite3.OPEN_READWRITE
 
     })
     
@@ -3220,11 +3221,6 @@ client.on('messageCreate', async message => {
       // message.channel.send({ content: 'Pong!', components: [ { components : [row], type: 1}] })
     }
 
-    if(command === 'pruebabot'){
-
-      message.channel.send('Será esta la vencida?')
-      console.log('OK')
-    }
 
     //COMANDOS DE UTILIDAD
 
