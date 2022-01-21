@@ -445,7 +445,9 @@ client.on('messageCreate', async message => {
         message.channel.send({
           content: message.author.toString() + "¿Deseas contactar a Malta?",
           components: [
+
               /* Botones para aceptar y rechazar el juego */
+              
             new MessageActionRow().addComponents([bSi,bNo])
           ]
         }).then(async m => {
