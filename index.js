@@ -3209,7 +3209,7 @@ client.on('messageCreate', async message => {
     if(command === 'pruebabot'){
 
       message.channel.send('Lo hiciste bien')
-
+      console.log('OK')
     }
 
     //COMANDOS DE UTILIDAD
