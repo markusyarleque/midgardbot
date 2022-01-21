@@ -63,7 +63,7 @@ const sqlite3 = require('sqlite3').verbose(),
 
     client.db = await open({
 
-    filename: './Database/bdmidgard.sqlite3',
+    filename: 'bdmidgard.db',
     driver: sqlite3.Database,
     mode: sqlite3.OPEN_READWRITE
 
