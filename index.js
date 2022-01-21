@@ -300,7 +300,7 @@ client.on('messageCreate', async message => {
     let idcanal = message.channel.id
 
     const em = new Discord.MessageEmbed()
-    .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
+    .setThumbnail(message.guild.iconURL({ dynamic: true }))
     .setAuthor('MaltaBot', client.user.avatarURL())
     .setTitle('📢 | Mensaje Enviado')
     .addField('Canal: ', `<a:flech:931432469935312937> <#${idcanal}>`)
@@ -447,7 +447,7 @@ client.on('messageCreate', async message => {
           components: [
 
               /* Botones para aceptar y rechazar el juego */
-              
+
             new MessageActionRow().addComponents([bSi,bNo])
           ]
         }).then(async m => {
