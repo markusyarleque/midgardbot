@@ -374,6 +374,8 @@ client.on('messageCreate', async message => {
     
         if(message.content.length>=1000) return channel.send(`Mensaje demasiado largo, enviado en <#${idcanal}> por: `+message.author)
     
+        em.addField('Servidor: ', `<a:flech:931432469935312937> ${message.guild.name}`)
+    
         channel.send({ embeds: [em] });
 
       } else {
