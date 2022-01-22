@@ -162,7 +162,6 @@ readdirSync("comandos/").forEach((dir) => {
       //deshacerse de la extensión .js y solo quedarnos con el nombre del comando:
       let fileName = file.substring(0, file.length - 3); 
   
-      console.log('Nombre de comando: '+fileName)
       //Define una nueva variable 'fileContents' de la exportación del comando 
       //dentro de la carpeta comandos:
 
@@ -174,7 +173,7 @@ readdirSync("comandos/").forEach((dir) => {
         
       } catch (error) {
 
-        console.log('Error al cargar comando: '+fileName+' - '+error)
+        console.log('Error al cargar comando: '+fileName+' - FileContents: '+fileContents+' - '+error)
         
       }
   
