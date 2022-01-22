@@ -1,3 +1,4 @@
+const discord = require('discord.js');
 const { MessageActionRow, MessageButton } = require('discord.js');
 
 const dbv = require('megadb');
@@ -32,7 +33,7 @@ module.exports = async (client, message, Discord) => {
     let channel
     let idcanal = message.channel.id
   
-    const em = new Discord.MessageEmbed()
+    const em = new discord.MessageEmbed()
       .setThumbnail(message.guild.iconURL({ dynamic: true }))
       .setAuthor('MaltaBot', client.user.avatarURL())
       .setTitle('📢 | Mensaje Enviado')
