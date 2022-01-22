@@ -135,7 +135,6 @@ const MENSAJE_AYUDA_CARTA = new Discord.MessageEmbed()
 .setColor('RANDOM')
 .setFooter('Utiliza con moderación el comando, caso contrario, serás reportado en la lista negra del Bot!', `https://c.tenor.com/Gh9SFp64h8wAAAAC/banned-and-you-are-banned.gif`);
 
-const prefix = process.env.PREFIX;
 
 const { RAE } = require('rae-api')
 
