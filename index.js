@@ -245,106 +245,6 @@ client.login(process.env.TOKEN) //agregamos las promesas de la propiedad login.
   });
 
 
-/*client.on('ready', () => {
-  
-  client.user.setPresence({
-    status: 'online',
-    activities: [{
-      name: '.gg/svmidgard',
-      type: 'WATCHING',
-    }],
-  });
-  console.log('Listo!');
-
-});*/
-
-/*client.on('guildMemberAdd', async member => {
-
-  if(member.bot) return;
-  const guild = member.guild;
-  newUsers.set(member.id, member.user);
-
-  console.log(`Nuevo usuario:  ${member.user.username} se ha unido a ${guild.name}.`);
-
-  const channel = guild.channels.cache.find(ch => ch.id === '926412412570198076');
-
-  var welcome = [
-    'https://media.discordapp.net/attachments/853500788848853002/873245600936788048/1.gif',
-    'https://media.discordapp.net/attachments/853500788848853002/873245604090892348/2.gif',
-    'https://media.discordapp.net/attachments/853500788848853002/873245605294645308/3.gif',
-    'https://media.discordapp.net/attachments/853500788848853002/873245608775917688/4.gif',
-    'https://media.discordapp.net/attachments/853500788848853002/873245613217689650/5.gif',
-    'https://media.discordapp.net/attachments/853500788848853002/873245612554993704/6.gif',
-    'https://media.discordapp.net/attachments/853500788848853002/873245617277796394/7.gif',
-    'https://media.discordapp.net/attachments/853500788848853002/873245617672056902/8.gif',
-    'https://media.discordapp.net/attachments/853500788848853002/873245622017359962/9.gif',
-    'https://media.discordapp.net/attachments/853500788848853002/873245621820215326/10.gif'
-  ] 
-
-  let ramdonwelcome = welcome[Math.floor(Math.random()*welcome.length)]
-   
-  const embed = new Discord.MessageEmbed()
-  .setThumbnail(`${member.displayAvatarURL({ dynamic: true }).replace('webp','png')}`)
-  .setTitle(`Bienvenid@ Terrícola! **${member.user.username}** <:abby:931432327354155038> , a este nuestro **Universo**. <a:pepedance:880928616416968745>`)
-  .setDescription(`<:shylove:931432905421520927> Gracias por unirte <a:exclama2:880930071731392512> <a:sc_ositobailin:880930467774365707> Espero que lo pases genial en este server libre de toxicidad <a:abdul_dance:880930576683630662>, con muchos eventos programados, premios y más sorpresas!!! <a:Sara:880304101215334401> Recuerda pasar por <#777623227321155614> y <#926556796838109226> Y si tienes alguna queja, duda o sugerencia, pasa por <#880402803825188874>. Cualquier incoveniente aquí estará todo el equipo de Staff a su disposición. <a:dc_party1:881033439367815239>`)
-  .setImage(ramdonwelcome)
-  .setColor('RANDOM')
-  .setTimestamp(new Date())
-  .setFooter(guild.name, guild.iconURL({ dynamic: true }));
-
-  if (!channel) return;
-
-  if (newUsers.size > 1000000) {
-
-    const userlist = newUsers.map(u => u.toString()).join(' ');
-    channel.send('¡Bienvenid@s Terrícolas!'+ `${userlist}`+', a este nuevo **Universo**. <:shylove:931432905421520927> Les invito a pasar por <#855582327514202132> y <#785685918270488656> Y si tienen una queja, duda o sugerencia, pasen por <#815654349912801280>. Cualquier duda o pregunta aquí estará todo el equipo de Staff a su disposición. <a:pasito:877116925291946094> Pásenla increíble, lindo día, tarde o noche. <a:abdul_dance:880930576683630662>');
-    newUsers.clear();
-
-  }
-
-  //channel.send('¡Bienvenid@ Terrícola!' + `${member.user}` + ', a este nuestro **Universo**. <:shylove:931432905421520927>. Espero que te lo pases genial en este server libre de toxicidad, con muchos eventos programados, premios y más sorpresas!!! <a:Sara:880304101215334401> Recuerda pasar por <#777623227321155614> y <#926556796838109226> Y si tienes alguna queja, duda o sugerencia, pasa por <#880402803825188874>. Cualquier incoveniente aquí estará todo el equipo de Staff a su disposición. <a:dc_party1:881033439367815239>');
-  channel.send({embeds:[embed]})
-  channel.send('https://images-ext-2.discordapp.net/external/9iPHKFXXnKKSQpcFazlW79dr1zbbtdo7QT7-xxtfDY4/%3Fwidth%3D600%26height%3D86/https/media.discordapp.net/attachments/897951731462316073/915663567213199390/bar-1.gif?width=480&height=69')
-    
-});*/
-
-
-/*client.on('messageDelete', async (message) => {
-
-
-    let snipes = client.snipes.get(message.channel.id) || [] 
-
-    if(snipes.length > 10) snipes = snipes.slice(0, 10)
-
-    snipes.unshift({//guardamos todo
-      msg: message,//mensaje
-      image: message.attachments.first() ? message.attachments.first().proxyURL : null, //Imagen si es que la hay
-      time: Date.now() })//fecha y cerramos
-
-    client.snipes.set(message.channel.id, snipes)//establecemos todo en la coleccion
-
-
-    let sv = client.guilds.cache.get('851924635930329098')
-    let channel = sv.channels.cache.get('933903109305028688')
-
-    if(message.content.length>=1000) return channel.send('El mensaje eliminado en el canal: <#'+message.channel.id+'> es demasiado largo. Ha sido enviado  por: '+message.author)
-  
-    const embed = new Discord.MessageEmbed()
-    .setAuthor('MaltaBot', client.user.avatarURL())
-    .setThumbnail(message.guild.iconURL({ dynamic: true }))
-    .setTitle('📢 | Mensajes Borrados')
-    .addField('Servidor: ', `<a:flech:931432469935312937> ${message.guild.name}`)
-    .addField('Canal: ', `<a:flech:931432469935312937> <#${message.channel.id}>`)
-    .addField('Autor: ', `<a:flech:931432469935312937> ${message.author}`)
-    .addField('Mensaje: ', message.content ? message.content: 'Ningún mensaje registrado')
-    .setColor('RANDOM')
-    .setTimestamp(new Date())
-    .setFooter(`Id: ${message.author.id}`, `${message.author.displayAvatarURL()}`)
-    
-    channel.send({ embeds: [embed] });
-    //channel.send('📢 | Mensajes Borrados\n``` \n===> Canal:\n'+`${message.channel.name}`+' | '+ message.channel.id +'\n\n===> Autor:\n'+`${message.author.username}`+' | '+ message.author.id +'\n\n===> Mensaje:\n'+message.content+'\n\n```')
-  
-});*/
 
 client.on('messageCreate', async message => {
     
@@ -12596,5 +12496,4 @@ client.on('error', (e) => console.error(e));
 client.on('warn', (e) => console.warn(e));
 client.on('debug', (e) => console.info(e));
 
-//client.login(process.env.TOKEN); 
 

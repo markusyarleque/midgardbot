@@ -1,11 +1,4 @@
-const { MessageActionRow, MessageButton } = require('discord.js');
-
-const dbv = require('megadb');
-const bl = new dbv.crearDB('blacklist');
-
-const prefix = process.env.PREFIX;
-
-module.exports = async (message, client, Discord) => {
+module.exports = async (client, Discord, message, bl, prefix, MessageActionRow, MessageButton) => {
     
     if (message.channel.type === 'dm') {
 
