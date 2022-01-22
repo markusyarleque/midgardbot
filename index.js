@@ -169,7 +169,7 @@ readdirSync("comandos/").forEach((dir) => {
       try {
 
         client.comandos.set(fileName, fileContents);
-        console.log('Comando cargado: '+fileName.name)
+        console.log('Comando cargado: '+fileName)
         
       } catch (error) {
 
@@ -193,7 +193,7 @@ console.log('========================= CONTROLADOR DE COMANDOS =================
 
 console.log('========================= CONTROLADOR DE EVENTOS =========================')
 
-for(const file of readdirSync('./eventos/')) { 
+for(const file of readdirSync('eventos/')) { 
 
   // Esto condicion evitara que los archivos que no son archivos .js no coleccione:
   if(file.endsWith(".js")){
@@ -204,11 +204,12 @@ for(const file of readdirSync('./eventos/')) {
 
     //Define una nueva variable 'fileContents' de la exportación del evento dentro de la carpeta eventos:
 
+    let fileContents = require(`./eventos/${file}`);
+
     try {
 
-      let fileContents = require(`../eventos/${file}`);
-      console.log('Evento cargado: '+fileName.name)
       client.on(fileName, fileContents.bind(null, client));
+      console.log('Evento cargado: '+fileName)
       
     } catch (error) {
 
