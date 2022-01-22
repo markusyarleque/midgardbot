@@ -169,7 +169,7 @@ readdirSync("comandos/").forEach((dir) => {
       try {
 
         client.comandos.set(fileName, fileContents);
-        console.log('Comando cargado: '+fileName)
+        console.log('Comando cargado: '+fileName+' En: '+fileContents)
         
       } catch (error) {
 
@@ -209,7 +209,7 @@ for(const file of readdirSync('eventos/')) {
     try {
 
       client.on(fileName, fileContents.bind(null, client));
-      console.log('Evento cargado: '+fileName)
+      console.log('Evento cargado: '+fileName+' En: '+fileContents)
       
     } catch (error) {
 
