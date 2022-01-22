@@ -13,7 +13,7 @@ const bl = new dbv.crearDB('blacklist');
 
 module.exports = async (message) => {
     
-    if (message.channel.type === 'dm') {
+    /*if (message.channel.type === 'dm') {
 
         let sv = client.guilds.cache.get('777620055344545842')
         let channel = sv.channels.cache.get('874943743185285150')
@@ -32,7 +32,7 @@ module.exports = async (message) => {
         
         channel.send({ embeds: [embed] });
     
-    }
+    }*/
     
     let sv = client.guilds.cache.get('851924635930329098')
     let channel
