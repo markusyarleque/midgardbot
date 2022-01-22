@@ -164,7 +164,7 @@ readdirSync("comandos/").forEach((dir) => {
   
       //Define una nueva variable 'fileContents' de la exportación del comando 
       //dentro de la carpeta comandos:
-      let fileContents = require(`../comandos/${dir}/${file}`); 
+      let fileContents = require(`./comandos/${dir}/${file}`); 
 
       try {
 
