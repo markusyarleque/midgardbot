@@ -6,8 +6,6 @@ const { Client, Intents } = require('discord.js');
 
 const client = new Client({ allowedMentions: { parse: ['users'], repliedUser: true }, intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_BANS, Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_TYPING, Intents.FLAGS.GUILD_PRESENCES] });
 
-const { MessageActionRow, MessageButton } = require('discord.js');
-
 const newUsers = new Discord.Collection();
 const listask = new Discord.Collection();
 
@@ -137,91 +135,18 @@ const { RAE } = require('rae-api')
 
 // <-- POO - COMANDOS SEPARADOS -->
 
-let { readdirSync } = require('fs'); 
+//! CÓDIGO PRINCIPAL
 
-client.comandos = new Discord.Collection(); 
+client.commands = new Discord.Collection(); 
+client.events = new Discord.Collection(); 
 
-// <-- AQUI EL CONTROLADOR DE COMANDOS: -->
+['commandHandler','eventHandler'].forEach((file) => {
 
-console.log('========================= CONTROLADOR DE COMANDOS =========================')
-
-readdirSync("comandos/").forEach((dir) => {
-
-  for(const file of readdirSync(`comandos/${dir}/`)) { 
-    
-    //Esta condición evitara que los archivos que no son tengan la extención .js no sean listado:
-    if(file.endsWith(".js")) { 
-      
-      //Elimina los últimos tres caracteres nombre del archivo para
-      //deshacerse de la extensión .js y solo quedarnos con el nombre del comando:
-      let fileName = file.substring(0, file.length - 3); 
-  
-      //Define una nueva variable 'fileContents' de la exportación del comando 
-      //dentro de la carpeta comandos:
-      let fileContents = require(`./comandos/${dir}/${file}`); 
-
-      try {
-
-        client.comandos.set(fileName, fileContents);
-        console.log('Comando cargado: '+fileName)
-        
-      } catch (error) {
-
-        console.log('Error al cargar comando: '+fileName+' - FileContents: '+fileContents+' - '+error)
-        
-      }
-  
-      //Agrega el nombre del comando a la colección client.commands con un 
-      //valor de sus exportaciones respectivas.
-
-    }
-
-  }
-
+  require(`./handlers/${file}`)(client, Discord);
 })
 
-console.log('========================= CONTROLADOR DE COMANDOS =========================')
+//! =========================
 
-
-// <-- AQUI EL CONTROLADOR DE EVENTOS: --> 
-
-console.log('========================= CONTROLADOR DE EVENTOS =========================')
-
-for(const file of readdirSync('eventos/')) { 
-
-  // Esto condicion evitara que los archivos que no son archivos .js no coleccione:
-  if(file.endsWith(".js")){
-
-    //Elimina los últimos tres caracteres nombre del archivo para
-    //deshacerse de la extensión .js y solo quedarnos con el nombre del evento:
-    let fileName = file.substring(0, file.length - 3); 
-
-    //Define una nueva variable 'fileContents' de la exportación del evento dentro de la carpeta eventos:
-
-    let fileContents = require(`./eventos/${file}`);
-
-    try {
-
-      client.on(fileName, fileContents.bind(null, client));
-      console.log('Evento cargado: '+fileName)
-      delete require.cache[require.resolve(`./eventos/${file}`)]; 
-      
-    } catch (error) {
-
-      console.log('Error al cargar evento: '+fileName+' - '+error)
-      
-    } 
-  
-    // Cuando el evento se activa o es solicitada exportamos la función con 
-    // el nombre del evento vinculada y tambien el parametro client.
-    
-    // Elimina la memoria caché del archivo requerido para facilitar la recarga y no 
-    // tener más memoria de la necesaria.
-
-  }
-}
-
-console.log('========================= CONTROLADOR DE EVENTOS =========================')
 
 // <-- AQUI LA PROPIEDAD LOGIN: -->
 

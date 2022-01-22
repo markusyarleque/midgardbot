@@ -394,9 +394,8 @@ module.exports = async (client, Discord, message) => {
         return message.channel.send({embeds: [e]})
     }
 
-    // Manejando los eventos.
-    let cmd = client.comandos.get(command) || 
-              client.comandos.find((a) => a.aliases && a.aliases.includes(command)); // Obtiene el comando de la colección client.commandos
+    let cmd = client.commands.get(command) || 
+              client.commands.find((a) => a.aliases && a.aliases.includes(command)); // Obtiene el comando de la colección client.commandos
               
     if(!cmd){
 
@@ -407,9 +406,10 @@ module.exports = async (client, Discord, message) => {
         
         return message.channel.send({embeds: [e]})
 
-    } 
-    
-    // Ejecuta el comando enviando el client, el mensaje y los argumentos.
-    cmd.execute(client, message, args, Discord)
+    } else{
+
+        cmd.execute(client, message, args, Discord)
+
+    }
     
 }
