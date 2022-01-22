@@ -411,5 +411,15 @@ module.exports = async (client, Discord, message) => {
         cmd.execute(client, message, args, Discord)
 
     }
+
+    let snipes = client.snipes.get(message.channel.id) || [] 
+
+    if(snipes.length > 10) snipes = snipes.slice(0, 10)
+  
+    snipes.unshift({//guardamos todo
+      msg: message,//mensaje
+      image: message.attachments.first() ? message.attachments.first().proxyURL : null, //Imagen si es que la hay
+      time: Date.now() })//fecha y cerramos
+  
     
 }
