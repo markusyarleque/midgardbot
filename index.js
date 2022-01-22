@@ -222,7 +222,7 @@ for(const file of readdirSync('eventos/')) {
     
     // Elimina la memoria caché del archivo requerido para facilitar la recarga y no 
     // tener más memoria de la necesaria.
-    delete require.cache[require.resolve(`eventos/${file}`)]; 
+    delete require.cache[require.resolve(`/eventos/${file}`)]; 
 
   }
 }
