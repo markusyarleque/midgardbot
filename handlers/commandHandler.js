@@ -20,7 +20,7 @@ module.exports = (client, Discord) => {
                 client.commands.set(cmd.name, cmd);
             } else{
 
-                console.log('Error al cargar comando: '+cmd.name+' - '+error)
+                console.log('Error al cargar comando: '+cmd.name)
         
             }
 
