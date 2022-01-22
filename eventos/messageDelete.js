@@ -34,7 +34,4 @@ module.exports = (client, message) => {
     
   channel.send({ embeds: [embed] });
     
-  let canal = client.channels.cache.get('ID-CANAL'); 
-  canal.send(`**${message.author.username}** elimino un mensaje con el contenido: ${message}`);
-  
 }
