@@ -5,7 +5,7 @@ const bl = new dbv.crearDB('blacklist');
 
 const prefix = process.env.PREFIX;
 
-module.exports = async (client, Discord, message) => {
+module.exports = async (message, client, Discord) => {
     
     if (message.channel.type === 'dm') {
 
