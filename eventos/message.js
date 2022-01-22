@@ -1,4 +1,39 @@
-module.exports = (client, message) => { 
+module.exports = (client, message) => {
+    
+    const Discord = require('discord.js'); 
+    
+    const { Permissions } = require('discord.js');
+
+    const { Client, Intents } = require('discord.js');
+
+    const client = new Client({ allowedMentions: { parse: ['users'], repliedUser: true }, intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_BANS, Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_TYPING, Intents.FLAGS.GUILD_PRESENCES] });
+
+    const { MessageActionRow, MessageButton } = require('discord.js');
+
+    const newUsers = new Discord.Collection();
+    const listask = new Discord.Collection();
+
+    client.snipes = new Discord.Collection()
+
+    const NSFW = require('discord-nsfw');
+    const nsfw3 = new NSFW();
+
+    const red = require('reddit-fetch');
+
+    const over = require('poke-over');
+
+    const clientN = require('nekos.life');
+    const neko = new clientN();
+
+    const star = require('star-labs')
+
+    const moment = require('moment');
+    require('moment-duration-format');
+
+    const dbv = require('megadb');
+    const vip = new dbv.crearDB('vip');
+    const bl = new dbv.crearDB('blacklist');
+    const fs = require('fs');
 
     const prefix = process.env.PREFIX;
 
