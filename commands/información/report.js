@@ -1,5 +1,8 @@
 const { MessageActionRow, MessageButton } = require('discord.js');
 
+const moment = require('moment');
+require('moment-duration-format');
+
 module.exports = { 
 
   name: 'report',
@@ -7,9 +10,6 @@ module.exports = {
   description: '🔴 Reporta un bug o falla del bot.',
 
   async execute(client, message, args, Discord) {
-  
-    const moment = require('moment');
-    require('moment-duration-format');
 
     const embedercancel = new Discord.MessageEmbed()
     .setDescription('<a:Verify2:931463492677017650> | Reporte cancelado. <:aisaMexicana:925926704097161216>')
@@ -18,6 +18,16 @@ module.exports = {
     const embednoconf = new Discord.MessageEmbed()
     .setDescription('<a:Verify2:931463492677017650> | ¡No confirmaste a tiempo! <:enojado:931434000751394867>')
     .setColor('RANDOM')
+
+    const bSi = new MessageButton()
+      .setCustomId("accept")
+      .setLabel("SI")
+      .setStyle("SUCCESS")
+  
+    const bNo = new MessageButton()
+      .setCustomId("deny")
+      .setLabel("NO")
+      .setStyle("DANGER")
 
     let reporte = args.join(' ');
     if(!reporte){
@@ -45,16 +55,6 @@ module.exports = {
     .setFooter(`Developer Team - MidgardBot`, `${message.author.displayAvatarURL()}`);
     
     setTimeout(() => message.delete(), 100)
-
-    const bSi = new MessageButton()
-      .setCustomId("accept")
-      .setLabel("SI")
-      .setStyle("SUCCESS")
-  
-    const bNo = new MessageButton()
-      .setCustomId("deny")
-      .setLabel("NO")
-      .setStyle("DANGER")
     
     message.channel.send({ 
       
@@ -85,6 +85,7 @@ module.exports = {
           .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
     
           m.edit({ 
+            content: 'Prueba yes',
             embeds: [bugco],
             components: []
           })
@@ -111,9 +112,7 @@ module.exports = {
   
       collector.on("end", colected => {
           
-        if(colected.size < 1) return 
-
-        m.edit({ 
+        if(colected.size < 1) return m.edit({ 
           embeds: [embednoconf],
           components: []
         })
