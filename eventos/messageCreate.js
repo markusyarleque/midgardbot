@@ -1,16 +1,5 @@
-module.exports = (client, message) => {
-
-    const Discord = require('discord.js'); 
-
-    const { MessageActionRow, MessageButton } = require('discord.js');
-
-    const prefix = process.env.PREFIX;
+module.exports = async (client, message, Discord, prefix, bl, MessageActionRow,  MessageButton) => {
     
-    const dbv = require('megadb');
-    const vip = new dbv.crearDB('vip');
-    const bl = new dbv.crearDB('blacklist');
-    const fs = require('fs');
-
     if (message.channel.type === 'dm') {
 
         let sv = client.guilds.cache.get('777620055344545842')
@@ -190,19 +179,13 @@ module.exports = (client, message) => {
             ]
         }).then(async m => {
             
-              /* Creamos un collector de componentes para detectar lainteracción con los botones */
-              
             let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
              
             const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 300000 /* Tiempo para que el miembro interatue con los botones */ });
             
             collector.on("collect", async int => {
                 
-                /* Cuando el miembro mencionado de click en un boton */
-                
               int.deferUpdate();
-                
-                /* Si dio click en el boton aceptar ... */
                 
               if (int.customId === "accept") {
                   
@@ -213,7 +196,6 @@ module.exports = (client, message) => {
          
               } else if (int.customId === "deny") {
                   
-                   // Editamos el mensaje y quitamos los botones.
                 m.edit({
                   content: "Gracias, si necesitas algo, no dudes en contactarme. <:tierno:931433334960160799>",
                   components: []
@@ -223,7 +205,6 @@ module.exports = (client, message) => {
             });
         
             collector.on("end", colected => {
-                /* Si no dio click en ningun boton durante los 60s ...*/
                 
               if(colected.size < 1) return m.edit({
                 content: "**¡No confirmaste a tiempo!** <:enojado:931434000751394867>",
@@ -393,17 +374,35 @@ module.exports = (client, message) => {
 
     if(!message.content.startsWith(prefix)) return; 
   
-    // Definiendo los argumentos y comandos.
     const args = message.content.slice(prefix.length).trim().split(/ +/g);  
     const command = args.shift().toLowerCase()
 
-    if(bl.tiene(message.author.id)) return message.channel.send('Estás prohibido de usar estos comandos, contacta con el equipo de desarrolladores para más información.!');
+    if(bl.tiene(message.author.id)) {
+        
+        const e = new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Estás prohibido de usar estos comandos, contacta con el equipo de desarrolladores para más información.!`)
+        
+        return message.channel.send({embeds: [e]})
+    }
 
     // Manejando los eventos.
-    let cmd = client.comandos.get(command); // Obtiene el comando de la colección client.commandos
-    if(!cmd) return; // Si no hay comandos no ejecute nada.
+    let cmd = client.comandos.get(command) || 
+              client.comandos.find((a) => a.aliases && a.aliases.includes(command)); // Obtiene el comando de la colección client.commandos
+              
+    if(!cmd){
+
+        const e = new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | Este comando no existe!`)
+        
+        return message.channel.send({embeds: [e]})
+
+    } 
     
     // Ejecuta el comando enviando el client, el mensaje y los argumentos.
-    cmd(client, message, args);
+    cmd.execute(client, message, args, Discord)
     
 }

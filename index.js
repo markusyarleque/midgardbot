@@ -25,8 +25,12 @@ const neko = new clientN();
 
 const star = require('star-labs')
 
-const moment = require('moment');
-require('moment-duration-format');
+const prefix = process.env.PREFIX;
+
+const dbv = require('megadb');
+const bl = new dbv.crearDB('blacklist');
+/*const moment = require('moment');
+require('moment-duration-format');*/
 
 /*const dbv = require('megadb');
 const vip = new dbv.crearDB('vip');
@@ -139,35 +143,55 @@ const { RAE } = require('rae-api')
 // <-- POO - COMANDOS SEPARADOS -->
 
 let { readdirSync } = require('fs'); 
+const { resourceLimits } = require('worker_threads');
 
 client.comandos = new Discord.Collection();  
 
 // <-- AQUI EL CONTROLADOR DE COMANDOS: -->
 
-for(const file of readdirSync('./comandos/')) { 
+console.log('========================= CONTROLADOR DE COMANDOS =========================')
 
-  //Esta condición evitara que los archivos que no son tengan la extención .js no sean listado:
-  if(file.endsWith(".js")) { 
+readdirSync('./comandos/').forEach((dir) => {
 
-    //Elimina los últimos tres caracteres nombre del archivo para
-    //deshacerse de la extensión .js y solo quedarnos con el nombre del comando:
-    let fileName = file.substring(0, file.length - 3); 
+  for(const file of readdirSync(`./comandos/${dir}`)) { 
 
-    //Define una nueva variable 'fileContents' de la exportación del comando 
-    //dentro de la carpeta comandos:
-    let fileContents = require(`./comandos/${file}`); 
+    //Esta condición evitara que los archivos que no son tengan la extención .js no sean listado:
+    if(file.endsWith(".js")) { 
+  
+      //Elimina los últimos tres caracteres nombre del archivo para
+      //deshacerse de la extensión .js y solo quedarnos con el nombre del comando:
+      let fileName = file.substring(0, file.length - 3); 
+  
+      //Define una nueva variable 'fileContents' de la exportación del comando 
+      //dentro de la carpeta comandos:
+      let fileContents = require(`../comandos/${dir}/${file}`); 
+  
+      //Agrega el nombre del comando a la colección client.commands con un 
+      //valor de sus exportaciones respectivas.
 
-    //Agrega el nombre del comando a la colección client.commands con un 
-    //valor de sus exportaciones respectivas.
-    client.comandos.set(fileName, fileContents);
+      if(fileName.name){
+        console.log('Comandos cargados: '+fileName.name)
+        client.comandos.set(fileName, fileContents);
+      } else {
+        console.log('Error al cargar comando: '+fileName)
+      }
+
+    }
+
   }
-}
 
-// <-- AQUI EL CONTROLADOR DE EVENTOS: -->
+})
+
+console.log('========================= CONTROLADOR DE COMANDOS =========================')
+
+
+// <-- AQUI EL CONTROLADOR DE EVENTOS: --> 
+
+console.log('========================= CONTROLADOR DE EVENTOS =========================')
 
 for(const file of readdirSync('./eventos/')) { 
 
-  //Esto condicion evitara que los archivos que no son archivos .js no coleccione:
+  // Esto condicion evitara que los archivos que no son archivos .js no coleccione:
   if(file.endsWith(".js")){
 
     //Elimina los últimos tres caracteres nombre del archivo para
@@ -179,14 +203,23 @@ for(const file of readdirSync('./eventos/')) {
   
     // Cuando el evento se activa o es solicitada exportamos la función con 
     // el nombre del evento vinculada y tambien el parametro client.
-    client.on(fileName, fileContents.bind(null, client)); 
+    if(fileName.name){
+
+      console.log('Eventos cargados: '+fileName.name)
+      client.on(fileName, fileContents.bind(null, client)); 
 		
+    } else {
+
+      console.log('Error al cargar evento: '+fileName)
+    }
     // Elimina la memoria caché del archivo requerido para facilitar la recarga y no 
     // tener más memoria de la necesaria.
     delete require.cache[require.resolve(`./eventos/${file}`)]; 
 
   }
 }
+
+console.log('========================= CONTROLADOR DE EVENTOS =========================')
 
 // <-- AQUI LA PROPIEDAD LOGIN: -->
 
@@ -2650,195 +2683,7 @@ client.on('messageCreate', async message => {
   
     }*/
 
-
-    // COMANDOS DE MÚSICA
-
-    // <-- CODIGO CMD PLAY (REPRODUCIR): -->
-
-    /*if(command === 'play') {
-
-      const voiceChannel = message.member.voice.channel;
-  
-      //verificamos que el usuario solicitante este conectado en un canal de voz.
-      if (!voiceChannel) return message.channel.send({embeds: [
-        new Discord.MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL())
-        .setColor('RED')
-        .setDescription(`<a:Verify2:931463492677017650> | ¡Necesitas unirte a un canal de voz para reproducir música!`)
-      ]});
-  
-      const permissions = voiceChannel.permissionsFor(message.client.user);
-  
-      //verificamos que el bot tenga permisos de conectar y de hablar en el canal de voz.
-      if (!permissions.has(Permissions.FLAGS.CONNECT) || !permissions.has(Permissions.FLAGS.SPEAK)) {
-
-        return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | ¡Necesito permisos para unirme y hablar en el canal de voz!`)
-        ]});
-      
-      }
-    
-      // <-- Capturamos la información de la música a reproducir -->
-  
-      var opts = {
-        maxResults: 1, //Maximo de resultados a encontrar
-        key: 'AIzaSyAVNU3oD7NRVzc6CfbV14fBw__bP5lRQM0', //Necesitas una CLAVE de la API de youtube. 
-        type: "video" // Que tipo de resultado a obtener.
-      };
-
-      const songArg = await search(args.join(' '), opts);
-      const songURL = songArg.results[0].link;
-      const songInfo = await ytdl.getInfo(songURL);
-
-      const song = {
-        title: songInfo.title,
-        url: songInfo.video_url,
-        author: message.author.tag
-      };
-
-      // <-- Verificamos la lista de canciones de un servidor -->
-      
-      if (!serverQueue) {
-
-        // Si NO hay una lista de música.
-        // <-- Creamos nuestra cola de música a reproducir  -->
-
-        // Creamos el conjunto de datos para nuestra cola de música
-
-        const queueObject = {
-          textChannel: message.channel, //guardamos el canal de texto
-          voiceChannel: voiceChannel, // guardamos el canal de voz
-          connection: null, // un objeto para la conexión 
-          songs: [], // creamos la lista de canciones
-          volume: 5, // volumen al iniciar la cola
-          playing: true, // un objeto para validar la cola de música en reproducción.
-        };
-
-        // <-- Establecer la cola de música  -->
-
-        // Creando el conjunto de datos para nuestra cola de música
-        queue.set(message.guild.id, queueObject);
-
-        // Agregamos las canciones al conjunto de datos
-        queueObject.songs.push(song);
-
-        // <-- Conectar al canal de voz  -->
-      
-        try {
-
-          // Aquí unimos el bot al canal de voz y guardar nuestra conexión en nuestro objeto.
-          //var connection = await voiceChannel.join();
-          const connection = joinVoiceChannel(
-          {
-              channelId: message.member.voice.channel,
-              guildId: message.guild.id,
-              adapterCreator: message.guild.voiceAdapterCreator
-          });
-
-          queueObject.connection = connection;
-         
-          message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('GREEN')
-          .setDescription(`<a:Verify1:931463354357276742> | Reproduciendo ahora: **${song.title}**`)
-          .setTimestamp()
-          ]});
-         
-          // Llamar a la función de reproducción para comenzar una canción.
-          play(message.guild, queueObject.songs[0]);
-         
-        } catch (err) {
-         
-          // Imprimir el mensaje de error si el bot no puede unirse al chat de voz
-          console.log(err);
-          queue.delete(message.guild.id);
-          return message.channel.send({embeds: [
-            new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
-            .setColor('RED')
-            .setDescription(`<a:Verify2:931463492677017650> | ${err}`)
-          ]});
-         
-        }
-
-      }else {
-
-        // Si HAY una lista de música reproduciendo.
-      
-        serverQueue.songs.push(song);
-        console.log(serverQueue.songs);
-
-        return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('GREEN')
-          .setDescription(`<a:Verify1:931463354357276742> | **${song.title}** ha sido añadido a la cola!, __por: ${message.author.tag}__`)
-          .setTimestamp()
-        ]});
-      
-      }
-  
-    }*/
-
-
-    // <-- CODIGO CMD SKIP (SALTAR): -->
-
-    // <-- CODIGO CMD STOP (DETENER): -->
-
-    // <-- CODIGO CMD VOLUMEN (VOLUMEN): -->
-
-    // <-- CODIGO CMD PAUSAR (PAUSE): -->
-
-    // <-- CODIGO CMD RESUME (RESUME): -->
-
-    // <-- CODIGO CMD QUEUE (QUEUE): -->
-
-
-    // COMANDOS DE INFORMACIÓN
-
-    /*if (command === 'ping') {
-
-        let ping = Math.floor(message.client.ws.ping);
-
-        message.channel.send(':ping_pong: Pong!')
-          .then(m => {
-    
-              m.edit(`:incoming_envelope: Ping Mensajes: \`${Math.floor(m.createdTimestamp - Date.now())} ms\`\n:satellite_orbital: Ping DiscordAPI: \`${ping} ms\``);
-          
-          });
-
-    }
-
-    if(command === 'stats'){
-
-      const actividad = moment.duration(client.uptime).format(' D [dias], H [hrs], m [mins], s [segs]');
-
-        const embed = new Discord.MessageEmbed()
-        .setThumbnail('https://media.giphy.com/media/3rgXBsmYd60rL3w7sc/giphy.gif')
-        .setAuthor('MidgardBot', client.user.avatarURL())
-        .setTitle('Estadísticas')
-        .addField('Desarrollador: ', 'Maltazard#0610')
-        .addField('Lenguaje: ', 'JavaScript')
-        .addField(`Versión:`, `1.2.1`)
-        .addField(`Librería:`, Discord.version)
-        .addField('RAM: ', ` ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`)
-        .addField(`Actividad:`, `${actividad}`)
-        .addField('Servidores: ', `${client.guilds.cache.size}`)
-        .addField('Usuarios: ', ` ${client.users.cache.size}`)
-        .addField(`Canales`, `${client.channels.cache.size}`)
-        .setColor('RANDOM')
-        .setTimestamp(new Date())
-        .setFooter(`Malta's Bot`, `${message.author.displayAvatarURL()}`);
-            
-        message.channel.send({ embeds: [embed] });
-        
-    }*/
-
-    if(command === 'mbservers'){
+    /*if(command === 'mbservers'){
 
       let id = ['753435606410985573']
   
@@ -2865,9 +2710,9 @@ client.on('messageCreate', async message => {
 
       }
       
-    }
+    }*/
 
-    if(command === 'exitserver'){
+/*    if(command === 'exitserver'){
 
       let id = ['753435606410985573']
   
@@ -2928,7 +2773,7 @@ client.on('messageCreate', async message => {
         
           let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
          
-          const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 60000 /* Tiempo para que el miembro interatue con los botones */ });
+          const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 60000  });
           
           
           collector.on("collect", async int => {
@@ -2967,7 +2812,6 @@ client.on('messageCreate', async message => {
           });
     
           collector.on("end", colected => {
-            /* Si no dio click en ningun boton durante los 60s ...*/
             
             if(colected.size < 1) return m.edit({
               content: "**¡No confirmaste a tiempo!** <:enojado:931434000751394867>",
@@ -2980,234 +2824,7 @@ client.on('messageCreate', async message => {
 
       }
       
-    }
-
-    //SERVER INFO
-
-    const vl = {
-        NONE: 'Ninguno',
-        LOW: 'Bajo',
-        MEDIUM: 'Medio',
-        HIGH: 'Alto',
-        VERY_HIGH: 'Muy Alto'
-    };
-
-    const regions = {
-        brazil: 'Brasil',
-        europe: 'Europa',
-        hongkong: 'Hong Kong',
-        india: 'India',
-        japan: 'Japón',
-        russia: 'Rusia',
-        singapore: 'Singapore',
-        southafrica: 'South África',
-        sydeny: 'Sydeny',
-        'us-central': 'US Central',
-        'us-east': 'US East',
-        'us-west': 'US West',
-        'us-south': 'US South'
-    };
-    
-    const nivel = {
-      NONE: 'Ninguno',
-      TIER_1: '1',
-      TIER_2: '2',
-      TIER_3: '3',
-    };
-
-    if(command === 'server'){
-
-    var server = message.guild;
-    const roles = server.roles.cache.sort((a, b) => b.position - a.position).map(role => role.toString());
-    const members = server.members.cache;
-    const channels = server.channels.cache;
-    const emojis = server.emojis.cache;
-  
-    const embed = new Discord.MessageEmbed()
-    .setThumbnail(server.iconURL({ dynamic: true }))
-    .setAuthor(server.name, client.user.avatarURL())
-    .addField('ID:', server.id, false)
-    .addField('Dueño:', `${(await server.fetchOwner()).user.tag} (${(await server.fetchOwner()).id})` , true)
-    //.addField('Creado el:', server.createdAt, false)
-    .addField('Creado el:', moment(server.createdTimestamp).format('LL') + ' a las '+moment(server.createdTimestamp).format('LT') + ' [' + moment(server.createdTimestamp).fromNow()+' ]', false)
-    
-    .addField('Miembros:', '<a:flech:931432469935312937> '+server.memberCount, true)
-    .addField('Region:', '<a:flech:931432469935312937> '+regions[server.region], false)
-    .addField('Nivel:', '<a:flech:931432469935312937> '+nivel[server.premiumTier], true)
-    //.addField('Nivel:', server.mfaLevel, false)
-    .addField('Mejoras:', '<a:flech:931432469935312937> '+server.premiumSubscriptionCount || '0', false)
-
-    .addField('Roles:', '<a:flech:931432469935312937> '+roles.length , true)
-    .addField('Emojis:', '<a:flech:931432469935312937> '+emojis.size , false)
-    .addField('Verificación:', '<a:flech:931432469935312937>' +vl[server.verificationLevel] , false)
-
-    .addField('Canales de Texto:', '<a:flech:931432469935312937> '+channels.filter(channel => channel.type === 'GUILD_TEXT').size , true)
-    .addField('Canales de Voz:', '<a:flech:931432469935312937> '+channels.filter(channel => channel.type === 'GUILD_VOICE').size , true)
-    .setImage(server.bannerURL({ dynamic: true, size: 4096 }).replace('webp','png'))
-    .setColor('RANDOM')
-    
-    .setTimestamp(new Date())
-    .setFooter(message.author.username+'#'+message.author.discriminator, `${message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')}`);
-        
-   message.channel.send({ embeds: [embed] });
-
-    }
-
-    let prohibidos = ['ID1', 'ID2'];
-
-    const embedercancel = new Discord.MessageEmbed()
-    .setDescription('Reporte cancelado. <:aisaMexicana:925926704097161216>')
-    .setColor('RANDOM')
-
-    const embedescancel = new Discord.MessageEmbed()
-    .setDescription('Sugerencia cancelada. <:aisaMexicana:925926704097161216>')
-    .setColor('RANDOM')
-
-    const embednoconf = new Discord.MessageEmbed()
-    .setDescription('¡No confirmaste a tiempo! <:enojado:931434000751394867>')
-    .setColor('RANDOM')
-
-    if(command === 'report' || command === 'reporte' || command === 'reportar'){
-
-    if(prohibidos.includes(message.author.id)) return message.channel.send('¡Tienes prohibido usar este comando por mal usarlo!');
-
-    let reporte = args.join(' ');
-    if(!reporte) return message.channel.send('❎ **Debes agregar un reporte para enviar al desarrollador!**')
-
-    let sv = client.guilds.cache.get('777620055344545842')
-    let channel = sv.channels.cache.get('874891049120714752')
-
-    let usera = message.author;
-
-    const embed = new Discord.MessageEmbed()
-    .setThumbnail(`https://assets.sutori.com/user-uploads/image/bc331db1-aa9d-4684-b73e-8a1fcb7d751b/aa64184f325ce5cc6abe613d51383870.gif`)
-    .setTitle('<a:alerta:932374957206421614> | Reporte')
-    .setDescription(`**${usera.username}** ¿Estás segur@ que quieres reportar este bug? ¡Usar mal el comando causará la prohibición!`)
-    .addField('Bug a reportar:', reporte)
-    .setColor('RANDOM')
-    .setTimestamp(new Date())
-    .setFooter(`Developer Team - Midgard Bot`, `${message.author.displayAvatarURL()}`);
-    setTimeout(() => message.delete(), 100);
-    message.channel.send({ embeds: [embed] }).then(m => {
-
-      m.react('✅').then(() => m.react('❎'));
-     
-      const filter = (reaction, user) => {
-        return ['✅', '❎'].includes(reaction.emoji.name) && user.id == message.author.id;
-      };
-
-      m.awaitReactions({filter, max: 1, time: 60000, errors: ['time']}).catch(() => {
-
-        m.edit({ embeds: [embednoconf]})
-        m.reactions.removeAll()
-
-      }).then(collected=> {
-
-        const reaccion = collected.first();
-
-        if(reaccion.emoji.name === '✅') {
-
-          let bugco = new Discord.MessageEmbed()
-          .setThumbnail(`https://assets.sutori.com/user-uploads/image/bc331db1-aa9d-4684-b73e-8a1fcb7d751b/aa64184f325ce5cc6abe613d51383870.gif`)
-          .setTitle('📧 | Reporte')
-          .setColor('RANDOM')
-          .setDescription('Reporte confirmado con éxito! <a:clap:881331231021756437>')
-          .addField('Bug reportado:', '<a:flech:931432469935312937> '+reporte)
-          .setTimestamp(new Date())
-          .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
-    
-          m.edit({ embeds: [bugco]})
-          m.reactions.removeAll()
-
-          let bugre = new Discord.MessageEmbed()
-          .setThumbnail(`https://assets.sutori.com/user-uploads/image/bc331db1-aa9d-4684-b73e-8a1fcb7d751b/aa64184f325ce5cc6abe613d51383870.gif`)
-          .setTitle('📧 | Reporte')
-          .setColor('RANDOM')
-          .addField('Ha llegado el siguiente reporte:', '<a:flech:931432469935312937> '+reporte)
-          .setTimestamp(new Date())
-          .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
-    
-          channel.send({ embeds: [bugre]})
-        } else if(reaccion.emoji.name === '❎') {
-
-          m.edit({embeds : [embedercancel]})
-          m.reactions.removeAll()
-
-        }
-      })
-    })
-    }
-
-    if(command === 'suggestion'){
-
-    if(prohibidos.includes(message.author.id)) return message.channel.send('¡Tienes prohibido usar este comando por mal usarlo!');
-
-    let reporte = args.join(' ');
-    if(!reporte) return message.channel.send('❎ **Debes agregar una sugerencia para enviar al desarrollador!**')
-
-    let sv = client.guilds.cache.get('777620055344545842')
-    let channel = sv.channels.cache.get('874922451040083978')
-
-    let usera = message.author;
-
-    const embed = new Discord.MessageEmbed()
-    .setThumbnail(`https://media.giphy.com/media/Jzw7qUU2ZMw7DYpQV8/giphy.gif`)
-    .setTitle('<a:corazonBlack_FD:880526799736557679> | Sugerencia')
-    .setDescription(`**${usera.username}** ¿Estás segur@ que quieres dar esta sugerencia? ¡Usar mal el comando causará la prohibición!`)
-    .addField('Sugerencia:', reporte)
-    .setColor('RANDOM')
-    .setTimestamp(new Date())
-    .setFooter(`Developer Team - Midgard Bot`, `${message.author.displayAvatarURL()}`);
-    setTimeout(() => message.delete(), 100);
-    message.channel.send({ embeds: [embed] }).then(m => {
-
-      m.react('✅').then(() => m.react('❎'));
-      
-      const filter = (reaction, user) => {
-        return ['✅', '❎'].includes(reaction.emoji.name) && user.id == message.author.id;
-      };
-
-      m.awaitReactions({filter, max: 1, time: 60000, errors: ['time']}).catch(() => {
-
-        m.edit({ embeds: [embednoconf]})
-        m.reactions.removeAll()
-
-      }).then(collected=> {
-
-        const reaccion = collected.first();
-
-        if(reaccion.emoji.name === '✅') {
-
-          let bugco = new Discord.MessageEmbed()
-          .setThumbnail(`https://media.giphy.com/media/Jzw7qUU2ZMw7DYpQV8/giphy.gif`)
-          .setTitle('<a:corazonBlack_FD:880526799736557679> | Sugerencia')
-          .setColor('RANDOM')
-          .setDescription('Sugerencia realizada con éxito! <a:clap:881331231021756437>')
-          .addField('Sugerencia:', '<a:flech:931432469935312937> '+reporte)
-          .setTimestamp(new Date())
-          .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
-    
-          m.edit({ embeds: [bugco]})
-          m.reactions.removeAll()
-
-          let bugre = new Discord.MessageEmbed()
-          .setThumbnail(`https://media.giphy.com/media/Jzw7qUU2ZMw7DYpQV8/giphy.gif`)
-          .setTitle('<a:corazonBlack_FD:880526799736557679> | Sugerencia')
-          .setColor('RANDOM')
-          .addField('Ha llegado la siguiente sugerencia:', '<a:flech:931432469935312937> '+reporte)
-          .setTimestamp(new Date())
-          .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
-    
-          channel.send({ embeds: [bugre]})
-        } else if(reaccion.emoji.name === '❎') {
-
-          m.edit({embeds : [embedescancel]})
-          m.reactions.removeAll()
-
-        }
-        })
-        })
-    }
+    }*/
 
     if(command === 'vote'){
 
@@ -3239,254 +2856,6 @@ client.on('messageCreate', async message => {
       // message.channel.send({ content: 'Pong!', components: [ { components : [row], type: 1}] })
     }
 
-
-    //COMANDOS DE UTILIDAD
-
-    if(command === 'user'){
-
-      let userm = message.mentions.users.first()
-
-      if(!userm){
-
-        try {
-          
-          userm = await client.users.fetch(args[0])
-
-        } catch (error) {
-
-          userm = message.author
-          
-        }
-
-      }
-
-      if(userm.bot) return message.channel.send({embeds: [
-        new Discord.MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL())
-        .setColor('RED')
-        .setDescription(`<a:Verify2:931463492677017650> | No puedes ver la info de un bot!`)
-      ]})
-
-      if(!userm || userm.id === message.author.id) {
-
-        var user = message.author;
-          
-        const embed = new Discord.MessageEmbed()
-          .setThumbnail(user.displayAvatarURL({ dynamic: true }).replace('webp','png'))
-          .setAuthor('Información del Usuario', message.guild.iconURL({ dynamic: true }))
-          //.addField('Jugando a', user.presence.game != null ? user.presence.game.name : 'Nada', true)
-          //.addField('Estado:', user.presence.status, true)
-          .addField('Color:', message.member.displayHexColor, true)
-          .addField('Usuario:', user.username+'#'+user.discriminator, true)
-          .addField('Apodo:', message.member.nickname ? message.member.nickname : 'No tiene', true)
-          .addField('ID:', user.id, true)
-    
-          .addField('Cuenta Creada', user.createdAt.toLocaleDateString()+', '+user.createdAt.toLocaleTimeString(), true)
-          .addField('Fecha de Ingreso', message.member.joinedAt.toLocaleDateString()+', '+message.member.joinedAt.toLocaleTimeString(), true)
-          .addField('Roles', message.member.roles.cache.map(roles => `\`${roles.name}\``).join(', '))
-          .setColor(message.member.displayColor)
-    
-          .setTimestamp(new Date())
-          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-             
-        return message.channel.send({ embeds: [embed] });
-
-      } else{
-
-        const embed = new Discord.MessageEmbed()
-          .setThumbnail(userm.displayAvatarURL({ dynamic: true }).replace('webp','png'))
-          .setAuthor('Información del Usuario', message.guild.iconURL({ dynamic: true }))
-          //.addField('Jugando a', userm.presence.game != null ? userm.presence.game.name : 'Nada', true)
-          //.addField('Estado:', userm.presence.status, true)
-          .addField('Color:', message.member.displayHexColor, true)
-          .addField('Usuario:', userm.username+'#'+userm.discriminator, true)
-          .addField('Apodo:', userm.nickname ? userm.nickname : 'No tiene', true)
-          .addField('ID:', userm.id, true)
-          .addField('Cuenta Creada', userm.createdAt.toLocaleDateString()+', '+userm.createdAt.toLocaleTimeString(), true)
-          .addField('Fecha de Ingreso', message.member.joinedAt.toLocaleDateString()+', '+message.member.joinedAt.toLocaleTimeString(), true )
-          .addField('Roles', message.member.roles.cache.map(roles => `\`${roles.name}\``).join(', '))
-          .setColor(message.member.displayColor)
-          .setTimestamp(new Date())
-          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-             
-        message.channel.send({ embeds: [embed] });
-      
-      }
-        
-    }
-
-    if(command === 'avatar'){
-      
-      let img = message.mentions.users.first()
-
-      if(!img){
-
-        try {
-          
-          img = await client.users.fetch(args[0])
-
-        } catch (error) {
-
-          img = message.author
-          
-        }
-
-      }
-
-      if(!img || img.id === message.author.id){
-
-        const embed = new Discord.MessageEmbed()
-        .setAuthor(`Avatar de ${message.author.username}#${message.author.discriminator}`,message.guild.iconURL({ dynamic: true }))
-        .setTitle('Imagen completa')
-        .setDescription('[Click aquí]('+`${message.author.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`+')')
-        .setImage(`${message.author.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`)
-        .setColor('RANDOM')
-        .setTimestamp(new Date())
-        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-        return message.channel.send({ embeds: [embed] })
-
-      } else if (img.avatarURL === null) {
-    
-        message.channel.sendMessage('El usuario ('+ img.username +') no tiene avatar!');
-    
-      } else {
-    
-        const embed = new Discord.MessageEmbed()
-        .setAuthor(`Avatar de ${img.username}#${img.discriminator}`,message.guild.iconURL({ dynamic: true }))
-        .setTitle('Imagen completa')
-        .setDescription('[Click aquí]('+`${img.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`+')')
-        .setImage(`${img.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`)
-        .setColor('RANDOM')
-        .setTimestamp(new Date())
-        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-        message.channel.send({ embeds: [embed] });
-      
-      }
-    
-    }
-
-    var welcome = [
-        'https://media.discordapp.net/attachments/853500788848853002/873245600936788048/1.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873245604090892348/2.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873245605294645308/3.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873245608775917688/4.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873245613217689650/5.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873245612554993704/6.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873245617277796394/7.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873245617672056902/8.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873245622017359962/9.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873245621820215326/10.gif'
-    ] 
-    
-    if(command === 'welcome' || command === 'wlc'){
-
-      let img = message.mentions.users.first()
-
-      if(!img){
-
-        try {
-          
-          img = await client.users.fetch(args[0])
-
-        } catch (error) {
-
-          img = message.author
-          
-        }
-
-      }
-
-      if(img.bot) return message.channel.send({embeds: [
-        new Discord.MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL())
-        .setColor('RED')
-        .setDescription(`<a:Verify2:931463492677017650> | No puedes darle la bienvenida a un bot!`)
-      ]})
-      
-      if(!img || img.id===message.author.id) return message.channel.send({embeds: [
-        new Discord.MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL())
-        .setColor('RED')
-        .setDescription(`<a:Verify2:931463492677017650> | Debes mencionar o colocar id!`)
-      ]})
-
-      let ramdonwelcome = welcome[Math.floor(Math.random()*welcome.length)]
-    
-        const embed = new Discord.MessageEmbed()
-        .setThumbnail(`${img.displayAvatarURL({ dynamic: true }).replace('webp','png')}`)
-        .setTitle(`Bienvenid@ <:abby:931432327354155038> **${img.username}** <a:pepedance:880928616416968745>`)
-        .setDescription(`<a:exclama2:880930071731392512> Gracias por unirte!!! <a:sc_ositobailin:880930467774365707> Espero que lo disfrutes. <a:abdul_dance:880930576683630662>`)
-        .setImage(ramdonwelcome)
-        .setColor('RANDOM')
-        .setTimestamp(new Date())
-        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-        message.channel.send({ embeds: [embed] });
-    
-    }
-    
-    if(command === 'remindme' || command === 'rm'){
-
-        let obtener = args[0]
-        let mensaje = args.slice(1).join(' ')
-    
-        if (!obtener) {
-          
-          message.channel.send('Debes agregar un tiempo: `_remindme tiempo mensaje`')
-    
-        } else if(!mensaje) {
-    
-          message.channel.send('Debes agregar un recordatorio: `_remindme tiempo mensaje`')
-    
-        } else {
-    
-          function reminder() {
-    
-            message.reply('<a:exclama2:880930071731392512> | Tengo este recordatorio para ti: ' + mensaje)
-    
-          }
-    
-          switch (obtener.slice(-1)){
-    
-            case 's': {
-    
-              if (obtener.slice(0, -1) > 60) return message.channel.send('No puede ser mayor de 60 segundos')
-    
-              var msDelay = obtener.slice(0, -1)*1000
-              message.channel.send('<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en ' + obtener.slice(0, -1) + ' segundos:\n<a:flech:931432469935312937> '+mensaje);
-              setTimeout(reminder, msDelay);
-              break
-            }
-    
-            case 'm': {
-    
-              if (obtener.slice(0, -1) > 60) return message.channel.send('No puede ser mayor de 60 minutos')
-    
-              var msDelay = obtener.slice(0, -1)*60000
-              message.channel.send('<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en ' + obtener.slice(0, -1) + ' minutos:\n<a:flech:931432469935312937> '+mensaje);
-              setTimeout(reminder, msDelay);
-              break
-            }
-    
-            case 'h': {
-    
-              if (obtener.slice(0, -1) > 24) return message.channel.send('No puede ser mayor de 24 horas')
-    
-              var msDelay = obtener.slice(0, -1)*3600000
-              message.channel.send('<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en ' + obtener.slice(0, -1) + ' horas:\n<a:flech:931432469935312937> '+mensaje);
-              setTimeout(reminder, msDelay);
-              break
-            }
-    
-            default: {
-    
-              message.channel.send('Lo estás haciendo mal, es:\n<1 - 60>s <recordatorio>\n<1 - 60>m <recordatorio>\n<1 -  24>h <recordatorio>\n ____Ejemplo:____\n```1m Recordar ir a sacar un perro```');
-              break;
-            }
-          }
-      
-        };
-    
-      }
     
     if(command === 'snipe'){
 
@@ -4131,21 +3500,27 @@ client.on('messageCreate', async message => {
         }else {
     
             setTimeout(() => message.delete());
-            if (!args[0])
-    
-                return message.channel.send(`Por Favor, especifica una cantidad`)
+            
+            if (!args[0]) return message.channel.send(`Por Favor, especifica una cantidad`)
                 .then(m => setTimeout(() => m.delete(), 5000));
     
-            if (isNaN(args[0]))
-    
-                return message.channel.send(`Por favor, ingresa un número`)
+            if (isNaN(args[0])) return message.channel.send(`Por favor, ingresa un número`)
                 .then(m => setTimeout(() => m.delete(), 5000));
     
-            if (args[0] > 100)
-                return message.channel.send(`No puedo eliminar más de 100 mensajes`)
+            if (args[0] > 100) return message.channel.send(`No puedo eliminar más de 100 mensajes`)
                 .then(m => setTimeout(() => m.delete(), 5000));
+
+            if (args[0] < 1)
+                    return message.channel.send(`Ingresa un número mayor a 0`)
+                    .then(m => setTimeout(() => m.delete(), 5000));
           
-            message.channel.bulkDelete(args[0])
+            await message.channel.messages.fetch({ limit: args[0] }).then(
+              (messages) => {
+
+                message.channel.bulkDelete(messages)
+
+              }
+            );
 
             message.channel.send('```'+ args[0] +' mensajes han sido borrados.'+'```')
             .then(msg => setTimeout(() => msg.delete(), 5000));

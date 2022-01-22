@@ -1,6 +1,4 @@
-module.exports = (client, member) => {
-
-  const Discord = require('discord.js'); 
+module.exports = async (client, member, Discord) => {
 
   if(member.bot) return;
 
@@ -10,6 +8,12 @@ module.exports = (client, member) => {
   
   const channel = guild.channels.cache.find(ch => ch.id === '926412412570198076');
   
+  //! Cómo exportar una imagen local
+
+  // const img = await loadImage(join(__dirname, "../img", 'imagen.png'));
+
+  //! Cierre
+
   var welcome = [
     'https://media.discordapp.net/attachments/853500788848853002/873245600936788048/1.gif',
     'https://media.discordapp.net/attachments/853500788848853002/873245604090892348/2.gif',

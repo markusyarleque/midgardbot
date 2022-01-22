@@ -1,8 +1,4 @@
-module.exports = (client, message) => {
-
-  const Discord = require('discord.js'); 
-
-  const { MessageActionRow, MessageButton } = require('discord.js');
+module.exports = async (client, message, Discord) => {
 
   let snipes = client.snipes.get(message.channel.id) || [] 
 
