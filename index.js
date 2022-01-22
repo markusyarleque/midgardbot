@@ -167,7 +167,7 @@ readdirSync('./comandos/').forEach((dir) => {
 
       try {
 
-        let fileContents = require(`./comandos/${dir}/${file}`); 
+        let fileContents = require(`../comandos/${dir}/${file}`); 
         console.log('Comando cargado: '+fileName.name)
         client.comandos.set(fileName, fileContents);
         
@@ -206,7 +206,7 @@ for(const file of readdirSync('./eventos/')) {
 
     try {
 
-      let fileContents = require(`./eventos/${file}`);
+      let fileContents = require(`../eventos/${file}`);
       console.log('Evento cargado: '+fileName.name)
       client.on(fileName, fileContents.bind(null, client));
       
@@ -218,7 +218,7 @@ for(const file of readdirSync('./eventos/')) {
   
     // Cuando el evento se activa o es solicitada exportamos la función con 
     // el nombre del evento vinculada y tambien el parametro client.
-
+    
     // Elimina la memoria caché del archivo requerido para facilitar la recarga y no 
     // tener más memoria de la necesaria.
     delete require.cache[require.resolve(`./eventos/${file}`)]; 
