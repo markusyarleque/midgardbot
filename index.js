@@ -142,7 +142,7 @@ client.events = new Discord.Collection();
 
 ['commandHandler','eventHandler'].forEach((file) => {
 
-  require(`./handlers/${file}`)(client, Discord);
+  require(`handlers/${file}`)(client, Discord);
 })
 
 //! =========================

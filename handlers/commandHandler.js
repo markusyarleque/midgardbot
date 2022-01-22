@@ -7,7 +7,7 @@ module.exports = (client, Discord) => {
     fs.readdirSync("./commands/").forEach((dir) => {
 
         const commands = fs
-        .readdirSync(`commands/${dir}/`)
+        .readdirSync(`./commands/${dir}/`)
         .filter((file) => file.endsWith('.js'));
 
         for(const file of commands) { 
@@ -18,6 +18,7 @@ module.exports = (client, Discord) => {
 
                 console.log('Comando cargado: '+cmd.name)
                 client.commands.set(cmd.name, cmd);
+
             } else{
 
                 console.log('Error al cargar comando: '+cmd.name)
