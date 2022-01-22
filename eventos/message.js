@@ -1,9 +1,11 @@
 module.exports = (client, message) => {
 
     const Discord = require('discord.js'); 
-    
+
     const { MessageActionRow, MessageButton } = require('discord.js');
 
+    const prefix = process.env.TOKEN;
+    
     const dbv = require('megadb');
     const vip = new dbv.crearDB('vip');
     const bl = new dbv.crearDB('blacklist');
