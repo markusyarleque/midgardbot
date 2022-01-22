@@ -143,6 +143,7 @@ const { RAE } = require('rae-api')
 
 let { readdirSync } = require('fs'); 
 const { resourceLimits } = require('worker_threads');
+const { error } = require('console');
 
 client.comandos = new Discord.Collection();  
 
@@ -163,17 +164,21 @@ readdirSync('./comandos/').forEach((dir) => {
   
       //Define una nueva variable 'fileContents' de la exportación del comando 
       //dentro de la carpeta comandos:
-      let fileContents = require(`./comandos/${dir}/${file}`); 
+
+      try {
+
+        let fileContents = require(`./comandos/${dir}/${file}`); 
+        console.log('Comando cargado: '+fileName.name)
+        client.comandos.set(fileName, fileContents);
+        
+      } catch (error) {
+
+        console.log('Error al cargar comando: '+fileName+' - Error: '+error)
+        
+      }
   
       //Agrega el nombre del comando a la colección client.commands con un 
       //valor de sus exportaciones respectivas.
-
-      if(fileName.name){
-        console.log('Comandos cargados: '+fileName.name)
-        client.comandos.set(fileName, fileContents);
-      } else {
-        console.log('Error al cargar comando: '+fileName)
-      }
 
     }
 
@@ -198,19 +203,22 @@ for(const file of readdirSync('./eventos/')) {
     let fileName = file.substring(0, file.length - 3); 
 
     //Define una nueva variable 'fileContents' de la exportación del evento dentro de la carpeta eventos:
-    let fileContents = require(`./eventos/${file}`); 
+
+    try {
+
+      let fileContents = require(`./eventos/${file}`);
+      console.log('Evento cargado: '+fileName.name)
+      client.on(fileName, fileContents.bind(null, client));
+      
+    } catch (error) {
+
+      console.log('Error al cargar evento: '+fileName+' - Error: '+error)
+      
+    } 
   
     // Cuando el evento se activa o es solicitada exportamos la función con 
     // el nombre del evento vinculada y tambien el parametro client.
-    if(fileName.name){
 
-      console.log('Eventos cargados: '+fileName.name)
-      client.on(fileName, fileContents.bind(null, client)); 
-		
-    } else {
-
-      console.log('Error al cargar evento: '+fileName)
-    }
     // Elimina la memoria caché del archivo requerido para facilitar la recarga y no 
     // tener más memoria de la necesaria.
     delete require.cache[require.resolve(`./eventos/${file}`)]; 
