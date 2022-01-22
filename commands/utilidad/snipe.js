@@ -1,7 +1,7 @@
 module.exports =  {
     
-    name: 'reminder',
-    aliases: ['rm','remindme'],
+    name: 'snipe',
+    aliases: [],
     description: '⏰ Establece un recordatorio.',
   
     async execute(client, message, args, Discord) {

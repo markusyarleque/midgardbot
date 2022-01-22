@@ -1,8 +1,5 @@
 const { MessageActionRow, MessageButton } = require('discord.js');
 
-const moment = require('moment');
-require('moment-duration-format');
-
 module.exports = { 
 
   name: 'report',
@@ -85,7 +82,6 @@ module.exports = {
           .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
     
           m.edit({ 
-            content: 'Prueba yes',
             embeds: [bugco],
             components: []
           })

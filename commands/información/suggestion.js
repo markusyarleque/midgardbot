@@ -7,9 +7,6 @@ module.exports = {
     description: '🟡 Envía una sugerencia para mejorar el bot.',
   
     async execute(client, message, args, Discord) {
-    
-      const moment = require('moment');
-      require('moment-duration-format');
   
       const embedercancel = new Discord.MessageEmbed()
       .setDescription('<a:Verify2:931463492677017650> | Sugerencia cancelada. <:aisaMexicana:925926704097161216>')
@@ -19,6 +16,16 @@ module.exports = {
       .setDescription('<a:Verify2:931463492677017650> | ¡No confirmaste a tiempo! <:enojado:931434000751394867>')
       .setColor('RANDOM')
   
+      const bSi = new MessageButton()
+        .setCustomId("accept")
+        .setLabel("SI")
+        .setStyle("SUCCESS")
+    
+      const bNo = new MessageButton()
+        .setCustomId("deny")
+        .setLabel("NO")
+        .setStyle("DANGER")
+
       let reporte = args.join(' ');
       if(!reporte){
 
@@ -45,16 +52,6 @@ module.exports = {
         .setFooter(`Developer Team - Midgard Bot`, `${message.author.displayAvatarURL()}`);
     
       setTimeout(() => message.delete(), 100)
-  
-      const bSi = new MessageButton()
-        .setCustomId("accept")
-        .setLabel("SI")
-        .setStyle("SUCCESS")
-    
-      const bNo = new MessageButton()
-        .setCustomId("deny")
-        .setLabel("NO")
-        .setStyle("DANGER")
       
       message.channel.send({ 
         
@@ -111,9 +108,7 @@ module.exports = {
     
         collector.on("end", colected => {
             
-          if(colected.size < 1) return 
-  
-          m.edit({ 
+          if(colected.size < 1) return m.edit({ 
             embeds: [embednoconf],
             components: []
           })
