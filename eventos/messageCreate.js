@@ -1,4 +1,3 @@
-const discord = require('discord.js');
 const { MessageActionRow, MessageButton } = require('discord.js');
 
 const dbv = require('megadb');
@@ -6,7 +5,7 @@ const bl = new dbv.crearDB('blacklist');
 
 const prefix = process.env.PREFIX;
 
-module.exports = async (client, message, Discord) => {
+module.exports = async (client, Discord, message) => {
     
     if (message.channel.type === 'dm') {
 
@@ -33,13 +32,13 @@ module.exports = async (client, message, Discord) => {
     let channel
     let idcanal = message.channel.id
   
-    const em = new discord.MessageEmbed()
+    const em = new Discord.MessageEmbed()
       .setThumbnail(message.guild.iconURL({ dynamic: true }))
       .setAuthor('MaltaBot', client.user.avatarURL())
       .setTitle('📢 | Mensaje Enviado')
       .addField('Canal: ', `<a:flech:931432469935312937> <#${idcanal}>`)
       .addField('Autor: ', `<a:flech:931432469935312937> ${message.author}`)
-      .addField('Mensaje: ', message.content ? message.content: 'Ningún mensaje registrado')
+      .addField('Mensaje: ', message.content ? message.content : 'Ningún mensaje registrado')
       .setColor('RANDOM')
       .setTimestamp(new Date())
       .setFooter(`Id: ${message.author.id}`, `${message.author.displayAvatarURL()}`)

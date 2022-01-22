@@ -1,4 +1,4 @@
-module.exports = async (client, member, Discord) => {
+module.exports = async (client, Discord, member) => {
 
   if(member.bot) return;
 
