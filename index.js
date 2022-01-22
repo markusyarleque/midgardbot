@@ -1,18 +1,16 @@
 const Discord = require('discord.js');
-// const client = new Discord.Client();
+
 const { Permissions } = require('discord.js');
 
 const { Client, Intents } = require('discord.js');
 
 const client = new Client({ allowedMentions: { parse: ['users'], repliedUser: true }, intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_BANS, Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_TYPING, Intents.FLAGS.GUILD_PRESENCES] });
 
-// const { MessageSelectMenu, MessageEmbed } = require('discord.js')
-
 const { MessageActionRow, MessageButton } = require('discord.js');
 
 const newUsers = new Discord.Collection();
 const listask = new Discord.Collection();
-//client.snipes = new Map();
+
 client.snipes = new Discord.Collection()
 
 const NSFW = require('discord-nsfw');
@@ -31,10 +29,10 @@ const moment = require('moment');
 require('moment-duration-format');
 
 const dbv = require('megadb');
-// const db_marry = new dbv.crearDB('marry');
 const vip = new dbv.crearDB('vip');
 const bl = new dbv.crearDB('blacklist');
 const fs = require('fs');
+
 
 /*const sqlite3 = require('sqlite3').verbose();
 
@@ -53,6 +51,8 @@ let crear = "CREATE TABLE IF NOT EXISTS usuarios (idusuario TEXT, nivel INTEGER,
 db.run(crear, function(err) {
   if (err) return console.error('Error crear tabla: '+err.message)
 })*/
+
+// ----- SQLITE 3 -----
 
 const sqlite3 = require('sqlite3').verbose(),
 { open } = require('sqlite');
@@ -101,6 +101,7 @@ const sqlite3 = require('sqlite3').verbose(),
 
 })();
 
+// ----- ***** -----
 
 // ----- MONGODB -----
 
@@ -110,7 +111,9 @@ mongoose.connect('mongodb+srv://maltabot69:m.y%40r%213qu3%262o22%23drako@cluster
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {
+  console.log('--------------- MONGO DB ---------------');
   console.log('Conectado exitosamente a MongoDB');
+  console.log('--------------- LOGS BOT ---------------');
 }).catch((e) => {
   console.log('Error al conectar: '+e);
 });
@@ -118,18 +121,6 @@ mongoose.connect('mongodb+srv://maltabot69:m.y%40r%213qu3%262o22%23drako@cluster
 // ----- ******* -----
 
 const tresenraya = require('tresenraya');
-
-// const Canvas = require('canvas')
-
-// const marsnpm = require('marsnpm')
-
-// const { joinVoiceChannel } = require('@discordjs/voice');
-
-// const { createAudioPlayer } = require('@discordjs/voice');
-
-// const player = createAudioPlayer();
-
-// const discordTTS = require("discord-tts");
 
 const CARTA_TIEMPO_MIN = 2;
 const CARTA_TIEMPO_MAX = 5;
@@ -142,15 +133,78 @@ const MENSAJE_AYUDA_CARTA = new Discord.MessageEmbed()
 
 const prefix = process.env.PREFIX;
 
-const ytdl = require('ytdl-core');
-const search = require('youtube-search');
-const queue = new Map();
-
-const { joinVoiceChannel } = require('@discordjs/voice');
-
 const { RAE } = require('rae-api')
 
-client.on('ready', () => {
+
+// <-- POO - COMANDOS SEPARADOS -->
+
+let { readdirSync } = require('fs'); 
+
+client.comandos = new Discord.Collection();  
+
+// <-- AQUI EL CONTROLADOR DE COMANDOS: -->
+
+for(const file of readdirSync('./comandos/')) { 
+
+  //Esta condición evitara que los archivos que no son tengan la extención .js no sean listado:
+  if(file.endsWith(".js")) { 
+
+    //Elimina los últimos tres caracteres nombre del archivo para
+    //deshacerse de la extensión .js y solo quedarnos con el nombre del comando:
+    let fileName = file.substring(0, file.length - 3); 
+
+    //Define una nueva variable 'fileContents' de la exportación del comando 
+    //dentro de la carpeta comandos:
+    let fileContents = require(`./comandos/${file}`); 
+
+    //Agrega el nombre del comando a la colección client.commands con un 
+    //valor de sus exportaciones respectivas.
+    client.comandos.set(fileName, fileContents);
+  }
+}
+
+// <-- AQUI EL CONTROLADOR DE EVENTOS: -->
+
+for(const file of readdirSync('./eventos/')) { 
+
+  //Esto condicion evitara que los archivos que no son archivos .js no coleccione:
+  if(file.endsWith(".js")){
+
+    //Elimina los últimos tres caracteres nombre del archivo para
+    //deshacerse de la extensión .js y solo quedarnos con el nombre del evento:
+    let fileName = file.substring(0, file.length - 3); 
+
+    //Define una nueva variable 'fileContents' de la exportación del evento dentro de la carpeta eventos:
+    let fileContents = require(`./eventos/${file}`); 
+  
+    // Cuando el evento se activa o es solicitada exportamos la función con 
+    // el nombre del evento vinculada y tambien el parametro client.
+    client.on(fileName, fileContents.bind(null, client)); 
+		
+    // Elimina la memoria caché del archivo requerido para facilitar la recarga y no 
+    // tener más memoria de la necesaria.
+    delete require.cache[require.resolve(`./eventos/${file}`)]; 
+
+  }
+}
+
+// <-- AQUI LA PROPIEDAD LOGIN: -->
+
+client.login(process.env.TOKEN) //agregamos las promesas de la propiedad login.
+  .then(() => { 
+
+    console.log(`Estoy listo, soy ${client.user.tag}`);
+
+  })
+  .catch((err) => {
+
+    //Si se produce un error al iniciar sesión, se le indicará en la consola.
+    console.error("Error al iniciar sesión: " + err);
+
+  });
+
+
+/*client.on('ready', () => {
   
   client.user.setPresence({
     status: 'online',
@@ -161,9 +215,9 @@ client.on('ready', () => {
   });
   console.log('Listo!');
 
-});
+});*/
 
-client.on('guildMemberAdd', async member => {
+/*client.on('guildMemberAdd', async member => {
 
   if(member.bot) return;
   const guild = member.guild;
@@ -199,33 +253,23 @@ client.on('guildMemberAdd', async member => {
 
   if (!channel) return;
 
-  /*if (newUsers.size > 1000000) {
+  if (newUsers.size > 1000000) {
 
     const userlist = newUsers.map(u => u.toString()).join(' ');
     channel.send('¡Bienvenid@s Terrícolas!'+ `${userlist}`+', a este nuevo **Universo**. <:shylove:931432905421520927> Les invito a pasar por <#855582327514202132> y <#785685918270488656> Y si tienen una queja, duda o sugerencia, pasen por <#815654349912801280>. Cualquier duda o pregunta aquí estará todo el equipo de Staff a su disposición. <a:pasito:877116925291946094> Pásenla increíble, lindo día, tarde o noche. <a:abdul_dance:880930576683630662>');
     newUsers.clear();
 
-  }*/
+  }
 
   //channel.send('¡Bienvenid@ Terrícola!' + `${member.user}` + ', a este nuestro **Universo**. <:shylove:931432905421520927>. Espero que te lo pases genial en este server libre de toxicidad, con muchos eventos programados, premios y más sorpresas!!! <a:Sara:880304101215334401> Recuerda pasar por <#777623227321155614> y <#926556796838109226> Y si tienes alguna queja, duda o sugerencia, pasa por <#880402803825188874>. Cualquier incoveniente aquí estará todo el equipo de Staff a su disposición. <a:dc_party1:881033439367815239>');
   channel.send({embeds:[embed]})
   channel.send('https://images-ext-2.discordapp.net/external/9iPHKFXXnKKSQpcFazlW79dr1zbbtdo7QT7-xxtfDY4/%3Fwidth%3D600%26height%3D86/https/media.discordapp.net/attachments/897951731462316073/915663567213199390/bar-1.gif?width=480&height=69')
     
-});
+});*/
 
-client.on('guildMemberRemove', (member) => {
-    if(newUsers.has(member.id)) newUsers.delete(member.id);
-  });
 
-const imgdelete = new Discord.MessageEmbed() 
+/*client.on('messageDelete', async (message) => {
 
-client.on('messageDelete', async (message) => {
-
-    /*client.snipes.set(message.channel.id, {
-        content: message.content,
-        delete: message.author,
-        canal: message.channel
-    });*/
 
     let snipes = client.snipes.get(message.channel.id) || [] 
 
@@ -258,30 +302,12 @@ client.on('messageDelete', async (message) => {
     
     channel.send({ embeds: [embed] });
     //channel.send('📢 | Mensajes Borrados\n``` \n===> Canal:\n'+`${message.channel.name}`+' | '+ message.channel.id +'\n\n===> Autor:\n'+`${message.author.username}`+' | '+ message.author.id +'\n\n===> Mensaje:\n'+message.content+'\n\n```')
-
-    /*if(message.attachments.size > 0){
-
-      let Attachs = (message.attachments).array()
-
-      //imgdelete.setImage(message.attachments)n
-
-      Attachs.forEach(m => {//esto es por si hay más de una imagen
-
-        imgdelete.setImage(m.proxyURL)
-        //canal.send({file: [m.proxyURL]})//enviamos la imagen 
-    
-    //.setImage(m.proxyURL)
   
-    //canal.send({embeds : [embed]})enviamos el embed
-      
-      })
-    }*/
-  
-});
+});*/
 
 client.on('messageCreate', async message => {
     
-    if (message.channel.type === 'dm') {
+    /*if (message.channel.type === 'dm') {
 
       let sv = client.guilds.cache.get('777620055344545842')
       let channel = sv.channels.cache.get('874943743185285150')
@@ -455,26 +481,20 @@ client.on('messageCreate', async message => {
           content: message.author.toString() + "¿Deseas contactar a Malta?",
           components: [
 
-              /* Botones para aceptar y rechazar el juego */
 
             new MessageActionRow().addComponents([bSi,bNo])
           ]
         }).then(async m => {
-          
-            /* Creamos un collector de componentes para detectar lainteracción con los botones */
             
           let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
            
-          const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 300000 /* Tiempo para que el miembro interatue con los botones */ });
+          const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 300000 });
           
           collector.on("collect", async int => {
-              
-              /* Cuando el miembro mencionado de click en un boton */
-              
+               
             int.deferUpdate();
               
-              /* Si dio click en el boton aceptar ... */
-              
+               
             if (int.customId === "accept") {
                 
               m.edit({
@@ -494,7 +514,6 @@ client.on('messageCreate', async message => {
           });
       
           collector.on("end", colected => {
-              /* Si no dio click en ningun boton durante los 60s ...*/
               
             if(colected.size < 1) return m.edit({
               content: "**¡No confirmaste a tiempo!** <:enojado:931434000751394867>",
@@ -565,14 +584,14 @@ client.on('messageCreate', async message => {
   
       }
   
-        /*let princesa = new RegExp(`^<@!?${'748192032098353193'}>( |)$`);
+      let princesa = new RegExp(`^<@!?${'748192032098353193'}>( |)$`);
   
-        if (message.content.match(princesa))
-        {
+      if (message.content.match(princesa))
+      {
   
-          message.channel.send(`<a:dc_fuegorosaa:889684389829681202> ¿Qué necesitas de La Princesa del server? <a:dc_fuegorosaa:889684389829681202>`)
+        message.channel.send(`<a:dc_fuegorosaa:889684389829681202> ¿Qué necesitas de La Princesa del server? <a:dc_fuegorosaa:889684389829681202>`)
   
-        }*/
+      }
   
       if (message.content === 'piropo' || message.content === 'Piropo')
       {
@@ -668,7 +687,7 @@ client.on('messageCreate', async message => {
         .setColor('RANDOM')
         message.channel.send({ embeds: [embed] })
   
-      }
+      }*/
 
     let id = message.author.id
     //let i = message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')
@@ -693,23 +712,14 @@ client.on('messageCreate', async message => {
       
     }
 
-    if(!message.content.startsWith(process.env.PREFIX)) return;
+    /*if(!message.content.startsWith(process.env.PREFIX)) return;
     
     //const serverQueue = queue.get(message.guild.id);
 
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
+    const command = args.shift().toLowerCase();*/
 
     if(bl.tiene(message.author.id)) return message.channel.send('Estás prohibido de usar estos comandos, contacta con el equipo de desarrolladores para más información.!');
-
-
-    //<-- INSERT USUARIO -->
-
-    /*let id = message.author.id
-    let i = 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif'
-    let f = 'No hay frase agregada'
-    let color = '#607D8B'
-    let marry = 'Soltero(a)'*/
 
     let sentencia = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ${id}`)
 
@@ -2601,7 +2611,7 @@ client.on('messageCreate', async message => {
 
     // COMANDOS DE PROGRAMADOR
 
-    if(command === 'malta'){
+    /*if(command === 'malta'){
 
         let id = ['753435606410985573']
   
@@ -2630,7 +2640,7 @@ client.on('messageCreate', async message => {
   
         }
   
-    }
+    }*/
 
 
     // COMANDOS DE MÚSICA
@@ -2782,7 +2792,7 @@ client.on('messageCreate', async message => {
 
     // COMANDOS DE INFORMACIÓN
 
-    if (command === 'ping') {
+    /*if (command === 'ping') {
 
         let ping = Math.floor(message.client.ws.ping);
 
@@ -2818,7 +2828,7 @@ client.on('messageCreate', async message => {
             
         message.channel.send({ embeds: [embed] });
         
-    }
+    }*/
 
     if(command === 'mbservers'){
 
@@ -4282,7 +4292,7 @@ client.on('messageCreate', async message => {
 
     //COMANDOS DE DIVERSIÓN
 
-    if(command === 'say'){
+    /*if(command === 'say'){
 
         let texto = args.join(' ');
     
@@ -4290,7 +4300,7 @@ client.on('messageCreate', async message => {
         message.channel.send(texto);
         setTimeout(() => message.delete(), 100);
         
-    }
+    }*/
 
     if(command === '8ball'){
 
@@ -5306,7 +5316,7 @@ client.on('messageCreate', async message => {
           .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
           .setThumbnail(message.author.displayAvatarURL({ dynamic: true }).replace('webp','png'))
           .setTitle(`📩 | Cartas & Dedicatorias 💕`)
-          .setDescription(target.user.username + ' Te ha llegado una **dedicatoria** <:tierno:931433334960160799>\n\n<a:flech:931432469935312937> *Enviado por:*\n<a:corazones_fn:906775240795901982> **'+ message.author.username+'**\n\n<a:fijadito:931432134797848607>\n```'+mensaje+'```\n')
+          .setDescription(target.user.username + ' Te ha llegado una **dedicatoria** <:tierno:931433334960160799>\n\n<a:flech:931432469935312937> *Enviado por:*\n<a:corazones_fn:906775240795901982> **'+ message.author.username+'**\n\n<a:fijadito:931432134797848607>\n```'+mensaje.substring(0, mensaje.length - 2)+'```\n')
           //.setImage(`https://media.discordapp.net/attachments/920564115355889674/920594418711543838/FinalVideo_1638643044.278044.gif?width=512&height=288`)
           .setColor('RANDOM')
           .setTimestamp(new Date())
@@ -13195,35 +13205,5 @@ client.on('error', (e) => console.error(e));
 client.on('warn', (e) => console.warn(e));
 client.on('debug', (e) => console.info(e));
 
-client.login(process.env.TOKEN); 
+//client.login(process.env.TOKEN); 
 
-// <-- FUNCION PLAY (REPRODUCIR): -->
-
-function play(guild, song) {
-
-  const serverQueue = queue.get(guild.id);
-
-  // verificamos que hay musica en nuestro objeto de lista
-  if (!song) {
-   serverQueue.voiceChannel.leave(); // si no hay mas música en la cola, desconectamos nuestro bot
-   queue.delete(guild.id);
-   return;
-  }
- 
-  // <-- Reproducción usando play()  -->
- 
-  const dispatcher = serverQueue.connection.play(ytdl(song.url))
-    .on('finish', () => {
-    // Elimina la canción terminada de la cola.
-    serverQueue.songs.shift();
-
-    // Llama a la función de reproducción nuevamente con la siguiente canción
-    play(guild, serverQueue.songs[0]);
-    })
-    .on('error', error => {
-    console.error(error+" holi");
-    });
-
-    // Configuramos el volumen de la reproducción de la canción
-    dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
- }
