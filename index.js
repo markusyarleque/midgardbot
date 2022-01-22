@@ -714,12 +714,12 @@ client.on('messageCreate', async message => {
       
     }*/
 
-    /*if(!message.content.startsWith(process.env.PREFIX)) return;
+    if(!message.content.startsWith(process.env.PREFIX)) return;
     
     //const serverQueue = queue.get(message.guild.id);
 
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();*/
+    const command = args.shift().toLowerCase();
 
     //if(bl.tiene(message.author.id)) return message.channel.send('Estás prohibido de usar estos comandos, contacta con el equipo de desarrolladores para más información.!');
 
