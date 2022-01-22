@@ -1,6 +1,8 @@
 module.exports = (client, message) => {
 
     const Discord = require('discord.js'); 
+    
+    const { MessageActionRow, MessageButton } = require('discord.js');
 
     const dbv = require('megadb');
     const vip = new dbv.crearDB('vip');
@@ -392,7 +394,7 @@ module.exports = (client, message) => {
     // Definiendo los argumentos y comandos.
     const args = message.content.slice(prefix.length).trim().split(/ +/g);  
     const command = args.shift().toLowerCase()
-    
+
     if(bl.tiene(message.author.id)) return message.channel.send('Estás prohibido de usar estos comandos, contacta con el equipo de desarrolladores para más información.!');
 
     // Manejando los eventos.

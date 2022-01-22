@@ -728,15 +728,17 @@ client.on('messageCreate', async message => {
     /*db.get(sentencia, (err, filas) => {
       if (err) return console.error('Error 0: '+err.message)*/
 
-    if (!sentencia){
+    /*if (!sentencia){
 
       await client.db.run(`INSERT INTO usuarios (idusuario, nivel, exp, marry, rep, color, frase, foto, dinero, banco, total) VALUES (?,?,?,?,?,?,?,?,?,?,?)`, id,'0','1',marry,'0',color,f,i,'0','0','0')
       
       //let insert = `INSERT INTO usuarios(idusuario, nivel, exp, rep, frase, foto) VALUES(${id}, 0, 1, 0, "${f}", "${i}")`
 
-      /*db.run(insert, function(err) {
+
+
+      db.run(insert, function(err) {
        if (err) return console.error('Error 1: '+insert+" ---- "+err.message)
-      });*/
+      });
 
     } else {
 
@@ -750,11 +752,13 @@ client.on('messageCreate', async message => {
 
         //let update = `UPDATE usuarios SET exp = ${filas.exp + 1}, nivel = ${curLevel} WHERE idusuario = ${id}`;
 
-         /*db.run(update, function(err) {      
+
+
+         db.run(update, function(err) {      
           if (err) return console.error('Error 2: '+err.message)
         message.channel.send('Felicidades!!! Subiste de nivel, '+ message.author.tag)
 
-         });*/
+         });
 
       }
 
@@ -762,11 +766,13 @@ client.on('messageCreate', async message => {
 
       //let update = `UPDATE usuarios SET exp = ${filas.exp + 1} WHERE idusuario = ${id}`;
       
-      /*db.run(update, function(err) {      
-      if (err) return console.error('Error 3: '+err.message)
-      })*/
 
-    }
+
+      db.run(update, function(err) {      
+      if (err) return console.error('Error 3: '+err.message)
+      })
+
+    }*/
 
     //BASE DE DATOS
 
