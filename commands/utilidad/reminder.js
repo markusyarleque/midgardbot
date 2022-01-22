@@ -58,7 +58,7 @@ module.exports =  {
             new Discord.MessageEmbed()
               .setAuthor(message.author.tag, message.author.displayAvatarURL())
               .setColor('RANDOM')
-              .setDescription('<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en ' + obtener.slice(0, -1) + ' segundos:\n<a:flech:931432469935312937> '+mensaje)
+              .setDescription('<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en ' + obtener.slice(0, -1) + ' segundos:\n\n<a:flech:931432469935312937> '+mensaje)
           ]})
 
           setTimeout(reminder, msDelay);
@@ -82,7 +82,7 @@ module.exports =  {
             new Discord.MessageEmbed()
               .setAuthor(message.author.tag, message.author.displayAvatarURL())
               .setColor('RANDOM')
-              .setDescription('<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en ' + obtener.slice(0, -1) + ' minutos:\n<a:flech:931432469935312937> '+mensaje)
+              .setDescription('<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en ' + obtener.slice(0, -1) + ' minutos:\n\n<a:flech:931432469935312937> '+mensaje)
           ]})
 
           setTimeout(reminder, msDelay);
@@ -106,7 +106,7 @@ module.exports =  {
             new Discord.MessageEmbed()
               .setAuthor(message.author.tag, message.author.displayAvatarURL())
               .setColor('RANDOM')
-              .setDescription('<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en ' + obtener.slice(0, -1) + ' horas:\n<a:flech:931432469935312937> '+mensaje)
+              .setDescription('<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en ' + obtener.slice(0, -1) + ' horas:\n\n<a:flech:931432469935312937> '+mensaje)
           ]})
             
           setTimeout(reminder, msDelay);
@@ -121,7 +121,7 @@ module.exports =  {
             new Discord.MessageEmbed()
               .setAuthor(message.author.tag, message.author.displayAvatarURL())
               .setColor('RED')
-              .setDescription('<a:Verify2:931463492677017650> | Lo estás haciendo mal, es:\n<1 - 60>s <recordatorio>\n<1 - 60>m <recordatorio>\n<1 -  24>h <recordatorio>\n ____Ejemplo:____\n```1m Recordar ir a sacar a mi perro```')
+              .setDescription('<a:Verify2:931463492677017650> | Lo estás haciendo mal, es:\n\n> <1 - 60>s <recordatorio>\n> <1 - 60>m <recordatorio>\n> <1 -  24>h <recordatorio>\n\n ____Ejemplo:____\n```_rm 1m Recordar ir a sacar a mi perro```')
           ]})
               
           break;
