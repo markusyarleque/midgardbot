@@ -1,4 +1,6 @@
 module.exports = async (client, message, Discord) => {
+  
+  client.snipes = new Discord.Collection()
 
   let snipes = client.snipes.get(message.channel.id) || [] 
 

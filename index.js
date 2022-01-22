@@ -24,6 +24,10 @@ const neko = new clientN();
 const star = require('star-labs')
 
 const prefix = process.env.PREFIX;
+const { MessageActionRow, MessageButton } = require('discord.js');
+const dbv = require('megadb');
+const bl = new dbv.crearDB('blacklist');
+
 /*const moment = require('moment');
 require('moment-duration-format');*/
 
