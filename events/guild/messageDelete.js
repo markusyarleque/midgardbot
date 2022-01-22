@@ -1,6 +1,12 @@
+const Discord = require('discord.js');
+
+const { Client, Intents } = require('discord.js');
+
+const client = new Client({ allowedMentions: { parse: ['users'], repliedUser: true }, intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_BANS, Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_TYPING, Intents.FLAGS.GUILD_PRESENCES] });
+
+client.snipes = new Discord.Collection()
+
 module.exports = async (client, message, Discord) => {
-  
-  client.snipes = new Discord.Collection()
 
   let snipes = client.snipes.get(message.channel.id) || [] 
 
