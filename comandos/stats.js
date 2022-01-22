@@ -1,8 +1,10 @@
 module.exports = (client, message, args) => { 
 
-    const actividad = moment.duration(client.uptime).format(' D [dias], H [hrs], m [mins], s [segs]');
+  const Discord = require('discord.js'); 
 
-    const embed = new Discord.MessageEmbed()
+  const actividad = moment.duration(client.uptime).format(' D [dias], H [hrs], m [mins], s [segs]');
+
+  const embed = new Discord.MessageEmbed()
     .setThumbnail('https://media.giphy.com/media/3rgXBsmYd60rL3w7sc/giphy.gif')
     .setAuthor('MidgardBot', client.user.avatarURL())
     .setTitle('Estadísticas')
@@ -19,6 +21,6 @@ module.exports = (client, message, args) => {
     .setTimestamp(new Date())
     .setFooter(`Malta's Bot`, `${message.author.displayAvatarURL()}`);
             
-    message.channel.send({ embeds: [embed] });
+  message.channel.send({ embeds: [embed] });
   
-  }
+}

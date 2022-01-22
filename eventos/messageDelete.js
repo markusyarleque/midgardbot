@@ -1,22 +1,26 @@
 module.exports = (client, message) => {
 
-    let snipes = client.snipes.get(message.channel.id) || [] 
+  const Discord = require('discord.js'); 
 
-    if(snipes.length > 10) snipes = snipes.slice(0, 10)
+  const { MessageActionRow, MessageButton } = require('discord.js');
 
-    snipes.unshift({//guardamos todo
-      msg: message,//mensaje
-      image: message.attachments.first() ? message.attachments.first().proxyURL : null, //Imagen si es que la hay
-      time: Date.now() })//fecha y cerramos
+  let snipes = client.snipes.get(message.channel.id) || [] 
 
-    client.snipes.set(message.channel.id, snipes)//establecemos todo en la coleccion
+  if(snipes.length > 10) snipes = snipes.slice(0, 10)
 
-    let sv = client.guilds.cache.get('851924635930329098')
-    let channel = sv.channels.cache.get('933903109305028688')
+  snipes.unshift({//guardamos todo
+    msg: message,//mensaje
+    image: message.attachments.first() ? message.attachments.first().proxyURL : null, //Imagen si es que la hay
+    time: Date.now() })//fecha y cerramos
 
-    if(message.content.length>=1000) return channel.send('El mensaje eliminado en el canal: <#'+message.channel.id+'> es demasiado largo. Ha sido enviado  por: '+message.author)
+  client.snipes.set(message.channel.id, snipes)//establecemos todo en la coleccion
+
+  let sv = client.guilds.cache.get('851924635930329098')
+  let channel = sv.channels.cache.get('933903109305028688')
+
+  if(message.content.length>=1000) return channel.send('El mensaje eliminado en el canal: <#'+message.channel.id+'> es demasiado largo. Ha sido enviado  por: '+message.author)
   
-    const embed = new Discord.MessageEmbed()
+  const embed = new Discord.MessageEmbed()
     .setAuthor('MaltaBot', client.user.avatarURL())
     .setThumbnail(message.guild.iconURL({ dynamic: true }))
     .setTitle('📢 | Mensajes Borrados')
@@ -28,9 +32,9 @@ module.exports = (client, message) => {
     .setTimestamp(new Date())
     .setFooter(`Id: ${message.author.id}`, `${message.author.displayAvatarURL()}`)
     
-    channel.send({ embeds: [embed] });
+  channel.send({ embeds: [embed] });
     
-    let canal = client.channels.cache.get('ID-CANAL'); 
-    canal.send(`**${message.author.username}** elimino un mensaje con el contenido: ${message}`);
+  let canal = client.channels.cache.get('ID-CANAL'); 
+  canal.send(`**${message.author.username}** elimino un mensaje con el contenido: ${message}`);
   
 }

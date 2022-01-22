@@ -1,5 +1,7 @@
 module.exports = (client, message, args) => {
 
+    const Discord = require('discord.js'); 
+
     let id = ['753435606410985573']
   
     if(!id.some(id => message.author.id == id)) {
@@ -27,5 +29,5 @@ module.exports = (client, message, args) => {
         }
   
     }
-    
+
 }
