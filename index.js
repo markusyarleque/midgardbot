@@ -151,9 +151,9 @@ client.comandos = new Discord.Collection();
 
 console.log('========================= CONTROLADOR DE COMANDOS =========================')
 
-readdirSync('comandos/').forEach((dir) => {
+readdirSync('./comandos/').forEach((dir) => {
 
-  for(const file of readdirSync(`comandos/${dir}`)) { 
+  for(const file of readdirSync(`./comandos/${dir}`)) { 
 
     //Esta condición evitara que los archivos que no son tengan la extención .js no sean listado:
     if(file.endsWith(".js")) { 
@@ -167,13 +167,13 @@ readdirSync('comandos/').forEach((dir) => {
 
       try {
 
-        let fileContents = require(`comandos/${dir}/${file}`); 
+        let fileContents = require(`../comandos/${dir}/${file}`); 
         console.log('Comando cargado: '+fileName.name)
         client.comandos.set(fileName, fileContents);
         
       } catch (error) {
 
-        console.log('Error al cargar comando: '+fileName+' - Error: '+error)
+        console.log('Error al cargar comando: '+fileName+' - '+error)
         
       }
   
@@ -193,7 +193,7 @@ console.log('========================= CONTROLADOR DE COMANDOS =================
 
 console.log('========================= CONTROLADOR DE EVENTOS =========================')
 
-for(const file of readdirSync('eventos/')) { 
+for(const file of readdirSync('./eventos/')) { 
 
   // Esto condicion evitara que los archivos que no son archivos .js no coleccione:
   if(file.endsWith(".js")){
@@ -206,13 +206,13 @@ for(const file of readdirSync('eventos/')) {
 
     try {
 
-      let fileContents = require(`eventos/${file}`);
+      let fileContents = require(`../eventos/${file}`);
       console.log('Evento cargado: '+fileName.name)
       client.on(fileName, fileContents.bind(null, client));
       
     } catch (error) {
 
-      console.log('Error al cargar evento: '+fileName+' - Error: '+error)
+      console.log('Error al cargar evento: '+fileName+' - '+error)
       
     } 
   
@@ -221,7 +221,7 @@ for(const file of readdirSync('eventos/')) {
     
     // Elimina la memoria caché del archivo requerido para facilitar la recarga y no 
     // tener más memoria de la necesaria.
-    delete require.cache[require.resolve(`eventos/${file}`)]; 
+    delete require.cache[require.resolve(`./eventos/${file}`)]; 
 
   }
 }

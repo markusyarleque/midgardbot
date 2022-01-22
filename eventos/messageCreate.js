@@ -1,4 +1,11 @@
-module.exports = async (client, message, Discord, prefix, bl, MessageActionRow,  MessageButton) => {
+const { MessageActionRow, MessageButton } = require('discord.js');
+
+const dbv = require('megadb');
+const bl = new dbv.crearDB('blacklist');
+
+const prefix = process.env.PREFIX;
+
+module.exports = async (client, message, Discord) => {
     
     if (message.channel.type === 'dm') {
 
