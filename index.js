@@ -145,16 +145,16 @@ let { readdirSync } = require('fs');
 const { resourceLimits } = require('worker_threads');
 const { error } = require('console');
 
-client.comandos = new Discord.Collection();  
+client.comandos = new Discord.Collection(); 
 
 // <-- AQUI EL CONTROLADOR DE COMANDOS: -->
 
 console.log('========================= CONTROLADOR DE COMANDOS =========================')
 
-readdirSync('./comandos/').forEach((dir) => {
+readdirSync("comandos/").forEach((dir) => {
 
-  for(const file of readdirSync(`./comandos/${dir}`)) { 
-
+  for(const file of readdirSync(`comandos/${dir}`)) { 
+    
     //Esta condición evitara que los archivos que no son tengan la extención .js no sean listado:
     if(file.endsWith(".js")) { 
       
@@ -162,6 +162,7 @@ readdirSync('./comandos/').forEach((dir) => {
       //deshacerse de la extensión .js y solo quedarnos con el nombre del comando:
       let fileName = file.substring(0, file.length - 3); 
   
+      console.log('Nombre de comando: '+fileName)
       //Define una nueva variable 'fileContents' de la exportación del comando 
       //dentro de la carpeta comandos:
 
