@@ -142,8 +142,6 @@ const { RAE } = require('rae-api')
 // <-- POO - COMANDOS SEPARADOS -->
 
 let { readdirSync } = require('fs'); 
-const { resourceLimits } = require('worker_threads');
-const { error } = require('console');
 
 client.comandos = new Discord.Collection(); 
 
@@ -153,7 +151,7 @@ console.log('========================= CONTROLADOR DE COMANDOS =================
 
 readdirSync("comandos/").forEach((dir) => {
 
-  for(const file of readdirSync(`comandos/${dir}`)) { 
+  for(const file of readdirSync(`comandos/${dir}/`)) { 
     
     //Esta condición evitara que los archivos que no son tengan la extención .js no sean listado:
     if(file.endsWith(".js")) { 
@@ -210,6 +208,7 @@ for(const file of readdirSync('eventos/')) {
 
       client.on(fileName, fileContents.bind(null, client));
       console.log('Evento cargado: '+fileName)
+      delete require.cache[require.resolve(`./eventos/${file}`)]; 
       
     } catch (error) {
 
@@ -222,7 +221,6 @@ for(const file of readdirSync('eventos/')) {
     
     // Elimina la memoria caché del archivo requerido para facilitar la recarga y no 
     // tener más memoria de la necesaria.
-    delete require.cache[require.resolve(`./eventos/${file}`)]; 
 
   }
 }
@@ -230,6 +228,8 @@ for(const file of readdirSync('eventos/')) {
 console.log('========================= CONTROLADOR DE EVENTOS =========================')
 
 // <-- AQUI LA PROPIEDAD LOGIN: -->
+
+console.log('========================= LOGIN =========================')
 
 client.login(process.env.TOKEN) //agregamos las promesas de la propiedad login.
   .then(() => { 
@@ -244,6 +244,7 @@ client.login(process.env.TOKEN) //agregamos las promesas de la propiedad login.
 
   });
 
+console.log('========================= LOGIN =========================')
 
 
 client.on('messageCreate', async message => {
