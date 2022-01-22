@@ -25,10 +25,6 @@ const neko = new clientN();
 
 const star = require('star-labs')
 
-const prefix = process.env.PREFIX;
-
-const dbv = require('megadb');
-const bl = new dbv.crearDB('blacklist');
 /*const moment = require('moment');
 require('moment-duration-format');*/
 
@@ -231,10 +227,11 @@ console.log('========================= CONTROLADOR DE EVENTOS ==================
 
 console.log('========================= LOGIN =========================')
 
-client.login(process.env.TOKEN) //agregamos las promesas de la propiedad login.
+client.login(process.env.TOKEN)
   .then(() => { 
 
     console.log(`Estoy listo, soy ${client.user.tag}`);
+    console.log('========================= LOGIN =========================')
 
   })
   .catch((err) => {
@@ -243,8 +240,6 @@ client.login(process.env.TOKEN) //agregamos las promesas de la propiedad login.
     console.error("Error al iniciar sesión: " + err);
 
   });
-
-console.log('========================= LOGIN =========================')
 
 
 client.on('messageCreate', async message => {
