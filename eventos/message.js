@@ -2,6 +2,11 @@ module.exports = (client, message) => {
 
     const Discord = require('discord.js'); 
 
+    const dbv = require('megadb');
+    const vip = new dbv.crearDB('vip');
+    const bl = new dbv.crearDB('blacklist');
+    const fs = require('fs');
+
     if (message.channel.type === 'dm') {
 
         let sv = client.guilds.cache.get('777620055344545842')
@@ -387,7 +392,9 @@ module.exports = (client, message) => {
     // Definiendo los argumentos y comandos.
     const args = message.content.slice(prefix.length).trim().split(/ +/g);  
     const command = args.shift().toLowerCase()
-  
+    
+    if(bl.tiene(message.author.id)) return message.channel.send('Estás prohibido de usar estos comandos, contacta con el equipo de desarrolladores para más información.!');
+
     // Manejando los eventos.
     let cmd = client.comandos.get(command); // Obtiene el comando de la colección client.commandos
     if(!cmd) return; // Si no hay comandos no ejecute nada.

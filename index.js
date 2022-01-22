@@ -28,10 +28,10 @@ const star = require('star-labs')
 const moment = require('moment');
 require('moment-duration-format');
 
-const dbv = require('megadb');
+/*const dbv = require('megadb');
 const vip = new dbv.crearDB('vip');
 const bl = new dbv.crearDB('blacklist');
-const fs = require('fs');
+const fs = require('fs');*/
 
 
 /*const sqlite3 = require('sqlite3').verbose();
@@ -689,7 +689,9 @@ client.on('messageCreate', async message => {
   
       }*/
 
-    let id = message.author.id
+      //AQUÍ
+
+    /*let id = message.author.id
     //let i = message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')
     let i = 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif'
     let f = 'No hay frase agregada'
@@ -710,7 +712,7 @@ client.on('messageCreate', async message => {
 
       }
       
-    }
+    }*/
 
     /*if(!message.content.startsWith(process.env.PREFIX)) return;
     
@@ -719,9 +721,9 @@ client.on('messageCreate', async message => {
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();*/
 
-    if(bl.tiene(message.author.id)) return message.channel.send('Estás prohibido de usar estos comandos, contacta con el equipo de desarrolladores para más información.!');
+    //if(bl.tiene(message.author.id)) return message.channel.send('Estás prohibido de usar estos comandos, contacta con el equipo de desarrolladores para más información.!');
 
-    let sentencia = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ${id}`)
+    // AQUÍ X2 let sentencia = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ${id}`)
 
     /*db.get(sentencia, (err, filas) => {
       if (err) return console.error('Error 0: '+err.message)*/
