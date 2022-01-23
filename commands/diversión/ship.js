@@ -52,7 +52,7 @@ module.exports =  {
           
             const rand = message.guild.members.cache.random();
 
-            let resp = ['El porcetanje de `'+message.author.username+'` & `'+rand.user.username+'` es: ','Oh vaya, calculo que el amor de `'+message.author.username+'` & `'+rand.user.username+'` es un: ','`'+message.author.username+'` & `'+rand.user.username+'` tienen un: ']
+            let resp = ['El porcentaje de `'+message.author.username+'` & `'+rand.user.username+'` es: ','Oh vaya, calculo que el amor de `'+message.author.username+'` & `'+rand.user.username+'` es un: ','`'+message.author.username+'` & `'+rand.user.username+'` tienen un: ']
     
             let msg = resp[Math.floor(Math.random() * resp.length)] 
 
@@ -80,7 +80,7 @@ module.exports =  {
 
         } else {
 
-            let resp = ['El porcetanje de `'+message.author.username+'` & `'+users.username+'` es: ','Oh vaya, calculo que el amor de `'+message.author.username+'` & `'+users.username+'` es un: ','`'+message.author.username+'` & `'+users.username+'` tienen un: ']
+            let resp = ['El porcentaje de `'+message.author.username+'` & `'+users.username+'` es: ','Oh vaya, calculo que el amor de `'+message.author.username+'` & `'+users.username+'` es un: ','`'+message.author.username+'` & `'+users.username+'` tienen un: ']
     
             let msg = resp[Math.floor(Math.random() * resp.length)] 
           
