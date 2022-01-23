@@ -71,6 +71,7 @@ module.exports =  {
                 .setColor('GREEN')
                 .setDescription(`<a:Verify1:931463354357276742> |Emoji agregado correctamente : **`+ emoticon.name+'**')
                 .setTimestamp()
+                
               ]}) 
 
             } catch (error) {
