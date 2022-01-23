@@ -17,13 +17,13 @@ module.exports =  {
     
           /* Verificamos los argumentos */
         
-          if (!member) return message.reply("Para jugar debes mencionar a alguien.") //Si el no mencionó a alguien retornamos 
+          if (!member) return message.reply({ allowedMentions: { repliedUser: false}, content: "Para jugar debes mencionar a alguien."}) //Si el no mencionó a alguien retornamos 
         
-          if (member.id === message.author.id) return message.reply("Según las reglas del juego no puedes competir contigo mismo U.U"); //Si se mencionó el mismo retornamos.
+          if (member.id === message.author.id) return message.reply({ allowedMentions: { repliedUser: false}, content: "Según las reglas del juego no puedes competir contigo mismo U.U"}); //Si se mencionó el mismo retornamos.
         
-          if (member.user.bot) return message.reply("No puedes competir contra un bot") //Si el mencionado es un bot retornamos.
+          if (member.user.bot) return message.reply({ allowedMentions: { repliedUser: false}, content: "No puedes competir contra un bot"}) //Si el mencionado es un bot retornamos.
     
-          message.channel.send({
+          message.reply({ allowedMentions: { repliedUser: false}, 
             content: member.toString() + ", ¿aceptas jugar **Tres en raya** contra " + message.author.toString() + "?",
             components: [
               /* Botones para aceptar y rechazar el juego */

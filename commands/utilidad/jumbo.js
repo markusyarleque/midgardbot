@@ -8,7 +8,7 @@ module.exports =  {
   
     async execute(client, message, args, Discord) {
 
-        if(!args[0]) return message.reply({embeds: [
+        if(!args[0]) return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
 
             new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
@@ -19,7 +19,7 @@ module.exports =  {
             
         const emoticon = require('discord.js').Util.parseEmoji(args[0]) // Usaremos el metodo que nos da discord.js para obtener info del emoji
               
-        if(emoticon.id === null) return message.reply({embeds: [
+        if(emoticon.id === null) return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
               
             new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
@@ -32,7 +32,7 @@ module.exports =  {
               
         if(message.content.endsWith('--s')) { // Si termina con --s
             
-            if(!message.member.permissions.has(Permissions.FLAGS.MANAGE_EMOJIS_AND_STICKERS)) return message.reply({embeds: [
+            if(!message.member.permissions.has(Permissions.FLAGS.MANAGE_EMOJIS_AND_STICKERS)) return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
                 
               new Discord.MessageEmbed()
               .setAuthor(message.author.tag, message.author.displayAvatarURL())
@@ -41,7 +41,7 @@ module.exports =  {
     
             ]})
             
-            if(!message.guild.me.permissions.has(Permissions.FLAGS.MANAGE_EMOJIS_AND_STICKERS)) return message.reply({embeds: [
+            if(!message.guild.me.permissions.has(Permissions.FLAGS.MANAGE_EMOJIS_AND_STICKERS)) return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
                 
               new Discord.MessageEmbed()
               .setAuthor(message.author.tag, message.author.displayAvatarURL())
@@ -49,9 +49,10 @@ module.exports =  {
               .setDescription(`<a:Verify2:931463492677017650> | No tengo los permisos para agregar emojis!!!`)
     
             ]})
+
             const emojis = message.guild.emojis.cache.size;
     
-            if(emojis === 500) return message.reply({embeds: [
+            if(emojis === 500) return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
                 
               new Discord.MessageEmbed()
               .setAuthor(message.author.tag, message.author.displayAvatarURL())
@@ -64,7 +65,7 @@ module.exports =  {
     
               message.guild.emojis.create(palta, emoticon.name) // Creamos un emoji con la imagen del emoji 
               
-              return message.channel.send({embeds: [
+              return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
               
                 new Discord.MessageEmbed()
                 .setAuthor(message.author.tag, message.author.displayAvatarURL())
@@ -76,7 +77,7 @@ module.exports =  {
 
             } catch (error) {
                 
-              return message.reply({embeds: [
+              return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
                 
                 new Discord.MessageEmbed()
                 .setAuthor(message.author.tag, message.author.displayAvatarURL())

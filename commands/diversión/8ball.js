@@ -36,7 +36,7 @@ module.exports =  {
             ]
         })
         
-        message.channel.send({ 
+        message.reply({ allowedMentions: { repliedUser: false}, 
             embeds:
             [
                 new Discord.MessageEmbed()

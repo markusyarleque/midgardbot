@@ -30,7 +30,7 @@ module.exports =  {
 
         );
       
-        message.channel.send({embeds : [embed], components: [row] });
+        message.reply({ allowedMentions: { repliedUser: false}, embeds : [embed], components: [row] });
 
     }
 

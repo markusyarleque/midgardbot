@@ -33,7 +33,7 @@ module.exports =  {
             .setTimestamp(new Date())
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             
-            return message.channel.send({ embeds: [embed] })
+            return message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] })
 
         } else if (img.avatarURL === null) {
     
@@ -42,7 +42,7 @@ module.exports =  {
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | El usuario (${img.username}) no tiene avatar!`)
         
-            return message.channel.send({embeds: [e]})
+            return message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
     
         } else {
     
@@ -55,7 +55,7 @@ module.exports =  {
             .setTimestamp(new Date())
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
             
-            message.channel.send({ embeds: [embed] });
+            message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
       
         }
 

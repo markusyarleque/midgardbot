@@ -12,7 +12,7 @@ module.exports =  {
 
         if(channel===conf){
           
-            return message.channel.send("Así te quería atrapar puerco! <:ojooo:931434369283944468> ¡No puedes hacer eso aquí! <:burbuja:925928080680292352>")
+            return message.reply({ allowedMentions: { repliedUser: false}, content: "Así te quería atrapar puerco! <:ojooo:931434369283944468> ¡No puedes hacer eso aquí! <:burbuja:925928080680292352>"})
                 .then(m => setTimeout(() => m.delete(), 10000));
 
         } else{
@@ -21,7 +21,7 @@ module.exports =  {
     
             if (!snipes){
           
-                message.channel.send('No se ha borrado recientemente ningún mensaje!')
+                message.reply({ allowedMentions: { repliedUser: false}, content: 'No se ha borrado recientemente ningún mensaje!'})
                     .then(m => setTimeout(() => m.delete(), 5000));
         
             } else {
@@ -39,7 +39,8 @@ module.exports =  {
                 .setImage(image)
                 .setTimestamp(new Date())
                 .setDescription(`> \`Mensaje eliminado:\` ${msg.content}\n\n__**Información Extra**__\n\n> \`Tiempo:\` <t:${Math.floor(time / 1000)}:R>\n> \`Canal:\` ${msg.channel}\n> \`Snipe número:\` **${snipe + 1} / ${snipes.length}**`)
-                message.channel.send({embeds: [imgdelete]});
+                
+                message.reply({ allowedMentions: { repliedUser: false}, embeds: [imgdelete]});
 
             }
         }

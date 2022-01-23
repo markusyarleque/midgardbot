@@ -8,10 +8,10 @@ module.exports =  {
 
         let ping = Math.floor(message.client.ws.ping);
 
-        message.channel.send(':ping_pong: Pong!')
+        message.reply({ allowedMentions: { repliedUser: false}, content: ':ping_pong: Pong!'})
             .then(m => {
         
-                m.edit(` Si lees esto, funcionó! :incoming_envelope: Ping Mensajes: \`${Math.floor(m.createdTimestamp - Date.now())} ms\`\n:satellite_orbital: Ping DiscordAPI: \`${ping} ms\``);
+                m.edit({ allowedMentions: { repliedUser: false}, content: `:incoming_envelope: Ping Mensajes: \`${Math.floor(m.createdTimestamp - Date.now())} ms\`\n:satellite_orbital: Ping DiscordAPI: \`${ping} ms\``});
               
             });
 

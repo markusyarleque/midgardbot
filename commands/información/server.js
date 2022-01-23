@@ -47,32 +47,28 @@ module.exports = {
         const emojis = server.emojis.cache;
   
         const embed = new Discord.MessageEmbed()
-            .setThumbnail(server.iconURL({ dynamic: true }))
-            .setAuthor(server.name, client.user.avatarURL())
-            .addField('ID:', server.id, false)
-            .addField('Dueño:', `${(await server.fetchOwner()).user.tag} (${(await server.fetchOwner()).id})` , true)
-            //.addField('Creado el:', server.createdAt, false)
-            .addField('Creado el:', moment(server.createdTimestamp).format('LL') + ' a las '+moment(server.createdTimestamp).format('LT') + ' [' + moment(server.createdTimestamp).fromNow()+' ]', false)
-    
-            .addField('Miembros:', '<a:flech:931432469935312937> '+server.memberCount, true)
-            .addField('Region:', '<a:flech:931432469935312937> '+regions[server.region], false)
-            .addField('Nivel:', '<a:flech:931432469935312937> '+nivel[server.premiumTier], true)
-            //.addField('Nivel:', server.mfaLevel, false)
-            .addField('Mejoras:', '<a:flech:931432469935312937> '+server.premiumSubscriptionCount || '0', false)
+        .setThumbnail(server.iconURL({ dynamic: true }))
+        .setAuthor(server.name, client.user.avatarURL())
+        .addField('ID:', server.id, false)
+        .addField('Dueño:', `${(await server.fetchOwner()).user.tag} (${(await server.fetchOwner()).id})` , true)
+        //.addField('Creado el:', server.createdAt, false)
+        .addField('Creado el:', moment(server.createdTimestamp).format('LL') + ' a las '+moment(server.createdTimestamp).format('LT') + ' [' + moment(server.createdTimestamp).fromNow()+' ]', false)
+        .addField('Miembros:', '<a:flech:931432469935312937> '+server.memberCount, true)
+        .addField('Region:', '<a:flech:931432469935312937> '+regions[server.region], false)
+        .addField('Nivel:', '<a:flech:931432469935312937> '+nivel[server.premiumTier], true)
+        //.addField('Nivel:', server.mfaLevel, false)
+        .addField('Mejoras:', '<a:flech:931432469935312937> '+server.premiumSubscriptionCount || '0', false)
+        .addField('Roles:', '<a:flech:931432469935312937> '+roles.length , true)
+        .addField('Emojis:', '<a:flech:931432469935312937> '+emojis.size , false)
+        .addField('Verificación:', '<a:flech:931432469935312937>' +vl[server.verificationLevel] , false)
+        .addField('Canales de Texto:', '<a:flech:931432469935312937> '+channels.filter(channel => channel.type === 'GUILD_TEXT').size , true)
+        .addField('Canales de Voz:', '<a:flech:931432469935312937> '+channels.filter(channel => channel.type === 'GUILD_VOICE').size , true)
+        .setImage(server.bannerURL({ dynamic: true, size: 4096 }).replace('webp','png'))
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(message.author.username+'#'+message.author.discriminator, `${message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')}`); 
 
-            .addField('Roles:', '<a:flech:931432469935312937> '+roles.length , true)
-            .addField('Emojis:', '<a:flech:931432469935312937> '+emojis.size , false)
-            .addField('Verificación:', '<a:flech:931432469935312937>' +vl[server.verificationLevel] , false)
-
-            .addField('Canales de Texto:', '<a:flech:931432469935312937> '+channels.filter(channel => channel.type === 'GUILD_TEXT').size , true)
-            .addField('Canales de Voz:', '<a:flech:931432469935312937> '+channels.filter(channel => channel.type === 'GUILD_VOICE').size , true)
-            .setImage(server.bannerURL({ dynamic: true, size: 4096 }).replace('webp','png'))
-            .setColor('RANDOM')
-    
-            .setTimestamp(new Date())
-            .setFooter(message.author.username+'#'+message.author.discriminator, `${message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')}`); 
-
-        message.channel.send({ embeds: [embed] });
+        message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
 
     }
 

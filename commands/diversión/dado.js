@@ -25,7 +25,8 @@ module.exports =  {
         .setColor('RANDOM')
         .setTimestamp(new Date())
         .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-        message.channel.send({ embeds: [embed] });
+        
+        message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
 
     }
 
