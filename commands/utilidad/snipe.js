@@ -2,7 +2,7 @@ module.exports =  {
     
     name: 'snipe',
     aliases: [],
-    description: '⏰ Establece un recordatorio.',
+    description: '🔻 Recupera el último mensaje eliminado.',
   
     async execute(client, message, args, Discord) {
 
