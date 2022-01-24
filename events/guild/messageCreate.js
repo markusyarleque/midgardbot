@@ -396,10 +396,8 @@ module.exports = async (client, Discord, message) => {
 
     let cmd = client.commands.get(command) || 
               client.commands.find((a) => a.aliases && a.aliases.includes(command)); // Obtiene el comando de la colección client.commandos
-              
-    cmd.execute(client, message, args, Discord)
-
-    /*if(!cmd){
+  
+    if(!cmd){
 
         const e = new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
@@ -412,6 +410,6 @@ module.exports = async (client, Discord, message) => {
 
         cmd.execute(client, message, args, Discord)
 
-    }*/
+    }
     
 }
