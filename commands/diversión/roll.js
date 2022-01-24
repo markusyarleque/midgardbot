@@ -9,7 +9,7 @@ module.exports =  {
         if(!args[0])
         {
 
-            var num = Math.floor(Math.random() * 100)
+            var num = Math.floor(Math.random() * 101)
 
             const embed = new Discord.MessageEmbed() 
             .setAuthor(`Midgard's Fun`,message.guild.iconURL({ dynamic: true }))

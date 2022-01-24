@@ -22,7 +22,7 @@ module.exports =  {
   
         }
 
-        const random = Math.floor(Math.random() * 100);
+        const random = Math.floor(Math.random() * 101);
         let heard = '';
         let image = '';
     
