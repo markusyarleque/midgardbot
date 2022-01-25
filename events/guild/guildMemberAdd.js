@@ -21,7 +21,7 @@ module.exports = async (client, Discord, member) => {
     })
 
     user.save();
-    console.log('Usuario Registrado ===> Id: '+userId + ' Username: ' + userName)
+    console.log('Usuario Registrado ===> Id: '+ idusuario + ' Username: ' + username)
     
   } catch (error) {
 

@@ -131,7 +131,7 @@ module.exports = async (client, Discord, message) => {
 
     try {
 
-        userData = await userModel.findOne({userId: message.author.id})
+        userData = await userModel.findOne({idusuario: message.author.id})
 
         if(!userData){
 
@@ -144,17 +144,17 @@ module.exports = async (client, Discord, message) => {
             })
     
             user.save();
-            console.log('Usuario Registrado ===> Id: '+userId + ' Username: ' + userName)
+            console.log('Usuario Registrado ===> Id: '+ idusuario + ' Username: ' + username)
 
         }else {
 
-            console.log('Usuario: ' + userId + ' ya registrado!')
+            console.log('Usuario: ' + idusuario + ' ya registrado!')
         }
         
     
     } catch (error) {
 
-        console.log('Error al Registrar Usuario: '+error)
+        console.log('Error al Registrar Usuario: '+ error)
     
     }
   
