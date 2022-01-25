@@ -32,4 +32,4 @@ const model = mongoose.model('Usuarios', usersSchema);
 module.exports = model;
 
 //type: string, number, boolean, buffer, date, array, Schema.Types.ObjectId
-//default: 
+//default: fv
