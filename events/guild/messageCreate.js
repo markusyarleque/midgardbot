@@ -5,6 +5,10 @@ const prefix = process.env.PREFIX;
 const dbv = require('megadb');
 const bl = new dbv.crearDB('blacklist');
 
+//& Modelos
+const userModel = require('../../models/userSchema')
+//& Modelos
+
 module.exports = async (client, Discord, message) => {
     
     if (message.channel.type === 'dm') {
@@ -118,6 +122,45 @@ module.exports = async (client, Discord, message) => {
     }
     
     if (message.author.bot) return;
+
+    //* Registro de Usuarios
+
+    console.log('========================= REGISTRO DE USUARIO =========================');
+    
+    let userData;
+
+    try {
+
+        userData = await userModel.findOne({userId: message.author.id})
+
+        if(!userData){
+
+            let user = await userModel.create({
+
+                userId: message.author.id,
+                userName: message.author.username,
+                serverId: message.guild.id,
+    
+            })
+    
+            user.save();
+
+        }else {
+
+            console.log('Usuario ya registrado!')
+        }
+        
+    
+    } catch (error) {
+
+        console.log('Error al Registrar Usuario: '+error)
+    
+    }
+  
+    console.log('========================= REGISTRO DE USUARIO =========================');
+   
+    //* Registro de Usuarios
+
     
     if (message.content === 'Hola' || message.content === 'hola' || message.content === 'Holas' || message.content === 'holas'){
           

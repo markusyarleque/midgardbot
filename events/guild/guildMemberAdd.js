@@ -1,6 +1,36 @@
+//& Modelos
+const userModel = require('../../models/userSchema')
+//& Modelos
+
 module.exports = async (client, Discord, member) => {
 
   if(member.bot) return;
+
+  //* Registro de Usuarios
+
+  console.log('========================= REGISTRO DE USUARIO =========================');
+    
+  try {
+
+    let user = await userModel.create({
+
+      userId: member.id,
+      userName: member.displayname,
+      serverId: member.guild.id,
+
+    })
+
+    user.save();
+    
+  } catch (error) {
+
+    console.log('Error al Registrar Usuario: '+error)
+    
+  }
+  
+  console.log('========================= REGISTRO DE USUARIO =========================');
+   
+  //* Registro de Usuarios
 
   const guild = member.guild;
   
