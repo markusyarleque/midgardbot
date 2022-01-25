@@ -131,24 +131,24 @@ module.exports = async (client, Discord, message) => {
 
     try {
 
-        userData = await userModel.findOne({idusuario: message.author.id})
+        userData = await userModel.findOne({_id: message.author.id})
 
         if(!userData){
 
             let user = await userModel.create({
 
-                idusuario: message.author.id,
+                _id: message.author.id,
                 username: message.author.username,
                 serverId: message.guild.id,
     
             })
     
             user.save();
-            console.log('Usuario Registrado ===> Id: '+ idusuario + ' Username: ' + username)
+            console.log('Usuario Registrado ===> Id: '+ _id + ' Username: ' + username)
 
         }else {
 
-            console.log('Usuario: ' + idusuario + ' ya registrado!')
+            console.log('Usuario: ' + _id + ' ya registrado!')
         }
         
     
