@@ -137,17 +137,18 @@ module.exports = async (client, Discord, message) => {
 
             let user = await userModel.create({
 
-                userId: message.author.id,
-                userName: message.author.username,
+                idusuario: message.author.id,
+                username: message.author.username,
                 serverId: message.guild.id,
     
             })
     
             user.save();
+            console.log('Usuario Registrado ===> Id: '+userId + ' Username: ' + userName)
 
         }else {
 
-            console.log('Usuario ya registrado!')
+            console.log('Usuario: ' + userId + ' ya registrado!')
         }
         
     
