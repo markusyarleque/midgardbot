@@ -33,9 +33,7 @@ module.exports =  {
 
             for(let ls of lista){
 
-                let usuario = client.users.resolve(ls.idusuario)
-          
-                datos.push('**'+c+'.** <@' + usuario.id + '> <a:money:930397094924124180> **'+ls.total+'**')
+                datos.push('**'+c+'.** <@' + ls.idusuario + '> <a:money:930397094924124180> **'+ls.total+'**')
           
                 c = c + 1
         
@@ -72,9 +70,7 @@ module.exports =  {
 
                 for(let ls of lista){
 
-                    let usuario = client.users.resolve(ls.idusuario)
-            
-                    datos.push('**'+c+'.** <@' + usuario.id + '> <a:flech:931432469935312937> **'+ls.exp+'** XP (Nivel: **'+ls.nivel+'**)')
+                    datos.push('**'+c+'.** <@' + ls.idusuario + '> <a:flech:931432469935312937> **'+ls.exp+'** XP (Nivel: **'+ls.nivel+'**)')
             
                     c = c + 1
           
@@ -109,9 +105,7 @@ module.exports =  {
 
                 for(let ls of lista){
 
-                    let usuario = client.users.resolve(ls.idusuario)
-            
-                    datos.push('**'+c+'.** <@' + usuario.id + '> <a:money:930397094924124180> **'+ls.dinero+'**')
+                    datos.push('**'+c+'.** <@' + ls.idusuario + '> <a:money:930397094924124180> **'+ls.dinero+'**')
             
                     c = c + 1
           
@@ -148,9 +142,7 @@ module.exports =  {
 
                     try {
 
-                        let usuario = client.users.resolve(ls.idusuario)
-            
-                        datos.push('**'+c+'.** <@' + usuario.id + '> <a:flechad:880330587678838784> **'+ls.rep+'**')
+                        datos.push('**'+c+'.** <@' + ls.idusuario + '> <a:flechad:880330587678838784> **'+ls.rep+'**')
             
                         c = c + 1
                         
@@ -194,9 +186,7 @@ module.exports =  {
 
                     try {
 
-                        let usuario = client.users.resolve(ls.idusuario)
-            
-                        datos.push('**'+c+'.** <@' + usuario.id + '> <a:flechad:880330587678838784> **'+ls.pat+'**')
+                        datos.push('**'+c+'.** <@' + ls.idusuario + '> <a:flechad:880330587678838784> **'+ls.pat+'**')
             
                         c = c + 1
                         
@@ -240,9 +230,7 @@ module.exports =  {
 
                     try {
 
-                        let usuario = client.users.resolve(ls.idusuario)
-            
-                        datos.push('**'+c+'.** <@' + usuario.id + '> <a:flechad:880330587678838784> **'+ls.hug+'**')
+                        datos.push('**'+c+'.** <@' + ls.idusuario + '> <a:flechad:880330587678838784> **'+ls.hug+'**')
             
                         c = c + 1
                         
@@ -284,8 +272,6 @@ module.exports =  {
 
                 for(let ls of lista){
 
-                    let usuario = client.users.resolve(ls.idusuario)
-            
                     datos.push('**'+c+'.** <@' + ls.idusuario + '> <a:flechad:880330587678838784> **'+ls.sape+'**')
             
                     c = c + 1
