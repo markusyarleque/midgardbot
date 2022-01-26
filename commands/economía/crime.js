@@ -41,16 +41,11 @@ module.exports =  {
             
         ]
 
-        const img = new MessageAttachment('../img/crime.gif');
-        const imga = new MessageAttachment('../img/asalto.gif');
-        const imgh = new MessageAttachment('../img/hack.gif');
-        const imgm = new MessageAttachment('../img/mafia.gif');
-
         const e = new Discord.MessageEmbed()
         .setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
         .setTitle('Zona de Crimen 🚦')
         .setColor('RANDOM')
-        .setThumbnail('attachment://crime.gif')
+        .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936039753927753798/crime.gif?width=326&height=188')
         .setDescription('¿Qué crimen deseas ejecutar? <:anotanding:936028237404962836>\n\n ⏳ Tienes **30** segundos.')
         .setTimestamp()
         .setFooter(`MidgardBot`,client.user.avatarURL())
@@ -148,7 +143,7 @@ module.exports =  {
                         const e = new Discord.MessageEmbed()
                         .setAuthor(message.author.tag, message.author.displayAvatarURL())
                         .setColor('GREEN')
-                        .setThumbnail('attachment://asalto.gif')
+                        .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936039753445421066/asalto.gif?width=375&height=156')
                         .setDescription(ramdona + r)
                         .setTimestamp()
     
@@ -168,7 +163,7 @@ module.exports =  {
                         const e = new Discord.MessageEmbed()
                         .setAuthor(message.author.tag, message.author.displayAvatarURL())
                         .setColor('RED')
-                        .setThumbnail('attachment://asalto.gif')
+                        .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936039753445421066/asalto.gif?width=375&height=156')
                         .setDescription(`<a:Verify2:931463492677017650> | Qué malo eres cometiendo crímenes, acabas de ser capturado mientras intentabas asaltar y perdiste <a:money:930397094924124180> `+ r)
                         .setTimestamp()
     
@@ -194,7 +189,7 @@ module.exports =  {
                         const e = new Discord.MessageEmbed()
                         .setAuthor(message.author.tag, message.author.displayAvatarURL())
                         .setColor('GREEN')
-                        .setThumbnail('attachment://hack.gif')
+                        .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936039754691145728/hack.gif?width=165&height=143')
                         .setDescription(ramdonh + r)
                         .setTimestamp()
     
@@ -214,7 +209,7 @@ module.exports =  {
                         const e = new Discord.MessageEmbed()
                         .setAuthor(message.author.tag, message.author.displayAvatarURL())
                         .setColor('RED')
-                        .setThumbnail('attachment://hack.gif')
+                        .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936039754691145728/hack.gif?width=165&height=143')
                         .setDescription(`<a:Verify2:931463492677017650> | Qué malo eres cometiendo crímenes, acabas de ser capturado mientras intentabas hackear mi sistema y perdiste <a:money:930397094924124180> `+ r)
                         .setTimestamp()
     
@@ -240,7 +235,7 @@ module.exports =  {
                         const e = new Discord.MessageEmbed()
                         .setAuthor(message.author.tag, message.author.displayAvatarURL())
                         .setColor('GREEN')
-                        .setThumbnail('attachment://mafia.gif')
+                        .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936039755022471229/mafia.gif?width=360&height=182')
                         .setDescription(ramdonm + r)
                         .setTimestamp()
     
@@ -260,7 +255,7 @@ module.exports =  {
                         const e = new Discord.MessageEmbed()
                         .setAuthor(message.author.tag, message.author.displayAvatarURL())
                         .setColor('RED')
-                        .setThumbnail('attachment://mafia.gif')
+                        .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936039755022471229/mafia.gif?width=360&height=182')
                         .setDescription(`<a:Verify2:931463492677017650> | Qué malo eres cometiendo crímenes, acabas de ser capturado por la mafia y perdiste <a:money:930397094924124180> `+ r)
                         .setTimestamp()
     

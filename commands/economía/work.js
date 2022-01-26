@@ -25,8 +25,6 @@ module.exports =  {
 
         ]
 
-        const work = new MessageAttachment('../../img/work.gif');
-
         let buscarUsuario = await userSchema.findOne({ idusuario: message.author.id })
       
         let r = Math.floor(Math.random() * (1000 - 10) + 10)
@@ -79,7 +77,7 @@ module.exports =  {
         const e = new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
         .setColor('GREEN')
-        .setThumbnail('attachment://work.gif')
+        .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936039755534172170/work.gif?width=360&height=300')
         .setDescription(ramdonw + r)
 
         message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
