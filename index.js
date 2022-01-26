@@ -174,7 +174,6 @@ client.on('messageCreate', async message => {
     const command = args.shift().toLowerCase();
 
     //BASE DE DATOS
-
     
     // COMANDOS DE ECONOMÍA
 

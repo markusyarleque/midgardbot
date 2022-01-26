@@ -31,15 +31,22 @@ module.exports =  {
         
         ]})
 
+        const estado = {
+            online: 'En línea 🟢', 
+            idle: 'Ausente 🟡',
+            dnd: 'No Molestar 🔴',
+            invisible: 'Desconectado ⚫'
+        }
+
         if(!userm || userm.id === message.author.id) {
 
             var user = message.author;
-          
+
             const embed = new Discord.MessageEmbed()
             .setThumbnail(user.displayAvatarURL({ dynamic: true }).replace('webp','png'))
             .setAuthor('Información del Usuario', message.guild.iconURL({ dynamic: true }))
-            .addField('Jugando a', message.guild.members.resolve(user.id).presence.activities[0] ? message.guild.members.resolve(user.id).presence.activities[0] : 'Nada', true)
-            .addField('Estado:', message.guild.members.resolve(user.id).presence.status, true)
+            .addField('Jugando a', message.member.presence.activities[0].name ? message.member.presence.activities[0].name : 'Nada', true)
+            .addField('Estado:', estado[ message.member.presence.status], true)
             .addField('Color:', message.member.displayHexColor, true)
             .addField('Usuario:', user.username+'#'+user.discriminator, true)
             .addField('Apodo:', message.guild.members.resolve(user.id).nickname ? message.guild.members.resolve(user.id).nickname : 'No tiene', true)
@@ -60,7 +67,7 @@ module.exports =  {
             .setThumbnail(userm.displayAvatarURL({ dynamic: true }).replace('webp','png'))
             .setAuthor('Información del Usuario', message.guild.iconURL({ dynamic: true }))
             .addField('Jugando a', message.guild.members.resolve(userm.id).presence.activities[0] ? message.guild.members.resolve(userm.id).presence.activities[0] : 'Nada', true)
-            .addField('Estado:', message.guild.members.resolve(userm.id).presence.status, true)
+            .addField('Estado:', estado[message.guild.members.resolve(userm.id).presence.status], true)
             .addField('Color:', message.guild.members.resolve(userm.id).displayHexColor, true)
             .addField('Usuario:', userm.username+'#'+userm.discriminator, true)
             .addField('Apodo:', message.guild.members.resolve(userm.id).nickname ? message.guild.members.resolve(userm.id).nickname : 'No tiene', true)
