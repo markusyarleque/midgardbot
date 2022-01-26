@@ -1,9 +1,7 @@
 const star = require('star-labs')
 
-let i = 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif'
-let f = 'No hay frase agregada'
-let color = '#607D8B'
-let marry = 'Soltero(a)'
+const { Collection } = require('mongoose');
+const userSchema = require('../../models/userSchema');
 
 module.exports =  {
     
@@ -33,28 +31,37 @@ module.exports =  {
       
         ]})
 
-        let usuario2 = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ?`, img.id)
+        let usuario2 = await userSchema.findOne({idusuario: img.id})
         let text 
 
         if(!usuario2){
  
-            await client.db.run(
-                `INSERT INTO usuarios (idusuario, nivel, exp, marry, rep, pat, hug, sape, color, frase, foto, dinero, banco, total, ck) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`, img.id, '0', '0', marry, '0', '0', '0', '0', color, f, i, '0', '0', '0', '0'
-            )
-            
-            usuario2 = {idusuario: img.id, nivel: 0, exp: 0, marry: marry, rep: 0, pat: 0, hug: 0, sape: 0, color: color, frase: f, foto: i, dinero: 0, banco: 0, total: 0, ck: 0}
+            let user = await userSchema.create({
+
+                idusuario: img.id,
+                username: img.username,
+
+            })
+
+            user.save();
+            console.log('Usuario Registrado ===> Id: '+ img.id + ' Username: ' + img.username)
 
         }
     
-        await client.db.run(`UPDATE usuarios SET pat=pat+? WHERE idusuario=?`, 1, img.id)
+        await userSchema.findOneAndUpdate({idusuario: img.id},
+            {
 
-        if((usuario2.pat+1) === 1){
+                pat: usuario2.pat + 1
         
-            text = '**'+(usuario2.pat+1)+'** caricia'
+            });
+
+        if((usuario2.pat + 1) === 1){
+        
+            text = '**'+(usuario2.pat + 1)+'** caricia'
       
         } else{
         
-            text = '**'+(usuario2.pat+1)+'** caricias'
+            text = '**'+(usuario2.pat + 1)+'** caricias'
       
         }
       
