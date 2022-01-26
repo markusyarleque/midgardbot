@@ -157,7 +157,7 @@ module.exports = async (client, Discord, message) => {
 
                 let update = await userModel.findOneAndUpdate({idusuario: message.author.id},
                     {
-                        exp: + 1,
+                        exp: userModel.exp + 1,
                         nivel: curLevel,
                         banco: + 1000,
                         total: + 1000,
