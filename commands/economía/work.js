@@ -25,7 +25,7 @@ module.exports =  {
 
         ]
 
-        const work = new Discord.MessageAttachment('../img/work.gif');
+        const work = new MessageAttachment('../img/work.gif');
 
         let buscarUsuario = await userSchema.findOne({ idusuario: message.author.id })
       
@@ -79,7 +79,7 @@ module.exports =  {
         const e = new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
         .setColor('GREEN')
-        .setImage('attachment://work.gif')
+        .setThumbnail('attachment://work.gif')
         .setDescription(ramdonw + r)
 
         message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})

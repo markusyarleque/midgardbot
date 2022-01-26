@@ -41,10 +41,10 @@ module.exports =  {
             
         ]
 
-        const img = new Discord.MessageAttachment('../img/crime.gif');
-        const imga = new Discord.MessageAttachment('../img/asalto.gif');
-        const imgh = new Discord.MessageAttachment('../img/hack.gif');
-        const imgm = new Discord.MessageAttachment('../img/mafia.gif');
+        const img = new MessageAttachment('../img/crime.gif');
+        const imga = new MessageAttachment('../img/asalto.gif');
+        const imgh = new MessageAttachment('../img/hack.gif');
+        const imgm = new MessageAttachment('../img/mafia.gif');
 
         const e = new Discord.MessageEmbed()
         .setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
