@@ -157,10 +157,10 @@ module.exports = async (client, Discord, message) => {
 
                 let update = await userModel.findOneAndUpdate({idusuario: message.author.id},
                     {
-                        exp: exp + 1,
+                        exp: + 1,
                         nivel: curLevel,
-                        banco: banco + 1000,
-                        total: dinero + banco + 1000,
+                        banco: + 1000,
+                        total: + 1000,
                     })
 
                 update.save();
@@ -171,9 +171,9 @@ module.exports = async (client, Discord, message) => {
 
             let update = await userModel.findOneAndUpdate({idusuario: message.author.id},
                 {
-                    exp: exp + 1,
-                    dinero: dinero + 15,
-                    total: dinero + banco + 15,
+                    exp: + 1,
+                    dinero: + 15,
+                    total: + 15,
                 })
 
             update.save();
