@@ -1,5 +1,6 @@
 const { Collection } = require('mongoose');
 const userSchema = require('../../models/userSchema');
+const { MessageActionRow, MessageButton } = require('discord.js');
 
 module.exports =  {
     
@@ -40,7 +41,7 @@ module.exports =  {
         ]
 
         const e = new Discord.MessageEmbed()
-        .setAuthor(server.name, server.iconURL({ dynamic: true }))
+        .setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
         .setTitle('Zona de Crimen 🚦')
         .setColor('RANDOM')
         .setDescription('¿Qué crimen deseas ejecutar?\n ⏳ Tienes **30** segundos.')

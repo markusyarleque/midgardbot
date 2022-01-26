@@ -20,7 +20,7 @@ module.exports =  {
             'Ayudaste a configurar un bot y obtuviste: <a:money:930397094924124180> ',
             'Reparaste una avería en el servidor principal de discord y has conseguido: <a:money:930397094924124180> ',
             'Por tu fidelidad al servidor y al bot, has ganado: <a:money:930397094924124180> ',
-            'Discord está premiando a sus usarios, y te ha dado: <a:money:930397094924124180> '
+            'Discord está premiando a sus usuarios, y te ha dado: <a:money:930397094924124180> '
 
         ]
 
