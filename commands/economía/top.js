@@ -146,12 +146,21 @@ module.exports =  {
 
                 for(let ls of lista){
 
-                    let usuario = client.users.resolve(ls.idusuario)
+                    try {
+
+                        let usuario = client.users.resolve(ls.idusuario)
             
-                    datos.push('**'+c+'.** <@' + usuario.id + '> <a:flechad:880330587678838784> **'+ls.rep+'**')
+                        datos.push('**'+c+'.** <@' + usuario.id + '> <a:flechad:880330587678838784> **'+ls.rep+'**')
             
-                    c = c + 1
-          
+                        c = c + 1
+                        
+                    } catch (error) {
+
+                        console.log('Error al obtener usuarios de top rep')
+                        return
+                        
+                    }
+
                 }
  
                 embed.setAuthor(server.name+' | Top Carisma 💟', server.iconURL({ dynamic: true }))
