@@ -46,7 +46,7 @@ module.exports =  {
             embed.setColor("RANDOM")
             embed.setFooter(`MidgardBot`,client.user.avatarURL())
         
-            message.channel.send({ embeds: [embed] });
+            message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
 
         } else {
 
@@ -85,7 +85,7 @@ module.exports =  {
                 embed.setColor("RANDOM")
                 embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
           
-                message.channel.send({ embeds: [embed] });
+                message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
 
             } else if(args[0].toLowerCase() === 'cash'){
         
@@ -122,7 +122,7 @@ module.exports =  {
                 embed.setColor("RANDOM")
                 embed.setFooter(`MidgardBot`,client.user.avatarURL())
           
-                message.channel.send({ embeds: [embed] });
+                message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
 
             } else if(args[0].toLowerCase() === 'rep'){
         
@@ -159,7 +159,7 @@ module.exports =  {
                 embed.setColor("RANDOM")
                 embed.setFooter(`MidgardBot`,client.user.avatarURL())
           
-                message.channel.send({ embeds: [embed] });
+                message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
 
             }  else if(args[0].toLowerCase() === 'pat'){
         
@@ -196,7 +196,7 @@ module.exports =  {
                 embed.setColor("RANDOM")
                 embed.setFooter(`MidgardBot`,client.user.avatarURL())
           
-                message.channel.send({ embeds: [embed] });
+                message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
 
             }  else if(args[0].toLowerCase() === 'hug'){
         
@@ -233,7 +233,7 @@ module.exports =  {
                 embed.setColor("RANDOM")
                 embed.setFooter(`MidgardBot`,client.user.avatarURL())
           
-                message.channel.send({ embeds: [embed] });
+                message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
 
             }  else if(args[0].toLowerCase() === 'sape'){
         
@@ -270,7 +270,7 @@ module.exports =  {
                 embed.setColor("RANDOM")
                 embed.setFooter(`MidgardBot`,client.user.avatarURL())
           
-                message.channel.send({ embeds: [embed] });
+                message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
 
             }  
 

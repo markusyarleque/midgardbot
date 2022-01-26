@@ -123,70 +123,6 @@ module.exports = async (client, Discord, message) => {
     
     if (message.author.bot) return;
 
-    //* Registro de Usuarios
-
-    console.log('========================= REGISTRO DE USUARIO =========================');
-    
-    let userData;
-
-    try {
-
-        userData = await userModel.findOne({idusuario: message.author.id})
-
-        if(!userData){
-
-            let user = await userModel.create({
-
-                idusuario: message.author.id,
-                username: message.author.username,
-    
-            })
-    
-            user.save();
-            console.log('Usuario Registrado ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
-
-        }else {
-
-            //<-- UPDATE EXPERIENCIA/NIVELES -->
-            
-            console.log('========================= UPDATE EXPERIENCIA DE USUARIO =========================');
-   
-            let curLevel = Math.floor(0.1 * Math.sqrt(userData.exp + 1));
-
-            if(curLevel > userData.nivel) {
-
-                await userModel.updateOne({idusuario: message.author.id},
-                    {
-                        exp: userData.exp + 1,
-                        nivel: userData.curLevel,
-                        banco: userData.banco + 1000,
-                        total: userData.dinero + userData.banco + 1000,
-                    })
-
-                console.log('Usuario: '+message.channel.id+' ha subido al nivel: '+curLevel)
-      
-            }
-
-            await userModel.updateOne({idusuario: message.author.id},
-                {
-                    exp: userData.exp + 1,
-                    dinero: userData.dinero + 15,
-                    total: userData.dinero + userData.banco + 15,
-                })
-
-        }
-   
-    } catch (error) {
-
-        console.log('Error al Registrar Usuario: '+ error)
-    
-    }
-  
-    console.log('========================= REGISTRO DE USUARIO =========================');
-   
-    //* Registro de Usuarios
-
-
     if (message.content === 'Hola' || message.content === 'hola' || message.content === 'Holas' || message.content === 'holas'){
           
         message.channel.send('Hola '+message.author.username+', cómo va tu día?')
@@ -479,6 +415,69 @@ module.exports = async (client, Discord, message) => {
     } else{
 
         cmd.execute(client, message, args, Discord)
+    
+        //* Registro de Usuarios
+
+        console.log('========================= REGISTRO DE USUARIO =========================');
+    
+        let userData;
+
+        try {
+
+            userData = await userModel.findOne({idusuario: message.author.id})
+
+            if(!userData){
+
+                let user = await userModel.create({
+
+                    idusuario: message.author.id,
+                    username: message.author.username,
+    
+                })
+    
+                user.save();
+                console.log('Usuario Registrado ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
+
+            } else {
+
+                //<-- UPDATE EXPERIENCIA/NIVELES -->
+            
+                console.log('========================= UPDATE EXPERIENCIA DE USUARIO =========================');
+   
+                let curLevel = Math.floor(0.1 * Math.sqrt(userData.exp + 1));
+
+                if(curLevel > userData.nivel) {
+
+                    await userModel.updateOne({idusuario: message.author.id},
+                        {
+                            exp: userData.exp + 1,
+                            nivel: curLevel,
+                            banco: userData.banco + 1000,
+                            total: userData.dinero + userData.banco + 1000,
+                        })
+
+                    console.log('Usuario: '+message.channel.id+' ha subido al nivel: '+curLevel)
+      
+                }
+
+                await userModel.updateOne({idusuario: message.author.id},
+                    {
+                        exp: userData.exp + 1,
+                        dinero: userData.dinero + 15,
+                        total: userData.dinero + userData.banco + 15,
+                    })
+
+            }
+   
+        } catch (error) {
+
+            console.log('Error al Registrar Usuario: '+ error)
+    
+        }
+  
+        console.log('========================= REGISTRO DE USUARIO =========================');
+   
+        //* Registro de Usuarios
 
     }
     

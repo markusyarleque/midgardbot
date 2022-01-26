@@ -277,7 +277,7 @@ module.exports =  {
                         let embed = new Discord.MessageEmbed()
                         .setAuthor('Perfil de ' + message.author.username, message.author.displayAvatarURL())
                         .setThumbnail(userData.foto ? userData.foto : 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif')
-                        .addField('Nivel', '<a:start:930399379800592394>  '+nivel+' '+xp, true)
+                        .addField('Nivel', '<a:start:930399379800592394>  '+userData.nivel+' '+xp, true)
                         .addField('Carisma', '<a:corazon:930399275643453500> '+userData.rep, false)
                         .addField('Pats', '<a:gatoasomar:930399873113677834> '+userData.pat, false)
                         .addField('Abrazos', '<:burbujita:925927258789666826> '+userData.hug, false)
@@ -289,7 +289,7 @@ module.exports =  {
                         .setColor(userData.color)
                         .setFooter(`Midgard's VIP`,client.user.avatarURL())
             
-                        message.channel.send({ embeds: [embed] });
+                        message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
       
                     } else {
 
@@ -658,7 +658,7 @@ module.exports =  {
                     let embed = new Discord.MessageEmbed()
                     .setAuthor('Perfil de ' + img.user.username, img.displayAvatarURL())
                     .setThumbnail(userData.foto ? userData.foto : 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif')
-                    .addField('Nivel', '<a:start:930399379800592394>  '+nivel+' '+xp, true)
+                    .addField('Nivel', '<a:start:930399379800592394>  '+userData.nivel+' '+xp, true)
                     .addField('Carisma', '<a:corazon:930399275643453500> '+userData.rep, false)
                     .addField('Pats', '<a:gatoasomar:930399873113677834> '+userData.pat, false)
                     .addField('Abrazos', '<:burbujita:925927258789666826> '+userData.hug, false)
@@ -670,7 +670,7 @@ module.exports =  {
                     .setColor(userData.color)
                     .setFooter(`Midgard's VIP`,client.user.avatarURL())
         
-                    message.channel.send({ embeds: [embed] });
+                    message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
         
                 }
             
