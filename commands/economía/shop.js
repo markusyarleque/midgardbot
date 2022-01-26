@@ -1,0 +1,105 @@
+const { MessageActionRow, MessageButton } = require('discord.js');
+
+module.exports =  {
+    
+    name: 'shop',
+    aliases: ['store','ss','tienda'],
+    description: '🏪 Muestra la tienda del Bot en el servidor.',
+
+    async execute(client, message, args, Discord) {
+
+        // STORE
+
+        const shop1 = new Discord.MessageEmbed()
+        .setAuthor(message.guild.name+' | Store 🏪', message.guild.iconURL({ dynamic: true }))
+        .setDescription('Para adquirir un item, debes usar el comando `_buy <name>`') 
+        .addField(`<a:money:930397094924124180> 10 - Chicken`, 'Item para apuestas', false)  
+        .addField(`<a:money:930397094924124180> 10,000 - Rojo`, 'Color para tu perfil', false)  	
+        .addField(`<a:money:930397094924124180> 10,000 - Fucsia`, 'Color para tu perfil', false)  		
+        .addField(`<a:money:930397094924124180> 10,000 - Naranja`, 'Color para tu perfil', false)  		
+        .addField(`<a:money:930397094924124180> 10,000 - Morado`, 'Color para tu perfil', false)  		
+        .addField(`<a:money:930397094924124180> 10,000 - Dorado`, 'Color para tu perfil', false)  		
+        .addField(`<a:money:930397094924124180> 10,000 - Amarillo`, 'Color para tu perfil', false)			
+        .setColor("RANDOM")
+        .setFooter(`Página 1/2`,client.user.avatarURL())
+
+        const shop2 = new Discord.MessageEmbed()
+        .setAuthor(message.guild.name+' | Store 🏪', message.guild.iconURL({ dynamic: true }))
+        .setDescription('Para adquirir un item, debes usar el comando `_buy <name>`')   
+        .addField(`<a:money:930397094924124180> 10,000 - Rosa`, 'Color para tu perfil', false)  
+        .addField(`<a:money:930397094924124180> 10,000 - Aqua`, 'Color para tu perfil', false)  	
+        .addField(`<a:money:930397094924124180> 10,000 - Verde`, 'Color para tu perfil', false)  		
+        .addField(`<a:money:930397094924124180> 10,000 - Azul`, 'Color para tu perfil', false)  		
+        .addField(`<a:money:930397094924124180> 10,000 - Gris`, 'Color para tu perfil', false)  		
+        .addField(`<a:money:930397094924124180> 10,000 - Blanco`, 'Color para tu perfil', false)  		
+        .addField(`<a:money:930397094924124180> 10,000 - Negro`, 'Color para tu perfil', false) 			
+        .setColor("RANDOM")
+        .setFooter(`Página 2/2`,client.user.avatarURL())
+
+        const bS1 = new MessageButton()
+        .setCustomId("p1")
+        .setLabel("🛒 | 1")
+        .setStyle("PRIMARY")
+    
+        const bS2 = new MessageButton()
+        .setCustomId("p2")
+        .setLabel("🛒 | 2")
+        .setStyle("PRIMARY")
+
+        message.reply({ allowedMentions: { repliedUser: false}, 
+            
+            embeds: [shop1],
+            components: [
+              new MessageActionRow().addComponents([bS1.setDisabled(true),bS2])
+            ]
+
+        }).then(async m => {
+            
+            let filter = int => int.isButton() && int.user.id == message.author.id 
+           
+            const collector = m.createMessageComponentCollector({ filter, time: 60000 });
+            
+            collector.on("collect", async int => {
+              
+                int.deferUpdate();
+           
+                if (int.customId === "p1") {
+                
+                    m.edit({
+                  
+                        embeds: [shop1],
+                        components: [new MessageActionRow().addComponents([bS1.setDisabled(true),bS2.setDisabled(false)])]
+                
+                    });
+      
+                }else if (int.customId === "p2") {
+                
+                    m.edit({
+                  
+                        embeds: [shop2],
+                        components: [new MessageActionRow().addComponents([bS1.setDisabled(false),bS2.setDisabled(true)])]
+                
+                    });
+      
+                }
+      
+            });
+      
+            collector.on("end", (collected, reason) => {
+              
+                if(collected < 1) return m.edit({
+                
+                    components: [
+                        new MessageActionRow().addComponents([bS1.setDisabled(true),bS2.setDisabled(true)])
+                    ]
+                })
+    
+                console.log('Razón del término de colección de shop: '+reason)
+
+            });
+            
+          });
+
+    }
+
+}
