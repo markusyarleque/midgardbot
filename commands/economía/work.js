@@ -32,7 +32,7 @@ module.exports =  {
 
         if(buscarUsuario){
 
-            if(buscarUsuario.work > Date.now()) return message.channel.send({embeds: [
+            if(buscarUsuario.work > Date.now()) return message.reply({embeds: [
           
                 new Discord.MessageEmbed()
                 .setAuthor(message.author.tag, message.author.displayAvatarURL())

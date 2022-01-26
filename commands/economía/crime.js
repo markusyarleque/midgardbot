@@ -70,7 +70,7 @@ module.exports =  {
         
         if(buscarUsuario){
 
-            if(buscarUsuario.crime > Date.now()) return message.channel.send({embeds: [
+            if(buscarUsuario.crime > Date.now()) return message.reply({embeds: [
               
               new Discord.MessageEmbed()
               .setAuthor(message.author.tag, message.author.displayAvatarURL())
