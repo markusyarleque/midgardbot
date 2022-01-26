@@ -44,8 +44,6 @@ module.exports =  {
 
                 } else {
 
-                    console.log('Usuario: ' + message.author.id + ' ya registrado!')
-        
                     let obtener = args[0]
 
                     if(!obtener){
@@ -421,8 +419,6 @@ module.exports =  {
                         
                     ]})
                 } else {
-
-                    console.log('Usuario: ' + idm + ' ya registrado!')
 
                     let nivel = userData.nivel
                     let xp = userData.exp
