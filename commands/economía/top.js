@@ -192,11 +192,20 @@ module.exports =  {
 
                 for(let ls of lista){
 
-                    let usuario = client.users.resolve(ls.idusuario)
+                    try {
+
+                        let usuario = client.users.resolve(ls.idusuario)
             
-                    datos.push('**'+c+'.** <@' + usuario.id + '> <a:flechad:880330587678838784> **'+ls.pat+'**')
+                        datos.push('**'+c+'.** <@' + usuario.id + '> <a:flechad:880330587678838784> **'+ls.pat+'**')
             
-                    c = c + 1
+                        c = c + 1
+                        
+                    } catch (error) {
+
+                        console.log('Error al obtener usuarios de top rep')
+                        return
+                        
+                    }
           
                 }
  
@@ -229,11 +238,20 @@ module.exports =  {
 
                 for(let ls of lista){
 
-                    let usuario = client.users.resolve(ls.idusuario)
+                    try {
+
+                        let usuario = client.users.resolve(ls.idusuario)
             
-                    datos.push('**'+c+'.** <@' + usuario.id + '> <a:flechad:880330587678838784> **'+ls.hug+'**')
+                        datos.push('**'+c+'.** <@' + usuario.id + '> <a:flechad:880330587678838784> **'+ls.hug+'**')
             
-                    c = c + 1
+                        c = c + 1
+                        
+                    } catch (error) {
+
+                        console.log('Error al obtener usuarios de top rep')
+                        return
+                        
+                    }
           
                 }
  
@@ -268,7 +286,7 @@ module.exports =  {
 
                     let usuario = client.users.resolve(ls.idusuario)
             
-                    datos.push('**'+c+'.** <@' + usuario.id + '> <a:flechad:880330587678838784> **'+ls.sape+'**')
+                    datos.push('**'+c+'.** <@' + ls.idusuario + '> <a:flechad:880330587678838784> **'+ls.sape+'**')
             
                     c = c + 1
           
