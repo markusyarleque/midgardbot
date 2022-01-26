@@ -1,7 +1,5 @@
-let i = 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif'
-let f = 'No hay frase agregada'
-let color = '#607D8B'
-let marry = 'Soltero(a)'
+const { Collection } = require('mongoose');
+const kissSchema = require('../../models/kissSchema');
 
 module.exports =  {
     
@@ -57,36 +55,49 @@ module.exports =  {
         
         ]})
 
-        let consulta1 = await client.db.get(`SELECT * FROM kiss WHERE u1 = ? AND u2 = ?`, message.author.id, img.id)
+        let consulta1 = await kissSchema.findOne({u1: message.author.id, u2: img.id})
         let conteo
 
         if(!consulta1){
 
-            let consulta2 = await client.db.get(`SELECT * FROM kiss WHERE u1 = ? AND u2 = ?`, img.id, message.author.id)
+            let consulta2 = await kissSchema.findOne({u1: img.id, u2: message.author.id})
 
             if(!consulta2){
 
-                await client.db.run(`INSERT INTO kiss (u1, u2, c) VALUES (?,?,?)`, message.author.id, img.id, 0)
-                consulta1 = {u1: message.author.id, u2: img.id, c: 0}
-            
-                await client.db.run(`UPDATE kiss SET c=c+? WHERE u1=? AND u2=?`, 1, message.author.id, img.id)
-            
-                conteo=(consulta1.c+1)
+                let tkiss = await kissSchema.create({
+
+                    u1: message.author.id,
+                    u2: img.id,
+                    c: 1
+
+                })
+
+                tkiss.save();
+                conteo = 1
 
             } else {
 
-                await client.db.run(`UPDATE kiss SET c=c+? WHERE u1=? AND u2=?`, 1, img.id, message.author.id)
-            
-                conteo=(consulta2.c+1)
+                await  kissSchema.findOneAndUpdate({u1: img.id},
+                    {
+
+                        c: consulta2.c + 1
+
+                    })
+
+                conteo = consulta2.c + 1
           
             }
 
         } else {
 
-            await client.db.run(`UPDATE kiss SET c=c+? WHERE u1=? AND u2=?`, 1, message.author.id, img.id)
+            await  kissSchema.findOneAndUpdate({u1: message.author.id},
+                {
 
-            console.log('conteo: '+consulta1.c+' ... c: '+(consulta1.c+1))
-            conteo=(consulta1.c+1)
+                    c: consulta1.c + 1
+
+                })
+
+            conteo = consulta1.c + 1
         
         }
 
