@@ -25,8 +25,7 @@ module.exports =  {
 
                         idusuario: message.author.id,
                         username: message.author.username,
-                        serverId: message.guild.id,
-    
+
                     })
     
                     user.save();
@@ -403,7 +402,6 @@ module.exports =  {
 
                         idusuario: message.author.id,
                         username: message.author.username,
-                        serverId: message.guild.id,
     
                     })
     
