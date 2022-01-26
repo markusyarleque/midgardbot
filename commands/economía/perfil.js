@@ -328,8 +328,7 @@ module.exports =  {
                             case '-f': {
 
                                 let f = args.slice(1).join(' ');
-                                console.log("Frase de "+userData.username+': '+ f)
-
+                            
                                 if (!userData) return message.reply({ embeds: [
                             
                                     new Discord.MessageEmbed()
@@ -346,7 +345,7 @@ module.exports =  {
 
                                 update.save();
 
-                                console.log("Frase actualizada de "+update.username+': '+ i)
+                                console.log("Frase actualizada de "+update.username+': '+ f)
 
                                 message.reply({ allowedMentions: { repliedUser: false}, content: '<a:Dancing_Duck:930402083625111613> | Acabas de actualizar tu frase de perfil!'});
 
@@ -378,6 +377,15 @@ module.exports =  {
             } catch (error) {
 
                 console.log('Error al Actualizar Usuario: '+ error)
+                
+                message.reply({ embeds: [
+                            
+                    new Discord.MessageEmbed()
+                    .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                    .setColor('RED')
+                    .setDescription(`<a:Verify2:931463492677017650> | Error al actualizar perfil del usuario!`)
+        
+                ]})
     
             }
 

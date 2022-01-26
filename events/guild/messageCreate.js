@@ -147,10 +147,39 @@ module.exports = async (client, Discord, message) => {
 
         }else {
 
-            console.log('Usuario: ' + message.author.id + ' ya registrado!')
+            //<-- UPDATE EXPERIENCIA/NIVELES -->
+            
+            console.log('========================= UPDATE EXPERIENCIA DE USUARIO =========================');
+   
+            let curLevel = Math.floor(0.1 * Math.sqrt(userData.exp + 1));
+
+            if(curLevel > userData.nivel) {
+
+                let update = await userModel.findOneAndUpdate({idusuario: message.author.id},
+                    {
+                        exp: exp + 1,
+                        nivel: curLevel,
+                        banco: banco + 1000,
+                        total: dinero + banco + 1000,
+                    })
+
+                update.save();
+
+                console.log('Usuario: '+message.channel.id+' ha subido al nivel: '+curLevel)
+      
+            }
+
+            let update = await userModel.findOneAndUpdate({idusuario: message.author.id},
+                {
+                    exp: exp + 1,
+                    dinero: dinero + 15,
+                    total: dinero + banco + 15,
+                })
+
+            update.save();
+
         }
-        
-    
+   
     } catch (error) {
 
         console.log('Error al Registrar Usuario: '+ error)
@@ -161,7 +190,7 @@ module.exports = async (client, Discord, message) => {
    
     //* Registro de Usuarios
 
-    
+
     if (message.content === 'Hola' || message.content === 'hola' || message.content === 'Holas' || message.content === 'holas'){
           
         message.channel.send('Hola '+message.author.username+', cómo va tu día?')

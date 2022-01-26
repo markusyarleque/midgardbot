@@ -173,59 +173,6 @@ client.on('messageCreate', async message => {
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
-    //if(bl.tiene(message.author.id)) return message.channel.send('Estás prohibido de usar estos comandos, contacta con el equipo de desarrolladores para más información.!');
-
-    // AQUÍ X2 let sentencia = await client.db.get(`SELECT * FROM usuarios WHERE idusuario = ${id}`)
-
-    /*db.get(sentencia, (err, filas) => {
-      if (err) return console.error('Error 0: '+err.message)*/
-
-    /*if (!sentencia){
-
-      await client.db.run(`INSERT INTO usuarios (idusuario, nivel, exp, marry, rep, color, frase, foto, dinero, banco, total) VALUES (?,?,?,?,?,?,?,?,?,?,?)`, id,'0','1',marry,'0',color,f,i,'0','0','0')
-      
-      //let insert = `INSERT INTO usuarios(idusuario, nivel, exp, rep, frase, foto) VALUES(${id}, 0, 1, 0, "${f}", "${i}")`
-
-
-
-      db.run(insert, function(err) {
-       if (err) return console.error('Error 1: '+insert+" ---- "+err.message)
-      });
-
-    } else {
-
-      //<-- UPDATE EXPERIENCIA/NIVELES -->
-
-      let curLevel = Math.floor(0.1 * Math.sqrt(sentencia.exp + 1));
-
-      if(curLevel > sentencia.nivel) {
-
-        await client.db.run(`UPDATE usuarios SET exp = ${sentencia.exp + 1}, nivel = ${curLevel}, banco = ${sentencia.banco+500}, total = ${sentencia.dinero+sentencia.banco+500} WHERE idusuario = ${id}`)
-
-        //let update = `UPDATE usuarios SET exp = ${filas.exp + 1}, nivel = ${curLevel} WHERE idusuario = ${id}`;
-
-
-
-         db.run(update, function(err) {      
-          if (err) return console.error('Error 2: '+err.message)
-        message.channel.send('Felicidades!!! Subiste de nivel, '+ message.author.tag)
-
-         });
-
-      }
-
-      await client.db.run(`UPDATE usuarios SET exp = ${sentencia.exp + 1}, dinero = ${sentencia.dinero + 15}, total = ${sentencia.dinero+sentencia.banco+15} WHERE idusuario = ${id}`)
-
-      //let update = `UPDATE usuarios SET exp = ${filas.exp + 1} WHERE idusuario = ${id}`;
-      
-
-
-      db.run(update, function(err) {      
-      if (err) return console.error('Error 3: '+err.message)
-      })
-
-    }*/
-
     //BASE DE DATOS
 
     //<-- SELECT USUARIO -->
