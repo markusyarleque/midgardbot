@@ -89,13 +89,15 @@ module.exports =  {
               }
             });
       
-            collector.on("end", colected => {
+            collector.on("end", (collected,reason) => {
               /* Si no dio click en ningun boton durante los 60s ...*/
               
-              if(colected.size < 1) return m.edit({
+              if(collected.size < 1) return m.edit({
                 content: "**El jugador tardó en responder la solicitud. Juego terminado.**",
                 components: []
               });
+
+              console.log('Razón del término de colección de Tic Tac Toe: '+reason)
               
             });
             

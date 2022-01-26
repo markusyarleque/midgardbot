@@ -106,12 +106,14 @@ module.exports = {
           }
         });
     
-        collector.on("end", colected => {
+        collector.on("end", (collected, reason) => {
             
-          if(colected.size < 1) return m.edit({ 
+          if(collected.size < 1) return m.edit({ 
             embeds: [embednoconf],
             components: []
           })
+
+          console.log('Razón del término de colección de la sugerencia: '+reason)
             
         });
           

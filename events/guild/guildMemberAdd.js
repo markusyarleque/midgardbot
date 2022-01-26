@@ -14,14 +14,13 @@ module.exports = async (client, Discord, member) => {
 
     let user = await userModel.create({
 
-      _id: member.id,
+      idusuario: member.id,
       username: member.displayname,
-      serverId: member.guild.id,
 
     })
 
     user.save();
-    console.log('Usuario Registrado ===> Id: '+ _id + ' Username: ' + username)
+    console.log('Usuario Registrado ===> Id: '+ member.id + ' Username: ' + member.displayname)
     
   } catch (error) {
 

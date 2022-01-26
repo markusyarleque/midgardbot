@@ -100,13 +100,15 @@ module.exports = (client, message, args) => {
             }
           });
     
-          collector.on("end", colected => {
+          collector.on("end", (collected, reason) => {
            
-            if(colected.size < 1) return m.edit({
+            if(collected.size < 1) return m.edit({
               content: "**¡No confirmaste a tiempo!** <:enojado:931434000751394867>",
               components: []
             });
             
+            console.log('Razón del término de colección de ExitServer: '+reason)
+
           });
           
         });

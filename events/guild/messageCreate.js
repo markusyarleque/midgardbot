@@ -131,24 +131,23 @@ module.exports = async (client, Discord, message) => {
 
     try {
 
-        userData = await userModel.findOne({_id: message.author.id})
+        userData = await userModel.findOne({idusuario: message.author.id})
 
         if(!userData){
 
             let user = await userModel.create({
 
-                _id: message.author.id,
+                idusuario: message.author.id,
                 username: message.author.username,
-                serverId: message.guild.id,
     
             })
     
             user.save();
-            console.log('Usuario Registrado ===> Id: '+ _id + ' Username: ' + username)
+            console.log('Usuario Registrado ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
 
         }else {
 
-            console.log('Usuario: ' + _id + ' ya registrado!')
+            console.log('Usuario: ' + message.author.id + ' ya registrado!')
         }
         
     
@@ -255,12 +254,14 @@ module.exports = async (client, Discord, message) => {
               }
             });
         
-            collector.on("end", colected => {
+            collector.on("end", (collected, reason) => {
                 
-              if(colected.size < 1) return m.edit({
+              if(collected.size < 1) return m.edit({
                 content: "**¡No confirmaste a tiempo!** <:enojado:931434000751394867>",
                 components: []
               });
+
+              console.log('Razón del término de colección de Malta: '+reason)
                 
             });
               
