@@ -273,23 +273,42 @@ module.exports =  {
           
                         }
 
-                        let embed = new Discord.MessageEmbed()
-                        .setAuthor('Perfil de ' + message.author.username, message.author.displayAvatarURL())
-                        .setThumbnail(userData.foto ? userData.foto : 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif')
-                        .addField('Nivel', '<a:start:930399379800592394>  '+userData.nivel+' '+xp, true)
-                        .addField('Carisma', '<a:corazon:930399275643453500> '+userData.rep, false)
-                        .addField('Pats', '<a:gatoasomar:930399873113677834> '+userData.pat, false)
-                        .addField('Abrazos', '<:burbujita:925927258789666826> '+userData.hug, false)
-                        .addField('Sapes', '<:maje:925927838492811295> '+userData.sape, false)
-                        .addField('Frase', '<a:megaphone:932192877449191424> '+userData.frase, false)
-                        .addField('Matrimonio <:GatoLove:925929538863628318>', tmarry ? tmarry : 'Soltero(a)', true)
-                        .addField('<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>','<a:dinero:930404747326914590> **Economía**',false)
-                        .addField(`**Total:**`, '<a:money:930397094924124180>  '+userData.total, true)
-                        .setColor(userData.color)
-                        .setFooter(`Midgard's VIP`,client.user.avatarURL())
+                        try {
+
+                            let embed = new Discord.MessageEmbed()
+                            .setAuthor('Perfil de ' + message.author.username, message.author.displayAvatarURL())
+                            .setThumbnail(userData.foto ? userData.foto : 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif')
+                            .addField('Nivel', '<a:start:930399379800592394>  '+userData.nivel+' '+xp, true)
+                            .addField('Carisma', '<a:corazon:930399275643453500> '+userData.rep, false)
+                            .addField('Pats', '<a:gatoasomar:930399873113677834> '+userData.pat, false)
+                            .addField('Abrazos', '<:burbujita:925927258789666826> '+userData.hug, false)
+                            .addField('Sapes', '<:maje:925927838492811295> '+userData.sape, false)
+                            .addField('Frase', '<a:megaphone:932192877449191424> '+userData.frase, false)
+                            .addField('Matrimonio <:GatoLove:925929538863628318>', tmarry ? tmarry : 'Soltero(a)', true)
+                            .addField('<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>','<a:dinero:930404747326914590> **Economía**',false)
+                            .addField(`**Total:**`, '<a:money:930397094924124180>  '+userData.total, true)
+                            .setColor(userData.color)
+                            .setFooter(`Midgard's VIP`,client.user.avatarURL())
             
-                        message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
+                            message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
       
+                            
+                        } catch (error) {
+                            
+                            console.log('Error al obtener Perfil: '+ error)
+                
+                            message.reply({ embeds: [
+                   
+                                new Discord.MessageEmbed()
+                                .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                                .setColor('RED')
+                                .setDescription(`<a:Verify2:931463492677017650> | Error al obtener perfil del usuario!`)
+        
+                            ]})
+
+                        }
+
+                        
                     } else {
 
                         switch (obtener.slice(-2)){
@@ -416,6 +435,7 @@ module.exports =  {
                         .setDescription(`<a:Verify2:931463492677017650> | No hay perfil registrado para el usuario!`)
                         
                     ]})
+
                 } else {
 
                     let nivel = userData.nivel
