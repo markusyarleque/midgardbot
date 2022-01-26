@@ -24,7 +24,7 @@ module.exports =  {
 
         ]
 
-        let buscarUsuario = await userSchema.findOne({ idusuario: message.author.id})
+        let buscarUsuario = await userSchema.findOne({ idusuario: message.author.id })
       
         let r = Math.floor(Math.random() * (1000 - 10) + 10)
       
@@ -41,12 +41,20 @@ module.exports =  {
           
             ]})
 
-            await userSchema.findOneAndUpdate({idusuario: message.author.id},
-                {
-                    dinero: buscarUsuario.dinero + r,
-                    total: buscarUsuario.total + r,
-                    work: (Date.now()+(1000*60))
-                })
+            try {
+
+                await userSchema.findOneAndUpdate({ idusuario: message.author.id },
+                    {
+                        dinero: buscarUsuario.dinero + r,
+                        total: buscarUsuario.total + r,
+                        work: (Date.now()+(1000*60))
+                    })
+                
+            } catch (error) {
+
+                console.log('Error al actualizar dinero de work. Usuario: '+message.author.id+' - Error: '+error)
+                
+            }
 
         } else {
 
