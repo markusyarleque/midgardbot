@@ -79,7 +79,7 @@ module.exports =  {
         const e = new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
         .setColor('GREEN')
-        .setThumbnail('attachment://work.gif')
+        .setImage('attachment://work.gif')
         .setDescription(ramdonw + r)
 
         message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
