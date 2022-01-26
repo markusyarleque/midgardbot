@@ -50,7 +50,7 @@ module.exports =  {
         .setTitle('Zona de Crimen 🚦')
         .setColor('RANDOM')
         .setThumbnail(img)
-        .setDescription('¿Qué crimen deseas ejecutar?\n\n ⏳ Tienes **30** segundos.')
+        .setDescription('¿Qué crimen deseas ejecutar? <:anotanding:936028237404962836>\n\n ⏳ Tienes **30** segundos.')
         .setTimestamp()
         .setFooter(`MidgardBot`,client.user.avatarURL())
 
