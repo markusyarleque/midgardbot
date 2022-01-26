@@ -40,11 +40,17 @@ module.exports =  {
             
         ]
 
+        const img = await loadImage(join(__dirname, "../img", 'crime.gif'));
+        const imga = await loadImage(join(__dirname, "../img", 'asalto.gif'));
+        const imgh = await loadImage(join(__dirname, "../img", 'hack.gif'));
+        const imgm = await loadImage(join(__dirname, "../img", 'mafia.gif'));
+
         const e = new Discord.MessageEmbed()
         .setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
         .setTitle('Zona de Crimen 🚦')
         .setColor('RANDOM')
-        .setDescription('¿Qué crimen deseas ejecutar?\n ⏳ Tienes **30** segundos.')
+        .setThumbnail(img)
+        .setDescription('¿Qué crimen deseas ejecutar?\n\n ⏳ Tienes **30** segundos.')
         .setTimestamp()
         .setFooter(`MidgardBot`,client.user.avatarURL())
 
@@ -141,6 +147,7 @@ module.exports =  {
                         const e = new Discord.MessageEmbed()
                         .setAuthor(message.author.tag, message.author.displayAvatarURL())
                         .setColor('GREEN')
+                        .setThumbnail(imga)
                         .setDescription(ramdona + r)
                         .setTimestamp()
     
@@ -160,6 +167,7 @@ module.exports =  {
                         const e = new Discord.MessageEmbed()
                         .setAuthor(message.author.tag, message.author.displayAvatarURL())
                         .setColor('RED')
+                        .setThumbnail(imga)
                         .setDescription(`<a:Verify2:931463492677017650> | Qué malo eres cometiendo crímenes, acabas de ser capturado mientras intentabas asaltar y perdiste <a:money:930397094924124180> `+ r)
                         .setTimestamp()
     
@@ -185,6 +193,7 @@ module.exports =  {
                         const e = new Discord.MessageEmbed()
                         .setAuthor(message.author.tag, message.author.displayAvatarURL())
                         .setColor('GREEN')
+                        .setThumbnail(imgh)
                         .setDescription(ramdonh + r)
                         .setTimestamp()
     
@@ -204,6 +213,7 @@ module.exports =  {
                         const e = new Discord.MessageEmbed()
                         .setAuthor(message.author.tag, message.author.displayAvatarURL())
                         .setColor('RED')
+                        .setThumbnail(imgh)
                         .setDescription(`<a:Verify2:931463492677017650> | Qué malo eres cometiendo crímenes, acabas de ser capturado mientras intentabas hackear mi sistema y perdiste <a:money:930397094924124180> `+ r)
                         .setTimestamp()
     
@@ -229,6 +239,7 @@ module.exports =  {
                         const e = new Discord.MessageEmbed()
                         .setAuthor(message.author.tag, message.author.displayAvatarURL())
                         .setColor('GREEN')
+                        .setThumbnail(imgm)
                         .setDescription(ramdonm + r)
                         .setTimestamp()
     
@@ -248,6 +259,7 @@ module.exports =  {
                         const e = new Discord.MessageEmbed()
                         .setAuthor(message.author.tag, message.author.displayAvatarURL())
                         .setColor('RED')
+                        .setThumbnail(imgm)
                         .setDescription(`<a:Verify2:931463492677017650> | Qué malo eres cometiendo crímenes, acabas de ser capturado por la mafia y perdiste <a:money:930397094924124180> `+ r)
                         .setTimestamp()
     

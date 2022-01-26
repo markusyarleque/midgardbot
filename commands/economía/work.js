@@ -5,7 +5,7 @@ module.exports =  {
     
     name: 'work',
     aliases: ['w'],
-    description: '🧰 Da un punto de carisma.',
+    description: '🧰 Trabaja para obtener coins.',
   
     async execute(client, message, args, Discord) { 
 
@@ -23,6 +23,8 @@ module.exports =  {
             'Discord está premiando a sus usuarios, y te ha dado: <a:money:930397094924124180> '
 
         ]
+
+        const work = await loadImage(join(__dirname, "../img", 'work.gif'));
 
         let buscarUsuario = await userSchema.findOne({ idusuario: message.author.id })
       
@@ -76,6 +78,7 @@ module.exports =  {
         const e = new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
         .setColor('GREEN')
+        .setThumbnail(work)
         .setDescription(ramdonw + r)
 
         message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
