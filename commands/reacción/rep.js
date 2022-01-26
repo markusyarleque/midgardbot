@@ -1,6 +1,6 @@
-const star = require('star-labs')
 const { Collection } = require('mongoose');
 const userSchema = require('../../models/userSchema');
+const { MessageActionRow, MessageButton } = require('discord.js');
 
 module.exports =  {
     
@@ -222,7 +222,7 @@ module.exports =  {
                     ]})
 
                     console.log('Razón del término de colección de rep: '+reason)
-                    
+
                 });
          
             })
