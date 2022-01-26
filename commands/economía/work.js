@@ -1,5 +1,6 @@
 const { Collection } = require('mongoose');
 const userSchema = require('../../models/userSchema');
+const { MessageAttachment } = require('discord.js');
 
 module.exports =  {
     
@@ -24,7 +25,7 @@ module.exports =  {
 
         ]
 
-        const work = await loadImage(join(__dirname, "../img", 'work.gif'));
+        const work = new Discord.MessageAttachment('../img/work.gif');
 
         let buscarUsuario = await userSchema.findOne({ idusuario: message.author.id })
       
@@ -78,7 +79,7 @@ module.exports =  {
         const e = new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
         .setColor('GREEN')
-        .setThumbnail(work)
+        .setThumbnail('attachment://work.gif')
         .setDescription(ramdonw + r)
 
         message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
