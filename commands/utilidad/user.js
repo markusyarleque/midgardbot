@@ -45,7 +45,7 @@ module.exports =  {
             const embed = new Discord.MessageEmbed()
             .setThumbnail(user.displayAvatarURL({ dynamic: true }).replace('webp','png'))
             .setAuthor('Información del Usuario', message.guild.iconURL({ dynamic: true }))
-            .addField('Jugando a:', message.member.presence.activities[0] ? message.member.presence.activities[0] : 'Nada', true)
+            .addField('Jugando a:', message.member.presence.activities[0] ? message.member.presence.activities[0].name : 'Nada', true)
             .addField('Estado:', estado[ message.member.presence.status], true)
             .addField('Color:', message.member.displayHexColor, true)
             .addField('Usuario:', user.username+'#'+user.discriminator, true)
