@@ -1,6 +1,5 @@
 const { Collection } = require('mongoose');
 const userSchema = require('../../models/userSchema');
-const { MessageAttachment } = require('discord.js');
 
 module.exports =  {
     

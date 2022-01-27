@@ -27,19 +27,23 @@ module.exports =  {
 
             let embed = new Discord.MessageEmbed()
 
-            let datos = [];
+            let datos = []
+            let foto = []
 
             let c = 1
 
             for(let ls of lista){
 
                 datos.push('**'+c+'.** <@' + ls.idusuario + '> <a:money:930397094924124180> **'+ls.total+'**')
-          
+                foto.push(ls.idusuario)
                 c = c + 1
         
             }
+
+            let first = client.users.cache.get(foto[0])
  
             embed.setAuthor(server.name+' | Top Global 🏦', server.iconURL({ dynamic: true }))
+            embed.setThumbnail(first.displayAvatarURL({dynamic: true}))
             embed.setDescription(datos.join('\n\n'))   	
             embed.setColor("RANDOM")
             embed.setFooter(`MidgardBot`,client.user.avatarURL())

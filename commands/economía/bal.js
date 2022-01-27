@@ -64,6 +64,7 @@ module.exports =  {
             .setColor(buscarUsuario.color)
             .setAuthor(img.user.username+'#'+img.user.discriminator, img.displayAvatarURL({dynamic: true}))
             .setTitle(`Balance`)
+            .setThumbnail('')
             .addField(`**Dinero:**`, '<a:money:930397094924124180>  '+buscarUsuario.dinero, true)
             .addField(`**Banco:**`, '<a:money:930397094924124180>  '+buscarUsuario.banco, true)
             .addField(`**Total:**`, '<a:money:930397094924124180>  '+buscarUsuario.total, true)
