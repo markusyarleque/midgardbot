@@ -448,24 +448,32 @@ module.exports = async (client, Discord, message) => {
 
                 if(curLevel > userData.nivel) {
 
-                    await userModel.updateOne({idusuario: message.author.id},
+                    let update = await userModel.findOneAndUpdate({idusuario: message.author.id},
                         {
+
                             exp: userData.exp + 1,
                             nivel: curLevel,
-                            banco: userData.banco + 1000,
-                            total: userData.dinero + userData.banco + 1000,
+                            banco: userData.banco + (curLevel*1000),
+                            total: userData.dinero + userData.banco + (curLevel*1000)
+
                         })
+
+                    update.save()
 
                     console.log('Usuario: '+message.channel.id+' ha subido al nivel: '+curLevel)
       
                 }
 
-                await userModel.updateOne({idusuario: message.author.id},
+                let update = await userModel.findOneAndUpdate({idusuario: message.author.id},
                     {
+
                         exp: userData.exp + 1,
                         dinero: userData.dinero + 15,
-                        total: userData.dinero + userData.banco + 15,
+                        total: userData.dinero + userData.banco + 15
+                        
                     })
+
+                update.save()
 
             }
    

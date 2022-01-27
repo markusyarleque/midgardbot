@@ -102,7 +102,7 @@ module.exports =  {
                 {
 
                     dinero: usuario2.dinero - ganarob,
-                    total: usuario2.total - ganarob
+                    total: usuario2.dinero + usuario2.banco - ganarob
 
                 })
 
@@ -112,7 +112,7 @@ module.exports =  {
                 {
 
                     dinero: usuario1.dinero + ganarob,
-                    total: usuario1.total + ganarob,
+                    total: usuario1.dinero + usuario1.banco + ganarob,
                     rob: (Date.now()+(1000*30))
 
                 })
@@ -134,7 +134,7 @@ module.exports =  {
                 {
 
                     dinero: usuario1.dinero - pierderob,
-                    total: usuario1.total - pierderob,
+                    total: usuario1.dinero + usuario1.banco - pierderob,
                     rob: (Date.now()+(1000*30))
 
                 })

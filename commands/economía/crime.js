@@ -134,7 +134,7 @@ module.exports =  {
                             {
 
                                 dinero: buscarUsuario.dinero + r,
-                                total: buscarUsuario.total + r,
+                                total: buscarUsuario.dinero + buscarUsuario.banco + r,
                                 crime: (Date.now()+(1000*60))
 
                             })
@@ -156,7 +156,7 @@ module.exports =  {
                             {
 
                                 dinero: buscarUsuario.dinero - r,
-                                total: buscarUsuario.total - r,
+                                total: buscarUsuario.dinero + buscarUsuario.banco - r,
                                 crime: (Date.now()+(1000*60))
 
                             })
@@ -184,7 +184,7 @@ module.exports =  {
                             {
 
                                 dinero: buscarUsuario.dinero + r,
-                                total: buscarUsuario.total + r,
+                                total: buscarUsuario.dinero + buscarUsuario.banco + r,
                                 crime: (Date.now()+(1000*60))
 
                             })
@@ -206,7 +206,7 @@ module.exports =  {
                             {
 
                                 dinero: buscarUsuario.dinero - r,
-                                total: buscarUsuario.total - r,
+                                total: buscarUsuario.dinero + buscarUsuario.banco - r,
                                 crime: (Date.now()+(1000*60))
 
                             })
@@ -234,7 +234,7 @@ module.exports =  {
                             {
 
                                 dinero: buscarUsuario.dinero + r,
-                                total: buscarUsuario.total + r,
+                                total: buscarUsuario.dinero + buscarUsuario.banco + r,
                                 crime: (Date.now()+(1000*60))
 
                             })
@@ -256,7 +256,7 @@ module.exports =  {
                             {
 
                                 dinero: buscarUsuario.dinero - r,
-                                total: buscarUsuario.total - r,
+                                total: buscarUsuario.dinero + buscarUsuario.banco - r,
                                 crime: (Date.now()+(1000*60))
 
                             })
