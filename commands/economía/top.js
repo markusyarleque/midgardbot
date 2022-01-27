@@ -69,7 +69,7 @@ module.exports =  {
                 let embed = new Discord.MessageEmbed()
  
                 let datos = [];
-                let fotos = []
+                let foto = []
 
                 let c = 1
 

@@ -57,14 +57,22 @@ module.exports =  {
 
         if(args[0].toLowerCase() === 'all'){
 
-            await userSchema.findOneAndUpdate({idusuario: message.author.id},
-                {
+            try {
 
-                    dinero: 0,
-                    banco: buscarUsuario.banco + buscarUsuario.dinero
+                await userSchema.findOneAndUpdate({ idusuario: message.author.id },
+                    {
+    
+                        dinero: buscarUsuario.dinero - buscarUsuario.dinero,
+                        banco: buscarUsuario.banco + buscarUsuario.dinero
+    
+                    })
+                
+            } catch (error) {
 
-                })
-        
+                console.log('Error al depositar todo el dinero: '+error)
+                
+            }
+
             const e = new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
             .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399566622820/dep.gif?width=176&height=176')
@@ -88,14 +96,22 @@ module.exports =  {
 
             let numero = parseInt(args[0])
   
-            await userSchema.findOneAndUpdate({idusuario: message.author.id},
-                {
+            try {
 
-                    dinero: buscarUsuario.dinero - numero,
-                    banco: buscarUsuario.banco + numero
+                await userSchema.findOneAndUpdate({idusuario: message.author.id},
+                    {
+    
+                        dinero: buscarUsuario.dinero - numero,
+                        banco: buscarUsuario.banco + numero
+    
+                    })
+                
+            } catch (error) {
 
-                })
-  
+                console.log('Error al depositar '+numero+' : '+error)
+
+            }
+
             const e = new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
             .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399566622820/dep.gif?width=176&height=176')
