@@ -37,14 +37,14 @@ module.exports =  {
             idle: 'Ausente 🟡',
             dnd: 'No Molestar 🔴',
             invisible: 'Desconectado ⚫'
-            
+
         }
 
         if(!userm || userm.id === message.author.id) {
 
             var user = message.author;
             var roles = message.member.roles.cache.map(roles => `\`${roles.name}\``).join(', ')
-            var playing = message.member.presence.activities[0] ? message.member.presence.activities[0].name : 'Nada'
+            var playing 
 
             if(roles.length >= 1000)
             {
@@ -58,8 +58,11 @@ module.exports =  {
 
                 playing = 'Usuario desconectado'
 
-            }
+            } else {
 
+                playing = message.member.presence.activities[0] ? message.member.presence.activities[0].name : 'Nada'
+
+            }
 
             const embed = new Discord.MessageEmbed()
             .setThumbnail(user.displayAvatarURL({ dynamic: true }).replace('webp','png'))
@@ -83,7 +86,7 @@ module.exports =  {
         } else{
 
             var roles = message.guild.members.resolve(userm.id).roles.cache.map(roles => `\`${roles.name}\``).join(', ')
-            var playing = message.guild.members.resolve(userm.id).presence.activities[0] ? message.guild.members.resolve(userm.id).presence.activities[0].name : 'Nada'
+            var playing
 
             if(roles.length >= 1000)
             {
@@ -97,6 +100,10 @@ module.exports =  {
 
                 playing = 'Usuario desconectado'
 
+            } else {
+
+                playing = message.guild.members.resolve(userm.id).presence.activities[0] ? message.guild.members.resolve(userm.id).presence.activities[0].name : 'Nada'
+                
             }
 
             const embed = new Discord.MessageEmbed()
