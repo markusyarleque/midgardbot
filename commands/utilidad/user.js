@@ -42,8 +42,6 @@ module.exports =  {
 
         if(!userm || userm.id === message.author.id) {
 
-            console.log('Estado invisible: '+message.member.presence.status)
-            
             try {
 
                 var user = message.author;
