@@ -4,7 +4,7 @@ const mongoose = require ('mongoose');
 const usersSchema = new mongoose.Schema({
 
     idusuario: { type: String, require: true, unique: true },
-    username: { type: String, require: true, unique: true  },
+    username: { type: String, require: true, default: null },
     nivel: { type: Number, require: true, default: 0 },
     exp: { type: Number, require: true, default: 0 },
     marry: { type: String, require: true, default: 'Soltero(a)' },
