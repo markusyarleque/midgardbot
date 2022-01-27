@@ -9,7 +9,18 @@ module.exports =  {
   
     async execute(client, message, args, Discord) { 
 
-        let buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario=?`, message.author.id)
+        let buscarUsuario
+
+        try {
+
+            buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario=?`, message.author.id)
+            
+        } catch (error) {
+
+            console.log('Error al obtener usuario: '+error)
+            return message.reply('Ha ocurrido un error inesperado. Vuelva a ejecutar el comando.')
+            
+        }
 
         if(!buscarUsuario){
 
