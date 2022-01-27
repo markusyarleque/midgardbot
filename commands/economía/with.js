@@ -13,7 +13,7 @@ module.exports =  {
 
         try {
 
-            buscarUsuario = await client.db.get(`SELECT * FROM usuarios WHERE idusuario=?`, message.author.id)
+            buscarUsuario = await userSchema.findOne({ idusuario: message.author.id })
             
         } catch (error) {
 
