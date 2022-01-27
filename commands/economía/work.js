@@ -36,6 +36,7 @@ module.exports =  {
           
                 new Discord.MessageEmbed()
                 .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936039755534172170/work.gif?width=360&height=300')
                 .setColor('RED')
                 .setDescription('<a:tiempogif:931434689481285662> | Puedes volver a trabajar en : '+((buscarUsuario.work - Date.now())/1000).toFixed()+' segundos')
           

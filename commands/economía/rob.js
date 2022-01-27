@@ -15,6 +15,7 @@ module.exports =  {
        
             new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936093229542150234/robo.gif?width=480&height=270')
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | Necesitas mencionar correctamente a alguien!`)
       
@@ -24,6 +25,7 @@ module.exports =  {
         
             new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936093229542150234/robo.gif?width=480&height=270')
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | No te puedes robar a ti mismo!`)
       
@@ -33,6 +35,7 @@ module.exports =  {
         
             new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936093229542150234/robo.gif?width=480&height=270')
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | No tienes el poder suficiente para robarle a los bots!`)
       
@@ -73,6 +76,7 @@ module.exports =  {
           
             new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936093229542150234/robo.gif?width=480&height=270')
             .setColor('RED')
             .setDescription('<a:tiempogif:931434689481285662> | Puedes volver a robar en : '+((usuario1.rob - Date.now())/1000).toFixed()+' segundos')
         
@@ -82,6 +86,7 @@ module.exports =  {
 
             new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936093229542150234/robo.gif?width=480&height=270')
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | ¿Cómo te atreves a robarle a los pobres?`)
       

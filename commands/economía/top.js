@@ -18,7 +18,7 @@ module.exports =  {
             if(!lista) return message.channel.send({embeds:[
           
                 new Discord.MessageEmbed()
-                .setAuthor(server.name+' | Top Global 🏦', server.iconURL({ dynamic: true }))
+                .setAuthor(server.name+' | Top Global 🏦', server.iconURL({ dynamic: true, size: 2048 }))
                 .setDescription('Aún no hay usuarios en el Top <:tierno:931433334960160799>')   	
                 .setColor("RANDOM")
                 .setFooter(`MidgardBot`,client.user.avatarURL())
@@ -42,8 +42,8 @@ module.exports =  {
 
             let first = client.users.cache.get(foto[0])
  
-            embed.setAuthor(server.name+' | Top Global 🏦', server.iconURL({ dynamic: true }))
-            embed.setThumbnail(first.displayAvatarURL({dynamic: true}))
+            embed.setAuthor(server.name+' | Top Global 🏦', server.iconURL({ dynamic: true, size: 2048 }))
+            embed.setThumbnail(first.displayAvatarURL({dynamic: true, size: 2048}))
             embed.setDescription(datos.join('\n\n'))   	
             embed.setColor("RANDOM")
             embed.setFooter(`MidgardBot`,client.user.avatarURL())
@@ -59,7 +59,7 @@ module.exports =  {
                 if(!lista) return message.channel.send({embeds:[
             
                     new Discord.MessageEmbed()
-                    .setAuthor(server.name+' | Top XP ⭐', server.iconURL({ dynamic: true }))
+                    .setAuthor(server.name+' | Top XP ⭐', server.iconURL({ dynamic: true, size: 2048 }))
                     .setDescription('Aún no hay usuarios en el Top <:tierno:931433334960160799>')   	
                     .setColor("RANDOM")
                     .setFooter(`MidgardBot`,client.user.avatarURL())
@@ -69,19 +69,23 @@ module.exports =  {
                 let embed = new Discord.MessageEmbed()
  
                 let datos = [];
+                let fotos = []
 
                 let c = 1
 
                 for(let ls of lista){
 
                     datos.push('**'+c+'.** <@' + ls.idusuario + '> <a:flech:931432469935312937> **'+ls.exp+'** XP (Nivel: **'+ls.nivel+'**)')
-            
+                    foto.push(ls.idusuario)
                     c = c + 1
           
                 }
+            
+                let first = client.users.cache.get(foto[0])
 
-                embed.setAuthor(server.name+' | Top XP ⭐', server.iconURL({ dynamic: true }))
+                embed.setAuthor(server.name+' | Top XP ⭐', server.iconURL({ dynamic: true, size: 2048 }))
                 embed.setDescription(datos.join('\n\n'))   	
+                embed.setThumbnail(first.displayAvatarURL({dynamic: true, size: 2048}))
                 embed.setColor("RANDOM")
                 embed.setFooter(`Midgard's VIP`,client.user.avatarURL())
           
@@ -94,7 +98,7 @@ module.exports =  {
                 if(!lista) return message.channel.send({embeds:[
             
                     new Discord.MessageEmbed()
-                    .setAuthor(server.name+' | Top Cash 💵', server.iconURL({ dynamic: true }))
+                    .setAuthor(server.name+' | Top Cash 💵', server.iconURL({ dynamic: true, size: 2048 }))
                     .setDescription('Aún no hay usuarios en el Top <:tierno:931433334960160799>')   	
                     .setColor("RANDOM")
                     .setFooter(`MidgardBot`,client.user.avatarURL())
@@ -104,19 +108,24 @@ module.exports =  {
                 let embed = new Discord.MessageEmbed()
 
                 let datos = [];
+                let foto = []
 
                 let c = 1
 
                 for(let ls of lista){
 
                     datos.push('**'+c+'.** <@' + ls.idusuario + '> <a:money:930397094924124180> **'+ls.dinero+'**')
-            
+                    foto.push(ls.idusuario)
+
                     c = c + 1
           
                 }
+
+                let first = client.users.cache.get(foto[0])
  
-                embed.setAuthor(server.name+' | Top Cash 💵', server.iconURL({ dynamic: true }))
+                embed.setAuthor(server.name+' | Top Cash 💵', server.iconURL({ dynamic: true, size: 2048 }))
                 embed.setDescription(datos.join('\n\n'))   	
+                embed.setThumbnail(first.displayAvatarURL({dynamic: true, size: 2048}))
                 embed.setColor("RANDOM")
                 embed.setFooter(`MidgardBot`,client.user.avatarURL())
           
@@ -129,7 +138,7 @@ module.exports =  {
                 if(!lista) return message.channel.send({embeds:[
             
                     new Discord.MessageEmbed()
-                    .setAuthor(server.name+' | Top Carisma 💟', server.iconURL({ dynamic: true }))
+                    .setAuthor(server.name+' | Top Carisma 💟', server.iconURL({ dynamic: true, size: 2048 }))
                     .setDescription('Aún no hay usuarios en el Top <:tierno:931433334960160799>')   	
                     .setColor("RANDOM")
                     .setFooter(`MidgardBot`,client.user.avatarURL())
@@ -139,6 +148,7 @@ module.exports =  {
                 let embed = new Discord.MessageEmbed()
 
                 let datos = [];
+                let foto = []
 
                 let c = 1
 
@@ -147,7 +157,8 @@ module.exports =  {
                     try {
 
                         datos.push('**'+c+'.** <@' + ls.idusuario + '> <a:flechad:880330587678838784> **'+ls.rep+'**')
-            
+                        foto.push(ls.idusuario)
+                        
                         c = c + 1
                         
                     } catch (error) {
@@ -158,9 +169,12 @@ module.exports =  {
                     }
 
                 }
+
+                let first = client.users.cache.get(foto[0])
  
-                embed.setAuthor(server.name+' | Top Carisma 💟', server.iconURL({ dynamic: true }))
+                embed.setAuthor(server.name+' | Top Carisma 💟', server.iconURL({ dynamic: true, size: 2048 }))
                 embed.setDescription(datos.join('\n\n'))   	
+                embed.setThumbnail(first.displayAvatarURL({dynamic: true, size: 2048}))
                 embed.setColor("RANDOM")
                 embed.setFooter(`MidgardBot`,client.user.avatarURL())
           
@@ -173,7 +187,7 @@ module.exports =  {
                 if(!lista) return message.channel.send({embeds:[
             
                     new Discord.MessageEmbed()
-                    .setAuthor(server.name+' | Top Pats ❣', server.iconURL({ dynamic: true }))
+                    .setAuthor(server.name+' | Top Pats ❣', server.iconURL({ dynamic: true, size: 2048 }))
                     .setDescription('Aún no hay usuarios en el Top <:tierno:931433334960160799>')   	
                     .setColor("RANDOM")
                     .setFooter(`MidgardBot`,client.user.avatarURL())
@@ -183,6 +197,7 @@ module.exports =  {
                 let embed = new Discord.MessageEmbed()
 
                 let datos = [];
+                let foto = []
 
                 let c = 1
 
@@ -191,7 +206,7 @@ module.exports =  {
                     try {
 
                         datos.push('**'+c+'.** <@' + ls.idusuario + '> <a:flechad:880330587678838784> **'+ls.pat+'**')
-            
+                        foto.push(ls.idusuario)
                         c = c + 1
                         
                     } catch (error) {
@@ -202,9 +217,12 @@ module.exports =  {
                     }
           
                 }
+
+                let first = client.users.cache.get(foto[0])
  
-                embed.setAuthor(server.name+' | Top Pats ❣', server.iconURL({ dynamic: true }))
+                embed.setAuthor(server.name+' | Top Pats ❣', server.iconURL({ dynamic: true, size: 2048 }))
                 embed.setDescription(datos.join('\n\n'))   	
+                embed.setThumbnail(first.displayAvatarURL({dynamic: true, size: 2048}))
                 embed.setColor("RANDOM")
                 embed.setFooter(`MidgardBot`,client.user.avatarURL())
           
@@ -217,7 +235,7 @@ module.exports =  {
                 if(!lista) return message.channel.send({embeds:[
             
                     new Discord.MessageEmbed()
-                    .setAuthor(server.name+' | Top Abrazos 🤗', server.iconURL({ dynamic: true }))
+                    .setAuthor(server.name+' | Top Abrazos 🤗', server.iconURL({ dynamic: true, size: 2048 }))
                     .setDescription('Aún no hay usuarios en el Top <:tierno:931433334960160799>')   	
                     .setColor("RANDOM")
                     .setFooter(`MidgardBot`,client.user.avatarURL())
@@ -227,6 +245,7 @@ module.exports =  {
                 let embed = new Discord.MessageEmbed()
 
                 let datos = [];
+                let foto = []
 
                 let c = 1
 
@@ -235,7 +254,8 @@ module.exports =  {
                     try {
 
                         datos.push('**'+c+'.** <@' + ls.idusuario + '> <a:flechad:880330587678838784> **'+ls.hug+'**')
-            
+                        foto.push(ls.idusuario)
+
                         c = c + 1
                         
                     } catch (error) {
@@ -246,9 +266,12 @@ module.exports =  {
                     }
           
                 }
+
+                let first = client.users.cache.get(foto[0])
  
-                embed.setAuthor(server.name+' | Top Abrazos 🤗', server.iconURL({ dynamic: true }))
+                embed.setAuthor(server.name+' | Top Abrazos 🤗', server.iconURL({ dynamic: true, size: 2048 }))
                 embed.setDescription(datos.join('\n\n'))   	
+                embed.setThumbnail(first.displayAvatarURL({dynamic: true, size: 2048}))
                 embed.setColor("RANDOM")
                 embed.setFooter(`MidgardBot`,client.user.avatarURL())
           
@@ -261,7 +284,7 @@ module.exports =  {
                 if(!lista) return message.channel.send({embeds:[
             
                     new Discord.MessageEmbed()
-                    .setAuthor(server.name+' | Top Sapes 🤡', server.iconURL({ dynamic: true }))
+                    .setAuthor(server.name+' | Top Sapes 🤡', server.iconURL({ dynamic: true, size: 2048 }))
                     .setDescription('Aún no hay usuarios en el Top <:tierno:931433334960160799>')   	
                     .setColor("RANDOM")
                     .setFooter(`MidgardBot`,client.user.avatarURL())
@@ -271,19 +294,24 @@ module.exports =  {
                 let embed = new Discord.MessageEmbed()
 
                 let datos = [];
+                let foto = []
 
                 let c = 1
 
                 for(let ls of lista){
 
                     datos.push('**'+c+'.** <@' + ls.idusuario + '> <a:flechad:880330587678838784> **'+ls.sape+'**')
-            
+                    foto.push(ls.idusuario)
+
                     c = c + 1
           
                 }
+
+                let first = client.users.cache.get(foto[0])
  
-                embed.setAuthor(server.name+' | Top Sapes 🤡', server.iconURL({ dynamic: true }))
+                embed.setAuthor(server.name+' | Top Sapes 🤡', server.iconURL({ dynamic: true, size: 2048 }))
                 embed.setDescription(datos.join('\n\n'))   	
+                embed.setThumbnail(first.displayAvatarURL({dynamic: true, size: 2048 }))
                 embed.setColor("RANDOM")
                 embed.setFooter(`MidgardBot`,client.user.avatarURL())
           

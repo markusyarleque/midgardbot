@@ -29,6 +29,7 @@ module.exports =  {
 
             new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399566622820/dep.gif?width=176&height=176')
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | Ingresa un monto a depositar!`)
 
@@ -38,15 +39,17 @@ module.exports =  {
 
             new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399566622820/dep.gif?width=176&height=176')
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | No tienes dinero para depositar!`)
 
         ]})
 
-        else if(buscarUsuario.dinero < parseInt(args[0])) return message.channel.send({embeds: [
+        else if(buscarUsuario.dinero < parseInt(args[0])) return message.reply({embeds: [
 
             new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399566622820/dep.gif?width=176&height=176')
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | No tienes ese monto para depositar. Actualmente tienes <a:money:930397094924124180> `+ buscarUsuario.dinero)
 
@@ -54,40 +57,55 @@ module.exports =  {
 
         if(args[0].toLowerCase() === 'all'){
 
-            await client.db.run(`UPDATE usuarios SET dinero=0, banco=banco + ? WHERE idusuario=?`, buscarUsuario.dinero, message.author.id)
+            await userSchema.findOneAndUpdate({idusuario: message.author.id},
+                {
+
+                    dinero: 0,
+                    banco: buscarUsuario.banco + buscarUsuario.dinero
+
+                })
         
             const e = new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399566622820/dep.gif?width=176&height=176')
             .setColor('GREEN')
             .setDescription(`<a:Verify1:931463354357276742> | Has depositado <a:money:930397094924124180> `+ buscarUsuario.dinero+ ' al banco')
             .setTimestamp()
         
-            message.channel.send({embeds: [e]})
+            message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
 
         } else {
 
-        if(isNaN(parseInt(args[0]))) return message.channel.send({embeds: [
+            if(isNaN(parseInt(args[0]))) return message.reply({embeds: [
 
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Ingresa un número válido a depositar!`)
+                new Discord.MessageEmbed()
+                .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399566622820/dep.gif?width=176&height=176')
+                .setColor('RED')
+                .setDescription(`<a:Verify2:931463492677017650> | Ingresa un número válido a depositar!`)
 
-          ]})
+            ]})
 
-        let numero = parseInt(args[0])
+            let numero = parseInt(args[0])
   
-        await client.db.run(`UPDATE usuarios SET dinero=dinero-?, banco=banco+? WHERE idusuario=?`, numero, numero, message.author.id)
+            await userSchema.findOneAndUpdate({idusuario: message.author.id},
+                {
+
+                    dinero: buscarUsuario.dinero - numero,
+                    banco: buscarUsuario.banco + numero
+
+                })
   
-        const e = new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('GREEN')
-          .setDescription(`<a:Verify1:931463354357276742> | Has depositado <a:money:930397094924124180> `+ numero + ' al banco')
-          .setTimestamp()
+            const e = new Discord.MessageEmbed()
+            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399566622820/dep.gif?width=176&height=176')
+            .setColor('GREEN')
+            .setDescription(`<a:Verify1:931463354357276742> | Has depositado <a:money:930397094924124180> `+ numero + ' al banco')
+            .setTimestamp()
           
-        message.channel.send({embeds: [e]})
+            message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
 
-      }
+        }
 
     }
 
