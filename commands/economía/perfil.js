@@ -286,7 +286,7 @@ module.exports =  {
                             .addField('Frase', '<a:megaphone:932192877449191424> '+userData.frase, false)
                             .addField('Matrimonio <:GatoLove:925929538863628318>', tmarry ? tmarry : 'Soltero(a)', true)
                             .addField('<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>','<a:dinero:930404747326914590> **Economía**',false)
-                            .addField(`**Total:**`, '<a:money:930397094924124180>  '+userData.total, true)
+                            .addField(`**Total:**`, '<a:money:930397094924124180>  '+userData.total.toLocaleString('en-US'), true)
                             .setColor(userData.color)
                             .setFooter(`Midgard's VIP`,client.user.avatarURL())
             
@@ -684,7 +684,7 @@ module.exports =  {
                     .addField('Frase', '<a:megaphone:932192877449191424> '+userData.frase ? userData.frase : 'No hay frase agregada', false)
                     .addField('<:GatoLove:925929538863628318> Matrimonio', tmarry ? tmarry : 'Soltero(a)', true)
                     .addField('<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>','<a:dinero:930404747326914590> **Economía**',false)
-                    .addField(`**Total:**`, '<a:money:930397094924124180>  '+userData.total, true)
+                    .addField(`**Total:**`, '<a:money:930397094924124180>  '+userData.total.toLocaleString('en-US'), true)
                     .setColor(userData.color)
                     .setFooter(`Midgard's VIP`,client.user.avatarURL())
         

@@ -34,7 +34,7 @@ module.exports =  {
 
             for(let ls of lista){
 
-                datos.push('**'+c+'.** <@' + ls.idusuario + '> <a:money:930397094924124180> **'+ls.total+'**')
+                datos.push('**'+c+'.** <@' + ls.idusuario + '> <a:money:930397094924124180> **'+ls.total.toLocaleString('en-US')+'**')
                 foto.push(ls.idusuario)
                 c = c + 1
         
@@ -114,7 +114,7 @@ module.exports =  {
 
                 for(let ls of lista){
 
-                    datos.push('**'+c+'.** <@' + ls.idusuario + '> <a:money:930397094924124180> **'+ls.dinero+'**')
+                    datos.push('**'+c+'.** <@' + ls.idusuario + '> <a:money:930397094924124180> **'+ls.dinero.toLocaleString('en-US')+'**')
                     foto.push(ls.idusuario)
 
                     c = c + 1

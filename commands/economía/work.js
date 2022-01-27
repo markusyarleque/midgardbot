@@ -80,7 +80,7 @@ module.exports =  {
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
         .setColor('GREEN')
         .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936039755534172170/work.gif?width=360&height=300')
-        .setDescription(ramdonw + r)
+        .setDescription(ramdonw + r.toLocaleString('en-US'))
 
         message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
 

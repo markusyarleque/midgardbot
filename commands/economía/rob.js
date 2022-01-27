@@ -123,7 +123,7 @@ module.exports =  {
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
             .setColor('GREEN')
             .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936093229542150234/robo.gif?width=480&height=270')
-            .setDescription(`<a:Verify1:931463354357276742> | Le has robado <a:money:930397094924124180> `+ ganarob + ' a ' + usuario.toString())
+            .setDescription(`<a:Verify1:931463354357276742> | Le has robado <a:money:930397094924124180> `+ ganarob.toLocaleString('en-US') + ' a ' + usuario.toString())
             .setTimestamp()
         
             message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
@@ -145,7 +145,7 @@ module.exports =  {
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
             .setColor('RED')
             .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936106953200001034/rob.jpg?width=470&height=239')
-            .setDescription(`<a:Verify2:931463492677017650> | Qué malo eres robando, acabas de ser capturado y perdiste <a:money:930397094924124180> `+ pierderob)
+            .setDescription(`<a:Verify2:931463492677017650> | Qué malo eres robando, acabas de ser capturado y perdiste <a:money:930397094924124180> `+ pierderob.toLocaleString('en-US'))
             .setTimestamp()
         
             message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})

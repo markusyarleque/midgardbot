@@ -106,7 +106,7 @@ module.exports =  {
 
         }
 
-        let chance = Math.floor(Math.random()*10)
+        let chance = Math.floor(Math.random()*11)
         let r = Math.floor(Math.random() * (500 - 10) + 10)
 
         message.channel.send({embeds: [e], components: [
