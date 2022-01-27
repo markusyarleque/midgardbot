@@ -130,7 +130,7 @@ module.exports =  {
         
                     if(chance < 4){
     
-                        await userSchema.findOneAndUpdate({idusuario: message.author.id},
+                        let update = await userSchema.findOneAndUpdate({idusuario: message.author.id},
                             {
 
                                 dinero: buscarUsuario.dinero + r,
@@ -138,6 +138,8 @@ module.exports =  {
                                 crime: (Date.now()+(1000*60))
 
                             })
+
+                        update.save()
               
                         const e = new Discord.MessageEmbed()
                         .setAuthor(message.author.tag, message.author.displayAvatarURL())
@@ -150,7 +152,7 @@ module.exports =  {
     
                     } else {
               
-                        await userSchema.findOneAndUpdate({idusuario: message.author.id},
+                        let update = await userSchema.findOneAndUpdate({idusuario: message.author.id},
                             {
 
                                 dinero: buscarUsuario.dinero - r,
@@ -158,6 +160,8 @@ module.exports =  {
                                 crime: (Date.now()+(1000*60))
 
                             })
+
+                        update.save()
 
                         const e = new Discord.MessageEmbed()
                         .setAuthor(message.author.tag, message.author.displayAvatarURL())
@@ -176,7 +180,7 @@ module.exports =  {
         
                     if(chance < 4){
     
-                        await userSchema.findOneAndUpdate({idusuario: message.author.id},
+                        let update = await userSchema.findOneAndUpdate({idusuario: message.author.id},
                             {
 
                                 dinero: buscarUsuario.dinero + r,
@@ -185,6 +189,8 @@ module.exports =  {
 
                             })
               
+                        update.save()
+
                         const e = new Discord.MessageEmbed()
                         .setAuthor(message.author.tag, message.author.displayAvatarURL())
                         .setColor('GREEN')
@@ -196,7 +202,7 @@ module.exports =  {
     
                     } else {
               
-                        await userSchema.findOneAndUpdate({idusuario: message.author.id},
+                        let update = await userSchema.findOneAndUpdate({idusuario: message.author.id},
                             {
 
                                 dinero: buscarUsuario.dinero - r,
@@ -204,6 +210,8 @@ module.exports =  {
                                 crime: (Date.now()+(1000*60))
 
                             })
+
+                        update.save()
 
                         const e = new Discord.MessageEmbed()
                         .setAuthor(message.author.tag, message.author.displayAvatarURL())
@@ -222,7 +230,7 @@ module.exports =  {
         
                     if(chance < 4){
     
-                        await userSchema.findOneAndUpdate({idusuario: message.author.id},
+                        let update = await userSchema.findOneAndUpdate({idusuario: message.author.id},
                             {
 
                                 dinero: buscarUsuario.dinero + r,
@@ -230,6 +238,8 @@ module.exports =  {
                                 crime: (Date.now()+(1000*60))
 
                             })
+
+                        update.save()
               
                         const e = new Discord.MessageEmbed()
                         .setAuthor(message.author.tag, message.author.displayAvatarURL())
@@ -242,7 +252,7 @@ module.exports =  {
     
                     } else {
               
-                        await userSchema.findOneAndUpdate({idusuario: message.author.id},
+                        let update = await userSchema.findOneAndUpdate({idusuario: message.author.id},
                             {
 
                                 dinero: buscarUsuario.dinero - r,
@@ -250,6 +260,8 @@ module.exports =  {
                                 crime: (Date.now()+(1000*60))
 
                             })
+
+                        update.save()
 
                         const e = new Discord.MessageEmbed()
                         .setAuthor(message.author.tag, message.author.displayAvatarURL())

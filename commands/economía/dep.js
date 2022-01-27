@@ -59,13 +59,15 @@ module.exports =  {
 
             try {
 
-                await userSchema.findOneAndUpdate({ idusuario: message.author.id },
+                let update = await userSchema.findOneAndUpdate({ idusuario: message.author.id },
                     {
     
-                        dinero: buscarUsuario.dinero - buscarUsuario.dinero,
+                        dinero: 0,
                         banco: buscarUsuario.banco + buscarUsuario.dinero
     
                     })
+
+                update.save()
                 
             } catch (error) {
 
@@ -98,13 +100,15 @@ module.exports =  {
   
             try {
 
-                await userSchema.findOneAndUpdate({idusuario: message.author.id},
+                let update = await userSchema.findOneAndUpdate({idusuario: message.author.id},
                     {
     
                         dinero: buscarUsuario.dinero - numero,
                         banco: buscarUsuario.banco + numero
     
                     })
+
+                update.save()
                 
             } catch (error) {
 

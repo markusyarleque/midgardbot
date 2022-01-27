@@ -98,7 +98,7 @@ module.exports =  {
 
         if(chance < 3){
         
-            await userSchema.findOneAndUpdate({idusuario: usuario.id},
+            let update = await userSchema.findOneAndUpdate({idusuario: usuario.id},
                 {
 
                     dinero: usuario2.dinero - ganarob,
@@ -106,7 +106,9 @@ module.exports =  {
 
                 })
 
-            await userSchema.findOneAndUpdate({idusuario: message.author.id},
+            update.save()
+
+            let update2 = await userSchema.findOneAndUpdate({idusuario: message.author.id},
                 {
 
                     dinero: usuario1.dinero + ganarob,
@@ -114,6 +116,8 @@ module.exports =  {
                     rob: (Date.now()+(1000*30))
 
                 })
+
+            update2.save()
 
             const e = new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
@@ -126,7 +130,7 @@ module.exports =  {
     
         } else {
 
-            await userSchema.findOneAndUpdate({idusuario: message.author.id},
+            let update = await userSchema.findOneAndUpdate({idusuario: message.author.id},
                 {
 
                     dinero: usuario1.dinero - pierderob,
@@ -134,6 +138,8 @@ module.exports =  {
                     rob: (Date.now()+(1000*30))
 
                 })
+
+            update.save()
 
             const e = new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
