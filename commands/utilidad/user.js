@@ -32,10 +32,12 @@ module.exports =  {
         ]})
 
         const estado = {
+
             online: 'En línea 🟢', 
             idle: 'Ausente 🟡',
             dnd: 'No Molestar 🔴',
             invisible: 'Desconectado ⚫'
+            
         }
 
         if(!userm || userm.id === message.author.id) {
