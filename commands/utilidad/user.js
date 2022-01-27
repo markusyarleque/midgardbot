@@ -42,6 +42,7 @@ module.exports =  {
 
             var user = message.author;
             var roles = message.member.roles.cache.map(roles => `\`${roles.name}\``).join(', ')
+            var playing = message.member.presence.activities[0] ? message.member.presence.activities[0].name : 'Nada'
 
             if(roles.length >= 1000)
             {
@@ -50,11 +51,19 @@ module.exports =  {
 
             }
 
+            if(message.member.presence.status === 'invisible')
+            {
+
+                playing = 'Usuario desconectado'
+
+            }
+
+
             const embed = new Discord.MessageEmbed()
             .setThumbnail(user.displayAvatarURL({ dynamic: true }).replace('webp','png'))
             .setAuthor('Información del Usuario', message.guild.iconURL({ dynamic: true }))
-            .addField('Jugando a:', message.member.presence.activities[0] ? message.member.presence.activities[0].name : 'Nada', true)
-            .addField('Estado:', estado[ message.member.presence.status] ? estado[ message.member.presence.status] : 'Desconectado prueba', true)
+            .addField('Jugando a:', playing, true)
+            .addField('Estado:', estado[ message.member.presence.status] ? estado[ message.member.presence.status] : 'Desconectado', true)
             .addField('Color:', message.member.displayHexColor, true)
             .addField('Usuario:', user.username+'#'+user.discriminator, true)
             .addField('Apodo:', message.guild.members.resolve(user.id).nickname ? message.guild.members.resolve(user.id).nickname : 'No tiene', true)
@@ -72,6 +81,7 @@ module.exports =  {
         } else{
 
             var roles = message.guild.members.resolve(userm.id).roles.cache.map(roles => `\`${roles.name}\``).join(', ')
+            var playing = message.guild.members.resolve(userm.id).presence.activities[0] ? message.guild.members.resolve(userm.id).presence.activities[0].name : 'Nada'
 
             if(roles.length >= 1000)
             {
@@ -80,10 +90,17 @@ module.exports =  {
 
             }
 
+            if(message.guild.members.resolve(userm.id).presence.status === 'invisible')
+            {
+
+                playing = 'Usuario desconectado'
+
+            }
+
             const embed = new Discord.MessageEmbed()
             .setThumbnail(userm.displayAvatarURL({ dynamic: true }).replace('webp','png'))
             .setAuthor('Información del Usuario', message.guild.iconURL({ dynamic: true }))
-            .addField('Jugando a:', message.guild.members.resolve(userm.id).presence.activities[0] ? message.guild.members.resolve(userm.id).presence.activities[0].name : 'Nada', true)
+            .addField('Jugando a:', playing, true)
             .addField('Estado:', estado[message.guild.members.resolve(userm.id).presence.status], true)
             .addField('Color:', message.guild.members.resolve(userm.id).displayHexColor, true)
             .addField('Usuario:', userm.username+'#'+userm.discriminator, true)
