@@ -103,8 +103,8 @@ module.exports =  {
                 let update = await userSchema.findOneAndUpdate({ idusuario: message.author.id },
                     {
     
-                        dinero: buscarUsuario.dinero - args[0],
-                        banco: buscarUsuario.banco + args[0]
+                        dinero: buscarUsuario.dinero - numero,
+                        banco: buscarUsuario.banco + numero
     
                     })
 
