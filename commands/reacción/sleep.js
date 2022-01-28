@@ -15,7 +15,7 @@ module.exports =  {
   
             const embed = new Discord.MessageEmbed()
             .setAuthor(`Midgard's Emotions`,message.guild.iconURL({ dynamic: true }))
-            .setDescription(`**${message.author.username}** se fue a dormir <a:Mimido:920963402355064852>`)
+            .setDescription(`**${message.author.username}** se fue a dormir <a:mimir:936550105765523477>`)
             .setImage(sleep)
             .setColor('RANDOM')
             .setTimestamp(new Date())
@@ -38,7 +38,7 @@ module.exports =  {
   
             const embed = new Discord.MessageEmbed()
             .setAuthor(`Midgard's Emotions`,message.guild.iconURL({ dynamic: true }))
-            .setDescription(`**${img.user.username}**, ${message.author.username} te ha invitado a dormir juntos <a:Mimido:920963402355064852>`)
+            .setDescription(`**${img.user.username}**, ${message.author.username} te ha invitado a dormir juntos <a:mimir:936550105765523477>`)
             .setImage(sleep)
             .setColor('RANDOM')
             .setTimestamp(new Date())
