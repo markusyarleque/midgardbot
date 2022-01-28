@@ -25,7 +25,7 @@ module.exports =  {
 
         }
 
-        over.randomPokemon().then(pokemon => {
+        over.randomPokemon().then(async (pokemon) => {
 
             const embed = new Discord.MessageEmbed()
             .setColor('RANDOM')
