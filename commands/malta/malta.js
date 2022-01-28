@@ -1,33 +1,39 @@
-module.exports = (client, message, args) => {
+module.exports =  {
+    
+    name: 'malta',
+    aliases: ['set-activity'],
+    description: '💻 Cambiar el estado de actividad del bot.',
 
-    const Discord = require('discord.js'); 
+    async execute(client, message, args, Discord) {
 
-    let id = ['753435606410985573']
+        let id = ['753435606410985573']
   
-    if(!id.some(id => message.author.id == id)) {
+        if(!id.some(id => message.author.id == id)) {
         
-        const embed = new Discord.MessageEmbed()
-        .setDescription('Solo el developer del bot puede usar este comando.')
-        .setColor('RED')
+            const embed = new Discord.MessageEmbed()
+            .setDescription('Solo el developer del bot puede usar este comando.')
+            .setColor('RED')
           
-        message.channel.send({ embeds: [embed] })
-          .then(m => setTimeout(() => m.delete(), 5000));
+            return message.reply({ embeds: [embed] })
+            .then(m => setTimeout(() => m.delete(), 5000));
   
-    } else {
+        } else {
   
-        var estadobot = message.content.split(' ').slice(1).join(' ')
+            var estadobot = message.content.split(' ').slice(1).join(' ')
   
-        if(!estadobot){
+            if(!estadobot){
   
-            message.reply('Exactamente... ¿Qué quieres que ponga?').then(m => setTimeout(() => m.delete(), 5000));
+                message.reply('Exactamente... ¿Qué quieres que ponga?').then(m => setTimeout(() => m.delete(), 5000));
   
-        }else{
+            }else{
   
-            client.user.setActivity({name:estadobot, type:'LISTENING'})
-            message.reply('Estado cambiado con éxito <a:pasito:877116925291946094>')
+                client.user.setActivity({name:estadobot, type:'LISTENING'})
+                message.reply('Estado cambiado con éxito <a:pasito:877116925291946094>')
+  
+            }
   
         }
-  
-    }
 
+    }
+    
 }

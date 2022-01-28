@@ -3,8 +3,8 @@ const userSchema = require('../../models/userSchema');
 
 module.exports =  {
     
-    name: 'add-money',
-    aliases: ['addmoney','add-dinero'],
+    name: 'add-bank',
+    aliases: ['addbank','add-banco'],
     description: '🔴 Sólo para administradores.',
   
     async execute(client, message, args, Discord) { 
@@ -27,7 +27,7 @@ module.exports =  {
             new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
             .setColor('RED')
-            .setDescription('<a:Verify2:931463492677017650> | Debes mencionar o colocar id de algún usuario')
+            .setDescription('<a:Verify2:931463492677017650> | Debes mencionar o colocar id de algún usuario!')
       
         ]})
 
@@ -81,7 +81,7 @@ module.exports =  {
             let update = await userSchema.findOneAndUpdate({idusuario: miembro.id},
                 {
 
-                    dinero: usuario1.dinero + monto,
+                    banco: usuario1.banco + monto,
                     total: usuario1.dinero + usuario1.banco + monto
 
                 })
@@ -91,7 +91,7 @@ module.exports =  {
             const e = new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
             .setColor('GREEN')
-            .setDescription(`<a:Verify1:931463354357276742> | Has agregado <a:money:930397094924124180> `+ monto.toLocaleString('en-US') + ' al balance de <@'+miembro.id+'>')
+            .setDescription(`<a:Verify1:931463354357276742> | Has agregado <a:money:930397094924124180> `+ monto.toLocaleString('en-US') + ' al banco de <@'+miembro.id+'>')
             .setTimestamp()
         
             message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
@@ -99,7 +99,7 @@ module.exports =  {
             
         } catch (error) {
 
-            console.log('Error al agregar dinero al usuario: '+miembro.id+' - Error: '+error)
+            console.log('Error al agregar dinero al banco del usuario: '+miembro.id+' - Error: '+error)
             return message.reply('No se agregó el monto correctamente, por favor, inténtelo de nuevo.')
             
         }

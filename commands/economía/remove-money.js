@@ -3,8 +3,8 @@ const userSchema = require('../../models/userSchema');
 
 module.exports =  {
     
-    name: 'add-money',
-    aliases: ['addmoney','add-dinero'],
+    name: 'remove-money',
+    aliases: ['removemoney','remove-dinero'],
     description: '🔴 Sólo para administradores.',
   
     async execute(client, message, args, Discord) { 
@@ -36,7 +36,7 @@ module.exports =  {
             new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
             .setColor('RED')
-            .setDescription(`<a:Verify2:931463492677017650> | No puedes darle dinero a un bot!`)
+            .setDescription(`<a:Verify2:931463492677017650> | No puedes quitarle dinero a un bot!`)
         
         ]})
 
@@ -70,7 +70,7 @@ module.exports =  {
             new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
             .setColor('RED')
-            .setDescription(`<a:Verify2:931463492677017650> | Pon una cantidad, solo puedo agregar números.`)
+            .setDescription(`<a:Verify2:931463492677017650> | Pon una cantidad, solo puedo quitar números.`)
         
         ]}).then(m => setTimeout(() => m.delete(), 5000));
     
@@ -81,8 +81,8 @@ module.exports =  {
             let update = await userSchema.findOneAndUpdate({idusuario: miembro.id},
                 {
 
-                    dinero: usuario1.dinero + monto,
-                    total: usuario1.dinero + usuario1.banco + monto
+                    dinero: usuario1.dinero - monto,
+                    total: usuario1.total - monto
 
                 })
 
@@ -91,7 +91,7 @@ module.exports =  {
             const e = new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
             .setColor('GREEN')
-            .setDescription(`<a:Verify1:931463354357276742> | Has agregado <a:money:930397094924124180> `+ monto.toLocaleString('en-US') + ' al balance de <@'+miembro.id+'>')
+            .setDescription(`<a:Verify1:931463354357276742> | Has retirado <a:money:930397094924124180> `+ monto.toLocaleString('en-US') + ' del balance de <@'+miembro.id+'>')
             .setTimestamp()
         
             message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
@@ -99,8 +99,8 @@ module.exports =  {
             
         } catch (error) {
 
-            console.log('Error al agregar dinero al usuario: '+miembro.id+' - Error: '+error)
-            return message.reply('No se agregó el monto correctamente, por favor, inténtelo de nuevo.')
+            console.log('Error al retirar dinero al usuario: '+miembro.id+' - Error: '+error)
+            return message.reply('No se retiró el monto correctamente, por favor, inténtelo de nuevo.')
             
         }
 

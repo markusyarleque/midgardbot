@@ -1,8 +1,13 @@
-module.exports = (client, message, args) => {
+const { MessageActionRow, MessageButton } = require('discord.js');
 
-    const Discord = require('discord.js'); 
-    const { MessageActionRow, MessageButton } = require('discord.js');
+module.exports =  {
+    
+  name: 'exitserver',
+  aliases: [],
+  description: '💻 Sacar al bot de algún servidor.',
 
+  async execute(client, message, args, Discord) {
+ 
     let id = ['753435606410985573']
   
     if(!id.some(id => message.author.id == id)) {
@@ -10,7 +15,8 @@ module.exports = (client, message, args) => {
         const embed = new Discord.MessageEmbed()
         .setDescription('Solo el developer del bot puede usar este comando.')
         .setColor('RED')
-        message.channel.send({ embeds: [embed] })
+        
+        return message.reply({ embeds: [embed] })
         .then(m => setTimeout(() => m.delete(), 5000));
 
     } else {
@@ -22,7 +28,7 @@ module.exports = (client, message, args) => {
           const embed = new Discord.MessageEmbed()
           .setDescription('Dime el nombre o ID del servidor para salirme')
           .setColor('RED')
-          return message.channel.send({ embeds: [embed] }).then(m => setTimeout(() => m.delete(), 5000));
+          return message.reply({ embeds: [embed] }).then(m => setTimeout(() => m.delete(), 5000));
 
         }
 
@@ -33,7 +39,7 @@ module.exports = (client, message, args) => {
           const embed = new Discord.MessageEmbed()
           .setDescription('No encontré el servidor!')
           .setColor('RED')
-          return message.channel.send({ embeds: [embed] }).then(m => setTimeout(() => m.delete(), 5000));
+          return message.reply({ embeds: [embed] }).then(m => setTimeout(() => m.delete(), 5000));
 
         }
 
@@ -112,7 +118,9 @@ module.exports = (client, message, args) => {
           });
           
         });
-
+      
     }
+    
+  }
     
 }

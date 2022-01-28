@@ -36,7 +36,8 @@ module.exports =  {
             online: 'En línea 🟢', 
             idle: 'Ausente 🟡',
             dnd: 'No Molestar 🔴',
-            invisible: 'Desconectado ⚫'
+            invisible: 'Desconectado ⚫',
+            null: 'Desconectado ⚫'
 
         }
 
@@ -57,7 +58,7 @@ module.exports =  {
 
                 if(status === 'Desconectado ⚫'){
 
-                    playing = 'Usuario desconectado'
+                    playing = 'Desconectado ⚫'
 
                 } else {
 
@@ -107,7 +108,7 @@ module.exports =  {
 
                 if(status === 'Desconectado ⚫'){
 
-                    playing = 'Usuario desconectado'
+                    playing = 'Desconectado ⚫'
 
                 } else {
 
