@@ -37,7 +37,7 @@ module.exports =  {
           
             message.channel.send({ embeds: [embed] }).then(msj => {
     
-                message.channel.awaitMessages(x => x.content.toLowerCase() === pokemon.name.toLowerCase() && x.author.id === message.author.id, { max: 1, time: 60000, errors: ['time'] }).then(col => {
+                message.channel.awaitMessages(async x => x.content.toLowerCase() === pokemon.name.toLowerCase() && x.author.id === message.author.id, { max: 1, time: 60000, errors: ['time'] }).then(async col => {
     
                     if(col){
     
