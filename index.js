@@ -5014,167 +5014,8 @@ client.on('messageCreate', async message => {
 
     //COMANDOS NSFW
 
-    var tetas = [
-        'https://media.discordapp.net/attachments/853500788848853002/873742099470749696/1.gif?width=319&height=562',
-        'https://media.discordapp.net/attachments/853500788848853002/873742106026442792/2.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873742111554547722/3.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873742114566053928/4.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873742117812441088/5.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873742121033670657/6.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873742123546050590/7.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873742126620500018/8.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873742125676785665/9.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873742127765532752/10.gif?width=315&height=562',
-        'https://media.discordapp.net/attachments/853500788848853002/873744098589302784/11.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873744101793755146/12.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873744108634636288/13.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873744110798905444/14.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873744118927482900/15.gif?width=323&height=562',
-        'https://media.discordapp.net/attachments/853500788848853002/873742152063135774/16.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873742159751315526/17.gif?width=281&height=562',
-        'https://media.discordapp.net/attachments/853500788848853002/873742156387475476/18.gif?width=315&height=562',
-        'https://media.discordapp.net/attachments/853500788848853002/873742161043148820/19.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873742161894584370/20.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873742168806809630/22.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873742173437308968/23.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873742178009116672/24.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873742181649747978/25.gif?width=315&height=562',
-        'https://media.discordapp.net/attachments/853500788848853002/873744423832408134/26.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873744434158776320/27.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873744440953544734/28.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873744453289000990/29.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873744461300121631/30.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873742202176675850/31.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873742204827500544/32.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873742205796360192/33.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873742207717347328/34.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873742212238815282/35.gif?width=312&height=562',
-        'https://media.discordapp.net/attachments/853500788848853002/873742211613863986/36.gif?width=315&height=562',
-        'https://media.discordapp.net/attachments/853500788848853002/873742216655421511/37.gif?width=309&height=562',
-        'https://media.discordapp.net/attachments/853500788848853002/873742217259405312/38.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873742217414606858/39.gif?width=309&height=562',
-        'https://media.discordapp.net/attachments/853500788848853002/873742218379292712/40.gif',
-        'https://www.gifs-porno.com/wp-content/uploads/2019/07/Follando-con-Gabbie-Carter.gif'
-      ]
-    
-    if(command === 'tetas'){
-    
-      if(!message.channel.nsfw)
-      {
-        return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:ojooo:925928526119571457>')
-      } 
-      else {
-    
-        let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
-        let ramdontetas = tetas[Math.floor(Math.random()*tetas.length)]
+
   
-        if (!img || img.id===message.author.id || img.user.bot) {
-    
-          const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
-          //.setTitle('Imagen completa')
-          .setDescription(`**${message.author.username}** mira estos melones <a:pandanoveo:880306441926352916> `)
-          .setImage(ramdontetas)
-          .setColor('RANDOM')
-          .setTimestamp(new Date())
-          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-          message.channel.send({ embeds: [embed] });
-    
-        } else {
-    
-          const embed = new Discord.MessageEmbed()
-          .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
-          //.setTitle('Imagen completa')
-          .setDescription(`Hey **${img.user.username}**, mira estos melones que **${message.author.username}** te trajo <a:pandanoveo:880306441926352916> `)
-          .setImage(ramdontetas)
-          .setColor('RANDOM')
-          .setTimestamp(new Date())
-          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-          message.channel.send({ embeds: [embed] });
-        }
-        }   
-      }
-    
-      var pussy = [
-        'https://media.discordapp.net/attachments/853500788848853002/873855783970963476/1.gif?width=863&height=485',
-        'https://media.discordapp.net/attachments/853500788848853002/873855793898872852/2.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873855813557579807/3.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873855833899941898/4.gif?width=863&height=485',
-        'https://media.discordapp.net/attachments/853500788848853002/873855841156083722/5.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873855854959554570/6.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873855898647420959/7.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873855905266012180/8.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873855924295569428/9.gif?width=315&height=562',
-        'https://media.discordapp.net/attachments/853500788848853002/873855934160584725/10.gif?width=315&height=562',
-        'https://media.discordapp.net/attachments/853500788848853002/873855954385510400/11.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873855972471345162/13.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873855982646747146/14.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856008907284500/15.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856026661769247/16.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856032164679700/17.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856047180312576/18.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856051726917662/19.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856063932338216/20.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856076188110858/21.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856087667929118/22.gif?width=586&height=562',
-        'https://media.discordapp.net/attachments/853500788848853002/873856098820562944/23.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856113362227230/24.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856132471468052/25.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856145842896896/26.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856165556158504/27.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856178789154816/28.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856195633496094/29.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856229225685032/30.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856240927801344/31.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856261085626388/32.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856287291605002/33.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856309374627870/34.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856320141422622/35.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856335375106058/36.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856350248136704/37.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856368791146566/38.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873856380912697344/39.gif'
-      ]
-    
-      if(command === 'pussy'){
-    
-        if(!message.channel.nsfw)
-        {
-          return message.channel.send('Oh rayos, no puedes hacer eso aquí pillín <:ojooo:925928526119571457>')
-        } 
-        else {
-    
-          let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
-          let ramdonpussy = pussy[Math.floor(Math.random()*pussy.length)]
-    
-          if (!img || img.id===message.author.id || img.user.bot) {
-    
-            const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
-            //.setTitle('Imagen')
-            .setDescription(`**${message.author.username}** mira esa papaya <a:pandanoveo:880306441926352916> `)
-            .setImage(ramdonpussy)
-            .setColor('RANDOM')
-            .setTimestamp(new Date())
-            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-            message.channel.send({ embeds: [embed] });
-    
-          }else {
-    
-            const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
-            //.setTitle('Imagen completa')
-            .setDescription(`Hey **${img.user.username}**, mira esa papaya que **${message.author.username}** te está mostrando <a:pandanoveo:880306441926352916> `)
-            .setImage(ramdonpussy)
-            .setColor('RANDOM')
-            .setTimestamp(new Date())
-            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-            message.channel.send({ embeds: [embed] });
-          }
-    
-        }   
-    
-      }
     
       var culo = [
         'https://media.discordapp.net/attachments/853500788848853002/873866479802654780/1.gif',
@@ -5248,7 +5089,7 @@ client.on('messageCreate', async message => {
           if (!img || img.id===message.author.id || img.user.bot) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+            .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** mira ese perro culazo <a:pandanoveo:880306441926352916> `)
             .setImage(ramdonculo)
@@ -5260,7 +5101,7 @@ client.on('messageCreate', async message => {
           } else{
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+            .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`Omg!!! **${img.user.username}** mira ese perro culazo que tiene **${message.author.username}** <a:pandanoveo:880306441926352916> `)
             .setImage(ramdonculo)
@@ -5310,7 +5151,7 @@ client.on('messageCreate', async message => {
           if (!img || img.id===message.author.id || img.user.bot) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+            .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`A **${message.author.username}** le provocó una rica polla <a:pandanoveo:880306441926352916> `)
             .setImage(ramdondick)
@@ -5322,7 +5163,7 @@ client.on('messageCreate', async message => {
           }else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+            .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** anda viendo la verga de **${img.user.username}** <a:pandanoveo:880306441926352916> `)
             .setImage(ramdondick)
@@ -5418,7 +5259,7 @@ client.on('messageCreate', async message => {
           {
             
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+            .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** acaba de vaciarse <:aisaMexicana:925926704097161216>`)
             .setImage(ramdoncum)
@@ -5430,7 +5271,7 @@ client.on('messageCreate', async message => {
           } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+            .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** se vino dentro de **${img.user.username}**.`)
             .setImage(ramdoncum2)
@@ -5573,7 +5414,7 @@ client.on('messageCreate', async message => {
           {
             
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+            .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`Señoraaaa!!! su hijo **${message.author.username}** está viendo nopor <a:run:880304386826465300>`)
             .setImage(ramdonfuck)
@@ -5585,7 +5426,7 @@ client.on('messageCreate', async message => {
           } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+            .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** se está follando a **${img.user.username}** <a:sabroso:880695816497541180>.`)
             .setImage(ramdonfuck)
@@ -5684,7 +5525,7 @@ client.on('messageCreate', async message => {
           {
             
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+            .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`A **${message.author.username}** le provocó lamer coños <a:sabroso:880695816497541180>`)
             .setImage(ramdonlick)
@@ -5696,7 +5537,7 @@ client.on('messageCreate', async message => {
           } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+            .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** le está haciendo un buen oral a **${img.user.username}** <a:sabroso:880695816497541180>.`)
             .setImage(ramdonlick)
@@ -5769,7 +5610,7 @@ client.on('messageCreate', async message => {
           {
             
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+            .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`A **${message.author.username}** le provocó chupar pollas <a:sabroso:880695816497541180>`)
             .setImage(ramdonsuck)
@@ -5781,7 +5622,7 @@ client.on('messageCreate', async message => {
           } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+            .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** se está comiendo la verga de **${img.user.username}** <a:sabroso:880695816497541180>.`)
             .setImage(ramdonsuck)
@@ -5834,7 +5675,7 @@ client.on('messageCreate', async message => {
           {
             
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+            .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`A **${message.author.username}** le gusta chupar bolas <a:sabroso:880695816497541180>`)
             .setImage(ramdonsuckb)
@@ -5846,7 +5687,7 @@ client.on('messageCreate', async message => {
           } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+            .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** se está comiendo las pelotas de **${img.user.username}** <a:sabroso:880695816497541180>.`)
             .setImage(ramdonsuckb)
@@ -5897,7 +5738,7 @@ client.on('messageCreate', async message => {
           {
             
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+            .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${message.author.username}** está chupando tetas <a:sabroso:880695816497541180>`)
             .setImage(ramdonsboobs)
@@ -5909,7 +5750,7 @@ client.on('messageCreate', async message => {
           } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+            .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
             //.setTitle('Imagen completa')
             .setDescription(`**${img.user.username}**, **${message.author.username}** te está chupando los melones que tienes <a:sabroso:880695816497541180>.`)
             .setImage(ramdonsboobs)
@@ -5940,7 +5781,7 @@ client.on('messageCreate', async message => {
               const image = await nsfw3.anal();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+              .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
               //.setTitle('Imagen completa')
               .setDescription(`A **${message.author.username}** le están dando por detroit <:aisaMexicana:925926704097161216>`)
               .setImage(image)
@@ -5955,7 +5796,7 @@ client.on('messageCreate', async message => {
               const image = await nsfw3.anal();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+              .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
               //.setTitle('Imagen completa')
               .setDescription(`**${message.author.username}** le está dando a **${img.user.username}** por la retaguardia`)
               .setImage(image)
@@ -5985,7 +5826,7 @@ client.on('messageCreate', async message => {
               const image = await nsfw3.pgif();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+              .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
               //.setTitle('Imagen completa')
               .setDescription(`Señoraaaa!!! su hijo **${message.author.username}** está viendo nopor <a:run:880304386826465300>`)
               .setImage(image)
@@ -6000,7 +5841,7 @@ client.on('messageCreate', async message => {
               const image = await nsfw3.pgif();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+              .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
               //.setTitle('Imagen completa')
               .setDescription(`**${message.author.username}** está viendo nopor con **${img.user.username}** <a:run:880304386826465300>`)
               .setImage(image)
@@ -6031,7 +5872,7 @@ client.on('messageCreate', async message => {
               const image = await nsfw3.fourk();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+              .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
               //.setTitle('Imagen completa')
               .setDescription(`A **${message.author.username}** le gusta en 4k <a:run:880304386826465300>`)
               .setImage(image)
@@ -6045,7 +5886,7 @@ client.on('messageCreate', async message => {
               const image = await nsfw3.fourk();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+              .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
               //.setTitle('Imagen completa')
               .setDescription(`**${message.author.username}** y **${img.user.username}** están viendo 4k <a:run:880304386826465300>`)
               .setImage(image)
@@ -6076,7 +5917,7 @@ client.on('messageCreate', async message => {
               const image = await nsfw3.gonewild();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+              .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
               //.setTitle('Imagen completa')
               .setDescription(`**${message.author.username}**, disfrútalo!`)
               .setImage(image)
@@ -6091,7 +5932,7 @@ client.on('messageCreate', async message => {
               const image = await nsfw3.gonewild();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+              .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
               //.setTitle('Imagen plet')
               .setDescription(`**${message.author.username}** y **${img.user.username}** disfrútenlo!`)
               .setImage(image)
@@ -6121,7 +5962,7 @@ client.on('messageCreate', async message => {
               const image = await nsfw3.solo();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+              .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
               //.setTitle('Imagen completa')
               //.setDescription(`**${message.author.username}** se está masturbando.`)
               .setImage(image)
@@ -6135,7 +5976,7 @@ client.on('messageCreate', async message => {
             const image = await nsfw3.solo();
     
               const embed = new Discord.MessageEmbed()
-              .setAuthor(`Midgard's Hot`,message.guild.iconURL({ dynamic: true }))
+              .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
               //.setTitle('Imagen completa')
               //.setDescription(`**${message.author.username}** le da una mano a **${img.user.username}**.`)
               .setImage(image)
@@ -7296,7 +7137,7 @@ client.on('messageCreate', async message => {
         const image = await nsfw3.pgif();
     
         const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's Hot`,client.user.avatarURL())
+        .setAuthor(`🔞 | Midgard's Hot 🔥`,client.user.avatarURL())
         //.setTitle('Imagen completa')
         .setDescription(`Disfruten este pequeño aporte gratis! <a:run:880304386826465300>`)
         .setImage(image)
