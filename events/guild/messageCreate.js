@@ -240,7 +240,7 @@ module.exports = async (client, Discord, message) => {
     
     //let malta = new RegExp(`^<@!?${'753435606410985573'}>( |)$`);
 
-    if (message.content.includes(`<@753435606410985573>`))
+    if (message.content.match(`<@753435606410985573>`))
     {
         
         if(bl.tiene(message.author.id)) return;
@@ -389,7 +389,7 @@ module.exports = async (client, Discord, message) => {
 
     if(!message.content.startsWith(prefix) || mencionbot) return; 
   
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);  
+    const args = message.content.slice(prefix.length || mencionbot).trim().split(/ +/g);  
     const command = args.shift().toLowerCase()
 
     if(bl.tiene(message.author.id)) {
