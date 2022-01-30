@@ -238,9 +238,9 @@ module.exports = async (client, Discord, message) => {
     
     }
     
-    //let malta = new RegExp(`^<@!?${'753435606410985573'}>( |)$`);
+    let malta = new RegExp(`^<@!?${'753435606410985573'}>( |)$`);
 
-    if (message.content.match(`<@753435606410985573>`))
+    if (message.content.match(malta))
     {
         
         if(bl.tiene(message.author.id)) return;
@@ -386,6 +386,7 @@ module.exports = async (client, Discord, message) => {
     }
 
     var mencionbot = message.content.includes('<@'+client.user.id+'>') || message.content === "midgard" || message.content === "mid" || message.content === "mb"
+    console.log(mencionbot+' mencion: '+client.user.id)
 
     if(!message.content.startsWith(prefix) || mencionbot) return; 
   
