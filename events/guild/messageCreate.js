@@ -390,7 +390,7 @@ module.exports = async (client, Discord, message) => {
 
     if(!message.content.startsWith(prefix) && !mencionbot) return; 
   
-    const args = message.content.slice(prefix.length).trim().split(/ +/g) || message.content.slice(mencionbot).trim().split(/ +/g)
+    const args = message.content.slice(prefix.length).trim().split(/ +/g)
     const command = args.shift().toLowerCase()
 
     if(bl.tiene(message.author.id)) {
@@ -404,6 +404,7 @@ module.exports = async (client, Discord, message) => {
     }
 
     let cmd = client.commands.get(command) ||
+              client.commands.get(mencionbot.slice(' ')) ||
               client.commands.find((a) => a.aliases && a.aliases.includes(command)); // Obtiene el comando de la colección client.commandos
   
     if(!cmd){
