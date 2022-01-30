@@ -14,9 +14,10 @@ module.exports = {
     let datos = []
     const comandossize = client.commands.map(n => n.name)
     
-    if(comandossize)
-    {
-      datos.push(comandossize)
+    for(let ls of comandossize){
+
+      datos.push('**' + ls.name + '**')
+
     }
 
     console.log('Comandos: '+datos.join('\n')+' - Tamaño: '+datos.length)
