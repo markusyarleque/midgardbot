@@ -239,10 +239,11 @@ module.exports = async (client, Discord, message) => {
     }
     
     let malta = new RegExp(`^<@!?${'753435606410985573'}>( |)$`);
+    //let m = message.mentions.users
     
-    if (message.content.match(malta))
+    if (message.content === malta)
     {
-          
+        
         if(bl.tiene(message.author.id)) return;
         message.channel.send(`¿Qué necesitas de mi dueño? <a:ositovino:880306728867078165>`)
     

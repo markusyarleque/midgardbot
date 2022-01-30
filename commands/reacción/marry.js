@@ -60,6 +60,197 @@ module.exports =  {
           
         ]
 
+        let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
+        let ramdonp = propuest[Math.floor(Math.random()*propuest.length)]
+        let ramdona = acepta[Math.floor(Math.random()*acepta.length)]
+        let ramdonr = rechaza[Math.floor(Math.random()*rechaza.length)]
+        let ramdonpl = plantado[Math.floor(Math.random()*plantado.length)]
+
+        if (!img || img.id === message.author.id) return message.reply({embeds: [
+        
+            new Discord.MessageEmbed()
+            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setColor('RED')
+            .setDescription(`<a:Verify2:931463492677017650> | ¿Te casarías contigo mismo? <:burbujita:930399322183458867>`)
+      
+        ]})
+
+        if (img.user.bot) return message.reply({embeds: [
+        
+            new Discord.MessageEmbed()
+            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setColor('RED')
+            .setDescription(`<a:Verify2:931463492677017650> | No puedes casarte con un bot! <:pepemaje:932177727589589013>`)
+      
+        ]})
+
+        let usuario1 = await userSchema.findOne({ idusuario: message.author.id })
+        let usuario2 = await userSchema.findOne({ idusuario: img.id })
+
+        if(!usuario1){
+ 
+            let user = await userSchema.create({
+
+              idusuario: message.author.id,
+              username: message.author.username,
+
+            })
+
+            user.save();
+            console.log('Usuario Registrado ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
+
+        }
+
+      if(!usuario2){
+ 
+        let user = await userSchema.create({
+
+          idusuario: img.id,
+          username: img.username,
+
+        })
+
+        user.save();
+        console.log('Usuario Registrado ===> Id: '+ img.id + ' Username: ' + img.username)
+
+        
+      }
+
+      if(usuario1.marry !== 'Soltero(a)' ){
+
+        let id = await client.users.fetch(usuario1.marry)
+        
+        if(id.id === img.id) return message.reply({embeds: [
+          
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<:GatoLove:925929538863628318> | ¡Qué lindo(a) eres! Ya estás casado(a) con **`+img.user.username+'** <:yonofui:931433119859503194>')
+        
+        ]})
+
+        else return message.reply({embeds: [
+          
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | No puedes contraer matrimonio porque estás casado(a) con **`+id.username+'#'+id.discriminator+'**!!!')
+        
+        ]})
+
+      } else {
+
+        if(usuario2.marry !== 'Soltero(a)') return message.reply({embeds: [
+          
+          new Discord.MessageEmbed()
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setColor('RED')
+          .setDescription(`<a:Verify2:931463492677017650> | No puedes contraer matrimonio porque <@${img.id}> ya está casado(a)!!!`)
+        
+        ]})
+
+      }
+   
+      message.reply({ allowedMentions: { repliedUser: false}, embeds: [
+          
+        new Discord.MessageEmbed()
+          .setColor('RANDOM')
+          .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
+          .setTitle('💟 Propuesta de Matrimonio 💍')
+          .setDescription(img.toString() + "¿Deseas casarte con "+message.author.toString()+" ?")
+          .setImage(ramdonp)
+          .setTimestamp(new Date())
+          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
+        ],
+        components: [
+          new MessageActionRow().addComponents([
+            new MessageButton()
+              .setCustomId("accept")
+              .setLabel("SI")
+              .setStyle("SUCCESS"),
+            new MessageButton()
+              .setCustomId("deny")
+              .setLabel("NO")
+              .setStyle("DANGER")
+          ])
+        ]
+      }).then(async m => {
+      
+        let filter = int => int.isButton() && int.user.id == img.id 
+       
+        const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 60000 });
+        
+        collector.on("collect", async int => {
+          
+          int.deferUpdate();
+          
+          if (int.customId === "accept") {
+            
+            m.edit({embeds: [
+              new Discord.MessageEmbed()
+              .setColor('RANDOM')
+              .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
+              .setTitle('👰 Noche de Boda 🤵')
+              .setDescription('💖 Felicidades!!! '+img.toString() + " y "+message.author.toString()+". Ahora están casados 🔥.")
+              .setImage(ramdona)
+              .setTimestamp(new Date())
+              .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
+            ], components: []
+            });
+
+            let update = await userSchema.findOneAndUpdate({ idusuario: message.author.id },
+              {
+  
+                  marry: img.id
+  
+              });
+
+            update.save();
+
+            let update2 = await userSchema.findOneAndUpdate({ idusuario: imgid },
+              {
+  
+                  marry: message.author.id
+  
+              });
+
+            update2.save();
+            
+          } else if (int.customId === "deny") {
+            
+            m.edit({embeds: [
+              new Discord.MessageEmbed()
+              .setColor('RANDOM')
+              .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
+              .setTitle('💔 Propuesta Rechazada 💔')
+              .setDescription(img.toString() + " ha rechazado la propuesta de "+message.author.toString()+" <:yonofui:931433119859503194>")
+              .setImage(ramdonr)
+              .setTimestamp(new Date())
+              .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
+            ],
+              components: []
+            });
+          
+          }
+        });
+  
+        collector.on("end", (collected, reason) => {
+          
+          if(collected < 1) return m.edit({embeds: [
+            new Discord.MessageEmbed()
+            .setColor('RANDOM')
+            .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
+            .setTitle('⌛ Propuesta sin Respuesta 💔')
+            .setDescription(img.toString() + " no ha respondido la propuesta de "+message.author.toString()+" <:yonofui:931433119859503194>")
+            .setImage(ramdonpl)
+            .setTimestamp(new Date())
+            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
+          ],components: []
+          });
+          
+        });
+        
+      });
 
     }
 
