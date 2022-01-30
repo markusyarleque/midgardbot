@@ -239,7 +239,7 @@ module.exports = async (client, Discord, message) => {
     }
     
     //let malta = new RegExp(`^<@!?${'753435606410985573'}>( |)$`);
-    let m = message.mentions.users
+    let m = message.mentions.users.first()
     
     if (m.id === '753435606410985573')
     {

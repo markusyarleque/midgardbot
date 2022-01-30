@@ -208,7 +208,7 @@ module.exports =  {
 
             update.save();
 
-            let update2 = await userSchema.findOneAndUpdate({ idusuario: imgid },
+            let update2 = await userSchema.findOneAndUpdate({ idusuario: img.id },
               {
   
                   marry: message.author.id
