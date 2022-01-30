@@ -386,7 +386,7 @@ module.exports = async (client, Discord, message) => {
     }
 
     var mencionbot = message.content.startsWith('<@'+client.user.id+'>') || message.content.startsWith('midgard') || message.content.startsWith('mid') || message.content.startsWith('mg')
-    console.log(mencionbot+' mencion: '+client.user.id)
+    //console.log(mencionbot+' mencion: '+client.user.id)
 
     if(!message.content.startsWith(prefix) && !mencionbot) return; 
   
