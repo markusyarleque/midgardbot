@@ -16,9 +16,13 @@ module.exports = {
     
     for(let ls of comandossize){
 
-      datos.push('**' + ls.name + '**')
-
+      datos.push('**' + ls.n + '**')
+      
     }
+    /*if(comandossize)
+    {
+      datos.push(comandossize)
+    }*/
 
     console.log('Comandos: '+datos.join('\n')+' - Tamaño: '+datos.length)
 
