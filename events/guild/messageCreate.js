@@ -240,7 +240,7 @@ module.exports = async (client, Discord, message) => {
     
     let malta = new RegExp(`^<@!?${'753435606410985573'}>( |)$`);
 
-    if (message.content.startsWith(malta))
+    if (message.content.match(malta))
     {
         
         if(bl.tiene(message.author.id)) return;
