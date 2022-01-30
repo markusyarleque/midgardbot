@@ -223,10 +223,9 @@ module.exports =  {
 
               console.log('Error al casarse - '+message.author.id+' y '+img.id+' - Error: '+error)
               return message.reply('Hubo un error interno. Por favor, inténtelo de nuevo.')
+            
             }
 
-            
-            
           } else if (int.customId === "deny") {
             
             m.edit({embeds: [
@@ -258,6 +257,8 @@ module.exports =  {
             .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
           ],components: []
           });
+
+          console.log('Razón del término de colección de marry: '+reason)
           
         });
         
