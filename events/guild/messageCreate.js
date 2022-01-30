@@ -390,7 +390,7 @@ module.exports = async (client, Discord, message) => {
 
     if(!message.content.startsWith(prefix) && mencionbot === 'false') return; 
   
-    const args = message.content.slice(prefix.length || mencionbot.length).trim().split(/ +/g)
+    const args = message.content.slice(prefix.length).trim().split(/ +/g)
     const command = args.shift().toLowerCase()
 
     if(bl.tiene(message.author.id)) {
