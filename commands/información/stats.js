@@ -16,7 +16,7 @@ module.exports = {
     
     for(let ls of comandossize){
 
-      datos.push('**' + ls.comandossize + '**')
+      datos.push('**' + ls+ '**')
       
     }
     /*if(comandossize)
