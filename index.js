@@ -8,8 +8,6 @@ const client = new Client({ allowedMentions: { parse: ['users'], repliedUser: tr
 
 const newUsers = new Discord.Collection();
 const listask = new Discord.Collection();
- 
-client.snipes = new Discord.Collection()
 
 const NSFW = require('discord-nsfw');
 const nsfw3 = new NSFW();
