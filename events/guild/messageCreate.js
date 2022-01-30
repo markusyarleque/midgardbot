@@ -406,7 +406,7 @@ module.exports = async (client, Discord, message) => {
 
     let cmd = client.commands.get(command) ||
               client.commands.get(prueba[1]) ||
-              client.commands.find((a) => a.aliases && a.aliases.includes(command)); // Obtiene el comando de la colección client.commandos
+              client.commands.find((a) => a.aliases && a.aliases.includes(command) || a.aliases.includes(prueba[1])); // Obtiene el comando de la colección client.commandos
   
     if(!cmd){
 
