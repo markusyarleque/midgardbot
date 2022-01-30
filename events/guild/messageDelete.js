@@ -1,6 +1,8 @@
+const Collection = require ('discord.js')
+
 module.exports = async (client, message, Discord) => {
 
-  client.snipes = new Discord.Collection()
+  client.snipes = new Collection()
 
   let snipes = client.snipes.get(message.channel.id) || [] 
 
