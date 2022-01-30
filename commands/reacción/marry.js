@@ -187,35 +187,45 @@ module.exports =  {
           
           if (int.customId === "accept") {
             
-            m.edit({embeds: [
-              new Discord.MessageEmbed()
-              .setColor('RANDOM')
-              .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
-              .setTitle('👰 Noche de Boda 🤵')
-              .setDescription('💖 Felicidades!!! '+img.toString() + " y "+message.author.toString()+". Ahora están casados 🔥.")
-              .setImage(ramdona)
-              .setTimestamp(new Date())
-              .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
-            ], components: []
-            });
+            try {
 
-            let update = await userSchema.findOneAndUpdate({ idusuario: message.author.id },
-              {
+              let update = await userSchema.findOneAndUpdate({ idusuario: message.author.id },
+                {
+    
+                    marry: img.id
+    
+                });
   
-                  marry: img.id
+              update.save();
   
+              let update2 = await userSchema.findOneAndUpdate({ idusuario: img.id },
+                {
+    
+                    marry: message.author.id
+    
+                });
+  
+              update2.save();
+
+              m.edit({embeds: [
+                new Discord.MessageEmbed()
+                .setColor('RANDOM')
+                .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
+                .setTitle('👰 Noche de Boda 🤵')
+                .setDescription('💖 Felicidades!!! '+img.toString() + " y "+message.author.toString()+". Ahora están casados 🔥.")
+                .setImage(ramdona)
+                .setTimestamp(new Date())
+                .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
+              ], components: []
               });
+              
+            } catch (error) {
 
-            update.save();
+              console.log('Error al casarse - '+message.author.id+' y '+img.id+' - Error: '+error)
+              return message.reply('Hubo un error interno. Por favor, inténtelo de nuevo.')
+            }
 
-            let update2 = await userSchema.findOneAndUpdate({ idusuario: img.id },
-              {
-  
-                  marry: message.author.id
-  
-              });
-
-            update2.save();
+            
             
           } else if (int.customId === "deny") {
             
