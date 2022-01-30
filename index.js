@@ -134,6 +134,7 @@ mongoose
 
 client.commands = new Discord.Collection(); 
 client.events = new Discord.Collection(); 
+client.snipes = new Discord.Collection()
 
 ['commandHandler','eventHandler'].forEach((file) => {
 
