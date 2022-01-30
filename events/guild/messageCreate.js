@@ -241,7 +241,7 @@ module.exports = async (client, Discord, message) => {
     let malta = new RegExp(`^<@!?${'753435606410985573'}>( |)$`);
     //let m = message.mentions.users
     
-    if (message.content.includes(malta))
+    if (message.includes(malta))
     {
         
         if(bl.tiene(message.author.id)) return;
