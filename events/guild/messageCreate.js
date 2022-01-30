@@ -229,14 +229,14 @@ module.exports = async (client, Discord, message) => {
         });
     }
     
-    let reven = new RegExp(`^<@!?${'710588969557164113'}>( |)$`);
+    /*let reven = new RegExp(`^<@!?${'710588969557164113'}>( |)$`);
     
     if (message.content.match(reven))
     {
     
         message.channel.send(`𝑬𝒍 𝒖́𝒍𝒕𝒊𝒎𝒐 𝒇𝒊𝒆𝒍 𝒒𝒖𝒆 𝒒𝒖𝒆𝒅𝒂 𝒆𝒏 𝒆𝒔𝒕𝒆 𝒎𝒖𝒏𝒅𝒐 <a:FuegoRojo:882761255381790750>`)
     
-    }
+    }*/
     
     let malta = new RegExp(`^<@!?${'753435606410985573'}>( |)$`);
 
