@@ -1,4 +1,4 @@
-module.exports = async (client, message, Discord) => {
+/*module.exports = async (client, message, Discord) => {
 
   let snipes = client.snipes.get(message.channel.id) || [] 
 
@@ -31,4 +31,4 @@ module.exports = async (client, message, Discord) => {
     
   channel.send({ embeds: [embed] });
     
-}
+}*/
