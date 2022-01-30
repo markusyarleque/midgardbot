@@ -11,6 +11,9 @@ module.exports = {
   
     const actividad = moment.duration(client.uptime).format(' D [dias], H [hrs], m [mins], s [segs]');
 
+    const comandossize = client.commands.map(n => n.name).join('\n');
+    console.log('Comandos: '+comandossize+' - Tamaño: '+comandossize.size())
+
     const embed = new Discord.MessageEmbed()
     .setThumbnail('https://media.giphy.com/media/3rgXBsmYd60rL3w7sc/giphy.gif')
     .setAuthor('MidgardBot', client.user.avatarURL())
