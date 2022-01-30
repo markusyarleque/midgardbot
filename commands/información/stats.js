@@ -19,7 +19,7 @@ module.exports = {
       datos.push(comandossize)
     }
 
-    console.log('Comandos: '+datos+' - Tamaño: '+datos.size())
+    console.log('Comandos: '+datos+' - Tamaño: ')
 
     const embed = new Discord.MessageEmbed()
     .setThumbnail('https://media.giphy.com/media/3rgXBsmYd60rL3w7sc/giphy.gif')
