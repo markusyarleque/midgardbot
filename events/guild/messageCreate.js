@@ -404,7 +404,7 @@ module.exports = async (client, Discord, message) => {
     }
 
     let cmd = client.commands.get(command) ||
-              client.commands.get(mencionbot.slice(' ')) ||
+              client.commands.get(message.content.split(' ')) ||
               client.commands.find((a) => a.aliases && a.aliases.includes(command)); // Obtiene el comando de la colección client.commandos
   
     if(!cmd){
