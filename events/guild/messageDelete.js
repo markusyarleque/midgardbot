@@ -1,6 +1,6 @@
 module.exports = async (client, message, Discord) => {
 
-  let snipes = [] 
+  let snipes = client.snipes.get(message.channel.id) || [] 
 
   if(snipes.length > 10) snipes = snipes.slice(0, 10)
   
