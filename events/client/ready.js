@@ -4,7 +4,7 @@ module.exports = async (client) => {
       {
         status: 'online', 
         activities: [{ 
-          name: '.gg/svmidgard en ' + client.guilds.size + ' server' + (client.guilds.size === 1 ? '' : 's'), 
+          name: '.gg/svmidgard en ' + client.guilds.cache.size + ' server' + (client.guilds.cache.size === 1 ? '' : 's'), 
           type: 'WATCHING',
         }],
       }
