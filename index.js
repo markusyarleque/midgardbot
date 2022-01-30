@@ -134,7 +134,7 @@ mongoose
 
 client.commands = new Discord.Collection(); 
 client.events = new Discord.Collection(); 
-client.snipes = new Discord.Collection()
+client.snipes = new Discord.Collection();
 
 ['commandHandler','eventHandler'].forEach((file) => {
 
@@ -4184,6 +4184,7 @@ client.on('messageCreate', async message => {
         message.channel.send({ embeds: [embed] });
         
     }
+
 
 
 
