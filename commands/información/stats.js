@@ -16,7 +16,7 @@ module.exports = {
     .setAuthor('MidgardBot', client.user.avatarURL())
     .setTitle('Estadísticas')
     .addField('Desarrollador: ', 'Maltazard#0610')
-    .addField(`Comandos`, client.commands.length ? client.commands.length : '0')
+    .addField(`Comandos`, client.commands.get().length ? client.commands.get().length : '0')
     .addField('Lenguaje: ', 'JavaScript')
     .addField(`Versión:`, `1.2.1`)
     .addField(`Librería:`, Discord.version)
