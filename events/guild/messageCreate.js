@@ -392,6 +392,7 @@ module.exports = async (client, Discord, message) => {
   
     const args = message.content.slice(prefix.length).trim().split(/ +/g)
     const command = args.shift().toLowerCase()
+    const prueba = message.content.split(' ')
 
     if(bl.tiene(message.author.id)) {
         
@@ -404,7 +405,7 @@ module.exports = async (client, Discord, message) => {
     }
 
     let cmd = client.commands.get(command) ||
-              client.commands.get(message.content.split(' ')) ||
+              client.commands.get(prueba[1]) ||
               client.commands.find((a) => a.aliases && a.aliases.includes(command)); // Obtiene el comando de la colección client.commandos
   
     if(!cmd){
