@@ -388,10 +388,10 @@ module.exports = async (client, Discord, message) => {
     var mencionbot = message.content.startsWith('<@'+client.user.id+'>') || message.content.startsWith('midgard') || message.content.startsWith('mid') || message.content.startsWith('mb')
     console.log(mencionbot+' mencion: '+client.user.id)
 
-    
+
     if(!message.content.startsWith(prefix)) return; 
   
-    const args = message.content.slice(prefix.length || mencionbot).trim().split(/ +/g);  
+    const args = message.content.slice(prefix.length).trim().split(/ +/g) || message.content.slice(mencionbot.length).trim().split(/ +/g)
     const command = args.shift().toLowerCase()
 
     if(bl.tiene(message.author.id)) {
