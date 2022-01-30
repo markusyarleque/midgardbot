@@ -1,4 +1,5 @@
 const { MessageActionRow, MessageButton } = require('discord.js');
+const prefix = process.env.PREFIX;
 
 module.exports =  {
     

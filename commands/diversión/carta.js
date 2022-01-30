@@ -1,8 +1,10 @@
+const prefix = process.env.PREFIX;
+
 module.exports =  {
     
     name: 'carta',
     aliases: ['md','confession','confesión','dedicatoria'],
-    description: '📩 Envía una carta, confesión o dedicatoria al md de un usuario del servidor. Para más información, ejecuta el comando `_carta`.',
+    description: '📩 Envía una carta, confesión o dedicatoria al md de un usuario del servidor. Para más información, ejecuta el comando `'+prefix+'carta`.',
   
     async execute(client, message, args, Discord) {
 

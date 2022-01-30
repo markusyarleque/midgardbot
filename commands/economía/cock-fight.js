@@ -1,11 +1,12 @@
 const { Collection } = require('mongoose');
 const userSchema = require('../../models/userSchema');
+const prefix = process.env.PREFIX;
 
 module.exports =  {
     
     name: 'cock-fight',
     aliases: ['cf'],
-    description: '🐤 Apuesta en las peleas de pollos y gana más coins.\n `_cf <cantidad | all>`',
+    description: '🐤 Apuesta en las peleas de pollos y gana más coins.\n `'+prefix+'cf <cantidad | all>`',
   
     async execute(client, message, args, Discord) { 
 
@@ -17,7 +18,7 @@ module.exports =  {
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
             .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184143224643615/cf.gif?width=330&height=251')
             .setColor('RED')
-            .setDescription('<a:Verify2:931463492677017650> | No cuentas con tu propio pollito! Adquiere uno usando el comando `_buy ck`')
+            .setDescription('<a:Verify2:931463492677017650> | No cuentas con tu propio pollito! Adquiere uno usando el comando `'+prefix+'buy ck`')
         
         ]})
 

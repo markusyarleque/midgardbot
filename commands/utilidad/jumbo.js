@@ -1,4 +1,5 @@
 const { Permissions } = require('discord.js');
+const prefix = process.env.PREFIX;
 
 module.exports =  {
     
@@ -13,7 +14,7 @@ module.exports =  {
             new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
             .setColor('RED')
-            .setDescription(`<a:Verify2:931463492677017650> | Uso incorrecto del comando\nDebe ser: _jumbo <emoji> \n*Si quieres añadirlo al servidor añade --s al final*`)
+            .setDescription(`<a:Verify2:931463492677017650> | Uso incorrecto del comando\nDebe ser: ${prefix}jumbo <emoji> \n*Si quieres añadirlo al servidor añade --s al final*`)
     
         ]}) 
             

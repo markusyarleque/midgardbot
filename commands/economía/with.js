@@ -1,11 +1,12 @@
 const { Collection } = require('mongoose');
 const userSchema = require('../../models/userSchema');
+const prefix = process.env.PREFIX;
 
 module.exports =  {
     
     name: 'with',
     aliases: ['retirar','wd'],
-    description: '🏧 Retira tu dinero del banco.\n `_with <cantidad | all>`',
+    description: '🏧 Retira tu dinero del banco.\n `'+prefix+'with <cantidad | all>`',
   
     async execute(client, message, args, Discord) { 
 

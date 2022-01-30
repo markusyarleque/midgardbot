@@ -1,11 +1,12 @@
 const { Collection } = require('mongoose');
 const userSchema = require('../../models/userSchema');
+const prefix = process.env.PREFIX;
 
 module.exports =  {
     
     name: 'dep',
     aliases: ['depositar'],
-    description: '🏦 Deposita tu dinero en el banco.\n `_dep <cantidad | all>`',
+    description: '🏦 Deposita tu dinero en el banco.\n `'+prefix+'dep <cantidad | all>`',
   
     async execute(client, message, args, Discord) { 
 

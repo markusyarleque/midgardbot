@@ -1,12 +1,13 @@
 const { Collection } = require('mongoose');
 const userSchema = require('../../models/userSchema');
 const { MessageActionRow, MessageButton } = require('discord.js');
+const prefix = process.env.PREFIX;
 
 module.exports =  {
     
     name: 'buy',
     aliases: ['comprar'],
-    description: '🛒 Compra un ítem de la tienda.\n `_buy <item>`',
+    description: '🛒 Compra un ítem de la tienda.\n `'+prefix+'buy <item>`',
 
     async execute(client, message, args, Discord) {
 
@@ -18,7 +19,7 @@ module.exports =  {
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
             .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399365316658/buy.gif?width=480&height=320')
             .setColor('RED')
-            .setDescription('<a:Verify2:931463492677017650> | Necesitas mencionar un ítem a comprar. Para más detalles ejectua: `_shop`')
+            .setDescription('<a:Verify2:931463492677017650> | Necesitas mencionar un ítem a comprar. Para más detalles ejectua: `'+prefix+'shop`')
         
         ]})
 

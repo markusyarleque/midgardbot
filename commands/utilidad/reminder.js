@@ -1,3 +1,5 @@
+const prefix = process.env.PREFIX;
+
 module.exports =  {
     
   name: 'reminder',
@@ -16,7 +18,7 @@ module.exports =  {
         new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
         .setColor('RED')
-        .setDescription('<a:Verify2:931463492677017650> | Debes agregar un tiempo: `_remindme <tiempo en s,m,h> <recordatorio>`')
+        .setDescription('<a:Verify2:931463492677017650> | Debes agregar un tiempo: `'+prefix+'remindme <tiempo en s,m,h> <recordatorio>`')
 
       ]})
     
@@ -27,7 +29,7 @@ module.exports =  {
         new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
         .setColor('RED')
-        .setDescription('<a:Verify2:931463492677017650> | Debes decirme qué debo recordar: `_remindme <tiempo en s,m,h> <recordatorio>`')
+        .setDescription('<a:Verify2:931463492677017650> | Debes decirme qué debo recordar: `'+prefix+'remindme <tiempo en s,m,h> <recordatorio>`')
 
       ]})
           
@@ -139,7 +141,7 @@ module.exports =  {
             new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
             .setColor('RED')
-            .setDescription('<a:Verify2:931463492677017650> | Lo estás haciendo mal, es:\n\n> <1 - 60>s <recordatorio>\n> <1 - 60>m <recordatorio>\n> <1 -  24>h <recordatorio>\n\n ____Ejemplo:____\n```_rm 1m Recordar ir a sacar a mi perro```')
+            .setDescription('<a:Verify2:931463492677017650> | Lo estás haciendo mal, es:\n\n> <1 - 60>s <recordatorio>\n> <1 - 60>m <recordatorio>\n> <1 -  24>h <recordatorio>\n\n ____Ejemplo:____\n```'+prefix+'rm 1m Recordar ir a sacar a mi perro```')
           
           ]})
               

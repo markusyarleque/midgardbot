@@ -1,6 +1,7 @@
 const { Collection } = require('mongoose');
 const userSchema = require('../../models/userSchema');
 const { MessageActionRow, MessageButton } = require('discord.js');
+const prefix = process.env.PREFIX;
 
 module.exports =  {
     
@@ -141,7 +142,7 @@ module.exports =  {
             .setAuthor(`${message.guild.name}`, message.guild.iconURL({ dynamic: true }))
             .setThumbnail(message.author.displayAvatarURL({ dynamic: true }).replace('webp','png'))
             .setTitle(`⏰ | Recordatorios Activados`)
-            .setDescription('<a:exclama2:880930071731392512> | Tu última recompensa diaria fue reclamada hace 12 horas. ¡Ya puedes volver a usar el comando `_daily` para canjear tus coins extras.\n\n Asegúrate de haber votado antes por el servidor en Top.gg para obtener el doble de beneficios. \n\n <a:flech:931432469935312937> Link: https://top.gg/servers/777620055344545842/vote')
+            .setDescription('<a:exclama2:880930071731392512> | Tu última recompensa diaria fue reclamada hace 12 horas. ¡Ya puedes volver a usar el comando `'+prefix+'daily` para canjear tus coins extras.\n\n Asegúrate de haber votado antes por el servidor en Top.gg para obtener el doble de beneficios. \n\n <a:flech:931432469935312937> Link: https://top.gg/servers/777620055344545842/vote')
             .setColor('RANDOM')
             .setTimestamp(new Date())
             .setFooter(`MidgardBot`,client.user.avatarURL())

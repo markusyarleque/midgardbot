@@ -1,11 +1,12 @@
 const { Collection } = require('mongoose');
 const userSchema = require('../../models/userSchema');
+const prefix = process.env.PREFIX;
 
 module.exports =  {
     
     name: 'top',
     aliases: ['lb'],
-    description: '📊 Muestra el Top de economía y stats.\n `_top <cash | xp | rep | pat | hug | sape>`',
+    description: '📊 Muestra el Top de economía y stats.\n `'+prefix+'top <cash | xp | rep | pat | hug | sape>`',
 
     async execute(client, message, args, Discord) {
 
