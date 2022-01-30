@@ -1,6 +1,6 @@
-/*module.exports = async (client, message, Discord) => {
+module.exports = async (client, message, Discord) => {
 
-  let snipes = client.snipes.get(message.channel.id) || [] 
+  let snipes = [] 
 
   if(snipes.length > 10) snipes = snipes.slice(0, 10)
   
@@ -31,4 +31,4 @@
     
   channel.send({ embeds: [embed] });
     
-}*/
+}
