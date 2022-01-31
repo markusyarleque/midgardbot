@@ -15,7 +15,6 @@ module.exports =  {
        
             new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
-            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936093229542150234/robo.gif?width=480&height=270')
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | ¡Solo los Administradores del Bot pueden utilizar este comando.!`)
       
@@ -59,7 +58,7 @@ module.exports =  {
 
             }
 
-            if(buscarUsuario.vip === 'false'){
+            if(buscarUsuario.vip === false){
 
                 return message.reply({embeds: [
         
@@ -70,7 +69,7 @@ module.exports =  {
               
                 ]})
 
-            } else if(buscarUsuario.vip === 'true'){
+            } else if(buscarUsuario.vip === true){
 
                 let update = await userSchema.findOneAndUpdate({idusuario: user.id},
                     {
