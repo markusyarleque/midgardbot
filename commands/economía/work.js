@@ -44,11 +44,11 @@ module.exports =  {
 
             try {
 
-                let update = await userSchema.findByIdAndUpdate({ idusuario: message.author.id },
+                let update = await userSchema.findOneAndUpdate({ idusuario: message.author.id },
                     {
-                        dinero: buscarUsuario.dinero + r,
-                        total: buscarUsuario.total + r,
-                        work: (Date.now()+(1000*60))
+                        dinero: (buscarUsuario.dinero + r),
+                        total: (buscarUsuario.total + r),
+                        work: (Date.now()+(1000*60)),
                     })
 
                 update.save()
