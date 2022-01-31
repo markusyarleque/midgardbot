@@ -241,12 +241,16 @@ module.exports = async (client, Discord, message) => {
     
     let malta = new RegExp(`^<@!?${'753435606410985573'}>( |)$`);
 
-    if (message.mentions.members.first().id === '753435606410985573')
+    if(message.mentions.members)
     {
+
+        if (message.mentions.members.first().id === '753435606410985573'){
         
-        if(bl.tiene(message.author.id)) return;
-        message.channel.send(`¿Qué necesitas de mi dueño? <a:ositovino:880306728867078165>`)
+            if(bl.tiene(message.author.id)) return;
+            message.channel.send(`¿Qué necesitas de mi dueño? <a:ositovino:880306728867078165>`)
     
+        }
+
     }
   
     let ian = new RegExp(`^<@!?${'603344396351438889'}>( |)$`);
