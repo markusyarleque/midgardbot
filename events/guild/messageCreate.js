@@ -244,6 +244,10 @@ module.exports = async (client, Discord, message) => {
         
             message.channel.send(`¿Qué necesitas de mi dueño? <a:ositovino:880306728867078165>`)
     
+        } else if (mencionado.id === '683501310527668228'){
+
+            message.channel.send('Tan al pendiente estás que tienes que hacerme ping? <a:ayajasisi:890684634369777724>')
+            
         }
 
     }
