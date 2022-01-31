@@ -47,11 +47,12 @@ module.exports =  {
                 let update = await userSchema.findOneAndUpdate({ idusuario: message.author.id },
                     {
                         dinero: buscarUsuario.dinero + r,
-                        total: buscarUsuario.dinero + buscarUsuario.banco + r,
+                        total: buscarUsuario.total + r,
                         work: (Date.now()+(1000*60))
                     })
 
                 update.save()
+                console.log('Se actualizó dinero de work. Usuario: '+message.author.id+' - Monto: '+r)
                 
             } catch (error) {
 
