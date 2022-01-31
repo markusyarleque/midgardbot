@@ -19,8 +19,6 @@ const over = require('poke-over');
 
 const prefix = process.env.PREFIX;
 const { MessageActionRow, MessageButton } = require('discord.js');
-const dbv = require('megadb');
-const bl = new dbv.crearDB('blacklist');
 
 /*const moment = require('moment');
 require('moment-duration-format');*/
@@ -4067,57 +4065,6 @@ client.on('messageCreate', async message => {
       }
     }*/
 
-  
-
-    //ejemplo
-    //if(!vip.tiene(message.author.id) return message.channel.send('¡No tienes VIP, no puedes utilizar esta función!')
-    //message.channel.send('¡Funciona!')
-
-    //LISTA NEGRA
-
-    var idma = ['753435606410985573','723407471556952064','748192032098353193']
-
-    if(command === 'addbl')
-    {
-
-        if(!idma.some(id => message.author.id == id)) return message.channel.send('No tienes acceso a este comando.')
-    
-        let user = message.mentions.users.first();
-
-        if(!user) return message.channel.send ('¡Debes mencionar a un usuario!')
-
-        if(bl.has(user.id))return message.channel.send('**Este usuario ya está registrado.**')
-
-        bl.establecer(user.id, user.user.tag);
-
-        const embed = new Discord.MessageEmbed()
-          .setDescription('El usuario **'+user.user.tag+' ** ha sido añadido a la lista Negra!.')
-          .setColor('RANDOM')
-
-        message.channel.send({embeds: [embed]})
-    }
-
-    if(command === 'removebl')
-    {
-
-        if(!idma.some(id => message.author.id == id)) return message.channel.send('No tienes acceso a este comando.')
-    
-        let user = message.mentions.users.first();
-
-        if(message.mentions.users.size < 1 || !user) return message.channel.send ('¡Debes mencionar a un usuario!')
-
-        if(!bl.tiene(`${user.id}`)) return message.reply('Ese usuario no esta en la lista.')
-
-        bl.eliminar(`${user.id}`)
-
-        const embed = new Discord.MessageEmbed()
-          .setDescription('El usuario **'+user.user.tag+' ** ha sido elimado de la lista Negra!.')
-          .setColor('RANDOM')
-
-        message.channel.send({embeds: [embed]})
-    }
-
-
     //COMANDOS DE AYUDA
 
     if(command === 'karaoke'){
@@ -4138,10 +4085,6 @@ client.on('messageCreate', async message => {
         message.channel.send({ embeds: [embed] });
         
     }
-
-
-
-
 
     /*if(command === 'banall'){
 
