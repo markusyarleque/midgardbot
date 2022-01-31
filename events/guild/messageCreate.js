@@ -488,10 +488,8 @@ module.exports = async (client, Discord, message) => {
                     let update = await userModel.findOneAndUpdate({idusuario: message.author.id},
                         {
     
-                            exp: userData.exp + 1,
-                            dinero: userData.dinero + 10,
-                            total: userData.total + 10
-    
+                            exp: userData.exp + 2
+                            
                         })
     
                     update.save()
