@@ -498,7 +498,7 @@ module.exports = async (client, Discord, message) => {
       
                 }
 
-                if(userData.vip === 'true') {
+                if(userData.vip === true) {
 
                     let update = await userModel.findOneAndUpdate({idusuario: message.author.id},
                         {
@@ -511,7 +511,7 @@ module.exports = async (client, Discord, message) => {
     
                     update.save()
 
-                } else if (userData.vip === 'false'){
+                } else if (userData.vip === false){
 
                     let update = await userModel.findOneAndUpdate({idusuario: message.author.id},
                         {

@@ -80,6 +80,8 @@ module.exports =  {
     
                 update.save()
 
+                console.log('Se añadió al usuario VIP: '+user.id)
+            
                 const embed = new Discord.MessageEmbed()
                 .setAuthor(message.author.tag, message.author.displayAvatarURL())
                 .setDescription('El usuario <@'+user.id+'> ha sido añadido a la lista VIP.')
