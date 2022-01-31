@@ -4029,50 +4029,6 @@ client.on('messageCreate', async message => {
     if(command === 'k' || command === 'karaoke') return message.channel.send('Comando en Mantenimiento!')
 
 
-    //ACCESO VIP
-
-    var idm = ['753435606410985573']
-
-    if(command === 'addvip')
-    {
-
-        if(!idm.some(id => message.author.id == id)) return message.channel.send('No tienes acceso a este comando.')
-    
-        let user = message.mentions.users.first();
-
-        if(!user) return message.channel.send ('¡Debes mencionar a un usuario!')
-
-        if(vip.has(user.id))return message.channel.send('**Este usuario ya está registrado.**')
-
-        vip.establecer(user.id, user.user.tag);
-
-        const embed = new Discord.MessageEmbed()
-          .setDescription('El usuario **'+user.user.tag+' ** ha sido añadido a la lista VIP.')
-          .setColor('RANDOM')
-
-        message.channel.send({embeds: [embed]})
-    }
-
-    if(command === 'removevip')
-    {
-
-        if(!idm.some(id => message.author.id == id)) return message.channel.send('No tienes acceso a este comando.')
-    
-        let user = message.mentions.users.first();
-
-        if(message.mentions.users.size < 1 || !user) return message.channel.send ('¡Debes mencionar a un usuario!')
-
-        if(!vip.tiene(`${user.id}`)) return message.reply('Ese usuario no esta en la lista.')
-
-        vip.eliminar(`${user.id}`)
-
-        const embed = new Discord.MessageEmbed()
-          .setDescription('El usuario **'+user.user.tag+' ** ha sido eliminado de la lista VIP.')
-          .setColor('RANDOM')
-
-        message.channel.send({embeds: [embed]})
-    }
-
     /*var tt = [
       'https://media.discordapp.net/attachments/822642787555213312/911381143968968704/karen1.gif?width=263&height=468',
       'https://media.discordapp.net/attachments/822642787555213312/911385505789272125/k2.gif?width=263&height=468',

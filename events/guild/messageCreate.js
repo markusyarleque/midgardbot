@@ -2,11 +2,9 @@ const { MessageActionRow, MessageButton } = require('discord.js');
 
 const prefix = process.env.PREFIX;
 
-const dbv = require('megadb');
-const bl = new dbv.crearDB('blacklist');
-
 //& Modelos
-const userModel = require('../../models/userSchema')
+const userModel = require('../../models/userSchema');
+const blSchema = require('../../models/blSchema');
 //& Modelos
 
 module.exports = async (client, Discord, message) => {
@@ -122,7 +120,25 @@ module.exports = async (client, Discord, message) => {
     }
     
     if (message.author.bot) return;
-    if (bl.tiene(message.author.id)) return;
+
+    try {
+        
+        userbl = await blSchema.findOne({idusuario: message.author.id})
+
+        if(userbl)
+        {
+
+            console.log('Usuario en Lista Negra ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
+
+            return
+
+        }
+
+    } catch (error) {
+
+        console.log('Error al buscar en la Tabla BL: '+ error)
+
+    }
 
     if (message.content === 'Hola' || message.content === 'hola' || message.content === 'Holas' || message.content === 'holas'){
           
@@ -180,7 +196,6 @@ module.exports = async (client, Discord, message) => {
     
     if (message.content === 'malta' || message.content === 'Malta' || message.content === 'MALTA' || message.content === 'MAlta' || message.content === 'maltazar' || message.content === 'Maltazar' || message.content === 'MALTAZAR' || message.content === 'MAltazar' || message.content === 'maltazard' || message.content === 'Maltazard' || message.content === 'MALTAZARD' || message.content === 'MAltazard')
     {
-        if(bl.tiene(message.author.id)) return;
     
         message.channel.send({
             content: message.author.toString() + "¿Deseas contactar a Malta?",
@@ -239,8 +254,6 @@ module.exports = async (client, Discord, message) => {
     
     }*/
     
-    let malta = new RegExp(`^<@!?${'753435606410985573'}>( |)$`);
-
     let mencionado = message.guild.members.resolve(message.mentions.users.first())
 
     if(mencionado)
@@ -248,7 +261,6 @@ module.exports = async (client, Discord, message) => {
 
         if (mencionado.id === '753435606410985573'){
         
-            if(bl.tiene(message.author.id)) return;
             message.channel.send(`¿Qué necesitas de mi dueño? <a:ositovino:880306728867078165>`)
     
         }
@@ -260,7 +272,6 @@ module.exports = async (client, Discord, message) => {
     if (message.content.match(ian))
     {
           
-        if(bl.tiene(message.author.id)) return;
         message.channel.send(`<a:megaphone:932192877449191424> Alo? Tierra llamando al **argentino con más flow** <a:darkcrown2:886466286773739530>, Ian en camino bebé <a:bmirusboyrunfast:880411644893724672>`)
     
     }
@@ -270,7 +281,6 @@ module.exports = async (client, Discord, message) => {
     if (message.content.match(ana))
     {
             
-        if(bl.tiene(message.author.id)) return;
         message.channel.send(`<:emoji_233:890722279074451506> Días,tardes,noches,madrugadas <:mmsi:925934342016995379> porque Buena está la persona que me acaba de mencionar <a:Zuii:890684724673150996> <a:Ytodomedavuelta:890721775699259422>`)
     
     }
@@ -280,7 +290,6 @@ module.exports = async (client, Discord, message) => {
     if (message.content.match(scarlett))
     {
             
-        if(bl.tiene(message.author.id)) return;
         message.channel.send(`Que necesidad de etiquetar <:nojao:891551822387486721>`)
     
     }
@@ -290,7 +299,6 @@ module.exports = async (client, Discord, message) => {
     if (message.content.match(nia))
     {
           
-        if(bl.tiene(message.author.id)) return;
         message.channel.send(`¿¡𝑸𝒖𝒆 𝒏𝒆𝒄𝒆𝒔𝒊𝒅𝒂𝒅 𝒅𝒆 𝒑𝒊𝒏𝒈𝒆𝒂𝒂𝒂𝒂𝒓!? <:gatoNojao:930403164266565642>`)
     
     }
@@ -401,14 +409,28 @@ module.exports = async (client, Discord, message) => {
     const command = args.shift().toLowerCase()
     const prueba = message.content.split(' ')
 
-    if(bl.tiene(message.author.id)) {
+    try {
         
-        const e = new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Estás prohibido de usar estos comandos, contacta con el equipo de desarrolladores para más información.!`)
-        
-        return message.channel.send({embeds: [e]})
+        userbl = await blSchema.findOne({idusuario: message.author.id})
+
+        if(userbl)
+        {
+
+            console.log('Usuario en Lista Negra ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
+            
+            const e = new Discord.MessageEmbed()
+            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setColor('RED')
+            .setDescription('<a:Verify2:931463492677017650> | ¡Estás prohibido de usar estos comandos!\n\n**Razón:**\n`'+userbl.reason+'`\n\nContacta con el equipo de desarrolladores para más información.!')
+          
+            return message.channel.send({embeds: [e]})
+
+        }
+
+    } catch (error) {
+
+        console.log('Error al buscar (comando) en la Tabla BL: '+ error)
+
     }
 
     let cmd = client.commands.get(command) ||
@@ -476,16 +498,31 @@ module.exports = async (client, Discord, message) => {
       
                 }
 
-                let update = await userModel.findOneAndUpdate({idusuario: message.author.id},
-                    {
+                if(userData.vip === 'true') {
 
-                        exp: userData.exp + 1
-                        //dinero: userData.dinero + 15,
-                        //total: userData.dinero + userData.banco + 15
+                    let update = await userModel.findOneAndUpdate({idusuario: message.author.id},
+                        {
+    
+                            exp: userData.exp + 1,
+                            dinero: userData.dinero + 10,
+                            total: userData.dinero + userData.banco + 10
+    
+                        })
+    
+                    update.save()
 
-                    })
+                } else if (userData.vip === 'false'){
 
-                update.save()
+                    let update = await userModel.findOneAndUpdate({idusuario: message.author.id},
+                        {
+    
+                            exp: userData.exp + 1
+    
+                        })
+    
+                    update.save()
+
+                }
 
             }
    

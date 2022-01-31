@@ -5,6 +5,7 @@ const usersSchema = new mongoose.Schema({
 
     idusuario: { type: String, require: true, unique: true },
     username: { type: String, require: true, default: null },
+    vip: { type: Boolean, requiere: true, default: false },
     nivel: { type: Number, require: true, default: 0 },
     exp: { type: Number, require: true, default: 0 },
     marry: { type: String, require: true, default: 'Soltero(a)' },
