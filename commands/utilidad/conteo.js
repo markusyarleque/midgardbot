@@ -42,10 +42,10 @@ module.exports =  {
     
             let count1 = setInterval(async () => {
     
-                await msg.edit(time === 0 ? `Se acabó el tiempo ⌛` : String(time))
+                await msg.edit(time <= 0 ? `Se acabó el tiempo ⌛` : String(time))
                 // message.channel.send(`${message.author} La cuenta regresiva ha terminado!`)
-                time === 0 ? message.reply(`${message.author}... El conteo regresivo, ha llegado a su fin.`) : message.channel.sendTyping()
-                time === 0 ? clearInterval(count1) : time -= 2;
+                time <= 0 ? message.reply(`${message.author}... El conteo regresivo, ha llegado a su fin.`) : message.channel.sendTyping()
+                time <= 0 ? clearInterval(count1) : time -= 2;
                 
             }, 2000)
 
@@ -54,16 +54,10 @@ module.exports =  {
             let count2 = setInterval(async () => {
     
                 await msg.edit(time <= 0  ? `... Se acabó el tiempo ⌛` : String(time))
+                time <= 0 ? message.reply(`${message.author}... El conteo regresivo, ha llegado a su fin.`) : message.channel.sendTyping()
                 time <= 0 ? clearInterval(count2) : time -= 3
     
             }, 3000)
-
-            if(time <= 0)
-            {
-
-                message.reply(`${message.author}... El conteo regresivo, ha llegado a su fin.`)
-                
-            }
             
         }
 
