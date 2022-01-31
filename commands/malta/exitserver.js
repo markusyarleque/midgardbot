@@ -8,7 +8,7 @@ module.exports =  {
 
   async execute(client, message, args, Discord) {
  
-    let id = ['753435606410985573']
+    let id = ['753435606410985573','683501310527668228']
   
     if(!id.some(id => message.author.id == id)) {
       

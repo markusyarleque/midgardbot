@@ -121,25 +121,6 @@ module.exports = async (client, Discord, message) => {
     
     if (message.author.bot) return;
 
-    try {
-        
-        userbl = await blSchema.findOne({idusuario: message.author.id})
-
-        if(userbl)
-        {
-
-            console.log('Usuario en Lista Negra ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
-
-            return
-
-        }
-
-    } catch (error) {
-
-        console.log('Error al buscar en la Tabla BL: '+ error)
-
-    }
-
     if (message.content === 'Hola' || message.content === 'hola' || message.content === 'Holas' || message.content === 'holas'){
           
         message.channel.send('Hola '+message.author.username+', cómo va tu día?')
@@ -505,7 +486,7 @@ module.exports = async (client, Discord, message) => {
     
                             exp: userData.exp + 1,
                             dinero: userData.dinero + 10,
-                            total: userData.dinero + userData.banco + 10
+                            total: userData.total + 10
     
                         })
     
