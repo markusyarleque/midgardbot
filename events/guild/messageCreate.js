@@ -122,6 +122,7 @@ module.exports = async (client, Discord, message) => {
     }
     
     if (message.author.bot) return;
+    if (bl.tiene(message.author.id)) return;
 
     if (message.content === 'Hola' || message.content === 'hola' || message.content === 'Holas' || message.content === 'holas'){
           
@@ -240,7 +241,7 @@ module.exports = async (client, Discord, message) => {
     
     let malta = new RegExp(`^<@!?${'753435606410985573'}>( |)$`);
 
-    if (message.content.match(malta))
+    if (message.mentions.members.first().id === '753435606410985573')
     {
         
         if(bl.tiene(message.author.id)) return;
