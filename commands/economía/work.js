@@ -26,7 +26,7 @@ module.exports =  {
 
         let buscarUsuario = await userSchema.findOne({ idusuario: message.author.id })
       
-        let r = Math.floor(Math.random() * (1000 - 10) + 10)
+        let r = parseInt(Math.floor(Math.random() * (1000 - 10) + 10))
       
         let ramdonw = w[Math.floor(Math.random()*w.length)]
 
