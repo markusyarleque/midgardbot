@@ -51,8 +51,9 @@ module.exports =  {
                         work: (Date.now()+(1000*60)),
                     })
 
-                update.save()
-                console.log('Se actualizó dinero de work. Usuario: '+message.author.id+' - Monto: '+r)
+                update.save().then(() => console.log('Se actualizó dinero de work. Usuario: '+message.author.id+' - Monto: '+r))
+                .catch(e => console.log('Error al actualizar dinero de work: '+e))
+                
                 
             } catch (error) {
 
