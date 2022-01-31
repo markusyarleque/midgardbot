@@ -59,8 +59,9 @@ module.exports =  {
 
             }
 
-            let user = await blSchema.deleteOne({ idusuario: user.id })
+            let userbl = await blSchema.deleteOne({ idusuario: user.id })
 
+            userbl.save()
             console.log('Usuario removido de BL ===> Id: '+ user.id + ' Username: ' + user.username)
             
             const embed = new Discord.MessageEmbed()

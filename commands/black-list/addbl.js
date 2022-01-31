@@ -70,14 +70,14 @@ module.exports =  {
 
             }
 
-            let user = await blSchema.create({
+            let userbl = await blSchema.create({
 
                 idusuario: user.id,
                 reason: razón,
 
             })
 
-            user.save();
+            userbl.save();
             console.log('Usuario ingresado en BL ===> Id: '+ user.id + ' Username: ' + user.username)
             
             const embed = new Discord.MessageEmbed()

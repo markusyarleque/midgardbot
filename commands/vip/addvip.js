@@ -46,14 +46,14 @@ module.exports =  {
 
             if(!buscarUsuario){
 
-                let user = await userSchema.create({
+                let uservip = await userSchema.create({
     
                     idusuario: message.author.id,
                     username: message.author.username
     
                 })
     
-                user.save();
+                uservip.save();
                 console.log('Usuario Registrado ===> Id: '+ user.id + ' Username: ' + user.username)
 
             }
