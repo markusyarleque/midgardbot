@@ -1,6 +1,6 @@
 module.exports =  {
     
-    name: 'mbserves',
+    name: 'mbservers',
     aliases: ['mbs'],
     description: '💻 Comprueba en qué servidores está el bot.',
 
