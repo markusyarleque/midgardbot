@@ -235,7 +235,7 @@ module.exports = async (client, Discord, message) => {
     
     }*/
     
-    let mencionado = message.guild.members.resolve(message.mentions.users.first())
+    /*let mencionado = message.guild.members.resolve(message.mentions.users.first())
 
     if(mencionado)
     {
@@ -250,6 +250,24 @@ module.exports = async (client, Discord, message) => {
             
         }
 
+    }*/
+
+    let malta = new RegExp(`^<@!?${'753435606410985573'}>( |)$`)
+
+    if (message.content.match(malta))
+    {
+    
+        message.channel.send(`¿Qué necesitas de mi dueño? <a:ositovino:880306728867078165>`)
+    
+    }
+
+    let insp = new RegExp(`^<@!?${'683501310527668228'}>( |)$`)
+
+    if (message.content.match(insp))
+    {
+    
+        message.channel.send(`Tan al pendiente estás que tienes que hacerme ping? <a:ayajasisi:890684634369777724>`)
+    
     }
   
     let ian = new RegExp(`^<@!?${'603344396351438889'}>( |)$`);
@@ -370,6 +388,66 @@ module.exports = async (client, Discord, message) => {
         .setDescription(rchiste)
         message.channel.send({ embeds: [embed] })
     
+    }
+
+    if (message.content.toLowerCase() === 'mine'){
+
+        function reminder() {
+    
+            message.reply({embeds: [
+    
+              new Discord.MessageEmbed()
+              .setAuthor(message.author.tag, message.author.displayAvatarURL())
+              .setThumbnail('https://c.tenor.com/AMnlFqJnKhwAAAAd/se-va-a-minar-minar.gif')
+              .setColor('RANDOM')
+              .setDescription('<a:flech:931432469935312937> | Es hora de ir a la mina <a:exclama2:880930071731392512>')
+        
+            ]})
+    
+        }
+
+        const embed = new Discord.MessageEmbed()
+        .setAuthor('Nekotina', 'https://images-ext-2.discordapp.net/external/vTbUglOfnbYgQ8gotBCEus02Q7Gn467NmguBx51ntu8/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/429457053791158281/01a5bf4c4e4d0521ccee216003abd8dc.png?width=500&height=500')
+        .setTitle('<a:tiempogif:931434689481285662> Recordatorio activado para: `*'+message.author.username+'*`')
+        .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
+        .setDescription('<a:flech:931432469935312937> Te recordaré dentro de `3 minutos` usar el comando `mine`.')
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(message.guild.name, message.guild.iconURL({ dynamic: true }))
+        message.channel.send({ embeds: [embed] })
+
+        setTimeout(reminder, 180000);
+
+    }
+
+    if (message.content.toLowerCase() === 'fish'){
+
+        function reminder() {
+    
+            message.reply({embeds: [
+    
+              new Discord.MessageEmbed()
+              .setAuthor(message.author.tag, message.author.displayAvatarURL())
+              .setThumbnail('https://www.gifsanimados.org/data/media/157/pesca-imagen-animada-0057.gif')
+              .setColor('RANDOM')
+              .setDescription('<a:flech:931432469935312937> | Es hora de ir a la pesca <a:exclama2:880930071731392512>')
+        
+            ]})
+    
+        }
+
+        const embed = new Discord.MessageEmbed()
+        .setAuthor('Nekotina', 'https://images-ext-2.discordapp.net/external/vTbUglOfnbYgQ8gotBCEus02Q7Gn467NmguBx51ntu8/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/429457053791158281/01a5bf4c4e4d0521ccee216003abd8dc.png?width=500&height=500')
+        .setTitle('<a:tiempogif:931434689481285662> Recordatorio activado para: `*'+message.author.username+'*`')
+        .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
+        .setDescription('<a:flech:931432469935312937> Te recordaré dentro de `3 minutos` usar el comando `fish`.')
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter(message.guild.name, message.guild.iconURL({ dynamic: true }))
+        message.channel.send({ embeds: [embed] })
+
+        setTimeout(reminder, 180000);
+
     }
     
     let bot = new RegExp(`^<@!?${'904290001196556369'}>( |)$`);
