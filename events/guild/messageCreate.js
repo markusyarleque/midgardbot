@@ -392,7 +392,11 @@ module.exports = async (client, Discord, message) => {
 
     //? REMINDERS NEKOTINA
 
+    var canal =  ['870195067338506271','880336724662825040','881432157602611230','917258698202677258','880260537659850792','935391521480527922','880295833252265994','848755526347128872','880317466557952000','840421355736530985','882258445334626344','882258853767577621','887820617632583772','896865094250684466','935454536678649856','880319348496039946']
+
     if (message.content.toLowerCase() === 'mine'){
+
+        if(canal.some(id => message.channel.id === id)) return
 
         function reminder() {
     
@@ -424,6 +428,8 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'hmine'){
 
+        if(canal.some(id => message.channel.id === id)) return
+
         function reminder() {
     
             message.reply({embeds: [
@@ -454,6 +460,8 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'fish'){
 
+        if(canal.some(id => message.channel.id === id)) return
+        
         function reminder() {
     
             message.reply({embeds: [
@@ -484,6 +492,8 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'hfish'){
 
+        if(canal.some(id => message.channel.id === id)) return
+        
         function reminder() {
     
             message.reply({embeds: [
@@ -514,6 +524,8 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'pet'){
 
+        if(canal.some(id => message.channel.id === id)) return
+        
         function reminder() {
     
             message.reply({embeds: [
@@ -544,6 +556,8 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'hpet'){
 
+        if(canal.some(id => message.channel.id === id)) return
+        
         function reminder() {
     
             message.reply({embeds: [
@@ -574,6 +588,8 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'work'){
 
+        if(canal.some(id => message.channel.id === id)) return
+        
         function reminder() {
     
             message.reply({embeds: [
@@ -604,6 +620,8 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'wf'){
 
+        if(canal.some(id => message.channel.id === id)) return
+        
         function reminder() {
     
             message.reply({embeds: [
@@ -634,6 +652,8 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'hb'){
 
+        if(canal.some(id => message.channel.id === id)) return
+        
         function reminder() {
     
             message.reply({embeds: [
@@ -664,6 +684,8 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'rep'){
 
+        if(canal.some(id => message.channel.id === id)) return
+        
         function reminder() {
     
             message.reply({embeds: [
@@ -694,6 +716,8 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'farm'){
 
+        if(canal.some(id => message.channel.id === id)) return
+        
         function reminder() {
     
             message.reply({embeds: [
