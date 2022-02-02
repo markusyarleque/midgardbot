@@ -392,7 +392,7 @@ module.exports = async (client, Discord, message) => {
 
     //? REMINDERS NEKOTINA
 
-    var canal =  [
+    /*var canal =  [
 
         '870195067338506271',
         '880336724662825040',
@@ -410,7 +410,7 @@ module.exports = async (client, Discord, message) => {
         '896865094250684466',
         '935454536678649856',
         '880319348496039946'
-        
+
     ]
 
     if (message.content.toLowerCase() === 'mine'){
@@ -763,7 +763,7 @@ module.exports = async (client, Discord, message) => {
 
         setTimeout(reminder, 360000);
 
-    }
+    }*/
 
     
     let bot = new RegExp(`^<@!?${'904290001196556369'}>( |)$`);
