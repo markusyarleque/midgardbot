@@ -77,7 +77,7 @@ module.exports =  {
 
         if (result1 === result2 && result1 === result3) {
 
-            const gana
+            var gana
 
             if(buscarUsuario.vip === true){
 
