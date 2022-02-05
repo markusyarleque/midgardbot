@@ -47,7 +47,7 @@ module.exports =  {
             new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
             .setColor('RED')
-            .setDescription(`<a:Verify2:931463492677017650> | No tienes suficiente dinero para apostar.`)
+            .setDescription(`<a:Verify2:931463492677017650> | No tienes suficiente dinero para apostar. Actualmente tienes: <a:money:930397094924124180> `+dinero.toLocaleString('en-US'))
 
         ]})
 
@@ -64,7 +64,7 @@ module.exports =  {
         .addField("Jugando:", slots[result1] + " **|** " + "<a:slot:939590026080190474>" + " **|** " + "<a:slot:939590026080190474>" + " **<**", true)
         .setColor("RANDOM")
         .setTimestamp()
-        .setFooter(`Apostando: ${bet}$`)
+        .setFooter(`Apostando: ${(bet).toLocaleString('en-US')}$`)
         
         let embed3 = new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
@@ -73,7 +73,7 @@ module.exports =  {
         .addField("Jugando:", slots[result1] + " **|** " + slots[result2] + " **|** " + "<a:slot:939590026080190474>" + " **<**", true)
         .setColor("RANDOM")
         .setTimestamp()
-        .setFooter(`Apostando: ${bet}$`)
+        .setFooter(`Apostando: ${(bet).toLocaleString('en-US')}$`)
 
         if (result1 === result2 && result1 === result3) {
 
@@ -96,13 +96,13 @@ module.exports =  {
             .addField("Resultado:", slots[result1] + " **|** " + slots[result2] + " **|** " + slots[result3] + " **<**", true)
             .setColor("GREEN")
             .setTimestamp()
-            .setFooter(`Ganaste: ${(gana)}$`)
+            .setFooter(`Ganaste: ${(gana).toLocaleString('en-US')}$`)
 
             let embed = new Discord.MessageEmbed()
             .setTitle("Tragamonedas")
             .addField("Jugando:","<a:slot:939590026080190474>" + " **|** " + "<a:slot:939590026080190474>" + " **|** " + "<a:slot:939590026080190474>" + " **<**", true)
             .setColor("RANDOM")
-            .setFooter(`Apostando: ${bet}$`)
+            .setFooter(`Apostando: ${(bet).toLocaleString('en-US')}$`)
 
             message.channel.send({embeds: [embed]}).then((msg) => {
 
@@ -153,13 +153,13 @@ module.exports =  {
             .addField("Resultado:", slots[result1] + " **|** " + slots[result2] + " **|** " + slots[result3] + " **<**", true)
             .setColor("RED")
             .setTimestamp()
-            .setFooter(`Perdiste: ${(bet)}$`)
+            .setFooter(`Perdiste: ${(bet).toLocaleString('en-US')}$`)
 
             let embed = new Discord.MessageEmbed()
             .setTitle("Tragamonedas")
             .addField("Jugando:","<a:slot:939590026080190474>" + " **|** " + "<a:slot:939590026080190474>" + " **|** " + "<a:slot:939590026080190474>" + " **<**", true)
             .setColor("RANDOM")
-            .setFooter(`Apostando: ${bet}$`)
+            .setFooter(`Apostando: ${(bet).toLocaleString('en-US')}$`)
 
             message.channel.send({embeds: [embed]}).then((msg) => {
 
