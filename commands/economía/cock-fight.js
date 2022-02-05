@@ -74,7 +74,7 @@ module.exports =  {
                             
                     } catch (error) {
             
-                        console.log('Error al actualiza dinero del ck: '+error)
+                        console.log('Error al actualizar dinero del ck: '+error)
                             
                     }
           
@@ -84,6 +84,7 @@ module.exports =  {
                     .setColor('GREEN')
                     .setDescription(`<a:Verify1:931463354357276742> |Tu pollito ganó la pelea y obtuviste <a:money:930397094924124180> `+ (buscarUsuario.dinero*2).toLocaleString('en-US'))
                     .setTimestamp()
+                    .setFooter(`Probabilidad obtenida: ${chance}$0 %`)
           
                     message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
 
@@ -114,6 +115,7 @@ module.exports =  {
                     .setColor('RED')
                     .setDescription(`<a:Verify2:931463492677017650> |Tu pollito murió 💀 y perdiste toda la apuesta!`)
                     .setTimestamp()
+                    .setFooter(`Probabilidad obtenida: ${chance}$0 %`)
           
                     message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
                 
@@ -159,6 +161,7 @@ module.exports =  {
                     .setColor('GREEN')
                     .setDescription(`<a:Verify1:931463354357276742> |Tu pollito ganó la pelea y obtuviste <a:money:930397094924124180> `+ (numero*2).toLocaleString('en-US'))
                     .setTimestamp()
+                    .setFooter(`Probabilidad obtenida: ${chance}$0 %`)
           
                     message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
 
@@ -189,6 +192,7 @@ module.exports =  {
                     .setColor('RED')
                     .setDescription(`<a:Verify2:931463492677017650> |Tu pollito murió 💀 y perdiste toda la apuesta!`)
                     .setTimestamp()
+                    .setFooter(`Probabilidad obtenida: ${chance}$0 %`)
           
                     message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
           

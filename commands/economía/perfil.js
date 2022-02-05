@@ -273,11 +273,25 @@ module.exports =  {
           
                         }
 
+                        let av, footer
+
+                        if(userData.vip === true){
+
+                            av = 'https://media.discordapp.net/attachments/936039644959756319/939616267852189746/tuxedo.gif?width=263&height=147'
+                            footer = `Midgard's VIP`
+
+                        } else {
+
+                            av = 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif'
+                            footer = `MidgardBot`
+
+                        }
+
                         try {
 
                             let embed = new Discord.MessageEmbed()
                             .setAuthor('Perfil de ' + message.author.username, message.author.displayAvatarURL())
-                            .setThumbnail(userData.foto ? userData.foto : 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif')
+                            .setThumbnail(av ? av : 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif')
                             .addField('Nivel', '<a:start:930399379800592394>  '+userData.nivel+' '+xp, true)
                             .addField('Carisma', '<a:corazon:930399275643453500> '+userData.rep, false)
                             .addField('Pats', '<a:gatoasomar:930399873113677834> '+userData.pat, false)
@@ -288,7 +302,7 @@ module.exports =  {
                             .addField('<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>','<a:dinero:930404747326914590> **Economía**',false)
                             .addField(`**Total:**`, '<a:money:930397094924124180>  '+userData.total.toLocaleString('en-US'), true)
                             .setColor(userData.color)
-                            .setFooter(`Midgard's VIP`,client.user.avatarURL())
+                            .setFooter(footer,client.user.avatarURL())
             
                             message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
       
@@ -673,9 +687,23 @@ module.exports =  {
        
                     }
 
+                    let av, footer
+
+                    if(userData.vip === true){
+
+                        av = 'https://media.discordapp.net/attachments/936039644959756319/939616267852189746/tuxedo.gif?width=263&height=147'
+                        footer = `Midgard's VIP`
+
+                    } else {
+
+                        av = 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif'
+                        footer = `MidgardBot`
+
+                    }
+
                     let embed = new Discord.MessageEmbed()
                     .setAuthor('Perfil de ' + img.user.username, img.displayAvatarURL())
-                    .setThumbnail(userData.foto ? userData.foto : 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif')
+                    .setThumbnail(av ? av : 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif')
                     .addField('Nivel', '<a:start:930399379800592394>  '+userData.nivel+' '+xp, true)
                     .addField('Carisma', '<a:corazon:930399275643453500> '+userData.rep, false)
                     .addField('Pats', '<a:gatoasomar:930399873113677834> '+userData.pat, false)
@@ -686,7 +714,7 @@ module.exports =  {
                     .addField('<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>','<a:dinero:930404747326914590> **Economía**',false)
                     .addField(`**Total:**`, '<a:money:930397094924124180>  '+userData.total.toLocaleString('en-US'), true)
                     .setColor(userData.color)
-                    .setFooter(`Midgard's VIP`,client.user.avatarURL())
+                    .setFooter(footer,client.user.avatarURL())
         
                     message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
         
