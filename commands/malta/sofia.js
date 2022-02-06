@@ -300,15 +300,7 @@ module.exports =  {
                  
                     } else if (int.customId === "2") {
                           
-                        m.edit({
-        
-                            components: [
-
-                                new MessageActionRow().addComponents([b1,b2.setDisabled(true)])
-
-                            ]
-        
-                        })
+                        continue
                         
                     }
         
@@ -333,6 +325,7 @@ module.exports =  {
                   
                 m.edit({
 
+                    embeds: [],
                     content: "Es neta cierto? <:pepemaje:932177727589589013>",
                     components: []
 
