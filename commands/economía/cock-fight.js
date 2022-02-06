@@ -115,7 +115,7 @@ module.exports =  {
                     .setColor('RED')
                     .setDescription(`<a:Verify2:931463492677017650> |Tu pollito murió 💀 y perdiste toda la apuesta!`)
                     .setTimestamp()
-                    .setFooter(`Probabilidad obtenida: ${(10-chance)}0 %`)
+                    .setFooter(`Probabilidad obtenida: ${(chance)}0 %`)
           
                     message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
                 
@@ -135,7 +135,7 @@ module.exports =  {
   
                 let numero = parseInt(args[0])
 
-                if(chance < 6){
+                if(chance > 5){
 
                     try {
 
@@ -192,7 +192,7 @@ module.exports =  {
                     .setColor('RED')
                     .setDescription(`<a:Verify2:931463492677017650> |Tu pollito murió 💀 y perdiste toda la apuesta!`)
                     .setTimestamp()
-                    .setFooter(`Probabilidad obtenida: ${(10-chance)}0 %`)
+                    .setFooter(`Probabilidad obtenida: ${(chance)}0 %`)
           
                     message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
           
