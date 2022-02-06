@@ -3,7 +3,7 @@ const { MessageActionRow, MessageButton } = require('discord.js');
 module.exports =  {
     
     name: 'sofia',
-    aliases: ['sofía','sof','sofi'],
+    aliases: ['sofía','sof','sofi','sofí'],
     description: '❤',
 
     async execute(client, message, args, Discord) {
@@ -15,7 +15,7 @@ module.exports =  {
         //  _____)  | |  |___|  | |  |       |  |  /  ___  \
         // \_______/   \_______/  |__|       |__| /__/   \__\
 
-        let id = ['723407471556952064','753435606410985573']
+        let id = ['723407471556952064','753435606410985573','918374852648382494']
     
         setTimeout(() => message.delete());
 
@@ -25,7 +25,7 @@ module.exports =  {
             .setDescription('Solo el developer del bot puede usar este comando.')
             .setColor("RED")
       
-            return message.channel.send(embed).then(m => setTimeout(() => m.delete(), 5000));
+            return message.channel.send({embeds: [embed]}).then(m => setTimeout(() => m.delete(), 5000));
 
         } 
 
