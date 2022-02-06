@@ -41,9 +41,11 @@ module.exports =  {
         
         ]})
 
+        let usuario1
+
         try {
 
-            let usuario1 = await userSchema.findOne({ idusuario: miembro.id })
+            usuario1 = await userSchema.findOne({ idusuario: miembro.id })
         
             if(!usuario1){
  

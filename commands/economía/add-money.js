@@ -40,10 +40,11 @@ module.exports =  {
             .setDescription(`<a:Verify2:931463492677017650> | No puedes darle dinero a un bot!`)
         
         ]})
+        let usuario1
 
         try {
 
-            let usuario1 = await userSchema.findOne({ idusuario: miembro.id })
+            usuario1 = await userSchema.findOne({ idusuario: miembro.id })
         
             if(!usuario1){
  
