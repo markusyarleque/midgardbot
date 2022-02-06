@@ -1,6 +1,4 @@
-const { Collection } = require('mongoose');
-const userSchema = require('../../models/userSchema');
-const prefix = process.env.PREFIX;
+const { MessageActionRow, MessageButton } = require('discord.js');
 
 module.exports =  {
     
