@@ -300,7 +300,15 @@ module.exports =  {
                  
                     } else if (int.customId === "2") {
                           
-                        continue
+                        m.edit({
+        
+                            components: [
+
+                                new MessageActionRow().addComponents([b1,b2.setDisabled(true)])
+
+                            ]
+        
+                        })
                         
                     }
         
