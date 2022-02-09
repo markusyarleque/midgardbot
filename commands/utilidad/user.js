@@ -37,9 +37,12 @@ module.exports =  {
             idle: 'Ausente 🟡',
             dnd: 'No Molestar 🔴',
             invisible: 'Desconectado ⚫',
-            null: 'Desconectado ⚫'
+            null: 'Desconectado ⚫',
+            offline: 'Desconectado ⚫'
 
         }
+
+        let array = []
 
         if(!userm || userm.id === message.author.id) {
 
@@ -62,7 +65,57 @@ module.exports =  {
 
                 } else {
 
-                    playing = message.member.presence.activities[0] ? message.member.presence.activities[0].name : 'Nada'
+                    for(let activity of message.member.presence.activities){
+
+                        switch(activity.type){
+
+                            case 'CUSTOM_STATUS':
+
+                            array.push(`Estado Personalizado: ${activity.emoji || ''} ${activity.state || ''}`)
+
+                            break
+                        }
+
+                        switch(activity.type){
+
+                            case 'PLAYING':
+
+                            array.push(`Jugando: ${activity.name || ''} ${activity.details || ''} ${activity.state || ''} `)
+
+                            break
+                        }
+
+                        switch(activity.type){
+
+                            case 'LISTENING':
+
+                            array.push(`Escuchando: ${activity.name || ''} ${activity.details || ''} ${activity.state} `)
+
+                            break
+                        }
+
+                        switch(activity.type){
+
+                            case 'WATCHING':
+
+                            array.push(`Viendo: ${activity.name || ''} ${activity.details || ''} ${activity.state} `)
+
+                            break
+                        }
+
+                        switch(activity.type){
+
+                            case 'STREAMING':
+
+                            array.push(`Streameando: ${activity.name || ''} ${activity.details || ''} ${activity.state} `)
+
+                            break
+                        }
+
+                    }
+
+                    //playing = message.member.presence.activities[0] ? message.member.presence.activities[0].name : 'Nada'
+                    playing = array.join('\n')
 
                 }
 
@@ -112,7 +165,57 @@ module.exports =  {
 
                 } else {
 
-                    playing = message.guild.members.resolve(userm.id).presence.activities[0] ? message.guild.members.resolve(userm.id).presence.activities[0].name : 'Nada'
+                    for(let activity of message.guild.members.resolve(userm.id).presence.activities){
+
+                        switch(activity.type){
+
+                            case 'CUSTOM_STATUS':
+
+                            array.push(`Estado Personalizado: ${activity.emoji || ''} ${activity.state || ''}`)
+
+                            break
+                        }
+
+                        switch(activity.type){
+
+                            case 'PLAYING':
+
+                            array.push(`Jugando: ${activity.name || ''} ${activity.details || ''} ${activity.state || ''} `)
+
+                            break
+                        }
+
+                        switch(activity.type){
+
+                            case 'LISTENING':
+
+                            array.push(`Escuchando: ${activity.name || ''} ${activity.details || ''} ${activity.state} `)
+
+                            break
+                        }
+
+                        switch(activity.type){
+
+                            case 'WATCHING':
+
+                            array.push(`Viendo: ${activity.name || ''} ${activity.details || ''} ${activity.state} `)
+
+                            break
+                        }
+
+                        switch(activity.type){
+
+                            case 'STREAMING':
+
+                            array.push(`Streameando: ${activity.name || ''} ${activity.details || ''} ${activity.state} `)
+
+                            break
+                        }
+
+                    }
+
+                    //playing = message.guild.members.resolve(userm.id).presence.activities[0] ? message.guild.members.resolve(userm.id).presence.activities[0].name : 'Nada'
+                    playing = array.join('\n')
 
                 }
 
