@@ -36,9 +36,9 @@ module.exports =  {
             online: 'En línea 🟢', 
             idle: 'Ausente 🟡',
             dnd: 'No Molestar 🔴',
+            offline: 'Desconectado ⚫',
             invisible: 'Desconectado ⚫',
-            null: 'Desconectado ⚫',
-            offline: 'Desconectado ⚫'
+            null: 'Desconectado ⚫'
 
         }
 
@@ -122,7 +122,7 @@ module.exports =  {
                 const embed = new Discord.MessageEmbed()
                 .setThumbnail(user.displayAvatarURL({ dynamic: true }).replace('webp','png'))
                 .setAuthor('Información del Usuario', message.guild.iconURL({ dynamic: true }))
-                .addField('Jugando a:', playing, true)
+                .addField('Actividad:', playing, true)
                 .addField('Estado:', status, true)
                 .addField('Color:', message.member.displayHexColor, true)
                 .addField('Usuario:', user.username+'#'+user.discriminator, true)
@@ -222,7 +222,7 @@ module.exports =  {
                 const embed = new Discord.MessageEmbed()
                 .setThumbnail(userm.displayAvatarURL({ dynamic: true }).replace('webp','png'))
                 .setAuthor('Información del Usuario', message.guild.iconURL({ dynamic: true }))
-                .addField('Jugando a:', playing, true)
+                .addField('Actividad:', playing, true)
                 .addField('Estado:', status, true)
                 .addField('Color:', message.guild.members.resolve(userm.id).displayHexColor, true)
                 .addField('Usuario:', userm.username+'#'+userm.discriminator, true)
