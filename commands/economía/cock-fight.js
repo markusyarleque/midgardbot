@@ -58,7 +58,7 @@ module.exports =  {
 
             if(args[0].toLowerCase() === 'all'){
 
-                if(chance > 6){
+                if(chance > 5){
 
                     try {
 
