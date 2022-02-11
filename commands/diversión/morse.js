@@ -8,7 +8,7 @@ module.exports =  {
 
         let alpha = ' ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'.split('')
 		let morse = '/,.-,-...,-.-.,-..,.,..-.,--.,....,..,.---,-.-,.-..,--,-.,---,.--.,--.-,.-.,...,-,..-,...-,.--,-..-,-.--,--..,.----,..---,...--,....-,.....,-....,--...,---..,----.,-----'.split(',')
-		let text = args.slice(1).join(' ').toUpperCase()
+		let text = args.join(' ').toUpperCase()
         let title
 
         console.log('First text : '+text)
