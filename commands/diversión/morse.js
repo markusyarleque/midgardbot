@@ -11,6 +11,7 @@ module.exports =  {
 		let text = args.slice(1).join(' ').toUpperCase()
         let title
 
+        console.log('First text : '+text)
         while (text.includes('Ä') || text.includes('Ö') || text.includes('Ü')) {
             
             text = text.replace('Ä', 'AE').replace('Ö', 'OE').replace('Ü', 'UE')
