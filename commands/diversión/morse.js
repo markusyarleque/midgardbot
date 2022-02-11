@@ -6,8 +6,8 @@ module.exports =  {
   
     async execute(client, message, args, Discord) {
 
-        let alpha = ' ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'.split('')
-		let morse = '/,.-,-...,-.-.,-..,.,..-.,--.,....,..,.---,-.-,.-..,--,-.,---,.--.,--.-,.-.,...,-,..-,...-,.--,-..-,-.--,--..,.----,..---,...--,....-,.....,-....,--...,---..,----.,-----'.split(',')
+        let alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'.split('')
+		let morse = '.-,-...,-.-.,-..,.,..-.,--.,....,..,.---,-.-,.-..,--,-.,---,.--.,--.-,.-.,...,-,..-,...-,.--,-..-,-.--,--..,.----,..---,...--,....-,.....,-....,--...,---..,----.,-----'.split(',')
 		let text = args.slice(1).join(' ').toUpperCase()
         let title
 
