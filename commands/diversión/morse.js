@@ -6,8 +6,8 @@ module.exports =  {
   
     async execute(client, message, args, Discord) {
 
-        let alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'.split('')
-		let morse = '.-,-...,-.-.,-..,.,..-.,--.,....,..,.---,-.-,.-..,--,-.,---,.--.,--.-,.-.,...,-,..-,...-,.--,-..-,-.--,--..,.----,..---,...--,....-,.....,-....,--...,---..,----.,-----'.split(',')
+        let alpha = ' ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'.split('')
+		let morse = '/,.-,-...,-.-.,-..,.,..-.,--.,....,..,.---,-.-,.-..,--,-.,---,.--.,--.-,.-.,...,-,..-,...-,.--,-..-,-.--,--..,.----,..---,...--,....-,.....,-....,--...,---..,----.,-----'.split(',')
 		let text = args.slice(1).join(' ').toUpperCase()
         let title
 
@@ -44,10 +44,12 @@ module.exports =  {
 			for (let i = 0; i < length; i++) {
 
 				text[i] = morse[alpha.indexOf(text[i])];
+                console.log('Texto: '+text[i]+' - Morse: '+morse[alpha.indexOf(text[i])])
 
 			}
 
 			text = text.join(' ');
+            console.log('After text: '+text)
             title = '💫 Texto a Morse'
 
 		}
