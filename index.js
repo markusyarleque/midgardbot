@@ -158,7 +158,6 @@ client.login(process.env.TOKEN)
 
   });
 
-
 client.on('messageCreate', async message => {
 
       //AQUÍ
