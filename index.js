@@ -131,14 +131,14 @@ mongoose
 client.commands = new Discord.Collection(); 
 client.events = new Discord.Collection(); 
 client.snipes = new Discord.Collection();
+client.slash = new Discord.Collection();
 
-['commandHandler','eventHandler'].forEach((file) => {
+['commandHandler','eventHandler','slashHandler'].forEach((file) => {
 
   require(`./handlers/${file}`)(client, Discord);
 })
 
 //! =========================
-
 
 // <-- AQUI LA PROPIEDAD LOGIN: -->
 

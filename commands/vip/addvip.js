@@ -48,8 +48,8 @@ module.exports =  {
 
                 let uservip = await userSchema.create({
     
-                    idusuario: message.author.id,
-                    username: message.author.username
+                    idusuario: user.id,
+                    username: user.username
     
                 })
     
