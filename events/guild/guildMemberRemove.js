@@ -28,7 +28,14 @@ module.exports = async (client, Discord, member) => {
     .setTimestamp(new Date())
     .setFooter(guild.name, guild.iconURL({ dynamic: true }));
   
-    member.send({embeds:[embed], components: [fila]})
+    try {
+
+        member.send({embeds:[embed], components: [fila]})
+
+    } catch (error) {
+        
+        console.log('No se envío link de invitación: '+error)
+    }
 
     //* Abandono de Usuarios
 
