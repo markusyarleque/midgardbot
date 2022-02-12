@@ -9,18 +9,27 @@ module.exports = async (client, Discord, member) => {
   //* Registro de Usuarios
 
   console.log('========================= REGISTRO DE USUARIO =========================');
-    
+  
+  let userData
+
   try {
 
-    let user = await userModel.create({
+    userData = await userModel.findOne({idusuario: member.id})
 
-      idusuario: member.id,
-      username: member.user.username,
+    if(!userData){
 
-    })
+      let user = await userModel.create({
 
-    user.save();
-    console.log('Usuario Registrado ===> Id: '+ member.id + ' Username: ' + member.user.username)
+        idusuario: member.id,
+        username: member.user.username,
+  
+      })
+  
+      user.save();
+      console.log('Usuario Registrado ===> Id: '+ member.id + ' Username: ' + member.user.username)
+
+    }
+
     
   } catch (error) {
 
@@ -36,6 +45,8 @@ module.exports = async (client, Discord, member) => {
   
   console.log(`Nuevo usuario:  ${member.user.username} se ha unido a ${guild.name}.`);
   
+  if(guild.id !== '777620055344545842') return
+
   const channel = guild.channels.cache.find(ch => ch.id === '926412412570198076');
   
   //! Cómo exportar una imagen local

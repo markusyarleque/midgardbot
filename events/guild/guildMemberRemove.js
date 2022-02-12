@@ -10,14 +10,16 @@ module.exports = async (client, Discord, member) => {
 
     const guild = member.guild;
 
+    console.log(`Usuario:  ${member.user.username} ha salido del servidor ${guild.name}.`);
+  
+    if(guild.id !== '777620055344545842') return
+
     const btnJoinServer = new Discord.MessageButton()
     .setLabel('UNIRSE') 
     .setStyle('LINK') 
     .setURL('https://discord.gg/CM9yAmXPfC')
 
     const fila = new Discord.MessageActionRow().addComponents(btnJoinServer)
-  
-    console.log(`Usuario:  ${member.user.username} ha salido del servidor ${guild.name}.`);
   
     const embed = new Discord.MessageEmbed()
     .setThumbnail(`${member.displayAvatarURL({ dynamic: true }).replace('webp','png')}`)
