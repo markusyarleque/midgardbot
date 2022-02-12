@@ -32,7 +32,7 @@ module.exports = async (client, Discord, member) => {
   
     try {
 
-        member.send({embeds:[embed], components: [fila]})
+        member.send({embeds:[embed], components: [fila]}).catch(err => console.log('Error al enviar invite al dm de: '+member.user.username+' - Error: '+err))
 
     } catch (error) {
         

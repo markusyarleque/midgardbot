@@ -147,7 +147,7 @@ module.exports =  {
             .setTimestamp(new Date())
             .setFooter(`MidgardBot`,client.user.avatarURL())
     
-            message.author.send({ embeds: [emb]})
+            message.author.send({ embeds: [emb]}).catch(err => console.log('Error al enviar recordatorio de daily al dm de: '+message.author.username+' - Error: '+err))
 
         }
 
