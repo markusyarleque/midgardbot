@@ -46,11 +46,11 @@ module.exports =  {
                 
                     });
 
-                    channel.setName(`🔒 | ${channel.name}`)
+                    channel.setName(`🔐|${channel.name}`)
             
                 }); 
 
-                message.channel.send('🔒 Todos los canales del servidor fueron bloqueados')
+                message.channel.send('🔐 Todos los canales del servidor fueron bloqueados')
                 .then(m => setTimeout(() => m.delete(), 5000));
           
             } catch(e) {
@@ -69,9 +69,9 @@ module.exports =  {
                   
                 });
 
-                ch.setName(`🔒 | ${ch.name}`)
+                ch.setName(`🔐|${ch.name}`)
             
-                message.channel.send(`🔒 El canal <#${ch.id}> fue bloqueado`)
+                message.channel.send(`🔐 El canal <#${ch.id}> fue bloqueado`)
                 .then(m => setTimeout(() => m.delete(), 5000));
               
             } catch (error) {

@@ -42,13 +42,16 @@ module.exports =  {
                 
                     await channel.permissionOverwrites.edit(everyrole, {
                     
-                        SEND_MESSAGES: true
+                        SEND_MESSAGES: null
                 
                     });
+
+                    const chname = channel.name.replace('🔐|','')
+                    channel.setName(chname)
             
                 }); 
 
-                message.channel.send('🔒 Todos los canales del servidor fueron desbloqueados')
+                message.channel.send('🔐 Todos los canales del servidor fueron desbloqueados')
                 .then(m => setTimeout(() => m.delete(), 5000));
           
             } catch(e) {
@@ -66,8 +69,11 @@ module.exports =  {
                     SEND_MESSAGES: null
                   
                 });
+
+                const chname = ch.name.replace('🔐|','')
+                ch.setName(chname)
             
-                message.channel.send(`🔒 El canal <#${ch.id}> fue desbloqueado`)
+                message.channel.send(`🔐 El canal <#${ch.id}> fue desbloqueado`)
                 .then(m => setTimeout(() => m.delete(), 5000));
               
             } catch (error) {
