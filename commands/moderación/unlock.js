@@ -70,9 +70,9 @@ module.exports =  {
                   
                 });
 
-                // const chname = ch.name.replace('🔐|','')
-                // ch.setName(chname)
-                ch.setName(`${ch.name.replace('🔐|','')}`)
+                const chname = ch.name.replace('🔐|','')
+                ch.setName(chname)
+                console.log('Nombre canal: '+chname)
             
                 message.channel.send(`🔐 El canal <#${ch.id}> fue desbloqueado`)
                 .then(m => setTimeout(() => m.delete(), 5000));
