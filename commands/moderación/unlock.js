@@ -46,7 +46,7 @@ module.exports =  {
                 
                     });
 
-                    const chname = channel.name.replace('🔐','')
+                    const chname = channel.name.replace('🔐 ','')
                     channel.setName(chname)
             
                 }); 
@@ -70,7 +70,7 @@ module.exports =  {
                   
                 });
 
-                const chname = ch.name.replace('🔐','')
+                const chname = ch.name.replace('🔐 ','')
                 ch.setName(chname)
                 console.log('Nombre canal: '+chname)
             
