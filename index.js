@@ -321,62 +321,6 @@ client.on('messageCreate', async message => {
     //COMANDOS DE BAR
 
     
-  
-    var huca = [
-        'https://media.discordapp.net/attachments/853500788848853002/873273468462989342/1.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873273476625076264/2.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873273480441917470/3.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873273489061191751/4.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873273498175434832/5.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873273507893637130/6.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873273520304586802/7.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873273530479955998/8.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873273544077873213/9.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873273554320359454/10.gif',
-        'https://media.discordapp.net/attachments/853500788848853002/873273559781343242/11.gif'
-    ]
-    
-    if(command === 'huca'){
-    
-        let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
-        let ramdonhuca = huca[Math.floor(Math.random()*huca.length)]
-       
-        if (!img || img.id===message.author.id) {
-    
-            const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,message.guild.iconURL({ dynamic: true }))
-            //.setTitle('Imagen completa')
-            .setDescription(`A **${message.author.username}** le apeteció una pipa bien potente.`)
-            .setImage(ramdonhuca)
-            .setColor('RANDOM')
-            .setTimestamp(new Date())
-            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-            message.channel.send({ embeds: [embed] });
-    
-        } else if (img.user.bot){
-          
-          return message.channel.send({embeds: [
-          new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | ¿Huca? ¿Qué es eso? <:nogarsias:932172183453712415>`)
-          ]})
-        
-        } else {
-    
-            const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Bar`,message.guild.iconURL({ dynamic: true }))
-            //.setTitle('Imagen completa')
-            .setDescription(`**${img.user.username}**, disfruta de la hookah que te invitó ${message.author.username}.`)
-            .setImage(ramdonhuca)
-            .setColor('RANDOM')
-            .setTimestamp(new Date())
-            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-            message.channel.send({ embeds: [embed] });
-      
-        };
-    
-    }
 
     //COMANDOS DE KARAOKE
 
@@ -2880,25 +2824,6 @@ client.on('messageCreate', async message => {
     }*/
 
     //COMANDOS DE AYUDA
-
-    if(command === 'karaoke'){
-
-        const embed = new Discord.MessageEmbed()
-        .setThumbnail('https://img1.picmix.com/output/stamp/normal/5/5/3/4/1754355_5b4b9.gif')
-        .setAuthor(`Midgard's Karaoke`, 'https://images-ext-1.discordapp.net/external/FrwQc20YeRvAuhpfyvTDLf0qJon61IxQ3wJw6v2RrGs/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/856814676692041738/b9c01810fc4ed6c302bceb25418ec974.png')
-        .setTitle('Comandos:')
-        .setDescription(`Se utilizan sólo en: ${client.channels.cache.get('880317466557952000')}`)
-        .addField('Agregar a la Lista:', '`k` `k <@user>`')
-        .addField('Quitar de la Lista', '`d` `d <@user>`')
-        .addField('Ver Lista', '`lista`')
-        .addField('Reiniciar lista', '`dall`')
-        .setColor('RANDOM')
-        .setTimestamp(new Date())
-        .setFooter(`🔥 La Élite 🔥`, `${message.author.displayAvatarURL()}`);
-            
-        message.channel.send({ embeds: [embed] });
-        
-    }
 
     /*if(command === 'banall'){
 

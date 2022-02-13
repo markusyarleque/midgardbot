@@ -29,11 +29,11 @@ module.exports =  {
               /* Botones para aceptar y rechazar el juego */
               new MessageActionRow().addComponents([
                 new MessageButton()
-                  .setCustomId("accept")
+                  .setCustomId("acceptJuegoTTT")
                   .setLabel("SI")
                   .setStyle("SUCCESS"),
                 new MessageButton()
-                  .setCustomId("deny")
+                  .setCustomId("denyJuegoTTT")
                   .setLabel("NO")
                   .setStyle("DANGER")
               ])
@@ -55,7 +55,7 @@ module.exports =  {
               
               /* Si dio click en el boton aceptar ... */
               
-              if (int.customId === "accept") {
+              if (int.customId === "acceptJuegoTTT") {
                 
                 /* Creamos una nueva partida con los jugadores y lo guardamos en una constante llamada "game", el id es para detectar si ya esta en una partida */
                 
@@ -76,7 +76,7 @@ module.exports =  {
                 if (game.finalizado) return collector.stop(); //Si la partida ya finalizo detenemos el collector, creo que no es necesario pero lo hago por seguridad xd
                 
                 
-              } else if (int.customId === "deny") {
+              } else if (int.customId === "denyJuegoTTT") {
                 
                 /* Si el juego fue rechazado ... */
                 

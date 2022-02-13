@@ -5,7 +5,7 @@ const { MessageActionRow, MessageButton } = require('discord.js');
 module.exports =  {
     
     name: 'crime',
-    aliases: [],
+    aliases: ['crimen'],
     description: '💢 Ejecuta un crimen.',
   
     async execute(client, message, args, Discord) { 
