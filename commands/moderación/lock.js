@@ -40,7 +40,7 @@ module.exports =  {
     
                 message.guild.channels.cache.forEach(async(channel) => {
                 
-                    await channel.updateOverwrite(everyrole, {
+                    await channel.permissionOverwrites.edit(everyrole, {
                     
                         SEND_MESSAGES: false
                 
@@ -63,7 +63,7 @@ module.exports =  {
     
             try {
                 
-                ch.updateOverwrite(everyrole, {
+                ch.permissionOverwrites.edit(everyrole, {
                     
                     SEND_MESSAGES: false
                   
