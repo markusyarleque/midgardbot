@@ -17,7 +17,7 @@ module.exports =  {
     
         ]}).then(m => setTimeout(() => m.delete(), 5000))
     
-        var everyrole = message.guild.roles.everyone;
+        var everyrole = message.guild.roles.cache.find(role => role.name === "@everyone");
     
         var ch = message.mentions.channels.first() || message.channel
     
@@ -45,6 +45,8 @@ module.exports =  {
                         SEND_MESSAGES: false
                 
                     });
+
+                    channel.setName(`🔒 | ${channel.name}`)
             
                 }); 
 
@@ -66,6 +68,8 @@ module.exports =  {
                     SEND_MESSAGES: false
                   
                 });
+
+                ch.setName(`🔒 | ${ch.name}`)
             
                 message.channel.send(`🔒 El canal <#${ch.id}> fue bloqueado`)
                 .then(m => setTimeout(() => m.delete(), 5000));

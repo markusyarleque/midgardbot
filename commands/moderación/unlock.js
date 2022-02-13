@@ -17,7 +17,7 @@ module.exports =  {
     
         ]}).then(m => setTimeout(() => m.delete(), 5000))
 
-        var everyrole = message.guild.roles.everyone;
+        var everyrole = message.guild.roles.cache.find(role => role.name === "@everyone");
     
         var ch = message.mentions.channels.first() || message.channel
     
