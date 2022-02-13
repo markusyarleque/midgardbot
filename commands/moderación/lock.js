@@ -46,7 +46,7 @@ module.exports =  {
                 
                     });
 
-                    channel.setName(`🔐 ${channel.name}`)
+                    channel.setName(`🔐${channel.name}`)
             
                 }); 
 
@@ -69,7 +69,7 @@ module.exports =  {
                   
                 });
 
-                ch.setName(`🔐 ${ch.name}`)
+                ch.setName(`🔐${ch.name}`)
             
                 message.channel.send(`🔐 El canal <#${ch.id}> fue bloqueado`)
                 .then(m => setTimeout(() => m.delete(), 5000));
