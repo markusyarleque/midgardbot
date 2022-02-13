@@ -2,9 +2,9 @@ const prefix = process.env.PREFIX;
 
 module.exports =  {
     
-    name: 'role',
-    aliases: ['rol','info-role'],
-    description: '🛑 Muestra la información de un rol del servidor.\n> Uso: `'+prefix+'role <nombrerol>`',
+    name: 'roleid',
+    aliases: ['role-id','info-role-id'],
+    description: '🛑 Muestra la información de un rol del servidor.\n> Uso: `'+prefix+'role <idrol>`',
   
     async execute(client, message, args, Discord) {
 
@@ -20,21 +20,21 @@ module.exports =  {
             new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
             .setColor('RED')
-            .setDescription('<a:Verify2:931463492677017650> | Escriba el nombre de un rol o menciónelo.\n> Uso: `'+prefix+'role <nombrerol>`')
+            .setDescription('<a:Verify2:931463492677017650> | Escriba la id de un rol o menciónelo.\n> Uso: `'+prefix+'roleid <idrol>`')
     
         ]}).then(m => setTimeout(() => m.delete(), 5000))
 
-        let role = message.mentions.roles.first() || message.guild.roles.cache.find(n => n.name === args.join(' '));
+        let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[0]);
     
         if(!role) return message.reply({ embeds: [
 
             new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
             .setColor('RED')
-            .setDescription('<a:Verify2:931463492677017650> | Rol no encontrado en el servidor.')
+            .setDescription('<a:Verify2:931463492677017650> | Rol no encontrado en el servidor. Escriba la id de un rol o menciónelo.')
     
         ]}).then(m => setTimeout(() => m.delete(), 5000))
-    
+
         const embed = new Discord.MessageEmbed()
         .setAuthor(`Solicitado por: ${message.author.username}`,`${message.author.displayAvatarURL()}`)
         .setDescription('Información sobre el rol mencionado.')
