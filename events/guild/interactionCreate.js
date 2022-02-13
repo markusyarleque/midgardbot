@@ -1,4 +1,4 @@
-module.exports = (client, Discord, interaction, message) => {
+module.exports = (client, Discord, interaction) => {
 
     //? BUTTONS
     
@@ -8,7 +8,7 @@ module.exports = (client, Discord, interaction, message) => {
 
         if(interaction.customId === 'acp'){
 
-            if(member.id !== message.author.id) return
+            if(member.id !== interaction.user.id) return
             
             interaction.deferReply({ ephemeral: true})
             interaction.followUp({ content: 'Hola'})
@@ -32,7 +32,6 @@ module.exports = (client, Discord, interaction, message) => {
         }
         if(interaction.customId === 'hack'){
 
-            if(member.id !== interaction.author.id) return
             interaction.deferReply({ ephemeral: true})
             interaction.followUp({ content: 'Hola'})
 
