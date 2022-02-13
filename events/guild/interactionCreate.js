@@ -1,4 +1,4 @@
-module.exports = (client, Discord, interaction) => {
+module.exports = (client, Discord, interaction, message) => {
 
     //? BUTTONS
     
@@ -7,8 +7,8 @@ module.exports = (client, Discord, interaction) => {
         const member = interaction.member
 
         if(interaction.customId === 'acp'){
-            
-            if(member.id !== interaction.author.id) return
+
+            if(member.id !== message.author.id) return
             
             interaction.deferReply({ ephemeral: true})
             interaction.followUp({ content: 'Hola'})
