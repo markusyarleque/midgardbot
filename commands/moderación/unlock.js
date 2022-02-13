@@ -63,7 +63,7 @@ module.exports =  {
                 
                 ch.permissionOverwrites.edit(everyrole, {
                     
-                    SEND_MESSAGES: true
+                    SEND_MESSAGES: null
                   
                 });
             
