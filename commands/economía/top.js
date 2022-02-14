@@ -93,7 +93,10 @@ module.exports =  {
             [
 
                 new Discord.MessageActionRow()
-                .addComponents(bEco.setDisabled(true),bCash,bXp,bRep,bPat,bHug,bSape)
+                .addComponents(bEco.setDisabled(true),bCash,bXp,bRep),
+
+                new Discord.MessageActionRow(bPat,bHug,bSape)
+                .addComponents()
 
             ]
         
