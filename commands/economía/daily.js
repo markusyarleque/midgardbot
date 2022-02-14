@@ -185,7 +185,7 @@ module.exports =  {
                 if (int.customId === "primary") {
             
                     var msDelay = 12*3600000
-                    await int.deferReply({ content: '<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en 12 horas para reclamar tu recompensa diaria. No olvides de activar los mensajes directos!', ephemeral: true}).
+                    await int.reply({ content: '<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en 12 horas para reclamar tu recompensa diaria. No olvides de activar los mensajes directos!', ephemeral: true}).
                     then(m => setTimeout(() => m.delete(), 5000))
                     setTimeout(reminder, msDelay);
 
