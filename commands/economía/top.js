@@ -104,7 +104,7 @@ module.exports =  {
       
             let filter = int => int.isButton() && int.user.id == message.author.id 
        
-            const collector = m.createMessageComponentCollector({ filter, time: 60000 });
+            const collector = m.createMessageComponentCollector({ filter });
         
             collector.on("collect", async int => {
           
