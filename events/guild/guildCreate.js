@@ -9,7 +9,6 @@ module.exports = async (client, Discord, guild) => {
     .setThumbnail(guild.iconURL({ dynamic: true }))
     .setTitle(`¡Server nuevo! <:abby:931432327354155038>`)
     .setDescription('<:shylove:931432905421520927> Me he unido al servidor: \n\n> Nombre: '+guild.name+'\n\n> Id: '+guild.id+'\n\n> Fecha: Hoy\n\n> Invitación: ')
-    .setThumbnail(guild.bannerURL({ dynamic: true, size: 4096 }).replace('webp','png'))
     .setColor('RANDOM')
     .setTimestamp(new Date())
     .setFooter(guild.name, guild.bannerURL({ dynamic: true, size: 4096 }).replace('webp','png'));
