@@ -127,7 +127,7 @@ module.exports =  {
                     ], components: [
 
                         new Discord.MessageActionRow()
-                        .addComponents(bEco.setDisabled(false),bCash,bXp.setDisabled(true),bRep),
+                        .addComponents(bEco.setDisabled(false),bCash.setDisabled(false),bXp.setDisabled(true),bRep),
         
                         new Discord.MessageActionRow()
                         .addComponents(bPat,bHug,bSape)
@@ -160,7 +160,7 @@ module.exports =  {
                     m.edit({ embeds: [embed], components: [
 
                         new Discord.MessageActionRow()
-                        .addComponents(bEco.setDisabled(false),bCash,bXp.setDisabled(true),bRep),
+                        .addComponents(bEco.setDisabled(false),bCash.setDisabled(false),bXp.setDisabled(true),bRep),
         
                         new Discord.MessageActionRow()
                         .addComponents(bPat,bHug,bSape)
