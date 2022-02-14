@@ -127,10 +127,10 @@ module.exports =  {
                     ], components: [
 
                         new Discord.MessageActionRow()
-                        .addComponents(bEco.setDisabled(false),bCash.setDisabled(false),bXp.setDisabled(true),bRep),
+                        .addComponents(bEco.setDisabled(false),bCash.setDisabled(false),bXp.setDisabled(true),bRep.setDisabled(false)),
         
                         new Discord.MessageActionRow()
-                        .addComponents(bPat,bHug,bSape)
+                        .addComponents(bPat.setDisabled(false),bHug.setDisabled(false),bSape.setDisabled(false))
 
                     ]})
 
@@ -160,10 +160,10 @@ module.exports =  {
                     m.edit({ embeds: [embed], components: [
 
                         new Discord.MessageActionRow()
-                        .addComponents(bEco.setDisabled(false),bCash.setDisabled(false),bXp.setDisabled(true),bRep),
+                        .addComponents(bEco.setDisabled(false),bCash.setDisabled(false),bXp.setDisabled(true),bRep.setDisabled(false)),
         
                         new Discord.MessageActionRow()
-                        .addComponents(bPat,bHug,bSape)
+                        .addComponents(bPat.setDisabled(false),bHug.setDisabled(false),bSape.setDisabled(false))
 
                     ]});
   
@@ -184,10 +184,10 @@ module.exports =  {
                     ], components: [
 
                         new Discord.MessageActionRow()
-                        .addComponents(bEco.setDisabled(false),bCash.setDisabled(true),bXp.setDisabled(false),bRep),
+                        .addComponents(bEco.setDisabled(false),bCash.setDisabled(true),bXp.setDisabled(false),bRep.setDisabled(false)),
         
                         new Discord.MessageActionRow()
-                        .addComponents(bPat,bHug,bSape)
+                        .addComponents(bPat.setDisabled(false),bHug.setDisabled(false),bSape.setDisabled(false))
 
                     ]})
 
@@ -218,10 +218,10 @@ module.exports =  {
                     m.edit({ embeds: [embed], components: [
 
                         new Discord.MessageActionRow()
-                        .addComponents(bEco.setDisabled(false),bCash.setDisabled(true),bXp.setDisabled(false),bRep),
+                        .addComponents(bEco.setDisabled(false),bCash.setDisabled(true),bXp.setDisabled(false),bRep.setDisabled(false)),
         
                         new Discord.MessageActionRow()
-                        .addComponents(bPat,bHug,bSape)
+                        .addComponents(bPat.setDisabled(false),bHug.setDisabled(false),bSape.setDisabled(false))
 
                     ]});
 
@@ -245,7 +245,7 @@ module.exports =  {
                         .addComponents(bEco.setDisabled(false),bCash.setDisabled(false),bXp.setDisabled(false),bRep.setDisabled(true)),
         
                         new Discord.MessageActionRow()
-                        .addComponents(bPat,bHug,bSape)
+                        .addComponents(bPat.setDisabled(false),bHug.setDisabled(false),bSape.setDisabled(false))
 
                     ]})
 
@@ -288,7 +288,7 @@ module.exports =  {
                         .addComponents(bEco.setDisabled(false),bCash.setDisabled(false),bXp.setDisabled(false),bRep.setDisabled(true)),
         
                         new Discord.MessageActionRow()
-                        .addComponents(bPat,bHug,bSape)
+                        .addComponents(bPat.setDisabled(false),bHug.setDisabled(false),bSape.setDisabled(false))
 
                     ]});
 
@@ -312,7 +312,7 @@ module.exports =  {
                         .addComponents(bEco.setDisabled(false),bCash.setDisabled(false),bXp.setDisabled(false),bRep.setDisabled(false)),
         
                         new Discord.MessageActionRow()
-                        .addComponents(bPat.setDisabled(true),bHug,bSape)
+                        .addComponents(bPat.setDisabled(true),bHug.setDisabled(false),bSape.setDisabled(false))
 
                     ]})
     
@@ -354,7 +354,7 @@ module.exports =  {
                         .addComponents(bEco.setDisabled(false),bCash.setDisabled(false),bXp.setDisabled(false),bRep.setDisabled(false)),
         
                         new Discord.MessageActionRow()
-                        .addComponents(bPat.setDisabled(true),bHug,bSape)
+                        .addComponents(bPat.setDisabled(true),bHug.setDisabled(false),bSape.setDisabled(false))
 
                     ]});
     
@@ -378,7 +378,7 @@ module.exports =  {
                         .addComponents(bEco.setDisabled(false),bCash.setDisabled(false),bXp.setDisabled(false),bRep.setDisabled(false)),
         
                         new Discord.MessageActionRow()
-                        .addComponents(bPat.setDisabled(false),bHug.setDisabled(true),bSape)
+                        .addComponents(bPat.setDisabled(false),bHug.setDisabled(true),bSape.setDisabled(false))
 
                     ]})
     
@@ -421,7 +421,7 @@ module.exports =  {
                         .addComponents(bEco.setDisabled(false),bCash.setDisabled(false),bXp.setDisabled(false),bRep.setDisabled(false)),
         
                         new Discord.MessageActionRow()
-                        .addComponents(bPat.setDisabled(false),bHug.setDisabled(true),bSape)
+                        .addComponents(bPat.setDisabled(false),bHug.setDisabled(true),bSape.setDisabled(false))
 
                     ]});
     
