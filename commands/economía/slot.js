@@ -80,13 +80,26 @@ module.exports =  {
 
             var gana
 
-            if(buscarUsuario.vip === true){
+            if(slots[result1] === '💵'){
+
+                gana = bet * 2
+
+            } else if(slots[result1] === '💰'){
+
+                gana = bet * 5
+
+            } else if(slots[result1] === '💎'){
 
                 gana = bet * 10
+            }
+
+            if(buscarUsuario.vip === true){
+
+                gana = gana * 2
 
             } else {
 
-                gana = bet * 3
+                gana = gana
 
             }
 
