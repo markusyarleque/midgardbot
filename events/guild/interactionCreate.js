@@ -6,9 +6,7 @@ module.exports = (client, Discord, interaction) => {
 
         const member = interaction.member
 
-        if(interaction.customId === 'acp'){
-
-            if(member.id !== interaction.user.id) return
+        if(interaction.customId === 'acprueba'){
             
             interaction.deferReply({ ephemeral: true})
             interaction.followUp({ content: 'Hola'})
@@ -16,28 +14,7 @@ module.exports = (client, Discord, interaction) => {
             return console.log('Prueba aceptada por el usuario: '+member)
             
         }
-        if(interaction.customId === 'deny'){
-
-            interaction.deferReply({ ephemeral: true})
-            interaction.followUp({ content: 'Hola'})
-
-            return console.log('Prueba denegada')
-        }
-        if(interaction.customId === 'asalto'){
-
-            interaction.deferReply({ ephemeral: true})
-            interaction.followUp({ content: 'Hola'})
-
-            return console.log('Prueba denegada')
-        }
-        if(interaction.customId === 'hack'){
-
-            interaction.deferReply({ ephemeral: true})
-            interaction.followUp({ content: 'Hola'})
-
-            return console.log('Prueba denegada')
-        }
-        if(interaction.customId === 'mafia'){
+        if(interaction.customId === 'denyprueba'){
 
             interaction.deferReply({ ephemeral: true})
             interaction.followUp({ content: 'Hola'})

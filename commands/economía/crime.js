@@ -1,6 +1,5 @@
 const { Collection } = require('mongoose');
 const userSchema = require('../../models/userSchema');
-const { MessageActionRow, MessageButton } = require('discord.js');
 
 module.exports =  {
     
@@ -49,19 +48,19 @@ module.exports =  {
         .setTimestamp()
         .setFooter(`MidgardBot`,client.user.avatarURL())
 
-        const ba = new MessageButton()
+        const ba = new Discord.MessageButton()
         .setCustomId('asalto')
         .setLabel('Asalto')
         .setStyle('PRIMARY')
         .setEmoji('🔪')
 
-        const bh = new MessageButton()
+        const bh = new Discord.MessageButton()
         .setCustomId('hack')
         .setLabel('Hack')
         .setStyle('PRIMARY')
         .setEmoji('💻')
 
-        const bm = new MessageButton()
+        const bm = new Discord.MessageButton()
         .setCustomId('mafia')
         .setLabel('Mafia')
         .setStyle('PRIMARY')
@@ -111,7 +110,7 @@ module.exports =  {
 
         message.channel.send({embeds: [e], components: [
 
-            new MessageActionRow()
+            new Discord.MessageActionRow()
                 .addComponents([ba,bh,bm])
 
         ]}).then(async m => {
@@ -291,7 +290,7 @@ module.exports =  {
                     
                     components: [
             
-                        new MessageActionRow()
+                        new Discord.MessageActionRow()
                         .addComponents([ba.setDisabled(true),bm.setDisabled(true),bh.setDisabled(true)])
           
                     ]

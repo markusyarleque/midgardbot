@@ -1,6 +1,5 @@
 const { Collection } = require('mongoose');
 const userSchema = require('../../models/userSchema');
-const { MessageActionRow, MessageButton } = require('discord.js');
 const prefix = process.env.PREFIX;
 
 module.exports =  {
@@ -103,10 +102,10 @@ module.exports =  {
           
             ], components: [
             
-                new MessageActionRow()
+                new Discord.MessageActionRow()
                 .addComponents(
 
-                    new MessageButton()
+                    new Discord.MessageButton()
                     .setLabel('VOTAR') 
                     .setStyle('LINK') 
                     .setURL('https://top.gg/servers/777620055344545842/vote') 
@@ -162,7 +161,7 @@ module.exports =  {
         .setTimestamp()
         .setFooter(`MidgardBot`,client.user.avatarURL())
 
-        const bRm = new MessageButton()
+        const bRm = new Discord.MessageButton()
         .setCustomId('primary')
         .setLabel('Recuérdame')
         .setStyle('PRIMARY')
@@ -170,7 +169,7 @@ module.exports =  {
       
         message.reply({ allowedMentions: { repliedUser: false}, embeds: [e], components: [
 
-            new MessageActionRow()
+            new Discord.MessageActionRow()
             .addComponents(bRm)
 
         ]}).then(async m => {
@@ -186,7 +185,7 @@ module.exports =  {
                 if (int.customId === "primary") {
             
                     var msDelay = 12*3600000
-                    await message.reply({ content: '<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en 12 horas para reclamar tu recompensa diaria. No olvides de activar los mensajes directos!', ephemeral: true}).
+                    await int.deferReply({ content: '<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en 12 horas para reclamar tu recompensa diaria. No olvides de activar los mensajes directos!', ephemeral: true}).
                     then(m => setTimeout(() => m.delete(), 5000))
                     setTimeout(reminder, msDelay);
 
@@ -200,7 +199,7 @@ module.exports =  {
           
                 if(collected < 1) return m.edit({components: [
 
-                    new MessageActionRow()
+                    new Discord.MessageActionRow()
                     .addComponents(bRm.setDisabled(true))
 
                 ]})
