@@ -1,5 +1,3 @@
-const { MessageActionRow, MessageButton } = require('discord.js');
-
 const prefix = process.env.PREFIX;
 
 //& Modelos
@@ -57,7 +55,7 @@ module.exports = async (client, Discord, message) => {
     {
         channel = sv.channels.cache.get('880280405993996339')
     
-    if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en élite por: '+message.author)
+        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en élite por: '+message.author)
         
         channel.send({ embeds: [em] });
     
@@ -165,31 +163,33 @@ module.exports = async (client, Discord, message) => {
   
     let img = '753435606410985573'
   
-    const bSi = new MessageButton()
+    const bSi = new Discord.MessageButton()
         .setCustomId("accept")
         .setLabel("SI")
         .setStyle("SUCCESS")
   
-    const bNo = new MessageButton()
+    const bNo = new Discord.MessageButton()
         .setCustomId("deny")
         .setLabel("NO")
         .setStyle("DANGER")
     
-    if (message.content === 'malta' || message.content === 'Malta' || message.content === 'MALTA' || message.content === 'MAlta' || message.content === 'maltazar' || message.content === 'Maltazar' || message.content === 'MALTAZAR' || message.content === 'MAltazar' || message.content === 'maltazard' || message.content === 'Maltazard' || message.content === 'MALTAZARD' || message.content === 'MAltazard')
+    /*if (message.content === 'malta' || message.content === 'Malta' || message.content === 'MALTA' || message.content === 'MAlta' || message.content === 'maltazar' || message.content === 'Maltazar' || message.content === 'MALTAZAR' || message.content === 'MAltazar' || message.content === 'maltazard' || message.content === 'Maltazard' || message.content === 'MALTAZARD' || message.content === 'MAltazard')
     {
     
         message.channel.send({
+
             content: message.author.toString() + "¿Deseas contactar a Malta?",
             components: [
   
-              new MessageActionRow().addComponents([bSi,bNo])
+                new Discord.MessageActionRow().addComponents([bSi,bNo])
 
             ]
+
         }).then(async m => {
             
-            let filter = int => int.isButton() && int.user.id == message.author.id //Agregamos el filtro para que solo permita que el miembro mencionado interactue con los botones.
+            let filter = int => int.isButton() && int.user.id == message.author.id 
              
-            const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 300000 /* Tiempo para que el miembro interatue con los botones */ });
+            const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 300000 });
             
             collector.on("collect", async int => {
                 
@@ -224,7 +224,7 @@ module.exports = async (client, Discord, message) => {
             });
               
         });
-    }
+    }*/
     
     /*let reven = new RegExp(`^<@!?${'710588969557164113'}>( |)$`);
     
@@ -819,11 +819,11 @@ module.exports = async (client, Discord, message) => {
     if(!cmd){
 
         const e = new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setColor('RED')
-          .setDescription(`<a:Verify2:931463492677017650> | Este comando no existe!`)
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setColor('RED')
+        .setDescription(`<a:Verify2:931463492677017650> | Este comando no existe!`)
         
-        return message.channel.send({embeds: [e]})
+        return message.channel.send({embeds: [e]}).then(m => setTimeout(() => m.delete(), 3000));
 
     } else{
 

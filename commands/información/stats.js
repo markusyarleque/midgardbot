@@ -30,7 +30,7 @@ module.exports = {
     .setThumbnail('https://media.giphy.com/media/3rgXBsmYd60rL3w7sc/giphy.gif')
     .setAuthor('MidgardBot', client.user.avatarURL())
     .setTitle('Estadísticas')
-    .addField('Desarrollador: ', 'Maltazard#0610')
+    .addField('Desarrollador: ', 'Maltazard#1207')
     .addField(`Comandos`, ''+(datos.length ? datos.length : '0'))
     .addField('Lenguaje: ', 'JavaScript')
     .addField(`Versión:`, `1.2.1`)
