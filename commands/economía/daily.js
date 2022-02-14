@@ -1,4 +1,5 @@
 const { Collection } = require('mongoose');
+const interactionCreate = require('../../events/guild/interactionCreate');
 const userSchema = require('../../models/userSchema');
 const prefix = process.env.PREFIX;
 
@@ -185,7 +186,8 @@ module.exports =  {
                 if (int.customId === "primary") {
             
                     var msDelay = 12*3600000
-                    await int.reply({ content: '<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en 12 horas para reclamar tu recompensa diaria. No olvides de activar los mensajes directos!', ephemeral: true}).
+                    int.deferReply({ ephemeral: true})
+                    await int.followUp({ content: '<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en 12 horas para reclamar tu recompensa diaria. No olvides de activar los mensajes directos!'}).
                     then(m => setTimeout(() => m.delete(), 5000))
                     setTimeout(reminder, msDelay);
 
