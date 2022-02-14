@@ -1,5 +1,3 @@
-const { MessageActionRow, MessageButton } = require('discord.js');
-
 module.exports =  {
     
     name: 'sofia',
@@ -29,42 +27,42 @@ module.exports =  {
 
         } 
 
-        const bTodo = new MessageButton()
+        const bTodo = new Discord.MessageButton()
         .setCustomId("accept")
         .setLabel("TODO")
         .setStyle("SUCCESS")
   
-        const bNada = new MessageButton()
+        const bNada = new Discord.MessageButton()
         .setCustomId("deny")
         .setLabel("NADA")
         .setStyle("DANGER")
 
-        const b1 = new MessageButton()
+        const b1 = new Discord.MessageButton()
         .setCustomId("1")
         .setLabel("1")
         .setStyle("SUCCESS")
   
-        const b2 = new MessageButton()
+        const b2 = new Discord.MessageButton()
         .setCustomId("2")
         .setLabel("2")
         .setStyle("SUCCESS")
 
-        const bAma = new MessageButton()
+        const bAma = new Discord.MessageButton()
         .setCustomId("amarillo")
         .setLabel("💛")
         .setStyle("SECONDARY")
   
-        const bAz = new MessageButton()
+        const bAz = new Discord.MessageButton()
         .setCustomId("azul")
         .setLabel("💙")
         .setStyle("SECONDARY")
 
-        const bCerv = new MessageButton()
+        const bCerv = new Discord.MessageButton()
         .setCustomId("cerveza")
         .setLabel("🍺")
         .setStyle("SECONDARY")
   
-        const bVin = new MessageButton()
+        const bVin = new Discord.MessageButton()
         .setCustomId("vino")
         .setLabel("🍷")
         .setStyle("SECONDARY")
@@ -81,7 +79,7 @@ module.exports =  {
 
             components: [
   
-              new MessageActionRow().addComponents([bTodo,bNada])
+              new Discord.MessageActionRow().addComponents([bTodo,bNada])
 
             ]
 
@@ -115,7 +113,7 @@ module.exports =  {
                     
                     components: [
                     
-                        new MessageActionRow().addComponents([b1,b2])
+                        new Discord.MessageActionRow().addComponents([b1,b2])
 
                     ]
 
@@ -149,7 +147,7 @@ module.exports =  {
                             
                             components: [
                             
-                                new MessageActionRow().addComponents([bAz,bAma])
+                                new Discord.MessageActionRow().addComponents([bAz,bAma])
         
                             ]
                             
@@ -183,7 +181,7 @@ module.exports =  {
                                     
                                     components: [
                                     
-                                        new MessageActionRow().addComponents([bCerv,bVin])
+                                        new Discord.MessageActionRow().addComponents([bCerv,bVin])
                 
                                     ]
                                 }).then(async m => {
@@ -242,7 +240,7 @@ module.exports =  {
                         
                                             components: [
                 
-                                                new MessageActionRow().addComponents([bCerv.setDisabled(true),bVin])
+                                                new Discord.MessageActionRow().addComponents([bCerv.setDisabled(true),bVin])
                 
                                             ]
                         
@@ -273,7 +271,7 @@ module.exports =  {
                 
                                     components: [
         
-                                        new MessageActionRow().addComponents([bAz.setDisabled(true),bAma])
+                                        new Discord.MessageActionRow().addComponents([bAz.setDisabled(true),bAma])
         
                                     ]
                 
@@ -304,7 +302,7 @@ module.exports =  {
         
                             components: [
 
-                                new MessageActionRow().addComponents([b1,b2.setDisabled(true)])
+                                new Discord.MessageActionRow().addComponents([b1,b2.setDisabled(true)])
 
                             ]
         

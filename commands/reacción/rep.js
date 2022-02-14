@@ -1,6 +1,5 @@
 const { Collection } = require('mongoose');
 const userSchema = require('../../models/userSchema');
-const { MessageActionRow, MessageButton } = require('discord.js');
 
 module.exports =  {
     
@@ -176,7 +175,7 @@ module.exports =  {
             .setTimestamp()
             .setFooter(`MidgardBot`,client.user.avatarURL())
   
-            const bRm = new MessageButton()
+            const bRm = new Discord.MessageButton()
     
             .setCustomId('primary')
             .setLabel('Recuérdame')
@@ -185,7 +184,7 @@ module.exports =  {
   
             message.channel.send({embeds: [e], components: [
     
-                new MessageActionRow()
+                new Discord.MessageActionRow()
                 .addComponents(bRm)
           
             ]}).then(async m => {
@@ -202,8 +201,7 @@ module.exports =  {
                 
                         var msDelay = 6*3600000
                 
-                        await message.reply({ content: '<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en 6 horas para volver a dar rep. No olvides de activar los mensajes directos!', ephemeral: true}).
-                        then(m => setTimeout(() => m.delete(), 5000))
+                        await int.followUp({ content: '<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en 6 horas para volver a dar rep. No olvides de activar los mensajes directos!', ephemeral: true})
                        
                         setTimeout(reminder, msDelay);
   
@@ -217,7 +215,7 @@ module.exports =  {
               
                     if(collected < 1) return m.edit({components: [
                 
-                        new MessageActionRow()
+                        new Discord.MessageActionRow()
                         .addComponents(bRm.setDisabled(true))
               
                     ]})

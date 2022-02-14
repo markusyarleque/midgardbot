@@ -1,4 +1,3 @@
-const { MessageActionRow, MessageButton } = require('discord.js');
 const prefix = process.env.PREFIX;
 
 module.exports =  {
@@ -39,12 +38,12 @@ module.exports =  {
         .setColor("RANDOM")
         .setFooter(`Página 2/2`,client.user.avatarURL())
 
-        const bS1 = new MessageButton()
+        const bS1 = new Discord.MessageButton()
         .setCustomId("p1")
         .setLabel("🛒 | 1")
         .setStyle("PRIMARY")
     
-        const bS2 = new MessageButton()
+        const bS2 = new Discord.MessageButton()
         .setCustomId("p2")
         .setLabel("🛒 | 2")
         .setStyle("PRIMARY")
@@ -53,14 +52,14 @@ module.exports =  {
             
             embeds: [shop1],
             components: [
-              new MessageActionRow().addComponents([bS1.setDisabled(true),bS2])
+              new Discord.MessageActionRow().addComponents([bS1.setDisabled(true),bS2])
             ]
 
         }).then(async m => {
             
             let filter = int => int.isButton() && int.user.id == message.author.id 
            
-            const collector = m.createMessageComponentCollector({ filter, time: 60000 });
+            const collector = m.createMessageComponentCollector({ filter });
             
             collector.on("collect", async int => {
               
@@ -71,7 +70,7 @@ module.exports =  {
                     m.edit({
                   
                         embeds: [shop1],
-                        components: [new MessageActionRow().addComponents([bS1.setDisabled(true),bS2.setDisabled(false)])]
+                        components: [new Discord.MessageActionRow().addComponents([bS1.setDisabled(true),bS2.setDisabled(false)])]
                 
                     });
       
@@ -80,7 +79,7 @@ module.exports =  {
                     m.edit({
                   
                         embeds: [shop2],
-                        components: [new MessageActionRow().addComponents([bS1.setDisabled(false),bS2.setDisabled(true)])]
+                        components: [new Discord.MessageActionRow().addComponents([bS1.setDisabled(false),bS2.setDisabled(true)])]
                 
                     });
       
@@ -93,7 +92,7 @@ module.exports =  {
                 if(collected < 1) return m.edit({
                 
                     components: [
-                        new MessageActionRow().addComponents([bS1.setDisabled(true),bS2.setDisabled(true)])
+                        new Discord.MessageActionRow().addComponents([bS1.setDisabled(true),bS2.setDisabled(true)])
                     ]
                 })
     

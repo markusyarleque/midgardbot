@@ -1,4 +1,3 @@
-const { MessageActionRow, MessageButton } = require('discord.js');
 const prefix = process.env.PREFIX;
 
 module.exports =  {
@@ -90,58 +89,58 @@ module.exports =  {
         .setColor('RANDOM')
         .setDescription('> **||tetas||**\n> **||pussy||**\n> **||culo||**\n> **||dick||**\n> **||kuni||**\n> **||suck||**\n> **||suckb||**\n> **||sboobs||**\n> **||fuck||**\n> **||anal||**\n> **||cum||**\n> **||porno||**\n> **||4k||**\n> **||gonewild||**\n')
     
-        const btns_options1 = new MessageActionRow().addComponents([
+        const btns_options1 = new Discord.MessageActionRow().addComponents([
       
-            new MessageButton()
+            new Discord.MessageButton()
             .setCustomId("inf")
             .setLabel("📌 Información")
             .setStyle("PRIMARY"),
         
-            new MessageButton()
+            new Discord.MessageButton()
             .setCustomId("util")
             .setLabel("💡 Utilidad")
             .setStyle("PRIMARY"),
         
-            new MessageButton()
+            new Discord.MessageButton()
             .setCustomId("mod")
             .setLabel("🔒 Moderación")
             .setStyle("PRIMARY"),
         
-            new MessageButton()
+            new Discord.MessageButton()
             .setCustomId("eco")
             .setLabel("💰 Economía")
             .setStyle("PRIMARY"),
         
-            new MessageButton()
+            new Discord.MessageButton()
             .setCustomId("m2")
             .setLabel("📋 Más Opciones")
             .setStyle("PRIMARY"),
       
         ])
     
-        const btns_options2 = new MessageActionRow().addComponents([
+        const btns_options2 = new Discord.MessageActionRow().addComponents([
 
-            new MessageButton()
+            new Discord.MessageButton()
             .setCustomId("mp")
             .setLabel("🌎 Inicio")
             .setStyle("PRIMARY"),
         
-            new MessageButton()
+            new Discord.MessageButton()
             .setCustomId("div")
             .setLabel("🤣 Diversión")
             .setStyle("PRIMARY"),
         
-            new MessageButton()
+            new Discord.MessageButton()
             .setCustomId("rea")
             .setLabel("😎 Reacción")
             .setStyle("PRIMARY"),
         
-            new MessageButton()
+            new Discord.MessageButton()
             .setCustomId("cbd")
             .setLabel("🥂 CBD")
             .setStyle("PRIMARY"),
         
-            new MessageButton()
+            new Discord.MessageButton()
             .setCustomId("nsfw")
             .setLabel("🔥 NSFW")
             .setStyle("PRIMARY"),
@@ -157,7 +156,7 @@ module.exports =  {
             
             let filter = int => int.isButton() && int.user.id == message.author.id 
            
-            const collector = m.createMessageComponentCollector({ filter, time: 60000 });
+            const collector = m.createMessageComponentCollector({ filter });
             
             collector.on("collect", async int => {
               
