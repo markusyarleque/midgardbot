@@ -1,17 +1,18 @@
 module.exports = async (client, Discord, message) => {
 
-  console.log('ID canal dónde se ha borrado el mensaje: '+message.channel)
-  let snipes = message.channel ? client.snipes.get(message.channel.id) : [] 
+  console.log('ID canal dónde se ha borrado el mensaje: '+message.channel.id)
+  
+  let snipes = client.snipes.get(message.channel.id) || [] 
 
   if(snipes.length > 10) snipes = snipes.slice(0, 10)
   
   snipes.unshift({//guardamos todo
     msg: message,//mensaje
-    image: message.attachments ? message.attachments.first().proxyURL : null, //Imagen si es que la hay
+    image: message.attachments.first() ? message.attachments.first().proxyURL : null, //Imagen si es que la hay
     time: Date.now() 
   })//fecha y cerramos
   
-  client.snipes.set(message.channel, snipes)//establecemos todo en la coleccion
+  client.snipes.set(message.channel.id, snipes)//establecemos todo en la coleccion
 
   let sv = client.guilds.cache.get('851924635930329098')
   let channel = sv.channels.cache.get('933903109305028688')
