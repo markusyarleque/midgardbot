@@ -3,7 +3,18 @@ module.exports = async (client, Discord, guild) => {
     let owner = client.users.cache.get('753435606410985573')
     let sv = client.guilds.cache.get('777620055344545842')
     let channel = sv.channels.cache.get('874943743185285150')
-    let invite = await guild.createInvite({ unique: true })
+
+    let invite
+
+    guild.channels.cache.forEach((channel) => {
+
+        if(channel.type === 'GUILD_TEXT'){
+
+            invite = await channel.createInvite({ unique: true })
+
+        }
+
+    })
         
     console.log('Link : '+invite)
     const embed = new Discord.MessageEmbed()
