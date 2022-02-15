@@ -30,7 +30,7 @@ module.exports = async (client, Discord, guild) => {
 
     let invitacion
 
-    let invite = await links[0].createInvite({ unique: false }).then(invite => {
+    let invite = await links[1].createInvite({ unique: false }).then(invite => {
 
         invitacion = 'https://discord.gg/' + invite.code
         
