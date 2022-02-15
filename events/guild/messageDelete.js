@@ -1,4 +1,4 @@
-module.exports = async (client, message, Discord) => {
+module.exports = async (client, Discord, message) => {
 
   console.log('ID canal dónde se ha borrado el mensaje: '+message.channel)
   let snipes = message.channel ? client.snipes.get(message.channel.id) : [] 
@@ -11,7 +11,7 @@ module.exports = async (client, message, Discord) => {
     time: Date.now() 
   })//fecha y cerramos
   
-  client.snipes.set(message.channel.id, snipes)//establecemos todo en la coleccion
+  client.snipes.set(message.channel, snipes)//establecemos todo en la coleccion
 
   let sv = client.guilds.cache.get('851924635930329098')
   let channel = sv.channels.cache.get('933903109305028688')
