@@ -7,7 +7,7 @@ module.exports = async (client, message, Discord) => {
   
   snipes.unshift({//guardamos todo
     msg: message,//mensaje
-    image: message.attachments.first() ? message.attachments.first().proxyURL : null, //Imagen si es que la hay
+    image: message.attachments ? message.attachments.first().proxyURL : null, //Imagen si es que la hay
     time: Date.now() 
   })//fecha y cerramos
   
