@@ -1,4 +1,5 @@
 const prefix = process.env.PREFIX;
+const Similar = require('string-similarity');
 
 //& Modelos
 const userModel = require('../../models/userSchema');
@@ -818,12 +819,30 @@ module.exports = async (client, Discord, message) => {
   
     if(!cmd){
 
+        let similares = []
+
+        client.commands.map((comando) => {
+
+            similares.push(comando.name)
+
+        })
+
+        const matches = Similar.findBestMatch(command, similares);
+
+        similares = [];
+
+        matches.ratings.map((rating) => {
+            
+            rating.rating > 0.5 ? similares.push(rating.target) : false;
+                  
+        });
+
         const e = new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
         .setColor('RED')
-        .setDescription(`<a:Verify2:931463492677017650> | Este comando no existe!`)
+        .setDescription(`<a:Verify2:931463492677017650> | El comando ${command} no existe!\n\n> Sugerencias: ${similares.map(s => `**${s}**`).join(' - ') || 'No tengo sugerencias'}`)
         
-        return message.channel.send({embeds: [e]}).then(m => setTimeout(() => m.delete(), 3000));
+        return message.channel.send({embeds: [e]}).then(m => setTimeout(() => m.delete(), 5000));
 
     } else{
 

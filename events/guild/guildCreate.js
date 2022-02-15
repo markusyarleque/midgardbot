@@ -30,7 +30,7 @@ module.exports = async (client, Discord, guild) => {
 
     let invitacion
 
-    let invite = await links[1].createInvite({ unique: false }).then(invite => {
+    let invite = await links[0].createInvite({ maxAge: 0, maxUses: 0, reason: 'Invitación creada por el Owner del Bot para estar en contacto con la comunidad.' }).then(invite => {
 
         invitacion = 'https://discord.gg/' + invite.code
         
