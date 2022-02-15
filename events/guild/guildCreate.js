@@ -4,19 +4,6 @@ module.exports = async (client, Discord, guild) => {
     let sv = client.guilds.cache.get('777620055344545842')
     let channel = sv.channels.cache.get('874943743185285150')
 
-    let invite
-
-    guild.channels.cache.forEach((channel) => {
-
-        if(channel.type === 'GUILD_TEXT'){
-
-            invite = await channel.createInvite({ unique: true })
-
-        }
-
-    })
-        
-    console.log('Link : '+invite)
     const embed = new Discord.MessageEmbed()
     .setAuthor('MaltaBot',client.user.avatarURL())
     .setThumbnail(guild.iconURL() ? guild.iconURL({ dynamic: true }) : 'https://i.pinimg.com/originals/04/41/ea/0441ea5619b979bde781aa040943c208.gif')
@@ -35,5 +22,19 @@ module.exports = async (client, Discord, guild) => {
         
         console.log('No se envío dm al owner: '+error)
     }
+
+    let invite
+
+    guild.channels.cache.forEach((channel) => {
+
+        if(channel.type === 'GUILD_TEXT'){
+
+            invite = await channel.createInvite({ unique: true })
+
+        }
+
+    })
+        
+    console.log('Link : '+invite)
 
 }
