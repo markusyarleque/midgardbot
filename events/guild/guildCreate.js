@@ -30,14 +30,14 @@ module.exports = async (client, Discord, guild) => {
 
     let invitacion
 
-    let invite = await links[0].createInvite({ unique: true }).then(invite => {
+    let invite = await links[0].createInvite({ unique: false }).then(invite => {
 
         invitacion = 'https://discord.gg/' + invite.code
         
     }).catch((error) => console.log('Error al crear Link de invitación de '+guild.name+' - ' + error))
 
         
-    console.log('Link de invitación de '+guild.name+' : '+links[0])
+    console.log('Link de invitación de '+guild.name+' : '+invitacion)
 
     const embed = new Discord.MessageEmbed()
     .setAuthor('MaltaBot',client.user.avatarURL())
