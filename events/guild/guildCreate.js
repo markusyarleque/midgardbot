@@ -24,14 +24,18 @@ module.exports = async (client, Discord, guild) => {
     }
 
     let invite
+    let c = 0
 
     guild.channels.cache.forEach(async (channel) => {
 
-        if(channel.type === 'GUILD_TEXT'){
+        if(channel.type === 'GUILD_TEXT' && c === 0){
 
             try {
                 
-                invite = await channel.createInvite({ unique: true })
+                invite = await channel.createInvite({ unique: true }).then(invite => {
+                    console.log("Hey! I've created you an invite: https://discord.gg/" + invite.code)
+                    })
+                c = c + 1
 
             } catch (error) {
                 
