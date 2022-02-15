@@ -1,7 +1,5 @@
 module.exports = async (client, Discord, message) => {
 
-  console.log('ID canal dónde se ha borrado el mensaje: '+message.channel.id)
-  
   let snipes = client.snipes.get(message.channel.id) || [] 
 
   if(snipes.length > 10) snipes = snipes.slice(0, 10)

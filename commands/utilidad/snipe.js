@@ -29,7 +29,7 @@ module.exports =  {
                 const snipe = +args[0] - 1 || 0
                 const targer = snipes[snipe]
 
-                if(!targer) return message.reply({ allowedMentions: { repliedUser: false}, content: `**Solamente hay ${snipes.length} snipes**`})
+                if(!targer) return message.reply({ allowedMentions: { repliedUser: false}, content: '**Solamente hay** `'+snipes.length+'` **snipes**'})
 
                 const {msg, time, image, canal} = targer
     
