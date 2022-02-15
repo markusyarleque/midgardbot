@@ -840,9 +840,9 @@ module.exports = async (client, Discord, message) => {
         const e = new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL())
         .setColor('RED')
-        .setDescription(`<a:Verify2:931463492677017650> | El comando ${command} no existe!\n\n> Sugerencias: ${similares.map(s => `**${s}**`).join(' - ') || 'No tengo sugerencias'}`)
+        .setDescription(`<a:Verify2:931463492677017650> | El comando **${command}** no existe!\n\n> Sugerencias: ${similares.map(s => `**${s}**`).join(' - ') || 'No tengo sugerencias'}`)
         
-        return message.channel.send({embeds: [e]}).then(m => setTimeout(() => m.delete(), 5000));
+        return message.channel.send({embeds: [e]}).then(m => setTimeout(() => m.delete(), 15000));
 
     } else{
 
