@@ -35,7 +35,7 @@ module.exports =  {
         .setTimestamp(new Date())
         .setThumbnail('https://jonmgomes.com/wp-content/uploads/2020/03/Liquid-Lightbulb-Animation-V2-800x600-1.gif')
         .setColor('RANDOM')
-        .setDescription('> **user**\n> Muestra información sobre un usuario mencionado.\n\n> **avatar**\n> Muestra el avatar de un usuario.\n\n> **banner**\n> Muestra el banner de un usuario.\n\n> **welcome | wlc**\n> Muestra un embed de bienvenida.\n> Uso:\n> `' +prefix +'welcome <@user>`\n> `' +prefix +'wlc <@user>`\n\n> **remindme | rm**\n> Establece un recordatorio.\n> Uso:\n> `' +prefix +'remindme <tiempo en s,m,h> <recordatorio>`\n\n> **snipe**\n> Recupera el último mensaje eliminado.\n\n> **jumbo**\n> Ver en grande un emoji.\n\n> **poll**\n> Crea una encuenta.\n> Uso:\n> `' +prefix +'poll pregunta / opción1 / opción2 / opción3 [opcional]...`\n\n')
+        .setDescription('> **user**\n> Muestra información sobre un usuario mencionado.\n\n> **avatar**\n> Muestra el avatar de un usuario.\n\n> **banner**\n> Muestra el banner de un usuario.\n\n> **welcome | wlc**\n> Muestra un embed de bienvenida.\n> Uso:\n> `' +prefix +'welcome <@user>`\n> `' +prefix +'wlc <@user>`\n\n> **remindme | rm**\n> Establece un recordatorio.\n> Uso:\n> `' +prefix +'remindme <tiempo en s,m,h> <recordatorio>`\n\n> **snipe**\n> Recupera el último mensaje eliminado.\n\n> **math**\n> Realiza una operación matemática básica.\n\n> **jumbo**\n> Ver en grande un emoji.\n\n> **poll**\n> Crea una encuenta.\n> Uso:\n> `' +prefix +'poll pregunta / opción1 / opción2 / opción3 [opcional]...`\n\n')
   
         const helpmod = new Discord.MessageEmbed()
         .setTitle('🔒 • Comandos de Moderación')
