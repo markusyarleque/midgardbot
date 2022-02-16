@@ -135,6 +135,7 @@ client.slash = new Discord.Collection();
 ['commandHandler','eventHandler','slashHandler'].forEach((file) => {
 
   require(`./handlers/${file}`)(client, Discord);
+  
 })
 
 //! =========================

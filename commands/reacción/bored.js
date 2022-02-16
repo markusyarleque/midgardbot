@@ -1,25 +1,25 @@
-const star = require('star-labs')
+const anime = require('anime-actions')
 
 module.exports =  {
     
-    name: 'happy',
-    aliases: ['feliz','alegre','smile'],
-    description: '😀 Demuestra tu modo feliz.',
+    name: 'bored',
+    aliases: ['aburrido'],
+    description: '🙄 ¡Aburrido!.',
   
     async execute(client, message, args, Discord) { 
 
-        let happy = star.happy()
+        let bored = anime.bored()
 
         const embed = new Discord.MessageEmbed()
         .setAuthor(`Midgard's Emotions`,message.guild.iconURL({ dynamic: true }))
-        .setDescription(`**${message.author.username}** se puso modo feliz <a:6975wolfparty:901266259256168508>`)
-        .setImage(happy)
+        .setDescription(`**${message.author.username}** está aburrid@ <:yonofui:931433119859503194>`)
+        .setImage(bored)
         .setColor('RANDOM')
         .setTimestamp(new Date())
         .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-      
+        
         message.channel.send({ embeds: [embed] });
-
+       
     }
 
 }

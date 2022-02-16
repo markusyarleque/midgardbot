@@ -8,6 +8,8 @@ module.exports =  {
   
     async execute(client, message, args, Discord) {
 
+        //let desc = client.commands.find((d) => d.description && a.aliases.includes(command))
+
         const helpprincipal = new Discord.MessageEmbed()
         .setTitle('Bienvenido al apartado de Ayuda 💌')
         .setAuthor('MidgardBot',client.user.avatarURL())

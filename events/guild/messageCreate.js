@@ -850,8 +850,6 @@ module.exports = async (client, Discord, message) => {
     
         //* Registro de Usuarios
 
-        console.log('========================= REGISTRO DE USUARIO =========================');
-    
         let userData;
 
         try {
@@ -860,6 +858,8 @@ module.exports = async (client, Discord, message) => {
 
             if(!userData){
 
+                console.log('========================= REGISTRO DE USUARIO =========================');
+        
                 let user = await userModel.create({
 
                     idusuario: message.author.id,
@@ -869,7 +869,9 @@ module.exports = async (client, Discord, message) => {
     
                 user.save();
                 console.log('Usuario Registrado ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
-
+   
+                console.log('========================= REGISTRO DE USUARIO =========================');
+   
             } else {
 
                 //<-- UPDATE EXPERIENCIA/NIVELES -->
@@ -928,8 +930,6 @@ module.exports = async (client, Discord, message) => {
     
         }
   
-        console.log('========================= REGISTRO DE USUARIO =========================');
-   
         //* Registro de Usuarios
 
     }
