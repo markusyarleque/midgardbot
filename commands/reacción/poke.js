@@ -8,7 +8,7 @@ module.exports =  {
   
     async execute(client, message, args, Discord) { 
 
-        let poke = anime.poke()
+        let poke = await anime.poke()
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
    
         if (!img || img.id === message.author.id) {

@@ -8,7 +8,7 @@ module.exports =  {
   
     async execute(client, message, args, Discord) { 
 
-        let bored = anime.bored()
+        let bored = await anime.bored()
 
         const embed = new Discord.MessageEmbed()
         .setAuthor(`Midgard's Emotions`,message.guild.iconURL({ dynamic: true }))
