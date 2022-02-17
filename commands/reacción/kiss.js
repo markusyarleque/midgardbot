@@ -56,6 +56,7 @@ module.exports =  {
         ]})
 
         let consulta1 = await kissSchema.findOne({u1: message.author.id, u2: img.id})
+        
         console.log('Tabla kiss: '+consulta1)
         let conteo
 
@@ -102,7 +103,12 @@ module.exports =  {
     
                     })
                 
+                    console.log('Update consultado: '+update)
+
                 update.save()
+                
+                console.log('Update after: '+update)
+
                 conteo = consulta1.c + 1
                 console.log('Número de kiss actual: '+consulta1.c)
                 console.log('Número de kiss : '+conteo)
