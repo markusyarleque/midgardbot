@@ -77,12 +77,14 @@ module.exports =  {
 
             } else {
 
-                await  kissSchema.findOneAndUpdate({u1: img.id},
+                let update = await  kissSchema.findOneAndUpdate({u1: img.id},
                     {
 
                         c: consulta2.c + 1
 
                     })
+
+                update.save()
 
                 conteo = consulta2.c + 1
           
@@ -90,24 +92,25 @@ module.exports =  {
 
         } else {
 
-            await  kissSchema.findOneAndUpdate({u1: message.author.id},
+            let update = await  kissSchema.findOneAndUpdate({u1: message.author.id},
                 {
 
                     c: consulta1.c + 1
 
                 })
-
+            
+            update.save()
             conteo = consulta1.c + 1
         
         }
 
         if(conteo === 1){
           
-            conteo='**'+conteo+'** vez.'
+            conteo ='**'+conteo+'** vez.'
         
         } else {
           
-            conteo='**'+conteo+'** veces.'
+            conteo ='**'+conteo+'** veces.'
         
         }
 

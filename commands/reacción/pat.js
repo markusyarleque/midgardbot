@@ -48,13 +48,15 @@ module.exports =  {
 
         }
     
-        await userSchema.findOneAndUpdate({idusuario: img.id},
+        let update = await userSchema.findOneAndUpdate({idusuario: img.id},
             {
 
                 pat: usuario2.pat + 1
         
             });
 
+        update.save()
+        
         if((usuario2.pat + 1) === 1){
         
             text = '**'+(usuario2.pat + 1)+'** caricia'

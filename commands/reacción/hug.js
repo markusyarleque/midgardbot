@@ -85,12 +85,14 @@ module.exports =  {
     
             }
 
-            await userSchema.findOneAndUpdate({idusuario: img.id},
+            let update = await userSchema.findOneAndUpdate({idusuario: img.id},
                 {
 
                     hug: usuario2.hug + 1
             
                 });
+            
+            update.save()
 
             if((usuario2.hug + 1) === 1){
                 

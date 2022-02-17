@@ -135,20 +135,24 @@ module.exports =  {
     
             }
   
-            await userSchema.findOneAndUpdate({idusuario: usuario.id},
+            let update1 = await userSchema.findOneAndUpdate({idusuario: usuario.id},
                 {
 
                     rep: usuario1.rep + 1
             
                 });
 
-            await userSchema.findOneAndUpdate({idusuario: message.author.id},
+            update1.save()
+
+            let update2 = await userSchema.findOneAndUpdate({idusuario: message.author.id},
                 {
 
                     crep: (Date.now() + (6 * (60 * (1000 * 60))))
 
                 });
   
+            update2.save()
+
             function reminder() {
       
                 message.author.send('<a:exclama2:880930071731392512> | ¡Ya puedes volver a dar rep!')
