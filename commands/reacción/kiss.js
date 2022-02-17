@@ -56,6 +56,7 @@ module.exports =  {
         ]})
 
         let consulta1 = await kissSchema.findOne({u1: message.author.id, u2: img.id})
+        console.log('Tabla kiss: '+consulta1)
         let conteo
 
         if(!consulta1){
