@@ -101,6 +101,7 @@ module.exports =  {
             
             update.save()
             conteo = consulta1.c + 1
+            console.log('Número de kiss : '+conteo)
         
         }
 
