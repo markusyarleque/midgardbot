@@ -93,17 +93,26 @@ module.exports =  {
 
         } else {
 
-            let update = await  kissSchema.findOneAndUpdate({u1: message.author.id},
-                {
+            try {
 
-                    c: consulta1.c + 1
+                let update = await kissSchema.findOneAndUpdate({u1: message.author.id},
+                    {
+    
+                        c: consulta1.c + 1
+    
+                    })
+                
+                update.save()
+                conteo = consulta1.c + 1
+                console.log('Número de kiss actual: '+consulta1.c)
+                console.log('Número de kiss : '+conteo)
+                
+            } catch (error) {
+                
+                console.log('No se actualizó la tabla kiss por el error: '+error)
 
-                })
-            
-            update.save()
-            conteo = consulta1.c + 1
-            console.log('Número de kiss : '+conteo)
-        
+            }
+ 
         }
 
         if(conteo === 1){
