@@ -107,7 +107,7 @@ module.exports =  {
 
                 update.save().catch((e) => console.log('no guardado db '+e))
                 
-                console.log('Update after: '+update.save())
+                console.log('Update after: '+update)
 
                 conteo = consulta1.c + 1
                 console.log('Número de kiss actual: '+consulta1.c)
