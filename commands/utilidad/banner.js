@@ -21,7 +21,7 @@ module.exports =  {
             const e = new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
             .setColor('RED')
-            .setDescription(`<a:Verify2:931463492677017650> | El usuario (${img.username}) no tiene un banner o un color personalizado.!`)
+            .setDescription(`<a:Verify2:931463492677017650> | El usuario (${user.username}) no tiene un banner o un color personalizado.!`)
         
             return message.reply({ embeds: [e]})
     
