@@ -11,7 +11,6 @@ const DBL = require("dblapi.js");
 
 client.dbl = new DBL('777620055344545842',Discord.Guild);
 
-
 // ----- ***** -----
 
 // ----- MONGODB -----
