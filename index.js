@@ -9,7 +9,7 @@ const client = new Client({ allowedMentions: { parse: ['users'], repliedUser: tr
 const prefix = process.env.PREFIX;
 const DBL = require("dblapi.js");
 
-client.dbl = new DBL('777620055344545842',Discord.Guild);
+client.dbl = new DBL('777620055344545842');
 
 // ----- ***** -----
 
