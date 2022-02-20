@@ -6,10 +6,97 @@ const { Client, Intents } = require('discord.js');
 
 const client = new Client({ allowedMentions: { parse: ['users'], repliedUser: true }, intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_BANS, Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_TYPING, Intents.FLAGS.GUILD_PRESENCES] });
 
+const newUsers = new Discord.Collection();
+const listask = new Discord.Collection();
+
+const NSFW = require('discord-nsfw');
+const nsfw3 = new NSFW();
+
+const red = require('reddit-fetch');
+
+const over = require('poke-over');
+
+
 const prefix = process.env.PREFIX;
 const DBL = require("dblapi.js");
 
-//client.dbl = new DBL('777620055344545842');
+client.dbl = new DBL('777620055344545842');
+
+/*const moment = require('moment');
+require('moment-duration-format');*/
+
+/*const dbv = require('megadb');
+const vip = new dbv.crearDB('vip');
+const bl = new dbv.crearDB('blacklist');
+const fs = require('fs');*/
+
+
+/*const sqlite3 = require('sqlite3').verbose();
+
+const db = new sqlite3.Database("./bdmidgard.sqlite3",sqlite3.OPEN_READWRITE, (err) => {
+  
+  if(err) return console.error(err.message);
+
+  console.log('Conectado a SQLite exitosamente')
+});*/
+
+
+/*<-- CREATE TABLE USUARIO -->
+  
+let crear = "CREATE TABLE IF NOT EXISTS usuarios (idusuario TEXT, nivel INTEGER, exp INTEGER, rep INTEGER, frase BLOB, foto BLOB)"
+
+db.run(crear, function(err) {
+  if (err) return console.error('Error crear tabla: '+err.message)
+})*/
+
+// ----- SQLITE 3 -----
+
+const sqlite3 = require('sqlite3').verbose(),
+{ open } = require('sqlite');
+
+(async()=>{
+  
+  try {
+
+    client.db = await open({
+
+    filename: './Database/bdmidgard.db',
+    driver: sqlite3.Database,
+    mode: sqlite3.OPEN_READWRITE
+
+    })
+    
+    console.log('Archivo creado correctamente')
+  
+  } catch (error) {
+
+    console.log('Error al crear archivo: '+error)
+  
+  }
+
+  try {
+
+    await client.db.exec(`CREATE TABLE IF NOT EXISTS usuarios ('idusuario' TEXT NOT NULL, 'nivel' INTEGER DEFAULT 0, 'exp' INTEGER DEFAULT 0, 'marry' TEXT NO NULL, 'rep' INTEGER DEFAULT 0, 'pat' INTEGER DEFAULT 0, 'hug' INTEGER DEFAULT 0, 'sape' INTEGER DEFAULT 0, 'color' BLOB, 'frase' BLOB, 'foto' BLOB, 'dinero' INTEGER DEFAULT 0, 'banco' INTEGER DEFAULT 0, 'total' INTEGER DEFAULT 0, 'work' DATETIME,'crime' DATETIME, 'rob' DATETIME, 'daily' DATETIME, 'crep' DATETIME, 'ck' INTEGER DEFAULT 0)`)
+    console.log('Tabla usuarios creada correctamente')
+
+  } catch (error) {
+
+    console.log('Error al crear tabla: '+error)
+    
+  }
+
+  try {
+    
+    await client.db.exec(`CREATE TABLE IF NOT EXISTS kiss ('idkiss' INTEGER PRIMARY KEY AUTOINCREMENT, 'u1' TEXT NOT NULL, 'u2' TEXT NOT NULL, 'c' INTEGER DEFAULT 0)`)
+    console.log('Tabla kiss creada correctamente')
+  
+  } catch (error) {
+
+    console.log('Error al crear tabla: '+error)
+  
+  }
+
+})();
 
 // ----- ***** -----
 
@@ -69,19 +156,26 @@ client.login(process.env.TOKEN)
   })
   .catch((err) => {
 
+    //Si se produce un error al iniciar sesión, se le indicará en la consola.
     console.error("Error al iniciar sesión: " + err);
 
   });
 
 client.on('messageCreate', async message => {
 
+      //AQUÍ
+
     if(!message.content.startsWith(process.env.PREFIX)) return;
     
+    //const serverQueue = queue.get(message.guild.id);
+
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
 
     //COMANDOS DE MODERACIÓN
+
+
 
     /*if(command === 'kick' ){
 
