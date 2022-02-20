@@ -20,7 +20,7 @@ const over = require('poke-over');
 const prefix = process.env.PREFIX;
 const DBL = require("dblapi.js");
 
-client.dbl = new DBL('777620055344545842');
+client.dbl = new DBL('777620055344545842',guild);
 
 /*const moment = require('moment');
 require('moment-duration-format');*/
