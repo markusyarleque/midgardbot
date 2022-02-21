@@ -8,7 +8,7 @@ module.exports =  {
   
     async execute(client, message, args, Discord) {
 
-        let usuario = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
+        let usuario = message.mentions.users.first() || message.guild.members.resolve(client.users.cache.get(args[0]));
 
         if(!usuario) return message.reply({embeds: [
        
@@ -24,7 +24,7 @@ module.exports =  {
             client: client,
             slash_command: false,
             time: 300000,
-            opponent: usuario.username,
+            opponent: usuario,
             embed: {
                 title: 'Connect4',
                 color: 'RANDOM'
