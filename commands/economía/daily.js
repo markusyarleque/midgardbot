@@ -1,5 +1,4 @@
 const { Collection } = require('mongoose');
-const interactionCreate = require('../../events/guild/interactionCreate');
 const userSchema = require('../../models/userSchema');
 const prefix = process.env.PREFIX;
 
