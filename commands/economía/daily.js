@@ -189,8 +189,8 @@ module.exports =  {
                         content: '<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en 12 horas para reclamar tu recompensa diaria. No olvides de activar los mensajes directos!', 
                         ephemeral: true
 
-                    }).setTimeout((m) => m.delete(), 5000)
-                    
+                    }).then(m => setTimeout(() => m.delete(), 5000))
+
                     var msDelay = 12*3600000
                     setTimeout(reminder, msDelay);
 

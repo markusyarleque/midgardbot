@@ -203,10 +203,15 @@ module.exports =  {
            
                     if (int.customId === "primary") {
 
+                        await message.reply({ 
+                            
+                            content: '<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en 6 horas para volver a dar rep. No olvides de activar los mensajes directos!', 
+                            ephemeral: true
+                        
+                        }).then(m => setTimeout(() => m.delete(), 5000))
+                        
                         var msDelay = 6*3600000
                         
-                        await int.editReply({ content: '<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en 6 horas para volver a dar rep. No olvides de activar los mensajes directos!', ephemeral: true})
-                       
                         setTimeout(reminder, msDelay);
   
                         m.edit({ components: []})
