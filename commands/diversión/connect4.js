@@ -42,7 +42,7 @@ module.exports =  {
             cancelMessage: '{{opponent}} Se rehusa a jugar contigo!',
             endMessage: 'Juego no aceptado a tiempo',
             timeoutMessage: 'Juego detenido por inactividad',
-            authorOnly: 'No es tu turno',
+            authorOnly: 'No puedes usar estos botones',
         })
     }
 
