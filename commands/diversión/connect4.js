@@ -24,21 +24,21 @@ module.exports =  {
             client: client,
             slash_command: false,
             time: 300000,
-            opponent: usuario,
+            opponent: usuario.username,
             embed: {
                 title: 'Connect4',
-                color: 'RED'
+                color: 'RANDOM'
             },
             challenge: {
-                acceptButton: 'Accept',
-                denyButton: 'Deny',
+                acceptButton: 'Si',
+                denyButton: 'No',
             },
             emojis: {
                 player1: '🔴',
-                player2: '🟡',
+                player2: '🟢',
             },
             noUser: 'Necesitas mencionar a alguien',
-            acceptMessage: '{{player}} Has sido desafiado por {{opponent}}',
+            acceptMessage: '{{opponent}} Has sido desafiado por {{player}}',
             cancelMessage: '{{opponent}} Se rehusa a jugar contigo!',
             endMessage: 'Juego no aceptado a tiempo',
             timeoutMessage: 'Juego detenido por inactividad',
