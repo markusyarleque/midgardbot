@@ -277,12 +277,30 @@ module.exports =  {
 
                         if(userData.vip === true){
 
+                            if(userData.foto === 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif'){
+                                
                             av = 'https://media.discordapp.net/attachments/936039644959756319/939616267852189746/tuxedo.gif?width=263&height=147'
+                            
+                            } else {
+
+                                av = userData.foto
+
+                            }
+
                             footer = `Midgard's VIP`
 
                         } else {
 
-                            av = 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif'
+                            if(userData.foto === 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif'){
+                                
+                                av = 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif'
+                            
+                            } else {
+
+                                av = userData.foto
+
+                            }
+
                             footer = `MidgardBot`
 
                         }
