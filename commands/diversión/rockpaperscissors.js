@@ -30,8 +30,8 @@ module.exports =  {
             winMessage: '{{user}} Tú ganas! Eres el mejor <a:Dancing_Duck:930402083625111613>',
             loseMessage: '{{user}} Perdiste! No puedes contra mí <a:ayajasisi:945203356140441650>',
             tieMessage: 'Tiempo Fuera. Esto es un empate!',
-            chooseMessage: 'Tú elige',
-            botMessage: 'El bot elige',
+            chooseMessage: 'Elegiste',
+            botMessage: 'El bot eligió',
             ongoingMessage: 'Ya tienes un juego en curso',
         })
 
