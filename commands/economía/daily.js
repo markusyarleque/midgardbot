@@ -184,14 +184,13 @@ module.exports =  {
        
                 if (int.customId === "primary") {
 
-                   await int.deferReply();
-		            await wait(2000);
-                    await int.editReply({ 
+                    await message.reply({ 
 
                         content: '<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en 12 horas para reclamar tu recompensa diaria. No olvides de activar los mensajes directos!', 
                         ephemeral: true
 
-                    })
+                    }).setTimeout((m) => m.delete(), 5000)
+                    
                     var msDelay = 12*3600000
                     setTimeout(reminder, msDelay);
 
