@@ -205,7 +205,7 @@ module.exports =  {
 
                         var msDelay = 6*3600000
                         
-                        await int.reply({ content: '<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en 6 horas para volver a dar rep. No olvides de activar los mensajes directos!', ephemeral: true})
+                        await int.editReply({ content: '<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en 6 horas para volver a dar rep. No olvides de activar los mensajes directos!', ephemeral: true})
                        
                         setTimeout(reminder, msDelay);
   
