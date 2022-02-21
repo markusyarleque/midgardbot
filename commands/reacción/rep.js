@@ -202,10 +202,12 @@ module.exports =  {
                     int.deferUpdate();
            
                     if (int.customId === "primary") {
-                
+
+                        await int.deferReply();
+
                         var msDelay = 6*3600000
                         
-                        await int.followUp({ content: '<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en 6 horas para volver a dar rep. No olvides de activar los mensajes directos!', ephemeral: true})
+                        await int.reply({ content: '<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en 6 horas para volver a dar rep. No olvides de activar los mensajes directos!', ephemeral: true})
                        
                         setTimeout(reminder, msDelay);
   
