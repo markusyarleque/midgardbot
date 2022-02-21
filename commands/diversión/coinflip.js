@@ -1,4 +1,4 @@
-const { Connect4 } = require('leaf-utils');
+const { CoinFlip } = require('leaf-utils');
 
 module.exports =  {
     
