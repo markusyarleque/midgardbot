@@ -40,7 +40,7 @@ module.exports =  {
               correctButton: 'SUCCESS',
               wrongButton: 'DANGER',
             },
-            noUser: 'Deberías mencionar a un usario',
+            noUser: 'Deberías mencionar a un usuario',
             startMessage: 'El botón aparecerá en unos segundos... Buena suerte!',
             mainMessage: 'Haz Click en el botón correcto para Ganar',
             acceptMessage: '{{opponent}} Has sido desafiado por {{player}}',
