@@ -2861,6 +2861,38 @@ client.on('messageCreate', async message => {
 
 });
 
+// --- GUIL - interactionCreate.js
+// module.exports = (client, Discord, interaction) => {
+
+//   //? BUTTONS
+  
+//   // if(interaction.isButton()){
+
+//   //     const member = interaction.member
+
+//   //     if(interaction.customId === 'acprueba'){
+          
+//   //         interacation.deferReply({ ephemeral: true})
+//   //         interaction.followUp({ content: 'Hola'})
+
+//   //         return console.log('Prueba aceptada por el usuario: '+member)
+          
+//   //     }
+//   //     if(interaction.customId === 'denyprueba'){
+
+//   //         interaction.deferReply({ ephemeral: true})
+//   //         interaction.followUp({ content: 'Hola'})
+
+//   //         return console.log('Prueba denegada')
+//   //     }
+
+//   // }
+
+//   //? BUTTONS
+
+// }
+
+
 client.on('error', (e) => console.error(e));
 client.on('warn', (e) => console.warn(e));
 client.on('debug', (e) => console.info(e));

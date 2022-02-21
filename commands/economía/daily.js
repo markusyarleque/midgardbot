@@ -145,7 +145,7 @@ module.exports =  {
             .setDescription('<a:exclama2:880930071731392512> | Tu última recompensa diaria fue reclamada hace 12 horas. ¡Ya puedes volver a usar el comando `'+prefix+'daily` para canjear tus coins extras.\n\n Asegúrate de haber votado antes por el servidor en Top.gg para obtener el doble de beneficios. \n\n <a:flech:931432469935312937> Link: https://top.gg/servers/777620055344545842/vote')
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`MidgardBot`,client.user.avatarURL())
+            .setFooter({ text: `MidgardBot`, iconURL: client.user.avatarURL()})
     
             message.author.send({ embeds: [emb]}).catch(err => console.log('Error al enviar recordatorio de daily al dm de: '+message.author.username+' - Error: '+err))
 
@@ -160,7 +160,7 @@ module.exports =  {
         .setColor(buscarUsuario.color)
         .setDescription(`Felicidades **${message.author.username}**! Has recibido <a:money:930397094924124180> **` + numero.toLocaleString('en-US') + `** como recompensa diaria.\n¡Muchas gracias por usar mis comandos!`)
         .setTimestamp()
-        .setFooter(`MidgardBot`,client.user.avatarURL())
+        .setFooter({ text: `MidgardBot`, iconURL: client.user.avatarURL()})
 
         const bRm = new Discord.MessageButton()
         .setCustomId('primary')
