@@ -17,7 +17,7 @@ module.exports =  {
             time: 300000,
             embed: {
               title: '¿𝚀𝚞𝚒é𝚗 𝚎𝚜 𝚎𝚜𝚎 𝙿𝚘𝚔é𝚖𝚘𝚗?',
-              description: 'Escribe su nombre, tienes 60 Segundos para responder ⌛',
+              description: 'Escribe su nombre, tienes 5 minutos para responder ⌛',
               color: 'RANDOM',
               stopcolor: '#D52000',
             },
@@ -26,8 +26,8 @@ module.exports =  {
               style: 'DANGER',
               emoji: '⏹️' // optional
             },
-            correctMessage: 'GG! 𝐀𝐂𝐄𝐑𝐓𝐀𝐒𝐓𝐄!. El Pokémon es {{pokemon}}',
-            wrongMessage: '𝐄𝐑𝐑𝐎𝐑!. El Pokémon era {{pokemon}}',
+            correctMessage: 'GG! 𝐀𝐂𝐄𝐑𝐓𝐀𝐒𝐓𝐄!. El Pokémon es ***{{pokemon}}***',
+            wrongMessage: '𝐄𝐑𝐑𝐎𝐑!. El Pokémon era **{{pokemon}}**',
             stopMessage: 'Has finalizado el juego, el pokémon correcto era {{pokemon}}',
             authorOnly: 'Solo <@{{author}}> puede usar estos botones!',
         })
