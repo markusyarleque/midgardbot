@@ -9,7 +9,7 @@ module.exports =  {
         var cadena = args.join(' ') 
 
         cadena = cadena.replace(/[aeou]/ig, "i")
-
+        setTimeout(() => message.delete(), 100);
         return message.channel.send(cadena)
 
     }
