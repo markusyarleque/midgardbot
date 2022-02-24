@@ -54,7 +54,7 @@ module.exports = {
             const channels = server.channels.cache;
             const emojis = server.emojis.cache;
   
-            const embed = new client.MessageEmbed()
+            const embed = new MessageEmbed()
             .setThumbnail(server.iconURL({ dynamic: true }))
             .setAuthor(server.name, client.user.avatarURL())
             .addField('ID:', server.id, false)
