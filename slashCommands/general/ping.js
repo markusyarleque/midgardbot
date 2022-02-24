@@ -13,7 +13,7 @@ module.exports = {
             let ping = Math.floor(interaction.client.ws.ping);
             
             await interaction.reply({ content: ':ping_pong: Pong!', ephemeral: true})
-            await wait(1000)
+            await wait(500)
             await interaction.editReply({ content: `:incoming_envelope: Ping Mensajes: \`${Math.floor(interaction.createdTimestamp - Date.now())} ms\`\n:satellite_orbital: Ping DiscordAPI: \`${ping} ms\``, ephemeral: true});
               
 
