@@ -51,11 +51,11 @@ module.exports = {
             .addField(`Canales`, `${client.channels.cache.size}`)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter({text: `Malta's Bot`, iconURL: `${message.author.displayAvatarURL()}`})
+            .setFooter({text: `Malta's Bot`, iconURL: `${interaction.user.displayAvatarURL()}`})
                 
             await interaction.deferReply();
             await wait(500);
-            await interaction.editReply({ embeds: [e]})
+            await interaction.editReply({ embeds: [embed]})
 
         } catch (error) {
 
