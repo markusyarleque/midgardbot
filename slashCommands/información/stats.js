@@ -8,9 +8,10 @@ module.exports = {
 
     run: async (client, interaction) => {
         
+        const wait = require('util').promisify(setTimeout)
+            
         try {
             
-            const wait = require('util').promisify(setTimeout)
             const moment = require('moment');
             require('moment-duration-format');
       
