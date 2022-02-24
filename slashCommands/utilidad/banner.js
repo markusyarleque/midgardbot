@@ -23,17 +23,19 @@ module.exports = {
         try {
             
             const u = interaction.options.getUser('usuario')
-            let user
+            let usuario
 
             if(u){
 
-                user = u
+                usuario = u
 
             } else {
 
-                user = interaction.user
+                usuario = interaction.user
 
             }
+
+            let user = await client.users.fetch(usuario.id, {force: true})
 
             let canvas = Canvas.createCanvas(966, 70); //Creamos un nuevo canvas.
 
