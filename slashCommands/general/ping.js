@@ -10,12 +10,10 @@ module.exports = {
 
             let ping = Math.floor(interaction.client.ws.ping);
             
-            interaction.reply({ content: ':ping_pong: Pong!', ephemeral: true})
-            .then(i => {
-        
-                i.editReply({ content: `:incoming_envelope: Ping Mensajes: \`${Math.floor(i.createdTimestamp - Date.now())} ms\`\n:satellite_orbital: Ping DiscordAPI: \`${ping} ms\``, ephemeral: true});
+            await interaction.reply({ content: ':ping_pong: Pong!', ephemeral: true})
+            await wait(1000)
+            await interaction.editReply({ content: `:incoming_envelope: Ping Mensajes: \`${Math.floor(i.createdTimestamp - Date.now())} ms\`\n:satellite_orbital: Ping DiscordAPI: \`${ping} ms\``, ephemeral: true});
               
-            });
 
         } catch (error) {
             
