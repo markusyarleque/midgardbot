@@ -30,6 +30,8 @@ module.exports = (client, Discord, interaction) => {
 
     //* SLASH COMMANDS
     
+    if (!interaction.isCommand()) return
+
     if(interaction.isCommand()){
 
         const command = client.slash.get(interaction.commandName)
