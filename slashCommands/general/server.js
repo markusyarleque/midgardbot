@@ -58,7 +58,7 @@ module.exports = {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail(server.iconURL({ dynamic: true }))
-            .setAuthor(server.name, client.user.avatarURL())
+            .setAuthor({ name: server.name, iconURL: client.user.avatarURL()})
             .addField('ID:', server.id, false)
             .addField('Dueño:', `${(await server.fetchOwner()).user.tag} (${(await server.fetchOwner()).id})` , true)
             .addField('Creado el:', moment(server.createdTimestamp).format('LL') + ' a las '+moment(server.createdTimestamp).format('LT') + ' [' + moment(server.createdTimestamp).fromNow()+' ]', false)
@@ -74,7 +74,7 @@ module.exports = {
             .setImage(server.bannerURL({ dynamic: true, size: 4096 }).replace('webp','png'))
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(interaction.author.username+'#'+interaction.author.discriminator, `${interaction.author.displayAvatarURL({ dynamic: true }).replace('webp','png')}`); 
+            .setFooter({ text: interaction.user.username+'#'+interaction.user.discriminator, iconURL: `${interaction.user.displayAvatarURL({ dynamic: true }).replace('webp','png')}`}); 
 
             await interaction.reply({ embeds: [embed] })  
 
