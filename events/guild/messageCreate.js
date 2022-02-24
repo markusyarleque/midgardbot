@@ -789,6 +789,8 @@ module.exports = async (client, Discord, message) => {
     const command = args.shift().toLowerCase()
     const prueba = message.content.split(' ')
 
+    if(!command) return
+    
     try {
         
         userbl = await blSchema.findOne({idusuario: message.author.id})
