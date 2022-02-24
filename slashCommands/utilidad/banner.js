@@ -60,8 +60,6 @@ module.exports = {
 
                 if(!user.bannerURL()){
                     
-                    await interaction.deferReply();
-                    await wait(500);
                     await interaction.editReply({ files: 
                         
                         [{
@@ -89,8 +87,6 @@ module.exports = {
 
                 } else {
 
-                    await interaction.deferReply();
-                    await wait(500);
                     await interaction.editReply({ 
             
                         embeds: [
