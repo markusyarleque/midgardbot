@@ -13,7 +13,7 @@ module.exports = {
             embed: {
                 title: 'Calculadora',
                 color: 'RANDOM',
-                footer: ';)',
+                footer: client.user.username,
                 timestamp: true
             },
             disabledQuery: 'La calculadora está desactivada!',
