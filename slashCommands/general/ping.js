@@ -20,7 +20,7 @@ module.exports = {
         } catch (error) {
             
             console.log('Error en el SC ping: '+error)
-            await interaction.reply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado.Por favor, Inténtelo de nuevo!', ephemeral: true})
+            await interaction.editReply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado.Por favor, Inténtelo de nuevo!', ephemeral: true})
             
         }
 
