@@ -7,6 +7,8 @@ module.exports = {
     options: [],
 
     run: async (client, interaction) => {
+        
+        const wait = require('util').promisify(setTimeout)
 
         try {
 
