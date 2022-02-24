@@ -23,7 +23,7 @@ module.exports = {
             .setTimestamp(new Date())
             .setFooter({ text: `${interaction.guild.name} • Muchas gracias por tu voto!`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif'})
       
-            const row = new MessageActionRow()
+            const row = new Discord.MessageActionRow()
             .addComponents(
 
                 new MessageButton()
