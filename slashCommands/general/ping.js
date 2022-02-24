@@ -13,14 +13,15 @@ module.exports = {
             let ping = Math.floor(interaction.client.ws.ping);
             
             await interaction.reply({ content: ':ping_pong: Pong!', ephemeral: true})
-            await wait(500)
+            await wat(500)
             await interaction.editReply({ content: `:incoming_envelope: Ping Mensajes: \`${Math.floor(interaction.createdTimestamp - Date.now())} ms\`\n:satellite_orbital: Ping DiscordAPI: \`${ping} ms\``, ephemeral: true});
               
 
         } catch (error) {
             
             console.log('Error en el SC ping: '+error)
-
+            await interaction.reply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado.Por favor, Inténtelo de nuevo!', ephemeral: true})
+            
         }
 
     }
