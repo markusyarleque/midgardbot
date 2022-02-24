@@ -45,6 +45,7 @@
     "poke-over": "^1.0.5",
     "rae-api": "^1.2.4-a",
     "reddit-fetch": "^1.5.1",
+    "slash-calculator": "^1.0.1",
     "sqlite": "^4.0.23",
     "sqlite3": "^5.0.2",
     "star-labs": "^1.1.2",
