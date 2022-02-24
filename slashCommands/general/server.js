@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 module.exports = {
 
     name: 'server',
@@ -54,7 +56,7 @@ module.exports = {
             const channels = server.channels.cache;
             const emojis = server.emojis.cache;
   
-            const embed = new MessageEmbed()
+            const embed = new Discord.MessageEmbed()
             .setThumbnail(server.iconURL({ dynamic: true }))
             .setAuthor(server.name, client.user.avatarURL())
             .addField('ID:', server.id, false)
