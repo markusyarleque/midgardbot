@@ -26,7 +26,7 @@ module.exports = {
             const row = new Discord.MessageActionRow()
             .addComponents(
 
-                new MessageButton()
+                new Discord.MessageButton()
         
                 .setLabel('VOTAR') 
                 .setStyle('LINK') 
