@@ -14,7 +14,7 @@ module.exports = {
             
             await interaction.reply({ content: ':ping_pong: Pong!', ephemeral: true})
             await wait(1000)
-            await interaction.editReply({ content: `:incoming_envelope: Ping Mensajes: \`${Math.floor(i.createdTimestamp - Date.now())} ms\`\n:satellite_orbital: Ping DiscordAPI: \`${ping} ms\``, ephemeral: true});
+            await interaction.editReply({ content: `:incoming_envelope: Ping Mensajes: \`${Math.floor(interaction.createdTimestamp - Date.now())} ms\`\n:satellite_orbital: Ping DiscordAPI: \`${ping} ms\``, ephemeral: true});
               
 
         } catch (error) {
