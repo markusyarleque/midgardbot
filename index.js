@@ -193,7 +193,7 @@ client.on('messageCreate', async message => {
         message.channel.send(`**${user.username}**, fue kickeado del servidor, razón: ${razon}.`);
     
     }*/
-    if(command === 'ban' || command === 'kick') return message.channel.send('Comando en remodelación!')
+    // if(command === 'ban' || command === 'kick') return message.channel.send('Comando en remodelación!')
     /*if(command === 'ban'){
 
       const embed = new Discord.MessageEmbed()
@@ -2785,7 +2785,7 @@ client.on('messageCreate', async message => {
 
     }*/
 
-    if(command === 'k' || command === 'karaoke') return message.channel.send('Comando en Mantenimiento!')
+    //if(command === 'k' || command === 'karaoke') return message.channel.send('Comando en Mantenimiento!')
 
 
     /*var tt = [
