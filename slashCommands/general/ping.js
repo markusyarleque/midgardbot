@@ -13,7 +13,7 @@ module.exports = {
             interaction.reply({ content: ':ping_pong: Pong!', ephemeral: true})
             .then(i => {
         
-                i.edit({ content: `:incoming_envelope: Ping Mensajes: \`${Math.floor(i.createdTimestamp - Date.now())} ms\`\n:satellite_orbital: Ping DiscordAPI: \`${ping} ms\``, ephemeral: true});
+                i.editReply({ content: `:incoming_envelope: Ping Mensajes: \`${Math.floor(i.createdTimestamp - Date.now())} ms\`\n:satellite_orbital: Ping DiscordAPI: \`${ping} ms\``, ephemeral: true});
               
             });
 
