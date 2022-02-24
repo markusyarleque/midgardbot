@@ -59,7 +59,9 @@ module.exports = {
                 let img = await canvas.toBuffer();
 
                 if(!user.bannerURL()){
-                    
+
+                    await interaction.deferReply();
+                    await wait(500);
                     await interaction.editReply({ files: 
                         
                         [{
@@ -87,6 +89,8 @@ module.exports = {
 
                 } else {
 
+                    await interaction.deferReply();
+                    await wait(500);
                     await interaction.editReply({ 
             
                         embeds: [
@@ -110,6 +114,8 @@ module.exports = {
 
         } catch (error) {
             
+            await interaction.deferReply();
+            await wait(500);
             await interaction.editReply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado. Por favor, inténtelo de nuevo!', ephemeral: true})
             
             console.log('Error en el SC banner: '+error)
