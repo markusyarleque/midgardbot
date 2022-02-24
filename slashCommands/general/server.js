@@ -75,10 +75,16 @@ module.exports = {
             .setColor('RANDOM')
             .setTimestamp(new Date())
             .setFooter({ text: interaction.user.username+'#'+interaction.user.discriminator, iconURL: `${interaction.user.displayAvatarURL({ dynamic: true }).replace('webp','png')}`}); 
-
-            await interaction.reply({ embeds: [embed] })  
+            
+            await interaction.deferReply();
+            await wait(500);
+            await interaction.editReply({ embeds: [embed] })  
 
         } catch (error) {
+
+            await interaction.deferReply();
+            await wait(500);
+            await interaction.editReply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado. Por favor, inténtelo de nuevo!', ephemeral: true})
             
             console.log('Error en el SC server: '+error)
 

@@ -44,12 +44,18 @@ module.exports = {
                 .setColor('RANDOM')
                 .setTimestamp(new Date())
                 .setFooter({ text: `${interaction.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif'})
-            
-                await interaction.reply({ embeds: [embed] })
+                
+                await interaction.deferReply();
+                await wait(500);
+                await interaction.editReply({ embeds: [embed] })
 
             }
 
         } catch (error) {
+
+            await interaction.deferReply();
+            await wait(500);
+            await interaction.editReply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado. Por favor, inténtelo de nuevo!', ephemeral: true})
             
             console.log('Error en el SC avatar: '+error)
 
