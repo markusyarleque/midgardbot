@@ -18,9 +18,9 @@ const over = require('poke-over');
 
 
 const prefix = process.env.PREFIX;
-const DBL = require("dblapi.js");
+// const DBL = require("dblapi.js");
 
-client.dbl = new DBL('Yfnr7FYWyZ6DnlUD0pKGbr2cIQkBUMYZ6dWpPPv8X8_AC2nGJSMy_1fA6NwAgAH7UQnS');
+// client.dbl = new DBL('Yfnr7FYWyZ6DnlUD0pKGbr2cIQkBUMYZ6dWpPPv8X8_AC2nGJSMy_1fA6NwAgAH7UQnS');
 
 /*const moment = require('moment');
 require('moment-duration-format');*/
