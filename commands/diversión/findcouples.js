@@ -21,7 +21,7 @@ module.exports =  {
                 middle: 'PRIMARY',
                 wrong: 'DANGER',
             },
-            winMessage: 'Felicidades <@{{user}}>! Ganaste.',
+            winMessage: 'Felicidades {{user}}! Ganaste.',
             endMessage: 'El tiempo ha terminado! El juego fue detenido por inactividad.',
             authorOnly: 'Solo <@{{author}}> puede usar estos botones!',
         })

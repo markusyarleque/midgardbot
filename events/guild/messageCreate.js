@@ -4,6 +4,7 @@ const Similar = require('string-similarity');
 //& Modelos
 const userModel = require('../../models/userSchema');
 const blSchema = require('../../models/blSchema');
+const autoSchema = require('../../models/autoSchema');
 //& Modelos
 
 module.exports = async (client, Discord, message) => {
@@ -119,6 +120,14 @@ module.exports = async (client, Discord, message) => {
     }
     
     if (message.author.bot) return;
+
+    autorespuesta = await autoSchema.findOne({trigger: message.content.toLowerCase()})
+
+    if(autorespuesta){
+
+        message.channel.send(autorespuesta.response)
+
+    }
 
     if (message.content === 'Hola' || message.content === 'hola' || message.content === 'Holas' || message.content === 'holas'){
           
