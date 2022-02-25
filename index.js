@@ -20,7 +20,7 @@ const over = require('poke-over');
 const prefix = process.env.PREFIX;
 const DBL = require("dblapi.js");
 
-client.dbl = new DBL('777620055344545842');
+client.dbl = new DBL('https://webhook-topgg.com/webhooks/944871412001288222?&formatting=%3Cmentionuser%3E%20ha%20votado%20por%20%3Cmentionor%3E!&server=%E2%88%BE%20%F0%9F%8C%A0%20%F0%9D%90%8C%F0%9D%90%88%F0%9D%90%83%F0%9D%90%86%F0%9D%90%80%F0%9D%90%91%F0%9D%90%83%20%F0%9F%8C%9F%20%E2%88%BE&embed=%7B%22title%22:%22Voted%22,%22description%22:%22%3Cmentionuser%3E%20Voted%20for%20%3Cmentionor%3E!%22,%22url%22:%22%3Ctoplink%3E%22,%22color%22:13938487,%22fields%22:%5B%7B%22name%22:%22Can%20vote%20again%20at:%20%22,%22value%22:%22%3Ctimerevote%3E%22,%22inline%22:true%7D,%7B%22name%22:%22Total%20Votes:%20%22,%22value%22:%22%3Ccount%3E%22,%22inline%22:true%7D,%7B%22name%22:%22Current%20Vote%20Streak:%20%22,%22value%22:%22%3Cstreak%3E%22,%22inline%22:true%7D%5D%7D');
 
 /*const moment = require('moment');
 require('moment-duration-format');*/
