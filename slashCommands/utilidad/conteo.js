@@ -10,8 +10,8 @@ module.exports = {
             name: 'número', 
             description: 'Ingresa un número', 
             type: 'INTEGER',
-            require: 'true',
-
+            require: 'TRUE',
+            
         },
     ],
 
@@ -71,7 +71,7 @@ module.exports = {
                             let count1 = setInterval(async () => {
                     
                                 await interaction.editReply(time <= 0 ? `Se acabó el tiempo ⌛` : String(time))
-                                time <= 0 ? interaction.editReply(`${interaction.user.username}... El conteo regresivo, ha llegado a su fin.`) : time
+                                time <= 0 ? interaction.editReply(`${interaction.user}... El conteo regresivo, ha llegado a su fin.`) : time
                                 time <= 0 ? clearInterval(count1) : time -= 2;
                                 
                             }, 2000)
@@ -81,7 +81,7 @@ module.exports = {
                             let count2 = setInterval(async () => {
                     
                                 await interaction.editReply(time <= 0  ? `... Se acabó el tiempo ⌛` : String(time))
-                                time <= 0 ? interaction.editReply(`${interaction.user.username}... El conteo regresivo, ha llegado a su fin.`) : time
+                                time <= 0 ? interaction.editReply(`${interaction.user}... El conteo regresivo, ha llegado a su fin.`) : time
                                 time <= 0 ? clearInterval(count2) : time -= 3
                     
                             }, 3000)
