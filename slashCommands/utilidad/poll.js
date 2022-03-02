@@ -122,61 +122,61 @@ module.exports = {
 
             if(!o1 || !o2 ){
 
-                embed.addField('<a:uno:932368116749594674> **Sí**', '..........')
-                embed.addField('<a:dos:932368203458445362> **No**', '..........')
+                embed.addField('<a:letraA:948726710713606214> **Sí**', '..........')
+                embed.addField('<a:letraB:948726773938524261> **No**', '..........')
                 
                 await interaction.deferReply();
                 await wait(500);
                 await interaction.editReply({ embeds: [embed]}).then(async function(i) {
 
-                    i.react('<a:uno:932368116749594674>');
-                    i.react('<a:dos:932368203458445362>');
+                    i.react('<a:letraA:948726710713606214>');
+                    i.react('<a:letraB:948726773938524261>');
     
                 });
 
             } else {
 
-                embed.addField('<a:uno:932368116749594674> **' + o1 + '**', '..........')
-                embed.addField('<a:dos:932368203458445362> **' + o2 + '**', '..........')
+                embed.addField('<a:letraA:948726710713606214> **' + o1 + '**', '..........')
+                embed.addField('<a:letraB:948726773938524261> **' + o2 + '**', '..........')
                 
                 if(o3){
 
-                    embed.addField('<a:tres:932368254335340614> **' + o3 + '**', '..........');
+                    embed.addField('<a:letraC:948727037340827718> **' + o3 + '**', '..........');
 
                 } 
                 if(o4){
 
-                    embed.addField('<a:cuatro:932368291249397780> **' + o4 + '**', '..........');
+                    embed.addField('<a:letraD:948727118605459497> **' + o4 + '**', '..........');
 
                 } 
                 if(o5){
 
-                    embed.addField('<a:cinco:932368321578426449> **' + o5 + '**', '..........');
+                    embed.addField('<a:letraE:948727195377999994> **' + o5 + '**', '..........');
 
                 } 
                 if(o6){
 
-                    embed.addField('<a:seis:932368350187757671> **' + o6 + '**', '..........');
+                    embed.addField('<a:letraF:948727265510981724> **' + o6 + '**', '..........');
 
                 } 
                 if(o7){
 
-                    embed.addField('<a:siete:932368376909693008> **' + o7 + '**', '..........');
+                    embed.addField('<a:letraG:948727324323508244> **' + o7 + '**', '..........');
 
                 }
                 if(o8){
 
-                    embed.addField('<a:ocho:932368405372223528> **' + o8 + '**', '..........');
+                    embed.addField('<a:letraH:948727421983666276> **' + o8 + '**', '..........');
 
                 } 
                 if(o9){
 
-                    embed.addField('<a:nueve:932368436774981642> **' + o9 + '**', '..........');
+                    embed.addField('<a:letraI:948727492368273439> **' + o9 + '**', '..........');
 
                 } 
                 if(o10){
 
-                    embed.addField('🅰 **' + o10 + '**', '..........');
+                    embed.addField('<a:letraJ:948727557946245141> **' + o10 + '**', '..........');
 
                 }
 
@@ -186,9 +186,9 @@ module.exports = {
                     await wait(500);
                     await interaction.editReply({ embeds: [embed]}).then(async function(i) {
 
-                        i.react('<a:uno:932368116749594674>');
-                        i.react('<a:dos:932368203458445362>');
-                        i.react('<a:tres:932368254335340614>');
+                        i.react('<a:letraA:948726710713606214>');
+                        i.react('<a:letraB:948726773938524261>');
+                        i.react('<a:letraC:948727037340827718>');
     
                     });
 
@@ -198,10 +198,10 @@ module.exports = {
                     await wait(500);
                     await interaction.editReply({ embeds: [embed]}).then(async function(i) {
 
-                        i.react('<a:uno:932368116749594674>');
-                        i.react('<a:dos:932368203458445362>');
-                        i.react('<a:tres:932368254335340614>');
-                        i.react('<a:cuatro:932368291249397780>');
+                        i.react('<a:letraA:948726710713606214>');
+                        i.react('<a:letraB:948726773938524261>');
+                        i.react('<a:letraC:948727037340827718>');
+                        i.react('<a:letraD:948727118605459497>');
     
                     });
 
@@ -211,11 +211,11 @@ module.exports = {
                     await wait(500);
                     await interaction.editReply({ embeds: [embed]}).then(async function(i) {
 
-                        i.react('<a:uno:932368116749594674>');
-                        i.react('<a:dos:932368203458445362>');
-                        i.react('<a:tres:932368254335340614>');
-                        i.react('<a:cuatro:932368291249397780>');
-                        i.react('<a:cinco:932368321578426449>');
+                        i.react('<a:letraA:948726710713606214>');
+                        i.react('<a:letraB:948726773938524261>');
+                        i.react('<a:letraC:948727037340827718>');
+                        i.react('<a:letraD:948727118605459497>');
+                        i.react('<a:letraE:948727195377999994>');
     
                     });
 
@@ -225,12 +225,12 @@ module.exports = {
                     await wait(500);
                     await interaction.editReply({ embeds: [embed]}).then(async function(i) {
 
-                        i.react('<a:uno:932368116749594674>');
-                        i.react('<a:dos:932368203458445362>');
-                        i.react('<a:tres:932368254335340614>');
-                        i.react('<a:cuatro:932368291249397780>');
-                        i.react('<a:cinco:932368321578426449>');
-                        i.react('<a:seis:932368350187757671>');
+                        i.react('<a:letraA:948726710713606214>');
+                        i.react('<a:letraB:948726773938524261>');
+                        i.react('<a:letraC:948727037340827718>');
+                        i.react('<a:letraD:948727118605459497>');
+                        i.react('<a:letraE:948727195377999994>');
+                        i.react('<a:letraF:948727265510981724>');
     
                     });
 
@@ -240,13 +240,13 @@ module.exports = {
                     await wait(500);
                     await interaction.editReply({ embeds: [embed]}).then(async function(i) {
 
-                        i.react('<a:uno:932368116749594674>');
-                        i.react('<a:dos:932368203458445362>');
-                        i.react('<a:tres:932368254335340614>');
-                        i.react('<a:cuatro:932368291249397780>');
-                        i.react('<a:cinco:932368321578426449>');
-                        i.react('<a:seis:932368350187757671>');
-                        i.react('<a:siete:932368376909693008>');
+                        i.react('<a:letraA:948726710713606214>');
+                        i.react('<a:letraB:948726773938524261>');
+                        i.react('<a:letraC:948727037340827718>');
+                        i.react('<a:letraD:948727118605459497>');
+                        i.react('<a:letraE:948727195377999994>');
+                        i.react('<a:letraF:948727265510981724>');
+                        i.react('<a:letraG:948727324323508244>');
     
                     });
 
@@ -256,14 +256,14 @@ module.exports = {
                     await wait(500);
                     await interaction.editReply({ embeds: [embed]}).then(async function(i) {
 
-                        i.react('<a:uno:932368116749594674>');
-                        i.react('<a:dos:932368203458445362>');
-                        i.react('<a:tres:932368254335340614>');
-                        i.react('<a:cuatro:932368291249397780>');
-                        i.react('<a:cinco:932368321578426449>');
-                        i.react('<a:seis:932368350187757671>');
-                        i.react('<a:siete:932368376909693008>');
-                        i.react('<a:ocho:932368405372223528>');
+                        i.react('<a:letraA:948726710713606214>');
+                        i.react('<a:letraB:948726773938524261>');
+                        i.react('<a:letraC:948727037340827718>');
+                        i.react('<a:letraD:948727118605459497>');
+                        i.react('<a:letraE:948727195377999994>');
+                        i.react('<a:letraF:948727265510981724>');
+                        i.react('<a:letraG:948727324323508244>');
+                        i.react('<a:letraH:948727421983666276>');
     
                     });
 
@@ -273,15 +273,15 @@ module.exports = {
                     await wait(500);
                     await interaction.editReply({ embeds: [embed]}).then(async function(i) {
 
-                        i.react('<a:uno:932368116749594674>');
-                        i.react('<a:dos:932368203458445362>');
-                        i.react('<a:tres:932368254335340614>');
-                        i.react('<a:cuatro:932368291249397780>');
-                        i.react('<a:cinco:932368321578426449>');
-                        i.react('<a:seis:932368350187757671>');
-                        i.react('<a:siete:932368376909693008>');
-                        i.react('<a:ocho:932368405372223528>');
-                        i.react('<a:nueve:932368436774981642>');
+                        i.react('<a:letraA:948726710713606214>');
+                        i.react('<a:letraB:948726773938524261>');
+                        i.react('<a:letraC:948727037340827718>');
+                        i.react('<a:letraD:948727118605459497>');
+                        i.react('<a:letraE:948727195377999994>');
+                        i.react('<a:letraF:948727265510981724>');
+                        i.react('<a:letraG:948727324323508244>');
+                        i.react('<a:letraH:948727421983666276>');
+                        i.react('<a:letraI:948727492368273439>');
     
                     });
 
@@ -292,16 +292,16 @@ module.exports = {
                     await wait(500);
                     await interaction.editReply({ embeds: [embed]}).then(async function(i) {
 
-                        i.react('<a:uno:932368116749594674>');
-                        i.react('<a:dos:932368203458445362>');
-                        i.react('<a:tres:932368254335340614>');
-                        i.react('<a:cuatro:932368291249397780>');
-                        i.react('<a:cinco:932368321578426449>');
-                        i.react('<a:seis:932368350187757671>');
-                        i.react('<a:siete:932368376909693008>');
-                        i.react('<a:ocho:932368405372223528>');
-                        i.react('<a:nueve:932368436774981642>');
-                        i.react('🅰');
+                        i.react('<a:letraA:948726710713606214>');
+                        i.react('<a:letraB:948726773938524261>');
+                        i.react('<a:letraC:948727037340827718>');
+                        i.react('<a:letraD:948727118605459497>');
+                        i.react('<a:letraE:948727195377999994>');
+                        i.react('<a:letraF:948727265510981724>');
+                        i.react('<a:letraG:948727324323508244>');
+                        i.react('<a:letraH:948727421983666276>');
+                        i.react('<a:letraI:948727492368273439>');
+                        i.react('<a:letraJ:948727557946245141>');
 
                     });
                     
