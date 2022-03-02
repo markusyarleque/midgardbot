@@ -10,7 +10,7 @@ module.exports = {
             name: 'número', 
             description: 'Ingresa un número', 
             type: 'INTEGER',
-            require: 'TRUE',
+            required: 'true',
 
         },
     ],

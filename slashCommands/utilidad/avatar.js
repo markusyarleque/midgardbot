@@ -10,7 +10,7 @@ module.exports = {
             name: 'usuario', 
             description: 'Menciona a un usuario', 
             type: 'USER',
-            require: 'false',
+            required: 'false',
 
         },
     ],
