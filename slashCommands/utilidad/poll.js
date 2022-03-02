@@ -120,7 +120,7 @@ module.exports = {
             .setTimestamp(new Date())
             .setFooter({ text: `${interaction.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif'})
 
-            if(!o1 || !o2 || !o3){
+            if(!o1 || !o2 ){
 
                 embed.addField('<a:uno:932368116749594674> **Sí**', '..........')
                 embed.addField('<a:dos:932368203458445362> **No**', '..........')
@@ -136,6 +136,9 @@ module.exports = {
 
             } else {
 
+                embed.addField('<a:uno:932368116749594674> **' + o1 + '**', '..........')
+                embed.addField('<a:dos:932368203458445362> **' + o2 + '**', '..........')
+                
                 if(o3){
 
                     embed.addField('<a:tres:932368254335340614> **' + o3 + '**', '..........');
