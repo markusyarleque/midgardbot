@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const Canvas = require('canvas')
 
 module.exports = {
 
@@ -22,7 +21,7 @@ module.exports = {
 
         try {
 
-            const time = interaction.options.getInteger('número');
+            let time = interaction.options.getInteger('número');
 
             if(time <= 0){
 
