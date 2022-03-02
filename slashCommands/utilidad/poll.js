@@ -140,31 +140,38 @@ module.exports = {
 
                     embed.addField('<a:tres:932368254335340614> **' + o3 + '**', '..........');
 
-                } else if(o4){
+                } 
+                if(o4){
 
                     embed.addField('<a:cuatro:932368291249397780> **' + o4 + '**', '..........');
 
-                } else if(o5){
+                } 
+                if(o5){
 
                     embed.addField('<a:cinco:932368321578426449> **' + o5 + '**', '..........');
 
-                } else if(o6){
+                } 
+                if(o6){
 
                     embed.addField('<a:seis:932368350187757671> **' + o6 + '**', '..........');
 
-                } else if(o7){
+                } 
+                if(o7){
 
                     embed.addField('<a:siete:932368376909693008> **' + o7 + '**', '..........');
 
-                } else if(o8){
+                }
+                if(o8){
 
                     embed.addField('<a:ocho:932368405372223528> **' + o8 + '**', '..........');
 
-                } else if(o9){
+                } 
+                if(o9){
 
                     embed.addField('<a:nueve:932368436774981642> **' + o9 + '**', '..........');
 
-                } else if(o10){
+                } 
+                if(o10){
 
                     embed.addField('🅰 **' + o10 + '**', '..........');
 
