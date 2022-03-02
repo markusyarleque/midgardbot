@@ -15,7 +15,7 @@ module.exports = {
         },
         { 
 
-            name: 'opciónA', 
+            name: 'opcióna', 
             description: 'Ingresa una opción', 
             type: 'STRING',
             required: 'false',
@@ -23,7 +23,7 @@ module.exports = {
         },
         { 
 
-            name: 'opciónB', 
+            name: 'opciónb', 
             description: 'Ingresa una opción', 
             type: 'STRING',
             required: 'false',
@@ -31,7 +31,7 @@ module.exports = {
         },
         { 
 
-            name: 'opciónC', 
+            name: 'opciónc', 
             description: 'Ingresa una opción', 
             type: 'STRING',
             required: 'false',
@@ -39,7 +39,7 @@ module.exports = {
         },
         { 
 
-            name: 'opciónD', 
+            name: 'opciónd', 
             description: 'Ingresa una opción', 
             type: 'STRING',
             required: 'false',
@@ -47,7 +47,7 @@ module.exports = {
         },
         { 
 
-            name: 'opciónE', 
+            name: 'opcióne', 
             description: 'Ingresa una opción', 
             type: 'STRING',
             required: 'false',
@@ -55,7 +55,7 @@ module.exports = {
         },
         { 
 
-            name: 'opciónF', 
+            name: 'opciónf', 
             description: 'Ingresa una opción', 
             type: 'STRING',
             required: 'false',
@@ -63,7 +63,7 @@ module.exports = {
         },
         { 
 
-            name: 'opciónG', 
+            name: 'opcióng', 
             description: 'Ingresa una opción', 
             type: 'STRING',
             required: 'false',
@@ -71,7 +71,7 @@ module.exports = {
         },
         { 
 
-            name: 'opciónH', 
+            name: 'opciónh', 
             description: 'Ingresa una opción', 
             type: 'STRING',
             required: 'false',
@@ -79,7 +79,7 @@ module.exports = {
         },
         { 
 
-            name: 'opciónI', 
+            name: 'opcióni', 
             description: 'Ingresa una opción', 
             type: 'STRING',
             required: 'false',
@@ -87,7 +87,7 @@ module.exports = {
         },
         { 
 
-            name: 'opciónJ', 
+            name: 'opciónj', 
             description: 'Ingresa una opción', 
             type: 'STRING',
             required: 'false',
@@ -102,16 +102,16 @@ module.exports = {
         try {
 
             let title = interaction.options.getString('título');
-            let o1 = interaction.options.getString('opciónA');
-            let o2 = interaction.options.getString('opciónB');
-            let o3 = interaction.options.getString('opciónC');
-            let o4 = interaction.options.getString('opciónD');
-            let o5 = interaction.options.getString('opciónE');
-            let o6 = interaction.options.getString('opciónF');
-            let o7 = interaction.options.getString('opciónG');
-            let o8 = interaction.options.getString('opciónH');
-            let o9 = interaction.options.getString('opciónI');
-            let o10 = interaction.options.getString('opciónJ');
+            let o1 = interaction.options.getString('opcióna');
+            let o2 = interaction.options.getString('opciónb');
+            let o3 = interaction.options.getString('opciónc');
+            let o4 = interaction.options.getString('opciónd');
+            let o5 = interaction.options.getString('opcióne');
+            let o6 = interaction.options.getString('opciónf');
+            let o7 = interaction.options.getString('opcióng');
+            let o8 = interaction.options.getString('opciónh');
+            let o9 = interaction.options.getString('opcióni');
+            let o10 = interaction.options.getString('opciónj');
 
             const embed = new Discord.MessageEmbed()
             .setColor('RANDOM')
