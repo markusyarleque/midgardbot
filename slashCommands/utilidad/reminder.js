@@ -8,7 +8,7 @@ module.exports = {
         { 
 
             name: 'tiempo', 
-            description: '¿En cuánto quieres que te recuerde?', 
+            description: '¿En cuánto quieres que te recuerde? (Termine en s,m,h)', 
             type: 'STRING',
             required: 'true',
 
@@ -39,7 +39,7 @@ module.exports = {
                 .setColor('RANDOM')
                 .setDescription('<a:exclama2:880930071731392512> | Tengo este recordatorio para ti: \n\n> ' + mensaje)
             
-                interaction.followUp({ embeds: [e] })
+                interaction.followUp({ content: '<@' + interaction.user.id + '>' ,embeds: [e] })
 
             }
 
