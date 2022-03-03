@@ -115,7 +115,7 @@ module.exports = {
 
             const embed = new Discord.MessageEmbed()
             .setColor('RANDOM')
-            .setAuthor({ name: `Encuesta realizada por: ${interaction.user}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true })})
+            .setAuthor({ name: `Encuesta realizada por: ${interaction.user.username}#${interaction.user.discriminator}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true })})
             .setTitle('**' + title + '**')
             .setTimestamp(new Date())
             .setFooter({ text: `${interaction.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif'})
