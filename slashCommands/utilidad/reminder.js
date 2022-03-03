@@ -39,7 +39,7 @@ module.exports = {
                 .setColor('RANDOM')
                 .setDescription('<a:exclama2:880930071731392512> | Tengo este recordatorio para ti: \n\n> ' + mensaje)
             
-                await interaction.reply({ embeds: [e] })
+                interaction.reply({ embeds: [e] })
 
             }
 
