@@ -39,7 +39,7 @@ module.exports = {
                 .setColor('RANDOM')
                 .setDescription('<a:exclama2:880930071731392512> | Tengo este recordatorio para ti: \n\n> ' + mensaje)
             
-                interaction.reply({ embeds: [e] })
+                interaction.followUp({ embeds: [e] })
 
             }
 
@@ -154,9 +154,9 @@ module.exports = {
                     .setColor('RED')
                     .setDescription('<a:Verify2:931463492677017650> | El tiempo debe ser:\n\n> <1 - 60>s\n> <1 - 60>m\n> <1 -  24>h\n\n')
                   
-                    await interaction.deferReply();
+                    await interaction.deferReply({ ephemeral: true});
                     await wait(500);
-                    await interaction.editReply({ embeds: [e] })
+                    await interaction.editReply({ embeds: [e], ephemeral: true })
         
                     break
                   

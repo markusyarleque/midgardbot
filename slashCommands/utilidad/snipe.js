@@ -31,7 +31,7 @@ module.exports = {
 
             const conf = interaction.guild.channels.cache.find(ch => ch.id === '881432157602611230');
 
-            let num = interaction.options.getInteger('número');
+            let num = interaction.options.getInteger('número') || 1
             let channel = interaction.options.getChannel('canal') || interaction.channel
 
             if(channel === conf){
@@ -63,7 +63,7 @@ module.exports = {
             
                 } else {
     
-                    const snipe = +num - 1 || 0
+                    const snipe = +num - 1
                     const targer = snipes[snipe]
     
                     if(!targer){
