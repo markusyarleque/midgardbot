@@ -43,6 +43,7 @@ module.exports =  {
                 message.reply({ allowedMentions: { repliedUser: false}, embeds: [imgdelete]});
 
             }
+            
         }
 
     }
