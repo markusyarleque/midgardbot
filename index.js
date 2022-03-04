@@ -16,7 +16,6 @@ const red = require('reddit-fetch');
 
 const over = require('poke-over');
 
-
 const prefix = process.env.PREFIX;
 // const DBL = require("dblapi.js");
 
