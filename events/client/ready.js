@@ -55,8 +55,8 @@ module.exports = async (client) => {
       .catch(e => console.log('Error al actualizar color de rol: '+e))
       
     }, 5000)
-    
-    clearInterval(300000)
+
+    clearInterval()
       
   }
     
