@@ -33,7 +33,7 @@ module.exports = async (client) => {
 
     var serverM = client.guilds.cache.find(s => s.id === '777620055344545842')
 
-    // if(!serverM.member(client.user).permissions.has(Permissions.FLAGS.MANAGE_ROLES)) return;
+    //if(!serverM.member(client.user).permissions.has(Permissions.FLAGS.MANAGE_ROLES)) return;
     
     var rol = serverM.roles.cache.find(x => x.id === rolVIP)
     
@@ -41,7 +41,7 @@ module.exports = async (client) => {
 
     if(rol){
 
-      while (i === 0) {
+      while (i < 100) {
         
         setInterval( () => {
 
@@ -53,6 +53,8 @@ module.exports = async (client) => {
           }).catch(e => { console.log('Error al actualizar color de rol: '+e) })
   
         }, 5000)
+
+        i = i + 1
 
       }
       
