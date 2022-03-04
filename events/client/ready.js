@@ -39,16 +39,21 @@ module.exports = async (client) => {
         
     if(rol){
 
-      setInterval( () => {
+      while (0) {
+        
+        setInterval( () => {
 
-        rol.edit({
-
-          color: ramdoncolor,
-          reason: 'Rainbow Bot'
-    
-        }).catch(e => { console.log('Error al actualizar color de rol: '+e) })
-
-      }, 5000)
+          rol.edit({
+  
+            color: ramdoncolor,
+            reason: 'Rainbow Bot'
+      
+          }).catch(e => { console.log('Error al actualizar color de rol: '+e) })
+  
+        }, 5000)
+        
+      }
+      
 
     }
       
