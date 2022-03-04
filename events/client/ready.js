@@ -42,7 +42,6 @@ module.exports = async (client) => {
 
     if(rol){
 
-      console.log('Prueba 1')
       setInterval( () => {
 
         // serverM.roles.edit(rol, {
@@ -52,7 +51,7 @@ module.exports = async (client) => {
         // })
         // .then(r => console.log('Rol MBVIP editado: '+ r.color))
         // .catch(e => console.log('Error al actualizar color de rol: '+ e))
-        console.log('Prueba 2')
+        
         rol.edit({
   
           color: ramdoncolor
@@ -60,11 +59,11 @@ module.exports = async (client) => {
         })
         .then(r => console.log('Rol MBVIP editado: '+ r))
         .catch(e => console.log('Error al actualizar color de rol: '+e))
-        console.log('Prueba 3')
-      }, 5000)
-      console.log('Prueba 4')
+        
+      }, 60000)
+      
     }
-    console.log('Prueba 5')
+    
     console.log('Listo!');
    
 }
