@@ -43,7 +43,7 @@ module.exports = async (client, Discord, guild) => {
     .setAuthor('MaltaBot',client.user.avatarURL())
     .setThumbnail(guild.iconURL() ? guild.iconURL({ dynamic: true }) : 'https://i.pinimg.com/originals/04/41/ea/0441ea5619b979bde781aa040943c208.gif')
     .setTitle(`¡Server nuevo! <:abby:931432327354155038>`)
-    .setDescription('<:shylove:931432905421520927> Me he unido al servidor: \n\n> Nombre: '+guild.name+'\n> \n> Id: '+guild.id+'\n> \n> Fecha: Hoy\n> \n> Invitación: '+invitacion)
+    .setDescription('<:shylove:931432905421520927> Me he unido al servidor: \n\n> Nombre: '+guild.name+'\n> \n> Id: '+guild.id+'\n> \n> Fecha: Hoy\n> \n> Invitación: '+invitacion+'\n> \n> Owner: <@' + (await guild.fetchOwner()).id + '>')
     .setColor('RANDOM')
     .setTimestamp(new Date())
     .setFooter(guild.name, guild.bannerURL() ? guild.bannerURL({ dynamic: true, size: 4096 }).replace('webp','png') : 'https://www.cosas-que-pasan.com/wp-content/uploads/portada-facebook-en-construccion.jpg');
@@ -57,5 +57,17 @@ module.exports = async (client, Discord, guild) => {
         
         console.log('No se envío dm al owner: '+error)
     }
+
+    client.user.setPresence({
+          
+        status: 'online', 
+        activities: [{ 
+           
+            name: client.guilds.cache.size + ' server' + (client.guilds.cache.size === 1 ? '' : 's')+' | '+ client.users.cache.size + ' usuarios', 
+            type: 'WATCHING',
+            
+        }],
+        
+    })
 
 }
