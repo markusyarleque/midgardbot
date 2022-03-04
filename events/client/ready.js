@@ -42,9 +42,9 @@ module.exports = async (client) => {
 
     if(rol){
 
-      setInterval( () => {
+      setInterval( async () => {
 
-        serverM.roles.edit(rol, {
+        await serverM.roles.edit(rol, {
 
           color: ramdoncolor
 
