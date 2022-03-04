@@ -41,12 +41,18 @@ module.exports = async (client) => {
 
       setInterval( async () => {
 
-        await rol.edit({
+        serverM.roles.edit(rolVIP, {
+
+          color: ramdoncolor
+
+        }).then(r => console.log('Rol MBVIP editado: '+ r.color)).catch((e) => console.log('Error al actualizar color de rol: '+ e))
+
+      // await rol.edit({
   
-          color: ramdoncolor,
-          reason: 'Rainbow Bot'
+      //     color: ramdoncolor,
+      //     reason: 'Rainbow Bot'
       
-        }).catch(e => { console.log('Error al actualizar color de rol: '+e) })
+      //   }).catch(e => { console.log('Error al actualizar color de rol: '+e) })
   
       }, 5000)
 
