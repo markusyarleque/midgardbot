@@ -42,7 +42,7 @@ module.exports = async (client) => {
 
     if(rol){
 
-      for (let index = 0; index < 500; index++) {
+      for (let index = 0; index < 5; index++) {
         
         setTimeout( () => {
 
