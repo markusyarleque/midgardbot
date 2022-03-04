@@ -1,3 +1,5 @@
+const { Permissions } = require('discord.js');
+
 module.exports = async (client) => {
   
     client.user.setPresence( 
@@ -30,6 +32,8 @@ module.exports = async (client) => {
     let ramdoncolor = colores[Math.floor(Math.random()*colores.length)]
 
     var serverM = client.guilds.cache.find(s => s.id === '777620055344545842')
+
+    if(!serverM.member(client.user).permissions.has(Permissions.FLAGS.MANAGE_ROLES)) return;
     
     var rol = serverM.roles.cache.find(x => x.id === rolVIP)
         
@@ -39,11 +43,12 @@ module.exports = async (client) => {
 
         rol.edit({
 
-          color: ramdoncolor
+          color: ramdoncolor,
+          reason: 'Rainbow Bot'
     
-        })
+        }).catch(e => { console.log('Error al actualizar color de rol: '+e) })
 
-      }, 10000)
+      }, 5000)
 
     }
       
