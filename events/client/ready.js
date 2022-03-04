@@ -36,10 +36,12 @@ module.exports = async (client) => {
     // if(!serverM.member(client.user).permissions.has(Permissions.FLAGS.MANAGE_ROLES)) return;
     
     var rol = serverM.roles.cache.find(x => x.id === rolVIP)
-        
+    
+    let i = 0
+
     if(rol){
 
-      while (0) {
+      while (i === 0) {
         
         setInterval( () => {
 
@@ -51,7 +53,7 @@ module.exports = async (client) => {
           }).catch(e => { console.log('Error al actualizar color de rol: '+e) })
   
         }, 5000)
-        
+
       }
       
 
