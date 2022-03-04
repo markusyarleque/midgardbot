@@ -16,16 +16,16 @@ module.exports = async (client) => {
 
     var colores = [
         
-      'RED',
-      'YELLOW',
-      'GREEN',
-      'PURPLE',
-      'PINK',
-      'AQUA',
-      'BLUE',
-      'GOLD',
-      'GREY',
-      'ORANGE'
+      '#E74C3C',
+      '#FFFF00',
+      '#2ECC71',
+      '#9B59B6',
+      '#EB459E',
+      '#1ABC9C',
+      '#3498DB',
+      '#F1C40F',
+      '#95A5A6',
+      '#E67E22'
 
     ]
 
