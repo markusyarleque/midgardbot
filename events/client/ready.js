@@ -44,7 +44,7 @@ module.exports = async (client) => {
 
       for (let index = 0; index < 500; index++) {
         
-        setInterval( () => {
+        setTimeout( () => {
 
           // serverM.roles.edit(rol, {
   
