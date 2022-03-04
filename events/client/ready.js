@@ -48,7 +48,9 @@ module.exports = async (client) => {
 
           color: ramdoncolor
 
-        }).then(r => console.log('Rol MBVIP editado: '+ r.color)).catch((e) => console.log('Error al actualizar color de rol: '+ e))
+        })
+        .then(r => console.log('Rol MBVIP editado: '+ r.color))
+        .catch(e => console.log('Error al actualizar color de rol: '+ e))
 
       // await rol.edit({
   
