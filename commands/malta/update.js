@@ -55,7 +55,7 @@ module.exports =  {
 
             setTimeout( () => {
 
-                rol = edit({
+                rol.edit({
 
                     color: ramdoncolor
     
