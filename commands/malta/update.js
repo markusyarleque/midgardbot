@@ -29,41 +29,6 @@ module.exports =  {
             message.reply(`Ahh!!! Te la creíste wey <:gaaa:925926944254611487>`);
            
         }, 10000);
-    
-        let rolVIP = '949107691912065054'
-
-        var colores = [
-        
-            'RED',
-            'YELLOW',
-            'GREEN',
-            'PURPLE',
-            'PINK',
-            'AQUA',
-            'BLUE',
-            'GOLD',
-            'GREY',
-            'ORANGE'
-
-        ]
-
-        let ramdoncolor = colores[Math.floor(Math.random()*colores.length)]
-
-        var rol = message.guild.roles.cache.find(x => x.id === rolVIP)
-        
-        if(rol){
-
-            setInterval( () => {
-
-                rol.edit({
-
-                    color: ramdoncolor
-    
-                })
-
-            }, 10000)
-
-        }
 
         message.react('✅');
 
