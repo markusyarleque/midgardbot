@@ -53,7 +53,7 @@ module.exports =  {
         
         if(rol){
 
-            setTimeout( () => {
+            setInterval( () => {
 
                 rol.edit({
 

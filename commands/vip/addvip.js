@@ -82,6 +82,20 @@ module.exports =  {
 
                 console.log('Se añadió al usuario VIP: '+user.id)
             
+                let rolVIP = '949107691912065054'
+
+                var rol = message.guild.roles.cache.find(x => x.id === rolVIP)
+        
+                if(rol){
+
+                    await user.roles.add(rol).catch(e => {
+                        
+                        console.log('Ocurrio un error al añadir ROL VIP al usuario: '+ user.id+ ' - '+e)
+                        
+                    })
+                    
+                }
+
                 const embed = new Discord.MessageEmbed()
                 .setAuthor(message.author.tag, message.author.displayAvatarURL())
                 .setDescription('El usuario <@'+user.id+'> ha sido añadido a la lista VIP.')
