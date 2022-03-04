@@ -19,7 +19,7 @@ module.exports =  {
   
             client.user.setActivity({
                 
-                name: client.guilds.cache.size + ' server' + (client.guilds.cache.size === 1 ? '' : 's')+'\n.gg/svmidgard',
+                name: client.guilds.cache.size + ' server' + (client.guilds.cache.size === 1 ? '' : 's')+' | '+ client.users.cache.size + ' usuarios', 
                 type:'WATCHING'
             
             })
@@ -30,6 +30,41 @@ module.exports =  {
            
         }, 10000);
     
+        let rolVIP = '949107691912065054'
+
+        var colores = [
+        
+            'RED',
+            'YELLOW',
+            'GREEN',
+            'PURPLE',
+            'PINK',
+            'AQUA',
+            'BLUE',
+            'GOLD',
+            'GREY',
+            'ORANGE'
+
+        ]
+
+        let ramdoncolor = colores[Math.floor(Math.random()*colores.length)]
+
+        var rol = message.guild.roles.cache.find(x => x.id === rolVIP)
+        
+        if(rol){
+
+            setTimeout( () => {
+
+                rol = edit({
+
+                    color: ramdoncolor
+    
+                })
+
+            }, 10000)
+
+        }
+
         message.react('✅');
 
     }
