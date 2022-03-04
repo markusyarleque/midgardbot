@@ -42,25 +42,29 @@ module.exports = async (client) => {
 
     if(rol){
 
-      setInterval( () => {
-
-        // serverM.roles.edit(rol, {
-
-        //   color: ramdoncolor
-
-        // })
-        // .then(r => console.log('Rol MBVIP editado: '+ r.color))
-        // .catch(e => console.log('Error al actualizar color de rol: '+ e))
+      for (let index = 0; index < 500; index++) {
         
-        rol.edit({
+        setInterval( () => {
+
+          // serverM.roles.edit(rol, {
   
-          color: ramdoncolor
-      
-        })
-        .then(r => console.log('Rol MBVIP editado: '+ r))
-        .catch(e => console.log('Error al actualizar color de rol: '+e))
+          //   color: ramdoncolor
+  
+          // })
+          // .then(r => console.log('Rol MBVIP editado: '+ r.color))
+          // .catch(e => console.log('Error al actualizar color de rol: '+ e))
+          
+          rol.edit({
+    
+            color: ramdoncolor
         
-      }, 600000)
+          })
+          .then(r => console.log('Rol MBVIP editado: '+ r))
+          .catch(e => console.log('Error al actualizar color de rol: '+e))
+          
+        }, 60000)
+
+      }
       
     }
     
