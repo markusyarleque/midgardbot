@@ -56,7 +56,7 @@ module.exports = async (client) => {
       
     }, 10000)
 
-    clearInterval(10000)
+    clearInterval(colores.length)
       
   }
     
