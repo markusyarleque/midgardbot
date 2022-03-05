@@ -56,7 +56,7 @@ module.exports = async (client) => {
       
     }, 10000)
 
-    clearInterval(100)
+    clearInterval(1)
       
   }
     
