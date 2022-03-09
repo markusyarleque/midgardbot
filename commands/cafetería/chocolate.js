@@ -27,7 +27,7 @@ module.exports =  {
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: `Midgard's Cafe`, iconURL: message.guild.iconURL({ dynamic: true }) })
+            .setAuthor({ name: `Midgard's Cafe`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setDescription(`**${message.author.username}** está comiendo un delicioso chocolate.`)
             .setImage(ramdonchocolate)
             .setColor('RANDOM')
@@ -50,7 +50,7 @@ module.exports =  {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: `Midgard's Cafe`, iconURL: message.guild.iconURL({ dynamic: true }) })
+            .setAuthor({ name: `Midgard's Cafe`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setDescription(`**${img.user.username}**, ${message.author.username} te invitó un rico chocolate.`)
             .setImage(ramdonchocolate)
             .setColor('RANDOM')

@@ -39,7 +39,7 @@ module.exports =  {
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: `Midgard's Disco`, iconURL: message.guild.iconURL({ dynamic: true }) })
+            .setAuthor({ name: `Midgard's Disco`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setDescription(`**${message.author.username}** salsea como los dioses.`)
             .setImage(ramdonsalsa2)
             .setColor('RANDOM')
@@ -62,7 +62,7 @@ module.exports =  {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: `Midgard's Disco`, iconURL: message.guild.iconURL({ dynamic: true }) })
+            .setAuthor({ name: `Midgard's Disco`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setDescription(`**${img.user.username}** y ${message.author.username} están salseando juntos.`)
             .setImage(ramdonsalsa)
             .setColor('RANDOM')

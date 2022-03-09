@@ -71,7 +71,7 @@ module.exports =  {
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: `Midgard's Disco`, iconURL: message.guild.iconURL({ dynamic: true }) })
+            .setAuthor({ name: `Midgard's Disco`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setDescription(`**${message.author.username}** está perreando hasta el piso.`)
             .setImage(ramdonperreo)
             .setColor('RANDOM')
@@ -94,7 +94,7 @@ module.exports =  {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: `Midgard's Disco`, iconURL: message.guild.iconURL({ dynamic: true }) })
+            .setAuthor({ name: `Midgard's Disco`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setDescription(`**${img.user.username}**, ${message.author.username} te está perreando duro contra el muro. <a:perreom:930719549131735040>`)
             .setImage(ramdonperreo)
             .setColor('RANDOM')

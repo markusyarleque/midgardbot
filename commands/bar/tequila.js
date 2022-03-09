@@ -26,7 +26,7 @@ module.exports =  {
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: `Midgard's Bar`, iconURL: message.guild.iconURL({ dynamic: true }) })
+            .setAuthor({ name: `Midgard's Bar`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setDescription(`**${message.author.username}** está disfrutando un tequilita.`)
             .setImage(ramdontequila)
             .setColor('RANDOM')
@@ -49,7 +49,7 @@ module.exports =  {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: `Midgard's Bar`, iconURL: message.guild.iconURL({ dynamic: true }) })
+            .setAuthor({ name: `Midgard's Bar`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setDescription(`Hey, **${img.user.username}**, toma este tequila invitado por ${message.author.username}.`)
             .setImage(ramdontequila)
             .setColor('RANDOM')

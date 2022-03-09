@@ -22,7 +22,7 @@ module.exports =  {
 
         }
 
-        if(users.bot) return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
+        if(users.bot) return message.reply({ embeds: [
         
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
@@ -77,7 +77,7 @@ module.exports =  {
                 const r = Math.floor(Math.random() * (21 - 15)) + 15;
           
                 const embed = new Discord.MessageEmbed()
-                .setAuthor({ name: `Midgard's Love`, iconURL: message.guild.iconURL({ dynamic: true }) })
+                .setAuthor({ name: `Midgard's Love`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
                 .setTitle(`¿Cuánto te mide? 🍆`)
                 .setDescription(`😎 ¡La berenjena de **${message.author.username}** mide **${r}** centímetros! 😎`)
                 .setImage(`https://c.tenor.com/2JAEiE6XJJwAAAAC/eugenio-dervez-eugenio.gif`)
@@ -90,7 +90,7 @@ module.exports =  {
             } else {
 
                 const embed = new Discord.MessageEmbed()
-                .setAuthor({ name: `Midgard's Love`, iconURL: message.guild.iconURL({ dynamic: true }) })
+                .setAuthor({ name: `Midgard's Love`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
                 .setTitle(`¿Cuánto te mide? 🍆`)
                 .setDescription(`${heard} ¡La berenjena de **${message.author.username}** mide **${random}** centímetros! ${heard}`)
                 .setImage(`${image}`)
@@ -111,7 +111,7 @@ module.exports =  {
                 const r = Math.floor(Math.random() * (21 - 15)) + 15;
           
                 const embed = new Discord.MessageEmbed()
-                .setAuthor({ name: `Midgard's Love`, iconURL: message.guild.iconURL({ dynamic: true }) })
+                .setAuthor({ name: `Midgard's Love`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
                 .setTitle(`¿Cuánto te mide? 🍆`)
                 .setDescription(`😎 ¡La berenjena de **${users.username}** mide **${r}** centímetros! 😎`)
                 .setImage(`https://c.tenor.com/2JAEiE6XJJwAAAAC/eugenio-dervez-eugenio.gif`)
@@ -124,7 +124,7 @@ module.exports =  {
             } else {
 
                 const embed = new Discord.MessageEmbed()
-                .setAuthor({ name: `Midgard's Love`, iconURL: message.guild.iconURL({ dynamic: true }) })
+                .setAuthor({ name: `Midgard's Love`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
                 .setTitle(`¿Cuánto te mide? 🍆`)
                 .setDescription(`${heard} ¡La berenjena de **${users.username}** mide **${random}** centímetros! ${heard}`)
                 .setImage(`${image}`)

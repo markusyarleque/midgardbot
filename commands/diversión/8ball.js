@@ -24,7 +24,7 @@ module.exports =  {
             'Es muy posible'
         ];
 
-        if(!texto) return message.reply({ allowedMentions: { repliedUser: false},
+        if(!texto) return message.reply({
             
             embeds: [
 
