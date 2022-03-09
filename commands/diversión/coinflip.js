@@ -21,10 +21,10 @@ module.exports =  {
                 tails: 'Cruz',
             },
             colors: {
-                heads: 'DANGER',
+                heads: 'SUCCESS',
                 tails: 'PRIMARY',
             },
-            startMessage: 'La moneda está en el aire, elige entre **Cara** o **Cruz**.',
+            startMessage: 'La moneda está en el aire, elige entre **Cara (Heads)** o **Cruz (Tails)**.',
             winMessage: 'GG, <@{{winner}}> La moneda cayó en **{{result}}**',
             loseMessage: '<@{{player}}> Perdiste, la moneda cayó en **{{result}}**',
             authorOnly: 'Solo <@{{author}}> puede usar estos botones.'

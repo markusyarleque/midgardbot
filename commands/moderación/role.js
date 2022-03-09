@@ -38,7 +38,7 @@ module.exports =  {
         const embed = new Discord.MessageEmbed()
         .setAuthor(`Solicitado por: ${message.author.username}`,`${message.author.displayAvatarURL()}`)
         .setDescription('Información sobre el rol mencionado.')
-        .setThumbnail(message.guild.bannerURL({ dynamic: true, size: 4096 }).replace('webp','png'))
+        .setThumbnail(message.guild.bannerURL() ? message.guild.bannerURL({ dynamic: true, size: 4096 }).replace('webp','png') : 'https://i.pinimg.com/originals/04/41/ea/0441ea5619b979bde781aa040943c208.gif')
         .addField('Nombre:', `<a:flech:931432469935312937> ${role.name}`) 
         .addField('ID:', `<a:flech:931432469935312937> ${role.id}`) 
         .addField('Miembros con el Rol:', `<a:flech:931432469935312937> ${role.members.size}`)

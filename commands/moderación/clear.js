@@ -11,7 +11,7 @@ module.exports =  {
         if(!message.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES)) return message.reply({ embeds: [
 
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
             .setColor('RED')
             .setDescription('<a:Verify2:931463492677017650> | No tienes permisos para ejecutar este comando')
     
@@ -22,7 +22,7 @@ module.exports =  {
         if (!args[0]) return message.reply({ embeds: [
 
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
             .setColor('RED')
             .setDescription('<a:Verify2:931463492677017650> | Por Favor, especifica una cantidad')
     

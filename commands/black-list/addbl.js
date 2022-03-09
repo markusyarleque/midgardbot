@@ -14,7 +14,7 @@ module.exports =  {
         if(!idm.some(id => message.author.id == id)) return message.reply({embeds: [
        
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | ¡Solo los Administradores del Bot pueden utilizar este comando.!`)
       
@@ -25,7 +25,7 @@ module.exports =  {
         if(!user) return message.reply({embeds: [
        
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | ¡Debes mencionar a un usuario!`)
       
@@ -34,16 +34,25 @@ module.exports =  {
         if(user.id === message.author.id) return message.reply({embeds: [
        
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | ¡No puedes autobanearte!`)
+      
+        ]})
+
+        if(idm.some(id => user.id == id)) return message.reply({embeds: [
+       
+            new Discord.MessageEmbed()
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
+            .setColor('RED')
+            .setDescription(`<a:Verify2:931463492677017650> | ¡No puedes banear a un Admin!`)
       
         ]})
 
         if(user.user.bot) return message.reply({embeds: [
         
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | No puedes añadir a un bot a la Black-List`)
       
@@ -62,7 +71,7 @@ module.exports =  {
                 return message.reply({embeds: [
         
                     new Discord.MessageEmbed()
-                    .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                    .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
                     .setColor('RED')
                     .setDescription('<a:Verify2:931463492677017650> | Este usuario ya está en Black-List.\n\n**Razón:**\n`'+buscarUsuario.reason+'`')
               
@@ -81,7 +90,7 @@ module.exports =  {
             console.log('Usuario ingresado en BL ===> Id: '+ user.id + ' Username: ' + user.username)
             
             const embed = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
             .setDescription('El usuario <@'+user.id+'> ha sido añadido a la Black-List.\n\n**Razón:**\n`'+razón+'`')
             .setColor('RANDOM')
 
@@ -94,7 +103,7 @@ module.exports =  {
             return message.reply({embeds: [
         
                 new Discord.MessageEmbed()
-                .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | ¡Hubo un error al añadir al usuario a BL. Por favor, inténtelo de nuevo!`)
           

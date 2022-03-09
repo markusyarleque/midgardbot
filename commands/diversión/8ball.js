@@ -29,7 +29,7 @@ module.exports =  {
             embeds: [
 
                 new Discord.MessageEmbed()
-                .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | Escriba una pregunta`)
     
@@ -40,9 +40,9 @@ module.exports =  {
             embeds:
             [
                 new Discord.MessageEmbed()
-                .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
                 .setColor('RANDOM')
-                .setDescription('<a:Verify1:931463354357276742> | **'+message.author.username+'** a su pregunta `'+texto+'` mi respuesta es: `'+ rpts[Math.floor(Math.random() * rpts.length)])
+                .setDescription('<a:Verify1:931463354357276742> | **'+message.author.username+'** a su pregunta `'+texto+'` mi respuesta es: `'+ rpts[Math.floor(Math.random() * rpts.length)] + '`')
     
             ]
         })

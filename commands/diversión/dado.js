@@ -18,7 +18,7 @@ module.exports =  {
         var dado = links[Math.floor(Math.random() * links.length)]
 
         const embed = new Discord.MessageEmbed() 
-        .setAuthor(`Midgard's Fun`,message.guild.iconURL({ dynamic: true }))
+        .setAuthor({ name: `Midgard's Fun`, iconURL: message.guild.iconURL({ dynamic: true })})
         .setTitle(`🎲 **${message.author.username}** ha tirado el dado.`)
         .setDescription('El dado a caído en:')
         .setImage(dado)

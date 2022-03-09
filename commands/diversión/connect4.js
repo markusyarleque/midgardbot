@@ -13,7 +13,7 @@ module.exports =  {
         if(!usuario) return message.reply({embeds: [
        
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | Necesitas mencionar con quién jugar!`)
       
