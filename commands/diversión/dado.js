@@ -26,7 +26,7 @@ module.exports =  {
         .setTimestamp(new Date())
         .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
         
-        message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
+        message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 

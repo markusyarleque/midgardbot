@@ -17,9 +17,10 @@ module.exports =  {
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | Necesitas mencionar con quién jugar!`)
       
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         await Connect4({
+            
             message: message,
             client: client,
             slash_command: false,
@@ -43,7 +44,8 @@ module.exports =  {
             endMessage: 'Juego no aceptado a tiempo',
             timeoutMessage: 'Juego detenido por inactividad',
             authorOnly: 'No puedes usar estos botones',
-        })
+
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
     }
 
 }

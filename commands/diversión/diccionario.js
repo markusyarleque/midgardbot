@@ -17,7 +17,7 @@ module.exports =  {
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | Introduce una palabra o texto para buscar!`)
         
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         try {
         
@@ -34,7 +34,7 @@ module.exports =  {
             .setColor('RANDOM')
             .setDescription('<a:Verify1:931463354357276742> | Resultado obtenido:\n\n<a:flech:931432469935312937>  `'+first+'`')
 
-            message.reply({ allowedMentions: { repliedUser: false}, embeds:[embed]})
+            message.reply({ allowedMentions: { repliedUser: false}, embeds:[embed]}).catch((e) => console.log('Error al enviar mensaje: '+e))
       
 
         } catch (err) {
@@ -46,7 +46,7 @@ module.exports =  {
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | No encontré significado para esa palabra!`)
           
-            ]})
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         }
 
