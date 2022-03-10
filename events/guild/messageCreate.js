@@ -31,7 +31,11 @@ module.exports = async (client, Discord, message) => {
     
     }
     
-    if(!message.guild.me.permissions.has(Permissions.FLAGS.SEND_MESSAGES)) return
+    if(!message.guild.me.permissions.has(Permissions.FLAGS.SEND_MESSAGES)){
+
+        console.log('Prueba 1 de message')
+        return 
+    }
 
     let sv = client.guilds.cache.get('851924635930329098')
     let channel
