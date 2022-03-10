@@ -25,7 +25,7 @@ module.exports =  {
         if(users.bot) return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
         
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | **¿En serio crees que es infiel como tú?**...Los bots son los más leales!`)
       
@@ -81,26 +81,26 @@ module.exports =  {
                 const r = Math.floor(Math.random() * 11);
           
                 const embed = new Discord.MessageEmbed()
-                .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
+                .setAuthor({ name: `Midgard's Love`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
                 .setTitle(`Nivel de Infidelidad`)
                 .setDescription(`${message.author.username} es ${r}% infiel! 😎`)
                 .setImage(`https://i.pinimg.com/originals/fc/8a/07/fc8a0764969fcf2d587434f1bf3c014a.gif`)
                 .setColor('RANDOM')
                 .setTimestamp(new Date())
-                .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+                .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
           
                 message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] })
         
             } else {
 
                 const embed = new Discord.MessageEmbed()
-                .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
+                .setAuthor({ name: `Midgard's Love`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
                 .setTitle(`Nivel de Infidelidad`)
                 .setDescription(`${message.author.username} es ${random}% infiel! ${heard}`)
                 .setImage(`${image}`)
                 .setColor('RANDOM')
                 .setTimestamp(new Date())
-                .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+                .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
           
                 message.reply({ allowedMentions: { repliedUser: false},  embeds: [embed] })
             
@@ -114,26 +114,26 @@ module.exports =  {
                 const r = Math.floor(Math.random() * 11);
 
                 const embed = new Discord.MessageEmbed()
-                .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
+                .setAuthor({ name: `Midgard's Love`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
                 .setTitle(`Nivel de Infidelidad`)
                 .setDescription(`${users.username} es ${r}% infiel! 😎`)
                 .setImage(`https://i.pinimg.com/originals/fc/8a/07/fc8a0764969fcf2d587434f1bf3c014a.gif`)
                 .setColor('RANDOM')
                 .setTimestamp(new Date())
-                .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+                .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
           
                 message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] })
         
             } else {
 
                 const embed = new Discord.MessageEmbed()
-                .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
+                .setAuthor({ name: `Midgard's Love`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
                 .setTitle(`Nivel de Infidelidad`)
                 .setDescription(`${users.username} es ${random}% infiel! ${heard}`)
                 .setImage(`${image}`)
                 .setColor('RANDOM')
                 .setTimestamp(new Date())
-                .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+                .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
           
                 message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] })
           

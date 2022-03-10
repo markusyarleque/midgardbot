@@ -15,7 +15,7 @@ module.exports =  {
         if(!permiso) return message.reply({embeds: [
 
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
             .setColor('RED')
             .setDescription('<a:Verify2:931463492677017650> | No tienes Permisos para usar este comando.')
 

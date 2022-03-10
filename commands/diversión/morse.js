@@ -57,14 +57,14 @@ module.exports =  {
         
         const embed = new Discord.MessageEmbed()
         .setThumbnail('https://c.tenor.com/Q17dDRR4Dd8AAAAC/morse-code.gif')
-        .setAuthor(`Midgard's Fun`,message.guild.iconURL({ dynamic: true }))
-        .setTitle(title)
+        .setAuthor({ name: `Midgard's Fun`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+        .setTitle(title ? tittle : '📱')
         .setDescription('Solicitado por: '+message.author.username+'#'+message.author.discriminator)
         .addField('Texto:', '```'+ args.join(' ') + '```', true)
         .addField('Morse:', '```' + text + '```', true)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
              
 		message.channel.send({ embeds: [embed]});
         

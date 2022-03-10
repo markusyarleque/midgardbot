@@ -20,19 +20,19 @@ module.exports =  {
             post => {
                     
                 const embed = new Discord.MessageEmbed()
-                .setAuthor(`Midgard's Fun`,message.guild.iconURL({ dynamic: true }))
-                .setTitle(post.title)
+                .setAuthor({ name: `Midgard's Fun`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+                .setTitle(post.title ? post.title : 'Sin título')
                 .setImage(post.url)
                 .setColor('RANDOM')
                 .setTimestamp(new Date())
-                .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+                .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
         
                 if(!post.url){
                         
                     return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
 
                         new Discord.MessageEmbed()
-                        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                        .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
                         .setColor('RED')
                         .setDescription(`<a:Verify2:931463492677017650> | No encontré memes <:POLQUE:856670987499208775>`)
               

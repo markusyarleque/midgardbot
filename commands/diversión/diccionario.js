@@ -13,7 +13,7 @@ module.exports =  {
         if(!palabra) return message.reply({embeds:[
 
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | Introduce una palabra o texto para buscar!`)
         
@@ -30,7 +30,7 @@ module.exports =  {
             const first = definition[0].getDefinition()
 
             const embed =  new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
             .setColor('RANDOM')
             .setDescription('<a:Verify1:931463354357276742> | Resultado obtenido:\n\n<a:flech:931432469935312937>  `'+first+'`')
 
@@ -42,7 +42,7 @@ module.exports =  {
             return message.reply({embeds:[
 
                 new Discord.MessageEmbed()
-                .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | No encontré significado para esa palabra!`)
           

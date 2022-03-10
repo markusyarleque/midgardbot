@@ -1,5 +1,6 @@
 const prefix = process.env.PREFIX;
 const Similar = require('string-similarity');
+const { Permissions } = require('discord.js');
 
 //& Modelos
 const userModel = require('../../models/userSchema');
@@ -30,6 +31,8 @@ module.exports = async (client, Discord, message) => {
     
     }
     
+    if(!message.guild.me.permissions.has(Permissions.FLAGS.SEND_MESSAGES)) return
+
     let sv = client.guilds.cache.get('851924635930329098')
     let channel
     let idcanal = message.channel.id
