@@ -9,11 +9,11 @@ module.exports =  {
         let ping = Math.floor(message.client.ws.ping);
 
         message.reply({ allowedMentions: { repliedUser: false}, content: ':ping_pong: Pong!'})
-            .then(m => {
+        .then(m => {
         
-                m.edit({ allowedMentions: { repliedUser: false}, content: `:incoming_envelope: Ping Mensajes: \`${Math.floor(m.createdTimestamp - Date.now())} ms\`\n:satellite_orbital: Ping DiscordAPI: \`${ping} ms\``});
+            m.edit({ allowedMentions: { repliedUser: false}, content: `:incoming_envelope: Ping Mensajes: \`${Math.floor(m.createdTimestamp - Date.now())} ms\`\n:satellite_orbital: Ping DiscordAPI: \`${ping} ms\``}).catch((e) => console.log('Error al enviar mensaje: '+e))
               
-            });
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
          

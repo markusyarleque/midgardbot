@@ -9,6 +9,7 @@ module.exports =  {
     async execute(client, message, args, Discord) {
 
         await RockPaperScissors({
+
             message: message,
             slash_command: false,
             time: 300000,
@@ -33,7 +34,8 @@ module.exports =  {
             chooseMessage: 'Elegiste',
             botMessage: 'El bot eligió',
             ongoingMessage: 'Ya tienes un juego en curso',
-        })
+      
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 

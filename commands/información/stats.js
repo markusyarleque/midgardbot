@@ -37,14 +37,14 @@ module.exports = {
 
     const embed = new Discord.MessageEmbed()
     .setThumbnail('https://media.giphy.com/media/3rgXBsmYd60rL3w7sc/giphy.gif')
-    .setAuthor('MidgardBot', client.user.avatarURL())
+    .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
     .setTitle('Estadísticas')
     .addField('Desarrollador: ', 'Maltazard#1207')
     .addField(`Comandos de Prefix [ - ]:`, ''+(datosc.length ? datosc.length : '0'))
     .addField(`Slash Commands:`, ''+(datoss.length ? datoss.length : '0'))
     .addField('Lenguaje: ', 'JavaScript')
     .addField(`Versión:`, `1.2.1`)
-    .addField(`Librería:`, Discord.version)
+    .addField(`Librería:`, Discord.version ? Discord.version : '13.6.0')
     .addField('RAM: ', ` ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`)
     .addField(`Actividad:`, `${actividad}`)
     .addField('Servidores: ', `${client.guilds.cache.size}`)
@@ -52,9 +52,9 @@ module.exports = {
     .addField(`Canales`, `${client.channels.cache.size}`)
     .setColor('RANDOM')
     .setTimestamp(new Date())
-    .setFooter(`Malta's Bot`, `${message.author.displayAvatarURL()}`);
+    .setFooter({ text: `Malta's Bot`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
             
-    message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
+    message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
   }
   

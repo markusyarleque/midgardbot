@@ -18,9 +18,9 @@ module.exports =  {
                 .setDescription(`<a:Verify2:931463492677017650> | Escriba un contenido para decir.`)
     
             ]
-        })
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
         
-        message.channel.send(texto);
+        message.channel.send(texto).catch((e) => console.log('Error al enviar mensaje: '+e))
         setTimeout(() => message.delete(), 100);
 
     }

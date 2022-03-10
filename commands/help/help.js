@@ -12,17 +12,17 @@ module.exports =  {
 
         const helpprincipal = new Discord.MessageEmbed()
         .setTitle('Bienvenido al apartado de Ayuda 💌')
-        .setAuthor('MidgardBot',client.user.avatarURL())
+        .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setDescription('Bienvenid@ a la Lista de Comandos y funciones de **MidgardBot**, te invitamos a unirte a nuestro [servidor](https://discord.gg/CM9yAmXPfC) de soporte.\n\nPara ver los comandos, debes clickear al botón respectivo:\n\n> 📌 • Comandos de Información\n> 💡 • Comandos de Utilidad\n> 🔒 • Comandos de Moderación\n> 💰 • Comandos de Economía\n> 🤣 • Comandos de Diversión\n> 😎 • Comandos de Reacción\n> 🥂 • Comandos Exclusivos (Cafetería - Bar - Disco)\n> 🔥 • Comandos NSFW\n\n<a:flech:931432469935312937> **Muchas gracias por utilizar nuestro bot** <a:darkcrown2:886466286773739530>')
-        .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
+        .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
         .setColor('RANDOM')
         .setThumbnail('https://c.tenor.com/hE0T8D0GpXsAAAAC/joinblink-blink.gif')
 
         const helpinfo = new Discord.MessageEmbed()
         .setTitle('📌 • Comandos De Información')
-        .setAuthor('MidgardBot',client.user.avatarURL())
-        .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
+        .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+        .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
         .setThumbnail('https://mimeti.co/wp-content/uploads/2015/01/01-gif-traduction-localise.gif')
         .setColor('RANDOM')
@@ -30,8 +30,8 @@ module.exports =  {
 
         const helputil = new Discord.MessageEmbed()
         .setTitle('💡 • Comandos de Utilidad')
-        .setAuthor('MidgardBot',client.user.avatarURL())
-        .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
+        .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+        .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
         .setThumbnail('https://jonmgomes.com/wp-content/uploads/2020/03/Liquid-Lightbulb-Animation-V2-800x600-1.gif')
         .setColor('RANDOM')
@@ -39,8 +39,8 @@ module.exports =  {
   
         const helpmod = new Discord.MessageEmbed()
         .setTitle('🔒 • Comandos de Moderación')
-        .setAuthor('MidgardBot',client.user.avatarURL())
-        .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
+        .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+        .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
         .setThumbnail('https://elblogdelauz.files.wordpress.com/2018/10/gif-seguridad.gif')
         .setColor('RANDOM')
@@ -50,8 +50,8 @@ module.exports =  {
 
         const helpeco = new Discord.MessageEmbed()
         .setTitle('💰 • Comandos de Economía')
-        .setAuthor('MidgardBot',client.user.avatarURL())
-        .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
+        .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+        .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
         .setThumbnail('https://blogs.unitec.mx/content/dam/blogs/imagenes/corp_samara/finazas-economia-quieres-ser-un-john-law-1.gif')
         .setColor('RANDOM')
@@ -59,8 +59,8 @@ module.exports =  {
   
         const helpdiv = new Discord.MessageEmbed()
         .setTitle('🤣 • Comandos de Diversión')
-        .setAuthor('MidgardBot',client.user.avatarURL())
-        .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
+        .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+        .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
         .setThumbnail('https://i.gifer.com/HqGV.gif')
         .setColor('RANDOM')
@@ -68,8 +68,8 @@ module.exports =  {
   
         const helpcbd = new Discord.MessageEmbed()
         .setTitle('• Comandos Exclusivos •')
-        .setAuthor('MidgardBot',client.user.avatarURL())
-        .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
+        .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+        .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
         .setThumbnail('https://i.pinimg.com/originals/14/d6/dc/14d6dc0f242386738df2b7f067a9c593.gif')
         .setColor('RANDOM')
@@ -77,8 +77,8 @@ module.exports =  {
   
         const helprea = new Discord.MessageEmbed()
         .setTitle('😎 • Comandos de Reacción')
-        .setAuthor('MidgardBot',client.user.avatarURL())
-        .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
+        .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+        .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
         .setThumbnail('https://i.pinimg.com/originals/54/ce/5a/54ce5ae304bd82e54b7d45f639693213.gif')
         .setColor('RANDOM')
@@ -86,8 +86,8 @@ module.exports =  {
 
         const helpnsfw = new Discord.MessageEmbed()
         .setTitle('🔞 • Comandos NSFW')
-        .setAuthor('MidgardBot',client.user.avatarURL())
-        .setFooter(message.author.username+'#'+message.author.discriminator,message.author.avatarURL())
+        .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+        .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
         .setThumbnail('https://c.tenor.com/E0DqqabbUn0AAAAC/nsfw.gif')
         .setColor('RANDOM')
@@ -173,7 +173,7 @@ module.exports =  {
                         embeds: [helpprincipal],
                         components: [btns_options1]
                 
-                    });
+                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
       
                 } else if (int.customId === "inf") {
                 
@@ -182,7 +182,7 @@ module.exports =  {
                         embeds: [helpinfo],
                         components: [btns_options1]
                 
-                    });
+                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
       
                 } else if (int.customId === "util") {
                 
@@ -191,7 +191,7 @@ module.exports =  {
                         embeds: [helputil],
                         components: [btns_options1]
                 
-                    });
+                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
       
                 } else if (int.customId === "mod") {
                 
@@ -200,7 +200,7 @@ module.exports =  {
                         embeds: [helpmod],
                         components: [btns_options1]
                 
-                    });
+                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
       
                 } else if (int.customId === "eco") {
                 
@@ -209,7 +209,7 @@ module.exports =  {
                         embeds: [helpeco],
                         components: [btns_options1]
                 
-                    });
+                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
       
                 } else if (int.customId === "m2") {
                 
@@ -217,7 +217,7 @@ module.exports =  {
                   
                         components: [btns_options2]
                 
-                    });
+                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
       
                 } else if (int.customId === "div") {
                 
@@ -226,7 +226,7 @@ module.exports =  {
                         embeds: [helpdiv],
                         components: [btns_options2]
                 
-                    });
+                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
       
                 } else if (int.customId === "rea") {
                 
@@ -235,7 +235,7 @@ module.exports =  {
                         embeds: [helprea],
                         components: [btns_options2]
                 
-                    });
+                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
       
                 } else if (int.customId === "cbd") {
                 
@@ -244,7 +244,7 @@ module.exports =  {
                         embeds: [helpcbd],
                         components: [btns_options2]
                 
-                    });
+                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
       
                 } else if (int.customId === "nsfw") {
                 
@@ -253,7 +253,7 @@ module.exports =  {
                         embeds: [helpnsfw],
                         components: [btns_options2]
                 
-                    });
+                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
       
                 } 
       
@@ -266,13 +266,13 @@ module.exports =  {
                     embeds: [helpprincipal],
                     components: []
               
-                });
+                }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
                 console.log('El collect del help finalizó por: '+reason)
               
             });
           
-        });
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 

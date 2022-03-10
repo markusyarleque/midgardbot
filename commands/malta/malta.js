@@ -15,7 +15,7 @@ module.exports =  {
             .setColor('RED')
           
             return message.reply({ embeds: [embed] })
-            .then(m => setTimeout(() => m.delete(), 5000));
+            .then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
   
         } else {
   
@@ -23,12 +23,12 @@ module.exports =  {
   
             if(!estadobot){
   
-                message.reply('Exactamente... ¿Qué quieres que ponga?').then(m => setTimeout(() => m.delete(), 5000));
+                message.reply('Exactamente... ¿Qué quieres que ponga?').then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
   
             }else{
   
                 client.user.setActivity({name:estadobot, type:'LISTENING'})
-                message.reply('Estado cambiado con éxito <a:pasito:877116925291946094>')
+                message.reply('Estado cambiado con éxito <a:pasito:877116925291946094>').catch((e) => console.log('Error al enviar mensaje: '+e))
   
             }
   

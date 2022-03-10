@@ -15,44 +15,44 @@ module.exports =  {
         if(!buscarUsuario || buscarUsuario.ck < 1) return message.reply({embeds: [
           
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184143224643615/cf.gif?width=330&height=251')
             .setColor('RED')
             .setDescription('<a:Verify2:931463492677017650> | No cuentas con tu propio pollito! Adquiere uno usando el comando `'+prefix+'buy ck`')
         
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         if(buscarUsuario.ck >= 1){
 
             if(!args[0]) return message.reply({embeds: [
 
                 new Discord.MessageEmbed()
-                .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                 .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184143224643615/cf.gif?width=330&height=251')
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | Ingresa un monto para apostar!`)
   
-            ]})
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
             if(buscarUsuario.dinero === 0) return message.reply({embeds: [
 
                 new Discord.MessageEmbed()
-                .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                 .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184143224643615/cf.gif?width=330&height=251')
                 .setColor('RED')
                 .setDescription('<a:Verify2:931463492677017650> | No tienes dinero para apostar! Primero debes retirar un monto.')
   
-            ]})
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
   
             if(buscarUsuario.dinero < parseInt(args[0])) return message.reply({embeds: [
   
                 new Discord.MessageEmbed()
-                .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                 .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184143224643615/cf.gif?width=330&height=251')
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | No tienes ese monto para apostar. Actualmente tienes <a:money:930397094924124180> `+ buscarUsuario.dinero.toLocaleString('en-US'))
   
-            ]})
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
             let chance = Math.floor(Math.random()*11)
 
@@ -71,23 +71,25 @@ module.exports =  {
                             });
             
                         update.save();
-                            
+
+                        const e = new Discord.MessageEmbed()
+                        .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                        .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184143224643615/cf.gif?width=330&height=251')
+                        .setColor('GREEN')
+                        .setDescription(`<a:Verify1:931463354357276742> |Tu pollito ganó la pelea y obtuviste <a:money:930397094924124180> `+ (buscarUsuario.dinero*2).toLocaleString('en-US'))
+                        .setTimestamp()
+                        .setFooter({ text: `Probabilidad obtenida: ${chance}0%` })
+          
+                        message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+       
                     } catch (error) {
             
                         console.log('Error al actualizar dinero del ck: '+error)
-                            
+                        message.reply('Hubo un error interno. Por favor, inténtelo de nuevo.').catch((e) => console.log('Error al enviar mensaje: '+e))
+      
                     }
           
-                    const e = new Discord.MessageEmbed()
-                    .setAuthor(message.author.tag, message.author.displayAvatarURL())
-                    .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184143224643615/cf.gif?width=330&height=251')
-                    .setColor('GREEN')
-                    .setDescription(`<a:Verify1:931463354357276742> |Tu pollito ganó la pelea y obtuviste <a:money:930397094924124180> `+ (buscarUsuario.dinero*2).toLocaleString('en-US'))
-                    .setTimestamp()
-                    .setFooter(`Probabilidad obtenida: ${chance}0%`)
-          
-                    message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
-
+                    
                 } else {
 
                     try {
@@ -102,23 +104,24 @@ module.exports =  {
                             });
             
                         update.save();
-                            
+
+                        const e = new Discord.MessageEmbed()
+                        .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                        .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184143224643615/cf.gif?width=330&height=251')
+                        .setColor('RED')
+                        .setDescription(`<a:Verify2:931463492677017650> |Tu pollito murió 💀 y perdiste toda la apuesta!`)
+                        .setTimestamp()
+                        .setFooter({ text: `Probabilidad obtenida: ${chance}0%` })
+          
+                        message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+           
                     } catch (error) {
             
-                        console.log('Error al actualiza dinero del ck: '+error)
-                            
+                        console.log('Error al actualizar dinero del ck: '+error)
+                        message.reply('Hubo un error interno. Por favor, inténtelo de nuevo.').catch((e) => console.log('Error al enviar mensaje: '+e))
+          
                     }
 
-                    const e = new Discord.MessageEmbed()
-                    .setAuthor(message.author.tag, message.author.displayAvatarURL())
-                    .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184143224643615/cf.gif?width=330&height=251')
-                    .setColor('RED')
-                    .setDescription(`<a:Verify2:931463492677017650> |Tu pollito murió 💀 y perdiste toda la apuesta!`)
-                    .setTimestamp()
-                    .setFooter(`Probabilidad obtenida: ${(chance)}0%`)
-          
-                    message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
-                
                 }
           
             } else {
@@ -126,12 +129,12 @@ module.exports =  {
                 if(isNaN(parseInt(args[0]))) return message.reply({embeds: [
   
                     new Discord.MessageEmbed()
-                    .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                    .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                     .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184143224643615/cf.gif?width=330&height=251')
                     .setColor('RED')
                     .setDescription(`<a:Verify2:931463492677017650> | Ingresa un número válido para apostar!`)
   
-                ]})
+                ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
   
                 let numero = parseInt(args[0])
 
@@ -148,22 +151,24 @@ module.exports =  {
                             });
             
                         update.save();
+                        
+                        const e = new Discord.MessageEmbed()
+                        .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                        .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184143224643615/cf.gif?width=330&height=251')
+                        .setColor('GREEN')
+                        .setDescription(`<a:Verify1:931463354357276742> |Tu pollito ganó la pelea y obtuviste <a:money:930397094924124180> `+ (numero*2).toLocaleString('en-US'))
+                        .setTimestamp()
+                        .setFooter({ text: `Probabilidad obtenida: ${chance}0%` })
+          
+                        message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+    
                             
                     } catch (error) {
             
                         console.log('Error al actualiza dinero del ck: '+error)
-                            
-                    }
-
-                    const e = new Discord.MessageEmbed()
-                    .setAuthor(message.author.tag, message.author.displayAvatarURL())
-                    .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184143224643615/cf.gif?width=330&height=251')
-                    .setColor('GREEN')
-                    .setDescription(`<a:Verify1:931463354357276742> |Tu pollito ganó la pelea y obtuviste <a:money:930397094924124180> `+ (numero*2).toLocaleString('en-US'))
-                    .setTimestamp()
-                    .setFooter(`Probabilidad obtenida: ${chance}0%`)
+                        message.reply('Hubo un error interno. Por favor, inténtelo de nuevo.').catch((e) => console.log('Error al enviar mensaje: '+e))
           
-                    message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
+                    }
 
                 } else {
 
@@ -179,23 +184,24 @@ module.exports =  {
                             });
             
                         update.save();
-                            
+                       
+                        const e = new Discord.MessageEmbed()
+                        .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                        .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184143224643615/cf.gif?width=330&height=251')
+                        .setColor('RED')
+                        .setDescription(`<a:Verify2:931463492677017650> |Tu pollito murió 💀 y perdiste toda la apuesta!`)
+                        .setTimestamp()
+                        .setFooter({ text: `Probabilidad obtenida: ${chance}0%` })
+          
+                        message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+               
                     } catch (error) {
             
                         console.log('Error al actualiza dinero del ck: '+error)
-                            
+                        message.reply('Hubo un error interno. Por favor, inténtelo de nuevo.').catch((e) => console.log('Error al enviar mensaje: '+e))
+           
                     }
 
-                    const e = new Discord.MessageEmbed()
-                    .setAuthor(message.author.tag, message.author.displayAvatarURL())
-                    .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184143224643615/cf.gif?width=330&height=251')
-                    .setColor('RED')
-                    .setDescription(`<a:Verify2:931463492677017650> |Tu pollito murió 💀 y perdiste toda la apuesta!`)
-                    .setTimestamp()
-                    .setFooter(`Probabilidad obtenida: ${(chance)}0%`)
-          
-                    message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
-          
                 }
   
             }

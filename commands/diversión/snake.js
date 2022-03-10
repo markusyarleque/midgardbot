@@ -9,6 +9,7 @@ module.exports =  {
     async execute(client, message, args, Discord) {
 
         new Snake({
+
             message: message,
             slash_command: false,
             snake: {
@@ -31,7 +32,8 @@ module.exports =  {
                 stopStyle: 'DANGER',
             },
             authorOnly: 'Solo {{author}} puede usar estos botones.',
-        }).startGame();
+        
+        }).startGame().catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 

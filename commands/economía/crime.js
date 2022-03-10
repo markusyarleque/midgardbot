@@ -40,13 +40,13 @@ module.exports =  {
         ]
 
         const e = new Discord.MessageEmbed()
-        .setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
+        .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
         .setTitle('Zona de Crimen 🚦')
         .setColor('RANDOM')
         .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936039753927753798/crime.gif?width=326&height=188')
         .setDescription('¿Qué crimen deseas ejecutar? <:anotanding:936028237404962836>\n\n ⏳ Tienes **30** segundos.')
         .setTimestamp()
-        .setFooter(`MidgardBot`,client.user.avatarURL())
+        .setFooter({ text: `MidgardBot`, iconURL: client.user.avatarURL({ dynamic: true }) })
 
         const ba = new Discord.MessageButton()
         .setCustomId('asalto')
@@ -72,13 +72,12 @@ module.exports =  {
 
             if(buscarUsuario.crime > Date.now()) return message.reply({embeds: [
               
-              new Discord.MessageEmbed()
-              .setAuthor(message.author.tag, message.author.displayAvatarURL())
-              .setColor('RED')
-              .setDescription('<a:tiempogif:931434689481285662> | Puedes volver a cometer un crimen en : '+((buscarUsuario.crime - Date.now())/1000).toFixed()+' segundos')
+                new Discord.MessageEmbed()
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                .setColor('RED')
+                .setDescription('<a:tiempogif:931434689481285662> | Puedes volver a cometer un crimen en : '+((buscarUsuario.crime - Date.now())/1000).toFixed()+' segundos')
               
-              ]}
-            )
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         } else {
 
@@ -96,12 +95,12 @@ module.exports =  {
             console.log('Usuario Registrado ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
 
             const e = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | Eres muy novato para estos trabajos, mejor te obsequio estas monedas : <a:money:930397094924124180> 50`)
             .setTimestamp()
 
-            return message.reply({embeds: [e]})
+            return message.reply({embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         }
 
@@ -141,13 +140,13 @@ module.exports =  {
                         update.save()
               
                         const e = new Discord.MessageEmbed()
-                        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                        .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                         .setColor('GREEN')
                         .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936039753445421066/asalto.gif?width=375&height=156')
                         .setDescription(ramdona + r)
                         .setTimestamp()
     
-                        m.edit({embeds: [e], components: []})
+                        m.edit({embeds: [e], components: []}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
                     } else {
               
@@ -163,13 +162,13 @@ module.exports =  {
                         update.save()
 
                         const e = new Discord.MessageEmbed()
-                        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                        .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                         .setColor('RED')
                         .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936039753445421066/asalto.gif?width=375&height=156')
                         .setDescription(`<a:Verify2:931463492677017650> | Qué malo eres cometiendo crímenes, acabas de ser capturado mientras intentabas asaltar y perdiste <a:money:930397094924124180> `+ r)
                         .setTimestamp()
     
-                        m.edit({embeds: [e], components: []})
+                        m.edit({embeds: [e], components: []}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
                     }
 
@@ -191,13 +190,13 @@ module.exports =  {
                         update.save()
 
                         const e = new Discord.MessageEmbed()
-                        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                        .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                         .setColor('GREEN')
                         .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936039754691145728/hack.gif?width=165&height=143')
                         .setDescription(ramdonh + r)
                         .setTimestamp()
     
-                        m.edit({embeds: [e], components: []})
+                        m.edit({embeds: [e], components: []}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
                     } else {
               
@@ -213,13 +212,13 @@ module.exports =  {
                         update.save()
 
                         const e = new Discord.MessageEmbed()
-                        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                        .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                         .setColor('RED')
                         .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936039754691145728/hack.gif?width=165&height=143')
                         .setDescription(`<a:Verify2:931463492677017650> | Qué malo eres cometiendo crímenes, acabas de ser capturado mientras intentabas hackear mi sistema y perdiste <a:money:930397094924124180> `+ r)
                         .setTimestamp()
     
-                        m.edit({embeds: [e], components: []})
+                        m.edit({embeds: [e], components: []}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
                     }
 
@@ -241,13 +240,13 @@ module.exports =  {
                         update.save()
               
                         const e = new Discord.MessageEmbed()
-                        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                        .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                         .setColor('GREEN')
                         .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936039755022471229/mafia.gif?width=360&height=182')
                         .setDescription(ramdonm + r)
                         .setTimestamp()
     
-                        m.edit({embeds: [e], components: []})
+                        m.edit({embeds: [e], components: []}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
                     } else {
               
@@ -263,13 +262,13 @@ module.exports =  {
                         update.save()
 
                         const e = new Discord.MessageEmbed()
-                        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                        .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                         .setColor('RED')
                         .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936039755022471229/mafia.gif?width=360&height=182')
                         .setDescription(`<a:Verify2:931463492677017650> | Qué malo eres cometiendo crímenes, acabas de ser capturado por la mafia y perdiste <a:money:930397094924124180> `+ r)
                         .setTimestamp()
     
-                        m.edit({embeds: [e], components: []})
+                        m.edit({embeds: [e], components: []}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
                     }
 
@@ -284,7 +283,7 @@ module.exports =  {
                     embeds:[
 
                         new Discord.MessageEmbed()
-                        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                        .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                         .setColor('RED')
                         .setDescription('<a:Verify2:931463492677017650> | Se terminó el tiempo!')],
                     
@@ -295,13 +294,13 @@ module.exports =  {
           
                     ]
                 
-                })
+                }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
                 console.log('Razón del término de colección de crime: '+reason)
 
-            });
+            })
      
-        })
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 

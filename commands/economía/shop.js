@@ -11,7 +11,7 @@ module.exports =  {
         // STORE
 
         const shop1 = new Discord.MessageEmbed()
-        .setAuthor(message.guild.name+' | Store 🏪', message.guild.iconURL({ dynamic: true }))
+        .setAuthor({ name: message.guild.name+' | Store 🏪', iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
         .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399830872084/shop.gif?width=665&height=499')
         .setDescription('Para adquirir un item, debes usar el comando `'+prefix+'buy <name>`') 
         .addField(`<a:money:930397094924124180> 10 - Chicken`, 'Item para apuestas', false)  
@@ -22,10 +22,10 @@ module.exports =  {
         .addField(`<a:money:930397094924124180> 10,000 - Dorado`, 'Color para tu perfil', false)  		
         .addField(`<a:money:930397094924124180> 10,000 - Amarillo`, 'Color para tu perfil', false)			
         .setColor("RANDOM")
-        .setFooter(`Página 1/2`,client.user.avatarURL())
+        .setFooter({ text: `Página 1/2`, iconURL: client.user.avatarURL({ dynamic: true }) })
 
         const shop2 = new Discord.MessageEmbed()
-        .setAuthor(message.guild.name+' | Store 🏪', message.guild.iconURL({ dynamic: true }))
+        .setAuthor({ name: message.guild.name+' | Store 🏪', iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
         .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399830872084/shop.gif?width=665&height=499')
         .setDescription('Para adquirir un item, debes usar el comando `'+prefix+'buy <name>`')   
         .addField(`<a:money:930397094924124180> 10,000 - Rosa`, 'Color para tu perfil', false)  
@@ -36,7 +36,7 @@ module.exports =  {
         .addField(`<a:money:930397094924124180> 10,000 - Blanco`, 'Color para tu perfil', false)  		
         .addField(`<a:money:930397094924124180> 10,000 - Negro`, 'Color para tu perfil', false) 			
         .setColor("RANDOM")
-        .setFooter(`Página 2/2`,client.user.avatarURL())
+        .setFooter({ text: `Página 2/2`, iconURL: client.user.avatarURL({ dynamic: true }) })
 
         const bS1 = new Discord.MessageButton()
         .setCustomId("p1")
@@ -72,7 +72,7 @@ module.exports =  {
                         embeds: [shop1],
                         components: [new Discord.MessageActionRow().addComponents([bS1.setDisabled(true),bS2.setDisabled(false)])]
                 
-                    });
+                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
       
                 }else if (int.customId === "p2") {
                 
@@ -81,7 +81,7 @@ module.exports =  {
                         embeds: [shop2],
                         components: [new Discord.MessageActionRow().addComponents([bS1.setDisabled(false),bS2.setDisabled(true)])]
                 
-                    });
+                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
       
                 }
       
@@ -94,13 +94,14 @@ module.exports =  {
                     components: [
                         new Discord.MessageActionRow().addComponents([bS1.setDisabled(true),bS2.setDisabled(true)])
                     ]
-                })
+                    
+                }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
                 console.log('Razón del término de colección de shop: '+reason)
 
             });
             
-          });
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 

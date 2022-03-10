@@ -55,7 +55,7 @@ module.exports =  {
     
     　　'　　ﾟ   •   　 ${impost.length} Impostores restantes 　 　　。  .
     
-    　　ﾟ　　　.　　　. ,　　　　.　 .`)
+    　　ﾟ　　　.　　　. ,　　　　.　 .`).catch((e) => console.log('Error al enviar mensaje: '+e))
     
             } else {
     
@@ -69,7 +69,7 @@ module.exports =  {
     
     　　'　　ﾟ   •   　 ${impost.length} Impostores restantes 　 　　。  .
     
-    　　ﾟ　　　.　　　. ,　　　　.　 .`)
+    　　ﾟ　　　.　　　. ,　　　　.　 .`).catch((e) => console.log('Error al enviar mensaje: '+e))
 
             }
 
@@ -88,7 +88,7 @@ module.exports =  {
     
     　　'　　ﾟ   •   　 ${impost.length-1} Impostores restantes 　 　　。  .
     
-    　　ﾟ　　　.　　　. ,　　　　.　 .`)
+    　　ﾟ　　　.　　　. ,　　　　.　 .`).catch((e) => console.log('Error al enviar mensaje: '+e))
     
           } else {
     
@@ -102,7 +102,7 @@ module.exports =  {
     
     　　'　　ﾟ   •   　 ${impost.length-1} Impostores restantes 　 　　。  .
     
-    　　ﾟ　　　.　　　. ,　　　　.　 .`)
+    　　ﾟ　　　.　　　. ,　　　　.　 .`).catch((e) => console.log('Error al enviar mensaje: '+e))
     
           }
     

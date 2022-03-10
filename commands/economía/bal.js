@@ -32,22 +32,22 @@ module.exports =  {
                 }
   
                 const e = new Discord.MessageEmbed()
-                .setColor(buscarUsuario.color)
-                .setAuthor(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
-                .setTitle(`Balance`)
+                .setColor(buscarUsuario.color ? buscarUsuario.color : 'RANDOM')
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({dynamic: true}) })
+                .setTitle(`Balance 💸`)
                 .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399084269578/bal.gif?width=600&height=450')
                 .addField(`**Dinero:**`, '<a:money:930397094924124180>  '+buscarUsuario.dinero.toLocaleString('en-US'), true)
                 .addField(`**Banco:**`, '<a:money:930397094924124180>  '+buscarUsuario.banco.toLocaleString('en-US'), true)
                 .addField(`**Total:**`, '<a:money:930397094924124180>  '+buscarUsuario.total.toLocaleString('en-US'), true)
                 .setTimestamp(new Date())
-                .setFooter(`Midgard's VIP`,client.user.avatarURL())
+                .setFooter({ text: `Midgard's VIP`, iconURL: client.user.avatarURL({ dynamic: true }) })
   
-                return message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
+                return message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
                 
             } catch (error) {
 
                 console.log('Error al obtener bal de '+message.author.id+' - Error: '+error)
-                message.reply('Hubo un error interno. Por favor, inténtelo de nuevo.')
+                message.reply('Hubo un error interno. Por favor, inténtelo de nuevo.').catch((e) => console.log('Error al enviar mensaje: '+e))
       
             }
 
@@ -73,22 +73,22 @@ module.exports =  {
                 }
   
                 const e = new Discord.MessageEmbed()
-                .setColor(buscarUsuario.color)
-                .setAuthor(img.user.username+'#'+img.user.discriminator, img.displayAvatarURL({dynamic: true}))
-                .setTitle(`Balance`)
+                .setColor(buscarUsuario.color ? buscarUsuario.color : 'RANDOM')
+                .setAuthor({ name: img.user.username+'#'+img.user.discriminator, iconURL: img.displayAvatarURL({dynamic: true}) })
+                .setTitle(`Balance 💸`)
                 .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399084269578/bal.gif?width=600&height=450')
                 .addField(`**Dinero:**`, '<a:money:930397094924124180>  '+buscarUsuario.dinero.toLocaleString('en-US'), true)
                 .addField(`**Banco:**`, '<a:money:930397094924124180>  '+buscarUsuario.banco.toLocaleString('en-US'), true)
                 .addField(`**Total:**`, '<a:money:930397094924124180>  '+buscarUsuario.total.toLocaleString('en-US'), true)
                 .setTimestamp(new Date())
-                .setFooter(`Midgard's VIP`,client.user.avatarURL())
+                .setFooter({ text: `Midgard's VIP`, iconURL: client.user.avatarURL({ dynamic: true }) })
   
-                message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
+                message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
       
             } catch (error) {
 
                 console.log('Error al obtener bal de '+img.id+' - Error: '+error)
-                message.reply('Hubo un error interno. Por favor, inténtelo de nuevo.')
+                message.reply('Hubo un error interno. Por favor, inténtelo de nuevo.').catch((e) => console.log('Error al enviar mensaje: '+e))
       
             }
             

@@ -9,6 +9,7 @@ module.exports =  {
     async execute(client, message, args, Discord) {
 
         await WouldYouRather({
+
             message: message,
             slash_command: false,
             time: 300000,
@@ -25,7 +26,8 @@ module.exports =  {
               secondbutton: 'SUCCESS',
             },
             authorOnly: 'Solo <@{{author}}> puede usar estos botones!',
-        })
+        
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 

@@ -15,45 +15,45 @@ module.exports =  {
         if(!it) return message.reply({embeds: [
           
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399365316658/buy.gif?width=480&height=320')
             .setColor('RED')
             .setDescription('<a:Verify2:931463492677017650> | Necesitas mencionar un ítem a comprar. Para más detalles ejectua: `'+prefix+'shop`')
         
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         let buscarUsuario = await userSchema.findOne({ idusuario: message.author.id})
 
         if(!buscarUsuario) return message.channel.send({embeds: [
           
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399365316658/buy.gif?width=480&height=320')
             .setColor('RED')
             .setDescription('<a:Verify2:931463492677017650> | No tienes suficientes coins para adquirir este item!')
         
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         if(it.toLowerCase()==='ck' || it.toLowerCase()==='chicken'){
 
             if(buscarUsuario.dinero < 10) return message.reply({embeds: [
           
                 new Discord.MessageEmbed()
-                .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                 .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399365316658/buy.gif?width=480&height=320')
                 .setColor('RED')
                 .setDescription('<a:Verify2:931463492677017650> | No tienes suficientes coins para adquirir este item!. Actualmente tienes: <a:money:930397094924124180>'+buscarUsuario.dinero.toLocaleString('en-US'))
           
-            ]})
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
             if(buscarUsuario.ck >= 1) return message.reply({embeds: [
           
                 new Discord.MessageEmbed()
-                .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                 .setColor('RED')
                 .setDescription('<a:Verify2:931463492677017650> | Ya cuentas con tu propio pollito!')
           
-            ]})
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
             let update = await userSchema.findOneAndUpdate({idusuario: message.author.id},
                 {
@@ -64,19 +64,19 @@ module.exports =  {
             
             update.save();
 
-            return message.channel.send('<a:Dancing_Duck:930402083625111613> | Acabas de adquirir un pollito!');
+            return message.channel.send('<a:Dancing_Duck:930402083625111613> | Acabas de adquirir un pollito!').catch((e) => console.log('Error al enviar mensaje: '+e))
   
         }
 
         if(buscarUsuario.dinero < 10000) return message.channel.send({embeds: [
           
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399365316658/buy.gif?width=480&height=320')
             .setColor('RED')
             .setDescription('<a:Verify2:931463492677017650> | No tienes suficientes coins para adquirir este item! Actualmente tienes: <a:money:930397094924124180>'+buscarUsuario.dinero.toLocaleString('en-US'))
         
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         let col
 
@@ -135,12 +135,12 @@ module.exports =  {
         } else return message.channel.send({embeds: [
           
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399365316658/buy.gif?width=480&height=320')
             .setColor('RED')
             .setDescription('<a:Verify2:931463492677017650> | Ingresa el nombre correcto del item!')
           
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         let update = await userSchema.findOneAndUpdate({idusuario: message.author.id},
             {
@@ -151,7 +151,7 @@ module.exports =  {
         
         update.save();
 
-        return message.channel.send('<a:Dancing_Duck:930402083625111613> | Acabas de actualizar el color de tu perfil!');
+        return message.channel.send('<a:Dancing_Duck:930402083625111613> | Acabas de actualizar el color de tu perfil!').catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 

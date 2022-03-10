@@ -14,32 +14,32 @@ module.exports =  {
         if(!usuario) return message.reply({embeds: [
        
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936093229542150234/robo.gif?width=480&height=270')
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | Necesitas mencionar correctamente a alguien!`)
       
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         if(usuario.id === message.author.id) return message.reply({embeds: [
         
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936093229542150234/robo.gif?width=480&height=270')
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | No te puedes robar a ti mismo!`)
       
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         if(usuario.user.bot) return message.reply({embeds: [
         
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936093229542150234/robo.gif?width=480&height=270')
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | No tienes el poder suficiente para robarle a los bots!`)
       
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         let usuario1 = await userSchema.findOne({ idusuario: message.author.id})
         let usuario2 = await userSchema.findOne({ idusuario: usuario.id})
@@ -75,22 +75,22 @@ module.exports =  {
         if(usuario1.rob > Date.now()) return message.reply({embeds: [
           
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936093229542150234/robo.gif?width=480&height=270')
             .setColor('RED')
             .setDescription('<a:tiempogif:931434689481285662> | Puedes volver a robar en : '+((usuario1.rob - Date.now())/1000).toFixed()+' segundos')
         
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         if(usuario2.dinero === 0) return message.reply({embeds: [
 
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936093229542150234/robo.gif?width=480&height=270')
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | ¿Cómo te atreves a robarle a los pobres?`)
       
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         let ganarob = usuario2.dinero === 0 ? 0 : Math.floor((80 * usuario2.dinero)/100)
         let pierderob = usuario1.dinero === 0 ? Math.floor((10 * 2000) / 100) : Math.floor((10 * usuario1.dinero) / 100)
@@ -120,13 +120,13 @@ module.exports =  {
             update2.save()
 
             const e = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setColor('GREEN')
             .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936093229542150234/robo.gif?width=480&height=270')
             .setDescription(`<a:Verify1:931463354357276742> | Le has robado <a:money:930397094924124180> `+ ganarob.toLocaleString('en-US') + ' a ' + usuario.toString())
             .setTimestamp()
         
-            message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
+            message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         } else {
 
@@ -142,13 +142,13 @@ module.exports =  {
             update.save()
 
             const e = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setColor('RED')
             .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936106953200001034/rob.jpg?width=470&height=239')
             .setDescription(`<a:Verify2:931463492677017650> | Qué malo eres robando, acabas de ser capturado y perdiste <a:money:930397094924124180> `+ pierderob.toLocaleString('en-US'))
             .setTimestamp()
         
-            message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
+            message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         }
 

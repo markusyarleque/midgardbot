@@ -17,7 +17,7 @@ module.exports =  {
         .setColor('RED')
         
         return message.reply({ embeds: [embed] })
-        .then(m => setTimeout(() => m.delete(), 5000));
+        .then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     } else {
 
@@ -28,7 +28,7 @@ module.exports =  {
           const embed = new Discord.MessageEmbed()
           .setDescription('Dime el nombre o ID del servidor para salirme')
           .setColor('RED')
-          return message.reply({ embeds: [embed] }).then(m => setTimeout(() => m.delete(), 5000));
+          return message.reply({ embeds: [embed] }).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         }
 
@@ -39,7 +39,7 @@ module.exports =  {
           const embed = new Discord.MessageEmbed()
           .setDescription('No encontré el servidor!')
           .setColor('RED')
-          return message.reply({ embeds: [embed] }).then(m => setTimeout(() => m.delete(), 5000));
+          return message.reply({ embeds: [embed] }).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         }
 
@@ -87,7 +87,7 @@ module.exports =  {
                   .setFooter(`Malta's Bot`, `${message.author.displayAvatarURL()}`)
                 ],
                 components: []
-              });
+              }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
               
             } else if (int.customId === "deny") {
@@ -101,7 +101,7 @@ module.exports =  {
                   .setFooter(`Malta's Bot`, `${message.author.displayAvatarURL()}`)
                 ],
                 components: []
-              });
+              }).catch((e) => console.log('Error al enviar mensaje: '+e))
             
             }
           });
@@ -111,13 +111,13 @@ module.exports =  {
             if(collected.size < 1) return m.edit({
               content: "**¡No confirmaste a tiempo!** <:enojado:931434000751394867>",
               components: []
-            });
+            }).catch((e) => console.log('Error al enviar mensaje: '+e))
             
             console.log('Razón del término de colección de ExitServer: '+reason)
 
           });
           
-        });
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
       
     }
     

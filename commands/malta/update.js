@@ -10,9 +10,9 @@ module.exports =  {
 
         let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR);
     
-        if(!permiso) return message.channel.send('`Error` `|` No tienes Permisos para usar este comando.');
+        if(!permiso) return message.channel.send('`Error` `|` No tienes Permisos para usar este comando.').catch((e) => console.log('Error al enviar mensaje: '+e))
     
-        message.channel.sendTyping()
+        message.channel.sendTyping().catch((e) => console.log('Error al enviar mensaje: '+e))
     
         setTimeout(() => {
           
@@ -26,11 +26,11 @@ module.exports =  {
 
             console.log('Estado cambiado con éxito - Update succefull')
   
-            message.reply(`Ahh!!! Te la creíste wey <:gaaa:925926944254611487>`);
+            message.reply(`Ahh!!! Te la creíste wey <:gaaa:925926944254611487>`).catch((e) => console.log('Error al enviar mensaje: '+e))
            
         }, 10000);
 
-        message.react('✅');
+        message.react('✅').catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 

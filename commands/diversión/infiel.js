@@ -29,7 +29,7 @@ module.exports =  {
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | **¿En serio crees que es infiel como tú?**...Los bots son los más leales!`)
       
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         const random = Math.floor(Math.random() * 101);
 
@@ -89,7 +89,7 @@ module.exports =  {
                 .setTimestamp(new Date())
                 .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
           
-                message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] })
+                message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
         
             } else {
 
@@ -102,7 +102,7 @@ module.exports =  {
                 .setTimestamp(new Date())
                 .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
           
-                message.reply({ allowedMentions: { repliedUser: false},  embeds: [embed] })
+                message.reply({ allowedMentions: { repliedUser: false},  embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
             
             }
 
@@ -122,7 +122,7 @@ module.exports =  {
                 .setTimestamp(new Date())
                 .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
           
-                message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] })
+                message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: ' + e))
         
             } else {
 
@@ -135,7 +135,7 @@ module.exports =  {
                 .setTimestamp(new Date())
                 .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
           
-                message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] })
+                message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: ' + e))
           
             }
 

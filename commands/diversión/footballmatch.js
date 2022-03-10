@@ -9,6 +9,7 @@ module.exports =  {
     async execute(client, message, args, Discord) {
 
         await FootballMatch({
+
             message: message,
             slash_command: false,
             embed: {
@@ -29,7 +30,8 @@ module.exports =  {
             loseMessage: '<@{{player}}> Perdiste 😢',
             ongoingMessage: 'Hay un juego ejecutándose en <#{{channel}}>. No puedes jugar ahora!',
             authorOnly: 'Solo <@{{author}}> puede usar estos botones!',
-        })
+        
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 

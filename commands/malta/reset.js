@@ -14,22 +14,23 @@ module.exports =  {
             .setDescription('Solo el developer del bot puede usar este comando.')
             .setColor('RED')
           
-            message.reply({ embeds: [embed] });
+            message.reply({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         } else {
             
             message.reply('🕙 | Reinicio en progreso...').then(async msg => {
           
-                msg.edit('🕙 | Seguimos reiniciando...');
+                msg.edit('🕙 | Seguimos reiniciando...').catch((e) => console.log('Error al enviar mensaje: '+e))
             
                 client.destroy();
             
                 await client.login(process.env.TOKEN);
-                await msg.edit('🕙 | En breves, regresamos...');
+                await msg.edit('🕙 | En breves, regresamos...').catch((e) => console.log('Error al enviar mensaje: '+e))
             
-                msg.edit(' ✅ | Reiniciado Correctamente!')
+                msg.edit(' ✅ | Reiniciado Correctamente!').catch((e) => console.log('Error al enviar mensaje: '+e))
           
-            })
+            }).catch((e) => console.log('Error al enviar mensaje: '+e))
+            
         }
 
     }

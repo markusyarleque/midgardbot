@@ -28,7 +28,7 @@ module.exports =  {
         .setColor('RANDOM')
         .setDescription(`Prueba`)
 
-        message.channel.send({ embeds: [embed], components: [fila]})
+        message.channel.send({ embeds: [embed], components: [fila]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 

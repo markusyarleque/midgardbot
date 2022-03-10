@@ -19,7 +19,7 @@ module.exports =  {
         } catch (error) {
 
             console.log('Error al obtener usuario: '+error)
-            return message.reply('Ha ocurrido un error inesperado. Vuelva a ejecutar el comando.')
+            return message.reply('Ha ocurrido un error inesperado. Vuelva a ejecutar el comando.').catch((e) => console.log('Error al enviar mensaje: '+e))
             
         }
 
@@ -40,32 +40,32 @@ module.exports =  {
         if(!args[0]) return message.reply({embeds: [
 
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184144441000017/with.gif?width=150&height=150')
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | Ingresa un monto a retirar!`)
 
-        ]}) 
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         else if(buscarUsuario.banco === 0) return message.reply({embeds: [
 
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184144441000017/with.gif?width=150&height=150')
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | No tienes dinero para retirar!`)
 
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         else if(buscarUsuario.banco < parseInt(args[0])) return message.reply({embeds: [
 
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184144441000017/with.gif?width=150&height=150')
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | No tienes ese monto para retirar. Actualmente tienes en tu banco <a:money:930397094924124180> `+ buscarUsuario.banco.toLocaleString('en-US'))
 
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         if(args[0].toLowerCase() === 'all'){
 
@@ -80,33 +80,35 @@ module.exports =  {
                     });
 
                 update.save();
+
+                const e = new Discord.MessageEmbed()
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184144441000017/with.gif?width=150&height=150')
+                .setColor('GREEN')
+                .setDescription(`<a:Verify1:931463354357276742> | Has retirado <a:money:930397094924124180> `+ buscarUsuario.banco.toLocaleString('en-US')+ ' del banco')
+                .setTimestamp()
+        
+                message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+
                 
             } catch (error) {
 
                 console.log('Error al retirar todo el dinero: '+error)
-                
+                message.reply('Hubo un error interno. Por favor, inténtelo de nuevo.').catch((e) => console.log('Error al enviar mensaje: '+e))
+          
             }
         
-            const e = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
-            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184144441000017/with.gif?width=150&height=150')
-            .setColor('GREEN')
-            .setDescription(`<a:Verify1:931463354357276742> | Has retirado <a:money:930397094924124180> `+ buscarUsuario.banco.toLocaleString('en-US')+ ' del banco')
-            .setTimestamp()
-        
-            message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
-
         } else {
 
             if(isNaN(parseInt(args[0]))) return message.reply({embeds: [
 
                 new Discord.MessageEmbed()
-                .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                 .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184144441000017/with.gif?width=150&height=150')
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | Ingresa un número válido para retirar!`)
 
-            ]})
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
             let numero = parseInt(args[0])
 
@@ -121,22 +123,24 @@ module.exports =  {
                     })
 
                 update.save()
+
+                const e = new Discord.MessageEmbed()
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184144441000017/with.gif?width=150&height=150')
+                .setColor('GREEN')
+                .setDescription(`<a:Verify1:931463354357276742> | Has retirado <a:money:930397094924124180> `+ numero.toLocaleString('en-US') + ' del banco')
+                .setTimestamp()
+          
+                message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
                 
             } catch (error) {
 
                 console.log('Error al retirar '+numero+' : '+error)
-
+                message.reply('Hubo un error interno. Por favor, inténtelo de nuevo.').catch((e) => console.log('Error al enviar mensaje: '+e))
+          
             }
         
-            const e = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
-            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184144441000017/with.gif?width=150&height=150')
-            .setColor('GREEN')
-            .setDescription(`<a:Verify1:931463354357276742> | Has retirado <a:money:930397094924124180> `+ numero.toLocaleString('en-US') + ' del banco')
-            .setTimestamp()
-          
-            message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
-
+            
         }
 
     }

@@ -15,7 +15,7 @@ module.exports =  {
             .setColor('RED')
             
             return message.reply({ embeds: [embed] })
-            .then(m => setTimeout(() => m.delete(), 5000));
+            .then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         } else {
 
@@ -28,7 +28,7 @@ module.exports =  {
             .setTimestamp(new Date())
             .setFooter(`Malta's Bot`, `${message.author.displayAvatarURL()}`);
             
-            message.channel.send({ embeds: [embed] });
+            message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
         
         }
     

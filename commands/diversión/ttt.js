@@ -11,17 +11,17 @@ module.exports =  {
 
         if (tresenraya.partidas.map(x => x).some(x => message.author.id) && args[0] ?.toLowerCase() !== "stop") return message.reply("Ya estás en una partida!").then(m => {
             setTimeout(() => m.delete(), 10000)
-          });
+          }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
           let member = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
     
           /* Verificamos los argumentos */
         
-          if (!member) return message.reply({ allowedMentions: { repliedUser: false}, content: "Para jugar debes mencionar a alguien."}) //Si el no mencionó a alguien retornamos 
+          if (!member) return message.reply({ allowedMentions: { repliedUser: false}, content: "Para jugar debes mencionar a alguien."}).catch((e) => console.log('Error al enviar mensaje: '+e)) //Si el no mencionó a alguien retornamos 
         
-          if (member.id === message.author.id) return message.reply({ allowedMentions: { repliedUser: false}, content: "Según las reglas del juego no puedes competir contigo mismo U.U"}); //Si se mencionó el mismo retornamos.
+          if (member.id === message.author.id) return message.reply({ allowedMentions: { repliedUser: false}, content: "Según las reglas del juego no puedes competir contigo mismo U.U"}).catch((e) => console.log('Error al enviar mensaje: '+e)) //Si se mencionó el mismo retornamos.
         
-          if (member.user.bot) return message.reply({ allowedMentions: { repliedUser: false}, content: "No puedes competir contra un bot"}) //Si el mencionado es un bot retornamos.
+          if (member.user.bot) return message.reply({ allowedMentions: { repliedUser: false}, content: "No puedes competir contra un bot"}).catch((e) => console.log('Error al enviar mensaje: '+e)) //Si el mencionado es un bot retornamos.
     
           message.reply({ allowedMentions: { repliedUser: false}, 
             content: member.toString() + ", ¿aceptas jugar **Tres en raya** contra " + message.author.toString() + "?",
@@ -69,7 +69,7 @@ module.exports =  {
                 let msg = await m.edit({
                   content: "**TicTacToe** - Turno de " + client.users.cache.get(game.turno.jugador).username + "[" + game.turno.ficha + "]",
                   components: []
-                });
+                }).catch((e) => console.log('Error al editar mensaje: '+e))
                 
                 jugarTicTacToe(game, msg); //Iniciamos el juego con la función que vamos a crear mas adelante, le daremos la variable game del juego y la variable msg del mensaje.
                 
@@ -84,7 +84,7 @@ module.exports =  {
                 m.edit({
                   content: "El juego ha sido rechazado...",
                   components: []
-                });
+                }).catch((e) => console.log('Error al editar mensaje: '+e))
               
               }
             });
@@ -95,13 +95,13 @@ module.exports =  {
               if(collected.size < 1) return m.edit({
                 content: "**El jugador tardó en responder la solicitud. Juego terminado.**",
                 components: []
-              });
+              }).catch((e) => console.log('Error al editar mensaje: '+e))
 
               console.log('Razón del término de colección de Tic Tac Toe: '+reason)
               
             });
             
-          });
+          }).catch((e) => console.log('Error al enviar mensaje: '+e))
           
           /* Ahora se viene lo mejor */
           
@@ -258,14 +258,14 @@ module.exports =  {
               return msg.edit({
                 content: `:trophy: Ha ganado ${client.users.cache.get(jugador).username}`,
                 components: []
-              });
+              }).catch((e) => console.log('Error al editar mensaje: '+e))
             });
       
             game.on('empate', (jugadores, tablero, paso) => {
               return msg.edit({
                 content: ":man_gesturing_no: Hubo un empate!",
                 components: []
-              });
+              }).catch((e) => console.log('Error al ediar mensaje: '+e))
             });
       
             game.on('finalizado', (jugadores, tablero, turno, user) => {
@@ -273,7 +273,7 @@ module.exports =  {
               return msg.edit({
                 content: ":no_entry: El juego ha sido finalizado por <@!" + user + ">",
                 components: []
-              });
+              }).catch((e) => console.log('Error al editar mensaje: '+e))
             });
             
             
@@ -336,10 +336,10 @@ module.exports =  {
                   return m.edit({
                     content: `**Tiempo agotado!, el juego ha terminado.**`,
                     components: []
-                  });
+                  }).catch((e) => console.log('Error al editar mensaje: '+e))
                 }
               });
-            });
+            }).catch((e) => console.log('Error al enviar mensaje: '+e))
             
           }
 

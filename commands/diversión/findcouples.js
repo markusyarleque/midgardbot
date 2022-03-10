@@ -9,6 +9,7 @@ module.exports =  {
     async execute(client, message, args, Discord) {
 
         await FindCouples({
+
             message: message,
             slash_command: false,
             time: 300000,
@@ -24,7 +25,8 @@ module.exports =  {
             winMessage: 'Felicidades {{user}}! Ganaste.',
             endMessage: 'El tiempo ha terminado! El juego fue detenido por inactividad.',
             authorOnly: 'Solo <@{{author}}> puede usar estos botones!',
-        })
+        
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 

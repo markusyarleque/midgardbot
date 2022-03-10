@@ -30,11 +30,11 @@ module.exports = {
       if(!reporte){
 
         const e = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | **Debes agregar una sugerencia para enviar al desarrollador!**`)
           
-          return message.channel.send({embeds: [e]})
+          return message.channel.send({embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
       }
 
       let sv = client.guilds.cache.get('777620055344545842')
@@ -46,12 +46,12 @@ module.exports = {
         .setThumbnail(`https://media.giphy.com/media/Jzw7qUU2ZMw7DYpQV8/giphy.gif`)
         .setTitle('<a:corazonBlack_FD:880526799736557679> | Sugerencia')
         .setDescription(`**${usera.username}** ¿Estás segur@ que quieres dar esta sugerencia? ¡Usar mal el comando causará la prohibición!`)
-        .addField('Sugerencia: ', reporte)
+        .addField('Sugerencia: ', reporte ? reporte : 'Ninguna')
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`Developer Team - Midgard Bot`, `${message.author.displayAvatarURL()}`);
+        .setFooter({ text: `Developer Team - Midgard Bot`,  iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
     
-      setTimeout(() => message.delete(), 100)
+      setTimeout(() => message.delete(), 100).catch((e) => console.log('Error al enviar mensaje: '+e))
       
       message.channel.send({ 
         
@@ -77,31 +77,31 @@ module.exports = {
             .setTitle('<a:corazonBlack_FD:880526799736557679> | Sugerencia')
             .setColor('RANDOM')
             .setDescription('Sugerencia realizada con éxito! <a:clap:881331231021756437>')
-            .addField('Sugerencia: ', '<a:flech:931432469935312937> '+reporte)
+            .addField('Sugerencia: ', '<a:flech:931432469935312937> '+reporte ? reporte : 'Ninguna')
             .setTimestamp(new Date())
-            .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
+            .setFooter({ text: `Por: ${usera.id}`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
 
             m.edit({ 
               embeds: [bugco],
               components: []
-            })
+            }).catch((e) => console.log('Error al enviar mensaje: '+e))
   
             let bugre = new Discord.MessageEmbed()
             .setThumbnail(`https://media.giphy.com/media/Jzw7qUU2ZMw7DYpQV8/giphy.gif`)
             .setTitle('<a:corazonBlack_FD:880526799736557679> | Sugerencia')
             .setColor('RANDOM')
-            .addField('Ha llegado la siguiente sugerencia: ', '<a:flech:931432469935312937> '+reporte)
+            .addField('Ha llegado la siguiente sugerencia: ', '<a:flech:931432469935312937> '+reporte ? reporte : ' Ninguna')
             .setTimestamp(new Date())
-            .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
+            .setFooter({ text: `Por: ${usera.id}`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
     
-          channel.send({ embeds: [bugre]})
+          channel.send({ embeds: [bugre]}).catch((e) => console.log('Error al enviar mensaje: '+e))
      
           } else if (int.customId === "deny") {
   
             m.edit({
               embeds : [embedercancel],
               components: []
-            })
+            }).catch((e) => console.log('Error al enviar mensaje: '+e))
             
           }
         });
@@ -111,13 +111,14 @@ module.exports = {
           if(collected.size < 1) return m.edit({ 
             embeds: [embednoconf],
             components: []
-          })
+          }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
           console.log('Razón del término de colección de la sugerencia: '+reason)
             
         });
           
-      })
+      }).catch((e) => console.log('Error al enviar mensaje: '+e))
+
     }
       
   }

@@ -11,7 +11,6 @@ module.exports =  {
 		let text = args.join(' ').toUpperCase()
         let title
 
-        console.log('First text : '+text)
         while (text.includes('Ä') || text.includes('Ö') || text.includes('Ü')) {
             
             text = text.replace('Ä', 'AE').replace('Ö', 'OE').replace('Ü', 'UE')
@@ -45,12 +44,10 @@ module.exports =  {
 			for (let i = 0; i < length; i++) {
 
 				text[i] = morse[alpha.indexOf(text[i])];
-                console.log('Texto: '+text[i]+' - Morse: '+morse[alpha.indexOf(text[i])])
-
+                
 			}
 
 			text = text.join(' ');
-            console.log('After text: '+text)
             title = '💫 Texto a Morse'
 
 		}
@@ -66,7 +63,7 @@ module.exports =  {
         .setTimestamp(new Date())
         .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
              
-		message.channel.send({ embeds: [embed]});
+		message.channel.send({ embeds: [embed]}).catch((e) => console.log('Error al enviar mensaje: '+e))
         
     }
 

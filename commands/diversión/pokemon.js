@@ -12,6 +12,7 @@ module.exports =  {
     async execute(client, message, args, Discord) { 
 
         await GuessThePokemon({
+
             message: message,
             slash_command: false,
             time: 300000,
@@ -30,7 +31,8 @@ module.exports =  {
             wrongMessage: '𝐄𝐑𝐑𝐎𝐑!. El Pokémon era **{{pokemon}}**',
             stopMessage: 'Has finalizado el juego, el pokémon correcto era {{pokemon}}',
             authorOnly: 'Solo <@{{author}}> puede usar estos botones!',
-        })
+        
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         // let buscarUsuario = await userSchema.findOne({idusuario: message.author.id})
 

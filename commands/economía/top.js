@@ -59,12 +59,12 @@ module.exports =  {
         if(!lista) return message.channel.send({embeds:[
           
             new Discord.MessageEmbed()
-            .setAuthor(`MidgardBot`+' | Top Global 🏦', client.user.avatarURL())
+            .setAuthor({ name: `MidgardBot`+' | Top Global 🏦', iconURL: client.user.avatarURL({ dynamic: true }) })
             .setDescription('Aún no hay usuarios en el Top <:tierno:931433334960160799>')   	
             .setColor("RANDOM")
-            .setFooter(server.name,server.iconURL({ dynamic: true, size: 2048 }))
+            .setFooter({ text: server.name, iconURL: server.iconURL() ? server.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
                 
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         let embed = new Discord.MessageEmbed()
 
@@ -83,12 +83,12 @@ module.exports =  {
 
         let first = client.users.cache.get(foto[0])
  
-        embed.setAuthor(`MidgardBot`+' | Top Global 🏦', client.user.avatarURL())
+        embed.setAuthor({ name: `MidgardBot`+' | Top Global 🏦', iconURL: client.user.avatarURL({ dynamic: true }) })
         embed.setThumbnail(first.displayAvatarURL({dynamic: true, size: 2048}))
         embed.setDescription(datos.join('\n\n'))   	
         embed.setColor("RANDOM")
-        embed.setFooter(server.name,server.iconURL({ dynamic: true, size: 2048 }))
-        
+        embed.setFooter({ text: server.name, iconURL: server.iconURL() ? server.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+            
         message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed], components:
             [
 
@@ -119,11 +119,11 @@ module.exports =  {
                     if(!lista) return m.edit({embeds:[
             
                         new Discord.MessageEmbed()
-                        .setAuthor(`MidgardBot`+' | Top XP ⭐', client.user.avatarURL())
+                        .setAuthor({ name: `MidgardBot`+' | Top XP ⭐', iconURL: client.user.avatarURL({ dynamic: true }) })
                         .setDescription('Aún no hay usuarios en el Top <:tierno:931433334960160799>')   	
                         .setColor("RANDOM")
-                        .setFooter(server.name,server.iconURL({ dynamic: true, size: 2048 }))
-          
+                        .setFooter({ text: server.name, iconURL: server.iconURL() ? server.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+        
                     ], components: [
 
                         new Discord.MessageActionRow()
@@ -132,7 +132,7 @@ module.exports =  {
                         new Discord.MessageActionRow()
                         .addComponents(bPat.setDisabled(false),bHug.setDisabled(false),bSape.setDisabled(false))
 
-                    ]})
+                    ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
                     let embed = new Discord.MessageEmbed()
  
@@ -151,12 +151,12 @@ module.exports =  {
             
                     let first = client.users.cache.get(foto[0])
 
-                    embed.setAuthor(`MidgardBot`+' | Top XP ⭐', client.user.avatarURL())
+                    embed.setAuthor({ name: `MidgardBot`+' | Top XP ⭐', iconURL: client.user.avatarURL({ dynamic: true }) })
                     embed.setDescription(datos.join('\n\n'))   	
                     embed.setThumbnail(first.displayAvatarURL({dynamic: true, size: 2048}))
                     embed.setColor("RANDOM")
-                    embed.setFooter(server.name,server.iconURL({ dynamic: true, size: 2048 }))
-          
+                    embed.setFooter({ text: server.name, iconURL: server.iconURL() ? server.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+        
                     m.edit({ embeds: [embed], components: [
 
                         new Discord.MessageActionRow()
@@ -165,7 +165,7 @@ module.exports =  {
                         new Discord.MessageActionRow()
                         .addComponents(bPat.setDisabled(false),bHug.setDisabled(false),bSape.setDisabled(false))
 
-                    ]});
+                    ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
   
                 }
 
@@ -176,11 +176,11 @@ module.exports =  {
                     if(!lista) return m.edit({embeds:[
             
                         new Discord.MessageEmbed()
-                        .setAuthor(`MidgardBot`+' | Top Cash 💵', client.user.avatarURL())
+                        .setAuthor({ name: `MidgardBot`+' | Top Cash 💵', iconURL: client.user.avatarURL({ dynamic: true }) })
                         .setDescription('Aún no hay usuarios en el Top <:tierno:931433334960160799>')   	
                         .setColor("RANDOM")
-                        .setFooter(server.name,server.iconURL({ dynamic: true, size: 2048 }))
-          
+                        .setFooter({ text: server.name, iconURL: server.iconURL() ? server.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+        
                     ], components: [
 
                         new Discord.MessageActionRow()
@@ -189,7 +189,7 @@ module.exports =  {
                         new Discord.MessageActionRow()
                         .addComponents(bPat.setDisabled(false),bHug.setDisabled(false),bSape.setDisabled(false))
 
-                    ]})
+                    ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
                     let embed = new Discord.MessageEmbed()
 
@@ -209,12 +209,12 @@ module.exports =  {
 
                     let first = client.users.cache.get(foto[0])
  
-                    embed.setAuthor(`MidgardBot`+' | Top Cash 💵', client.user.avatarURL())
+                    embed.setAuthor({ name: `MidgardBot`+' | Top Cash 💵', iconURL: client.user.avatarURL({ dynamic: true }) })
                     embed.setDescription(datos.join('\n\n'))   	
                     embed.setThumbnail(first.displayAvatarURL({dynamic: true, size: 2048}))
                     embed.setColor("RANDOM")
-                    embed.setFooter(server.name,server.iconURL({ dynamic: true, size: 2048 }))
-          
+                    embed.setFooter({ text: server.name, iconURL: server.iconURL() ? server.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+        
                     m.edit({ embeds: [embed], components: [
 
                         new Discord.MessageActionRow()
@@ -223,7 +223,7 @@ module.exports =  {
                         new Discord.MessageActionRow()
                         .addComponents(bPat.setDisabled(false),bHug.setDisabled(false),bSape.setDisabled(false))
 
-                    ]});
+                    ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
                 }
 
@@ -234,11 +234,11 @@ module.exports =  {
                     if(!lista) return m.edit({embeds:[
             
                         new Discord.MessageEmbed()
-                        .setAuthor(`MidgardBot`+' | Top Carisma 💟', client.user.avatarURL())
+                        .setAuthor({ name: `MidgardBot`+' | Top Carisma 💟', iconURL: client.user.avatarURL({ dynamic: true }) })
                         .setDescription('Aún no hay usuarios en el Top <:tierno:931433334960160799>')   	
                         .setColor("RANDOM")
-                        .setFooter(server.name,server.iconURL({ dynamic: true, size: 2048 }))
-          
+                        .setFooter({ text: server.name, iconURL: server.iconURL() ? server.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+        
                     ], components: [
 
                         new Discord.MessageActionRow()
@@ -247,7 +247,7 @@ module.exports =  {
                         new Discord.MessageActionRow()
                         .addComponents(bPat.setDisabled(false),bHug.setDisabled(false),bSape.setDisabled(false))
 
-                    ]})
+                    ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
                     let embed = new Discord.MessageEmbed()
 
@@ -276,12 +276,12 @@ module.exports =  {
 
                     let first = client.users.cache.get(foto[0])
  
-                    embed.setAuthor(`MidgardBot`+' | Top Carisma 💟', client.user.avatarURL())
+                    embed.setAuthor({ name: `MidgardBot`+' | Top Carisma 💟', iconURL: client.user.avatarURL({ dynamic: true }) })
                     embed.setDescription(datos.join('\n\n'))   	
                     embed.setThumbnail(first.displayAvatarURL({dynamic: true, size: 2048}))
                     embed.setColor("RANDOM")
-                    embed.setFooter(server.name,server.iconURL({ dynamic: true, size: 2048 }))
-          
+                    embed.setFooter({ text: server.name, iconURL: server.iconURL() ? server.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+        
                     m.edit({ embeds: [embed], components: [
 
                         new Discord.MessageActionRow()
@@ -290,7 +290,7 @@ module.exports =  {
                         new Discord.MessageActionRow()
                         .addComponents(bPat.setDisabled(false),bHug.setDisabled(false),bSape.setDisabled(false))
 
-                    ]});
+                    ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
                 }
 
@@ -301,11 +301,11 @@ module.exports =  {
                     if(!lista) return m.edit({embeds:[
                 
                         new Discord.MessageEmbed()
-                        .setAuthor(`MidgardBot`+' | Top Pats ❣', client.user.avatarURL())
+                        .setAuthor({ name: `MidgardBot`+' | Top Pats ❣', iconURL: client.user.avatarURL({ dynamic: true }) })
                         .setDescription('Aún no hay usuarios en el Top <:tierno:931433334960160799>')   	
                         .setColor("RANDOM")
-                        .setFooter(server.name,server.iconURL({ dynamic: true, size: 2048 }))
-              
+                        .setFooter({ text: server.name, iconURL: server.iconURL() ? server.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+        
                     ], components: [
 
                         new Discord.MessageActionRow()
@@ -314,7 +314,7 @@ module.exports =  {
                         new Discord.MessageActionRow()
                         .addComponents(bPat.setDisabled(true),bHug.setDisabled(false),bSape.setDisabled(false))
 
-                    ]})
+                    ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
                     let embed = new Discord.MessageEmbed()
     
@@ -342,12 +342,12 @@ module.exports =  {
     
                     let first = client.users.cache.get(foto[0])
      
-                    embed.setAuthor(`MidgardBot`+' | Top Pats ❣', client.user.avatarURL())
+                    embed.setAuthor({ name: `MidgardBot`+' | Top Pats ❣', iconURL: client.user.avatarURL({ dynamic: true }) })
                     embed.setDescription(datos.join('\n\n'))   	
                     embed.setThumbnail(first.displayAvatarURL({dynamic: true, size: 2048}))
                     embed.setColor("RANDOM")
-                    embed.setFooter(server.name,server.iconURL({ dynamic: true, size: 2048 }))
-              
+                    embed.setFooter({ text: server.name, iconURL: server.iconURL() ? server.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+        
                     m.edit({ embeds: [embed], components: [
 
                         new Discord.MessageActionRow()
@@ -356,7 +356,7 @@ module.exports =  {
                         new Discord.MessageActionRow()
                         .addComponents(bPat.setDisabled(true),bHug.setDisabled(false),bSape.setDisabled(false))
 
-                    ]});
+                    ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
                 }
 
@@ -367,11 +367,11 @@ module.exports =  {
                     if(!lista) return m.edit({embeds:[
                 
                         new Discord.MessageEmbed()
-                        .setAuthor(`MidgardBot`+' | Top Abrazos 🤗', client.user.avatarURL())
+                        .setAuthor({ name: `MidgardBot`+' | Top Abrazos 🤗', iconURL: client.user.avatarURL({ dynamic: true }) })
                         .setDescription('Aún no hay usuarios en el Top <:tierno:931433334960160799>')   	
                         .setColor("RANDOM")
-                        .setFooter(server.name,server.iconURL({ dynamic: true, size: 2048 }))
-              
+                        .setFooter({ text: server.name, iconURL: server.iconURL() ? server.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+        
                     ], components: [
 
                         new Discord.MessageActionRow()
@@ -380,7 +380,7 @@ module.exports =  {
                         new Discord.MessageActionRow()
                         .addComponents(bPat.setDisabled(false),bHug.setDisabled(true),bSape.setDisabled(false))
 
-                    ]})
+                    ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
                     let embed = new Discord.MessageEmbed()
     
@@ -409,12 +409,12 @@ module.exports =  {
     
                     let first = client.users.cache.get(foto[0])
      
-                    embed.setAuthor(`MidgardBot`+' | Top Abrazos 🤗', client.user.avatarURL())
+                    embed.setAuthor({ name: `MidgardBot`+' | Top Abrazos 🤗', iconURL: client.user.avatarURL({ dynamic: true }) })
                     embed.setDescription(datos.join('\n\n'))   	
                     embed.setThumbnail(first.displayAvatarURL({dynamic: true, size: 2048}))
                     embed.setColor("RANDOM")
-                    embed.setFooter(server.name,server.iconURL({ dynamic: true, size: 2048 }))
-              
+                    embed.setFooter({ text: server.name, iconURL: server.iconURL() ? server.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+        
                     m.edit({ embeds: [embed], components: [
 
                         new Discord.MessageActionRow()
@@ -423,7 +423,7 @@ module.exports =  {
                         new Discord.MessageActionRow()
                         .addComponents(bPat.setDisabled(false),bHug.setDisabled(true),bSape.setDisabled(false))
 
-                    ]});
+                    ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
                 }
 
@@ -434,11 +434,11 @@ module.exports =  {
                     if(!lista) return m.edit({embeds:[
                 
                         new Discord.MessageEmbed()
-                        .setAuthor(`MidgardBot`+' | Top Sapes 🤡', client.user.avatarURL())
+                        .setAuthor({ name: `MidgardBot`+' | Top Sapes 🤡', iconURL: client.user.avatarURL({ dynamic: true }) })
                         .setDescription('Aún no hay usuarios en el Top <:tierno:931433334960160799>')   	
                         .setColor("RANDOM")
-                        .setFooter(server.name,server.iconURL({ dynamic: true, size: 2048 }))
-              
+                        .setFooter({ text: server.name, iconURL: server.iconURL() ? server.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+        
                     ], components: [
 
                         new Discord.MessageActionRow()
@@ -447,7 +447,7 @@ module.exports =  {
                         new Discord.MessageActionRow()
                         .addComponents(bPat.setDisabled(false),bHug.setDisabled(false),bSape.setDisabled(true))
 
-                    ]})
+                    ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
                     let embed = new Discord.MessageEmbed()
     
@@ -467,12 +467,12 @@ module.exports =  {
     
                     let first = client.users.cache.get(foto[0])
      
-                    embed.setAuthor(`MidgardBot`+' | Top Sapes 🤡', client.user.avatarURL())
+                    embed.setAuthor({ name: `MidgardBot`+' | Top Sapes 🤡', iconURL: client.user.avatarURL({ dynamic: true }) })
                     embed.setDescription(datos.join('\n\n'))   	
                     embed.setThumbnail(first.displayAvatarURL({dynamic: true, size: 2048 }))
                     embed.setColor("RANDOM")
-                    embed.setFooter(server.name,server.iconURL({ dynamic: true, size: 2048 }))
-              
+                    embed.setFooter({ text: server.name, iconURL: server.iconURL() ? server.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+        
                     m.edit({ embeds: [embed], components: [
 
                         new Discord.MessageActionRow()
@@ -481,7 +481,7 @@ module.exports =  {
                         new Discord.MessageActionRow()
                         .addComponents(bPat.setDisabled(false),bHug.setDisabled(false),bSape.setDisabled(true))
 
-                    ]});
+                    ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
                 }
 
@@ -492,11 +492,11 @@ module.exports =  {
                     if(!lista) return m.edit({embeds:[
                       
                         new Discord.MessageEmbed()
-                        .setAuthor(`MidgardBot`+' | Top Global 🏦', client.user.avatarURL())
+                        .setAuthor({ name: `MidgardBot`+' | Top Global 🏦', iconURL: client.user.avatarURL({ dynamic: true }) })
                         .setDescription('Aún no hay usuarios en el Top <:tierno:931433334960160799>')   	
                         .setColor("RANDOM")
-                        .setFooter(server.name,server.iconURL({ dynamic: true, size: 2048 }))
-                            
+                        .setFooter({ text: server.name, iconURL: server.iconURL() ? server.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+            
                     ], components: [
 
                         new Discord.MessageActionRow()
@@ -505,7 +505,7 @@ module.exports =  {
                         new Discord.MessageActionRow()
                         .addComponents(bPat.setDisabled(false),bHug.setDisabled(false),bSape.setDisabled(false))
 
-                    ]})
+                    ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
             
                     let embed = new Discord.MessageEmbed()
             
@@ -524,12 +524,12 @@ module.exports =  {
             
                     let first = client.users.cache.get(foto[0])
              
-                    embed.setAuthor(`MidgardBot`+' | Top Global 🏦', client.user.avatarURL())
+                    embed.setAuthor({ name: `MidgardBot`+' | Top Global 🏦', iconURL: client.user.avatarURL({ dynamic: true }) })
                     embed.setThumbnail(first.displayAvatarURL({dynamic: true, size: 2048}))
                     embed.setDescription(datos.join('\n\n'))   	
                     embed.setColor("RANDOM")
-                    embed.setFooter(server.name,server.iconURL({ dynamic: true, size: 2048 }))
-                    
+                    embed.setFooter({ text: server.name, iconURL: server.iconURL() ? server.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+        
                     m.edit({embeds: [embed], components: [
 
                         new Discord.MessageActionRow()
@@ -538,20 +538,21 @@ module.exports =  {
                         new Discord.MessageActionRow()
                         .addComponents(bPat.setDisabled(false),bHug.setDisabled(false),bSape.setDisabled(false))
 
-                    ]})
+                    ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+
                 }
   
             });
   
             collector.on("end", (collected,reason) => {
           
-                if(collected < 1) return m.edit({components: []})
+                if(collected < 1) return m.edit({components: []}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
                 console.log('Razón del término de colección: '+reason)
 
             });
         
-        })
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 

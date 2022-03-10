@@ -34,11 +34,11 @@ module.exports =  {
                     return message.reply({ embeds: [
                             
                         new Discord.MessageEmbed()
-                        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                        .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                         .setColor('RED')
                         .setDescription(`<a:Verify2:931463492677017650> | No hay perfil registrado para el usuario!`)
                         
-                    ]})
+                    ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
 
                 } else {
@@ -308,21 +308,21 @@ module.exports =  {
                         try {
 
                             let embed = new Discord.MessageEmbed()
-                            .setAuthor('Perfil de ' + message.author.username, message.author.displayAvatarURL())
+                            .setAuthor({ name: 'Perfil de ' + message.author.username, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                             .setThumbnail(av ? av : 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif')
                             .addField('Nivel', '<a:start:930399379800592394>  '+userData.nivel+' '+xp, true)
-                            .addField('Carisma', '<a:corazon:930399275643453500> '+userData.rep, false)
-                            .addField('Pats', '<a:gatoasomar:930399873113677834> '+userData.pat, false)
-                            .addField('Abrazos', '<:burbujita:925927258789666826> '+userData.hug, false)
-                            .addField('Sapes', '<:maje:925927838492811295> '+userData.sape, false)
-                            .addField('Frase', '<a:megaphone:932192877449191424> '+userData.frase, false)
+                            .addField('Carisma', '<a:corazon:930399275643453500> '+userData.rep ? userData.rep : '0', false)
+                            .addField('Pats', '<a:gatoasomar:930399873113677834> '+userData.pat ? userData.pat : '0', false)
+                            .addField('Abrazos', '<:burbujita:925927258789666826> '+userData.hug ? userData.hug : '0', false)
+                            .addField('Sapes', '<:maje:925927838492811295> '+userData.sape ? userData.sape : '0', false)
+                            .addField('Frase', '<a:megaphone:932192877449191424> '+userData.frase ? userData.frase : 'Ninguna', false)
                             .addField('Matrimonio <:GatoLove:925929538863628318>', tmarry ? tmarry : 'Soltero(a)', true)
                             .addField('<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>','<a:dinero:930404747326914590> **Economía**',false)
-                            .addField(`**Total:**`, '<a:money:930397094924124180>  '+userData.total.toLocaleString('en-US'), true)
-                            .setColor(userData.color)
-                            .setFooter(footer,client.user.avatarURL())
+                            .addField(`**Total:**`, '<a:money:930397094924124180>  '+userData.total ? userData.total.toLocaleString('en-US') : '0', true)
+                            .setColor(userData.color ? userData.color : 'RANDOM')
+                            .setFooter({ text: footer, iconURL: client.user.avatarURL({ dynamic: true}) })
             
-                            message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
+                            message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
       
                             
                         } catch (error) {
@@ -332,11 +332,11 @@ module.exports =  {
                             message.reply({ embeds: [
                    
                                 new Discord.MessageEmbed()
-                                .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                                 .setColor('RED')
                                 .setDescription(`<a:Verify2:931463492677017650> | Error al obtener perfil del usuario!`)
         
-                            ]})
+                            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
                         }
 
@@ -352,11 +352,11 @@ module.exports =  {
                                 if (!userData) return message.reply({ embeds: [
                             
                                     new Discord.MessageEmbed()
-                                    .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                                    .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                                     .setColor('RED')
                                     .setDescription(`<a:Verify2:931463492677017650> | No hay perfil registrado para el usuario!`)
                         
-                                ]})
+                                ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
               
                                 let update = await userSchema.findOneAndUpdate({idusuario: message.author.id},
                                     {
@@ -367,7 +367,7 @@ module.exports =  {
 
                                 console.log("Foto actualizada de "+update.username+': '+ i)
 
-                                message.reply({ allowedMentions: { repliedUser: false}, content: '<a:Dancing_Duck:930402083625111613> | Acabas de actualizar tu foto de perfil!'});
+                                message.reply({ allowedMentions: { repliedUser: false}, content: '<a:Dancing_Duck:930402083625111613> | Acabas de actualizar tu foto de perfil!'}).catch((e) => console.log('Error al enviar mensaje: '+e))
      
                                 break
             
@@ -380,11 +380,11 @@ module.exports =  {
                                 if (!userData) return message.reply({ embeds: [
                             
                                     new Discord.MessageEmbed()
-                                    .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                                    .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                                     .setColor('RED')
                                     .setDescription(`<a:Verify2:931463492677017650> | No hay perfil registrado para el usuario!`)
                         
-                                ]})
+                                ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
                                 let update = await userSchema.findOneAndUpdate({idusuario: message.author.id},
                                     {
@@ -395,7 +395,7 @@ module.exports =  {
 
                                 console.log("Frase actualizada de "+update.username+': '+ f)
 
-                                message.reply({ allowedMentions: { repliedUser: false}, content: '<a:Dancing_Duck:930402083625111613> | Acabas de actualizar tu frase de perfil!'});
+                                message.reply({ allowedMentions: { repliedUser: false}, content: '<a:Dancing_Duck:930402083625111613> | Acabas de actualizar tu frase de perfil!'}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
                                 break
             
@@ -406,11 +406,11 @@ module.exports =  {
                                 message.reply({ embeds: [
                            
                                     new Discord.MessageEmbed()
-                                    .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                                    .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                                     .setColor('RED')
                                     .setDescription(`<a:Verify2:931463492677017650> | Para actualizar Frase, agrega **-f** antes del texto. Para actualizar Foto, agrega **-i** antes del link de la imagen o gif.`)
                         
-                                ]})
+                                ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
               
                                 break;
             
@@ -429,11 +429,11 @@ module.exports =  {
                 message.reply({ embeds: [
                             
                     new Discord.MessageEmbed()
-                    .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                    .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                     .setColor('RED')
                     .setDescription(`<a:Verify2:931463492677017650> | Error al actualizar perfil del usuario!`)
         
-                ]})
+                ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
             }
 
@@ -462,11 +462,11 @@ module.exports =  {
                     return message.reply({ embeds: [
                             
                         new Discord.MessageEmbed()
-                        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                        .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                         .setColor('RED')
                         .setDescription(`<a:Verify2:931463492677017650> | No hay perfil registrado para el usuario!`)
                         
-                    ]})
+                    ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
                 } else {
 
@@ -737,21 +737,21 @@ module.exports =  {
                     }
 
                     let embed = new Discord.MessageEmbed()
-                    .setAuthor('Perfil de ' + img.user.username, img.displayAvatarURL())
+                    .setAuthor({ name: 'Perfil de ' + img.user.username, iconURL: img.displayAvatarURL({ dynamic: true }) })
                     .setThumbnail(av ? av : 'https://c.tenor.com/FLR3dFSlH1sAAAAC/bully-tierno.gif')
                     .addField('Nivel', '<a:start:930399379800592394>  '+userData.nivel+' '+xp, true)
-                    .addField('Carisma', '<a:corazon:930399275643453500> '+userData.rep, false)
-                    .addField('Pats', '<a:gatoasomar:930399873113677834> '+userData.pat, false)
-                    .addField('Abrazos', '<:burbujita:925927258789666826> '+userData.hug, false)
-                    .addField('Sapes', '<:maje:925927838492811295> '+userData.sape, false)
+                    .addField('Carisma', '<a:corazon:930399275643453500> '+userData.rep ? userData.rep : '0', false)
+                    .addField('Pats', '<a:gatoasomar:930399873113677834> '+userData.pat ? userData.pat : '0', false)
+                    .addField('Abrazos', '<:burbujita:925927258789666826> '+userData.hug ? userData.hug : '0', false)
+                    .addField('Sapes', '<:maje:925927838492811295> '+userData.sape ? userData.sape : '0', false)
                     .addField('Frase', '<a:megaphone:932192877449191424> '+userData.frase ? userData.frase : 'No hay frase agregada', false)
                     .addField('<:GatoLove:925929538863628318> Matrimonio', tmarry ? tmarry : 'Soltero(a)', true)
                     .addField('<a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816><a:barracolor:930401303249698816>','<a:dinero:930404747326914590> **Economía**',false)
-                    .addField(`**Total:**`, '<a:money:930397094924124180>  '+userData.total.toLocaleString('en-US'), true)
-                    .setColor(userData.color)
-                    .setFooter(footer,client.user.avatarURL())
+                    .addField(`**Total:**`, '<a:money:930397094924124180>  '+userData.total ? userData.total.toLocaleString('en-US') : '0', true)
+                    .setColor(userData.color ? userData.color : 'RANDOM')
+                    .setFooter({ text: footer, iconURL: client.user.avatarURL({ dynamic: true }) })
         
-                    message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
+                    message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
         
                 }
             

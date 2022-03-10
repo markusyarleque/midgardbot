@@ -19,7 +19,7 @@ module.exports =  {
             .setColor('RED')
             .setDescription('<a:Verify2:931463492677017650> | No tienes Permisos para usar este comando. Solo Administradores!')
 
-        ]});
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         let trigger, response
 
@@ -46,7 +46,7 @@ module.exports =  {
             .setDescription('<a:Verify1:931463354357276742> | Se agregó correctamente la autorespuesta: \n\n> **Trigger:** `'+trigger+'`\n> **Response:** `'+response+'`')
             .setTimestamp()
         
-            message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
+            message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         } catch (error) {
             

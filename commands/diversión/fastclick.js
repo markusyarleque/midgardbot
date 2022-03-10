@@ -17,9 +17,10 @@ module.exports =  {
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | Necesitas mencionar con quién jugar!`)
       
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         await FastClick({
+
             message: message,
             slash_command: false,
             time: 300000,
@@ -49,7 +50,8 @@ module.exports =  {
             wrongClick: '{{winneruser}} Ganó porque {{loser}} dió click en el botón equivocado!',
             endMessage: 'Juego no aceptado a tiempo',
             authorOnly: 'No puedes usar estos botones'
-        })
+
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 

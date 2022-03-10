@@ -23,7 +23,7 @@ module.exports =  {
             .setDescription('Solo el developer del bot puede usar este comando.')
             .setColor("RED")
       
-            return message.channel.send({embeds: [embed]}).then(m => setTimeout(() => m.delete(), 5000));
+            return message.channel.send({embeds: [embed]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         } 
 
@@ -354,7 +354,7 @@ module.exports =  {
                 
             });
               
-        })
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 

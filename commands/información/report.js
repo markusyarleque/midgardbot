@@ -30,11 +30,12 @@ module.exports = {
     if(!reporte){
 
       const e = new Discord.MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL())
-        .setColor('RED')
-        .setDescription(`<a:Verify2:931463492677017650> | **Debes agregar un reporte para enviar al desarrollador!**`)
+      .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+      .setColor('RED')
+      .setDescription(`<a:Verify2:931463492677017650> | **Debes agregar un reporte para enviar al desarrollador!**`)
         
-      return message.channel.send({embeds: [e]})
+      return message.channel.send({embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+
     }
 
     let sv = client.guilds.cache.get('777620055344545842')
@@ -46,12 +47,12 @@ module.exports = {
     .setThumbnail(`https://assets.sutori.com/user-uploads/image/bc331db1-aa9d-4684-b73e-8a1fcb7d751b/aa64184f325ce5cc6abe613d51383870.gif`)
     .setTitle('<a:alerta:932374957206421614> | Reporte')
     .setDescription(`**${usera.username}** ¿Estás segur@ que quieres reportar este bug? ¡Usar mal el comando causará la prohibición!`)
-    .addField('Bug a reportar: ', reporte)
+    .addField('Bug a reportar: ', reporte ? reporte : 'Ninguno')
     .setColor('RANDOM')
     .setTimestamp(new Date())
-    .setFooter(`Developer Team - MidgardBot`, `${message.author.displayAvatarURL()}`);
+    .setFooter({ text: `Developer Team - MidgardBot`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
     
-    setTimeout(() => message.delete(), 100)
+    setTimeout(() => message.delete(), 100).catch((e) => console.log('Error al enviar mensaje: '+e))
     
     message.channel.send({ 
       
@@ -77,31 +78,31 @@ module.exports = {
           .setTitle('📧 | Reporte')
           .setColor('RANDOM')
           .setDescription('Reporte confirmado con éxito! <a:clap:881331231021756437>')
-          .addField('Bug reportado: ', '<a:flech:931432469935312937> '+reporte)
+          .addField('Bug reportado: ', '<a:flech:931432469935312937> '+reporte ? reporte : 'Ninguno')
           .setTimestamp(new Date())
-          .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
+          .setFooter({ text: `Por: ${usera.id}`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
     
           m.edit({ 
             embeds: [bugco],
             components: []
-          })
+          }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
           let bugre = new Discord.MessageEmbed()
           .setThumbnail(`https://assets.sutori.com/user-uploads/image/bc331db1-aa9d-4684-b73e-8a1fcb7d751b/aa64184f325ce5cc6abe613d51383870.gif`)
           .setTitle('📧 | Reporte')
           .setColor('RANDOM')
-          .addField('Ha llegado el siguiente reporte: ', '<a:flech:931432469935312937> '+reporte)
+          .addField('Ha llegado el siguiente reporte: ', '<a:flech:931432469935312937> '+reporte ? reporte : 'Ninguno')
           .setTimestamp(new Date())
-          .setFooter(`Por: ${usera.id}`, `${message.author.displayAvatarURL()}`);
+          .setFooter({ text: `Por: ${usera.id}`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
     
-          channel.send({ embeds: [bugre]})
+          channel.send({ embeds: [bugre]}).catch((e) => console.log('Error al enviar mensaje: '+e))
    
         } else if (int.customId === "deny") {
 
           m.edit({
             embeds : [embedercancel],
             components: []
-          })
+          }).catch((e) => console.log('Error al enviar mensaje: '+e))
           
         }
       });
@@ -111,13 +112,14 @@ module.exports = {
         if(collected.size < 1) return m.edit({ 
           embeds: [embednoconf],
           components: []
-        })
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         console.log('Razón del término de colección del reporte: '+reason)
           
       });
         
-    })
+    }).catch((e) => console.log('Error al enviar mensaje: '+e))
+
   }
     
 }

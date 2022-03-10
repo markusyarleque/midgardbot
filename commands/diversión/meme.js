@@ -36,11 +36,11 @@ module.exports =  {
                         .setColor('RED')
                         .setDescription(`<a:Verify2:931463492677017650> | No encontré memes <:POLQUE:856670987499208775>`)
               
-                    ]})
+                    ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
                     
                 }else{
                         
-                    message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
+                    message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
                     
                 }
     
@@ -48,7 +48,7 @@ module.exports =  {
             
         ).catch(
             
-            (e) => message.reply({ allowedMentions: { repliedUser: false}, content: 'Hubo un error: ' + e})
+            (e) => message.reply({ allowedMentions: { repliedUser: false}, content: 'Hubo un error: ' + e}).catch((e) => console.log('Error al enviar mensaje: '+e))
             
         )
 

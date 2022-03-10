@@ -15,11 +15,11 @@ module.exports =  {
         if(isNaN(cantidad)) return message.reply({embeds: [
 
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | Sólo debes colocar números.!`)
 
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         const bet = parseInt(cantidad)
 
@@ -46,11 +46,11 @@ module.exports =  {
         if(dinero < bet) return message.reply({embeds: [
 
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | No tienes suficiente dinero para apostar. Actualmente tienes: <a:money:930397094924124180> `+dinero.toLocaleString('en-US'))
 
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         let slots = ["💎", "💰", "💵"]
 
@@ -59,23 +59,23 @@ module.exports =  {
         let result3 = Math.floor(Math.random() * slots.length)
 
         let embed2 = new Discord.MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
         .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/939608838737367080/jackpot-slot.gif?width=320&height=180')
         .setTitle("Tragamonedas")
         .addField("Jugando:", slots[result1] + " **|** " + "<a:slot:939590026080190474>" + " **|** " + "<a:slot:939590026080190474>" + " **<**", true)
         .setColor("RANDOM")
         .setTimestamp()
-        .setFooter(`Apostando: ${(bet).toLocaleString('en-US')}$`)
+        .setFooter({ text: `Apostando: ${(bet).toLocaleString('en-US')}$` })
         
         let embed3 = new Discord.MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
         .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/939608838737367080/jackpot-slot.gif?width=320&height=180')
         .setTitle("Tragamonedas")
         .addField("Jugando:", slots[result1] + " **|** " + slots[result2] + " **|** " + "<a:slot:939590026080190474>" + " **<**", true)
         .setColor("RANDOM")
         .setTimestamp()
-        .setFooter(`Apostando: ${(bet).toLocaleString('en-US')}$`)
-
+        .setFooter({ text: `Apostando: ${(bet).toLocaleString('en-US')}$` })
+        
         if (result1 === result2 && result1 === result3) {
 
             var gana
@@ -104,41 +104,41 @@ module.exports =  {
             }
 
             let embed4 = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/939608838737367080/jackpot-slot.gif?width=320&height=180')
             .setTitle("¡Ganaste! 🎰")
             .addField("Resultado:", slots[result1] + " **|** " + slots[result2] + " **|** " + slots[result3] + " **<**", true)
             .setColor("GREEN")
             .setTimestamp()
-            .setFooter(`Ganaste: ${(gana).toLocaleString('en-US')}$`)
+            .setFooter({ text: `Ganaste: ${(gana).toLocaleString('en-US')}$` })
 
             let embed = new Discord.MessageEmbed()
             .setTitle("Tragamonedas")
             .addField("Jugando:","<a:slot:939590026080190474>" + " **|** " + "<a:slot:939590026080190474>" + " **|** " + "<a:slot:939590026080190474>" + " **<**", true)
             .setColor("RANDOM")
-            .setFooter(`Apostando: ${(bet).toLocaleString('en-US')}$`)
+            .setFooter({ text: `Apostando: ${(bet).toLocaleString('en-US')}$` })
 
             message.channel.send({embeds: [embed]}).then((msg) => {
 
                 setTimeout(function () {
 
-                    msg.edit({embeds: [embed2]});
+                    msg.edit({embeds: [embed2]}).catch((e) => console.log('Error al enviar mensaje: '+e))
                   
-                }, 2000)
+                }, 2000).catch((e) => console.log('Error al enviar mensaje: '+e))
 
                 setTimeout(function () {
 
-                    msg.edit({embeds: [embed3]});
+                    msg.edit({embeds: [embed3]}).catch((e) => console.log('Error al enviar mensaje: '+e))
                   
-                }, 5000)
+                }, 5000).catch((e) => console.log('Error al enviar mensaje: '+e))
 
                 setTimeout(function () {
 
-                    msg.edit({embeds: [embed4]});
+                    msg.edit({embeds: [embed4]}).catch((e) => console.log('Error al enviar mensaje: '+e))
                   
-                }, 7000)
+                }, 7000).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-            })
+            }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
             try {
 
@@ -161,41 +161,41 @@ module.exports =  {
         } else {
 
             let embed5 = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/939608838737367080/jackpot-slot.gif?width=320&height=180')
             .setTitle("¡Perdiste! 🎰")
             .addField("Resultado:", slots[result1] + " **|** " + slots[result2] + " **|** " + slots[result3] + " **<**", true)
             .setColor("RED")
             .setTimestamp()
-            .setFooter(`Perdiste: ${(bet).toLocaleString('en-US')}$`)
+            .setFooter({ text: `Perdiste: ${(bet).toLocaleString('en-US')}$` })
 
             let embed = new Discord.MessageEmbed()
             .setTitle("Tragamonedas")
             .addField("Jugando:","<a:slot:939590026080190474>" + " **|** " + "<a:slot:939590026080190474>" + " **|** " + "<a:slot:939590026080190474>" + " **<**", true)
             .setColor("RANDOM")
-            .setFooter(`Apostando: ${(bet).toLocaleString('en-US')}$`)
+            .setFooter({ text: `Apostando: ${(bet).toLocaleString('en-US')}$` })
 
             message.channel.send({embeds: [embed]}).then((msg) => {
 
                 setTimeout(function () {
 
-                    msg.edit({embeds: [embed2]});
+                    msg.edit({embeds: [embed2]}).catch((e) => console.log('Error al enviar mensaje: '+e))
                   
-                }, 2000)
+                }, 2000).catch((e) => console.log('Error al enviar mensaje: '+e))
 
                 setTimeout(function () {
 
-                    msg.edit({embeds: [embed3]});
+                    msg.edit({embeds: [embed3]}).catch((e) => console.log('Error al enviar mensaje: '+e))
                   
-                }, 5000)
+                }, 5000).catch((e) => console.log('Error al enviar mensaje: '+e))
 
                 setTimeout(function () {
 
-                    msg.edit({embeds: [embed5]});
+                    msg.edit({embeds: [embed5]}).catch((e) => console.log('Error al enviar mensaje: '+e))
                   
-                }, 7000)
+                }, 7000).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-            })
+            }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
             try {
 

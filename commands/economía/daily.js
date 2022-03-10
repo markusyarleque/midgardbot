@@ -95,7 +95,7 @@ module.exports =  {
             embeds: [
           
                 new Discord.MessageEmbed()
-                .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                 .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184144055111690/daily.gif?width=353&height=198')
                 .setColor('RED')
                 .setDescription('<a:tiempogif:931434689481285662> | Ya has reclamado tu recompensa hoy! Puedes volver en: **'+ mensaje+'** \nRecuerda que si apoyas al servidor votando en **Top.gg** podrás ganar el doble de coins.\n\n[Click aquí para votar](https://top.gg/servers/777620055344545842/vote)')
@@ -114,7 +114,7 @@ module.exports =  {
 
             ]
 
-        })
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         try {
 
@@ -138,7 +138,7 @@ module.exports =  {
         function reminder() {
 
             const emb = new Discord.MessageEmbed()
-            .setAuthor(`${message.guild.name}`, message.guild.iconURL({ dynamic: true }))
+            .setAuthor({ name: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setThumbnail(message.author.displayAvatarURL({ dynamic: true }).replace('webp','png'))
             .setTitle(`⏰ | Recordatorios Activados`)
             .setDescription('<a:exclama2:880930071731392512> | Tu última recompensa diaria fue reclamada hace 12 horas. ¡Ya puedes volver a usar el comando `'+prefix+'daily` para canjear tus coins extras.\n\n Asegúrate de haber votado antes por el servidor en Top.gg para obtener el doble de beneficios. \n\n <a:flech:931432469935312937> Link: https://top.gg/servers/777620055344545842/vote')
@@ -153,10 +153,10 @@ module.exports =  {
         const server = message.guild
 
         const e = new Discord.MessageEmbed()
-        .setAuthor(server.name, server.iconURL({ dynamic: true }))
+        .setAuthor({ name: server.name, iconURL: server.iconURL() ? server.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
         .setTitle('Recompensa Diaria 💵')
         .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184144055111690/daily.gif?width=353&height=198')
-        .setColor(buscarUsuario.color)
+        .setColor(buscarUsuario.color ? buscarUsuario.color : 'RANDOM')
         .setDescription(`Felicidades **${message.author.username}**! Has recibido <a:money:930397094924124180> **` + numero.toLocaleString('en-US') + `** como recompensa diaria.\n¡Muchas gracias por usar mis comandos!`)
         .setTimestamp()
         .setFooter({ text: `MidgardBot`, iconURL: client.user.avatarURL()})
@@ -189,12 +189,12 @@ module.exports =  {
                         content: '<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en 12 horas para reclamar tu recompensa diaria. No olvides de activar los mensajes directos!', 
                         ephemeral: true
 
-                    }).then(m => setTimeout(() => m.delete(), 5000))
+                    }).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
 
                     var msDelay = 12*3600000
                     setTimeout(reminder, msDelay);
 
-                    m.edit({components: []})
+                    m.edit({components: []}).catch((e) => console.log('Error al enviar mensaje: '+e))
   
                 }
   
@@ -207,12 +207,12 @@ module.exports =  {
                     new Discord.MessageActionRow()
                     .addComponents(bRm.setDisabled(true))
 
-                ]})
+                ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
                 console.log('Razón del término de colección: '+reason)
             });
         
-        })
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 
