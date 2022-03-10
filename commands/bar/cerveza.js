@@ -1,7 +1,7 @@
 module.exports =  {
     
     name: 'cerveza',
-    aliases: ['cervezas','beer'],
+    aliases: ['cervezas','beer','chelas','chela'],
     description: '🍺',
   
     async execute(client, message, args, Discord) {
@@ -44,7 +44,7 @@ module.exports =  {
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | Los bots no toman cerveza, no nos causa nada pero igual! <:nogarsias:932172183453712415>`)
           
-            ]})
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         } else {
     

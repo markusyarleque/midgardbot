@@ -18,7 +18,7 @@ module.exports =  {
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | ¡Solo los Administradores del Bot pueden utilizar este comando.!`)
       
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         let user = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
 
@@ -29,7 +29,7 @@ module.exports =  {
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | ¡Debes mencionar a un usuario!`)
       
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         if(user.id === message.author.id) return message.reply({embeds: [
        
@@ -38,7 +38,7 @@ module.exports =  {
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | ¡No puedes autobanearte!`)
       
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         if(idm.some(id => user.id == id)) return message.reply({embeds: [
        
@@ -47,7 +47,7 @@ module.exports =  {
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | ¡No puedes banear a un Admin!`)
       
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         if(user.user.bot) return message.reply({embeds: [
         
@@ -56,7 +56,7 @@ module.exports =  {
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | No puedes añadir a un bot a la Black-List`)
       
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         var razón = args.slice(1).join(" ") || 'No se especificó razón'
 
@@ -75,7 +75,7 @@ module.exports =  {
                     .setColor('RED')
                     .setDescription('<a:Verify2:931463492677017650> | Este usuario ya está en Black-List.\n\n**Razón:**\n`'+buscarUsuario.reason+'`')
               
-                ]})
+                ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
             }
 
@@ -94,7 +94,7 @@ module.exports =  {
             .setDescription('El usuario <@'+user.id+'> ha sido añadido a la Black-List.\n\n**Razón:**\n`'+razón+'`')
             .setColor('RANDOM')
 
-            message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed]})
+            message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed]}).catch((e) => console.log('Error al enviar mensaje: '+e))
        
         } catch (error) {
             
@@ -107,7 +107,7 @@ module.exports =  {
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | ¡Hubo un error al añadir al usuario a BL. Por favor, inténtelo de nuevo!`)
           
-            ]})
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
    
         }
 

@@ -20,7 +20,7 @@ module.exports =  {
 
         if (args.length < 2) { 
         
-            message.reply({embeds: [MENSAJE_AYUDA_CARTA]});
+            message.reply({embeds: [MENSAJE_AYUDA_CARTA]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         } else {
     
@@ -35,7 +35,7 @@ module.exports =  {
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | Error: No se ha encontrado al destinatario!`)
       
-            ]})
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
             if (target.id === message.author.id) return message.reply({ embeds: [
 
@@ -44,7 +44,7 @@ module.exports =  {
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | Error: No puedes autoenviarte una carta!`)
       
-            ]})
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
         
             if (target.user.bot) return message.reply({ embeds: [
 
@@ -53,7 +53,7 @@ module.exports =  {
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | Error: No puedes enviarle a un bot!`)
       
-            ]})
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
             var tiempo = Math.random() * (CARTA_TIEMPO_MAX - CARTA_TIEMPO_MIN) + CARTA_TIEMPO_MIN;
     
@@ -103,7 +103,7 @@ module.exports =  {
             .setDescription(`Tu carta está en proceso de envío, puede tardar entre ${CARTA_TIEMPO_MIN} a ${CARTA_TIEMPO_MAX} minutos. Gracias por utilizar nuestros servicios! 💕`)
             .setColor('RANDOM')
     
-            message.channel.send({embeds: [joto]})
+            message.channel.send({embeds: [joto]}).catch((e) => console.log('Error al enviar mensaje: '+e))
             message.delete({timeout: 100})
             
             console.log("[Cartas][Client/Event/message] Mensaje esperando " + tiempo +  " minutos");

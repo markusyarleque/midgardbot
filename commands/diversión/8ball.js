@@ -34,7 +34,7 @@ module.exports =  {
                 .setDescription(`<a:Verify2:931463492677017650> | Escriba una pregunta`)
     
             ]
-        })
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
         
         message.reply({ allowedMentions: { repliedUser: false}, 
             embeds:
@@ -45,9 +45,8 @@ module.exports =  {
                 .setDescription('<a:Verify1:931463354357276742> | **'+message.author.username+'** a su pregunta `'+texto+'` mi respuesta es: `'+ rpts[Math.floor(Math.random() * rpts.length)] + '`')
     
             ]
-        })
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
             
-
     }
 
 }

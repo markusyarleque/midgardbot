@@ -18,7 +18,7 @@ module.exports =  {
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | ¡Solo los Administradores del Bot pueden utilizar este comando.!`)
       
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         let user = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
 
@@ -29,7 +29,7 @@ module.exports =  {
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | ¡Debes mencionar a un usuario!`)
       
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         if(user.user.bot) return message.reply({embeds: [
         
@@ -38,7 +38,7 @@ module.exports =  {
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | No puedes remover a un bot de la Black-List`)
       
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         try {
 
@@ -55,7 +55,7 @@ module.exports =  {
                     .setColor('RED')
                     .setDescription('<a:Verify2:931463492677017650> | Este usuario no está en Black-List.')
               
-                ]})
+                ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
             }
 
@@ -68,7 +68,7 @@ module.exports =  {
             .setDescription('El usuario <@'+user.id+'> ha sido removido de la Black-List.')
             .setColor('RANDOM')
 
-            message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed]})
+            message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed]}).catch((e) => console.log('Error al enviar mensaje: '+e))
        
         } catch (error) {
             
@@ -81,7 +81,7 @@ module.exports =  {
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | ¡Hubo un error al remover al usuario de BL. Por favor, inténtelo de nuevo!`)
           
-            ]})
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
    
         }
 

@@ -46,7 +46,7 @@ module.exports =  {
             .setTimestamp(new Date())
             .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
             
-            message.channel.send({ embeds: [embed] });
+            message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         } else if (img.user.bot){
           
@@ -57,7 +57,7 @@ module.exports =  {
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | Yo si salseo como los dioses! <:nogarsias:932172183453712415>`)
           
-            ]})
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
           
         } else {
     
@@ -69,7 +69,7 @@ module.exports =  {
             .setTimestamp(new Date())
             .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
             
-            message.channel.send({ embeds: [embed] });
+            message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
       
         }
 

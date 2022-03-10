@@ -9,6 +9,7 @@ module.exports =  {
     async execute(client, message, args, Discord) {
 
         await CoinFlip({
+
             message: message,
             slash_command: false,
             time: 300000, // time before the game ends in ms
@@ -25,10 +26,11 @@ module.exports =  {
                 tails: 'PRIMARY',
             },
             startMessage: 'La moneda está en el aire, elige entre **Cara (Heads)** o **Cruz (Tails)**.',
-            winMessage: 'GG, <@{{winner}}> La moneda cayó en **{{result}}**',
+            winMessage: 'GG, Felicidades <@{{winner}}>! La moneda cayó en **{{result}}**',
             loseMessage: '<@{{player}}> Perdiste, la moneda cayó en **{{result}}**',
             authorOnly: 'Solo <@{{author}}> puede usar estos botones.'
-        })
+
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 
