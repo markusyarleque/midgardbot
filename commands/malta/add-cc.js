@@ -10,17 +10,17 @@ module.exports =  {
 
     async execute(client, message, args, Discord) {
         
-        let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
+        let id = ['753435606410985573','683501310527668228']
   
-        if(!permiso) return message.reply({embeds: [
-
+        if(!id.some(id => message.author.id == id)) return message.reply({ embeds: [
+                
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setColor('RED')
-            .setDescription('<a:Verify2:931463492677017650> | No tienes Permisos para usar este comando. Solo Administradores!')
-
-        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
-
+            .setDescription('Solo los Administradores del Bot pueden agregar frases.')
+            
+        ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
+    
         let trigger, response
 
         trigger = args[0]

@@ -57,7 +57,7 @@ module.exports =  {
         .setDescription('¿Deseas que salga del servidor **'+serverReal+'**?')
         .setColor('YELLOW')
         .setTimestamp(new Date())
-        .setFooter(`Malta's Bot`, `${message.author.displayAvatarURL()}`);
+        .setFooter({ text: `Malta's Bot`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
             
         message.channel.send({
           embeds: [embed],
@@ -84,7 +84,7 @@ module.exports =  {
                   .setDescription('¡Me he salido del servidor correctamente!')
                   .setColor('GREEN')
                   .setTimestamp(new Date())
-                  .setFooter(`Malta's Bot`, `${message.author.displayAvatarURL()}`)
+                  .setFooter({ text: `Malta's Bot`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
                 ],
                 components: []
               }).catch((e) => console.log('Error al enviar mensaje: '+e))
@@ -98,7 +98,7 @@ module.exports =  {
                   .setDescription('¡Menú cancelado! Aún sigo en el servidor')
                   .setColor('RED')
                   .setTimestamp(new Date())
-                  .setFooter(`Malta's Bot`, `${message.author.displayAvatarURL()}`)
+                  .setFooter({ text: `Malta's Bot`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
                 ],
                 components: []
               }).catch((e) => console.log('Error al enviar mensaje: '+e))

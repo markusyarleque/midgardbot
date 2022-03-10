@@ -8,9 +8,16 @@ module.exports =  {
   
     async execute(client, message, args, Discord) {
 
-        let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR);
-    
-        if(!permiso) return message.channel.send('`Error` `|` No tienes Permisos para usar este comando.').catch((e) => console.log('Error al enviar mensaje: '+e))
+        let id = ['753435606410985573','683501310527668228']
+  
+        if(!id.some(id => message.author.id == id)) return message.reply({ embeds: [
+                
+            new Discord.MessageEmbed()
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+            .setColor('RED')
+            .setDescription('Solo los Administradores del Bot pueden usar este comando.')
+            
+        ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         message.channel.sendTyping().catch((e) => console.log('Error al enviar mensaje: '+e))
     
