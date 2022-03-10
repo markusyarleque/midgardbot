@@ -851,7 +851,7 @@ module.exports = async (client, Discord, message) => {
 
     } else{
 
-        cmd.execute(client, message, args, Discord)
+        cmd.execute(client, message, args, Discord).catch((e) => console.log('Error al ejecutar comando: '+e))
     
         //* Registro de Usuarios
 
