@@ -15,7 +15,7 @@ module.exports = async (client, Discord, message) => {
         let sv = client.guilds.cache.get('777620055344545842')
         let channel = sv.channels.cache.get('874943743185285150')
   
-        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado al dm por: '+message.author)
+        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado al dm por: '+message.author).catch((e) => console.log('Error al enviar mensaje del dm al canal: '+e))
     
         const embed = new Discord.MessageEmbed()
         .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
@@ -27,7 +27,7 @@ module.exports = async (client, Discord, message) => {
         .setTimestamp(new Date())
         .setFooter(`Id: ${message.author.id}`, `${message.author.displayAvatarURL()}`)
         
-        channel.send({ embeds: [embed] });
+        channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje del dm al canal: '+e))
     
     }
 
@@ -70,49 +70,49 @@ module.exports = async (client, Discord, message) => {
     {
         channel = sv.channels.cache.get('880267684950999050')
   
-        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en alto cargo por: '+message.author)
+        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en alto cargo por: '+message.author).catch((e) => console.log('Error al enviar mensaje: '+e))
   
-        channel.send({ embeds: [em] });
+        channel.send({ embeds: [em] }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
     } else if(idcanal === '880292291443556383')
     {
         channel = sv.channels.cache.get('880280405993996339')
     
-        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en élite por: '+message.author)
+        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en élite por: '+message.author).catch((e) => console.log('Error al enviar mensaje: '+e))
         
-        channel.send({ embeds: [em] });
+        channel.send({ embeds: [em] }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
     } else if(idcanal === '840161683732693033')
     {
         channel = sv.channels.cache.get('880280308732272640')
     
-        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en staff por: '+message.author)
+        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en staff por: '+message.author).catch((e) => console.log('Error al enviar mensaje: '+e))
     
-        channel.send({ embeds: [em] });
+        channel.send({ embeds: [em] }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
     } else if(idcanal === '923716261542781018')
     {
         channel = sv.channels.cache.get('933917185695428628')
     
-        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en supervisores por: '+message.author)
+        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en supervisores por: '+message.author).catch((e) => console.log('Error al enviar mensaje: '+e))
     
-        channel.send({ embeds: [em] });
+        channel.send({ embeds: [em] }).catch((e) => console.log('Error al enviar mensaje: '+e))
   
     } else if(idcanal === '909722451745837106')
     {
         channel = sv.channels.cache.get('880280346208395305')
     
-        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en admin por: '+message.author)
+        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en admin por: '+message.author).catch((e) => console.log('Error al enviar mensaje: '+e))
     
-        channel.send({ embeds: [em] });
+        channel.send({ embeds: [em] }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
     } else if(idcanal === '870195067338506271')
     {
         channel = sv.channels.cache.get('880280535304372234')
     
-        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en chat general por: '+message.author)
+        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en chat general por: '+message.author).catch((e) => console.log('Error al enviar mensaje: '+e))
         
-        channel.send({ embeds: [em] });
+        channel.send({ embeds: [em] }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
     } else
     {
@@ -128,11 +128,11 @@ module.exports = async (client, Discord, message) => {
         {
           channel = sv.channels.cache.get('880280265216389140')
       
-          if(message.content.length>=1000) return channel.send(`Mensaje demasiado largo, enviado en <#${idcanal}> por: `+message.author)
+          if(message.content.length>=1000) return channel.send(`Mensaje demasiado largo, enviado en <#${idcanal}> por: `+message.author).catch((e) => console.log('Error al enviar mensaje: '+e))
       
           em.addField('Servidor: ', `<a:flech:931432469935312937> ${message.guild.name}`)
       
-          channel.send({ embeds: [em] });
+          channel.send({ embeds: [em] }).catch((e) => console.log('Error al enviar mensaje: '+e))
   
         } else {
           return
@@ -146,49 +146,49 @@ module.exports = async (client, Discord, message) => {
 
     if(autorespuesta){
 
-        message.channel.send(autorespuesta.response)
+        message.channel.send(autorespuesta.response).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 
     if (message.content === 'Hola' || message.content === 'hola' || message.content === 'Holas' || message.content === 'holas'){
           
-        message.channel.send('Hola '+message.author.username+', cómo va tu día?')
+        message.channel.send('Hola '+message.author.username+', cómo va tu día?').catch((e) => console.log('Error al enviar mensaje: '+e))
   
     }
     if (message.content === 'ola' || message.content === 'Ola' || message.content === 'olas' || message.content === 'Olas'){
   
-        message.channel.send('del mar 🌊')
+        message.channel.send('del mar 🌊').catch((e) => console.log('Error al enviar mensaje: '+e))
   
     }
     if (message.content === 'Buen día' || message.content === 'buen día' || message.content === 'Buen dia' || message.content === 'buen dia'){
           
-        message.channel.send('Buen día precios@ ❤');
+        message.channel.send('Buen día precios@ ❤').catch((e) => console.log('Error al enviar mensaje: '+e))
           
     }
     if (message.content === 'Buenos días' || message.content === 'buenos días' || message.content === 'Buenos dias' || message.content === 'buenos dias'){
           
-        message.channel.send('Buenos días precios@ ❤');
+        message.channel.send('Buenos días precios@ ❤').catch((e) => console.log('Error al enviar mensaje: '+e))
       
     }
     if (message.content === 'Buenas tardes' || message.content === 'buenas tardes'){
           
-        message.channel.send('Buenas tardes precios@ ❤');
+        message.channel.send('Buenas tardes precios@ ❤').catch((e) => console.log('Error al enviar mensaje: '+e))
           
     }
     if (message.content === 'Buenas noches' || message.content === 'buenas noches'){
           
-        message.channel.send('Buenas noches precios@ ❤');
+        message.channel.send('Buenas noches precios@ ❤').catch((e) => console.log('Error al enviar mensaje: '+e))
           
     }
     if (message.content === 'Buenas' || message.content === 'Wenas' || message.content === 'buenas' || message.content === 'wenas'){
             
-        message.channel.send('Las tienes <a:perreom:930719549131735040>');
+        message.channel.send('Las tienes <a:perreom:930719549131735040>').catch((e) => console.log('Error al enviar mensaje: '+e))
   
     }
     if (message.content === 'wlc' || message.content === 'Wlc' || message.content === 'welcome' || message.content === 'Welcome'){
           
-        message.react(`<a:pasito:877116925291946094>`)
-        message.react(`<a:cerveza:880635824021065738>`)
+        message.react(`<a:pasito:877116925291946094>`).catch((e) => console.log('Error al reaccionar: '+e))
+        message.react(`<a:cerveza:880635824021065738>`).catch((e) => console.log('Error al reaccionar: '+e))
           
     }
   
@@ -288,7 +288,7 @@ module.exports = async (client, Discord, message) => {
     if (message.content.match(malta))
     {
     
-        message.channel.send(`¿Qué necesitas de mi dueño? <a:ositovino:880306728867078165>`)
+        message.channel.send(`¿Qué necesitas de mi dueño? <a:ositovino:880306728867078165>`).catch((e) => console.log('Error al enviar mensaje: '+e))
     
     }
 
@@ -297,7 +297,7 @@ module.exports = async (client, Discord, message) => {
     if (message.content.match(insp))
     {
     
-        message.channel.send(`Tan al pendiente estás que tienes que hacerme ping? <a:ayajasisi:890684634369777724>`)
+        message.channel.send(`Tan al pendiente estás que tienes que hacerme ping? <a:ayajasisi:890684634369777724>`).catch((e) => console.log('Error al enviar mensaje: '+e))
     
     }
   
@@ -306,7 +306,7 @@ module.exports = async (client, Discord, message) => {
     if (message.content.match(ian))
     {
           
-        message.channel.send(`<a:megaphone:932192877449191424> Alo? Tierra llamando al **argentino con más flow** <a:darkcrown2:886466286773739530>, Ian en camino bebé <a:bmirusboyrunfast:880411644893724672>`)
+        message.channel.send(`<a:megaphone:932192877449191424> Alo? Tierra llamando al **argentino con más flow** <a:darkcrown2:886466286773739530>, Ian en camino bebé <a:bmirusboyrunfast:880411644893724672>`).catch((e) => console.log('Error al enviar mensaje: '+e))
     
     }
   
@@ -315,16 +315,7 @@ module.exports = async (client, Discord, message) => {
     if (message.content.match(ana))
     {
             
-        message.channel.send(`<:emoji_233:890722279074451506> Días,tardes,noches,madrugadas <:mmsi:925934342016995379> porque Buena está la persona que me acaba de mencionar <a:Zuii:890684724673150996> <a:Ytodomedavuelta:890721775699259422>`)
-    
-    }
-  
-    let scarlett = new RegExp(`^<@!?${'754792358104793158'}>( |)$`);
-    
-    if (message.content.match(scarlett))
-    {
-            
-        message.channel.send(`Que necesidad de etiquetar <:nojao:891551822387486721>`)
+        message.channel.send(`<:emoji_233:890722279074451506> Días,tardes,noches,madrugadas <:mmsi:925934342016995379> porque Buena está la persona que me acaba de mencionar <a:Zuii:890684724673150996> <a:Ytodomedavuelta:890721775699259422>`).catch((e) => console.log('Error al enviar mensaje: '+e))
     
     }
   
@@ -333,7 +324,7 @@ module.exports = async (client, Discord, message) => {
     if (message.content.match(nia))
     {
           
-        message.channel.send(`¿¡𝑸𝒖𝒆 𝒏𝒆𝒄𝒆𝒔𝒊𝒅𝒂𝒅 𝒅𝒆 𝒑𝒊𝒏𝒈𝒆𝒂𝒂𝒂𝒂𝒓!? <:gatoNojao:930403164266565642>`)
+        message.channel.send(`¿¡𝑸𝒖𝒆 𝒏𝒆𝒄𝒆𝒔𝒊𝒅𝒂𝒅 𝒅𝒆 𝒑𝒊𝒏𝒈𝒆𝒂𝒂𝒂𝒂𝒓!? <:gatoNojao:930403164266565642>`).catch((e) => console.log('Error al enviar mensaje: '+e))
     
     }
     
@@ -378,7 +369,7 @@ module.exports = async (client, Discord, message) => {
         const embed = new Discord.MessageEmbed()
           .setColor('RANDOM')
           .setDescription(rpiropo)
-        message.channel.send({ embeds: [embed] })
+        message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
   
     }
     
@@ -417,7 +408,7 @@ module.exports = async (client, Discord, message) => {
         const embed = new Discord.MessageEmbed()
         .setColor('RANDOM')
         .setDescription(rchiste)
-        message.channel.send({ embeds: [embed] })
+        message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
     }
 
@@ -806,7 +797,7 @@ module.exports = async (client, Discord, message) => {
         .setAuthor(message.author.username+'#'+message.author.discriminator, `${message.author.displayAvatarURL()}`)
         .setDescription('Hola! **'+ message.author.username +'** Mi Prefix es: `_` Puedes ver mis comandos disponibles usando: `_help`. Para enviar un reporte usa: `_report` y para una sugerencia: `_suggestion`.')
         .setColor('RANDOM')
-        message.channel.send({ embeds: [embed] })
+        message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
     }
 
@@ -835,7 +826,7 @@ module.exports = async (client, Discord, message) => {
             .setColor('RED')
             .setDescription('<a:Verify2:931463492677017650> | ¡Estás prohibido de usar estos comandos!\n\n**Razón:**\n`'+userbl.reason+'`\n\nContacta con el equipo de desarrolladores para más información.!')
           
-            return message.channel.send({embeds: [e]})
+            return message.channel.send({embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         }
 
@@ -874,7 +865,9 @@ module.exports = async (client, Discord, message) => {
         .setColor('RED')
         .setDescription(`<a:Verify2:931463492677017650> | El comando **${command}** no existe!\n\n> Sugerencias: ${similares.map(s => `**${s}**`).join(' - ') || 'No tengo sugerencias'}`)
         
-        return message.channel.send({embeds: [e]}).then(m => setTimeout(() => m.delete(), 15000));
+        return message.channel.send({embeds: [e]})
+        .then(m => setTimeout(() => m.delete(), 15000))
+        .catch((e) => console.log('Error al enviar mensaje: '+e))
 
     } else{
 
