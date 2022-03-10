@@ -31,26 +31,6 @@ module.exports = async (client, Discord, message) => {
     
     }
 
-    if(message.guild.me.permissions.has(Permissions.FLAGS.SEND_MESSAGES)){
-
-        console.log('Prueba 3 de message: Si envia')
-         
-    } else {
-
-        console.log('Prueba 4 de message: No envia')
-        return
-    }
-
-    if(message.guild.me.permissions.has(Permissions.FLAGS.ADD_REACTIONS)){
-
-        console.log('Prueba 3 de reacciones: Si envia')
-         
-    } else {
-
-        console.log('Prueba 4 de reacciones: No envia')
-        return
-    }
-
     let sv = client.guilds.cache.get('851924635930329098')
     let channel
     let idcanal = message.channel.id
