@@ -97,7 +97,7 @@ module.exports =  {
 
                 const embed = new Discord.MessageEmbed()
                 .setThumbnail("https://c.tenor.com/wramzGSx50gAAAAC/cartoon-question-mark.gif")
-                .setAuthor("Sofía","https://media.discordapp.net/attachments/822642787555213312/875301320603619368/MARKUS.jpg?width=422&height=562")
+                .setAuthor({ name: "Sofía", iconURL: "https://media.discordapp.net/attachments/822642787555213312/875301320603619368/MARKUS.jpg?width=422&height=562" })
                 .setColor("RANDOM")
                 .setTitle("❤ Tengo una pregunta para ti...")
                 .addField("¿Cuántos meses cumplimos?", "-------------♡-------------")
@@ -131,11 +131,11 @@ module.exports =  {
         
                         const embed = new Discord.MessageEmbed()
                         .setThumbnail("https://c.tenor.com/wramzGSx50gAAAAC/cartoon-question-mark.gif")
-                        .setAuthor("Sofía","https://media.discordapp.net/attachments/822642787555213312/875301320603619368/MARKUS.jpg?width=422&height=562")
+                        .setAuthor({ name: "Sofía", iconURL: "https://media.discordapp.net/attachments/822642787555213312/875301320603619368/MARKUS.jpg?width=422&height=562" })
                         .setColor("RANDOM")
                         .setTitle("💛 Tengo otra pregunta...")
                         .addField("¿Cuál es nuestro color favorito?", "-------------♡-------------")
-                        .setFooter("Te amo ❤","https://media.discordapp.net/attachments/822642787555213312/875287666537668618/9ab07ea854b020b93d2376f0863bdb80.png?width=562&height=562")
+                        .setFooter({ text: "Te amo ❤", iconURL: "https://media.discordapp.net/attachments/822642787555213312/875287666537668618/9ab07ea854b020b93d2376f0863bdb80.png?width=562&height=562" })
 
                         m.edit({
         
@@ -165,11 +165,11 @@ module.exports =  {
                 
                                 const embed = new Discord.MessageEmbed()
                                 .setThumbnail("https://c.tenor.com/wramzGSx50gAAAAC/cartoon-question-mark.gif")
-                                .setAuthor("Sofía","https://media.discordapp.net/attachments/822642787555213312/875301320603619368/MARKUS.jpg?width=422&height=562")
+                                .setAuthor({ name: "Sofía", iconURL: "https://media.discordapp.net/attachments/822642787555213312/875301320603619368/MARKUS.jpg?width=422&height=562" })
                                 .setColor("RANDOM")
                                 .setTitle("Una última pregunta...")
                                 .addField("Qué prefiero?", "-------------♡-------------")
-                                .setFooter("Te amo ❤","https://media.discordapp.net/attachments/822642787555213312/875287666537668618/9ab07ea854b020b93d2376f0863bdb80.png?width=562&height=562")
+                                .setFooter({ text: "Te amo ❤", iconURL: "https://media.discordapp.net/attachments/822642787555213312/875287666537668618/9ab07ea854b020b93d2376f0863bdb80.png?width=562&height=562" })
 
                                 m.edit({
                 
@@ -198,7 +198,7 @@ module.exports =  {
                         
                                         const embed = new Discord.MessageEmbed()
                                         .setThumbnail("https://c.tenor.com/QhmUcsZZKWEAAAAM/tarjetas-de-amor-frases-de-amor.gif")
-                                        .setAuthor("Sofía y Markus","https://media.discordapp.net/attachments/822642787555213312/875301320603619368/MARKUS.jpg?width=422&height=562")
+                                        .setAuthor({ name: "Sofía y Markus", iconURL: "https://media.discordapp.net/attachments/822642787555213312/875301320603619368/MARKUS.jpg?width=422&height=562" })
                                         .setColor("YELLOW")
                                         .setTitle("Bebé quiero decirte...")
                                         .addField("<a:letras:939787612804227092>inceramente", "Gracias por estar conmigo en mis momentos difíciles, por darme todo tu amor y comprensión y porque, a pesar de mis defectos, te has quedado a mi lado 💖")
@@ -209,7 +209,7 @@ module.exports =  {
                                         .addField("-----------------------------♡-----------------------------", "Finalmente, Gracias por todo este mes, espero te guste todo esto, y que vengan muchos más.")
                                         .setImage("https://i.pinimg.com/originals/5f/ab/2f/5fab2f12c22eec0ccadd14116b08e50c.jpg")
                                         .setTimestamp(new Date())
-                                        .setFooter(`Me encantas... • S 💖 M `,"https://media.discordapp.net/attachments/822642787555213312/875287666537668618/9ab07ea854b020b93d2376f0863bdb80.png?width=562&height=562")
+                                        .setFooter({ text: `Me encantas... • S 💖 M `, iconURL: "https://media.discordapp.net/attachments/822642787555213312/875287666537668618/9ab07ea854b020b93d2376f0863bdb80.png?width=562&height=562" })
             
                                         m.edit({
                         
@@ -222,17 +222,17 @@ module.exports =  {
                                             components: []
                                         }).then(m => {
 
-                                            m.react("<a:letrat:939791218269900810>")
-                                            m.react("<a:letrae:939791318316646441>")
-                                            m.react("<a:corazon:930399275643453500>")
-                                            m.react("<a:letraA_2:939791359185944577>")
-                                            m.react("<a:letram:939791557404528650>")
-                                            m.react("<a:letrao_2:939791639088603206>")
-                                            m.react("<a:Besitos:939793778829586442>")
-                                            m.react("<a:uno:932368116749594674>")
-                                            m.react("<a:dos:932368203458445362>")
+                                            m.react("<a:letrat:939791218269900810>").catch((e) => console.log('Error al enviar mensaje: '+e))
+                                            m.react("<a:letrae:939791318316646441>").catch((e) => console.log('Error al enviar mensaje: '+e))
+                                            m.react("<a:corazon:930399275643453500>").catch((e) => console.log('Error al enviar mensaje: '+e))
+                                            m.react("<a:letraA_2:939791359185944577>").catch((e) => console.log('Error al enviar mensaje: '+e))
+                                            m.react("<a:letram:939791557404528650>").catch((e) => console.log('Error al enviar mensaje: '+e))
+                                            m.react("<a:letrao_2:939791639088603206>").catch((e) => console.log('Error al enviar mensaje: '+e))
+                                            m.react("<a:Besitos:939793778829586442>").catch((e) => console.log('Error al enviar mensaje: '+e))
+                                            m.react("<a:uno:932368116749594674>").catch((e) => console.log('Error al enviar mensaje: '+e))
+                                            m.react("<a:dos:932368203458445362>").catch((e) => console.log('Error al enviar mensaje: '+e))
                                           
-                                        })
+                                        }).catch((e) => console.log('Error al enviar mensaje: '+e))
                                  
                                     } else if (int.customId === "cerveza") {
                                           
@@ -244,7 +244,7 @@ module.exports =  {
                 
                                             ]
                         
-                                        })
+                                        }).catch((e) => console.log('Error al enviar mensaje: '+e))
                                         
                                     }
                         
@@ -257,13 +257,13 @@ module.exports =  {
                                             content: "**¡No confirmaste a tiempo!** <:enojado:931434000751394867>",
                                             components: []
                         
-                                        });
+                                        }).catch((e) => console.log('Error al enviar mensaje: '+e))
                         
                                         console.log('Razón del término de colección de Sofía: '+reason)
                                         
                                     });
                                       
-                                })
+                                }).catch((e) => console.log('Error al enviar mensaje: '+e))
                          
                             } else if (int.customId === "azul") {
                                   
@@ -275,7 +275,7 @@ module.exports =  {
         
                                     ]
                 
-                                })
+                                }).catch((e) => console.log('Error al enviar mensaje: '+e))
                                 
                             }
                 
@@ -288,13 +288,13 @@ module.exports =  {
                                     content: "**¡No confirmaste a tiempo!** <:enojado:931434000751394867>",
                                     components: []
                 
-                                });
+                                }).catch((e) => console.log('Error al enviar mensaje: '+e))
                 
                                 console.log('Razón del término de colección de Sofía: '+reason)
                                 
                             });
                               
-                        })
+                        }).catch((e) => console.log('Error al enviar mensaje: '+e))
                  
                     } else if (int.customId === "2") {
                           
@@ -306,7 +306,7 @@ module.exports =  {
 
                             ]
         
-                        })
+                        }).catch((e) => console.log('Error al enviar mensaje: '+e))
                         
                     }
         
@@ -319,13 +319,13 @@ module.exports =  {
                             content: "**¡No confirmaste a tiempo!** <:enojado:931434000751394867>",
                             components: []
         
-                        });
+                        }).catch((e) => console.log('Error al enviar mensaje: '+e))
         
                         console.log('Razón del término de colección de Sofía: '+reason)
                         
                     });
                       
-                })
+                }).catch((e) => console.log('Error al enviar mensaje: '+e))
          
             } else if (int.customId === "deny") {
                   
@@ -335,7 +335,7 @@ module.exports =  {
                     content: "Es neta cierto? <:pepemaje:932177727589589013>",
                     components: []
 
-                });
+                }).catch((e) => console.log('Error al enviar mensaje: '+e))
                 
             }
 
@@ -348,7 +348,7 @@ module.exports =  {
                     content: "**¡No confirmaste a tiempo!** <:enojado:931434000751394867>",
                     components: []
 
-                });
+                }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
                 console.log('Razón del término de colección de Sofía: '+reason)
                 

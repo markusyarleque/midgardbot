@@ -35,12 +35,9 @@ module.exports = async (client) => {
 
   var serverM = client.guilds.cache.find(s => s.id === '777620055344545842')
 
-  console.log('Nombre server: ' + serverM)
   //if(!serverM.member(client.user).permissions.has(Permissions.FLAGS.MANAGE_ROLES)) return;
     
   var rol = serverM.roles.cache.find(x => x.id === rolVIP)
-
-  console.log('Rol: ' + rol)
 
   if(rol){
 
@@ -56,7 +53,6 @@ module.exports = async (client) => {
       
     }, 10000)
 
-    clearInterval(colores.length)
       
   }
     
