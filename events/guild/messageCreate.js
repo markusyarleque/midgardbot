@@ -31,10 +31,22 @@ module.exports = async (client, Discord, message) => {
     
     }
     
-    if(!message.guild.me.permissions.has(Permissions.FLAGS.SEND_MESSAGES)){
+    if(message.guild.me.permissions.has(Permissions.FLAGS.SEND_MESSAGES)){
 
-        console.log('Prueba 1 de message')
-        return 
+        console.log('Prueba 1 de message: Si envia')
+         
+    } else {
+
+        console.log('Prueba 2 de message: No envia')
+    }
+
+    if(message.guild.me.permissions.has(Permissions.FLAGS.ADD_REACTIONS)){
+
+        console.log('Prueba 1 de reacciones: Si envia')
+         
+    } else {
+
+        console.log('Prueba 2 de reacciones: No envia')
     }
 
     let sv = client.guilds.cache.get('851924635930329098')
