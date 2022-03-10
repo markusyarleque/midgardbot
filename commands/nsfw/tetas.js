@@ -56,12 +56,12 @@ module.exports =  {
       return message.reply({embeds: [
 
         new Discord.MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
         .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936524707677741086/prohibido.gif?width=318&height=149')
         .setColor('RED')
         .setDescription(`<a:prohibido:936527618466009109> | ¡Oh rayos, no puedes hacer eso aquí pillín <:ojooo:925928526119571457>`)
 
-      ]})
+      ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
       
     } else {
     
@@ -80,14 +80,14 @@ module.exports =  {
       }
 
       const embed = new Discord.MessageEmbed()
-      .setAuthor(`🔞 | Midgard's Hot 🔥`,message.guild.iconURL({ dynamic: true }))
+      .setAuthor({ name: `🔞 | Midgard's Hot 🔥`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
       .setDescription(desc)
       .setImage(ramdontetas)
       .setColor('RANDOM')
       .setTimestamp(new Date())
-      .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-      
-      message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
+      .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+
+      message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
     } 
     

@@ -42,20 +42,20 @@ module.exports =  {
         if (!img || img.id===message.author.id) return message.reply({embeds: [
         
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | ¿Divorciarte de ti mismo? <:procesando:932177969017925632>`)
       
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         if (img.user.bot) return message.reply({embeds: [
         
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | ¿Divorciarte de un bot? <:procesando:932177969017925632>`)
       
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         let usuario1 = await userSchema.findOne({ idusuario: message.author.id })
         let usuario2 = await userSchema.findOne({ idusuario: img.id })
@@ -98,12 +98,12 @@ module.exports =  {
             
                         new Discord.MessageEmbed()
                         .setColor('RANDOM')
-                        .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
+                        .setAuthor({ name: `Midgard's Love 💞`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
                         .setTitle('💔 Propuesta de Divorcio 💔')
                         .setDescription(message.author.toString()+' ¿Estás seguro de querer divorciarte de '+img.toString()+" ?")
                         .setTimestamp(new Date())
-                        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
-          
+                        .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+
                     ],
                     
                     components: [
@@ -162,16 +162,16 @@ module.exports =  {
                     
                                         new Discord.MessageEmbed()
                                         .setColor('RANDOM')
-                                        .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
+                                        .setAuthor({ name: `Midgard's Love 💞`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
                                         .setTitle('🖤 Divorcio Completado 🤵')
                                         .setDescription('💥 Felicidades!!! '+message.author.toString() + " Te has divorciado correctamente de "+img.toString()+" 🔥")
                                         .setImage(ramdond)
                                         .setTimestamp(new Date())
-                                        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
-                  
+                                        .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+
                                     ], components: []
                   
-                                });
+                                }).catch((e) => console.log('Error al enviar mensaje: '+e))
                                 
                             } catch (error) {
 
@@ -188,16 +188,16 @@ module.exports =  {
                 
                                     new Discord.MessageEmbed()
                                     .setColor('RANDOM')
-                                    .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
+                                    .setAuthor({ name: `Midgard's Love 💞`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
                                     .setTitle('❤ Divorcio Rechazao 💟')
                                     .setDescription('Aún hay esperanzas en el amor... '+message.author.toString() + " aún sigues casado con "+img.toString()+" <:tierno:931433334960160799>")
                                     .setImage(ramdona)
                                     .setTimestamp(new Date())
-                                    .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
-              
+                                    .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+
                                 ], components: []
               
-                            });
+                            }).catch((e) => console.log('Error al enviar mensaje: '+e))
             
                         }
           
@@ -205,24 +205,24 @@ module.exports =  {
     
                     collector.on("end", (collected, reason) => {
             
-                        if(collected < 1) return m.edit({components: []});
+                        if(collected < 1) return m.edit({components: []}).catch((e) => console.log('Error al enviar mensaje: '+e))
              
                         console.log('Razón del término de colección de divorce: '+reason)
          
                     });
          
-                });
+                }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
             } else {
 
                 message.reply({embeds: [
 
                     new Discord.MessageEmbed()
-                    .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                    .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
                     .setColor('RED')
                     .setDescription(`<:GatoLove:925929538863628318> | No estás casado(a) con **`+img.user.username+'** <:yonofui:931433119859503194>')
          
-                ]})
+                ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
         
             }
 
@@ -231,11 +231,11 @@ module.exports =  {
             message.reply({embeds: [
           
                 new Discord.MessageEmbed()
-                .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
                 .setColor('RED')
                 .setDescription('<a:Verify2:931463492677017650> | No puedes divorciarte porque no estás casado con alguien!!!')
         
-            ]})
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         }
 

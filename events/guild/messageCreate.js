@@ -19,13 +19,13 @@ module.exports = async (client, Discord, message) => {
     
         const embed = new Discord.MessageEmbed()
         .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
-        .setAuthor('MaltaBot', client.user.avatarURL())
+        .setAuthor({ name: 'MaltaBot', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setTitle('📢 | Mensaje directo')
         .addField('Autor: ', `<a:flech:931432469935312937> ${message.author}`)
         .addField('Mensaje: ', message.content ? message.content: 'Ningún mensaje registrado')
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`Id: ${message.author.id}`, `${message.author.displayAvatarURL()}`)
+        .setFooter({ text: `Id: ${message.author.id}`, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
         
         channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje del dm al canal: '+e))
     
@@ -36,15 +36,15 @@ module.exports = async (client, Discord, message) => {
     let idcanal = message.channel.id
   
     const em = new Discord.MessageEmbed()
-      .setThumbnail(message.guild.iconURL({ dynamic: true }))
-      .setAuthor('MaltaBot', client.user.avatarURL())
+      .setThumbnail(message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) )
+      .setAuthor({ name: 'MaltaBot', iconURL: client.user.avatarURL({ dynamic: true }) })
       .setTitle('📢 | Mensaje Enviado')
       .addField('Canal: ', `<a:flech:931432469935312937> <#${idcanal}>`)
       .addField('Autor: ', `<a:flech:931432469935312937> ${message.author}`)
       .addField('Mensaje: ', message.content ? message.content : 'Ningún mensaje registrado')
       .setColor('RANDOM')
       .setTimestamp(new Date())
-      .setFooter(`Id: ${message.author.id}`, `${message.author.displayAvatarURL()}`)
+      .setFooter({ text: `Id: ${message.author.id}`, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
   
     if(idcanal === '880290686107275304')
     {
@@ -347,8 +347,8 @@ module.exports = async (client, Discord, message) => {
         let rpiropo = piropo[Math.floor(Math.random()*piropo.length)]
     
         const embed = new Discord.MessageEmbed()
-          .setColor('RANDOM')
-          .setDescription(rpiropo)
+        .setColor('RANDOM')
+        .setDescription(rpiropo)
         message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
   
     }
@@ -774,7 +774,7 @@ module.exports = async (client, Discord, message) => {
     {
     
         const embed = new Discord.MessageEmbed()
-        .setAuthor(message.author.username+'#'+message.author.discriminator, `${message.author.displayAvatarURL()}`)
+        .setAuthor({ name: message.author.username+'#'+message.author.discriminator, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
         .setDescription('Hola! **'+ message.author.username +'** Mi Prefix es: `_` Puedes ver mis comandos disponibles usando: `_help`. Para enviar un reporte usa: `_report` y para una sugerencia: `_suggestion`.')
         .setColor('RANDOM')
         message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
@@ -802,7 +802,7 @@ module.exports = async (client, Discord, message) => {
             console.log('Usuario en Lista Negra ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
             
             const e = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.username+'#'+message.author.discriminator, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setColor('RED')
             .setDescription('<a:Verify2:931463492677017650> | ¡Estás prohibido de usar estos comandos!\n\n**Razón:**\n`'+userbl.reason+'`\n\nContacta con el equipo de desarrolladores para más información.!')
           
@@ -841,7 +841,7 @@ module.exports = async (client, Discord, message) => {
         });
 
         const e = new Discord.MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setAuthor({ name: message.author.username+'#'+message.author.discriminator, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
         .setColor('RED')
         .setDescription(`<a:Verify2:931463492677017650> | El comando **${command}** no existe!\n\n> Sugerencias: ${similares.map(s => `**${s}**`).join(' - ') || 'No tengo sugerencias'}`)
         

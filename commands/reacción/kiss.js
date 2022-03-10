@@ -40,26 +40,23 @@ module.exports =  {
         if (!img || img.id === message.author.id) return message.reply({embeds: [
           
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | ¿Te besarías a ti mismo? <:burbujita:930399322183458867>`)
         
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         if (img.user.bot) return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
           
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | Gracias por ese beso! <:mmm:932177122968076338>`)
         
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         let consulta1 = await kissSchema.findOne({u1: message.author.id, u2: img.id})
         
-        console.log('Tabla kiss: '+consulta1)
-        let conteo
-
         if(!consulta1){
 
             let consulta2 = await kissSchema.findOne({u1: img.id, u2: message.author.id})
@@ -74,8 +71,7 @@ module.exports =  {
 
                 })
 
-                tkiss.save();
-                conteo = 1
+                tkiss.save()
 
             } else {
 
@@ -87,8 +83,6 @@ module.exports =  {
                     })
 
                 update.save()
-
-                conteo = consulta2.c + 1
           
             }
 
@@ -102,17 +96,9 @@ module.exports =  {
                         c: consulta1.c + 1
     
                     })
-                
-                    console.log('Update consultado: '+update)
-
+            
                 update.save().catch((e) => console.log('no guardado db '+e))
-                
-                console.log('Update after: '+update)
-
-                conteo = consulta1.c + 1
-                console.log('Número de kiss actual: '+consulta1.c)
-                console.log('Número de kiss : '+conteo)
-                
+              
             } catch (error) {
                 
                 console.log('No se actualizó la tabla kiss por el error: '+error)
@@ -132,14 +118,14 @@ module.exports =  {
         }
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
+        .setAuthor({ name: `Midgard's Love 💞`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
         .setDescription(`**${message.author.username}** le dió un beso a **${img.user.username}**. <:GatoLove:925929538863628318>\n<a:flechad:880330587678838784> *${message.author.username}* y *${img.user.username}* se han besado ${conteo}`)
         .setImage(ramdonkiss)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-          
-        message.channel.send({ embeds: [embed] })
+        .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+  
+        message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 

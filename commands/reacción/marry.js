@@ -70,20 +70,20 @@ module.exports =  {
         if (!img || img.id === message.author.id) return message.reply({embeds: [
         
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | ¿Te casarías contigo mismo? <:burbujita:930399322183458867>`)
       
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         if (img.user.bot) return message.reply({embeds: [
         
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | No puedes casarte con un bot! <:pepemaje:932177727589589013>`)
       
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         let usuario1 = await userSchema.findOne({ idusuario: message.author.id })
         let usuario2 = await userSchema.findOne({ idusuario: img.id })
@@ -124,31 +124,31 @@ module.exports =  {
         if(id.id === img.id) return message.reply({embeds: [
           
           new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
           .setColor('RED')
           .setDescription(`<:GatoLove:925929538863628318> | ¡Qué lindo(a) eres! Ya estás casado(a) con **`+img.user.username+'** <:yonofui:931433119859503194>')
         
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         else return message.reply({embeds: [
           
           new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
           .setColor('RED')
           .setDescription(`<a:Verify2:931463492677017650> | No puedes contraer matrimonio porque estás casado(a) con **`+id.username+'#'+id.discriminator+'**!!!')
         
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
       } else {
 
         if(usuario2.marry !== 'Soltero(a)') return message.reply({embeds: [
           
           new Discord.MessageEmbed()
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
           .setColor('RED')
           .setDescription(`<a:Verify2:931463492677017650> | No puedes contraer matrimonio porque <@${img.id}> ya está casado(a)!!!`)
         
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
       }
    
@@ -156,12 +156,12 @@ module.exports =  {
           
         new Discord.MessageEmbed()
           .setColor('RANDOM')
-          .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
+          .setAuthor({ name: `Midgard's Love 💞`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
           .setTitle('💟 Propuesta de Matrimonio 💍')
           .setDescription(img.toString() + "¿Deseas casarte con "+message.author.toString()+" ?")
           .setImage(ramdonp)
           .setTimestamp(new Date())
-          .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
+          .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
         ],
         components: [
           new MessageActionRow().addComponents([
@@ -210,19 +210,19 @@ module.exports =  {
               m.edit({embeds: [
                 new Discord.MessageEmbed()
                 .setColor('RANDOM')
-                .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
+                .setAuthor({ name: `Midgard's Love 💞`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
                 .setTitle('👰 Noche de Boda 🤵')
                 .setDescription('💖 Felicidades!!! '+img.toString() + " y "+message.author.toString()+". Ahora están casados 🔥.")
                 .setImage(ramdona)
                 .setTimestamp(new Date())
-                .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
+                .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
               ], components: []
-              });
+              }).catch((e) => console.log('Error al enviar mensaje: '+e))
               
             } catch (error) {
 
               console.log('Error al casarse - '+message.author.id+' y '+img.id+' - Error: '+error)
-              return message.reply('Hubo un error interno. Por favor, inténtelo de nuevo.')
+              return message.reply('Hubo un error interno. Por favor, inténtelo de nuevo.').catch((e) => console.log('Error al enviar mensaje: '+e))
             
             }
 
@@ -231,15 +231,14 @@ module.exports =  {
             m.edit({embeds: [
               new Discord.MessageEmbed()
               .setColor('RANDOM')
-              .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
-              .setTitle('💔 Propuesta Rechazada 💔')
+              .setAuthor({ name: `Midgard's Love 💞`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
               .setDescription(img.toString() + " ha rechazado la propuesta de "+message.author.toString()+" <:yonofui:931433119859503194>")
               .setImage(ramdonr)
               .setTimestamp(new Date())
-              .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
-            ],
+              .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+          ],
               components: []
-            });
+            }).catch((e) => console.log('Error al enviar mensaje: '+e))
           
           }
         });
@@ -249,20 +248,21 @@ module.exports =  {
           if(collected < 1) return m.edit({embeds: [
             new Discord.MessageEmbed()
             .setColor('RANDOM')
-            .setAuthor(`Midgard's Love`,message.guild.iconURL({ dynamic: true }))
+            .setAuthor({ name: `Midgard's Love 💞`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setTitle('⌛ Propuesta sin Respuesta 💔')
             .setDescription(img.toString() + " no ha respondido la propuesta de "+message.author.toString()+" <:yonofui:931433119859503194>")
             .setImage(ramdonpl)
             .setTimestamp(new Date())
-            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif')
+            .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+
           ],components: []
-          });
+          }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
           console.log('Razón del término de colección de marry: '+reason)
           
         });
         
-      });
+      }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 

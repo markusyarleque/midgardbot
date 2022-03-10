@@ -11,11 +11,20 @@ module.exports =  {
         if(!message.member.permissions.has(Permissions.FLAGS.MANAGE_CHANNELS)) return message.reply({ embeds: [
 
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
             .setColor('RED')
             .setDescription('<a:Verify2:931463492677017650> | No tienes permisos para ejecutar este comando')
     
-        ]}).then(m => setTimeout(() => m.delete(), 5000))
+        ]}).then(m => setTimeout(() => m.delete(), 10000)).catch((e) => console.log('Error al enviar mensaje: '+e))
+
+        if(!message.guild.me.permissions.has(Permissions.FLAGS.MANAGE_CHANNELS)) return message.reply({ embeds: [
+
+            new Discord.MessageEmbed()
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
+            .setColor('RED')
+            .setDescription('<a:Verify2:931463492677017650> | No tengo permiso para ejecutar este comando. Permiso faltante: MANAGE_CHANNELS (Gestionar Canales)')
+    
+        ]}).then(m => setTimeout(() => m.delete(), 10000)).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         var everyrole = message.guild.roles.cache.find(role => role.name === "@everyone");
     
@@ -30,11 +39,12 @@ module.exports =  {
                 if(!id.some(id => message.author.id === id)) {
       
                     const embed = new Discord.MessageEmbed()
-                    .setDescription('Solo el developer del bot puede usar este comando.')
+                    .setDescription('Solo los Administradores del Bot puede usar este comando.')
                     .setColor('RED')
                 
                     return message.reply({ embeds: [embed] })
-                    .then(m => setTimeout(() => m.delete(), 5000));
+                    .then(m => setTimeout(() => m.delete(), 5000))
+                    .catch((e) => console.log('Error al enviar mensaje: '+e))
         
                 }
     
@@ -44,18 +54,20 @@ module.exports =  {
                     
                         SEND_MESSAGES: false
                 
-                    });
+                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-                    channel.setName(`🔐${channel.name}`)
+                    channel.setName(`🔐${channel.name}`).catch((e) => console.log('Error al enviar mensaje: '+e))
             
-                }); 
+                }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
                 message.channel.send('🔐 Todos los canales del servidor fueron bloqueados')
-                .then(m => setTimeout(() => m.delete(), 5000));
+                .then(m => setTimeout(() => m.delete(), 5000))
+                .catch((e) => console.log('Error al enviar mensaje: '+e))
           
             } catch(e) {
             
                 console.log('Error al cerrar todos los canales: '+e);
+                message.reply('Hubo un error interno. Por favor, inténtelo de nuevo.').catch((e) => console.log('Error al enviar mensaje: '+e))
           
             }
     
@@ -67,16 +79,18 @@ module.exports =  {
                     
                     SEND_MESSAGES: false
                   
-                });
+                }).catch((e) => console.log('Error al sobrescribir permisos en comando lock: '+e))
 
-                ch.setName(`🔐${ch.name}`)
+                ch.setName(`🔐${ch.name}`).catch((e) => console.log('Error al enviar mensaje: '+e))
             
                 message.channel.send(`🔐 El canal <#${ch.id}> fue bloqueado`)
-                .then(m => setTimeout(() => m.delete(), 5000));
+                .then(m => setTimeout(() => m.delete(), 5000))
+                .catch((e) => console.log('Error al enviar mensaje: '+e))
               
             } catch (error) {
                 
                 console.log('Error al cerrar el canal: '+ch.name+' - Error: '+error);
+                message.reply('Hubo un error interno. Por favor, inténtelo de nuevo.').catch((e) => console.log('Error al enviar mensaje: '+e))
           
             }
     

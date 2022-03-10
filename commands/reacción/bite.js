@@ -14,21 +14,21 @@ module.exports =  {
         if (!img || img.id === message.author.id) {
 
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Emotions`,message.guild.iconURL({ dynamic: true }))
+            .setAuthor({ name: `Midgard's Emotions 🤗`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setDescription(`**${message.author.username}** se está mordiendo solo <a:incomodo:943361621416353842>`)
             .setImage(bite)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-        
-            message.channel.send({ embeds: [embed] });
+            .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+
+            message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         } else if (img.user.bot){
         
             return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
         
                 new Discord.MessageEmbed()
-                .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | Muérdeme <:estaaa:887059768710135839>`)
         
@@ -37,14 +37,14 @@ module.exports =  {
         } else {
 
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Midgard's Emotions`,message.guild.iconURL({ dynamic: true }))
+            .setAuthor({ name: `Midgard's Emotions 🤗`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setDescription(`**${message.author.username}** está mordiendo a **${img.user.username}** <:abby:931432327354155038> `)
             .setImage(bite)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-        
-            message.channel.send({ embeds: [embed] });
+            .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+
+            message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         }
 
