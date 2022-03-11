@@ -62,6 +62,8 @@ module.exports =  {
     
         ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
         
+        setTimeout(() => message.delete(), 100)
+
         let purge = parseInt(args[0]) + 1
 
         // await message.channel.messages.fetch({ limit: purge }).then(
@@ -75,13 +77,13 @@ module.exports =  {
             
         // ).catch((e) => console.log('Error al fetchar mensajes: '+e))
 
-        message.channel.bulkDelete(purge).then(messages => {
+        message.channel.bulkDelete(parseInt(args[0])).then(messages => {
 
             message.channel.send('```'+ messages.size +' mensajes han sido borrados.'+'```')
             .then(msg => setTimeout(() => msg.delete(), 5000))
             .catch((e) => console.log('Error al enviar mensaje: '+e))
         
-        }).catch(e => message.channel.send('Ocurrió un error al eliminar algunos mensajes: Debido a las limitaciones de Discord, no es posible eliminar mensajes enviados hace más de 14 días! '+e))
+        }).catch(e => message.channel.send('Ocurrió un error al eliminar algunos mensajes: Debido a las limitaciones de Discord, no es posible eliminar mensajes enviados hace más de 14 días! '))
 
         
         
