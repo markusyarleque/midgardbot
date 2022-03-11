@@ -54,12 +54,12 @@ module.exports =  {
                     
                         SEND_MESSAGES: null
                 
-                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    })
 
-                    const chname = channel.name.replace('🔐','').catch((e) => console.log('Error al enviar mensaje: '+e))
-                    channel.setName(chname).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    const chname = channel.name.replace('🔐','')
+                    channel.setName(chname)
             
-                }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                })
 
                 message.channel.send('🔐 Todos los canales del servidor fueron desbloqueados')
                 .then(m => setTimeout(() => m.delete(), 5000))
@@ -80,10 +80,10 @@ module.exports =  {
                     
                     SEND_MESSAGES: null
                   
-                }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                })
 
-                const chname = ch.name.replace('🔐','').catch((e) => console.log('Error al enviar mensaje: '+e))
-                ch.setName(chname).catch((e) => console.log('Error al enviar mensaje: '+e))
+                const chname = ch.name.replace('🔐','')
+                ch.setName(chname)
             
                 message.channel.send(`🔐 El canal <#${ch.id}> fue desbloqueado`)
                 .then(m => setTimeout(() => m.delete(), 5000))

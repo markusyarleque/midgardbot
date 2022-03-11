@@ -54,11 +54,11 @@ module.exports =  {
                     
                         SEND_MESSAGES: false
                 
-                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    })
 
-                    channel.setName(`🔐${channel.name}`).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    channel.setName(`🔐${channel.name}`)
             
-                }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                })
 
                 message.channel.send('🔐 Todos los canales del servidor fueron bloqueados')
                 .then(m => setTimeout(() => m.delete(), 5000))
@@ -79,9 +79,9 @@ module.exports =  {
                     
                     SEND_MESSAGES: false
                   
-                }).catch((e) => console.log('Error al sobrescribir permisos en comando lock: '+e))
+                })
 
-                ch.setName(`🔐${ch.name}`).catch((e) => console.log('Error al enviar mensaje: '+e))
+                ch.setName(`🔐${ch.name}`)
             
                 message.channel.send(`🔐 El canal <#${ch.id}> fue bloqueado`)
                 .then(m => setTimeout(() => m.delete(), 5000))

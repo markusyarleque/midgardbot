@@ -77,7 +77,7 @@ module.exports = async (client) => {
       
       //c === 200 ? clearInterval(rolrainbow) : c = c + 1
 
-    }, 30000)
+    }, 60000)
       
   }
     
