@@ -81,9 +81,10 @@ module.exports =  {
                   
                 })
 
-                let namechannel = await ch.setName(`🔐${ch.name}`)
-                console.log('Nuevo nombre: '+namechannel)
-                
+                let namechannel = '🔐'+ch.name
+                ch.setName(namechannel)
+                console.log('Antigua nombre: ' + ch.name + ' - Nuevo nombre: '+namechannel)
+
                 message.channel.send(`🔐 El canal <#${ch.id}> fue bloqueado`)
                 .then(m => setTimeout(() => m.delete(), 5000))
                 .catch((e) => console.log('Error al enviar mensaje: '+e))
