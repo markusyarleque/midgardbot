@@ -53,10 +53,15 @@ module.exports = async (client) => {
       .then(r => console.log('Rol MBVIP editado: '+ r))
       .catch(e => console.log('Error al actualizar color de rol: '+e))
       
-      c === 10 ? clearInterval(rolrainbow).catch((e) => console.log('Error al enviar mensaje: '+e)) : c = c + 1
+      c = c + 1
 
     }, 30000)
 
+    if(c === 10) {
+
+      clearInterval(rolrainbow)
+
+    }
       
   }
     

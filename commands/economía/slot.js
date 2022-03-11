@@ -124,19 +124,19 @@ module.exports =  {
 
                     msg.edit({embeds: [embed2]}).catch((e) => console.log('Error al enviar mensaje: '+e))
                   
-                }, 2000).catch((e) => console.log('Error al enviar mensaje: '+e))
+                }, 2000)
 
                 setTimeout(function () {
 
                     msg.edit({embeds: [embed3]}).catch((e) => console.log('Error al enviar mensaje: '+e))
                   
-                }, 5000).catch((e) => console.log('Error al enviar mensaje: '+e))
+                }, 5000)
 
                 setTimeout(function () {
 
                     msg.edit({embeds: [embed4]}).catch((e) => console.log('Error al enviar mensaje: '+e))
                   
-                }, 7000).catch((e) => console.log('Error al enviar mensaje: '+e))
+                }, 7000)
 
             }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
@@ -181,19 +181,19 @@ module.exports =  {
 
                     msg.edit({embeds: [embed2]}).catch((e) => console.log('Error al enviar mensaje: '+e))
                   
-                }, 2000).catch((e) => console.log('Error al enviar mensaje: '+e))
+                }, 2000)
 
                 setTimeout(function () {
 
                     msg.edit({embeds: [embed3]}).catch((e) => console.log('Error al enviar mensaje: '+e))
                   
-                }, 5000).catch((e) => console.log('Error al enviar mensaje: '+e))
+                }, 5000)
 
                 setTimeout(function () {
 
                     msg.edit({embeds: [embed5]}).catch((e) => console.log('Error al enviar mensaje: '+e))
                   
-                }, 7000).catch((e) => console.log('Error al enviar mensaje: '+e))
+                }, 7000)
 
             }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
