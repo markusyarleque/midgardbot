@@ -90,7 +90,7 @@ module.exports =  {
 
                     await user.roles.remove(rol).catch(e => {
                         
-                        console.log('Ocurrio un error al quitar ROL VIP al usuario: '+ user.id+ ' - '+e)
+                        console.log('Ocurrió un error al quitar ROL VIP al usuario: '+ user.id+ ' - '+e)
                         
                     })
                     
