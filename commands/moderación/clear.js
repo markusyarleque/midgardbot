@@ -77,9 +77,9 @@ module.exports =  {
             
         // ).catch((e) => console.log('Error al fetchar mensajes: '+e))
 
-        message.channel.bulkDelete(parseInt(args[0])).then(messages => {
+        message.channel.bulkDelete(purge).then(messages => {
 
-            message.channel.send('```'+ messages.size +' mensajes han sido borrados.'+'```')
+            message.channel.send('```'+ parseInt(messages.size)-1 +' mensajes han sido borrados.'+'```')
             .then(msg => setTimeout(() => msg.delete(), 5000))
             .catch((e) => console.log('Error al enviar mensaje: '+e))
         
