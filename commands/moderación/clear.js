@@ -64,23 +64,27 @@ module.exports =  {
         
         let purge = parseInt(args[0]) + 1
 
-        await message.channel.messages.fetch({ limit: purge }).then(
+        // await message.channel.messages.fetch({ limit: purge }).then(
               
-            (messages) => {
+        //     (messages) => {
 
-                message.channel.messages.cache.array.forEach(m => {
-
-                    message.channel.bulkDelete(m).catch((e) => message.channel.send('Ocurrió un error al eliminar algunos mensajes: Debido a las limitaciones de Discord, no es posible eliminar mensajes enviados hace más de 14 días!'))
-
-                }).catch((e) => message.channel.send('Ocurrió un error al eliminar algunos mensajes: Debido a las limitaciones de Discord, no es posible eliminar mensajes enviados hace más de 14 días!'))
-              
-            }
+        //         message.channel.bulkDelete(messages)
+        //         .catch((e) => message.channel.send('Ocurrió un error al eliminar algunos mensajes: Debido a las limitaciones de Discord, no es posible eliminar mensajes enviados hace más de 14 días!'))
+                
+        //     }
             
-        ).catch((e) => console.log('Error al fetchar mensajes: '+e))
+        // ).catch((e) => console.log('Error al fetchar mensajes: '+e))
 
-        message.channel.send('```'+ args[0] +' mensajes han sido borrados.'+'```')
-        .then(msg => setTimeout(() => msg.delete(), 5000))
-        .catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.bulkDelete(purge).then(messages => {
+
+            message.channel.send('```'+ messages.size +' mensajes han sido borrados.'+'```')
+            .then(msg => setTimeout(() => msg.delete(), 5000))
+            .catch((e) => console.log('Error al enviar mensaje: '+e))
+        
+        }).catch(e => message.channel.send('Ocurrió un error al eliminar algunos mensajes: Debido a las limitaciones de Discord, no es posible eliminar mensajes enviados hace más de 14 días! '+e))
+
+        
+        
 
     }
 
