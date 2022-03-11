@@ -71,7 +71,7 @@ module.exports = {
                         await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
                         await interaction.editReply({ embeds: [e] }).catch((e) => console.log('Error al usar slash commands: '+e))
         
-                        setTimeout(reminder, msDelay).catch((e) => console.log('Error al usar slash commands: '+e))
+                        setTimeout(reminder, msDelay)
                       
                         break
 
@@ -105,7 +105,7 @@ module.exports = {
                         await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
                         await interaction.editReply({ embeds: [e] }).catch((e) => console.log('Error al usar slash commands: '+e))
         
-                        setTimeout(reminder, msDelay).catch((e) => console.log('Error al usar slash commands: '+e))
+                        setTimeout(reminder, msDelay)
                       
                         break
 
@@ -139,7 +139,7 @@ module.exports = {
                         await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
                         await interaction.editReply({ embeds: [e] }).catch((e) => console.log('Error al usar slash commands: '+e))
         
-                        setTimeout(reminder, msDelay).catch((e) => console.log('Error al usar slash commands: '+e))
+                        setTimeout(reminder, msDelay)
                       
                         break
 

@@ -212,7 +212,7 @@ module.exports =  {
                         
                         var msDelay = 6*3600000
                         
-                        setTimeout(reminder, msDelay).catch((e) => console.log('Error al enviar mensaje: '+e))
+                        setTimeout(reminder, msDelay)
   
                         m.edit({ components: []}).catch((e) => console.log('Error al enviar mensaje: '+e))
   

@@ -31,8 +31,6 @@ module.exports = async (client) => {
 
   ]
 
-  let ramdoncolor = colores[Math.floor(Math.random()*colores.length)]
-
   var serverM = client.guilds.cache.find(s => s.id === '777620055344545842')
 
   //if(!serverM.member(client.user).permissions.has(Permissions.FLAGS.MANAGE_ROLES)) return;
@@ -47,7 +45,7 @@ module.exports = async (client) => {
 
       await rol.edit({
     
-        color: ramdoncolor
+        color: colores[Math.floor(Math.random()*colores.length)]
         
       })
       .then(r => console.log('Rol MBVIP editado: '+ r))

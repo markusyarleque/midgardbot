@@ -72,7 +72,7 @@ module.exports =  {
 
           ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-          setTimeout(reminder, msDelay).catch((e) => console.log('Error al enviar mensaje: '+e))
+          setTimeout(reminder, msDelay)
               
           break
 
@@ -100,7 +100,7 @@ module.exports =  {
             
           ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-          setTimeout(reminder, msDelay).catch((e) => console.log('Error al enviar mensaje: '+e))
+          setTimeout(reminder, msDelay)
               
           break
 
@@ -128,7 +128,7 @@ module.exports =  {
           
           ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
             
-          setTimeout(reminder, msDelay).catch((e) => console.log('Error al enviar mensaje: '+e))
+          setTimeout(reminder, msDelay)
               
           break
 

@@ -72,9 +72,9 @@ module.exports = {
                     
                                 await interaction.editReply(time <= 0 ? `Se acabó el tiempo ⌛` : String(time)).catch((e) => console.log('Error al usar slash commands: '+e))
                                 time <= 0 ? interaction.followUp(`${interaction.user}... El conteo regresivo, ha llegado a su fin.`).catch((e) => console.log('Error al usar slash commands: '+e)) : time
-                                time <= 0 ? clearInterval(count1).catch((e) => console.log('Error al usar slash commands: '+e)) : time -= 2;
+                                time <= 0 ? clearInterval(count1) : time -= 2;
                                 
-                            }, 2000).catch((e) => console.log('Error al usar slash commands: '+e))
+                            }, 2000)
                 
                         } else {
                     
@@ -82,9 +82,9 @@ module.exports = {
                     
                                 await interaction.editReply(time <= 0  ? `... Se acabó el tiempo ⌛` : String(time)).catch((e) => console.log('Error al usar slash commands: '+e))
                                 time <= 0 ? interaction.followUp(`${interaction.user}... El conteo regresivo, ha llegado a su fin.`).catch((e) => console.log('Error al usar slash commands: '+e)) : time
-                                time <= 0 ? clearInterval(count2).catch((e) => console.log('Error al usar slash commands: '+e)) : time -= 3
+                                time <= 0 ? clearInterval(count2) : time -= 3
                     
-                            }, 3000).catch((e) => console.log('Error al usar slash commands: '+e))
+                            }, 3000)
                             
                         }
 

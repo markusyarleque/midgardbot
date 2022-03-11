@@ -52,7 +52,7 @@ module.exports = {
     .setTimestamp(new Date())
     .setFooter({ text: `Developer Team - MidgardBot`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
     
-    setTimeout(() => message.delete(), 100).catch((e) => console.log('Error al enviar mensaje: '+e))
+    setTimeout(() => message.delete(), 100)
     
     message.channel.send({ 
       

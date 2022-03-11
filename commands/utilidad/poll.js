@@ -69,7 +69,7 @@ module.exports =  {
     
         ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-        setTimeout(() => message.delete(), 100).catch((e) => console.log('Error al enviar mensaje: '+e))
+        setTimeout(() => message.delete(), 100)
 
         if (!split[3]){
 
