@@ -26,7 +26,7 @@ module.exports = async (client, Discord, guild) => {
 
         }
 
-    }).catch((e) => console.log('Error al enviar mensaje: '+e))
+    })
 
     let invitacion
 
