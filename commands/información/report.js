@@ -47,7 +47,7 @@ module.exports = {
     .setThumbnail(`https://assets.sutori.com/user-uploads/image/bc331db1-aa9d-4684-b73e-8a1fcb7d751b/aa64184f325ce5cc6abe613d51383870.gif`)
     .setTitle('<a:alerta:932374957206421614> | Reporte')
     .setDescription(`**${usera.username}** ¿Estás segur@ que quieres reportar este bug? ¡Usar mal el comando causará la prohibición!`)
-    .addField('Bug a reportar: ', reporte ? reporte : 'Ninguno')
+    .addField('Bug a reportar: ','> ' + reporte ? reporte : 'Ninguno')
     .setColor('RANDOM')
     .setTimestamp(new Date())
     .setFooter({ text: `Developer Team - MidgardBot`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
@@ -78,7 +78,7 @@ module.exports = {
           .setTitle('📧 | Reporte')
           .setColor('RANDOM')
           .setDescription('Reporte confirmado con éxito! <a:clap:881331231021756437>')
-          .addField('Bug reportado: ', '<a:flech:931432469935312937> '+reporte ? reporte : 'Ninguno')
+          .addField('Bug reportado: ', '> '+reporte ? reporte : 'Ninguno')
           .setTimestamp(new Date())
           .setFooter({ text: `Por: ${usera.id}`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
     
@@ -91,7 +91,7 @@ module.exports = {
           .setThumbnail(`https://assets.sutori.com/user-uploads/image/bc331db1-aa9d-4684-b73e-8a1fcb7d751b/aa64184f325ce5cc6abe613d51383870.gif`)
           .setTitle('📧 | Reporte')
           .setColor('RANDOM')
-          .addField('Ha llegado el siguiente reporte: ', '<a:flech:931432469935312937> '+reporte ? reporte : 'Ninguno')
+          .addField('Ha llegado el siguiente reporte: ', '> '+reporte ? reporte : 'Ninguno')
           .setTimestamp(new Date())
           .setFooter({ text: `Por: ${usera.id}`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
     
