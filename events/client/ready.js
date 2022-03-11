@@ -55,7 +55,7 @@ module.exports = async (client) => {
       
       c === 10 ? clearInterval(rolrainbow).catch((e) => console.log('Error al enviar mensaje: '+e)) : c = c + 1
 
-    }, 30000).catch((e) => console.log('Error al enviar mensaje: '+e))
+    }, 30000)
 
       
   }
