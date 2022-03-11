@@ -44,7 +44,7 @@ module.exports =  {
     
         ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
     
-        if (args[0] > 100) return message.reply({ embeds: [
+        if (parseInt(args[0]) > 100) return message.reply({ embeds: [
 
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
@@ -53,7 +53,7 @@ module.exports =  {
     
         ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-        if (args[0] < 1) return message.reply({ embeds: [
+        if (parseInt(args[0]) < 1) return message.reply({ embeds: [
 
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
@@ -64,7 +64,6 @@ module.exports =  {
         
         let purge = parseInt(args[0]) + 1
 
-        console.log('numero ' + purge)
         await message.channel.messages.fetch({ limit: purge }).then(
               
             (messages) => {
