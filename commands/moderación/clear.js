@@ -66,7 +66,7 @@ module.exports =  {
               
             (messages) => {
 
-                message.channel.bulkDelete(messages)
+                message.channel.bulkDelete(messages).catch((e) => console.log('Error al fetchar mensajes: '+e))
 
               
             }

@@ -55,9 +55,6 @@ module.exports =  {
                         SEND_MESSAGES: null
                 
                     })
-
-                    const chname = channel.name.replace('🔐','')
-                    channel.setName(chname)
             
                 })
 
@@ -82,10 +79,6 @@ module.exports =  {
                   
                 })
 
-                let chname = await ch.name.replace('🔐','')
-                ch.setName(chname)
-                console.log('Nombre antiguo: '+chname)
-                
                 message.channel.send(`🔐 El canal <#${ch.id}> fue desbloqueado`)
                 .then(m => setTimeout(() => m.delete(), 5000))
                 .catch((e) => console.log('Error al enviar mensaje: '+e))

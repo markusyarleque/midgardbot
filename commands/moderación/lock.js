@@ -56,8 +56,6 @@ module.exports =  {
                 
                     })
 
-                    channel.setName(`🔐${channel.name}`)
-            
                 })
 
                 message.channel.send('🔐 Todos los canales del servidor fueron bloqueados')
@@ -80,10 +78,6 @@ module.exports =  {
                     SEND_MESSAGES: false
                   
                 })
-
-                let namechannel = '🔐'+ch.name
-                ch.setName(namechannel)
-                console.log('Antigua nombre: ' + ch.name + ' - Nuevo nombre: '+namechannel)
 
                 message.channel.send(`🔐 El canal <#${ch.id}> fue bloqueado`)
                 .then(m => setTimeout(() => m.delete(), 5000))
