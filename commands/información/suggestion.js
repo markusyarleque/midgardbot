@@ -46,7 +46,7 @@ module.exports = {
         .setThumbnail(`https://media.giphy.com/media/Jzw7qUU2ZMw7DYpQV8/giphy.gif`)
         .setTitle('<a:corazonBlack_FD:880526799736557679> | Sugerencia')
         .setDescription(`**${usera.username}** ¿Estás segur@ que quieres dar esta sugerencia? ¡Usar mal el comando causará la prohibición!`)
-        .addField('Sugerencia: ','> ' + reporte ? reporte : 'Ninguna')
+        .addField('Sugerencia: ','> ' + (reporte ? reporte : 'Ninguna'))
         .setColor('RANDOM')
         .setTimestamp(new Date())
         .setFooter({ text: `Developer Team - Midgard Bot`,  iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
@@ -77,7 +77,7 @@ module.exports = {
             .setTitle('<a:corazonBlack_FD:880526799736557679> | Sugerencia')
             .setColor('RANDOM')
             .setDescription('Sugerencia realizada con éxito! <a:clap:881331231021756437>')
-            .addField('Sugerencia: ', '> ' + reporte ? reporte : 'Ninguna')
+            .addField('Sugerencia: ', '> ' + (reporte ? reporte : 'Ninguna'))
             .setTimestamp(new Date())
             .setFooter({ text: `Por: ${usera.id}`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
 
@@ -90,7 +90,7 @@ module.exports = {
             .setThumbnail(`https://media.giphy.com/media/Jzw7qUU2ZMw7DYpQV8/giphy.gif`)
             .setTitle('<a:corazonBlack_FD:880526799736557679> | Sugerencia')
             .setColor('RANDOM')
-            .addField('Ha llegado la siguiente sugerencia: ', '> ' + reporte ? reporte : ' Ninguna')
+            .addField('Ha llegado la siguiente sugerencia: ', '> ' + (reporte ? reporte : ' Ninguna'))
             .setTimestamp(new Date())
             .setFooter({ text: `Por: ${usera.id}`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
     
