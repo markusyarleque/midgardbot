@@ -18,16 +18,40 @@ module.exports = async (client) => {
 
   var colores = [
         
-    '#E74C3C',
-    '#FFFF00',
-    '#2ECC71',
-    '#9B59B6',
-    '#EB459E',
+    '#000000',
     '#1ABC9C',
+    '#11806A',
+    '#2ECC71',
+    '#1F8B4C',
     '#3498DB',
+    '#206694',
+    '#9B59B6',
+    '#71368A',
+    '#E91E63',
+    '#AD1457',
     '#F1C40F',
+    '#C27C0E',
+    '#E67E22',
+    '#A84300',
+    '#E74C3C',
+    '#992D22',
     '#95A5A6',
-    '#E67E22'
+    '#979C9F',
+    '#7F8C8D',
+    '#BCC0C0',
+    '#34495E',
+    '#2C3E50',
+    '#FFFF00',
+    '#FFFFFF',
+    '#5865F2',
+    '#99AAB5',
+    '#2C2F33',
+    '#23272A',
+    '#57F287',
+    '#FEE75C',
+    '#EB459E',
+    '#ED4245',
+    '#23272A'
 
   ]
 
@@ -51,7 +75,7 @@ module.exports = async (client) => {
       .then(r => console.log('Rol MBVIP editado: '+ r))
       .catch(e => console.log('Error al actualizar color de rol: '+e))
       
-      c === 20 ? clearInterval(rolrainbow) : c = c + 1
+      c === 200 ? clearInterval(rolrainbow) : c = c + 1
 
     }, 30000)
       
