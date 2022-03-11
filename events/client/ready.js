@@ -37,7 +37,7 @@ module.exports = async (client) => {
     
   var rol = serverM.roles.cache.find(x => x.id === rolVIP)
 
-  let c = 0
+  let c = 1
 
   if(rol){
     
@@ -51,15 +51,9 @@ module.exports = async (client) => {
       .then(r => console.log('Rol MBVIP editado: '+ r))
       .catch(e => console.log('Error al actualizar color de rol: '+e))
       
-      c = c + 1
+      c === 20 ? clearInterval(rolrainbow) : c = c + 1
 
     }, 30000)
-
-    if(c === 10) {
-
-      clearInterval(rolrainbow)
-
-    }
       
   }
     
