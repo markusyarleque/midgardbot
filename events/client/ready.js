@@ -14,7 +14,7 @@ module.exports = async (client) => {
     }
   );
 
-  let rolVIP = '951591485072089098'
+  let rolVIP = '951688457258942494'
 
   var colores = [
         

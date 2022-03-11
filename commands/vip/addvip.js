@@ -82,7 +82,7 @@ module.exports =  {
 
                 console.log('Se añadió al usuario VIP: '+user.id)
             
-                let rolVIP = '949107691912065054'
+                let rolVIP = '951688457258942494'
 
                 var rol = message.guild.roles.cache.find(x => x.id === rolVIP)
         

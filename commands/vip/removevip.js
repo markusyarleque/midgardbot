@@ -81,6 +81,20 @@ module.exports =  {
                 update.save()
 
                 console.log('Se removió al usuario VIP: '+user.id)
+            
+                let rolVIP = '951688457258942494'
+
+                var rol = message.guild.members.resolve(user.id).roles.cache.find(r => r.id === rolVIP)
+        
+                if(rol){
+
+                    await user.roles.remove(rol).catch(e => {
+                        
+                        console.log('Ocurrio un error al quitar ROL VIP al usuario: '+ user.id+ ' - '+e)
+                        
+                    })
+                    
+                }
 
                 const embed = new Discord.MessageEmbed()
                 .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
