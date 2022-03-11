@@ -125,14 +125,14 @@ module.exports = {
                 embed.addField('<a:letraA:948726710713606214> **Sí**', '..........')
                 embed.addField('<a:letraB:948726773938524261> **No**', '..........')
                 
-                await interaction.deferReply();
-                await wait(500);
+                await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+                await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
                 await interaction.editReply({ embeds: [embed]}).then(async function(i) {
 
-                    i.react('<a:letraA:948726710713606214>');
-                    i.react('<a:letraB:948726773938524261>');
+                    i.react('<a:letraA:948726710713606214>').catch((e) => console.log('Error al usar slash commands: '+e))
+                    i.react('<a:letraB:948726773938524261>').catch((e) => console.log('Error al usar slash commands: '+e))
     
-                });
+                }).catch((e) => console.log('Error al usar slash commands: '+e))
 
             } else {
 
@@ -182,128 +182,128 @@ module.exports = {
 
                 if(!o4){
 
-                    await interaction.deferReply();
-                    await wait(500);
+                    await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+                    await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
                     await interaction.editReply({ embeds: [embed]}).then(async function(i) {
 
-                        i.react('<a:letraA:948726710713606214>');
-                        i.react('<a:letraB:948726773938524261>');
-                        i.react('<a:letraC:948727037340827718>');
+                        i.react('<a:letraA:948726710713606214>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraB:948726773938524261>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraC:948727037340827718>').catch((e) => console.log('Error al usar slash commands: '+e))
     
-                    });
+                    }).catch((e) => console.log('Error al usar slash commands: '+e))
 
                 } else if(!o5){
 
-                    await interaction.deferReply();
-                    await wait(500);
+                    await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+                    await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
                     await interaction.editReply({ embeds: [embed]}).then(async function(i) {
 
-                        i.react('<a:letraA:948726710713606214>');
-                        i.react('<a:letraB:948726773938524261>');
-                        i.react('<a:letraC:948727037340827718>');
-                        i.react('<a:letraD:948727118605459497>');
+                        i.react('<a:letraA:948726710713606214>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraB:948726773938524261>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraC:948727037340827718>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraD:948727118605459497>').catch((e) => console.log('Error al usar slash commands: '+e))
     
-                    });
+                    }).catch((e) => console.log('Error al usar slash commands: '+e))
 
                 } else if(!o6){
 
-                    await interaction.deferReply();
-                    await wait(500);
+                    await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+                    await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
                     await interaction.editReply({ embeds: [embed]}).then(async function(i) {
 
-                        i.react('<a:letraA:948726710713606214>');
-                        i.react('<a:letraB:948726773938524261>');
-                        i.react('<a:letraC:948727037340827718>');
-                        i.react('<a:letraD:948727118605459497>');
-                        i.react('<a:letraE:948727195377999994>');
+                        i.react('<a:letraA:948726710713606214>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraB:948726773938524261>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraC:948727037340827718>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraD:948727118605459497>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraE:948727195377999994>').catch((e) => console.log('Error al usar slash commands: '+e))
     
-                    });
+                    }).catch((e) => console.log('Error al usar slash commands: '+e))
 
                 } else if(!o7){
 
-                    await interaction.deferReply();
-                    await wait(500);
+                    await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+                    await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
                     await interaction.editReply({ embeds: [embed]}).then(async function(i) {
 
-                        i.react('<a:letraA:948726710713606214>');
-                        i.react('<a:letraB:948726773938524261>');
-                        i.react('<a:letraC:948727037340827718>');
-                        i.react('<a:letraD:948727118605459497>');
-                        i.react('<a:letraE:948727195377999994>');
-                        i.react('<a:letraF:948727265510981724>');
+                        i.react('<a:letraA:948726710713606214>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraB:948726773938524261>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraC:948727037340827718>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraD:948727118605459497>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraE:948727195377999994>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraF:948727265510981724>').catch((e) => console.log('Error al usar slash commands: '+e))
     
-                    });
+                    }).catch((e) => console.log('Error al usar slash commands: '+e))
 
                 } else if(!o8){
 
-                    await interaction.deferReply();
-                    await wait(500);
+                    await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+                    await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
                     await interaction.editReply({ embeds: [embed]}).then(async function(i) {
 
-                        i.react('<a:letraA:948726710713606214>');
-                        i.react('<a:letraB:948726773938524261>');
-                        i.react('<a:letraC:948727037340827718>');
-                        i.react('<a:letraD:948727118605459497>');
-                        i.react('<a:letraE:948727195377999994>');
-                        i.react('<a:letraF:948727265510981724>');
-                        i.react('<a:letraG:948727324323508244>');
+                        i.react('<a:letraA:948726710713606214>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraB:948726773938524261>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraC:948727037340827718>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraD:948727118605459497>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraE:948727195377999994>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraF:948727265510981724>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraG:948727324323508244>').catch((e) => console.log('Error al usar slash commands: '+e))
     
-                    });
+                    }).catch((e) => console.log('Error al usar slash commands: '+e))
 
                 } else if(!o9){
 
-                    await interaction.deferReply();
-                    await wait(500);
+                    await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+                    await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
                     await interaction.editReply({ embeds: [embed]}).then(async function(i) {
 
-                        i.react('<a:letraA:948726710713606214>');
-                        i.react('<a:letraB:948726773938524261>');
-                        i.react('<a:letraC:948727037340827718>');
-                        i.react('<a:letraD:948727118605459497>');
-                        i.react('<a:letraE:948727195377999994>');
-                        i.react('<a:letraF:948727265510981724>');
-                        i.react('<a:letraG:948727324323508244>');
-                        i.react('<a:letraH:948727421983666276>');
+                        i.react('<a:letraA:948726710713606214>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraB:948726773938524261>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraC:948727037340827718>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraD:948727118605459497>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraE:948727195377999994>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraF:948727265510981724>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraG:948727324323508244>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraH:948727421983666276>').catch((e) => console.log('Error al usar slash commands: '+e))
     
-                    });
+                    }).catch((e) => console.log('Error al usar slash commands: '+e))
 
                 } else if(!o10){
 
-                    await interaction.deferReply();
-                    await wait(500);
+                    await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+                    await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
                     await interaction.editReply({ embeds: [embed]}).then(async function(i) {
 
-                        i.react('<a:letraA:948726710713606214>');
-                        i.react('<a:letraB:948726773938524261>');
-                        i.react('<a:letraC:948727037340827718>');
-                        i.react('<a:letraD:948727118605459497>');
-                        i.react('<a:letraE:948727195377999994>');
-                        i.react('<a:letraF:948727265510981724>');
-                        i.react('<a:letraG:948727324323508244>');
-                        i.react('<a:letraH:948727421983666276>');
-                        i.react('<a:letraI:948727492368273439>');
+                        i.react('<a:letraA:948726710713606214>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraB:948726773938524261>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraC:948727037340827718>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraD:948727118605459497>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraE:948727195377999994>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraF:948727265510981724>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraG:948727324323508244>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraH:948727421983666276>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraI:948727492368273439>').catch((e) => console.log('Error al usar slash commands: '+e))
     
-                    });
+                    }).catch((e) => console.log('Error al usar slash commands: '+e))
 
                 } else {
                  
 
-                    await interaction.deferReply();
-                    await wait(500);
+                    await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+                    await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
                     await interaction.editReply({ embeds: [embed]}).then(async function(i) {
 
-                        i.react('<a:letraA:948726710713606214>');
-                        i.react('<a:letraB:948726773938524261>');
-                        i.react('<a:letraC:948727037340827718>');
-                        i.react('<a:letraD:948727118605459497>');
-                        i.react('<a:letraE:948727195377999994>');
-                        i.react('<a:letraF:948727265510981724>');
-                        i.react('<a:letraG:948727324323508244>');
-                        i.react('<a:letraH:948727421983666276>');
-                        i.react('<a:letraI:948727492368273439>');
-                        i.react('<a:letraJ:948727557946245141>');
+                        i.react('<a:letraA:948726710713606214>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraB:948726773938524261>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraC:948727037340827718>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraD:948727118605459497>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraE:948727195377999994>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraF:948727265510981724>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraG:948727324323508244>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraH:948727421983666276>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraI:948727492368273439>').catch((e) => console.log('Error al usar slash commands: '+e))
+                        i.react('<a:letraJ:948727557946245141>').catch((e) => console.log('Error al usar slash commands: '+e))
 
-                    });
+                    }).catch((e) => console.log('Error al usar slash commands: '+e))
                     
                 }
 
@@ -311,9 +311,9 @@ module.exports = {
             
         } catch (error) {
             
-            await interaction.deferReply();
-            await wait(500);
-            await interaction.editReply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado. Por favor, inténtelo de nuevo!', ephemeral: true})
+            await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+            await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+            await interaction.editReply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado. Por favor, inténtelo de nuevo!', ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
             
             console.log('Error en el SC poll: '+error)
 

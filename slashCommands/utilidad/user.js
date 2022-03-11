@@ -110,23 +110,23 @@ module.exports = {
 
                 const embed = new Discord.MessageEmbed()
                 .setThumbnail(user.displayAvatarURL({ dynamic: true }).replace('webp','png'))
-                .setAuthor({ name: 'Información del Usuario', iconURL: interaction.guild.iconURL({ dynamic: true })})
+                .setAuthor({ name: 'Información del Usuario', iconURL: interaction.guild.iconURL() ? interaction.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
                 .addField('Actividad:', playing ? playing : 'Nada', true)
-                .addField('Estado:', status, true)
-                .addField('Color:', interaction.member.displayHexColor, true)
+                .addField('Estado:', status ? status : 'Ninguno', true)
+                .addField('Color:', interaction.member.displayHexColor ? interaction.member.displayHexColor : 'Ninguno', true)
                 .addField('Usuario:', user.username+'#'+user.discriminator, true)
                 .addField('Apodo:', interaction.guild.members.resolve(user.id).nickname ? interaction.guild.members.resolve(user.id).nickname : 'No tiene', true)
                 .addField('ID:', user.id, true)
                 .addField('Cuenta Creada:', user.createdAt.toLocaleDateString()+', '+user.createdAt.toLocaleTimeString(), true)
                 .addField('Fecha de Ingreso:', interaction.member.joinedAt.toLocaleDateString()+', '+interaction.member.joinedAt.toLocaleTimeString(), true)
-                .addField('Roles:', roles)
-                .setColor(interaction.member.displayColor)
+                .addField('Roles:', roles ? roles : 'No tiene roles')
+                .setColor(interaction.member.displayColor ? interaction.member.displayColor : 'RANDOM')
                 .setTimestamp(new Date())
                 .setFooter({ text: `${interaction.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif'})
              
-                await interaction.deferReply();
-                await wait(500);
-                await interaction.editReply({ embeds: [embed] })
+                await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+                await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+                await interaction.editReply({ embeds: [embed] }).catch((e) => console.log('Error al usar slash commands: '+e))
                   
             } else {
 
@@ -201,31 +201,31 @@ module.exports = {
 
                 const embed = new Discord.MessageEmbed()
                 .setThumbnail(userm.displayAvatarURL({ dynamic: true }).replace('webp','png'))
-                .setAuthor({ name: 'Información del Usuario', iconURL: interaction.guild.iconURL({ dynamic: true })})
+                .setAuthor({ name: 'Información del Usuario', iconURL: interaction.guild.iconURL() ? interaction.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
                 .addField('Actividad:', playing ? playing : 'Nada', true)
-                .addField('Estado:', status, true)
-                .addField('Color:', interaction.guild.members.resolve(userm.id).displayHexColor, true)
+                .addField('Estado:', status ? status : 'Ninguno', true)
+                .addField('Color:', interaction.guild.members.resolve(userm.id).displayHexColor ? interaction.guild.members.resolve(userm.id).displayHexColor : 'Ninguno', true)
                 .addField('Usuario:', userm.username+'#'+userm.discriminator, true)
                 .addField('Apodo:', interaction.guild.members.resolve(userm.id).nickname ? interaction.guild.members.resolve(userm.id).nickname : 'No tiene', true)
                 .addField('ID:', userm.id, true)
                 .addField('Cuenta Creada:', userm.createdAt.toLocaleDateString()+', '+userm.createdAt.toLocaleTimeString(), true)
                 .addField('Fecha de Ingreso:', interaction.guild.members.resolve(userm.id).joinedAt.toLocaleDateString()+', '+interaction.guild.members.resolve(userm.id).joinedAt.toLocaleTimeString(), true )
-                .addField('Roles:', roles)
-                .setColor(interaction.guild.members.resolve(userm.id).displayColor)
+                .addField('Roles:', roles ? roles : 'No tiene roles')
+                .setColor(interaction.guild.members.resolve(userm.id).displayColor ? interaction.guild.members.resolve(userm.id).displayColor : 'RANDOM')
                 .setTimestamp(new Date())
                 .setFooter({ text: `${interaction.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif'})
              
-                await interaction.deferReply();
-                await wait(500);
-                await interaction.editReply({ embeds: [embed] })
+                await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+                await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+                await interaction.editReply({ embeds: [embed] }).catch((e) => console.log('Error al usar slash commands: '+e))
                 
             }
                    
         } catch (error) {
             
-            await interaction.deferReply({ephemeral: true});
-            await wait(500);
-            await interaction.editReply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado. Por favor, inténtelo de nuevo! ', ephemeral: true})
+            await interaction.deferReply({ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
+            await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+            await interaction.editReply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado. Por favor, inténtelo de nuevo! ', ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
             
             console.log('Error en el SC user: '+error)
 

@@ -14,7 +14,7 @@ module.exports = async (client) => {
     }
   );
 
-  let rolVIP = '949107691912065054'
+  let rolVIP = '951591485072089098'
 
   var colores = [
         
@@ -39,11 +39,13 @@ module.exports = async (client) => {
     
   var rol = serverM.roles.cache.find(x => x.id === rolVIP)
 
+  let c = 0
+
   if(rol){
+    
+    let rolrainbow = setInterval(async () => {
 
-    setInterval(() => {
-
-      rol.edit({
+      await rol.edit({
     
         color: ramdoncolor
         
@@ -51,7 +53,9 @@ module.exports = async (client) => {
       .then(r => console.log('Rol MBVIP editado: '+ r))
       .catch(e => console.log('Error al actualizar color de rol: '+e))
       
-    }, 10000)
+      c === 10 ? clearInterval(rolrainbow).catch((e) => console.log('Error al enviar mensaje: '+e)) : c = c + 1
+
+    }, 30000).catch((e) => console.log('Error al enviar mensaje: '+e))
 
       
   }

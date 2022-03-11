@@ -25,11 +25,11 @@ module.exports =  {
         if(userm.bot) return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
             
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | No puedes ver la info de un bot!`)
         
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         const estado = {
 
@@ -120,27 +120,27 @@ module.exports =  {
                 }
 
                 const embed = new Discord.MessageEmbed()
-                .setThumbnail(user.displayAvatarURL({ dynamic: true }).replace('webp','png'))
-                .setAuthor('Información del Usuario', message.guild.iconURL({ dynamic: true }))
+                .setThumbnail(user.displayAvatarURL() ? user.displayAvatarURL({ dynamic: true }).replace('webp','png') : client.user.avatarURL({ dynamic: true }) )
+                .setAuthor({ name: 'Información del Usuario', iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
                 .addField('Actividad:', playing ? playing : 'Nada', true)
-                .addField('Estado:', status, true)
-                .addField('Color:', message.member.displayHexColor, true)
+                .addField('Estado:', status ? status : 'Ninguno', true)
+                .addField('Color:', message.member.displayHexColor ? message.member.displayHexColor : 'Ninguno', true)
                 .addField('Usuario:', user.username+'#'+user.discriminator, true)
                 .addField('Apodo:', message.guild.members.resolve(user.id).nickname ? message.guild.members.resolve(user.id).nickname : 'No tiene', true)
                 .addField('ID:', user.id, true)
                 .addField('Cuenta Creada:', user.createdAt.toLocaleDateString()+', '+user.createdAt.toLocaleTimeString(), true)
                 .addField('Fecha de Ingreso:', message.member.joinedAt.toLocaleDateString()+', '+message.member.joinedAt.toLocaleTimeString(), true)
-                .addField('Roles:', roles)
-                .setColor(message.member.displayColor)
+                .addField('Roles:', roles ? roles : 'No se encontraron roles')
+                .setColor(message.member.displayColor ? message.member.displayColor : 'RANDOM')
                 .setTimestamp(new Date())
-                .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-             
-                return message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
+                .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+
+                return message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
                 
             } catch (error) {
 
                 console.log('Error al obtener usuario: '+message.author.id+' - Error: '+error)
-                message.reply('Hubo un error al obtener su usuario. Por favor inténtelo de nuevo!')
+                message.reply('Hubo un error al obtener su usuario. Por favor inténtelo de nuevo!').catch((e) => console.log('Error al enviar mensaje: '+e))
                 
             }
 
@@ -220,27 +220,27 @@ module.exports =  {
                 }
 
                 const embed = new Discord.MessageEmbed()
-                .setThumbnail(userm.displayAvatarURL({ dynamic: true }).replace('webp','png'))
-                .setAuthor('Información del Usuario', message.guild.iconURL({ dynamic: true }))
+                .setThumbnail(userm.displayAvatarURL() ? userm.displayAvatarURL({ dynamic: true }).replace('webp','png') : client.user.avatarURL({ dynamic: true }) )
+                .setAuthor({ name: 'Información del Usuario', iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
                 .addField('Actividad:', playing ? playing : 'Nada', true)
-                .addField('Estado:', status, true)
-                .addField('Color:', message.guild.members.resolve(userm.id).displayHexColor, true)
+                .addField('Estado:', status ? status : 'Ninguno', true)
+                .addField('Color:', message.guild.members.resolve(userm.id).displayHexColor ? message.guild.members.resolve(userm.id).displayHexColor : 'Ninguno', true)
                 .addField('Usuario:', userm.username+'#'+userm.discriminator, true)
                 .addField('Apodo:', message.guild.members.resolve(userm.id).nickname ? message.guild.members.resolve(userm.id).nickname : 'No tiene', true)
                 .addField('ID:', userm.id, true)
                 .addField('Cuenta Creada:', userm.createdAt.toLocaleDateString()+', '+userm.createdAt.toLocaleTimeString(), true)
                 .addField('Fecha de Ingreso:', message.guild.members.resolve(userm.id).joinedAt.toLocaleDateString()+', '+message.guild.members.resolve(userm.id).joinedAt.toLocaleTimeString(), true )
-                .addField('Roles:', roles)
-                .setColor(message.guild.members.resolve(userm.id).displayColor)
+                .addField('Roles:', roles ? roles : 'No se encontraron roles')
+                .setColor(message.guild.members.resolve(userm.id).displayColor ? message.guild.members.resolve(userm.id).displayColor : 'RANDOM')
                 .setTimestamp(new Date())
-                .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-             
-                message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
+                .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+
+                message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
       
             } catch (error) {
 
                 console.log('Error al obtener usuario: '+message.author.id+' - Error: '+error)
-                message.reply('Hubo un error al obtener el usuario. Por favor inténtelo de nuevo!')
+                message.reply('Hubo un error al obtener el usuario. Por favor inténtelo de nuevo!').catch((e) => console.log('Error al enviar mensaje: '+e))
                 
             }
         }

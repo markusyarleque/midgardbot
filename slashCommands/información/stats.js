@@ -44,9 +44,9 @@ module.exports = {
             .addField(`Slash Commands:`, ''+(datoss.length ? datoss.length : '0'))
             .addField('Lenguaje: ', 'JavaScript')
             .addField(`Versión:`, `1.2.1`)
-            .addField(`Librería:`, Discord.version)
+            .addField(`Librería:`, Discord.version ? Discord.version : '13.6.0')
             .addField('RAM: ', ` ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`)
-            .addField(`Actividad:`, `${actividad}`)
+            .addField(`Actividad:`, actividad ? actividad : 'Ninguna')
             .addField('Servidores: ', `${client.guilds.cache.size}`)
             .addField('Usuarios: ', ` ${client.users.cache.size}`)
             .addField(`Canales`, `${client.channels.cache.size}`)
@@ -54,15 +54,15 @@ module.exports = {
             .setTimestamp(new Date())
             .setFooter({text: `Malta's Bot`, iconURL: `${interaction.user.displayAvatarURL()}`})
                 
-            await interaction.deferReply();
-            await wait(500);
-            await interaction.editReply({ embeds: [embed]})
+            await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+            await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+            await interaction.editReply({ embeds: [embed]}).catch((e) => console.log('Error al usar slash commands: '+e))
 
         } catch (error) {
 
-            await interaction.deferReply();
-            await wait(500);
-            await interaction.editReply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado. Por favor, inténtelo de nuevo!', ephemeral: true})
+            await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+            await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+            await interaction.editReply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado. Por favor, inténtelo de nuevo!', ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
             
             console.log('Error en el SC stats: '+error)
 

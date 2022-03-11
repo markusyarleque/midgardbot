@@ -17,19 +17,20 @@ module.exports =  {
         if (!img || img.id === message.author.id) return message.reply({embeds: [
         
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | Acaríciame <:esta:925931250303250512>`)
-        ]})
+
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         if (img.user.bot) return message.reply({ allowedMentions: { repliedUser: false }, embeds: [
         
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | ¡Qué lindo eres acariciando a un bot! <:nogarsias:932172183453712415>`)
       
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         let usuario2 = await userSchema.findOne({idusuario: img.id})
         let text 
@@ -68,14 +69,14 @@ module.exports =  {
         }
       
         const embed = new Discord.MessageEmbed()
-        .setAuthor(`Midgard's Emotions`,message.guild.iconURL({ dynamic: true }))
+        .setAuthor({ name: `Midgard's Emotions 🤗`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
         .setDescription(`**${message.author.username}** está acariciando a **${img.user.username}**. <a:gatoasomar:930399873113677834>\n<a:flechad:880330587678838784> *${img.user.username}* ha recibido ${text} en total.`)
         .setImage(pat)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-      
-        message.channel.send({ embeds: [embed] });
+        .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+
+        message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 

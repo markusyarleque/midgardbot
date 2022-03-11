@@ -12,22 +12,22 @@ module.exports =  {
         if(!args[0]) return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
 
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | Uso incorrecto del comando\nDebe ser: ${prefix}jumbo <emoji> \n*Si quieres añadirlo al servidor añade --s al final*`)
     
-        ]}) 
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e)) 
             
         const emoticon = require('discord.js').Util.parseEmoji(args[0]) // Usaremos el metodo que nos da discord.js para obtener info del emoji
               
         if(emoticon.id === null) return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
               
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | Emoji inválido!!!`)
     
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
             
         let palta = `https://cdn.discordapp.com/emojis/` + `${emoticon.id}.` + (emoticon.animated ? 'gif' : 'png') // Conseguimos el url 
               
@@ -36,62 +36,62 @@ module.exports =  {
             if(!message.member.permissions.has(Permissions.FLAGS.MANAGE_EMOJIS_AND_STICKERS)) return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
                 
               new Discord.MessageEmbed()
-              .setAuthor(message.author.tag, message.author.displayAvatarURL())
+              .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
               .setColor('RED')
               .setDescription(`<a:Verify2:931463492677017650> | No tienes permisos para agregar emojis!!!`)
     
-            ]})
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
             
             if(!message.guild.me.permissions.has(Permissions.FLAGS.MANAGE_EMOJIS_AND_STICKERS)) return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
                 
               new Discord.MessageEmbed()
-              .setAuthor(message.author.tag, message.author.displayAvatarURL())
+              .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
               .setColor('RED')
               .setDescription(`<a:Verify2:931463492677017650> | No tengo los permisos para agregar emojis!!!`)
     
-            ]})
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
             const emojis = message.guild.emojis.cache.size;
     
             if(emojis === 500) return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
                 
               new Discord.MessageEmbed()
-              .setAuthor(message.author.tag, message.author.displayAvatarURL())
+              .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
               .setColor('RED')
               .setDescription(`<a:Verify2:931463492677017650> | No hay espacio suficiente para agregar el emoji!!!`)
     
-            ]})
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
             try {
     
-              message.guild.emojis.create(palta, emoticon.name) // Creamos un emoji con la imagen del emoji 
+              message.guild.emojis.create(palta, emoticon.name).catch((e) => console.log('Error al enviar mensaje: '+e)) // Creamos un emoji con la imagen del emoji 
               
               return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
               
                 new Discord.MessageEmbed()
-                .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
                 .setColor('GREEN')
                 .setDescription(`<a:Verify1:931463354357276742> |Emoji agregado correctamente : **`+ emoticon.name+'**')
                 .setTimestamp()
                 
-              ]}) 
+              ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
             } catch (error) {
                 
               return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
                 
                 new Discord.MessageEmbed()
-                .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | Ocurrió un error al agregar emoji!\n\n**Error:**\n> `+error)
       
-              ]})
+              ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
             }
               
         } 
               
-        message.channel.send(palta)
+        message.channel.send(palta).catch((e) => console.log('Error al enviar mensaje: '+e))
         
     }
 

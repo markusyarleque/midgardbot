@@ -30,9 +30,9 @@ module.exports = {
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | **Ingresa solo número mayores a 0**`)
         
-                await interaction.deferReply({ephemeral: true});
-                await wait(500);
-                await interaction.editReply({ embeds: [e], ephemeral: true})
+                await interaction.deferReply({ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
+                await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+                await interaction.editReply({ embeds: [e], ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
 
             } else {
 
@@ -43,9 +43,9 @@ module.exports = {
                     .setColor('RED')
                     .setDescription(`<a:Verify2:931463492677017650> | **No puedo contar menos de 10 segundos**`)
             
-                    await interaction.deferReply({ephemeral: true});
-                    await wait(500);
-                    await interaction.editReply({ embeds: [e], ephemeral: true})
+                    await interaction.deferReply({ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
+                    await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+                    await interaction.editReply({ embeds: [e], ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
     
                 } else {
 
@@ -56,35 +56,35 @@ module.exports = {
                         .setColor('RED')
                         .setDescription(`<a:Verify2:931463492677017650> | **No puedo contar más de 2 horas**`)
                 
-                        await interaction.deferReply({ephemeral: true});
-                        await wait(500);
-                        await interaction.editReply({ embeds: [e], ephemeral: true})
+                        await interaction.deferReply({ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
+                        await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+                        await interaction.editReply({ embeds: [e], ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
         
                     } else {
 
-                        await interaction.deferReply();
-                        await wait(500);
-                        await interaction.editReply(String(time))
+                        await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+                        await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+                        await interaction.editReply(String(time)).catch((e) => console.log('Error al usar slash commands: '+e))
         
                         if(time < 60) {
                     
                             let count1 = setInterval(async () => {
                     
-                                await interaction.editReply(time <= 0 ? `Se acabó el tiempo ⌛` : String(time))
-                                time <= 0 ? interaction.followUp(`${interaction.user}... El conteo regresivo, ha llegado a su fin.`) : time
-                                time <= 0 ? clearInterval(count1) : time -= 2;
+                                await interaction.editReply(time <= 0 ? `Se acabó el tiempo ⌛` : String(time)).catch((e) => console.log('Error al usar slash commands: '+e))
+                                time <= 0 ? interaction.followUp(`${interaction.user}... El conteo regresivo, ha llegado a su fin.`).catch((e) => console.log('Error al usar slash commands: '+e)) : time
+                                time <= 0 ? clearInterval(count1).catch((e) => console.log('Error al usar slash commands: '+e)) : time -= 2;
                                 
-                            }, 2000)
+                            }, 2000).catch((e) => console.log('Error al usar slash commands: '+e))
                 
                         } else {
                     
                             let count2 = setInterval(async () => {
                     
-                                await interaction.editReply(time <= 0  ? `... Se acabó el tiempo ⌛` : String(time))
-                                time <= 0 ? interaction.followUp(`${interaction.user}... El conteo regresivo, ha llegado a su fin.`) : time
-                                time <= 0 ? clearInterval(count2) : time -= 3
+                                await interaction.editReply(time <= 0  ? `... Se acabó el tiempo ⌛` : String(time)).catch((e) => console.log('Error al usar slash commands: '+e))
+                                time <= 0 ? interaction.followUp(`${interaction.user}... El conteo regresivo, ha llegado a su fin.`).catch((e) => console.log('Error al usar slash commands: '+e)) : time
+                                time <= 0 ? clearInterval(count2).catch((e) => console.log('Error al usar slash commands: '+e)) : time -= 3
                     
-                            }, 3000)
+                            }, 3000).catch((e) => console.log('Error al usar slash commands: '+e))
                             
                         }
 
@@ -96,9 +96,9 @@ module.exports = {
             
         } catch (error) {
             
-            await interaction.deferReply();
-            await wait(500);
-            await interaction.editReply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado. Por favor, inténtelo de nuevo!', ephemeral: true})
+            await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+            await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+            await interaction.editReply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado. Por favor, inténtelo de nuevo!', ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
             
             console.log('Error en el SC conteo: '+error)
 

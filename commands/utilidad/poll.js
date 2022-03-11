@@ -13,38 +13,38 @@ module.exports =  {
         if(!split[0]) return message.reply({embeds: [
       
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
             .setDescription('<a:alerta:932374957206421614> `|` Ingrese una pregunta!\n\n Uso: `'+prefix+'poll - pregunta - opción1 - opción2 - opción3 [opcional]... `')
     
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         if(!split[1]) return message.reply({embeds: [
       
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
             .setDescription('<a:alerta:932374957206421614> `|` Necesitas ingresar al menos 2 opciones!\n\n Uso: `'+prefix+'poll - pregunta - opción1 - opción2 - opción3 [opcional]... `')
     
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         if(!split[2]) return message.reply({embeds: [
       
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
             .setDescription('<a:alerta:932374957206421614> `|` Necesitas ingresar al menos 2 opciones!\n\n Uso: `'+prefix+'poll - pregunta - opción1 - opción2 - opción3 [opcional]... `')
     
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         const embed = new Discord.MessageEmbed()
         .setColor('RANDOM')
-        .setAuthor(`Encuesta realizada por: <@${message.author.id}>`, message.author.displayAvatarURL({ dynamic: true }))
+        .setAuthor({ name: `Encuesta realizada por: <@${message.author.id}>`, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
         .setTitle('**' + split[0] + '**')
         .addField('<a:uno:932368116749594674> **' + split[1] + '**', '..........')
         .addField('<a:dos:932368203458445362> **' + split[2] + '**', '..........')
         .setTimestamp(new Date())
-        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
+        .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
 
         if (split[3]) embed.addField('<a:tres:932368254335340614> **' + split[3] + '**', '..........');
         
@@ -63,113 +63,113 @@ module.exports =  {
         if (split[10]) return message.reply({embeds: [
       
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
             .setDescription('<a:alerta:932374957206421614> `|` Demasiadas opciones. Solo puedes ingresar 9!')
     
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-        setTimeout(() => message.delete(), 100);
+        setTimeout(() => message.delete(), 100).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         if (!split[3]){
 
             message.channel.send({ embeds: [embed] }).then(async function(message) {
 
-                message.react('<a:uno:932368116749594674>');
-                message.react('<a:dos:932368203458445362>');
+                message.react('<a:uno:932368116749594674>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:dos:932368203458445362>').catch((e) => console.log('Error al enviar mensaje: '+e))
 
-            });
+            }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         } else if (!split[4]){
 
             message.channel.send({ embeds: [embed] }).then(async function(message) {
 
-                message.react('<a:uno:932368116749594674>');
-                message.react('<a:dos:932368203458445362>');
-                message.react('<a:tres:932368254335340614>');
+                message.react('<a:uno:932368116749594674>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:dos:932368203458445362>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:tres:932368254335340614>').catch((e) => console.log('Error al enviar mensaje: '+e))
 
-            });
+            }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         } else if (!split[5]){
 
             message.channel.send({ embeds: [embed] }).then(async function(message) {
 
-                message.react('<a:uno:932368116749594674>');
-                message.react('<a:dos:932368203458445362>');
-                message.react('<a:tres:932368254335340614>');
-                message.react('<a:cuatro:932368291249397780>');
+                message.react('<a:uno:932368116749594674>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:dos:932368203458445362>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:tres:932368254335340614>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:cuatro:932368291249397780>').catch((e) => console.log('Error al enviar mensaje: '+e))
 
-            });
+            }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         } else if (!split[6]){
 
             message.channel.send({ embeds: [embed] }).then(async function(message) {
 
-                message.react('<a:uno:932368116749594674>');
-                message.react('<a:dos:932368203458445362>');
-                message.react('<a:tres:932368254335340614>');
-                message.react('<a:cuatro:932368291249397780>');
-                message.react('<a:cinco:932368321578426449>');
+                message.react('<a:uno:932368116749594674>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:dos:932368203458445362>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:tres:932368254335340614>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:cuatro:932368291249397780>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:cinco:932368321578426449>').catch((e) => console.log('Error al enviar mensaje: '+e))
 
-            });
+            }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         } else if (!split[7]){
 
             message.channel.send({ embeds: [embed] }).then(async function(message) {
 
-                message.react('<a:uno:932368116749594674>');
-                message.react('<a:dos:932368203458445362>');
-                message.react('<a:tres:932368254335340614>');
-                message.react('<a:cuatro:932368291249397780>');
-                message.react('<a:cinco:932368321578426449>');
-                message.react('<a:seis:932368350187757671>');
+                message.react('<a:uno:932368116749594674>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:dos:932368203458445362>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:tres:932368254335340614>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:cuatro:932368291249397780>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:cinco:932368321578426449>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:seis:932368350187757671>').catch((e) => console.log('Error al enviar mensaje: '+e))
 
-            });
+            }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         } else if (!split[8]){
 
             message.channel.send({ embeds: [embed] }).then(async function(message) {
 
-                message.react('<a:uno:932368116749594674>');
-                message.react('<a:dos:932368203458445362>');
-                message.react('<a:tres:932368254335340614>');
-                message.react('<a:cuatro:932368291249397780>');
-                message.react('<a:cinco:932368321578426449>');
-                message.react('<a:seis:932368350187757671>');
-                message.react('<a:siete:932368376909693008>');
+                message.react('<a:uno:932368116749594674>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:dos:932368203458445362>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:tres:932368254335340614>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:cuatro:932368291249397780>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:cinco:932368321578426449>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:seis:932368350187757671>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:siete:932368376909693008>').catch((e) => console.log('Error al enviar mensaje: '+e))
 
-            });
+            }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         } else if (!split[9]){
 
             message.channel.send({ embeds: [embed] }).then(async function(message) {
 
-                message.react('<a:uno:932368116749594674>');
-                message.react('<a:dos:932368203458445362>');
-                message.react('<a:tres:932368254335340614>');
-                message.react('<a:cuatro:932368291249397780>');
-                message.react('<a:cinco:932368321578426449>');
-                message.react('<a:seis:932368350187757671>');
-                message.react('<a:siete:932368376909693008>');
-                message.react('<a:ocho:932368405372223528>');
+                message.react('<a:uno:932368116749594674>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:dos:932368203458445362>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:tres:932368254335340614>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:cuatro:932368291249397780>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:cinco:932368321578426449>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:seis:932368350187757671>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:siete:932368376909693008>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:ocho:932368405372223528>').catch((e) => console.log('Error al enviar mensaje: '+e))
 
-            });
+            }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         } else if (!split[10]){
 
             message.channel.send({ embeds: [embed] }).then(async function(message) {
 
-                message.react('<a:uno:932368116749594674>');
-                message.react('<a:dos:932368203458445362>');
-                message.react('<a:tres:932368254335340614>');
-                message.react('<a:cuatro:932368291249397780>');
-                message.react('<a:cinco:932368321578426449>');
-                message.react('<a:seis:932368350187757671>');
-                message.react('<a:siete:932368376909693008>');
-                message.react('<a:ocho:932368405372223528>');
-                message.react('<a:nueve:932368436774981642>');
+                message.react('<a:uno:932368116749594674>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:dos:932368203458445362>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:tres:932368254335340614>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:cuatro:932368291249397780>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:cinco:932368321578426449>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:seis:932368350187757671>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:siete:932368376909693008>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:ocho:932368405372223528>').catch((e) => console.log('Error al enviar mensaje: '+e))
+                message.react('<a:nueve:932368436774981642>').catch((e) => console.log('Error al enviar mensaje: '+e))
 
-            });
+            }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         }
 

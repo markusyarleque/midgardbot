@@ -79,22 +79,22 @@ module.exports =  {
         if(usuario2.crep > Date.now()) return message.reply({embeds: [
             
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
             .setDescription('<a:tiempogif:931434689481285662> | Puedes volver a dar rep en : **'+ mensaje+'**')
             
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
   
         let usuario = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
   
         if(!usuario) {
   
             const e = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | Debes mencionar correctamente a alguien o colocar una id válida!`)
           
-           return message.reply({embeds: [e]})
+           return message.reply({embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         }
   
@@ -103,7 +103,7 @@ module.exports =  {
             if(usuario.id === message.author.id) return message.reply({embeds: [
             
                 new Discord.MessageEmbed()
-                .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | No te puedes dar **rep** a ti mismo!`)
           
@@ -112,11 +112,11 @@ module.exports =  {
             if(usuario.user.bot) return message.reply({embeds: [
             
                 new Discord.MessageEmbed()
-                .setAuthor(message.author.tag, message.author.displayAvatarURL())
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | No puedes dar **rep** a un bot!`)
           
-            ]})
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
   
             let usuario1 = await userSchema.findOne({ idusuario: usuario.id})
             let text
@@ -155,7 +155,7 @@ module.exports =  {
 
             function reminder() {
       
-                message.author.send('<a:exclama2:880930071731392512> | ¡Ya puedes volver a dar rep!')
+                message.author.send('<a:exclama2:880930071731392512> | ¡Ya puedes volver a dar rep!').catch((e) => console.log('Error al enviar mensaje: '+e))
     
             }
   
@@ -172,12 +172,12 @@ module.exports =  {
             const server = message.guild
     
             const e = new Discord.MessageEmbed()
-            .setAuthor(server.name, server.iconURL({ dynamic: true }))
+            .setAuthor({ name: server.name, iconURL: server.iconURL() ? server.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setTitle('Carisma Diario 💟')
             .setColor('RANDOM')
             .setDescription(`Felicidades! | <@${usuario.id}> | Has recibido **1** punto de carisma.\n`+'Ahora tienes '+text+' en total!')
             .setTimestamp()
-            .setFooter(`MidgardBot`,client.user.avatarURL())
+            .setFooter({ text: `MidgardBot`, iconURL: client.user.avatarURL({ dynamic: true }) })
   
             const bRm = new Discord.MessageButton()
     
@@ -208,13 +208,13 @@ module.exports =  {
                             content: '<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en 6 horas para volver a dar rep. No olvides de activar los mensajes directos!', 
                             ephemeral: true
                         
-                        }).then(m => setTimeout(() => m.delete(), 5000))
+                        }).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
                         
                         var msDelay = 6*3600000
                         
-                        setTimeout(reminder, msDelay);
+                        setTimeout(reminder, msDelay).catch((e) => console.log('Error al enviar mensaje: '+e))
   
-                        m.edit({ components: []})
+                        m.edit({ components: []}).catch((e) => console.log('Error al enviar mensaje: '+e))
   
                     }
       
@@ -227,13 +227,13 @@ module.exports =  {
                         new Discord.MessageActionRow()
                         .addComponents(bRm.setDisabled(true))
               
-                    ]})
+                    ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
                     console.log('Razón del término de colección de rep: '+reason)
 
                 });
          
-            })
+            }).catch((e) => console.log('Error al enviar mensaje: '+e))
   
         }
     

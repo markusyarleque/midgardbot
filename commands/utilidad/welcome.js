@@ -38,33 +38,33 @@ module.exports =  {
         if(img.bot) return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
             
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | No puedes darle la bienvenida a un bot!`)
         
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
       
         if(!img || img.id===message.author.id) return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
             
             new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | Debes mencionar o colocar id!`)
         
-        ]})
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         let ramdonwelcome = welcome[Math.floor(Math.random()*welcome.length)]
     
         const embed = new Discord.MessageEmbed()
-        .setThumbnail(`${img.displayAvatarURL({ dynamic: true }).replace('webp','png')}`)
+        .setThumbnail(img.displayAvatarURL() ? img.displayAvatarURL({ dynamic: true }).replace('webp','png') : client.user.avatarURL({ dynamic: true }) )
         .setTitle(`Bienvenid@ <:abby:931432327354155038> **${img.username}** <a:pepedance:880928616416968745>`)
         .setDescription(`<a:exclama2:880930071731392512> Gracias por unirte!!! <a:sc_ositobailin:880930467774365707> Espero que lo disfrutes. <a:abdul_dance:880930576683630662>`)
         .setImage(ramdonwelcome)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-            
-        message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
+        .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+    
+        message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 

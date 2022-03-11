@@ -25,37 +25,37 @@ module.exports =  {
         if(!img || img.id === message.author.id){
 
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Avatar de ${message.author.username}#${message.author.discriminator}`,message.guild.iconURL({ dynamic: true }))
+            .setAuthor({ name: `Avatar de ${message.author.username}#${message.author.discriminator}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setTitle('Imagen completa')
             .setDescription('[Click aquí]('+`${message.author.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`+')')
             .setImage(`${message.author.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-            
-            return message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] })
+            .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+
+            return message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         } else if (img.avatarURL === null) {
     
             const e = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | El usuario (${img.username}) no tiene avatar!`)
         
-            return message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]})
+            return message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor(`Avatar de ${img.username}#${img.discriminator}`,message.guild.iconURL({ dynamic: true }))
+            .setAuthor({ name: `Avatar de ${img.username}#${img.discriminator}`,iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setTitle('Imagen completa')
             .setDescription('[Click aquí]('+`${img.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`+')')
             .setImage(`${img.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif');
-            
-            message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] });
+            .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+
+            message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
       
         }
 

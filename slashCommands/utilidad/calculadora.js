@@ -9,6 +9,7 @@ module.exports = {
     run: async (client, interaction) => {
 
         await Calculator({
+
             interaction: interaction,
             embed: {
                 title: 'Calculadora',
@@ -19,7 +20,8 @@ module.exports = {
             disabledQuery: 'La calculadora está desactivada!',
             invalidQuery: 'La ecuación proporcionada no es válida!',
             othersMessage: 'Solo <@{{author}}> puede usar los botones!'
-        });
+            
+        }).catch((e) => console.log('Error al usar slash commands: '+e))
 
     }
 

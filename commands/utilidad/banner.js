@@ -19,11 +19,11 @@ module.exports =  {
         if (!user.hexAccentColor && !user.bannerURL() || user.bot) {
     
             const e = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL())
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | El usuario (${user.username}) no tiene un banner o un color personalizado.!`)
         
-            return message.reply({ embeds: [e]})
+            return message.reply({ embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         }
 
@@ -47,16 +47,16 @@ module.exports =  {
                 new Discord.MessageEmbed() 
                 .setImage("attachment://hex.png")
                 .setTitle('El usuario no tiene un banner pero aquí esta su color personalizado!')
-                .setColor(user.hexAccentColor)
+                .setColor(user.hexAccentColor ? user.hexAccentColor : 'RANDOM')
                 .setDescription(`${user.hexAccentColor.toUpperCase()}`) 
                 .setTimestamp(new Date())
-                .setAuthor('Color de '+user.tag, message.guild.iconURL({ dynamic: true }))
-                .setThumbnail(user.displayAvatarURL({ dynamic: true}))
-                .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif'),
-            
+                .setAuthor({ name: 'Color de '+user.tag, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+                .setThumbnail(user.displayAvatarURL() ? user.displayAvatarURL({ dynamic: true}) : client.user.avatarURL({ dynamic: true }) )
+                .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+
             ],
           
-        });
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         message.reply({ allowedMentions: { repliedUser: false}, 
             
@@ -68,13 +68,13 @@ module.exports =  {
                 .setImage(user.bannerURL({size: 2048, dynamic: true}))
                 .setColor(`COLOR_CUSTOM`)
                 .setTimestamp(new Date())
-                .setAuthor('Banner de '+user.tag, message.guild.iconURL({ dynamic: true }))
-                .setThumbnail(user.displayAvatarURL({ dynamic: true}))
-                .setFooter(`${message.guild.name}`,'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif'),
-            
+                .setAuthor({ name: 'Banner de '+user.tag, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+                .setThumbnail(user.displayAvatarURL() ? user.displayAvatarURL({ dynamic: true}) : client.user.avatarURL({ dynamic: true }) )
+                .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+
             ],
         
-        });
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 

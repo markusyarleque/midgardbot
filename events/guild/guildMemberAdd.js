@@ -71,17 +71,17 @@ module.exports = async (client, Discord, member) => {
   let ramdonwelcome = welcome[Math.floor(Math.random()*welcome.length)]
      
   const embed = new Discord.MessageEmbed()
-    .setThumbnail(`${member.displayAvatarURL({ dynamic: true }).replace('webp','png')}`)
-    .setTitle(`Bienvenid@ Terrícola! **${member.user.username}** <:abby:931432327354155038> , a este nuestro **Universo**. <a:pepedance:880928616416968745>`)
-    .setDescription(`<:shylove:931432905421520927> Gracias por unirte <a:exclama2:880930071731392512> <a:sc_ositobailin:880930467774365707> Espero que lo pases genial en este server libre de toxicidad <a:abdul_dance:880930576683630662>, con muchos eventos programados, premios y más sorpresas!!! <a:Sara:880304101215334401> Recuerda pasar por <#777623227321155614> y <#926556796838109226> Y si tienes alguna queja, duda o sugerencia, pasa por <#880402803825188874>. Cualquier incoveniente aquí estará todo el equipo de Staff a su disposición. <a:dc_party1:881033439367815239>`)
-    .setImage(ramdonwelcome)
-    .setColor('RANDOM')
-    .setTimestamp(new Date())
-    .setFooter(guild.name, guild.iconURL({ dynamic: true }));
+  .setThumbnail(`${member.displayAvatarURL({ dynamic: true }).replace('webp','png')}`)
+  .setTitle(`Bienvenid@ Terrícola! **${member.user.username}** <:abby:931432327354155038> , a este nuestro **Universo**. <a:pepedance:880928616416968745>`)
+  .setDescription(`<:shylove:931432905421520927> Gracias por unirte <a:exclama2:880930071731392512> <a:sc_ositobailin:880930467774365707> Espero que lo pases genial en este server libre de toxicidad <a:abdul_dance:880930576683630662>, con muchos eventos programados, premios y más sorpresas!!! <a:Sara:880304101215334401> Recuerda pasar por <#777623227321155614> y <#926556796838109226> Y si tienes alguna queja, duda o sugerencia, pasa por <#880402803825188874>. Cualquier incoveniente aquí estará todo el equipo de Staff a su disposición. <a:dc_party1:881033439367815239>`)
+  .setImage(ramdonwelcome)
+  .setColor('RANDOM')
+  .setTimestamp(new Date())
+  .setFooter({ text: guild.name, iconURL: guild.iconURL() ? guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
   
   if (!channel) return;
   
-  channel.send({embeds:[embed]})
-  channel.send('https://images-ext-2.discordapp.net/external/9iPHKFXXnKKSQpcFazlW79dr1zbbtdo7QT7-xxtfDY4/%3Fwidth%3D600%26height%3D86/https/media.discordapp.net/attachments/897951731462316073/915663567213199390/bar-1.gif?width=480&height=69')
+  channel.send({embeds:[embed]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+  channel.send('https://images-ext-2.discordapp.net/external/9iPHKFXXnKKSQpcFazlW79dr1zbbtdo7QT7-xxtfDY4/%3Fwidth%3D600%26height%3D86/https/media.discordapp.net/attachments/897951731462316073/915663567213199390/bar-1.gif?width=480&height=69').catch((e) => console.log('Error al enviar mensaje: '+e))
       
 }

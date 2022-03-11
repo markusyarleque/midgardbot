@@ -3,19 +3,21 @@ module.exports = async (client, Discord, guild) => {
     let owner = client.users.cache.get('753435606410985573')
     let sv = client.guilds.cache.get('777620055344545842')
     let channel = sv.channels.cache.get('874943743185285150')
- 
+
+    let = await guild.fetchOwner().catch((e) => console.log('Error al enviar mensaje: '+e))
+
     const embed = new Discord.MessageEmbed()
-    .setAuthor('MaltaBot',client.user.avatarURL())
+    .setAuthor({ name: 'MaltaBot', iconURL: client.user.avatarURL() })
     .setThumbnail(guild.iconURL() ? guild.iconURL({ dynamic: true }) : 'https://i.pinimg.com/originals/04/41/ea/0441ea5619b979bde781aa040943c208.gif')
     .setTitle(`¡Un Server menos! <:sadcat:949442305981575218>`)
-    .setDescription('<:yonofui:931433119859503194> Me he salido del servidor: \n\n> Nombre: '+guild.name+'\n> \n> Id: '+guild.id+'\n> \n> Fecha: Hoy\n> \n> Owner: <@' + (await guild.fetchOwner()).id + '>')
+    .setDescription('<:yonofui:931433119859503194> Me he salido del servidor: \n\n> Nombre: '+guild.name+'\n> \n> Id: '+guild.id+'\n> \n> Fecha: Hoy\n> \n> Owner: <@' + owner ? owner.id : 'Fallo al obtener owner' + '>')
     .setColor('RANDOM')
     .setTimestamp(new Date())
-    .setFooter(guild.name, guild.bannerURL() ? guild.bannerURL({ dynamic: true, size: 4096 }).replace('webp','png') : 'https://www.cosas-que-pasan.com/wp-content/uploads/portada-facebook-en-construccion.jpg')
+    .setFooter({ text: guild.name, iconURL: guild.bannerURL() ? guild.bannerURL({ dynamic: true, size: 4096 }).replace('webp','png') : 'https://www.cosas-que-pasan.com/wp-content/uploads/portada-facebook-en-construccion.jpg' })
 
     try {
 
-        channel.send({embeds: [embed]})
+        channel.send({embeds: [embed]}).catch((e) => console.log('Error al enviar mensaje: '+e))
         owner.send({embeds:[embed]}).catch(err => console.log('Error al enviar SERVER MENOS: '+guild.name+' - '+guild.id+' al dm del owner: - Error: '+err))
 
     } catch (error) {

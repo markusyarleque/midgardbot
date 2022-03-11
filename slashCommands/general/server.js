@@ -59,12 +59,12 @@ module.exports = {
             const emojis = server.emojis.cache;
   
             const embed = new Discord.MessageEmbed()
-            .setThumbnail(server.iconURL({ dynamic: true }))
+            .setThumbnail(server.iconURL() ? server.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) )
             .setAuthor({ name: server.name, iconURL: client.user.avatarURL()})
             .addField('ID:', server.id, false)
             .addField('Dueño:', `${(await server.fetchOwner()).user.tag} (${(await server.fetchOwner()).id})` , true)
             .addField('Creado el:', moment(server.createdTimestamp).format('LL') + ' a las '+moment(server.createdTimestamp).format('LT') + ' [' + moment(server.createdTimestamp).fromNow()+' ]', false)
-            .addField('Miembros:', '<a:flech:931432469935312937> '+server.memberCount, true)
+            .addField('Miembros:', '<a:flech:931432469935312937> '+server.memberCount ? server.memberCount : '0', true)
             //.addField('Region:', '<a:flech:931432469935312937> '+regions[server.region], false)
             .addField('Nivel:', '<a:flech:931432469935312937> '+nivel[server.premiumTier], false)
             .addField('Mejoras:', '<a:flech:931432469935312937> '+server.premiumSubscriptionCount || '0', false)
@@ -78,15 +78,15 @@ module.exports = {
             .setTimestamp(new Date())
             .setFooter({ text: interaction.user.username+'#'+interaction.user.discriminator, iconURL: `${interaction.user.displayAvatarURL({ dynamic: true }).replace('webp','png')}`}); 
             
-            await interaction.deferReply();
-            await wait(500);
-            await interaction.editReply({ embeds: [embed] })  
+            await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+            await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+            await interaction.editReply({ embeds: [embed] })  .catch((e) => console.log('Error al usar slash commands: '+e))
 
         } catch (error) {
 
-            await interaction.deferReply();
-            await wait(500);
-            await interaction.editReply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado. Por favor, inténtelo de nuevo!', ephemeral: true})
+            await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+            await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+            await interaction.editReply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado. Por favor, inténtelo de nuevo!', ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
             
             console.log('Error en el SC server: '+error)
 

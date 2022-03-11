@@ -39,7 +39,7 @@ module.exports = {
                 .setColor('RANDOM')
                 .setDescription('<a:exclama2:880930071731392512> | Tengo este recordatorio para ti: \n\n> ' + mensaje)
             
-                interaction.followUp({ content: '<@' + interaction.user.id + '>' ,embeds: [e] })
+                interaction.followUp({ content: '<@' + interaction.user.id + '>' ,embeds: [e] }).catch((e) => console.log('Error al usar slash commands: '+e))
 
             }
 
@@ -54,9 +54,9 @@ module.exports = {
                         .setColor('RED')
                         .setDescription(`<a:Verify2:931463492677017650> | El tiempo no puede ser mayor de 60 segundos. Utiliza (m, s, h)!`)
         
-                        await interaction.deferReply({ephemeral: true});
-                        await wait(500);
-                        await interaction.editReply({ embeds: [e], ephemeral: true})
+                        await interaction.deferReply({ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
+                        await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+                        await interaction.editReply({ embeds: [e], ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
                   
                     } else {
 
@@ -67,11 +67,11 @@ module.exports = {
                         .setColor('RANDOM')
                         .setDescription('<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en ' + time.slice(0, -1) + ' segundos:\n\n<a:flech:931432469935312937> '+mensaje)
         
-                        await interaction.deferReply();
-                        await wait(500);
-                        await interaction.editReply({ embeds: [e] })
+                        await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+                        await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+                        await interaction.editReply({ embeds: [e] }).catch((e) => console.log('Error al usar slash commands: '+e))
         
-                        setTimeout(reminder, msDelay);
+                        setTimeout(reminder, msDelay).catch((e) => console.log('Error al usar slash commands: '+e))
                       
                         break
 
@@ -88,9 +88,9 @@ module.exports = {
                         .setColor('RED')
                         .setDescription(`<a:Verify2:931463492677017650> | El tiempo no puede ser mayor de 60 minutos. Utiliza (m, s, h)!`)
         
-                        await interaction.deferReply({ephemeral: true});
-                        await wait(500);
-                        await interaction.editReply({ embeds: [e], ephemeral: true})
+                        await interaction.deferReply({ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
+                        await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+                        await interaction.editReply({ embeds: [e], ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
                   
                     } else {
 
@@ -101,11 +101,11 @@ module.exports = {
                         .setColor('RANDOM')
                         .setDescription('<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en ' + time.slice(0, -1) + ' minutos:\n\n<a:flech:931432469935312937> '+mensaje)
         
-                        await interaction.deferReply();
-                        await wait(500);
-                        await interaction.editReply({ embeds: [e] })
+                        await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+                        await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+                        await interaction.editReply({ embeds: [e] }).catch((e) => console.log('Error al usar slash commands: '+e))
         
-                        setTimeout(reminder, msDelay);
+                        setTimeout(reminder, msDelay).catch((e) => console.log('Error al usar slash commands: '+e))
                       
                         break
 
@@ -122,9 +122,9 @@ module.exports = {
                         .setColor('RED')
                         .setDescription(`<a:Verify2:931463492677017650> | El tiempo no puede ser mayor de 24 horas. Utiliza (m, s, h)!`)
         
-                        await interaction.deferReply({ephemeral: true});
-                        await wait(500);
-                        await interaction.editReply({ embeds: [e], ephemeral: true})
+                        await interaction.deferReply({ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
+                        await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+                        await interaction.editReply({ embeds: [e], ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
                   
                     } else {
 
@@ -135,11 +135,11 @@ module.exports = {
                         .setColor('RANDOM')
                         .setDescription('<a:reloj:931434883916652564> | Acabas de establecer un recordatorio en ' + time.slice(0, -1) + ' horas:\n\n<a:flech:931432469935312937> '+mensaje)
         
-                        await interaction.deferReply();
-                        await wait(500);
-                        await interaction.editReply({ embeds: [e] })
+                        await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+                        await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+                        await interaction.editReply({ embeds: [e] }).catch((e) => console.log('Error al usar slash commands: '+e))
         
-                        setTimeout(reminder, msDelay);
+                        setTimeout(reminder, msDelay).catch((e) => console.log('Error al usar slash commands: '+e))
                       
                         break
 
@@ -154,9 +154,9 @@ module.exports = {
                     .setColor('RED')
                     .setDescription('<a:Verify2:931463492677017650> | El tiempo debe ser:\n\n> <1 - 60>s\n> <1 - 60>m\n> <1 -  24>h\n\n')
                   
-                    await interaction.deferReply({ ephemeral: true});
-                    await wait(500);
-                    await interaction.editReply({ embeds: [e], ephemeral: true })
+                    await interaction.deferReply({ ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
+                    await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+                    await interaction.editReply({ embeds: [e], ephemeral: true }).catch((e) => console.log('Error al usar slash commands: '+e))
         
                     break
                   
@@ -167,9 +167,9 @@ module.exports = {
             
         } catch (error) {
             
-            await interaction.deferReply({ephemeral: true});
-            await wait(500);
-            await interaction.editReply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado. Por favor, inténtelo de nuevo! ', ephemeral: true})
+            await interaction.deferReply({ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
+            await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+            await interaction.editReply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado. Por favor, inténtelo de nuevo! ', ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
             
             console.log('Error en el SC reminder: '+error)
 

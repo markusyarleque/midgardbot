@@ -13,7 +13,7 @@ module.exports = {
         try {
             
             const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: `Midgard's Staff`, iconURL: interaction.guild.iconURL({ dynamic: true })})
+            .setAuthor({ name: `Midgard's Staff`, iconURL: interaction.guild.iconURL() ? interaction.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setThumbnail('https://logos-marcas.com/wp-content/uploads/2020/12/Discord-Logo.png')
             .setTitle('Vota por Nuestro Servidor <a:gatoasomar:930399873113677834>')
             .setDescription(`Estaremos eternamente agradecidos que votes por Midgard! <:abby:931432327354155038>`)
@@ -34,16 +34,16 @@ module.exports = {
 
             );
 
-            await interaction.deferReply();
-            await wait(500);
-            await interaction.editReply({ embeds : [embed], components: [row] });
+            await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+            await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+            await interaction.editReply({ embeds : [embed], components: [row] }).catch((e) => console.log('Error al usar slash commands: '+e))
 
 
         } catch (error) {
 
-            await interaction.deferReply();
-            await wait(500);
-            await interaction.editReply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado. Por favor, inténtelo de nuevo!', ephemeral: true})
+            await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+            await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+            await interaction.editReply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado. Por favor, inténtelo de nuevo!', ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
             
             console.log('Error en el SC vote: '+error)
 

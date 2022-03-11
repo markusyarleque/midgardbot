@@ -41,9 +41,9 @@ module.exports = {
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | Así te quería atrapar puerco! <:ojooo:931434369283944468> ¡No puedes hacer eso aquí! <:burbuja:925928080680292352>`)
         
-                await interaction.deferReply({ephemeral: true});
-                await wait(500);
-                await interaction.editReply({ embeds: [e], ephemeral: true})
+                await interaction.deferReply({ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
+                await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+                await interaction.editReply({ embeds: [e], ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
                   
             } else {
 
@@ -57,9 +57,9 @@ module.exports = {
                     .setColor('RED')
                     .setDescription(`<a:Verify2:931463492677017650> | No se ha borrado recientemente ningún mensaje!`)
         
-                    await interaction.deferReply({ephemeral: true});
-                    await wait(500);
-                    await interaction.editReply({ embeds: [e], ephemeral: true})
+                    await interaction.deferReply({ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
+                    await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+                    await interaction.editReply({ embeds: [e], ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
             
                 } else {
     
@@ -73,9 +73,9 @@ module.exports = {
                         .setColor('RED')
                         .setDescription('<a:Verify2:931463492677017650> | **Solamente hay** `'+snipes.length+'` **snipes**')
         
-                        await interaction.deferReply({ephemeral: true});
-                        await wait(500);
-                        await interaction.editReply({ embeds: [e], ephemeral: true})
+                        await interaction.deferReply({ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
+                        await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+                        await interaction.editReply({ embeds: [e], ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
             
                     } else {
 
@@ -88,9 +88,9 @@ module.exports = {
                         .setTimestamp(new Date())
                         .setDescription(`> \`Mensaje eliminado:\` ${msg.content}\n\n__**Información Extra**__\n\n> \`Tiempo:\` <t:${Math.floor(time / 1000)}:R>\n> \`Canal:\` ${msg.channel}\n> \`Snipe número:\` **${snipe + 1} / ${snipes.length}**`)
                         
-                        await interaction.deferReply();
-                        await wait(500);
-                        await interaction.editReply({ embeds: [imgdelete] })
+                        await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+                        await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+                        await interaction.editReply({ embeds: [imgdelete] }).catch((e) => console.log('Error al usar slash commands: '+e))
             
                     }
     
@@ -101,9 +101,9 @@ module.exports = {
             
         } catch (error) {
             
-            await interaction.deferReply({ephemeral: true});
-            await wait(500);
-            await interaction.editReply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado. Por favor, inténtelo de nuevo! ', ephemeral: true})
+            await interaction.deferReply({ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
+            await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+            await interaction.editReply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado. Por favor, inténtelo de nuevo! ', ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
             
             console.log('Error en el SC snipe: '+error)
 

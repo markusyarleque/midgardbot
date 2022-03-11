@@ -31,25 +31,25 @@ module.exports = {
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | Emoji inválido!!!`)
         
-                await interaction.deferReply({ephemeral: true});
-                await wait(500);
-                await interaction.editReply({ embeds: [e], ephemeral: true})
+                await interaction.deferReply({ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
+                await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+                await interaction.editReply({ embeds: [e], ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
 
             } else {
 
                 let palta = `https://cdn.discordapp.com/emojis/` + `${emoticon.id}.` + (emoticon.animated ? 'gif' : 'png') 
 
-                await interaction.deferReply();
-                await wait(500);
-                await interaction.editReply({ content: palta })
+                await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+                await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+                await interaction.editReply({ content: palta }).catch((e) => console.log('Error al usar slash commands: '+e))
 
             }
             
         } catch (error) {
             
-            await interaction.deferReply();
-            await wait(500);
-            await interaction.editReply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado. Por favor, inténtelo de nuevo! ', ephemeral: true})
+            await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
+            await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
+            await interaction.editReply({ content: '<a:Verify2:931463492677017650> | ¡Ocurrió un error inesperado. Por favor, inténtelo de nuevo! ', ephemeral: true}).catch((e) => console.log('Error al usar slash commands: '+e))
             
             console.log('Error en el SC jumbo: '+error)
 

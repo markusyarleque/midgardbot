@@ -10,7 +10,7 @@ module.exports =  {
 
         const embed = new Discord.MessageEmbed()
         .setThumbnail('https://img1.picmix.com/output/stamp/normal/5/5/3/4/1754355_5b4b9.gif')
-        .setAuthor(`Midgard's Karaoke`, 'https://images-ext-1.discordapp.net/external/FrwQc20YeRvAuhpfyvTDLf0qJon61IxQ3wJw6v2RrGs/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/856814676692041738/b9c01810fc4ed6c302bceb25418ec974.png')
+        .setAuthor({ name: `Midgard's Karaoke`, iconURL: 'https://images-ext-1.discordapp.net/external/FrwQc20YeRvAuhpfyvTDLf0qJon61IxQ3wJw6v2RrGs/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/856814676692041738/b9c01810fc4ed6c302bceb25418ec974.png' })
         .setTitle('Comandos:')
         .setDescription(`Se utilizan sólo en: ${client.channels.cache.get('880317466557952000')}`)
         .addField('Agregar a la Lista:', '`'+prefix+'k` `'+prefix+'k <@user>`')
@@ -19,9 +19,9 @@ module.exports =  {
         .addField('Reiniciar lista', '`'+prefix+'dall`')
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`🔥 La Élite 🔥`, `${message.author.displayAvatarURL()}`);
+        .setFooter({ text: `🔥 La Élite 🔥`, iconURL: `${message.author.displayAvatarURL({ dynamic: true})}` })
             
-        message.channel.send({ embeds: [embed] });
+        message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 
