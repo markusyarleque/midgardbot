@@ -68,8 +68,11 @@ module.exports =  {
               
             (messages) => {
 
-                message.channel.bulkDelete(messages).catch((e) => message.channel.send('Ocurrió un error al eliminar algunos mensajes: Debido a las limitaciones de Discord, no es posible eliminar mensajes enviados hace más de 14 días! : '+e))
+                message.channel.messages.cache.array.forEach(m => {
 
+                    message.channel.bulkDelete(m).catch((e) => message.channel.send('Ocurrió un error al eliminar algunos mensajes: Debido a las limitaciones de Discord, no es posible eliminar mensajes enviados hace más de 14 días!'))
+
+                }).catch((e) => message.channel.send('Ocurrió un error al eliminar algunos mensajes: Debido a las limitaciones de Discord, no es posible eliminar mensajes enviados hace más de 14 días!'))
               
             }
             
