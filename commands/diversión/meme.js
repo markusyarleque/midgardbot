@@ -1,3 +1,5 @@
+const red = require('reddit-fetch');
+
 module.exports =  {
     
     name: 'meme',

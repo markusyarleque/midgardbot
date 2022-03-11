@@ -55,7 +55,7 @@ module.exports =  {
         const embed = new Discord.MessageEmbed()
         .setThumbnail('https://c.tenor.com/Q17dDRR4Dd8AAAAC/morse-code.gif')
         .setAuthor({ name: `Midgard's Fun`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
-        .setTitle(title ? tittle : '📱')
+        .setTitle(title ? title : '📱')
         .setDescription('Solicitado por: '+message.author.username+'#'+message.author.discriminator)
         .addField('Texto:', '```'+ args.join(' ') + '```', true)
         .addField('Morse:', '```' + text + '```', true)
