@@ -61,12 +61,14 @@ module.exports =  {
             .setDescription('<a:Verify2:931463492677017650> | Ingresa un número mayor a 0!')
     
         ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
-          
-        await message.channel.messages.fetch({ limit: args[0] }).then(
+        
+        let purge = parseInt(args[0] + 1)
+
+        await message.channel.messages.fetch({ limit: purge }).then(
               
             (messages) => {
 
-                message.channel.bulkDelete(messages).catch((e) => mensaje.channel.send('Ocurrió un error al eliminar algunos mensajes: Debido a las limitaciones de Discord, no es posible eliminar mensajes enviados hace más de 14 días!'))
+                message.channel.bulkDelete(messages).catch((e) => message.channel.send('Ocurrió un error al eliminar algunos mensajes: Debido a las limitaciones de Discord, no es posible eliminar mensajes enviados hace más de 14 días!'))
 
               
             }
