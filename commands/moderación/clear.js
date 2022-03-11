@@ -79,7 +79,8 @@ module.exports =  {
 
         message.channel.bulkDelete(purge).then(messages => {
 
-            message.channel.send('```'+ parseInt(messages.size)-1 +' mensajes han sido borrados.'+'```')
+            let size = messages.size - 1
+            message.channel.send('```'+ size +' mensajes han sido borrados.'+'```')
             .then(msg => setTimeout(() => msg.delete(), 5000))
             .catch((e) => console.log('Error al enviar mensaje: '+e))
         
