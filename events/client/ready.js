@@ -51,7 +51,33 @@ module.exports = async (client) => {
     '#FEE75C',
     '#EB459E',
     '#ED4245',
-    '#23272A'
+    '#23272A',
+    '#e29e9e',
+    '#3f0505',
+    '#05323f',
+    '#9ce790',
+    '#624864',
+    '#788069',
+    '#a9e044',
+    '#578b61',
+    '#8781ca',
+    '#3d6c8d',
+    '#580e3f',
+    '#8e73aa',
+    '#888a5c',
+    '#cfbd63',
+    '#cf9563',
+    '#47574d',
+    '#214753',
+    '#80aab8',
+    '#8480b8',
+    '#181729',
+    '#291723',
+    '#e45676',
+    '#7e6873',
+    '#354549',
+    '#042027',
+    '#806968',
 
   ]
 
@@ -61,18 +87,20 @@ module.exports = async (client) => {
     
   var rol = serverM.roles.cache.find(x => x.id === rolVIP)
 
-  let c = 1
+  // let c = 1
 
   if(rol){
     
     let rolrainbow = setInterval(async () => {
 
+      let color = colores[Math.floor(Math.random()*colores.length)]
+
       await rol.edit({
     
-        color: colores[Math.floor(Math.random()*colores.length)]
+        color: color
         
       })
-      .then(r => console.log('Rol MBVIP editado: '+ r))
+      .then(r => console.log('Rol MBVIP editado: '+ color))
       .catch(e => console.log('Error al actualizar color de rol: '+e))
       
       //c === 200 ? clearInterval(rolrainbow) : c = c + 1
