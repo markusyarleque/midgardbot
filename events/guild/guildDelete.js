@@ -10,10 +10,10 @@ module.exports = async (client, Discord, guild) => {
     .setAuthor({ name: 'MaltaBot', iconURL: client.user.avatarURL() })
     .setThumbnail(guild.iconURL() ? guild.iconURL({ dynamic: true }) : 'https://i.pinimg.com/originals/04/41/ea/0441ea5619b979bde781aa040943c208.gif')
     .setTitle(`¡Un Server menos! <:sadcat:949442305981575218>`)
-    .setDescription('<:yonofui:931433119859503194> Me he salido del servidor: \n\n> Nombre: '+guild.name+'\n> \n> Id: '+guild.id+'\n> \n> Fecha: Hoy\n> \n> Owner: <@' + owner ? owner.id : 'Fallo al obtener owner' + '>')
+    .setDescription('<:yonofui:931433119859503194> Me he salido del servidor: \n\n> Nombre: '+guild.name+'\n> \n> Id: '+guild.id+'\n> \n> Fecha: Hoy\n> \n> Owner: <@' + (owner ? owner.id : 'Fallo al obtener owner') + '>')
     .setColor('RANDOM')
     .setTimestamp(new Date())
-    .setFooter({ text: guild.name, iconURL: guild.bannerURL() ? guild.bannerURL({ dynamic: true, size: 4096 }).replace('webp','png') : 'https://www.cosas-que-pasan.com/wp-content/uploads/portada-facebook-en-construccion.jpg' })
+    .setFooter({ text: guild.name, iconURL: (guild.bannerURL() ? guild.bannerURL({ dynamic: true, size: 4096 }).replace('webp','png') : 'https://www.cosas-que-pasan.com/wp-content/uploads/portada-facebook-en-construccion.jpg') })
 
     try {
 
