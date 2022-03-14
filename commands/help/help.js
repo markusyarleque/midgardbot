@@ -91,7 +91,7 @@ module.exports =  {
         .setTimestamp(new Date())
         .setThumbnail('https://c.tenor.com/E0DqqabbUn0AAAAC/nsfw.gif')
         .setColor('RANDOM')
-        .setDescription('> **||tetas||**\n> **||pussy||**\n> **||culo||**\n> **||dick||**\n> **||kuni||**\n> **||suck||**\n> **||suckb||**\n> **||sboobs||**\n> **||fuck||**\n> **||anal||**\n> **||cum||**\n> **||porno||**\n> **||4k||**\n> **||gonewild||**\n')
+        .setDescription('> **||tetas||**\n> **||pussy||**\n> **||culo||**\n> **||dick||**\n> **||kuni||**\n> **||suck||**\n> **||suckb||**\n> **||sboobs||**\n> **||fuck||**\n> **||anal||**\n> **||cum||**\n> **||porno||**\n> **||hd||**\n> **||gonewild||**\n')
     
         const btns_options1 = new Discord.MessageActionRow().addComponents([
       
