@@ -9,7 +9,7 @@ module.exports =  {
     async execute(client, message, args, Discord) {
 
         let staffTurno = '888203969111916595'
-        let userTurno, mensajes, puntos, fuegos
+        let userTurno, mensajes, puntos, diamantes
 
         const bSi = new Discord.MessageButton()
         .setCustomId("inicio")
@@ -24,7 +24,7 @@ module.exports =  {
         const embed = new Discord.MessageEmbed()
         .setThumbnail('https://images-ext-2.discordapp.net/external/uzG-lPjTdi7gFoYFRZXJcTZ5CiuJxPsE82N88qb0Hg8/https/i.gifer.com/8AMQ.gif?width=375&height=188')
         .setAuthor({ name: '𝐌𝐢𝐝𝐠𝐚𝐫𝐝 𝐒𝐭𝐚𝐟𝐟', iconURL: client.user.avatarURL({ dynamic: true}) })
-        .setTitle('𝗦𝘁𝗮𝗳𝗳 𝗱𝗲 𝗧𝘂𝗿𝗻𝗼')
+        .setTitle('𝗦𝘁𝗮𝗳𝗳 𝗱𝗲 𝗧𝘂𝗿𝗻𝗼 ✨')
         .setDescription('<a:BD_decoFlechaVerde:878509031675801640> Para obtener el rol <@&888203969111916595> solo reacciona en el botón de Iniciar\n\n<a:Verifired3:882776367018700840> **Una vez finalices con tu turno, reacciona en el botón de Finalizar y el bot te dará la cantidad de mensajes que has escrito en <#870195067338506271> y la cantidad de puntos y 🔥 que se te agregarán**')
         .setColor('RANDOM')
         .setTimestamp(new Date())
@@ -97,8 +97,6 @@ module.exports =  {
                        
                                 }
 
-                                message.channel.send('Muchas gracias por ayudarnos a ser cada día mejor! Acabas de iniciar turno y recuerda que tus mensajes solo serán contados en el canal <#870195067338506271>. Suerte!').catch((e) => console.log('Error al enviar mensaje: '+e))
-
                             } catch (error) {
 
                                 console.log('Error al Registrar Staff de Turno: '+ error)
@@ -114,9 +112,18 @@ module.exports =  {
                         
                     }
 
-                    m.edit({
-                  
-                        components: [new Discord.MessageActionRow().addComponents([bSi.setDisabled(true),bNo.setDisabled(false)])]
+                    m.edit({ embeds: [
+
+                        new Discord.MessageEmbed()
+                        .setThumbnail('https://images-ext-2.discordapp.net/external/uzG-lPjTdi7gFoYFRZXJcTZ5CiuJxPsE82N88qb0Hg8/https/i.gifer.com/8AMQ.gif?width=375&height=188')
+                        .setAuthor({ name: '𝐌𝐢𝐝𝐠𝐚𝐫𝐝 𝐒𝐭𝐚𝐟𝐟', iconURL: client.user.avatarURL({ dynamic: true}) })
+                        .setTitle('𝗦𝘁𝗮𝗳𝗳 𝗱𝗲 𝗧𝘂𝗿𝗻𝗼 ✨')
+                        .setDescription('<a:BD_decoFlechaVerde:878509031675801640> Muchas gracias por ayudarnos a ser cada día mejor! Acabas de iniciar turno y recuerda que tus mensajes solo serán contados en el canal <#870195067338506271>. Suerte!')
+                        .setColor('RANDOM')
+                        .setTimestamp(new Date())
+                        .setFooter({ text: `Malta's Bot`, iconURL: `${message.author.displayAvatarURL({ dynamic: true})}` })
+         
+                    ],components: [new Discord.MessageActionRow().addComponents([bSi.setDisabled(true),bNo.setDisabled(false)])]
                 
                     }).catch((e) => console.log('Error al enviar mensaje: '+e))
       
@@ -174,24 +181,8 @@ module.exports =  {
                                 }
 
                                 mensajes = userTurno.mensajes
-                                puntos = Math.floor(mensajes * 0.3)
-                                fuegos = Math.floor(puntos/20)
-
-                                message.channel.send({ embeds: [
-                                    
-                                    new Discord.MessageEmbed()
-                                    .setThumbnail('https://images-ext-2.discordapp.net/external/uzG-lPjTdi7gFoYFRZXJcTZ5CiuJxPsE82N88qb0Hg8/https/i.gifer.com/8AMQ.gif?width=375&height=188')
-                                    .setAuthor({ name: '𝐌𝐢𝐝𝐠𝐚𝐫𝐝 𝐒𝐭𝐚𝐟𝐟', iconURL: client.user.avatarURL({ dynamic: true}) })
-                                    .setTitle('𝗦𝘁𝗮𝗳𝗳 𝗱𝗲 𝗧𝘂𝗿𝗻𝗼')
-                                    .setDescription('Muchas gracias por apoyarnos en este Turno!')
-                                    .addField('Total de mensajes escritos: ','<a:flech:915156906258071554> ' + mensajes, false)
-                                    .addField('Total de puntos obtenidos: ','<a:flech:915156906258071554> ' + puntos, false)
-                                    .addField('Total de diamantes ganados: ','<a:flech:915156906258071554> ' + fuegos, false)
-                                    .setColor('RANDOM')
-                                    .setTimestamp(new Date())
-                                    .setFooter({ text: `Malta's Bot`, iconURL: `${message.author.displayAvatarURL({ dynamic: true})}` })
-                                      
-                                ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+                                puntos = Math.round(mensajes * 0.3)
+                                diamantes = Math.round(puntos/20)
 
                             } catch (error) {
 
@@ -208,8 +199,21 @@ module.exports =  {
                         
                     }
 
-                    m.edit({
-                  
+                    m.edit({ embeds: [
+
+                        new Discord.MessageEmbed()
+                        .setThumbnail('https://images-ext-2.discordapp.net/external/uzG-lPjTdi7gFoYFRZXJcTZ5CiuJxPsE82N88qb0Hg8/https/i.gifer.com/8AMQ.gif?width=375&height=188')
+                        .setAuthor({ name: '𝐌𝐢𝐝𝐠𝐚𝐫𝐝 𝐒𝐭𝐚𝐟𝐟', iconURL: client.user.avatarURL({ dynamic: true}) })
+                        .setTitle('𝗦𝘁𝗮𝗳𝗳 𝗱𝗲 𝗧𝘂𝗿𝗻𝗼 ✨')
+                        .setDescription('Muchas gracias por apoyarnos en este Turno!')
+                        .addField('<:sh_text:953436282774781982> Total de mensajes escritos: ','<a:flech:915156906258071554> ' + mensajes, false)
+                        .addField('<a:point:953436509426581564> Total de puntos obtenidos: ','<a:flech:915156906258071554> ' + puntos, false)
+                        .addField('<a:diamante:887714567084449892> Total de diamantes ganados: ','<a:flech:915156906258071554> ' + diamantes, false)
+                        .setColor('RANDOM')
+                        .setTimestamp(new Date())
+                        .setFooter({ text: `Malta's Bot`, iconURL: `${message.author.displayAvatarURL({ dynamic: true})}` })
+                                      
+                    ],
                         components: [new Discord.MessageActionRow().addComponents([bSi.setDisabled(false),bNo.setDisabled(true)])]
                 
                     }).catch((e) => console.log('Error al enviar mensaje: '+e))
