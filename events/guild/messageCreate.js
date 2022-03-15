@@ -6,6 +6,7 @@ const { Permissions } = require('discord.js');
 const userModel = require('../../models/userSchema');
 const blSchema = require('../../models/blSchema');
 const autoSchema = require('../../models/autoSchema');
+const turnoSchema = require('../../models/turnoSchema');
 //& Modelos
 
 module.exports = async (client, Discord, message) => {
@@ -121,6 +122,41 @@ module.exports = async (client, Discord, message) => {
     }
     
     if (message.author.bot) return;
+
+    let userTurno
+
+    if(idcanal === '870195067338506271'){
+
+        try {
+
+            userTurno = await turnoSchema.findOne({idusuario: message.author.id})
+
+            if(userTurno){
+
+                console.log('========================= ACTUALIZACIÓN DE STAFF DE TURNO =========================');
+        
+                let update = await turnoSchema.findOneAndUpdate({idusuario: message.author.id},
+                    {
+
+                        mensajes: userTurno.mensajes + 1
+
+                    })
+
+                update.save()
+   
+                console.log('Mensajes de Staff de Turno Actualizado ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
+   
+                console.log('========================= ACTUALIZACIÓN DE STAFF DE TURNO =========================');
+   
+            }
+
+        } catch (error) {
+
+            console.log('Error al Registrar Mensajes de Staff de Turno: '+ error)
+      
+        }
+
+    }
 
     autorespuesta = await autoSchema.findOne({trigger: message.content.toLowerCase()})
 
