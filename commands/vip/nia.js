@@ -1,3 +1,5 @@
+const userSchema = require('../../models/userSchema');
+
 module.exports =  {
     
     name: 'nia',
@@ -6,6 +8,40 @@ module.exports =  {
   
     async execute(client, message, args, Discord) { 
 
+        try {
+                
+            let userData = await userSchema.findOne({idusuario: message.author.id})
+
+            if(!userData){
+
+                let user = await userSchema.create({
+
+                    idusuario: message.author.id,
+                    username: message.author.username,
+
+                })
+
+                user.save();
+                console.log('Usuario Registrado ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
+
+            }
+
+            if (userData.vip === false) return message.reply({ embeds: [
+                        
+                new Discord.MessageEmbed()
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                .setColor('RED')
+                .setDescription(`<a:Verify2:931463492677017650> | Comando VIP!`)
+    
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+
+
+        } catch (error) {
+
+            console.log('Error al Buscar Usuario en Comando Porno: '+ error)
+            
+        }
+        
         var cadena = args.join(' ') 
 
         cadena = cadena.replace(/[aeou]/ig, "i")

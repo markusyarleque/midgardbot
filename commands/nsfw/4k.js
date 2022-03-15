@@ -1,4 +1,5 @@
 const userSchema = require('../../models/userSchema');
+
 module.exports =  {
     
     name: '4k',
@@ -108,7 +109,7 @@ module.exports =  {
             }
   
             const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: `🔞 | Midgard's Hot VIP🔥`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+            .setAuthor({ name: `🔞 | Midgard's Hot VIP 🔥`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setDescription(desc)
             .setImage(ramdonfourk ? ramdonfourk : null)
             .setColor('RANDOM')

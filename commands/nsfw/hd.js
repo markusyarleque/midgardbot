@@ -1,5 +1,6 @@
 const NSFW = require('discord-nsfw');
 const nsfw3 = new NSFW();
+const userSchema = require('../../models/userSchema');
 
 module.exports =  {
     
@@ -23,22 +24,56 @@ module.exports =  {
         
         } else {
       
+            try {
+                
+                let userData = await userSchema.findOne({idusuario: message.author.id})
+
+                if(!userData){
+
+                    let user = await userSchema.create({
+
+                        idusuario: message.author.id,
+                        username: message.author.username,
+
+                    })
+    
+                    user.save();
+                    console.log('Usuario Registrado ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
+
+                }
+
+                if (userData.vip === false) return message.reply({ embeds: [
+                            
+                    new Discord.MessageEmbed()
+                    .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                    .setColor('RED')
+                    .setDescription(`<a:Verify2:931463492677017650> | Comando VIP!`)
+        
+                ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+    
+
+            } catch (error) {
+
+                console.log('Error al Buscar Usuario en Comando HD: '+ error)
+                
+            }
+
             let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
             let desc 
             const image = await nsfw3.fourk();
     
             if (!img || img.id===message.author.id || img.user.bot) {
       
-                desc = `A **${message.author.username}** le gusta en 4k <a:run:880304386826465300>`
+                desc = `A **${message.author.username}** le gusta en Full HD <a:run:880304386826465300>`
           
             } else {
       
-                desc = `**${message.author.username}** y **${img.user.username}** están viendo 4k <a:run:880304386826465300>`
+                desc = `**${message.author.username}** y **${img.user.username}** están viendo nopor Full HD <a:run:880304386826465300>`
   
             }
   
             const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: `🔞 | Midgard's Hot 🔥`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+            .setAuthor({ name: `🔞 | Midgard's Hot VIP 🔥`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setDescription(desc)
             .setImage(image)
             .setColor('RANDOM')
