@@ -4,7 +4,7 @@ const autoSchema = require('../../models/autoSchema');
 module.exports =  {
     
     name: 'edit-cc',
-    aliases: ['edit-auto','dcc'],
+    aliases: ['edit-auto','ecc'],
     description: '💻 Editar autorespuestas personalizables.',
 
     async execute(client, message, args, Discord) {
