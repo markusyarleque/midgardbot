@@ -73,6 +73,8 @@ module.exports =  {
                 })
 
                 tkiss.save()
+          
+                conteo = 1
 
             } else {
 
@@ -100,7 +102,7 @@ module.exports =  {
     
                     })
             
-                update.save().catch((e) => console.log('no guardado db '+e))
+                update.save()
               
             } catch (error) {
                 
@@ -109,7 +111,7 @@ module.exports =  {
             }
  
             conteo = consulta1.c + 1
-            
+
         }
 
         if(conteo === 1){
