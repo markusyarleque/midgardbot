@@ -34,6 +34,7 @@ module.exports =  {
         
         ]
 
+        let conteo
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonkiss = kiss[Math.floor(Math.random()*kiss.length)]
 
@@ -84,6 +85,8 @@ module.exports =  {
 
                 update.save()
           
+                conteo = consulta2.c + 1
+
             }
 
         } else {
@@ -105,6 +108,8 @@ module.exports =  {
 
             }
  
+            conteo = consulta1.c + 1
+            
         }
 
         if(conteo === 1){
