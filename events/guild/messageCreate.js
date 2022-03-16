@@ -161,7 +161,7 @@ module.exports = async (client, Discord, message) => {
     try {
         
         let autorespuesta = await autoSchema.find({trigger: message.content.toLowerCase()})
-   
+        console.log('auto.: '+autorespuesta)
         if(autorespuesta){
 
             let datos = []
