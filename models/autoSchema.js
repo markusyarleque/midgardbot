@@ -3,6 +3,7 @@ const mongoose = require ('mongoose');
 
 const autoSchema = new mongoose.Schema({
     
+    idcc: { type: String, require: true, unique: true },
     trigger: { type: String, require: true  },
     response: { type: String, require: true },
 

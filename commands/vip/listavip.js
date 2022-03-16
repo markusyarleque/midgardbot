@@ -3,7 +3,7 @@ const userSchema = require('../../models/userSchema')
 module.exports =  {
     
     name: 'listavip',
-    aliases: ['lista-vip','lvip'],
+    aliases: ['lista-vip','lvip','vip'],
     description: '💻 Comando exclusivo de Programación',
 
     async execute(client, message, args, Discord) {
