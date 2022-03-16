@@ -160,7 +160,7 @@ module.exports = async (client, Discord, message) => {
 
     try {
         
-        let autorespuesta = await autoSchema.find({trigger: message.content.toLowerCase()})
+        let autorespuesta = await autoSchema.find({trigger: message.content.toLowerCase()}).sort({ idcc: -1 })
         console.log('auto.: '+autorespuesta)
         if(autorespuesta){
 
