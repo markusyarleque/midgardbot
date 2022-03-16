@@ -161,7 +161,7 @@ module.exports = async (client, Discord, message) => {
     try {
         
         let autorespuesta = await autoSchema.find({trigger: message.content.toLowerCase()}).sort({ idcc: -1 })
-        console.log('auto.: '+autorespuesta)
+
         if(autorespuesta){
 
             let datos = []
@@ -172,7 +172,7 @@ module.exports = async (client, Discord, message) => {
             
             }
 
-            //message.channel.send(datos[Math.floor(Math.random()*datos.length)]).catch((e) => console.log('Error al enviar mensaje: '+e))
+            message.channel.send(datos[Math.floor(Math.random()*datos.length)]).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         }
 
