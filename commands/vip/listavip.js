@@ -24,7 +24,7 @@ module.exports =  {
         try {
             
             let lista = await userSchema.find({ vip: true }).sort({ xp: -1 })
-            console.log('Lista: '+lista)
+            
             if(!lista) return message.channel.send({embeds:[
           
                 new Discord.MessageEmbed()
@@ -53,7 +53,9 @@ module.exports =  {
             embed.setDescription(datos.join('\n\n'))   	
             embed.setColor("RANDOM")
             embed.setFooter({ text: message.guild.name, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
-         
+            
+            message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+
         } catch (error) {
             
             console.log('Ocurrió un error al buscar la lista de BL: '+ error)
