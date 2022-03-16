@@ -22,37 +22,53 @@ module.exports =  {
 
         }
 
-        let lista = await blSchema.find()
+        try {
 
-        if(!lista) return message.channel.send({embeds:[
+            let lista = await blSchema.find()
+
+            if(!lista) return message.channel.send({embeds:[
           
-            new Discord.MessageEmbed()
-            .setAuthor({ name: `Midgard's BL`, iconURL: client.user.avatarURL({ dynamic: true }) })
-            .setDescription('Aún no hay usuarios en Black-List <:tierno:931433334960160799>')   	
-            .setColor("RANDOM")
-            .setFooter({ text: message.guild.name, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+                new Discord.MessageEmbed()
+                .setAuthor({ name: `Midgard's BL`, iconURL: client.user.avatarURL({ dynamic: true }) })
+                .setDescription('Aún no hay usuarios en Black-List <:tierno:931433334960160799>')   	
+                .setColor("RANDOM")
+                .setFooter({ text: message.guild.name, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
                 
-        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-        let embed = new Discord.MessageEmbed()
+            let embed = new Discord.MessageEmbed()
 
-        let datos = []
+            let datos = []
 
-        let c = 1
+            let c = 1
 
-        for(let ls of lista){
+            for(let ls of lista){
 
-            datos.push('**' + c + '.** <@' + ls.idusuario + '>')
-            c = c + 1
+                datos.push('**' + c + '.** <@' + ls.idusuario + '>')
+                c = c + 1
         
-        }
+            }
 
-        embed.setAuthor({ name: `Midgard's BL`, iconURL: client.user.avatarURL({ dynamic: true }) })
-        embed.setThumbnail('https://i.imgur.com/Hx2KSqC.gif')
-        embed.setDescription(datos.join('\n\n'))   	
-        embed.setColor("RANDOM")
-        embed.setFooter({ text: message.guild.name, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
-           
+            embed.setAuthor({ name: `Midgard's BL`, iconURL: client.user.avatarURL({ dynamic: true }) })
+            embed.setThumbnail('https://i.imgur.com/Hx2KSqC.gif')
+            embed.setDescription(datos.join('\n\n'))   	
+            embed.setColor("RANDOM")
+            embed.setFooter({ text: message.guild.name, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+            
+        } catch (error) {
+
+            console.log('Ocurrió un error al buscar la lista de BL: '+ error)
+
+            const e = new Discord.MessageEmbed()
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+            .setColor('RED')
+            .setDescription(`<a:Verify2:931463492677017650> | Ocurrió un error inesperado, por favor intenta de nuevo!\n> Error: `+error)
+            .setTimestamp()
+
+            return message.reply({embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+
+        }
+        
     }
 
 }
