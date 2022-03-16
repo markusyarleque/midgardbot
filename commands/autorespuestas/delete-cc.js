@@ -39,7 +39,7 @@ module.exports =  {
             
             let idc = await autoSchema.findOne({ idcc: idcc })
 
-            if(!idcc){
+            if(!idc){
 
                 console.log('Autorespuesta no existe ===> Código: '+ idcc)
 

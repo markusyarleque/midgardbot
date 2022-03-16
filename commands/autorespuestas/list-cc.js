@@ -44,7 +44,7 @@ module.exports =  {
 
             for(let ls of lista){
 
-                datos.push('**' + c + '**> **Código:** `'+ls.idcc+'` | **Trigger:** `'+ls.trigger+'` | **Response:** `'+ls.response+'`')
+                datos.push('**' + c + '. Código:** `'+ls.idcc+'` | **Trigger:** `'+ls.trigger+'` | **Response:** `'+ls.response+'`')
                 c = c + 1
         
             }
