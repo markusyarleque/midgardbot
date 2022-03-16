@@ -25,7 +25,7 @@ module.exports =  {
         try {
 
             let lista = await blSchema.find().sort({ idusuario: -1 })
-
+            console.log('Lista: '+lista)
             if(!lista) return message.channel.send({embeds:[
           
                 new Discord.MessageEmbed()

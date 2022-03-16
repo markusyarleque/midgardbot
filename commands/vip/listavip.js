@@ -24,7 +24,7 @@ module.exports =  {
         try {
             
             let lista = await userSchema.find({ vip: true }).sort({ xp: -1 })
-
+            console.log('Lista: '+lista)
             if(!lista) return message.channel.send({embeds:[
           
                 new Discord.MessageEmbed()
