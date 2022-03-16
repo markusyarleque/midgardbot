@@ -163,7 +163,7 @@ module.exports = async (client, Discord, message) => {
         let autorespuesta = await autoSchema.find({trigger: message.content.toLowerCase()}).sort({ idcc: -1 })
         let datos = []
 
-        if(autorespuesta){
+        if(autorespuesta && datos.length > 0){
 
             for(let ls of autorespuesta){
 
