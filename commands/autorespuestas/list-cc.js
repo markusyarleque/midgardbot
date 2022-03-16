@@ -26,16 +26,6 @@ module.exports =  {
 
             let lista = await autoSchema.find().sort({ idcc: -1 })
 
-            if(!lista) return message.channel.send({embeds:[
-          
-                new Discord.MessageEmbed()
-                .setAuthor({ name: `MidgardBot`, iconURL: client.user.avatarURL({ dynamic: true }) })
-                .setDescription('Aún no hay autorespuestas agregadas <:tierno:931433334960160799>')   	
-                .setColor("RANDOM")
-                .setFooter({ text: message.guild.name, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
-                
-            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
-
             let embed = new Discord.MessageEmbed()
 
             let datos = []
@@ -48,6 +38,16 @@ module.exports =  {
                 c = c + 1
         
             }
+
+            if(!lista || datos.length === 0) return message.channel.send({embeds:[
+          
+                new Discord.MessageEmbed()
+                .setAuthor({ name: `MidgardBot`, iconURL: client.user.avatarURL({ dynamic: true }) })
+                .setDescription('Aún no hay autorespuestas agregadas <:tierno:931433334960160799>')   	
+                .setColor("RANDOM")
+                .setFooter({ text: message.guild.name, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+                
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
             embed.setAuthor({ name: `MidgardBot`, iconURL: client.user.avatarURL({ dynamic: true }) })
             embed.setThumbnail('https://c.tenor.com/NbxBVXKZLokAAAAC/arthur-and-the-invisibles-minimoys.gif')
