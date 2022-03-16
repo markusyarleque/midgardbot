@@ -1,12 +1,11 @@
 const { Collection } = require('mongoose');
 const autoSchema = require('../../models/autoSchema');
-const { Permissions } = require('discord.js');
 const kufi = require('kufi');
 
 module.exports =  {
     
     name: 'add-cc',
-    aliases: ['add-auto'],
+    aliases: ['add-auto','acc'],
     description: '💻 Agregar autorespuestas personalizables.',
 
     async execute(client, message, args, Discord) {
@@ -26,6 +25,24 @@ module.exports =  {
 
         trigger = args[0]
         response = args.slice(1).join(" ")
+
+        if(!trigger) return message.reply({embeds: [
+       
+            new Discord.MessageEmbed()
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
+            .setColor('RED')
+            .setDescription(`<a:Verify2:931463492677017650> | ¡Debes agregar una palabra desencadenante para la autorespuesta!`)
+      
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+
+        if(!response) return message.reply({embeds: [
+       
+            new Discord.MessageEmbed()
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
+            .setColor('RED')
+            .setDescription(`<a:Verify2:931463492677017650> | ¡Debes agregar una autorespuesta!`)
+      
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         idcc = kufi.randomCode(5)
 
