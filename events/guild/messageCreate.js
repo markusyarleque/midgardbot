@@ -158,20 +158,27 @@ module.exports = async (client, Discord, message) => {
 
     }
 
-    let autorespuesta = await autoSchema.find({trigger: message.content.toLowerCase()})
+    try {
+        
+        let autorespuesta = await autoSchema.find({trigger: message.content.toLowerCase()})
    
-    if(autorespuesta){
+        if(autorespuesta){
 
-        let datos = []
+            let datos = []
 
-        for(let ls of autorespuesta){
+            for(let ls of autorespuesta){
 
-            datos.push(ls.response)
+                datos.push(ls.response)
             
+            }
+
+            message.channel.send(datos[Math.floor(Math.random()*datos.length)]).catch((e) => console.log('Error al enviar mensaje: '+e))
+
         }
 
-        message.channel.send(datos[Math.floor(Math.random()*datos.length)]).catch((e) => console.log('Error al enviar mensaje: '+e))
-
+    } catch (error) {
+        
+        console.log('Error al obtener autorespuestas: ' + error)
     }
 
     if (message.content === 'Hola' || message.content === 'hola' || message.content === 'Holas' || message.content === 'holas'){
