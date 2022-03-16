@@ -21,7 +21,7 @@ module.exports =  {
 
         }
 
-        let lista = await userSchema.find({ vip: true }).sort({ total: 1 })
+        let lista = await userSchema.find({ vip: true }).sort({ vip: 1 })
 
         if(!lista) return message.channel.send({embeds:[
           

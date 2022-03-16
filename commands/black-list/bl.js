@@ -22,7 +22,7 @@ module.exports =  {
 
         }
 
-        let lista = await blSchema.find().sort({ total: 1 })
+        let lista = await blSchema.find().sort()
 
         if(!lista) return message.channel.send({embeds:[
           
