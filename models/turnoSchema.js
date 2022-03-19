@@ -5,6 +5,7 @@ const turnoSchema = new mongoose.Schema({
     
     idusuario: { type: String, require: true  },
     mensajes: { type: Number, require: true, default: 0 },
+    diamantes: { type: Number, require: true, default: 0 },
 
 })
 
