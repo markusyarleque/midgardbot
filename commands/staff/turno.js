@@ -74,7 +74,7 @@ module.exports =  {
                     
                     }
 
-                    message.channel.send({ embeds: [embed_inicio]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    message.channel.send({ allowedMentions: { repliedUser: false}, embeds: [embed_inicio]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
                 } catch (error) {
 
@@ -135,7 +135,7 @@ module.exports =  {
            
                     }
 
-                    message.channel.send({ embeds: [
+                    message.channel.send({ allowedMentions: { repliedUser: false}, embeds: [
 
                         new Discord.MessageEmbed()
                         .setThumbnail('https://images-ext-2.discordapp.net/external/uzG-lPjTdi7gFoYFRZXJcTZ5CiuJxPsE82N88qb0Hg8/https/i.gifer.com/8AMQ.gif?width=375&height=188')

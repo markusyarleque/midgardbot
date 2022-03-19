@@ -10,6 +10,8 @@ module.exports =  {
 
         if(message.guild.id !== '777620055344545842') return
 
+        setTimeout(() => message.delete(), 100)
+
         let id = ['753435606410985573','683501310527668228','743960732542042203']
 
         let canalstaff = client.channels.cache.get('950717214137409596')
