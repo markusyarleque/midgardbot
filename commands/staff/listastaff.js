@@ -7,6 +7,8 @@ module.exports =  {
     description: '💻 Comando exclusivo de Staff',
 
     async execute(client, message, args, Discord) {
+        
+        if(message.guild.id !== '777620055344545842') return
 
         let id = ['753435606410985573','683501310527668228','743960732542042203']
 

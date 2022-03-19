@@ -7,6 +7,8 @@ module.exports =  {
     description: '💻 Comando exclusivo de Staff',
 
     async execute(client, message, args, Discord) {
+        
+        if(message.guild.id !== '777620055344545842') return
 
         let staffTurno = '888203969111916595'
         let userTurno, mensajes, puntos, diamantes
