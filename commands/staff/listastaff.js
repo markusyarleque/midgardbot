@@ -7,7 +7,7 @@ module.exports =  {
     description: '💻 Comando exclusivo de Staff',
 
     async execute(client, message, args, Discord) {
-        
+
         if(message.guild.id !== '777620055344545842') return
 
         let id = ['753435606410985573','683501310527668228','743960732542042203']
@@ -48,7 +48,7 @@ module.exports =  {
           
                 new Discord.MessageEmbed()
                 .setAuthor({ name: '𝐌𝐢𝐝𝐠𝐚𝐫𝐝 𝐒𝐭𝐚𝐟𝐟', iconURL: client.user.avatarURL({ dynamic: true}) })
-                .setDescription('Aún no hay usuarios con diamantes <:tierno:931433334960160799>')   	
+                .setDescription('Aún no hay staff con diamantes <:tierno:931433334960160799>')   	
                 .setColor("RANDOM")
                 .setFooter({ text: `Malta's Bot`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
 
