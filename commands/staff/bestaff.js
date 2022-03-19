@@ -9,7 +9,7 @@ module.exports =  {
     async execute(client, message, args, Discord) {
 
         if(message.guild.id !== '777620055344545842') return
-        
+
         let id = ['753435606410985573','683501310527668228','743960732542042203']
 
         let canalstaff = client.channels.cache.get('950717214137409596')
@@ -59,7 +59,7 @@ module.exports =  {
             
             try {
                 
-                message.guild.members.cache.forEach(member => {
+                message.guild.members.cache.forEach(async member => {
 
                     if(member.roles.cache.find(r => r.id === staffSemana)){
 
