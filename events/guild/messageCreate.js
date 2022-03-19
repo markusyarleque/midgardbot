@@ -478,7 +478,7 @@ module.exports = async (client, Discord, message) => {
             message.reply({embeds: [
     
               new Discord.MessageEmbed()
-              .setAuthor(message.author.tag, message.author.displayAvatarURL())
+              .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
               .setThumbnail('https://c.tenor.com/AMnlFqJnKhwAAAAd/se-va-a-minar-minar.gif')
               .setColor('RANDOM')
               .setDescription('<a:flech:931432469935312937> | Es hora de ir a la mina<a:exclama2:880930071731392512>')
@@ -488,13 +488,13 @@ module.exports = async (client, Discord, message) => {
         }
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor('Nekotina', 'https://images-ext-2.discordapp.net/external/vTbUglOfnbYgQ8gotBCEus02Q7Gn467NmguBx51ntu8/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/429457053791158281/01a5bf4c4e4d0521ccee216003abd8dc.png?width=500&height=500')
+        .setAuthor({ name: 'Nekotina', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setTitle('<a:tiempogif:931434689481285662> Recordatorio activado para: *`'+message.author.username+'`*')
         .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
         .setDescription('<a:flech:931432469935312937> Te recordaré dentro de `3 minutos` usar el comando `mine`.')
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(message.guild.name, message.guild.iconURL({ dynamic: true }))
+        .setFooter({ text: message.guild.name, iconURL: message.guild.iconURL({ dynamic: true }) })
         message.channel.send({ embeds: [embed] })
 
         setTimeout(reminder, 180000);
@@ -510,7 +510,7 @@ module.exports = async (client, Discord, message) => {
             message.reply({embeds: [
     
               new Discord.MessageEmbed()
-              .setAuthor(message.author.tag, message.author.displayAvatarURL())
+              .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
               .setThumbnail('https://c.tenor.com/AMnlFqJnKhwAAAAd/se-va-a-minar-minar.gif')
               .setColor('RANDOM')
               .setDescription('<a:flech:931432469935312937> | Es hora de ir a la mina, antes que se acabe el Haste<a:exclama2:880930071731392512>')
@@ -520,13 +520,13 @@ module.exports = async (client, Discord, message) => {
         }
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor('Nekotina', 'https://images-ext-2.discordapp.net/external/vTbUglOfnbYgQ8gotBCEus02Q7Gn467NmguBx51ntu8/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/429457053791158281/01a5bf4c4e4d0521ccee216003abd8dc.png?width=500&height=500')
+        .setAuthor({ name: 'Nekotina', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setTitle('<a:tiempogif:931434689481285662> Recordatorio activado para: *`'+message.author.username+'`*')
         .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
         .setDescription('<a:flech:931432469935312937> Te recordaré dentro de `1 minuto y 20 segundos` usar el comando `mine`.')
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(message.guild.name, message.guild.iconURL({ dynamic: true }))
+        .setFooter({ text: message.guild.name, iconURL: message.guild.iconURL({ dynamic: true }) })
         message.channel.send({ embeds: [embed] })
 
         setTimeout(reminder, 80000);
@@ -542,7 +542,7 @@ module.exports = async (client, Discord, message) => {
             message.reply({embeds: [
     
               new Discord.MessageEmbed()
-              .setAuthor(message.author.tag, message.author.displayAvatarURL())
+              .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
               .setThumbnail('https://www.gifsanimados.org/data/media/157/pesca-imagen-animada-0057.gif')
               .setColor('RANDOM')
               .setDescription('<a:flech:931432469935312937> | Es hora de ir a la pesca<a:exclama2:880930071731392512>')
@@ -552,13 +552,13 @@ module.exports = async (client, Discord, message) => {
         }
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor('Nekotina', 'https://images-ext-2.discordapp.net/external/vTbUglOfnbYgQ8gotBCEus02Q7Gn467NmguBx51ntu8/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/429457053791158281/01a5bf4c4e4d0521ccee216003abd8dc.png?width=500&height=500')
+        .setAuthor({ name: 'Nekotina', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setTitle('<a:tiempogif:931434689481285662> Recordatorio activado para: *`'+message.author.username+'`*')
         .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
         .setDescription('<a:flech:931432469935312937> Te recordaré dentro de `3 minutos` usar el comando `fish`.')
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(message.guild.name, message.guild.iconURL({ dynamic: true }))
+        .setFooter({ text: message.guild.name, iconURL: message.guild.iconURL({ dynamic: true }) })
         message.channel.send({ embeds: [embed] })
 
         setTimeout(reminder, 180000);
@@ -574,7 +574,7 @@ module.exports = async (client, Discord, message) => {
             message.reply({embeds: [
     
               new Discord.MessageEmbed()
-              .setAuthor(message.author.tag, message.author.displayAvatarURL())
+              .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
               .setThumbnail('https://www.gifsanimados.org/data/media/157/pesca-imagen-animada-0057.gif')
               .setColor('RANDOM')
               .setDescription('<a:flech:931432469935312937> | Es hora de ir a la pesca, antes que se acabe el Haste<a:exclama2:880930071731392512>')
@@ -584,13 +584,13 @@ module.exports = async (client, Discord, message) => {
         }
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor('Nekotina', 'https://images-ext-2.discordapp.net/external/vTbUglOfnbYgQ8gotBCEus02Q7Gn467NmguBx51ntu8/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/429457053791158281/01a5bf4c4e4d0521ccee216003abd8dc.png?width=500&height=500')
+        .setAuthor({ name: 'Nekotina', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setTitle('<a:tiempogif:931434689481285662> Recordatorio activado para: *`'+message.author.username+'`*')
         .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
         .setDescription('<a:flech:931432469935312937> Te recordaré dentro de `1 minuto y 20 segundos` usar el comando `fish`.')
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(message.guild.name, message.guild.iconURL({ dynamic: true }))
+        .setFooter({ text: message.guild.name, iconURL: message.guild.iconURL({ dynamic: true }) })
         message.channel.send({ embeds: [embed] })
 
         setTimeout(reminder, 80000);
@@ -606,7 +606,7 @@ module.exports = async (client, Discord, message) => {
             message.reply({embeds: [
     
               new Discord.MessageEmbed()
-              .setAuthor(message.author.tag, message.author.displayAvatarURL())
+              .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
               .setThumbnail('https://c.tenor.com/AMnlFqJnKhwAAAAd/se-va-a-minar-minar.gif')
               .setColor('RANDOM')
               .setDescription('<a:flech:931432469935312937> | Tu mascota ya está lista para regresar<a:exclama2:880930071731392512>')
@@ -616,13 +616,13 @@ module.exports = async (client, Discord, message) => {
         }
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor('Nekotina', 'https://images-ext-2.discordapp.net/external/vTbUglOfnbYgQ8gotBCEus02Q7Gn467NmguBx51ntu8/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/429457053791158281/01a5bf4c4e4d0521ccee216003abd8dc.png?width=500&height=500')
+        .setAuthor({ name: 'Nekotina', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setTitle('<a:tiempogif:931434689481285662> Recordatorio activado para: *`'+message.author.username+'`*')
         .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
         .setDescription('<a:Dancing_Duck:930402083625111613> Le deseo un buen viaje a tu `pet` y que te traiga algo muy bueno!\n<a:flech:931432469935312937> Te recordaré en `30 minutos`.')
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(message.guild.name, message.guild.iconURL({ dynamic: true }))
+        .setFooter({ text: message.guild.name, iconURL: message.guild.iconURL({ dynamic: true }) })
         message.channel.send({ embeds: [embed] })
 
         setTimeout(reminder, 1800000);
@@ -638,7 +638,7 @@ module.exports = async (client, Discord, message) => {
             message.reply({embeds: [
     
               new Discord.MessageEmbed()
-              .setAuthor(message.author.tag, message.author.displayAvatarURL())
+              .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
               .setThumbnail('https://c.tenor.com/AMnlFqJnKhwAAAAd/se-va-a-minar-minar.gif')
               .setColor('RANDOM')
               .setDescription('<a:flech:931432469935312937> | Tu mascota ya está lista para regresar<a:exclama2:880930071731392512>')
@@ -648,13 +648,13 @@ module.exports = async (client, Discord, message) => {
         }
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor('Nekotina', 'https://images-ext-2.discordapp.net/external/vTbUglOfnbYgQ8gotBCEus02Q7Gn467NmguBx51ntu8/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/429457053791158281/01a5bf4c4e4d0521ccee216003abd8dc.png?width=500&height=500')
+        .setAuthor({ name: 'Nekotina', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setTitle('<a:tiempogif:931434689481285662> Recordatorio activado para: *`'+message.author.username+'`*')
         .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
         .setDescription('<a:Dancing_Duck:930402083625111613> Le deseo un buen viaje a tu `pet` y que te traiga algo muy bueno, antes que se acabe el Haste!\n<a:flech:931432469935312937> Te recordaré en `15 minutos`.')
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(message.guild.name, message.guild.iconURL({ dynamic: true }))
+        .setFooter({ text: message.guild.name, iconURL: message.guild.iconURL({ dynamic: true }) })
         message.channel.send({ embeds: [embed] })
 
         setTimeout(reminder, 900000);
@@ -670,7 +670,7 @@ module.exports = async (client, Discord, message) => {
             message.reply({embeds: [
     
               new Discord.MessageEmbed()
-              .setAuthor(message.author.tag, message.author.displayAvatarURL())
+              .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
               .setThumbnail('https://i.giphy.com/media/7E8tiGcPf1G78dMXRf/giphy.gif')
               .setColor('RANDOM')
               .setDescription('<a:flech:931432469935312937> | Es hora de ir a trabajar<a:exclama2:880930071731392512>')
@@ -680,13 +680,13 @@ module.exports = async (client, Discord, message) => {
         }
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor('Nekotina', 'https://images-ext-2.discordapp.net/external/vTbUglOfnbYgQ8gotBCEus02Q7Gn467NmguBx51ntu8/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/429457053791158281/01a5bf4c4e4d0521ccee216003abd8dc.png?width=500&height=500')
+        .setAuthor({ name: 'Nekotina', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setTitle('<a:tiempogif:931434689481285662> Recordatorio activado para: *`'+message.author.username+'`*')
         .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
         .setDescription('<a:flech:931432469935312937> Te recordaré dentro de `1 hora` usar el comando `work`.')
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(message.guild.name, message.guild.iconURL({ dynamic: true }))
+        .setFooter({ text: message.guild.name, iconURL: message.guild.iconURL({ dynamic: true }) })
         message.channel.send({ embeds: [embed] })
 
         setTimeout(reminder, 3600000);
@@ -702,7 +702,7 @@ module.exports = async (client, Discord, message) => {
             message.reply({embeds: [
     
               new Discord.MessageEmbed()
-              .setAuthor(message.author.tag, message.author.displayAvatarURL())
+              .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
               .setThumbnail('https://c.tenor.com/rvnbqOmEEXIAAAAC/cute-loli-waifu.gif')
               .setColor('RANDOM')
               .setDescription('<a:flech:931432469935312937> | Ya puedes volver a votar por tu waifu favorita<a:exclama2:880930071731392512>')
@@ -712,13 +712,13 @@ module.exports = async (client, Discord, message) => {
         }
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor('Nekotina', 'https://images-ext-2.discordapp.net/external/vTbUglOfnbYgQ8gotBCEus02Q7Gn467NmguBx51ntu8/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/429457053791158281/01a5bf4c4e4d0521ccee216003abd8dc.png?width=500&height=500')
+        .setAuthor({ name: 'Nekotina', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setTitle('<a:tiempogif:931434689481285662> Recordatorio activado para: *`'+message.author.username+'`*')
         .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
         .setDescription('<a:flech:931432469935312937> Te recordaré dentro de `6 horas` volver a votar por tu `waifu`.')
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(message.guild.name, message.guild.iconURL({ dynamic: true }))
+        .setFooter({ text: message.guild.name, iconURL: message.guild.iconURL({ dynamic: true }) })
         message.channel.send({ embeds: [embed] })
 
         setTimeout(reminder, 21600000);
@@ -734,7 +734,7 @@ module.exports = async (client, Discord, message) => {
             message.reply({embeds: [
     
               new Discord.MessageEmbed()
-              .setAuthor(message.author.tag, message.author.displayAvatarURL())
+              .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
               .setThumbnail('https://i.gifer.com/8WlW.gif')
               .setColor('RANDOM')
               .setDescription('<a:flech:931432469935312937> | Ya puedes volver a votar por tu husbando favorito<a:exclama2:880930071731392512>')
@@ -744,13 +744,13 @@ module.exports = async (client, Discord, message) => {
         }
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor('Nekotina', 'https://images-ext-2.discordapp.net/external/vTbUglOfnbYgQ8gotBCEus02Q7Gn467NmguBx51ntu8/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/429457053791158281/01a5bf4c4e4d0521ccee216003abd8dc.png?width=500&height=500')
+        .setAuthor({ name: 'Nekotina', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setTitle('<a:tiempogif:931434689481285662> Recordatorio activado para: *`'+message.author.username+'`*')
         .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
         .setDescription('<a:flech:931432469935312937> Te recordaré dentro de `6 horas` volver a votar por tu `husbando`.')
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(message.guild.name, message.guild.iconURL({ dynamic: true }))
+        .setFooter({ text: message.guild.name, iconURL: message.guild.iconURL({ dynamic: true }) })
         message.channel.send({ embeds: [embed] })
 
         setTimeout(reminder, 21600000);
@@ -766,7 +766,7 @@ module.exports = async (client, Discord, message) => {
             message.reply({embeds: [
     
               new Discord.MessageEmbed()
-              .setAuthor(message.author.tag, message.author.displayAvatarURL())
+              .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
               .setThumbnail('http://3.bp.blogspot.com/-gU7DGjh_SSQ/VgMc-zPIeKI/AAAAAAAA2R8/ZjnSgT77tZw/s1600/hotel-27.gif')
               .setColor('RANDOM')
               .setDescription('<a:flech:931432469935312937> | Ya puedes volver a dar rep<a:exclama2:880930071731392512>')
@@ -776,13 +776,13 @@ module.exports = async (client, Discord, message) => {
         }
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor('Nekotina', 'https://images-ext-2.discordapp.net/external/vTbUglOfnbYgQ8gotBCEus02Q7Gn467NmguBx51ntu8/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/429457053791158281/01a5bf4c4e4d0521ccee216003abd8dc.png?width=500&height=500')
+        .setAuthor({ name: 'Nekotina', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setTitle('<a:tiempogif:931434689481285662> Recordatorio activado para: *`'+message.author.username+'`*')
         .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
         .setDescription('<a:flech:931432469935312937> Te recordaré dentro de `6 horas` usar el comando `rep`.')
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(message.guild.name, message.guild.iconURL({ dynamic: true }))
+        .setFooter({ text: message.guild.name, iconURL: message.guild.iconURL({ dynamic: true }) })
         message.channel.send({ embeds: [embed] })
 
         setTimeout(reminder, 21600000);
@@ -798,7 +798,7 @@ module.exports = async (client, Discord, message) => {
             message.reply({embeds: [
     
               new Discord.MessageEmbed()
-              .setAuthor(message.author.tag, message.author.displayAvatarURL())
+              .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
               .setThumbnail('http://olegif.com/bin/gifs/00/49/46.gif')
               .setColor('RANDOM')
               .setDescription('<a:flech:931432469935312937> | Es hora de farmear<a:exclama2:880930071731392512>')
@@ -808,13 +808,13 @@ module.exports = async (client, Discord, message) => {
         }
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor('Nekotina', 'https://images-ext-2.discordapp.net/external/vTbUglOfnbYgQ8gotBCEus02Q7Gn467NmguBx51ntu8/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/429457053791158281/01a5bf4c4e4d0521ccee216003abd8dc.png?width=500&height=500')
+        .setAuthor({ name: 'Nekotina', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setTitle('<a:tiempogif:931434689481285662> Recordatorio activado para: *`'+message.author.username+'`*')
         .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
         .setDescription('<a:flech:931432469935312937> Te recordaré dentro de `6 minutos` usar los comandos de farmeo: `mine` y `fish`.')
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(message.guild.name, message.guild.iconURL({ dynamic: true }))
+        .setFooter({ text: message.guild.name, iconURL: message.guild.iconURL({ dynamic: true }) })
         message.channel.send({ embeds: [embed] })
 
         setTimeout(reminder, 360000);
