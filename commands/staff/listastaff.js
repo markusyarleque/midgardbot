@@ -15,7 +15,7 @@ module.exports =  {
         if(!id.some(id => message.author.id == id)) {
       
             const embed = new Discord.MessageEmbed()
-            .setDescription('Solo los Gerentes puede usar este comando.')
+            .setDescription('Solo los Gerentes pueden usar este comando.')
             .setColor('RED')
             
             return message.reply({ embeds: [embed] })
