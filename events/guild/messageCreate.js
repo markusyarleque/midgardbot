@@ -503,7 +503,7 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'hmine'){
 
-        if(canal.some(id => message.channel.id === id)) return
+        if(!canal.some(id => message.channel.id === id)) return
 
         function reminder() {
     
@@ -535,7 +535,7 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'fish'){
 
-        if(canal.some(id => message.channel.id === id)) return
+        if(!canal.some(id => message.channel.id === id)) return
         
         function reminder() {
     
@@ -567,7 +567,7 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'hfish'){
 
-        if(canal.some(id => message.channel.id === id)) return
+        if(!canal.some(id => message.channel.id === id)) return
         
         function reminder() {
     
@@ -599,7 +599,7 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'pet'){
 
-        if(canal.some(id => message.channel.id === id)) return
+        if(!canal.some(id => message.channel.id === id)) return
         
         function reminder() {
     
@@ -631,7 +631,7 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'hpet'){
 
-        if(canal.some(id => message.channel.id === id)) return
+        if(!canal.some(id => message.channel.id === id)) return
         
         function reminder() {
     
@@ -663,7 +663,7 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'work'){
 
-        if(canal.some(id => message.channel.id === id)) return
+        if(!canal.some(id => message.channel.id === id)) return
         
         function reminder() {
     
@@ -695,7 +695,7 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'wf'){
 
-        if(canal.some(id => message.channel.id === id)) return
+        if(!canal.some(id => message.channel.id === id)) return
         
         function reminder() {
     
@@ -727,7 +727,7 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'hb'){
 
-        if(canal.some(id => message.channel.id === id)) return
+        if(!canal.some(id => message.channel.id === id)) return
         
         function reminder() {
     
@@ -759,7 +759,7 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'rep'){
 
-        if(canal.some(id => message.channel.id === id)) return
+        if(!canal.some(id => message.channel.id === id)) return
         
         function reminder() {
     
@@ -791,7 +791,7 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'farm'){
 
-        if(canal.some(id => message.channel.id === id)) return
+        if(!canal.some(id => message.channel.id === id)) return
         
         function reminder() {
     
