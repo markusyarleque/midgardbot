@@ -7,7 +7,7 @@ module.exports =  {
     description: '💻 Comando exclusivo de Staff',
 
     async execute(client, message, args, Discord) {
-        
+
         if(message.guild.id !== '777620055344545842') return
 
         let staffTurno = '888203969111916595'
@@ -17,7 +17,7 @@ module.exports =  {
         const embed_inicio = new Discord.MessageEmbed()
         .setThumbnail('https://images-ext-2.discordapp.net/external/uzG-lPjTdi7gFoYFRZXJcTZ5CiuJxPsE82N88qb0Hg8/https/i.gifer.com/8AMQ.gif?width=375&height=188')
         .setAuthor({ name: '𝐌𝐢𝐝𝐠𝐚𝐫𝐝 𝐒𝐭𝐚𝐟𝐟', iconURL: client.user.avatarURL({ dynamic: true}) })
-        .setTitle('𝗦𝘁𝗮𝗳𝗳 𝗱𝗲 𝗧𝘂𝗿𝗻𝗼 (14/20 DE MARZO) ✨')
+        .setTitle('𝗦𝘁𝗮𝗳𝗳 𝗱𝗲 𝗧𝘂𝗿𝗻𝗼 ✨')
         .setDescription('<a:BD_decoFlechaVerde:878509031675801640> Muchas gracias por ayudarnos a ser cada día mejor! Acabas de iniciar turno y has obtenido el rol <@&888203969111916595> Recuerda que tus mensajes solo serán contados en el canal <#870195067338506271>. Al finalizar, ejecuta de nuevo el comando `_turno` y automáticamente, el bot te dirá la cantidad de mensajes que has escrito, los puntos ganados que un <@&880241455849938995> te agregará, y los diamantes acumulados, que también serán añadidos en el canal de <#950717214137409596> Mucha Suerte!')
         .setColor('RANDOM')
         .setTimestamp(new Date())
@@ -140,7 +140,7 @@ module.exports =  {
                         new Discord.MessageEmbed()
                         .setThumbnail('https://images-ext-2.discordapp.net/external/uzG-lPjTdi7gFoYFRZXJcTZ5CiuJxPsE82N88qb0Hg8/https/i.gifer.com/8AMQ.gif?width=375&height=188')
                         .setAuthor({ name: '𝐌𝐢𝐝𝐠𝐚𝐫𝐝 𝐒𝐭𝐚𝐟𝐟', iconURL: client.user.avatarURL({ dynamic: true}) })
-                        .setTitle('𝗦𝘁𝗮𝗳𝗳 𝗱𝗲 𝗧𝘂𝗿𝗻𝗼 (14/20 DE MARZO) ✨')
+                        .setTitle('𝗦𝘁𝗮𝗳𝗳 𝗱𝗲 𝗧𝘂𝗿𝗻𝗼 ✨')
                         .setDescription('Muchas gracias por apoyarnos en este Turno!')
                         .addField('Mensajes Escritos: <:sh_text:953436282774781982>','<a:flech:915156906258071554> Total: ' + mensajes, false)
                         .addField('Puntos Obtenidos: <a:point:953436509426581564>','<a:flech:915156906258071554> Total: ' + puntos, false)
@@ -184,7 +184,7 @@ module.exports =  {
                         let best = client.users.cache.get(first[0])
 
                         embed.setAuthor({ name: '𝐌𝐢𝐝𝐠𝐚𝐫𝐝 𝐒𝐭𝐚𝐟𝐟', iconURL: client.user.avatarURL({ dynamic: true}) })
-                        embed.setTitle('𝗦𝘁𝗮𝗳𝗳 𝗱𝗲 𝗹𝗮 𝗦𝗲𝗺𝗮𝗻𝗮 (14/20 DE MARZO) ✨')
+                        embed.setTitle('𝗦𝘁𝗮𝗳𝗳 𝗱𝗲 𝗹𝗮 𝗦𝗲𝗺𝗮𝗻𝗮 ✨')
                         embed.setThumbnail(best.displayAvatarURL({dynamic: true, size: 2048}))
                         embed.setImage('https://images-ext-1.discordapp.net/external/qucP-6EqjGHVl7U6CLiJpM4epnV7Q9UJKiBHwqMesiA/https/c.tenor.com/739sj-Rs53YAAAAM/ekrut-coworker.gif?width=165&height=124')
                         embed.setDescription(datos.join('\n\n'))   	
