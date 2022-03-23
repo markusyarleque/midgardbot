@@ -133,7 +133,7 @@ module.exports = async (client) => {
       datos.push(ls.idserver)
                 
     }
-console.log('datos: '+datos)
+    
     for (let index = 0; index < datos.length; index++) {
       
       client.guilds.cache.forEach(s => {
@@ -148,29 +148,29 @@ console.log('datos: '+datos)
       
     }
      
-    console.log('server auto: '+serverauto)
     if(!serverauto) return
 
     try {
       
       consulta = await autonsfwSchema.findOne({ idserver: serverauto })
-      console.log('consulta: '+consulta)
+      
       if(!consulta) return
 
       var canalauto = consulta.idcanal
-
+console.log('canalauto: '+canalauto)
       if(!canalauto || !canalauto.nsfw) return
 
       var tiempo = consulta.intervalo
-
+      console.log('tiempo: '+tiempo)
       if(!tiempo) return
 
       var modo = consulta.modo
-
+      console.log('modo: '+modo)
       if(modo === false) return
      
       tiempo = tiempo * 60000
 
+      console.log('tiempo: '+tiempo)
       try {
 
         setInterval(async () => {
