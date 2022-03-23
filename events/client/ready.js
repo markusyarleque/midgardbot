@@ -162,20 +162,18 @@ module.exports = async (client) => {
 
       var canalverificadonsfw = client.channels.cache.get(canalauto)
 
-      console.log('canalverificado: '+canalverificadonsfw)
       if(!canalverificadonsfw.nsfw) return
 
       var tiempo = consulta.intervalo
-      console.log('tiempo: '+tiempo)
+      
       if(!tiempo) return
 
       var modo = consulta.modo
-      console.log('modo: '+modo)
+      
       if(modo === false) return
      
       tiempo = tiempo * 60000
 
-      console.log('tiempo: '+tiempo)
       try {
 
         setInterval(async () => {
@@ -185,14 +183,14 @@ module.exports = async (client) => {
           const image = await nsfw3.pgif();
                 
           const embed = new Discord.MessageEmbed()
-          .setAuthor({ name: `🔞 | Midgard's Hot VIP 🔥`, iconURL:serverauto.iconURL() ? serverauto.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+          .setAuthor({ name: `🔞 | Midgard's Hot VIP 🔥`, iconURL: client.user.avatarURL({ dynamic: true }) })
           .setDescription('AutoNSFW... Disfrútalo')
           .setImage(image ? image : null)
           .setColor('RANDOM')
           .setTimestamp(new Date())
-          .setFooter({ text: `${canalauto}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+          .setFooter({ text: `${canalverificadonsfw}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
         
-          canalauto.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar autonsfw: '+e))
+          canalverificadonsfw.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar autonsfw: '+e))
           
           console.log('========================= CANAL AUTONSFW =========================');
      
