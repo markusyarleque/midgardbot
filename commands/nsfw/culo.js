@@ -90,7 +90,7 @@ module.exports =  {
           
             } else {
       
-                desc = `Omg!!! **${img.user.username}** mira ese perro culazo que tiene **${message.author.username}** <a:pandanoveo:880306441926352916> `
+                desc = `Omg!!! **${message.author.username}** mira ese perro culazo que tiene **${img.user.username}** <a:pandanoveo:880306441926352916> `
   
             }
   

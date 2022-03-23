@@ -1,7 +1,7 @@
 module.exports =  {
     
     name: 'pussy',
-    aliases: ['vagina','coño'],
+    aliases: ['vagina','coño','panocha'],
     description: '🔞 Comandos NSFW.',
     
     async execute(client, message, args, Discord) { 
@@ -73,7 +73,7 @@ module.exports =  {
           
             } else {
       
-                desc = `Hey **${img.user.username}**, mira esa papaya que **${message.author.username}** te está mostrando <a:pandanoveo:880306441926352916> `
+                desc = `**${message.author.username}** le está viendo la panocha a **${img.user.username}** <a:pandanoveo:880306441926352916> `
   
             }
   

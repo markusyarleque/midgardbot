@@ -6,9 +6,9 @@ module.exports =  {
     name: 'anal',
     aliases: [],
     description: '🔞 Comandos NSFW.',
-    
+
     async execute(client, message, args, Discord) { 
-  
+
         if(!message.channel.nsfw){
           
             return message.reply({embeds: [
@@ -27,7 +27,7 @@ module.exports =  {
             let desc 
             const image = await nsfw3.anal();
     
-            if (!img || img.id===message.author.id || img.user.bot) {
+            if (!img || img.id === message.author.id || img.user.bot) {
       
                 desc = `A **${message.author.username}** le están dando por detroit <:aisaMexicana:925926704097161216>`
           
@@ -40,7 +40,7 @@ module.exports =  {
             const embed = new Discord.MessageEmbed()
             .setAuthor({ name: `🔞 | Midgard's Hot 🔥`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setDescription(desc)
-            .setImage(image)
+            .setImage(image ? image : null)
             .setColor('RANDOM')
             .setTimestamp(new Date())
             .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })

@@ -75,7 +75,7 @@ module.exports =  {
         
       } else {
     
-        desc = `Hey **${img.user.username}**, mira estos melones que **${message.author.username}** te trajo <a:pandanoveo:880306441926352916> `
+        desc = `**${message.author.username}**, mira los melones que tiene **${img.user.username}** <a:pandanoveo:880306441926352916> `
 
       }
 

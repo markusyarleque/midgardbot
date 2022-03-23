@@ -32,12 +32,7 @@ module.exports =  {
             'https://media.discordapp.net/attachments/853500788848853002/874205759779528724/22.gif',
             'https://media.discordapp.net/attachments/853500788848853002/874205771531956294/23.gif',
             'https://media.discordapp.net/attachments/853500788848853002/874205782235820052/24.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/874205794046980156/25.gif'
-        
-        ]
-        
-        var cum2 = [
-
+            'https://media.discordapp.net/attachments/853500788848853002/874205794046980156/25.gif',
             'https://media.discordapp.net/attachments/853500788848853002/874213050733985853/26.gif',
             'https://media.discordapp.net/attachments/853500788848853002/874213056232710144/27.gif',
             'https://media.discordapp.net/attachments/853500788848853002/874213060783509504/28.gif',
@@ -91,19 +86,17 @@ module.exports =  {
         } else {
       
             let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
-            let ramdoncum
+            let ramdoncum = cum[Math.floor(Math.random()*cum.length)]
             let desc 
     
             if (!img || img.id===message.author.id || img.user.bot) {
       
                 desc = `**${message.author.username}** acaba de vaciarse <:aisaMexicana:925926704097161216>`
-                ramdoncum = cum[Math.floor(Math.random()*cum.length)]
-          
+                
             } else {
       
-                desc = `**${message.author.username}** se vino dentro de **${img.user.username}**.`
-                ramdoncum = cum2[Math.floor(Math.random()*cum2.length)]
-
+                desc = `**${message.author.username}** se vino en **${img.user.username}**.`
+        
             }
   
             const embed = new Discord.MessageEmbed()

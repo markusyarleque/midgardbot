@@ -100,7 +100,7 @@ module.exports =  {
     
             if (!img || img.id===message.author.id || img.user.bot) {
       
-                desc = `A **${message.author.username}** le gusta que lo pongan de perrito <a:sabroso:880695816497541180>`
+                desc = `A **${message.author.username}** le gusta poner de perrito <a:sabroso:880695816497541180>`
           
             } else {
       
