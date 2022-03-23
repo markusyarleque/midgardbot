@@ -19,7 +19,7 @@ module.exports = async (client) => {
 
   console.log('Listo!');
 
-  let autosend, consulta
+  let autosend, consulta, serverauto
  
   let rolVIP = '951688457258942494'
 
@@ -123,11 +123,31 @@ module.exports = async (client) => {
   try {
 
     autosend = await autonsfwSchema.find()
-    console.log(autosend)
-    console.log(autosend.idserver)
+
     if(!autosend) return
    
-    var serverauto = client.guilds.cache.find(s => s.id === autosend.idserver) 
+    let datos = []
+    
+    for(let ls of autosend){
+
+      datos.push(ls.idserver)
+                
+    }
+console.log('datos: '+datos)
+    for (let index = 0; index < datos.length; index++) {
+      
+      client.guilds.cache.forEach(s => {
+
+        if(s.id === datos[index]){
+
+          serverauto = s.id
+
+        }
+
+      })
+      
+    }
+     
     console.log('server auto: '+serverauto)
     if(!serverauto) return
 
