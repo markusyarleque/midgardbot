@@ -124,7 +124,7 @@ module.exports = async (client) => {
 
     autosend = await autonsfwSchema.find()
     console.log(autosend)
-    
+    console.log(autosend.idserver)
     if(!autosend) return
    
     var serverauto = client.guilds.cache.find(s => s.id === autosend.idserver) 
