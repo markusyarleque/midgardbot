@@ -102,8 +102,6 @@ module.exports = async (client) => {
     
     let rolrainbow = setInterval(async () => {
 
-      console.log('========================= ROL RAINBOW =========================');
-  
       let color = colores[Math.floor(Math.random()*colores.length)]
 
       await rol.edit({
