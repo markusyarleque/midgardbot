@@ -115,7 +115,7 @@ module.exports =  {
             const e = new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
             .setColor('GREEN')
-            .setDescription('<a:Verify1:931463354357276742> | Has agregado 💎' + diamantes + ' al staff <@'+user1.id+'>')
+            .setDescription('<a:Verify1:931463354357276742> | Has agregado ' + diamantes + ' <a:diamante:887714567084449892> al staff <@'+user1.id+'>')
             .setTimestamp()
         
             message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))

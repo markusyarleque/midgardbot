@@ -20,9 +20,7 @@ module.exports = async (client) => {
   console.log('Listo!');
 
   let autosend, consulta
-
-  console.log('========================= ROL RAINBOW =========================');
-   
+ 
   let rolVIP = '951688457258942494'
 
   var colores = [
@@ -102,6 +100,8 @@ module.exports = async (client) => {
     
     let rolrainbow = setInterval(async () => {
 
+      console.log('========================= ROL RAINBOW =========================');
+  
       let color = colores[Math.floor(Math.random()*colores.length)]
 
       await rol.edit({
@@ -114,29 +114,26 @@ module.exports = async (client) => {
       
       //c === 200 ? clearInterval(rolrainbow) : c = c + 1
 
+      console.log('========================= ROL RAINBOW =========================');
+  
     }, 600000)
       
   }
-
-  console.log('========================= ROL RAINBOW =========================');
-    
-
-  console.log('========================= CANAL AUTONSFW =========================');
-      
+   
   try {
 
     autosend = await autonsfwSchema.find()
-    
+    console.log(autosend)
     if(!autosend) return
    
     var serverauto = client.guilds.cache.find(s => s.id === autosend.idserver) 
-
+    console.log('server auto: '+serverauto)
     if(!serverauto) return
 
     try {
       
       consulta = await autonsfwSchema.findOne({ idserver: serverauto })
-      
+      console.log('consulta: '+consulta)
       if(!consulta) return
 
       var canalauto = consulta.idcanal
@@ -156,7 +153,9 @@ module.exports = async (client) => {
       try {
 
         setInterval(async () => {
-
+          
+          console.log('========================= CANAL AUTONSFW =========================');
+     
           const image = await nsfw3.pgif();
                 
           const embed = new Discord.MessageEmbed()
@@ -168,7 +167,9 @@ module.exports = async (client) => {
           .setFooter({ text: `${canalauto}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
         
           canalauto.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar autonsfw: '+e))
-
+          
+          console.log('========================= CANAL AUTONSFW =========================');
+     
         }, tiempo)
     
       } catch (error) {
