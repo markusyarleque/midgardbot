@@ -155,6 +155,10 @@ module.exports =  {
                     .setTimestamp()
 
                 ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+
+                client.destroy();
+
+                await client.login(process.env.TOKEN);
                 
             } catch (error) {
     

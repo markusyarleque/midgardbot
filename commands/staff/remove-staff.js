@@ -75,7 +75,7 @@ module.exports =  {
             
         }
 
-        if(args[1]) return message.reply({embeds: [
+        if(!args[1]) return message.reply({embeds: [
             
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
