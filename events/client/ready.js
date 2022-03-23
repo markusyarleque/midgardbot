@@ -19,6 +19,8 @@ module.exports = async (client) => {
 
   console.log('Listo!');
 
+  // * CÓDIGO DE ROL RAINBOW
+
   let autosend, consulta, serverauto
  
   let rolVIP = '951688457258942494'
@@ -119,99 +121,101 @@ module.exports = async (client) => {
     }, 600000)
       
   }
-   
-  try {
+  
+  // * CÓDIGO DE AUTONSFW
 
-    autosend = await autonsfwSchema.find()
+  // try {
 
-    let datos = []
+  //   autosend = await autonsfwSchema.find()
+
+  //   let datos = []
     
-    for(let ls of autosend){
+  //   for(let ls of autosend){
 
-      datos.push(ls.idserver)
+  //     datos.push(ls.idserver)
                 
-    }
+  //   }
     
-    if(!autosend || datos.length === 0) return
+  //   if(!autosend || datos.length === 0) return
    
-    for (let index = 0; index < datos.length; index++) {
+  //   for (let index = 0; index < datos.length; index++) {
       
-      client.guilds.cache.forEach(s => {
+  //     client.guilds.cache.forEach(s => {
 
-        if(s.id === datos[index]){
+  //       if(s.id === datos[index]){
 
-          serverauto = s.id
+  //         serverauto = s.id
 
-        }
+  //       }
 
-      })
+  //     })
       
-    }
+  //   }
      
-    if(!serverauto) return
+  //   if(!serverauto) return
 
-    var sbanneer = client.guilds.cache.find(s => s.id === serverauto)
+  //   var sbanneer = client.guilds.cache.find(s => s.id === serverauto)
 
-    try {
+  //   try {
       
-      consulta = await autonsfwSchema.findOne({ idserver: serverauto })
+  //     consulta = await autonsfwSchema.findOne({ idserver: serverauto })
       
-      if(!consulta) return
+  //     if(!consulta) return
 
-      var canalauto = consulta.idcanal
+  //     var canalauto = consulta.idcanal
       
-      if(!canalauto) return
+  //     if(!canalauto) return
 
-      var canalverificadonsfw = client.channels.cache.get(canalauto)
+  //     var canalverificadonsfw = client.channels.cache.get(canalauto)
 
-      if(!canalverificadonsfw.nsfw) return
+  //     if(!canalverificadonsfw.nsfw) return
 
-      var tiempo = consulta.intervalo
+  //     var tiempo = consulta.intervalo
       
-      if(!tiempo) return
+  //     if(!tiempo) return
 
-      var modo = consulta.modo
+  //     var modo = consulta.modo
       
-      if(modo === false) return
+  //     if(modo === false) return
      
-      tiempo = tiempo * 60000
+  //     tiempo = tiempo * 60000
 
-      try {
+  //     try {
 
-        setInterval(async () => {
+  //       setInterval(async () => {
           
-          const image = await nsfw3.pgif();
+  //         const image = await nsfw3.pgif();
                 
-          const embed = new Discord.MessageEmbed()
-          .setAuthor({ name: `🔞 | Midgard's Hot VIP 🔥`, iconURL: client.user.avatarURL({ dynamic: true }) })
-          .setDescription('***AutoNSFW... Disfrútalo***')
-          .setImage(image ? image : null)
-          .setColor('RANDOM')
-          .setTimestamp(new Date())
-          .setFooter({ text: `${sbanneer.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+  //         const embed = new Discord.MessageEmbed()
+  //         .setAuthor({ name: `🔞 | Midgard's Hot VIP 🔥`, iconURL: client.user.avatarURL({ dynamic: true }) })
+  //         .setDescription('***AutoNSFW... Disfrútalo***')
+  //         .setImage(image ? image : null)
+  //         .setColor('RANDOM')
+  //         .setTimestamp(new Date())
+  //         .setFooter({ text: `${sbanneer.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
         
-          canalverificadonsfw.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar autonsfw: '+e))
+  //         canalverificadonsfw.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar autonsfw: '+e))
           
-          console.log('========================= CANAL AUTONSFW =========================');
+  //         console.log('========================= CANAL AUTONSFW =========================');
      
-        }, tiempo)
+  //       }, tiempo)
     
-      } catch (error) {
+  //     } catch (error) {
 
-        console.log('Ocurrió un error al enviar autonsfw - ' + error)
+  //       console.log('Ocurrió un error al enviar autonsfw - ' + error)
 
-      }
+  //     }
 
-    } catch (error) {
+  //   } catch (error) {
 
-      console.log('Ocurrió un error al consultar autonsfw - ' + error)
+  //     console.log('Ocurrió un error al consultar autonsfw - ' + error)
 
-    }
+  //   }
 
-  } catch (error) {
+  // } catch (error) {
 
-    console.log('Error al obtener toda la tabla autonsfw: '+ error)
+  //   console.log('Error al obtener toda la tabla autonsfw: '+ error)
 
-  }
+  // }
 
 }
