@@ -150,6 +150,8 @@ module.exports = async (client) => {
      
     if(!serverauto) return
 
+    var sbanneer = client.guilds.cache.find(s => s.id === serverauto)
+
     try {
       
       consulta = await autonsfwSchema.findOne({ idserver: serverauto })
@@ -178,17 +180,15 @@ module.exports = async (client) => {
 
         setInterval(async () => {
           
-          console.log('========================= CANAL AUTONSFW =========================');
-     
           const image = await nsfw3.pgif();
                 
           const embed = new Discord.MessageEmbed()
           .setAuthor({ name: `🔞 | Midgard's Hot VIP 🔥`, iconURL: client.user.avatarURL({ dynamic: true }) })
-          .setDescription('AutoNSFW... Disfrútalo')
+          .setDescription('***AutoNSFW... Disfrútalo***')
           .setImage(image ? image : null)
           .setColor('RANDOM')
           .setTimestamp(new Date())
-          .setFooter({ text: `${canalverificadonsfw}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+          .setFooter({ text: `${sbanneer.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
         
           canalverificadonsfw.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar autonsfw: '+e))
           
@@ -213,7 +213,5 @@ module.exports = async (client) => {
     console.log('Error al obtener toda la tabla autonsfw: '+ error)
 
   }
-
-  console.log('========================= CANAL AUTONSFW =========================');
 
 }
