@@ -124,8 +124,6 @@ module.exports = async (client) => {
 
     autosend = await autonsfwSchema.find()
 
-    if(!autosend) return
-   
     let datos = []
     
     for(let ls of autosend){
@@ -134,6 +132,8 @@ module.exports = async (client) => {
                 
     }
     
+    if(!autosend || datos.length === 0) return
+   
     for (let index = 0; index < datos.length; index++) {
       
       client.guilds.cache.forEach(s => {
@@ -157,8 +157,13 @@ module.exports = async (client) => {
       if(!consulta) return
 
       var canalauto = consulta.idcanal
-console.log('canalauto: '+canalauto)
-      if(!canalauto || !canalauto.nsfw) return
+      
+      if(!canalauto) return
+
+      var canalverificadonsfw = client.channels.cache.get(canalauto)
+
+      console.log('canalverificado: '+canalverificadonsfw)
+      if(!canalverificadonsfw.nsfw) return
 
       var tiempo = consulta.intervalo
       console.log('tiempo: '+tiempo)
