@@ -16,7 +16,6 @@ module.exports =  {
         let id = ['753435606410985573','683501310527668228','743960732542042203']
 
         let autosend
-        let c = 0
 
         if(!id.some(id => message.author.id == id)) {
       
@@ -108,8 +107,9 @@ module.exports =  {
 
                 try {
 
-                    while (c < 500) {
-
+                    
+                    for (let index = 0; index < 500; index++) {
+                        
                         autosend = setInterval(async () => {
 
                             const image = await nsfw3.pgif();
@@ -125,11 +125,9 @@ module.exports =  {
                             canalnsfw.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar autonsfw: '+e))
         
                         }, tiempo)
-
-                        c = c + 1
-
+                            
                     }
-
+                        
                 } catch (error) {
 
                     console.log('Ocurrió un error al activar el autonsfw - ' + error)
