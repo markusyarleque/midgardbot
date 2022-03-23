@@ -1,4 +1,7 @@
-const { Permissions } = require('discord.js');
+const Discord = require('discord.js');
+const autonsfwSchema = require('../../models/autonsfwSchema');
+const NSFW = require('discord-nsfw');
+const nsfw3 = new NSFW();
 
 module.exports = async (client) => {
   
@@ -12,8 +15,14 @@ module.exports = async (client) => {
         
       }],
     }
-  );
+  );  
 
+  console.log('Listo!');
+
+  let autosend, consulta
+
+  console.log('========================= ROL RAINBOW =========================');
+   
   let rolVIP = '951688457258942494'
 
   var colores = [
@@ -108,7 +117,78 @@ module.exports = async (client) => {
     }, 600000)
       
   }
+
+  console.log('========================= ROL RAINBOW =========================');
     
-  console.log('Listo!');
+
+  console.log('========================= CANAL AUTONSFW =========================');
+      
+  try {
+
+    autosend = await autonsfwSchema.find()
+    
+    if(!autosend) return
    
+    var serverauto = client.guilds.cache.find(s => s.id === autosend.idserver) 
+
+    if(!serverauto) return
+
+    try {
+      
+      consulta = await autonsfwSchema.findOne({ idserver: serverauto })
+      
+      if(!consulta) return
+
+      var canalauto = consulta.idcanal
+
+      if(!canalauto || !canalauto.nsfw) return
+
+      var tiempo = consulta.intervalo
+
+      if(!tiempo) return
+
+      var modo = consulta.modo
+
+      if(modo === false) return
+     
+      tiempo = tiempo * 60000
+
+      try {
+
+        setInterval(async () => {
+
+          const image = await nsfw3.pgif();
+                
+          const embed = new Discord.MessageEmbed()
+          .setAuthor({ name: `🔞 | Midgard's Hot VIP 🔥`, iconURL:serverauto.iconURL() ? serverauto.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+          .setDescription('AutoNSFW... Disfrútalo')
+          .setImage(image ? image : null)
+          .setColor('RANDOM')
+          .setTimestamp(new Date())
+          .setFooter({ text: `${canalauto}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+        
+          canalauto.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar autonsfw: '+e))
+
+        }, tiempo)
+    
+      } catch (error) {
+
+        console.log('Ocurrió un error al enviar autonsfw - ' + error)
+
+      }
+
+    } catch (error) {
+
+      console.log('Ocurrió un error al consultar autonsfw - ' + error)
+
+    }
+
+  } catch (error) {
+
+    console.log('Error al obtener toda la tabla autonsfw: '+ error)
+
+  }
+
+  console.log('========================= CANAL AUTONSFW =========================');
+
 }

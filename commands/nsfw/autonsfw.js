@@ -2,6 +2,7 @@ const NSFW = require('discord-nsfw');
 const nsfw3 = new NSFW();
 const { Permissions } = require('discord.js');
 const prefix = process.env.PREFIX;
+const autonsfwSchema = require('../../models/autonsfwSchema');
 
 module.exports =  {
     
@@ -79,85 +80,166 @@ module.exports =  {
         
             ]}).catch((e) => console.log('Error al enviar mensaje: '+e)) 
     
-            if(!canalnsfw.nsfw){
-          
-                return message.reply({embeds: [
-      
-                    new Discord.MessageEmbed()
-                    .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
-                    .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936524707677741086/prohibido.gif?width=318&height=149')
-                    .setColor('RED')
-                    .setDescription(`<a:prohibido:936527618466009109> | ¡Oh rayos, el canal elegido no es NSFW <:ojooo:925928526119571457>`)
-      
-                ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+            try {
+
+                autosend = await autonsfwSchema.findOne({ idserver: message.guild.id })
             
-            } else {
-                
+                if(!autosend){
+    
+                    console.log('========================= REGISTRO DE CANAL AUTONSFW =========================');
+                            
+                    let nsfw = await autonsfwSchema.create({
+    
+                        idserver: message.guild.id,
+                        idcanal: canalnsfw.id,
+                        intervalo: tiempo,
+                        modo: true,
+    
+                    })
+    
+                    nsfw.save();
+                    console.log('Canal AutoNsfw Registrado ===> Server: '+ message.guild.name + ' Canal: ' + canalnsfw + ' Intervalo: ' + tiempo)
+                    
+                    console.log('========================= REGISTRO DE CANAL AUTONSFW =========================');
+                            
+                } else {
+
+                    if(!autosend.idcanal || autosend.idcanal === null){
+
+                        try {
+                            
+                            console.log('========================= ACTUALIZACIÓN DE CANAL AUTONSFW =========================');
+                        
+                            let update = await autonsfwSchema.findOneAndUpdate({idserver: message.guild.id},
+                            {
+
+                                idcanal: canalnsfw.id,
+                                intervalo: tiempo,
+                                modo: true,
+
+                            })
+
+                            update.save()
+                            console.log('Canal AutoNsfw Actualizado ===> Server: '+ message.guild.name + ' Canal: ' + canalnsfw + ' Intervalo: ' + tiempo)
+                    
+                            console.log('========================= ACTUALIZACIÓN DE CANAL AUTONSFW =========================');
+                 
+                        } catch (error) {
+                            
+                            console.log('Error al actualizar canal autonsfw '+error)
+                           
+                        }
+
+                    } else if (autosend.idcanal){
+
+                        return message.reply({ embeds: [
+                    
+                            new Discord.MessageEmbed()
+                            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
+                            .setColor('RED')
+                            .setDescription('<a:Verify2:931463492677017650> | Este servidor ya cuenta con un canal AutoNsfw : <#' + autosend.idcanal + '>.')
+                            .setTimestamp()
+            
+                        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+
+                    }
+
+                }
+
                 message.reply({ allowedMentions: { repliedUser: false}, embeds: [
                     
                     new Discord.MessageEmbed()
                     .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
                     .setColor('GREEN')
-                    .setDescription('***AutoNSFW*** activado en un intervalo de **'+tiempo+' minutos** y en el canal de <#' + canalnsfw.id + '>.')
+                    .setDescription('***AutoNSFW*** activado en un intervalo de **'+tiempo+' minuto'+(tiempo === 1 ? '' : 's')+'** y en el canal de <#' + canalnsfw.id + '>.')
                     .setTimestamp()
 
                 ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
                 
-                tiempo = tiempo * 60000
-
-                try {
-
-                    
-                    for (let index = 0; index < 500; index++) {
-                        
-                        autosend = setInterval(async () => {
-
-                            const image = await nsfw3.pgif();
-                            
-                            const embed = new Discord.MessageEmbed()
-                            .setAuthor({ name: `🔞 | Midgard's Hot VIP 🔥`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
-                            .setDescription('AutoNSFW... Disfrútalo')
-                            .setImage(image ? image : null)
-                            .setColor('RANDOM')
-                            .setTimestamp(new Date())
-                            .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
-                    
-                            canalnsfw.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar autonsfw: '+e))
-        
-                        }, tiempo)
-                            
-                    }
-                        
-                } catch (error) {
-
-                    console.log('Ocurrió un error al activar el autonsfw - ' + error)
-
-                }
+            } catch (error) {
+    
+                console.log('Error al registrar canal autonsfw: '+error)
                 
             }
 
         } else if(args[0].toLowerCase() === 'off'){
 
             try {
+
+                autosend = await autonsfwSchema.findOne({ idserver: message.guild.id })
             
-                clearInterval(autosend)
+                if(!autosend){
 
-            } catch (error) {
+                    return message.reply({ embeds: [
+                    
+                        new Discord.MessageEmbed()
+                        .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
+                        .setColor('RED')
+                        .setDescription('<a:Verify2:931463492677017650> | Este servidor no cuenta con un canal AutoNsfw.')
+                        .setTimestamp()
+        
+                    ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+
+                          
+                } else {
+
+                    if(!autosend.idcanal){
+
+                        return message.reply({ embeds: [
+                    
+                            new Discord.MessageEmbed()
+                            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
+                            .setColor('RED')
+                            .setDescription('<a:Verify2:931463492677017650> | Este servidor no cuenta con un canal AutoNsfw.')
+                            .setTimestamp()
+            
+                        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+
+
+                    } else if (autosend.idcanal){
+
+                        try {
+                            
+                            console.log('========================= ACTUALIZACIÓN DE CANAL AUTONSFW =========================');
+                        
+                            let update = await autonsfwSchema.findOneAndUpdate({idserver: message.guild.id},
+                            {
+
+                                idcanal: null,
+                                modo: false,
+
+                            })
+
+                            update.save()
+                            console.log('Canal AutoNsfw desactivado ===> Server: '+ message.guild.name)
+                    
+                            console.log('========================= ACTUALIZACIÓN DE CANAL AUTONSFW =========================');
+                 
+                        } catch (error) {
+                            
+                            console.log('Error al desactivar canal autonsfw '+error)
+                           
+                        }
+                    }
+
+                }
+
+                message.reply({ allowedMentions: { repliedUser: false}, embeds: [
+                    
+                    new Discord.MessageEmbed()
+                    .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
+                    .setColor('GREEN')
+                    .setDescription('***AutoNSFW*** desactivado en el canal de <#' + canalnsfw.id + '>.')
+                    .setTimestamp()
+    
+                ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
                 
-                console.log('Ocurrió un error al desactivar el autonsfw - ' + error)
-
+            } catch (error) {
+    
+                console.log('Error al registrar canal autonsfw: '+error)
+                
             }
 
-            message.reply({ allowedMentions: { repliedUser: false}, embeds: [
-                    
-                new Discord.MessageEmbed()
-                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
-                .setColor('GREEN')
-                .setDescription('***AutoNSFW*** desactivado en el canal de <#' + canalnsfw.id + '>.')
-                .setTimestamp()
-
-            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
-            
         } else{
 
             return message.reply({ embeds: [
