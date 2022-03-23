@@ -33,7 +33,7 @@ module.exports =  {
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
-            .setDescription(`<a:Verify2:931463492677017650> | Uso incorrecto del comando\n\n▫ Para activar: ${prefix}autonsfw <on> <intervalo en m> <#canal/id>\n▫ Para desactivar: ${prefix}autonsfw <off>`)
+            .setDescription(`<a:Verify2:931463492677017650> | Uso incorrecto del comando\n\n▫ Para activar: **${prefix}autonsfw <on> <intervalo en m> <#canal/id>**\n▫ Para desactivar: **${prefix}autonsfw <off>**`)
     
         ]}).catch((e) => console.log('Error al enviar mensaje: '+e)) 
 
@@ -44,7 +44,7 @@ module.exports =  {
                 new Discord.MessageEmbed()
                 .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
                 .setColor('RED')
-                .setDescription(`<a:Verify2:931463492677017650> | Uso incorrecto del comando\n\n▫ Para activar: ${prefix}autonsfw <on> <intervalo en m> <#canal/id>\n▫ Para desactivar: ${prefix}autonsfw <off>`)
+                .setDescription(`<a:Verify2:931463492677017650> | Uso incorrecto del comando\n\n▫ Para activar: **${prefix}autonsfw <on> <intervalo en m> <#canal/id>**\n▫ Para desactivar: **${prefix}autonsfw <off>**`)
         
             ]}).catch((e) => console.log('Error al enviar mensaje: '+e)) 
     
@@ -53,7 +53,7 @@ module.exports =  {
                 new Discord.MessageEmbed()
                 .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
                 .setColor('RED')
-                .setDescription(`<a:Verify2:931463492677017650> | Uso incorrecto del comando\n\n▫ Para activar: ${prefix}autonsfw <on> <intervalo en m> <#canal/id>\n▫ Para desactivar: ${prefix}autonsfw <off>`)
+                .setDescription(`<a:Verify2:931463492677017650> | Uso incorrecto del comando\n\n▫ Para activar: **${prefix}autonsfw <on> <intervalo en m> <#canal/id>**\n▫ Para desactivar: **${prefix}autonsfw <off>**`)
         
             ]}).catch((e) => console.log('Error al enviar mensaje: '+e)) 
 
@@ -75,7 +75,7 @@ module.exports =  {
                 new Discord.MessageEmbed()
                 .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
                 .setColor('RED')
-                .setDescription(`<a:Verify2:931463492677017650> | Uso incorrecto del comando\n\n▫ Para activar: ${prefix}autonsfw <on> <intervalo en m> <#canal/id>\n▫ Para desactivar: ${prefix}autonsfw <off>`)
+                .setDescription(`<a:Verify2:931463492677017650> | Uso incorrecto del comando\n\n▫ Para activar: **${prefix}autonsfw <on> <intervalo en m> <#canal/id>**\n▫ Para desactivar: **${prefix}autonsfw <off>**`)
         
             ]}).catch((e) => console.log('Error al enviar mensaje: '+e)) 
     
@@ -98,7 +98,7 @@ module.exports =  {
                     new Discord.MessageEmbed()
                     .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
                     .setColor('GREEN')
-                    .setDescription('AutoNSFW activado en un intervalo de **'+tiempo+' minutos** y en el canal de <#' + canalnsfw.id + '>.')
+                    .setDescription('***AutoNSFW*** activado en un intervalo de **'+tiempo+' minutos** y en el canal de <#' + canalnsfw.id + '>.')
                     .setTimestamp()
 
                 ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
@@ -107,26 +107,30 @@ module.exports =  {
 
                 try {
 
-                    autosend = setInterval(async () => {
-
-                        const image = await nsfw3.pgif();
+                    while (1) {
                         
-                        const embed = new Discord.MessageEmbed()
-                        .setAuthor({ name: `🔞 | Midgard's Hot VIP 🔥`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
-                        .setDescription('AutoNSFW... Disfrútalo')
-                        .setImage(image ? image : null)
-                        .setColor('RANDOM')
-                        .setTimestamp(new Date())
-                        .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
-                
-                        canalnsfw.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar autonsfw: '+e))
-    
-                    }, tiempo)
+                        autosend = setInterval(async () => {
+
+                            const image = await nsfw3.pgif();
+                            
+                            const embed = new Discord.MessageEmbed()
+                            .setAuthor({ name: `🔞 | Midgard's Hot VIP 🔥`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+                            .setDescription('AutoNSFW... Disfrútalo')
+                            .setImage(image ? image : null)
+                            .setColor('RANDOM')
+                            .setTimestamp(new Date())
+                            .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+                    
+                            canalnsfw.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar autonsfw: '+e))
+        
+                        }, tiempo)
+
+                    }
 
                 } catch (error) {
 
                     console.log('Ocurrió un error al activar el autonsfw - ' + error)
-                    
+
                 }
                 
             }
@@ -148,7 +152,7 @@ module.exports =  {
                 new Discord.MessageEmbed()
                 .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
                 .setColor('GREEN')
-                .setDescription('AutoNSFW desactivado en el canal de <#' + canalnsfw.id + '>.')
+                .setDescription('***AutoNSFW*** desactivado en el canal de <#' + canalnsfw.id + '>.')
                 .setTimestamp()
 
             ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
@@ -160,7 +164,7 @@ module.exports =  {
                 new Discord.MessageEmbed()
                 .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
                 .setColor('RED')
-                .setDescription(`<a:Verify2:931463492677017650> | Uso incorrecto del comando\nDebe ser: ${prefix}autonsfw <on/off> <intervalo en m> <#canal/id>`)
+                .setDescription(`<a:Verify2:931463492677017650> | Uso incorrecto del comando\n\n▫ Para activar: **${prefix}autonsfw <on> <intervalo en m> <#canal/id>**\n▫ Para desactivar: **${prefix}autonsfw <off>**`)
         
             ]}).catch((e) => console.log('Error al enviar mensaje: '+e)) 
 
