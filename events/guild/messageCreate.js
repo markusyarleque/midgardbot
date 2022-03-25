@@ -182,41 +182,49 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content === 'Hola' || message.content === 'hola' || message.content === 'Holas' || message.content === 'holas'){
           
+        if(message.guild.id !== '777620055344545842') return
         message.channel.send('Hola '+message.author.username+', cómo va tu día?').catch((e) => console.log('Error al enviar mensaje: '+e))
   
     }
     if (message.content === 'ola' || message.content === 'Ola' || message.content === 'olas' || message.content === 'Olas'){
   
+        if(message.guild.id !== '777620055344545842') return
         message.channel.send('del mar 🌊').catch((e) => console.log('Error al enviar mensaje: '+e))
   
     }
     if (message.content === 'Buen día' || message.content === 'buen día' || message.content === 'Buen dia' || message.content === 'buen dia'){
           
+        if(message.guild.id !== '777620055344545842') return
         message.channel.send('Buen día precios@ ❤').catch((e) => console.log('Error al enviar mensaje: '+e))
           
     }
     if (message.content === 'Buenos días' || message.content === 'buenos días' || message.content === 'Buenos dias' || message.content === 'buenos dias'){
           
+        if(message.guild.id !== '777620055344545842') return
         message.channel.send('Buenos días precios@ ❤').catch((e) => console.log('Error al enviar mensaje: '+e))
       
     }
     if (message.content === 'Buenas tardes' || message.content === 'buenas tardes'){
           
+        if(message.guild.id !== '777620055344545842') return
         message.channel.send('Buenas tardes precios@ ❤').catch((e) => console.log('Error al enviar mensaje: '+e))
           
     }
     if (message.content === 'Buenas noches' || message.content === 'buenas noches'){
-          
+         
+        if(message.guild.id !== '777620055344545842') return
         message.channel.send('Buenas noches precios@ ❤').catch((e) => console.log('Error al enviar mensaje: '+e))
           
     }
     if (message.content === 'Buenas' || message.content === 'Wenas' || message.content === 'buenas' || message.content === 'wenas'){
-            
+        
+        if(message.guild.id !== '777620055344545842') return
         message.channel.send('Las tienes <a:perreom:930719549131735040>').catch((e) => console.log('Error al enviar mensaje: '+e))
   
     }
     if (message.content === 'wlc' || message.content === 'Wlc' || message.content === 'welcome' || message.content === 'Welcome'){
           
+        if(message.guild.id !== '777620055344545842') return
         message.react(`<a:pasito:877116925291946094>`).catch((e) => console.log('Error al reaccionar: '+e))
         message.react(`<a:cerveza:880635824021065738>`).catch((e) => console.log('Error al reaccionar: '+e))
           
@@ -399,6 +407,8 @@ module.exports = async (client, Discord, message) => {
         const embed = new Discord.MessageEmbed()
         .setColor('RANDOM')
         .setDescription(rpiropo)
+
+        if(message.guild.id !== '777620055344545842') return
         message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
   
     }
@@ -438,6 +448,8 @@ module.exports = async (client, Discord, message) => {
         const embed = new Discord.MessageEmbed()
         .setColor('RANDOM')
         .setDescription(rchiste)
+
+        if(message.guild.id !== '777620055344545842') return
         message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
     }

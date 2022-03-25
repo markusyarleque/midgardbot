@@ -64,18 +64,35 @@ module.exports =  {
     
             try {
     
-              message.guild.emojis.create(palta, emoticon.name).catch((e) => console.log('Error al enviar mensaje: '+e)) // Creamos un emoji con la imagen del emoji 
-              
-              return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
-              
-                new Discord.MessageEmbed()
-                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
-                .setColor('GREEN')
-                .setDescription(`<a:Verify1:931463354357276742> |Emoji agregado correctamente : **`+ emoticon.name+'**')
-                .setTimestamp()
-                
-              ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+              message.guild.emojis.create(palta, emoticon.name)
+              .then(() => {
 
+                return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
+              
+                  new Discord.MessageEmbed()
+                  .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
+                  .setColor('GREEN')
+                  .setDescription(`<a:Verify1:931463354357276742> |Emoji agregado correctamente : **`+ emoticon.name+'**')
+                  .setTimestamp()
+                  
+                ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+
+              })
+              .catch((e) => {
+
+                console.log('Error al agregar emoji: '+e)
+
+                return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
+                
+                  new Discord.MessageEmbed()
+                  .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
+                  .setColor('RED')
+                  .setDescription(`<a:Verify2:931463492677017650> | Ocurrió un error al agregar emoji!\n\n**Error:**\n> `+error)
+        
+                ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+
+              }) 
+              
             } catch (error) {
                 
               return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
