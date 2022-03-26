@@ -80,7 +80,7 @@ module.exports =  {
     
             const embed = new Discord.MessageEmbed()
             .setAuthor({ name: `Midgard's Love 💞`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
-            .setDescription(`**${message.author.username}** le da una rica nalgada a **${img.user.username}**.`)
+            .setDescription(`**${message.author.username}** le da una rica nalgada a **${img.user.username}** <a:Nalgada:880315282101526598>.`)
             .setImage(ramdonspank ? ramdonspank : null)
             .setColor('RANDOM')
             .setTimestamp(new Date())
