@@ -28,12 +28,12 @@ module.exports =  {
         .setTimestamp(new Date())
         .setFooter({ text: message.guild.name, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
 
-        const bjava = new MessageButton()
+        const bjava = new Discord.MessageButton()
         .setCustomId("java")
         .setLabel("Java")
         .setStyle("SUCCESS")
     
-        const bbedrock = new MessageButton()
+        const bbedrock = new Discord.MessageButton()
         .setCustomId("bedrock")
         .setLabel("Bedrock")
         .setStyle("DANGER")
