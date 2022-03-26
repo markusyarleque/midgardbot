@@ -56,7 +56,7 @@ module.exports =  {
     
         const embed = new Discord.MessageEmbed()
         .setAuthor({ name: `Midgard's Inspecciones 📊`, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-        .setTittle('Inspección realizada con éxito 🧬')
+        .setTitle('Inspección realizada con éxito 🧬')
         .setThumbnail(img.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png'))
         .setDescription(`Según ***Inspectora*** <a:ayajasisi:945203356140441650>, tus niveles son los siguientes: `)
         .addField('Nivel de fidelidad:','<a:flech:915156906258071554> ' + fidelidad, false)
