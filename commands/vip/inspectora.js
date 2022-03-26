@@ -70,7 +70,7 @@ module.exports =  {
         .setImage('https://www.ina-pidte.ac.cr/pluginfile.php/14399/mod_resource/content/15/images/ima_2.gif?crc=3941956428')
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+        .setFooter({ text: message.guild.name, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
 
        
         message.reply({ allowedMentions: { repliedUser: false }, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
