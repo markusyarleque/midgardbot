@@ -15,36 +15,63 @@ module.exports =  {
 
         if(!id.some(id => message.author.id == id)) return
 
-        let texto = args.join(' ')
-        let voiceConnection
-        let audioPlayer = new AudioPlayer()
+        // let texto = args.join(' ')
+        // let voiceConnection
+        // let audioPlayer = new AudioPlayer()
 
-        const stream = discordTTS.getVoiceStream(texto)
+        // const stream = discordTTS.getVoiceStream(texto)
 
-        const audioResource = createAudioResource(stream, { inputType: StreamType.Arbitrary, inlineVolume:true });
+        // const audioResource = createAudioResource(stream, { inputType: StreamType.Arbitrary, inlineVolume:true });
 
-        if(!voiceConnection || voiceConnection?.status === VoiceConnectionStatus.Disconnected){
+        // if(!voiceConnection || voiceConnection?.status === VoiceConnectionStatus.Disconnected){
             
-            voiceConnection = joinVoiceChannel({
+        //     voiceConnection = joinVoiceChannel({
                 
-                channelId: message.member.voice.channelId,
-                guildId: message.guild.id,
-                adapterCreator: message.guild.voiceAdapterCreator,
+        //         channelId: message.member.voice.channelId,
+        //         guildId: message.guild.id,
+        //         adapterCreator: message.guild.voiceAdapterCreator,
 
-            })
+        //     })
 
-            voiceConnection = await entersState(voiceConnection, VoiceConnectionStatus.Connecting, 5_000)
+        //     voiceConnection = await entersState(voiceConnection, VoiceConnectionStatus.Connecting, 5_000)
 
-        }
+        // }
 
-        //
-
-        if(voiceConnection.status === VoiceConnectionStatus.Connected){
+        // if(voiceConnection.status === VoiceConnectionStatus.Connected){
             
-            voiceConnection.subscribe(audioPlayer);
-            audioPlayer.play(audioResource);
+        //     voiceConnection.subscribe(audioPlayer);
+        //     audioPlayer.play(audioResource);
         
-        }
+        // }
+
+        const voiceChannel = message.member.voice.channel
+        const texto = args.join(' ')
+
+        if(!voiceChannel) return message.reply({embeds: [
+            
+            new Discord.MessageEmbed()
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
+            .setColor('RED')
+            .setDescription(`<a:Verify2:931463492677017650> | Entra a un canal de voz y vuelve a intentarlo.`)
+      
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+
+        if(!texto) return message.reply({embeds: [
+            
+            new Discord.MessageEmbed()
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
+            .setColor('RED')
+            .setDescription(`<a:Verify2:931463492677017650> | ¿Qué quieres que diga?`)
+      
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+
+        voiceChannel.join().then(connection => { 
+            
+            const stream = discordTTS.getVoiceStream(decir)
+            const dispatcher = connection.play(stream)
+            dispatcher.on("finish",()=>voiceChannel.leave())
+
+        }).catch((e) => console.log('Error en el comando tts ' + e))
 
     }
 
