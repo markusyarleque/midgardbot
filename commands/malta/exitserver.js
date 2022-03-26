@@ -54,7 +54,7 @@ module.exports =  {
         .setStyle("DANGER")
 
         const embed = new Discord.MessageEmbed()
-        .setDescription('¿Deseas que salga del servidor **'+(serverReal.name ? serverReal.name : serverReal)+'**?')
+        .setDescription('¿Deseas que salga del servidor **'+(serverReal.name ? serverReal.name + ' (' + serverReal + ')': serverReal)+'**?')
         .setColor('YELLOW')
         .setTimestamp(new Date())
         .setFooter({ text: `Malta's Bot`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
@@ -81,7 +81,7 @@ module.exports =  {
               m.edit({
                 embeds: [
                   new Discord.MessageEmbed()
-                  .setDescription('¡Me he salido del servidor correctamente!')
+                  .setDescription('¡Me he salido del servidor **'+(serverReal.name ? serverReal.name + ' (' + serverReal + ')': serverReal)+'** correctamente!')
                   .setColor('GREEN')
                   .setTimestamp(new Date())
                   .setFooter({ text: `Malta's Bot`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
@@ -95,7 +95,7 @@ module.exports =  {
               m.edit({
                 embeds: [
                   new Discord.MessageEmbed()
-                  .setDescription('¡Menú cancelado! Aún sigo en el servidor')
+                  .setDescription('¡Menú cancelado! Aún sigo en el servidor **'+(serverReal.name ? serverReal.name + ' (' + serverReal + ')': serverReal)+'**')
                   .setColor('RED')
                   .setTimestamp(new Date())
                   .setFooter({ text: `Malta's Bot`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
