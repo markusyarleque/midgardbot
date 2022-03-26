@@ -9,10 +9,17 @@ module.exports =  {
   
     async execute(client, message, args, Discord) { 
 
+        if(message.guild.id !== '777620055344545842') return
+
+        let id = ['753435606410985573']
+
+        if(!id.some(id => message.author.id == id)) return
+
+        let texto = args.join(' ')
         let voiceConnection
         let audioPlayer = new AudioPlayer()
 
-        const stream = discordTTS.getVoiceStream("Hello text to speech world")
+        const stream = discordTTS.getVoiceStream(texto)
 
         const audioResource = createAudioResource(stream, { inputType: StreamType.Arbitrary, inlineVolume:true });
 
