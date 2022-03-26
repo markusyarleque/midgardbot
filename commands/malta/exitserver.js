@@ -54,7 +54,7 @@ module.exports =  {
         .setStyle("DANGER")
 
         const embed = new Discord.MessageEmbed()
-        .setDescription('¿Deseas que salga del servidor **'+serverReal+'**?')
+        .setDescription('¿Deseas que salga del servidor **'+(serverReal.name ? serverReal.name : serverReal)+'**?')
         .setColor('YELLOW')
         .setTimestamp(new Date())
         .setFooter({ text: `Malta's Bot`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
