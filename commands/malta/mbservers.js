@@ -23,7 +23,7 @@ module.exports =  {
             .setThumbnail('https://media.giphy.com/media/3rgXBsmYd60rL3w7sc/giphy.gif')
             .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true}) })
             .setTitle('Developers')
-            .setDescription('**Desarrollador:**\nMaltazard#1207\n\nActualmente estoy en **'+client.guilds.cache.size+'** servers.\n\n**'+client.users.cache.size+'** usuarios usan mis comandos.\n\n**Servidores:**\n\n> '+client.guilds.cache.map(r => r.name && r.id).join(". \n> "))
+            .setDescription('**Desarrollador:**\nMaltazard#1207\n\nActualmente estoy en **'+client.guilds.cache.size+'** servers.\n\n**'+client.users.cache.size+'** usuarios usan mis comandos.\n\n**Servidores:**\n\n> '+client.guilds.cache.map(r => r.name).join(" - ")+client.guilds.cache.map(r => r.id).join(". \n> "))
             .setColor('RANDOM')
             .setTimestamp(new Date())
             .setFooter({ text: `Malta's Bot`, iconURL: `${message.author.displayAvatarURL({ dynamic: true})}` })
