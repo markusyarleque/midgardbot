@@ -15,35 +15,6 @@ module.exports =  {
 
         if(!id.some(id => message.author.id == id)) return
 
-        // let texto = args.join(' ')
-        // let voiceConnection
-        // let audioPlayer = new AudioPlayer()
-
-        // const stream = discordTTS.getVoiceStream(texto)
-
-        // const audioResource = createAudioResource(stream, { inputType: StreamType.Arbitrary, inlineVolume:true });
-
-        // if(!voiceConnection || voiceConnection?.status === VoiceConnectionStatus.Disconnected){
-            
-        //     voiceConnection = joinVoiceChannel({
-                
-        //         channelId: message.member.voice.channelId,
-        //         guildId: message.guild.id,
-        //         adapterCreator: message.guild.voiceAdapterCreator,
-
-        //     })
-
-        //     voiceConnection = await entersState(voiceConnection, VoiceConnectionStatus.Connecting, 5_000)
-
-        // }
-
-        // if(voiceConnection.status === VoiceConnectionStatus.Connected){
-            
-        //     voiceConnection.subscribe(audioPlayer);
-        //     audioPlayer.play(audioResource);
-        
-        // }
-
         const voiceChannel = message.member.voice.channel
         const texto = args.join(' ')
 
@@ -64,14 +35,44 @@ module.exports =  {
             .setDescription(`<a:Verify2:931463492677017650> | ¿Qué quieres que diga?`)
       
         ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+        
+        let voiceConnection
+        let audioPlayer = new AudioPlayer()
 
-        voiceChannel.join().then(connection => { 
+
+        const stream = discordTTS.getVoiceStream(texto)
+
+        const audioResource = createAudioResource(stream, { inputType: StreamType.Arbitrary, inlineVolume:true });
+
+        try {
             
-            const stream = discordTTS.getVoiceStream(decir)
-            const dispatcher = connection.play(stream)
-            dispatcher.on("finish",()=>voiceChannel.leave())
+            if(!voiceConnection || voiceConnection?.status === VoiceConnectionStatus.Disconnected){
+            
+                voiceConnection = joinVoiceChannel({
+                    
+                    channelId: message.member.voice.channel.id,
+                    guildId: message.guild.id,
+                    adapterCreator: message.guild.voiceAdapterCreator,
+    
+                })
+    
+                voiceConnection = await entersState(voiceConnection, VoiceConnectionStatus.Connecting, 5_000)
+    
+            }
+    
+            if(voiceConnection.status === VoiceConnectionStatus.Connected){
+                
+                voiceConnection.subscribe(audioPlayer);
+                audioPlayer.play(audioResource);
+            
+            }
 
-        }).catch((e) => console.log('Error en el comando tts ' + e))
+        } catch (error) {
+            
+            console.log('Error al usar comando tts: ' + error)
+            message.reply('Hubo un error interno. Por favor, inténtelo de nuevo.').catch((e) => console.log('Error al enviar mensaje: '+e))
+            
+        }
 
     }
 
