@@ -11,7 +11,7 @@ const turnoSchema = require('../../models/turnoSchema');
 
 module.exports = async (client, Discord, message) => {
     
-    if (message.channel.type === 'dm') {
+    if (message.channel.type === 'dm' ) {
 
         let sv = client.guilds.cache.get('777620055344545842')
         let channel = sv.channels.cache.get('874943743185285150')
@@ -37,15 +37,15 @@ module.exports = async (client, Discord, message) => {
     let idcanal = message.channel.id
   
     const em = new Discord.MessageEmbed()
-      .setThumbnail(message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) )
-      .setAuthor({ name: 'MaltaBot', iconURL: client.user.avatarURL({ dynamic: true }) })
-      .setTitle('📢 | Mensaje Enviado')
-      .addField('Canal: ', `<a:flech:931432469935312937> <#${idcanal}>`)
-      .addField('Autor: ', `<a:flech:931432469935312937> ${message.author}`)
-      .addField('Mensaje: ', message.content ? message.content : 'Ningún mensaje registrado')
-      .setColor('RANDOM')
-      .setTimestamp(new Date())
-      .setFooter({ text: `Id: ${message.author.id}`, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+    .setThumbnail(message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) )
+    .setAuthor({ name: 'MaltaBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+    .setTitle('📢 | Mensaje Enviado')
+    .addField('Canal: ', `<a:flech:931432469935312937> <#${idcanal}>`)
+    .addField('Autor: ', `<a:flech:931432469935312937> ${message.author}`)
+    .addField('Mensaje: ', message.content ? message.content : 'Ningún mensaje registrado')
+    .setColor('RANDOM')
+    .setTimestamp(new Date())
+    .setFooter({ text: `Id: ${message.author.id}`, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
   
     if(idcanal === '880290686107275304')
     {
@@ -109,7 +109,7 @@ module.exports = async (client, Discord, message) => {
         {
           channel = sv.channels.cache.get('880280265216389140')
       
-          if(message.content.length>=1000) return channel.send(`Mensaje demasiado largo, enviado en <#${idcanal}> por: `+message.author).catch((e) => console.log('Error al enviar mensaje: '+e))
+          if(message.content.length >= 1000) return channel.send(`Mensaje demasiado largo, enviado en <#${idcanal}> por: `+message.author).catch((e) => console.log('Error al enviar mensaje: '+e))
       
           em.addField('Servidor: ', `<a:flech:931432469935312937> ${message.guild.name}`)
       
