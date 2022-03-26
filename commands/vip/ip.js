@@ -11,7 +11,7 @@ module.exports =  {
         .setTitle('Servidor de Minecraft 🪓')
         .setThumbnail('https://c.tenor.com/j0KEi6tfpRcAAAAC/minecraft-boxer.gif')
         .addField('<:java:957327729093648427> Java','<a:flech:915156906258071554> **IP:** 147.135.64.159:30093', true)
-        .addField('\u200B','**Ejemplo:**')
+        .addField('\u200B','**AlloyNetwork: ↴**')
         .setImage('https://media.discordapp.net/attachments/949011756070621184/954166398458933338/unknown.png?width=575&height=480')
         .setColor('RANDOM')
         .setTimestamp(new Date())
@@ -22,7 +22,7 @@ module.exports =  {
         .setTitle('Servidor de Minecraft 🪓')
         .setThumbnail('https://c.tenor.com/j0KEi6tfpRcAAAAC/minecraft-boxer.gif')
         .addField('<:minecraft:957328234066878574> Bedrock:','<a:flech:915156906258071554> **IP:** 147.135.64.159 - **PORT:** 30093', true)
-        .addField('\u200B','**Ejemplo:**')
+        .addField('\u200B','**AlloyNetwork: ↴**')
         .setImage('https://media.discordapp.net/attachments/949011756070621184/954166946222469170/unknown.png?width=767&height=398')
         .setColor('RANDOM')
         .setTimestamp(new Date())
@@ -31,12 +31,12 @@ module.exports =  {
         const bjava = new Discord.MessageButton()
         .setCustomId("java")
         .setLabel("Java")
-        .setStyle("SUCCESS")
+        .setStyle("DANGER")
     
         const bbedrock = new Discord.MessageButton()
         .setCustomId("bedrock")
         .setLabel("Bedrock")
-        .setStyle("DANGER")
+        .setStyle("SUCCESS")
 
         message.reply({ allowedMentions: { repliedUser: false }, embeds: [embedj], components: [
             
