@@ -36,10 +36,10 @@ module.exports =  {
             '**Tú que wey?**',
             'Lame botas 👢 le llaman',
             '*Indescriptible*… aun procesando ⚙️',
-            'Hijito de mami 🥺',
-            'Hijito de papi 🐣',
-            'Hijito de mami 🐣',
-            'Hijito de papi 🥺',
+            'Hijit@ de mami 🥺',
+            'Hijit@ de papi 🐣',
+            'Hijit@ de mami 🐣',
+            'Hijit@ de papi 🥺',
             'Muy hot 🔥 para calcular',
             'Huele a podrido 🤢',
             'Se cree la verga 🤡….. ||no lo es||',
@@ -72,7 +72,7 @@ module.exports =  {
         .setAuthor({ name: `Midgard's Inspecciones 📊`, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
         .setTitle('Inspección realizada con éxito 🧬')
         .setThumbnail(img.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png'))
-        .setDescription(`Según ***Inspectora*** <a:ayajasisi:945203356140441650>, tus niveles de personalidad son los siguientes: `)
+        .setDescription(`Según ***Inspectora*** <a:ayajasisi:945203356140441650>, los niveles de personalidad de <@${img.id}> son los siguientes: `)
         .addField('\u200B','\u200B')
         .addField('<:FLORK_awwww:956313333454225468> Nivel de Fidelidad:','<a:flech:915156906258071554> ' + fidelidad + '%', false)
         .addField('<:FLORK_tomabb:956313869872144384> Nivel de Lealtad:','<a:flech:915156906258071554> ' + lealtad + '%', false)
