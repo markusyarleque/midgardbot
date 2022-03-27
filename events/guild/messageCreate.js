@@ -847,14 +847,14 @@ module.exports = async (client, Discord, message) => {
     
     }
 
-    var mencionbot = message.content.startsWith('mg') || message.content.startsWith('Mg') || message.content.startsWith('MG')
+    //var mencionbot = message.content.startsWith('mg') || message.content.startsWith('Mg') || message.content.startsWith('MG')
     //console.log(mencionbot+' mencion: '+client.user.id)
 
-    if(!message.content.startsWith(prefix) && !mencionbot) return; 
+    if(!message.content.startsWith(prefix)) return; 
   
     const args = message.content.slice(prefix.length).trim().split(/ +/g)
     const command = args.shift().toLowerCase()
-    const prueba = message.content.split(' ')
+    //const prueba = message.content.split(' ')
 
     if(!command) return
     
@@ -883,8 +883,7 @@ module.exports = async (client, Discord, message) => {
     }
 
     let cmd = client.commands.get(command) ||
-              client.commands.get(prueba[1]) ||
-              client.commands.find((a) => a.aliases && a.aliases.includes(command) || a.aliases.includes(prueba[1])); // Obtiene el comando de la colección client.commandos
+              client.commands.find((a) => a.aliases && a.aliases.includes(command)); // Obtiene el comando de la colección client.commandos
   
     if(!cmd){
 
