@@ -841,13 +841,13 @@ module.exports = async (client, Discord, message) => {
     
         const embed = new Discord.MessageEmbed()
         .setAuthor({ name: message.author.username+'#'+message.author.discriminator, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-        .setDescription('Hola! **'+ message.author.username +'** Mi Prefix es: `_` Puedes ver mis comandos disponibles usando: `_help`. Para enviar un reporte usa: `_report` y para una sugerencia: `_suggestion`.')
+        .setDescription('Hola! **'+ message.author.username +'** Mi Prefix es: ' + prefix + ' Puedes ver mis comandos disponibles usando: `' + prefix + 'help`. Para enviar un reporte usa: `' + prefix + 'report` y para una sugerencia: `' + prefix + 'suggestion`.')
         .setColor('RANDOM')
-        message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.reply({ allowedMentions: { repliedUser: false }, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
     }
 
-    var mencionbot = message.content.startsWith('<@'+client.user.id+'>') || message.content.startsWith('midgard') || message.content.startsWith('mid') || message.content.startsWith('mg')
+    var mencionbot = message.content.startsWith('<@'+client.user.id+'>') || message.content.startsWith('mg') || message.content.startsWith('Mg') || message.content.startsWith('MG')
     //console.log(mencionbot+' mencion: '+client.user.id)
 
     if(!message.content.startsWith(prefix) && !mencionbot) return; 
