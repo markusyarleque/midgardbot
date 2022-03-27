@@ -39,7 +39,6 @@ module.exports =  {
         let voiceConnection
         let audioPlayer = new AudioPlayer()
 
-
         const stream = discordTTS.getVoiceStream(texto)
 
         const audioResource = createAudioResource(stream, { inputType: StreamType.Arbitrary, inlineVolume:true });
