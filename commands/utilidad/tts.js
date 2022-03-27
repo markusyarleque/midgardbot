@@ -59,6 +59,7 @@ module.exports =  {
     
             }
     
+            
             if(voiceConnection.status === VoiceConnectionStatus.Connected){
                 
                 voiceConnection.subscribe(audioPlayer);
