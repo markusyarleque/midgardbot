@@ -58,7 +58,7 @@ module.exports =  {
                 voiceConnection = await entersState(voiceConnection, VoiceConnectionStatus.Connecting, 5_000)
     
             }
-    
+            
             
             if(voiceConnection.status === VoiceConnectionStatus.Connected){
                 
