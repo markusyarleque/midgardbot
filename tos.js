@@ -6,13 +6,15 @@ const servidor = http.createServer( (pedido,respuesta) => {
   
     const objetourl = url.parse(pedido.url);
     let camino = 'static' + objetourl.pathname;
+
+    console.log('Camino : '+camino)
   
     if (camino == 'static/'){
 
         camino = 'static/index.html';
 
     }
-  
+    console.log('Camino2 : '+camino)
     fs.stat(camino, error => {
     
         if (!error) {
