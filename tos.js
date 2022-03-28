@@ -47,6 +47,6 @@ const servidor = http.createServer( (pedido,respuesta) => {
 
 });
 
-servidor.listen(8888);
+servidor.listen(process.env.PORT || 3000);
 
 console.log('Servidor web iniciado');
