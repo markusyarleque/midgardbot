@@ -1,0 +1,230 @@
+                    body{
+                font: 30px Times New Roman, Arial, Helvetica, sans-serif;
+                padding: 0;
+                margin: 0;
+                background: white;
+                text-align:center;
+                    height: 400px;
+                    background: url('../img/fondo.jpg') no-repeat center center fixed;
+                    background-size: cover;
+                    text-align: center;
+                    color: black;
+               
+                }
+                header{
+                    
+                background-color: aquamarine;                
+                padding-top: 30px;
+                min-height: 90px;
+                border-bottom: 5px solid blue;
+                text-align:center;
+                float: center;
+                color:black;
+
+                }
+
+                .contenedor{
+                width: 90%;
+                margin: auto;
+                overflow: hidden;
+              
+                }
+
+                .contenedor #marca table{
+    
+                border-collapse: separate;
+                align: center;
+                }
+
+                .contenedor #marca h1{
+
+                color:blue;
+                text-align:center;
+                margin: 0;
+                font-size: 40px;
+                font-family: Lucida Bright;
+                }   
+
+.contenedor #marca h4{
+
+    color: #385CF3;
+    text-align:center;
+    margin: 0;
+    font-size: 25px;
+    font-family: Arial Narrow;
+}
+
+.contenedor #marca h6{
+
+    color: #199FA9;
+    text-align:center;
+    margin: 0;
+    font-size: 20px;
+}
+
+ul{
+    margin: 20;
+    padding: 0;
+    float: CENTER;
+  
+}
+
+header a{
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 15px;
+    float: center;
+    
+}
+
+header li{
+    float: center;
+    display: inline;
+    padding: 0 30px 0 20px;
+    margin-top: 30px;
+}
+
+header #marca{
+    float: center;
+}
+
+header #marca h1{
+    margin: 0;
+}
+
+#menu{
+    align-content: right;
+}
+header #menu ul {
+ 
+    list-style:none;
+    margin:20;
+    padding:0;
+    float: right;
+}
+
+header #menu ul li {
+ background-color: #2e518b;
+}
+
+header #menu ul a {
+ display:block;
+ color:aquamarine;
+ text-decoration:none;
+ font-weight:400;
+ font-size:15px;
+ padding:10px;
+ font-family:"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+ text-transform:uppercase;
+ letter-spacing:0px;
+}
+
+header #menu ul li {
+ position: relative;
+ float:left;
+ margin:0;
+ padding:0;
+}
+
+header #menu ul li:hover {
+ background:#5b78a7;
+}
+
+header #menu ul ul {
+ display:none;
+ position: relative;
+ top:100%;
+ left:0;
+ background:#eee;
+ padding:0;
+}
+
+header #menu ul ul li {
+ float:none;
+ width:150px
+}
+
+header #menu ul ul a {
+ line-height:120%;
+ padding:10px 15px;
+ background-color: #2e518b;
+}
+
+header #menu ul li:hover > ul {
+ display:block;
+}
+
+
+header nav{
+    float: center;
+    margin-top: 30px;
+    text-align:center;
+    
+}
+
+#cajas{
+    margin-top: 20px;
+    width: 100%;
+    margin-bottom: 60px;
+    padding: 0px; 
+    align:center;
+    
+}
+
+#cajas .mensaje{
+    font-size: 40px;
+    border-radius: 50px;
+    color: blue;
+    text-align: center;
+    padding: 10px; 
+}
+
+#cajas .caja{
+    float: left;
+    text-align: justify;
+    width: 100%;
+    padding: 50px;  
+    color: black;
+    font-size:28px; 
+    background-color: rgba(155,185,237,0.8);
+    font-family: Arial Narrow;
+}
+
+#cajas .caja img{
+    width: 80px;
+}
+
+header a:hover{
+    color: #4D030B;
+    font-weight: bold;
+}
+
+
+.caja img{
+    max-width: 100%;
+    float: center;
+}
+
+#contacto{
+    margin-top: 50px;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    padding: 1px; 
+    background-color: rgba(155,185,237,0.9);
+    border-top: 5px solid blue;
+    border-bottom: 5px solid blue;
+}
+footer{
+    padding: 1px;
+    margin-top: 0px;
+    color: black;
+    background-color: aquamarine;
+    text-align: center;
+    font-size:18px;
+    font-family: Monaco;
+}
+
+
+

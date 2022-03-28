@@ -9,7 +9,7 @@ const servidor = http.createServer( (pedido,respuesta) => {
   
     if (camino == 'static/'){
 
-        camino = 'static/tos.html';
+        camino = 'static/index.html';
 
     }
   
