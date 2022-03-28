@@ -1,2 +1,2 @@
 worker: node index.js
-web: node tos.html
+web: node tos.js
