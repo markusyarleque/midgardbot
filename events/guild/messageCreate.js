@@ -972,7 +972,7 @@ module.exports = async (client, Discord, message) => {
 
                     update.save()
 
-                    console.log('Usuario: '+message.channel.id+' ha subido al nivel: '+curLevel)
+                    console.log('Usuario: '+message.author.id+' ha subido al nivel: '+curLevel)
       
                 }
 
