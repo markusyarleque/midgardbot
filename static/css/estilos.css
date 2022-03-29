@@ -84,7 +84,7 @@ span:hover::before
 .contenedor #marca table{
     
     border-collapse: separate;
-    align: center;
+    align-content: center;
 }
 
 .contenedor #marca h1{
