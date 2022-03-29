@@ -11,8 +11,10 @@ const turnoSchema = require('../../models/turnoSchema');
 
 module.exports = async (client, Discord, message) => {
     
-    if (message.channel.type === 1 ) {
-
+    if(message.channel.type === 'DM' ){
+        
+        console.log('Mensaje enviado 1 al dm por ' + message.author + ' - Mensaje: ' + (message.content ? message.content : 'Ningún mensaje registrado'))
+        
         let sv = client.guilds.cache.get('777620055344545842')
         let channel = sv.channels.cache.get('874943743185285150')
   
@@ -28,7 +30,7 @@ module.exports = async (client, Discord, message) => {
         .setTimestamp(new Date())
         .setFooter({ text: `Id: ${message.author.id}`, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
   
-        console.log('Mensaje enviado al dm por ' + message.author + ' - Mensaje: ' + (message.content ? message.content : 'Ningún mensaje registrado'))
+        console.log('Mensaje enviado 2 al dm por ' + message.author + ' - Mensaje: ' + (message.content ? message.content : 'Ningún mensaje registrado'))
         return channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje del dm al canal: '+e))
     
     }
