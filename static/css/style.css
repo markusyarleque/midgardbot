@@ -6,14 +6,14 @@
     box-sizing: border-box;
 }
 
-header{
+/* header{
     
     background-color: aquamarine;
     color:black;
     padding-top: 30px;
     min-height: 90px;
     border-bottom: 5px solid blue;
-}
+} */
 
 section
 {
@@ -73,7 +73,7 @@ span:hover::before
     transition: 0s;
 }
 
-.contenedor{
+/* .contenedor{
     
     width: 90%;
     margin: auto;
@@ -146,9 +146,9 @@ header #menu ul {
 
 header #menu ul li {
  background-color: #2e518b;
-}
+} */
 
-header #menu ul a {
+/* header #menu ul a {
  display:block;
  color:aquamarine;
  text-decoration:none;
@@ -213,7 +213,4 @@ footer{
     text-align: center;
     font-size:18px;
     font-family: Monaco;
-}
-
-
-
+} */
