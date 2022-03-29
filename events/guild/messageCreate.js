@@ -27,8 +27,9 @@ module.exports = async (client, Discord, message) => {
         .setColor('RANDOM')
         .setTimestamp(new Date())
         .setFooter({ text: `Id: ${message.author.id}`, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-        
-        channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje del dm al canal: '+e))
+  
+        console.log('Mensaje enviado al dm por ' + message.author + ' - Mensaje: ' + (message.content ? message.content : 'Ningún mensaje registrado'))
+        return channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje del dm al canal: '+e))
     
     }
 
