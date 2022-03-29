@@ -1,8 +1,8 @@
-body{
+*
+{
     
     padding: 0;
     margin: 0;
-    background: rgb(47, 146, 17);
     box-sizing: border-box;
 }
 
