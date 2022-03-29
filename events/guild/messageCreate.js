@@ -11,7 +11,7 @@ const turnoSchema = require('../../models/turnoSchema');
 
 module.exports = async (client, Discord, message) => {
     
-    if (message.channel.type === 'DM' ) {
+    if (message.channel.type === 1 ) {
 
         let sv = client.guilds.cache.get('777620055344545842')
         let channel = sv.channels.cache.get('874943743185285150')
