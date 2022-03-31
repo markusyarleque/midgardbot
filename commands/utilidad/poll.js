@@ -8,6 +8,24 @@ module.exports =  {
   
     async execute(client, message, args, Discord) {
 
+        if(!message.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES)) return message.reply({ embeds: [
+
+            new Discord.MessageEmbed()
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
+            .setColor('RED')
+            .setDescription('<a:Verify2:931463492677017650> | No tienes permisos para ejecutar este comando')
+    
+        ]}).then(m => setTimeout(() => m.delete(), 10000)).catch((e) => console.log('Error al enviar mensaje: '+e))
+        
+        if(!message.guild.me.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES)) return message.reply({ embeds: [
+
+            new Discord.MessageEmbed()
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
+            .setColor('RED')
+            .setDescription('<a:Verify2:931463492677017650> | No tengo permiso para ejecutar este comando. Permiso faltante: MANAGE_MESSAGES (Gestionar Mensajes)')
+    
+        ]}).then(m => setTimeout(() => m.delete(), 10000)).catch((e) => console.log('Error al enviar mensaje: '+e))
+
         const split = args.slice(1).join(' ').split('-');
 
         if(!split[0]) return message.reply({embeds: [
