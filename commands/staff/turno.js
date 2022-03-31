@@ -116,7 +116,7 @@ module.exports =  {
                         console.log('========================= ACTUALIZACIÓN DE STAFF DE TURNO =========================');
                 
                         mensajes = userTurno.mensajes
-                        puntos = Math.round(mensajes * 0.3)
+                        puntos = Math.round(mensajes * 1)
                         diamantes = Math.round(puntos/20)
 
                         let update = await turnoSchema.findOneAndUpdate({idusuario: message.author.id},
