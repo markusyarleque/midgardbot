@@ -1,4 +1,5 @@
 const prefix = process.env.PREFIX;
+const { Permissions } = require('discord.js');
 
 module.exports =  {
     
