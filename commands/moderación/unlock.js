@@ -30,7 +30,7 @@ module.exports =  {
     
         var ch = message.mentions.channels.first() || message.channel
     
-        let id = ['753435606410985573','683501310527668228']
+        let id = ['753435606410985573']
 
         if(args[0] === 'all') { 
     
@@ -73,7 +73,7 @@ module.exports =  {
     
             try {
                 
-                ch.permissionOverwrites.edit(everyrole, {
+                await ch.permissionOverwrites.edit(everyrole, {
                     
                     SEND_MESSAGES: null
                   
