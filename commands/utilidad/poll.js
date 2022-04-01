@@ -5,7 +5,7 @@ module.exports =  {
     
     name: 'poll',
     aliases: ['encuesta'],
-    description: '📈 Realizar una encuesta con hasta 10 opciones.\n`'+prefix+'poll "pregunta" "opción1" "opción2" "opción3" [opcional]...`',
+    description: '📈 Realizar una encuesta con hasta 10 opciones.\n`'+prefix+'poll - pregunta - opción1 - opción2 - opción3 [opcional]...`',
   
     async execute(client, message, args, Discord) {
 
@@ -27,14 +27,14 @@ module.exports =  {
     
         ]}).then(m => setTimeout(() => m.delete(), 10000)).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-        const split = args.slice(1).join(' ').split('""');
+        const split = args.slice(1).join('""').split(' ');
 
         if(!split[0]) return message.reply({embeds: [
       
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
-            .setDescription('<a:alerta:932374957206421614> `|` Ingrese una pregunta!\n\n Uso: `'+prefix+'poll "pregunta" "opción1" "opción2" "opción3" [opcional]... `')
+            .setDescription('<a:alerta:932374957206421614> `|` Ingrese una pregunta!\n\n Uso: `'+prefix+'poll - pregunta - opción1 - opción2 - opción3 [opcional]... `')
     
         ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
@@ -43,7 +43,7 @@ module.exports =  {
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
-            .setDescription('<a:alerta:932374957206421614> `|` Necesitas ingresar al menos 2 opciones!\n\n Uso: `'+prefix+'poll "pregunta" "opción1" "opción2" "opción3" [opcional]... `')
+            .setDescription('<a:alerta:932374957206421614> `|` Necesitas ingresar al menos 2 opciones!\n\n Uso: `'+prefix+'poll - pregunta - opción1 - opción2 - opción3 [opcional]... `')
     
         ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
@@ -52,13 +52,13 @@ module.exports =  {
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
-            .setDescription('<a:alerta:932374957206421614> `|` Necesitas ingresar al menos 2 opciones!\n\n Uso: `'+prefix+'poll "pregunta" "opción1" "opción2" "opción3" [opcional]... `')
+            .setDescription('<a:alerta:932374957206421614> `|` Necesitas ingresar al menos 2 opciones!\n\n Uso: `'+prefix+'poll - pregunta - opción1 - opción2 - opción3 [opcional]... `')
     
         ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         const embed = new Discord.MessageEmbed()
         .setColor('RANDOM')
-        .setAuthor({ name: `Encuesta realizada por: <@${message.author.id}>`, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+        .setAuthor({ name: `Encuesta realizada por: ${message.author.username}`, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
         .setTitle('**' + split[0] + '**')
         .addField('<a:uno:932368116749594674> **' + split[1] + '**', '..........')
         .addField('<a:dos:932368203458445362> **' + split[2] + '**', '..........')
