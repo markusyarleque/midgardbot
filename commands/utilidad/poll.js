@@ -27,7 +27,7 @@ module.exports =  {
     
         ]}).then(m => setTimeout(() => m.delete(), 10000)).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-        const split = args.slice(1).join('""').split(' ');
+        const split = args.join(' ').split('-');
 
         if(!split[0]) return message.reply({embeds: [
       
