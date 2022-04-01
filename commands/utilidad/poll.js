@@ -5,7 +5,7 @@ module.exports =  {
     
     name: 'poll',
     aliases: ['encuesta'],
-    description: '📈 Realizar una encuesta con hasta 10 opciones.\n`'+prefix+'poll - pregunta - opción1 - opción2 - opción3 [opcional]...`',
+    description: '📈 Realizar una encuesta con hasta 10 opciones.\n`'+prefix+'poll pregunta - opción1 - opción2 - opción3 [opcional]...`',
   
     async execute(client, message, args, Discord) {
 
@@ -34,7 +34,7 @@ module.exports =  {
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
-            .setDescription('<a:alerta:932374957206421614> `|` Ingrese una pregunta!\n\n Uso: `'+prefix+'poll - pregunta - opción1 - opción2 - opción3 [opcional]... `')
+            .setDescription('<a:alerta:932374957206421614> `|` Ingrese una pregunta!\n\n Uso: `'+prefix+'poll pregunta - opción1 - opción2 - opción3 [opcional]... `')
     
         ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
@@ -43,7 +43,7 @@ module.exports =  {
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
-            .setDescription('<a:alerta:932374957206421614> `|` Necesitas ingresar al menos 2 opciones!\n\n Uso: `'+prefix+'poll - pregunta - opción1 - opción2 - opción3 [opcional]... `')
+            .setDescription('<a:alerta:932374957206421614> `|` Necesitas ingresar al menos 2 opciones!\n\n Uso: `'+prefix+'poll pregunta - opción1 - opción2 - opción3 [opcional]... `')
     
         ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
@@ -52,7 +52,7 @@ module.exports =  {
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
-            .setDescription('<a:alerta:932374957206421614> `|` Necesitas ingresar al menos 2 opciones!\n\n Uso: `'+prefix+'poll - pregunta - opción1 - opción2 - opción3 [opcional]... `')
+            .setDescription('<a:alerta:932374957206421614> `|` Necesitas ingresar al menos 2 opciones!\n\n Uso: `'+prefix+'poll pregunta - opción1 - opción2 - opción3 [opcional]... `')
     
         ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
