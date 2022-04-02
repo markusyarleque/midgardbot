@@ -50,8 +50,8 @@ module.exports =  {
             try {
             
                 datos.push(ls)
-                img1 = message.guild.members.resolve(datos[0] || client.users.cache.get(args[0]));
-                img2 = message.guild.members.resolve(datos[1] || client.users.cache.get(args[1]));
+                img1 = message.guild.members.resolve(datos[0] || client.users.cache.get(args[0]) || client.users.cache.get(args[1]));
+                img2 = message.guild.members.resolve(datos[1] || client.users.cache.get(args[0]) || client.users.cache.get(args[1]));
                 
             } catch (error) {
                 
