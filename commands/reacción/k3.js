@@ -41,10 +41,34 @@ module.exports =  {
            
         ]
 
-        let img1 = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
-        let img2 = message.guild.members.resolve(message.mentions.users.first(2) || client.users.cache.get(args[1]));
-        console.log('user: '+message.mentions.users.first()+' - user fisrt 1: '+message.mentions.users.first(1)+' - user fisrt 2: '+message.mentions.users.first(2))
+        let mencionados = message.mentions.users.first(2)
+        let datos = []
+        let img1, img2
+
+        try {
+            
+            datos.push(mencionados)
+            img1 = message.guild.members.resolve(datos[0] || client.users.cache.get(args[0]));
+            img2 = message.guild.members.resolve(datos[1] || client.users.cache.get(args[1]));
+            
+        } catch (error) {
+            
+            console.log('Error al obtener mencionados en comando K3 - ' + error)
+
+            return message.reply({embeds: [
+          
+                new Discord.MessageEmbed()
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
+                .setColor('RED')
+                .setDescription(`<a:Verify2:931463492677017650> | Ocurrió un error inesperado, inténtelo de nuevo!`)
+            
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+
+        }
+        
+        console.log('users: '+datos+' - user fisrt 1: '+datos[0]+' - user fisrt 2: '+datos[1])
         console.log('user 1: '+img1+' - user 2: '+img2)
+
         let ramdonk3 = k3[Math.floor(Math.random()*k3.length)]
 
         while (ramdonk3 === null || ramdonk3 === '') {
