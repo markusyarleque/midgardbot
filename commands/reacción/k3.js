@@ -45,29 +45,38 @@ module.exports =  {
         let datos = []
         let img1, img2
 
-        for(let ls of mencionados){
+        if(mencionados){
 
-            try {
-            
-                datos.push(ls)
-                img1 = message.guild.members.resolve(datos[0] || client.users.cache.get(args[0]) || client.users.cache.get(args[1]));
-                img2 = message.guild.members.resolve(datos[1] || client.users.cache.get(args[0]) || client.users.cache.get(args[1]));
+            for(let ls of mencionados){
+
+                try {
                 
-            } catch (error) {
-                
-                console.log('Error al obtener mencionados en comando K3 - ' + error)
-    
-                return message.reply({embeds: [
-              
-                    new Discord.MessageEmbed()
-                    .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
-                    .setColor('RED')
-                    .setDescription(`<a:Verify2:931463492677017650> | Ocurrió un error inesperado, inténtelo de nuevo!`)
-                
-                ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    datos.push(ls)
+                    img1 = message.guild.members.resolve(datos[0] || client.users.cache.get(args[0]) || client.users.cache.get(args[1]));
+                    img2 = message.guild.members.resolve(datos[1] || client.users.cache.get(args[0]) || client.users.cache.get(args[1]));
+                    
+                } catch (error) {
+                    
+                    console.log('Error al obtener mencionados en comando K3 - ' + error)
+        
+                    return message.reply({embeds: [
+                  
+                        new Discord.MessageEmbed()
+                        .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
+                        .setColor('RED')
+                        .setDescription(`<a:Verify2:931463492677017650> | Ocurrió un error inesperado, inténtelo de nuevo!`)
+                    
+                    ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+        
+                }
     
             }
 
+        } else{
+            
+            img1 = message.guild.members.resolve(client.users.cache.get(args[0]));
+            img2 = message.guild.members.resolve(client.users.cache.get(args[1]));
+                    
         }
         
         console.log('users: '+datos+' - user fisrt 1: '+datos[0]+' - user fisrt 2: '+datos[1])
