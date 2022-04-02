@@ -12,8 +12,8 @@ module.exports =  {
             'https://c.tenor.com/1eDAyUfJZ0UAAAAC/besodetres.gif',
             'https://64.media.tumblr.com/tumblr_m5sha6PfSD1r4plkdo1_400.gif',
             'https://c.tenor.com/TH-I9zT0QWcAAAAd/beso-triple.gif',
-            '',
-            '',
+            'https://c.tenor.com/aXhz8-H9brgAAAAC/three-way-kiss-christmas.gif',
+            'https://c.tenor.com/dJlyBnCnhkYAAAAd/black-and-white-vintage.gif',
             '',
             '',
             '',
@@ -45,39 +45,46 @@ module.exports =  {
         let datos = []
         let img1, img2
 
-        if(!mencionados || mencionados === null || mencionados === '' || mencionados ===  ' '){
+        for(let ls of mencionados){
 
-            img1 = message.guild.members.resolve(client.users.cache.get(args[0]));
-            img2 = message.guild.members.resolve(client.users.cache.get(args[1]));
-
-        } else{
+            try {
             
-            for(let ls of mencionados){
+                datos.push(ls)
 
-                try {
-                
-                    datos.push(ls)
-                    img1 = message.guild.members.resolve(datos[0] || client.users.cache.get(args[0]) || client.users.cache.get(args[1]));
-                    img2 = message.guild.members.resolve(datos[1] || client.users.cache.get(args[0]) || client.users.cache.get(args[1]));
-                    
-                } catch (error) {
-                    
-                    console.log('Error al obtener mencionados en comando K3 - ' + error)
+                if(datos.length === 0){
+
+                    img1 = message.guild.members.resolve(client.users.cache.get(args[0]));
+                    img2 = message.guild.members.resolve(client.users.cache.get(args[1]));
         
-                    return message.reply({embeds: [
-                  
-                        new Discord.MessageEmbed()
-                        .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
-                        .setColor('RED')
-                        .setDescription(`<a:Verify2:931463492677017650> | Ocurrió un error inesperado, inténtelo de nuevo!`)
-                    
-                    ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+                } else if(datos.length === 1){
+
+                    img1 = message.guild.members.resolve(datos[0])
+                    img2 = message.guild.members.resolve(client.users.cache.get(args[0]) || client.users.cache.get(args[1]));
         
+                } else if(datos.length === 2){
+
+                    img1 = message.guild.members.resolve(datos[0]);
+                    img2 = message.guild.members.resolve(datos[1]);
+                    
                 }
+                
+            } catch (error) {
+                
+                console.log('Error al obtener mencionados en comando K3 - ' + error)
+    
+                return message.reply({embeds: [
+              
+                    new Discord.MessageEmbed()
+                    .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
+                    .setColor('RED')
+                    .setDescription(`<a:Verify2:931463492677017650> | Ocurrió un error inesperado, inténtelo de nuevo!`)
+                
+                ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
             }
-                    
+
         }
+
         console.log('mencionados: '+mencionados)
         console.log('users: '+datos+' - user fisrt 1: '+datos[0]+' - user fisrt 2: '+datos[1])
         console.log('user 1: '+img1+' - user 2: '+img2)
