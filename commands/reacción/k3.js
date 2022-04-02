@@ -19,13 +19,13 @@ module.exports =  {
             'https://c.tenor.com/d-ByahXXuaIAAAAM/three-way-hot-couple.gif',
             'https://c.tenor.com/uQCfoUYJbHEAAAAM/dance-happy.gif',
             'https://c.tenor.com/OBkyvZJOiHAAAAAM/emma-roberts-kiss.gif',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
+            'https://niusmxhome.files.wordpress.com/2019/02/tumblr_pgrg2orer51whieubo2_r1_500.gif?w=683&h=315',
+            'https://niusmxhome.files.wordpress.com/2019/02/tumblr_pgrg2orer51whieubo1_r1_500.gif?w=619&h=286',
+            'https://i.makeagif.com/media/1-08-2016/ZqWGQO.gif',
+            'https://i.gifer.com/B9lb.gif',
+            'https://i.makeagif.com/media/8-07-2017/XXzPLT.gif',
+            'https://media2.giphy.com/media/3oKIPebq2hE1450kaQ/giphy.gif',
+            'https://c.tenor.com/qBbgCPSrEtcAAAAd/kissing-threesome.gif',
             '',
             '',
             '',
@@ -94,12 +94,11 @@ module.exports =  {
         console.log('users: '+datos+' - user fisrt 1: '+datos[0]+' - user fisrt 2: '+datos[1])
         console.log('user 1: '+img1+' - user 2: '+img2)
 
-        let ramdonk3 = k3[Math.floor(Math.random()*k3.length)]
-
-        while (ramdonk3 === null || ramdonk3 === '') {
+        if(img1 === undefined && img2 === undefined){
             
-            ramdonk3 = k3[Math.floor(Math.random()*k3.length)]
-
+            img1 = message.guild.members.resolve(client.users.cache.get(args[0]));
+            img2 = message.guild.members.resolve(client.users.cache.get(args[1]));
+        
         }
 
         if (!img1 || !img2 || img1.id === message.author.id || img2.id === message.author.id) return message.reply({embeds: [
@@ -119,6 +118,14 @@ module.exports =  {
             .setDescription(`<a:Verify2:931463492677017650> | Necesitas mencionar a 2 personas más... <:burbujita:930399322183458867>`)
         
         ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+
+        let ramdonk3 = k3[Math.floor(Math.random()*k3.length)]
+
+        while (ramdonk3 === null || ramdonk3 === '') {
+            
+            ramdonk3 = k3[Math.floor(Math.random()*k3.length)]
+
+        }
 
         const embed = new Discord.MessageEmbed()
         .setAuthor({ name: `Midgard's Love 💞`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
