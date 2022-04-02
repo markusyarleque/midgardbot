@@ -14,11 +14,11 @@ module.exports =  {
             'https://c.tenor.com/TH-I9zT0QWcAAAAd/beso-triple.gif',
             'https://c.tenor.com/aXhz8-H9brgAAAAC/three-way-kiss-christmas.gif',
             'https://c.tenor.com/dJlyBnCnhkYAAAAd/black-and-white-vintage.gif',
-            '',
-            '',
-            '',
-            '',
-            '',
+            'https://c.tenor.com/IMi37TQL_jgAAAAM/2people-kiss-3people-kiss.gif',
+            'https://c.tenor.com/fcejZyJzcEgAAAAM/insecure-lawrence.gif',
+            'https://c.tenor.com/d-ByahXXuaIAAAAM/three-way-hot-couple.gif',
+            'https://c.tenor.com/uQCfoUYJbHEAAAAM/dance-happy.gif',
+            'https://c.tenor.com/OBkyvZJOiHAAAAAM/emma-roberts-kiss.gif',
             '',
             '',
             '',
@@ -66,6 +66,11 @@ module.exports =  {
                     img1 = message.guild.members.resolve(datos[0]);
                     img2 = message.guild.members.resolve(datos[1]);
                     
+                } else{
+
+                    img1 = message.guild.members.resolve(client.users.cache.get(args[0]));
+                    img2 = message.guild.members.resolve(client.users.cache.get(args[1]));
+        
                 }
                 
             } catch (error) {
