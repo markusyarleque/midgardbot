@@ -10,7 +10,7 @@ module.exports =  {
             
             'https://c.tenor.com/b0uJhtYcwE8AAAAC/friends-kiss.gif',
             'https://c.tenor.com/1eDAyUfJZ0UAAAAC/besodetres.gif',
-            'https://64.media.tumblr.com/tumblr_m5sha6PfSD1r4plkdo1_400.gifv',
+            'https://64.media.tumblr.com/tumblr_m5sha6PfSD1r4plkdo1_400.gif',
             'https://c.tenor.com/TH-I9zT0QWcAAAAd/beso-triple.gif',
             '',
             '',
@@ -45,8 +45,13 @@ module.exports =  {
         let datos = []
         let img1, img2
 
-        if(mencionados){
+        if(!mencionados || mencionados === null){
 
+            img1 = message.guild.members.resolve(client.users.cache.get(args[0]));
+            img2 = message.guild.members.resolve(client.users.cache.get(args[1]));
+
+        } else{
+            
             for(let ls of mencionados){
 
                 try {
@@ -71,11 +76,6 @@ module.exports =  {
                 }
     
             }
-
-        } else{
-            
-            img1 = message.guild.members.resolve(client.users.cache.get(args[0]));
-            img2 = message.guild.members.resolve(client.users.cache.get(args[1]));
                     
         }
         
