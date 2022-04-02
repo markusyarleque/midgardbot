@@ -45,7 +45,7 @@ module.exports =  {
         let datos = []
         let img1, img2
 
-        if(!mencionados || mencionados === null){
+        if(!mencionados || mencionados === null || mencionados === '' || mencionados ===  ' '){
 
             img1 = message.guild.members.resolve(client.users.cache.get(args[0]));
             img2 = message.guild.members.resolve(client.users.cache.get(args[1]));
@@ -78,7 +78,7 @@ module.exports =  {
             }
                     
         }
-        
+        console.log('mencionados: '+mencionados)
         console.log('users: '+datos+' - user fisrt 1: '+datos[0]+' - user fisrt 2: '+datos[1])
         console.log('user 1: '+img1+' - user 2: '+img2)
 
