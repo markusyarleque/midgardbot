@@ -43,7 +43,7 @@ module.exports =  {
 
         let img1 = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let img2 = message.guild.members.resolve(message.mentions.users.first(2) || client.users.cache.get(args[1]));
-        
+        console.log('user: '+message.mentions.users.first()+' - user fisrt 1: '+message.mentions.users.first(1)+' - user fisrt 2: '+message.mentions.users.first(2))
         console.log('user 1: '+img1+' - user 2: '+img2)
         let ramdonk3 = k3[Math.floor(Math.random()*k3.length)]
 
