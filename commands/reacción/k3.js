@@ -45,24 +45,28 @@ module.exports =  {
         let datos = []
         let img1, img2
 
-        try {
-            
-            datos.push(mencionados)
-            img1 = message.guild.members.resolve(datos[0] || client.users.cache.get(args[0]));
-            img2 = message.guild.members.resolve(datos[1] || client.users.cache.get(args[1]));
-            
-        } catch (error) {
-            
-            console.log('Error al obtener mencionados en comando K3 - ' + error)
+        for(let ls of mencionados){
 
-            return message.reply({embeds: [
-          
-                new Discord.MessageEmbed()
-                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
-                .setColor('RED')
-                .setDescription(`<a:Verify2:931463492677017650> | Ocurrió un error inesperado, inténtelo de nuevo!`)
+            try {
             
-            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+                datos.push(ls)
+                img1 = message.guild.members.resolve(datos[0] || client.users.cache.get(args[0]));
+                img2 = message.guild.members.resolve(datos[1] || client.users.cache.get(args[1]));
+                
+            } catch (error) {
+                
+                console.log('Error al obtener mencionados en comando K3 - ' + error)
+    
+                return message.reply({embeds: [
+              
+                    new Discord.MessageEmbed()
+                    .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
+                    .setColor('RED')
+                    .setDescription(`<a:Verify2:931463492677017650> | Ocurrió un error inesperado, inténtelo de nuevo!`)
+                
+                ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+    
+            }
 
         }
         
