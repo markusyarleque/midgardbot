@@ -60,8 +60,14 @@ module.exports =  {
 
             let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
             let desc 
-            const image = await nsfw3.fourk();
+            const image = await nsfw3.fourk()
     
+            while (!image || image === null || image === '' || image === undefined) {
+                
+                image = await nsfw3.fourk()
+                
+            }
+
             if (!img || img.id===message.author.id || img.user.bot) {
       
                 desc = `A **${message.author.username}** le gusta en Full HD <a:run:880304386826465300>`

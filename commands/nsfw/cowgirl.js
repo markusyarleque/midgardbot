@@ -106,6 +106,12 @@ module.exports =  {
             let ramdoncowgirl = cowgirl[Math.floor(Math.random()*cowgirl.length)]
             let desc 
     
+            while (!ramdoncowgirl || ramdoncowgirl === null || ramdoncowgirl === '' || ramdoncowgirl === undefined) {
+                
+                ramdoncowgirl = cowgirl[Math.floor(Math.random()*cowgirl.length)]
+                
+            }
+
             if (!img || img.id===message.author.id || img.user.bot) {
       
                 desc = `A **${message.author.username}** le gusta ir arriba <a:sabroso:880695816497541180>`

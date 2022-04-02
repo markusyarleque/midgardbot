@@ -82,6 +82,12 @@ module.exports =  {
         
         ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
+        while (!ramdonkl || ramdonkl === null || ramdonkl === '' || ramdonkl === undefined) {
+            
+            ramdonkl = kl[Math.floor(Math.random()*kl.length)]
+
+        }
+        
         const embed = new Discord.MessageEmbed()
         .setAuthor({ name: `Midgard's Love 💞`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
         .setDescription(`**${message.author.username}** y **${img.user.username}** se están dando un rico chape <a:sabroso:932177227792146433> Disfrútenlo chicas!!! <:GatoLove:925929538863628318> `)

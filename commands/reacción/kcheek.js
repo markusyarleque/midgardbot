@@ -55,6 +55,12 @@ module.exports =  {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonkc = kc[Math.floor(Math.random()*kc.length)]
 
+        while (!ramdonkc || ramdonkc === null || ramdonkc === '' || ramdonkc === undefined) {
+            
+            ramdonkc = kc[Math.floor(Math.random()*kc.length)]
+
+        }
+        
         if (!img || img.id === message.author.id) return message.reply({embeds: [
           
             new Discord.MessageEmbed()

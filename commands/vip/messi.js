@@ -14,7 +14,7 @@ module.exports =  {
             'https://i.gifer.com/73tq.gif',
             'https://i.pinimg.com/originals/bd/60/a9/bd60a9508dfc9ddef020f57b64d6cb53.gif',
             'https://c.tenor.com/S_pn1-ALg5kAAAAd/boateng-messi.gif',
-            'https://64.media.tumblr.com/a7863e9efcba7b459adcc89f30e73067/a3fe3d95fe35fd67-a7/s540x810/e145c8fbe8b3158444313b2aae90e0174fc3f06b.gifv',
+            'https://64.media.tumblr.com/a7863e9efcba7b459adcc89f30e73067/a3fe3d95fe35fd67-a7/s540x810/e145c8fbe8b3158444313b2aae90e0174fc3f06b.gif',
             'https://c.tenor.com/eN_4KgMxTjIAAAAC/messi.gif',
             'https://c.tenor.com/7UbBNdn7MvkAAAAd/messi.gif',
             'https://i.pinimg.com/originals/32/73/6f/32736f7055033e91ac986c6a099b1af8.gif',
@@ -27,6 +27,12 @@ module.exports =  {
         ]   
 
         let ramdonm = messi[Math.floor(Math.random()*messi.length)]
+
+        while (!ramdonm || ramdonm === null || ramdonm === '' || ramdonm === undefined) {
+        
+            ramdonm = messi[Math.floor(Math.random()*messi.length)]
+            
+        }
 
         const embed = new Discord.MessageEmbed()
         .setAuthor({ name: `Midgard's VIP`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })

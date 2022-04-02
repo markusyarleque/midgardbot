@@ -130,6 +130,12 @@ module.exports =  {
             let ramdonbdsm = bdsm[Math.floor(Math.random()*bdsm.length)]
             let desc 
     
+            while (!ramdonbdsm || ramdonbdsm === null || ramdonbdsm === '' || ramdonbdsm === undefined) {
+                
+                ramdonbdsm = bdsm[Math.floor(Math.random()*bdsm.length)]
+                
+            }
+
             if (!img || img.id===message.author.id || img.user.bot) {
       
                 desc = `A **${message.author.username}** le gusta rudo y salvage <a:sabroso:880695816497541180>`

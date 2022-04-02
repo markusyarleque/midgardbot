@@ -69,6 +69,12 @@ module.exports =  {
             let ramdonsuck = suck[Math.floor(Math.random()*suck.length)]
             let desc 
     
+            while (!ramdonsuck || ramdonsuck === null || ramdonsuck === '' || ramdonsuck === undefined) {
+                
+                ramdonsuck = suck[Math.floor(Math.random()*suck.length)]
+                
+            }
+
             if (!img || img.id===message.author.id || img.user.bot) {
       
                 desc = `A **${message.author.username}** le provocó chupar pollas <a:sabroso:880695816497541180>`

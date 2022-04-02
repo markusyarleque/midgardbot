@@ -10,6 +10,12 @@ module.exports =  {
 
         let happy = star.happy()
 
+        while (!happy || happy === null || happy === '' || happy === undefined) {
+        
+            happy = star.happy()
+            
+        }
+
         const embed = new Discord.MessageEmbed()
         .setAuthor({ name: `Midgard's Emotions 🤗`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
         .setDescription(`**${message.author.username}** se puso modo feliz <a:6975wolfparty:901266259256168508>`)

@@ -16,15 +16,31 @@ module.exports =  {
             'https://media.discordapp.net/attachments/853500788848853002/873272729841852496/7.gif',
             'https://media.discordapp.net/attachments/853500788848853002/873272736225570846/8.gif',
             'https://media.discordapp.net/attachments/853500788848853002/873272746136698950/9.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873272750955974686/10.gif'
+            'https://media.discordapp.net/attachments/853500788848853002/873272750955974686/10.gif',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
         
         ]
 
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdoncigarro = cigarro[Math.floor(Math.random()*cigarro.length)]
 
+        while (!ramdoncigarro || ramdoncigarro === null || ramdoncigarro === '' || ramdoncigarro === undefined) {
+            
+            ramdoncigarro = cigarro[Math.floor(Math.random()*cigarro.length)]
+
+        }
+
         if (!img || img.id === message.author.id) {
-    
+
             const embed = new Discord.MessageEmbed()
             .setAuthor({ name: `Midgard's Bar`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setDescription(`**${message.author.username}** está fumando un cigarrito.`)
@@ -47,7 +63,7 @@ module.exports =  {
             ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         } else {
-    
+
             const embed = new Discord.MessageEmbed()
             .setAuthor({ name: `Midgard's Bar`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setDescription(`Hey **${img.user.username}**, ${message.author.username} ha compartido un cigarro contigo.`)

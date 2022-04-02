@@ -23,6 +23,12 @@ module.exports =  {
 
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonagua = agua[Math.floor(Math.random()*agua.length)]
+
+        while (!ramdonagua || ramdonagua === null || ramdonagua === '' || ramdonagua === undefined) {
+            
+            ramdonagua = agua[Math.floor(Math.random()*agua.length)]
+            
+        }
     
         if (!img || img.id === message.author.id) {
     

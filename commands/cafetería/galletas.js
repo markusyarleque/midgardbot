@@ -23,6 +23,12 @@ module.exports =  {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdongalletas = galletas[Math.floor(Math.random()*galletas.length)]
 
+        while (!ramdongalletas || ramdongalletas === null || ramdongalletas === '' || ramdongalletas === undefined) {
+            
+            ramdongalletas = galletas[Math.floor(Math.random()*galletas.length)]
+
+        }
+        
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()

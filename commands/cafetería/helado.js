@@ -23,6 +23,12 @@ module.exports =  {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonhelado = helado[Math.floor(Math.random()*helado.length)]
 
+        while (!ramdonhelado || ramdonhelado === null || ramdonhelado === '' || ramdonhelado === undefined) {
+            
+            ramdonhelado = helado[Math.floor(Math.random()*helado.length)]
+
+        }
+        
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()

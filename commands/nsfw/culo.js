@@ -84,6 +84,12 @@ module.exports =  {
             let ramdonculo = culo[Math.floor(Math.random()*culo.length)]
             let desc 
     
+            while (!ramdonculo || ramdonculo === null || ramdonculo === '' || ramdonculo === undefined) {
+                
+                ramdonculo = culo[Math.floor(Math.random()*culo.length)]
+
+            }
+            
             if (!img || img.id===message.author.id || img.user.bot) {
       
                 desc = `**${message.author.username}** mira ese perro culazo <a:pandanoveo:880306441926352916> `

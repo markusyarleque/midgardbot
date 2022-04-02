@@ -11,6 +11,12 @@ module.exports =  {
         let confus = star.confused()
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
    
+        while (!confus || confus === null || confus === '' || confus === undefined) {
+            
+            confus = star.confused()
+            
+        }
+
         if (!img || img.id === message.author.id) {
 
             const embed = new Discord.MessageEmbed()

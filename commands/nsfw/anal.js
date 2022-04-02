@@ -25,7 +25,13 @@ module.exports =  {
       
             let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
             let desc 
-            const image = await nsfw3.anal();
+            const image = await nsfw3.anal()
+
+            while (!image || image === null || image === undefined) {
+                
+                image = await nsfw3.anal()
+
+            }
     
             if (!img || img.id === message.author.id || img.user.bot) {
       

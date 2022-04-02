@@ -18,12 +18,23 @@ module.exports =  {
             'https://media.discordapp.net/attachments/853500788848853002/873273530479955998/8.gif',
             'https://media.discordapp.net/attachments/853500788848853002/873273544077873213/9.gif',
             'https://media.discordapp.net/attachments/853500788848853002/873273554320359454/10.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873273559781343242/11.gif'
+            'https://media.discordapp.net/attachments/853500788848853002/873273559781343242/11.gif',
+            '',
+            '',
+            '',
+            '',
+            '',
         
         ]
 
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonhuca = huca[Math.floor(Math.random()*huca.length)]
+
+        while (!ramdonhuca || ramdonhuca === null || ramdonhuca === '' || ramdonhuca === undefined) {
+            
+            ramdonhuca = huca[Math.floor(Math.random()*huca.length)]
+            
+        }
 
         if (!img || img.id === message.author.id) {
     

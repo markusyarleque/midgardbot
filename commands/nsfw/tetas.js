@@ -67,7 +67,13 @@ module.exports =  {
     
       let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
       let ramdontetas = tetas[Math.floor(Math.random()*tetas.length)]
-      let desc 
+      let desc
+
+      while (!ramdontetas || ramdontetas === null || ramdontetas === '' || ramdontetas === undefined) {
+        
+        ramdontetas = tetas[Math.floor(Math.random()*tetas.length)]
+        
+      }
   
       if (!img || img.id===message.author.id || img.user.bot) {
     

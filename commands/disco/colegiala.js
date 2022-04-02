@@ -52,6 +52,12 @@ module.exports =  {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdoncolegiala = colegiala[Math.floor(Math.random()*colegiala.length)]
 
+        while (!ramdoncolegiala || ramdoncolegiala === null || ramdoncolegiala === '' || ramdoncolegiala === undefined) {
+         
+            ramdoncolegiala = colegiala[Math.floor(Math.random()*colegiala.length)]
+
+        }
+        
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()

@@ -67,6 +67,30 @@ module.exports =  {
         let ramdonr = rechaza[Math.floor(Math.random()*rechaza.length)]
         let ramdonpl = plantado[Math.floor(Math.random()*plantado.length)]
 
+        while (!ramdonp || ramdonp === null || ramdonp === '' || ramdonp === undefined) {
+
+          ramdonp = propuest[Math.floor(Math.random()*propuest.length)]
+          
+        }
+        
+        while (!ramdona || ramdona === null || ramdona === '' || ramdona === undefined) {
+
+          ramdona = acepta[Math.floor(Math.random()*acepta.length)]
+          
+        }
+        
+        while (!ramdonr || ramdonr === null || ramdonr === '' || ramdonr === undefined) {
+
+          ramdonr = rechaza[Math.floor(Math.random()*rechaza.length)]
+          
+        }
+        
+        while (!ramdonpl || ramdonpl === null || ramdonpl === '' || ramdonpl === undefined) {
+
+          ramdonpl = plantado[Math.floor(Math.random()*plantado.length)]
+          
+        }
+        
         if (!img || img.id === message.author.id) return message.reply({embeds: [
         
             new Discord.MessageEmbed()

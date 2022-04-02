@@ -88,6 +88,12 @@ module.exports =  {
             let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
             let ramdoncum = cum[Math.floor(Math.random()*cum.length)]
             let desc 
+
+            while (!ramdoncum || ramdoncum === null || ramdoncum === '' || ramdoncum === undefined) {
+                
+                ramdoncum = cum[Math.floor(Math.random()*cum.length)]
+                
+            }
     
             if (!img || img.id===message.author.id || img.user.bot) {
       

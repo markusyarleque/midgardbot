@@ -16,12 +16,27 @@ module.exports =  {
             'https://media.discordapp.net/attachments/853500788848853002/873260894589710417/6.gif',
             'https://media.discordapp.net/attachments/853500788848853002/873260904341463061/7.gif',
             'https://media.discordapp.net/attachments/853500788848853002/873260912889438228/8.gif?width=401&height=561',
-            'https://media.discordapp.net/attachments/853500788848853002/873260933282164796/10.gif'
+            'https://media.discordapp.net/attachments/853500788848853002/873260933282164796/10.gif',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
         
         ]
 
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdoncocacola = cocacola[Math.floor(Math.random()*cocacola.length)]
+
+        while (!ramdoncocacola || ramdoncocacola === null || ramdoncocacola === '' || ramdoncocacola === undefined) {
+            
+            ramdoncocacola = cocacola[Math.floor(Math.random()*cocacola.length)]
+
+        }
 
         if (!img || img.id === message.author.id) {
     

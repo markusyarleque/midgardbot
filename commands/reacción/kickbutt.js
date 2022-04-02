@@ -35,6 +35,12 @@ module.exports =  {
         
         } else {
 
+            while (!kick || kick === null || kick === '' || kick === undefined) {
+                
+                kick = star.kick()
+                
+            }
+
             const embed = new Discord.MessageEmbed()
             .setAuthor({ name: `Midgard's Emotions 🤗`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setDescription(`**${img.user.username}**, ${message.author.username} te dió una patada <a:ThisGonnaBGud_retrasados:887057491081449512>`)

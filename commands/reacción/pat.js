@@ -68,6 +68,13 @@ module.exports =  {
       
         }
       
+        while (!pat || pat === null || pat === '' || pat === undefined
+        ) {
+            
+            pat = star.pat()
+
+        }
+        
         const embed = new Discord.MessageEmbed()
         .setAuthor({ name: `Midgard's Emotions 🤗`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
         .setDescription(`**${message.author.username}** está acariciando a **${img.user.username}**. <a:gatoasomar:930399873113677834>\n<a:flechad:880330587678838784> *${img.user.username}* ha recibido ${text} en total.`)

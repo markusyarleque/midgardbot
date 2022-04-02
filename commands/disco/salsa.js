@@ -36,6 +36,18 @@ module.exports =  {
         let ramdonsalsa = salsa[Math.floor(Math.random()*salsa.length)]
         let ramdonsalsa2 = salsa2[Math.floor(Math.random()*salsa2.length)]
       
+        while (!ramdonsalsa || ramdonsalsa === null || ramdonsalsa === '' || ramdonsalsa === undefined) {
+            
+            ramdonsalsa = salsa[Math.floor(Math.random()*salsa.length)]
+
+        }
+        
+        while (!ramdonsalsa2 || ramdonsalsa2 === null || ramdonsalsa2 === '') {
+            
+            ramdonsalsa2 = salsa2[Math.floor(Math.random()*salsa2.length)]
+
+        }
+        
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()

@@ -34,6 +34,12 @@ module.exports =  {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonsad = sad[Math.floor(Math.random()*sad.length)]
     
+        while (!ramdonsad || ramdonsad === null || ramdonsad === '' || ramdonsad === undefined) {
+            
+            ramdonsad = sad[Math.floor(Math.random()*sad.length)]
+
+        }
+        
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()

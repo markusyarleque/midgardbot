@@ -83,7 +83,13 @@ module.exports =  {
       
             let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
             let ramdonsuckb = suckb[Math.floor(Math.random()*suckb.length)]
-            let desc 
+            let desc
+
+            while (!ramdonsuckb || ramdonsuckb === null || ramdonsuckb === '' || ramdonsuckb === undefined) {
+                
+                ramdonsuckb = suckb[Math.floor(Math.random()*suckb.length)]
+                
+            }
     
             if (!img || img.id===message.author.id || img.user.bot) {
       

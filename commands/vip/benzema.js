@@ -22,6 +22,12 @@ module.exports =  {
 
         let ramdonb = ben[Math.floor(Math.random()*ben.length)]
 
+        while (!ramdonb || ramdonb === null || ramdonb === '' || ramdonb === undefined) {
+
+            ramdonb = ben[Math.floor(Math.random()*ben.length)]
+            
+        }
+        
         const embed = new Discord.MessageEmbed()
         .setAuthor({ name: `Midgard's VIP`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
         .setTitle('🇫🇷 | Karim Benzema 9')

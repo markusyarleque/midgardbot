@@ -21,6 +21,12 @@ module.exports =  {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonporro = porro[Math.floor(Math.random()*porro.length)]
 
+        while (!ramdonporro || ramdonporro === null || ramdonporro === '' || ramdonporro === undefined) {
+            
+            ramdonporro = porro[Math.floor(Math.random()*porro.length)]
+            
+        }
+
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()

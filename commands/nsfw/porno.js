@@ -60,8 +60,14 @@ module.exports =  {
 
             let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
             let desc 
-            const image = await nsfw3.pgif();
+            const image = await nsfw3.pgif()
     
+            while (!image || image === null || image === '' || image === undefined) {
+                
+                image = await nsfw3.pgif()
+                
+            }
+
             if (!img || img.id===message.author.id || img.user.bot) {
       
                 desc = `Señoraaaa!!! su hijo **${message.author.username}** está viendo nopor <a:run:880304386826465300>`

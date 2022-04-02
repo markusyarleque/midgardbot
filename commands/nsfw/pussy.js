@@ -67,6 +67,12 @@ module.exports =  {
             let ramdonpussy = pussy[Math.floor(Math.random()*pussy.length)]
             let desc 
     
+            while (!ramdonpussy || ramdonpussy === null || ramdonpussy === '' || ramdonpussy === undefined) {
+                
+                ramdonpussy = pussy[Math.floor(Math.random()*pussy.length)]
+                
+            }
+
             if (!img || img.id===message.author.id || img.user.bot) {
       
                 desc = `**${message.author.username}** mira esa papaya <a:pandanoveo:880306441926352916> `

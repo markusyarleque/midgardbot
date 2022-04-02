@@ -10,6 +10,12 @@ module.exports =  {
 
         let bored = await anime.bored()
 
+        while (!bored || bored === null || bored === '' || bored === undefined) {
+            
+            bored = await anime.bored()
+
+        }
+
         const embed = new Discord.MessageEmbed()
         .setAuthor({ name: `Midgard's Emotions 🤗`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
         .setDescription(`**${message.author.username}** está aburrid@ <:yonofui:931433119859503194>`)

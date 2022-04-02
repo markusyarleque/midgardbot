@@ -38,6 +38,12 @@ module.exports =  {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonsape = sape[Math.floor(Math.random()*sape.length)]
 
+        while (!ramdonsape || ramdonsape === null || ramdonsape === '' || ramdonsape === undefined) {
+          
+          ramdonsape = sape[Math.floor(Math.random()*sape.length)]
+        
+        }
+
         if (!img || img.id===message.author.id) return message.reply({embeds: [
           
             new Discord.MessageEmbed()

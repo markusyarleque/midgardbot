@@ -11,6 +11,11 @@ module.exports =  {
         let feed = star.feed()
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
 
+        while (!feed || feed === null || feed === '' || feed === undefined) {
+            
+            feed = star.feed()
+        }
+        
         if (!img || img.id === message.author.id) {
 
             return message.reply({embeds: [

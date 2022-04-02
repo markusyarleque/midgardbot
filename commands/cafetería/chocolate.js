@@ -24,6 +24,12 @@ module.exports =  {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonchocolate = chocolate[Math.floor(Math.random()*chocolate.length)]
 
+        while (!ramdonchocolate || ramdonchocolate === null || ramdonchocolate === '' || ramdonchocolate === undefined) {
+            
+            ramdonchocolate = chocolate[Math.floor(Math.random()*chocolate.length)]
+
+        }
+        
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()

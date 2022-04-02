@@ -39,6 +39,18 @@ module.exports =  {
         let ramdond = divorce[Math.floor(Math.random()*divorce.length)]
         let ramdona = acepta[Math.floor(Math.random()*acepta.length)]
       
+        while (!ramdond || ramdond === null || ramdond === '' || ramdond === undefined) {
+            
+            ramdond = divorce[Math.floor(Math.random()*divorce.length)]
+
+        }
+        
+        while (!ramdona || ramdona === null || ramdona === '' || ramdona === undefined) {
+            
+            ramdona = acepta[Math.floor(Math.random()*acepta.length)]
+
+        }
+        
         if (!img || img.id===message.author.id) return message.reply({embeds: [
         
             new Discord.MessageEmbed()

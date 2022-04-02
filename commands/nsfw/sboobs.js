@@ -82,6 +82,12 @@ module.exports =  {
             let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
             let ramdonsboobs = sboobs[Math.floor(Math.random()*sboobs.length)]
             let desc 
+
+            while (!ramdonsboobs || ramdonsboobs === null || ramdonsboobs === '' || ramdonsboobs === undefined) {
+                
+                ramdonsboobs = sboobs[Math.floor(Math.random()*sboobs.length)]
+                
+            }
     
             if (!img || img.id===message.author.id || img.user.bot) {
       

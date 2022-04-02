@@ -11,6 +11,12 @@ module.exports =  {
         let poke = await anime.poke()
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
    
+        while (!poke || poke === null || poke === '' || poke === undefined) {
+            
+            poke = await anime.poke()
+
+        }
+        
         if (!img || img.id === message.author.id) {
 
             const embed = new Discord.MessageEmbed()

@@ -27,6 +27,12 @@ module.exports =  {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonpizza = pizza[Math.floor(Math.random()*pizza.length)]
 
+        while (!ramdonpizza || ramdonpizza === null || ramdonpizza === '' || ramdonpizza === undefined) {
+            
+            ramdonpizza = pizza[Math.floor(Math.random()*pizza.length)]
+
+        }
+        
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()

@@ -49,6 +49,12 @@ module.exports =  {
             let ramdondick = dick[Math.floor(Math.random()*dick.length)]
             let desc 
     
+            while (!ramdondick || ramdondick === null || ramdondick === '' || ramdondick === undefined) {
+
+                ramdondick = dick[Math.floor(Math.random()*dick.length)]
+                
+            }
+            
             if (!img || img.id===message.author.id || img.user.bot) {
       
                 desc = `A **${message.author.username}** le provocó una rica polla <a:pandanoveo:880306441926352916> `

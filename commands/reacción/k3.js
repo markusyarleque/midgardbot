@@ -90,10 +90,6 @@ module.exports =  {
 
         }
 
-        console.log('mencionados: '+mencionados)
-        console.log('users: '+datos+' - user fisrt 1: '+datos[0]+' - user fisrt 2: '+datos[1])
-        console.log('user 1: '+img1+' - user 2: '+img2)
-
         if(img1 === undefined && img2 === undefined){
             
             img1 = message.guild.members.resolve(client.users.cache.get(args[0]));
@@ -121,7 +117,7 @@ module.exports =  {
 
         let ramdonk3 = k3[Math.floor(Math.random()*k3.length)]
 
-        while (ramdonk3 === null || ramdonk3 === '') {
+        while (!ramdonk3 || ramdonk3 === null || ramdonk3 === '' || ramdonk3 === undefined) {
             
             ramdonk3 = k3[Math.floor(Math.random()*k3.length)]
 

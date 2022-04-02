@@ -83,7 +83,6 @@ module.exports =  {
             'https://ist6-2.filesor.com/pimpandhost.com/1/4/6/0/146081/9/3/0/M/930Mv/XXX-%28gifs%29---024.gif',
             'https://pornoybizarro.com/wp-content/uploads/2015/10/133.gif',
             'https://cdn5-images.motherlessmedia.com/images/8A78EF5.gif',
-            'http://img2.thatpervert.com/pics/post/porn--porn-gif-vaginal-porn-6494774.jpeg',
             'https://entangada.com/wp-content/uploads/2021/06/lana-rhoades-gif-3.gif',
             'https://entangada.com/wp-content/uploads/2021/06/lana-rhoades-gif-7.gif',
             'https://vayagifporno.com/wp-content/uploads/2015/10/65.gif',
@@ -139,6 +138,12 @@ module.exports =  {
             let ramdonfuck = fuck[Math.floor(Math.random()*fuck.length)]
             let desc 
     
+            while (!ramdonfuck || ramdonfuck === null || ramdonfuck === '' || ramdonfuck === undefined) {
+                
+                ramdonfuck = fuck[Math.floor(Math.random()*fuck.length)]
+                
+            }
+
             if (!img || img.id===message.author.id || img.user.bot) {
       
                 desc = `Señoraaaa!!! su hijo **${message.author.username}** está viendo nopor <a:run:880304386826465300>`

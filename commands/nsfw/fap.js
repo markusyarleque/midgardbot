@@ -104,10 +104,22 @@ module.exports =  {
                 desc = `**${message.author.username}** se está dando autoamor <a:sabroso:880695816497541180>`
                 ramdonfap = fap[Math.floor(Math.random()*fap.length)]
 
+                while (!ramdonfap || ramdonfap === null || ramdonfap === '' || ramdonfap === undefined) {
+                    
+                    ramdonfap = fap[Math.floor(Math.random()*fap.length)]
+
+                }
+
             } else {
       
                 desc = `**${message.author.username}** le está dando amor a **${img.user.username}** <a:sabroso:880695816497541180>.`
                 ramdonfap = fap2[Math.floor(Math.random()*fap2.length)]
+
+                while (!ramdonfap || ramdonfap === null || ramdonfap === '' || ramdonfap === undefined) {
+                    
+                    ramdonfap = fap2[Math.floor(Math.random()*fap2.length)]
+
+                }
 
             }
   

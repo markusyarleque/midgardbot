@@ -43,6 +43,18 @@ module.exports =  {
         let ramdonhug = hug[Math.floor(Math.random()*hug.length)]
         let ramdonhug2 = hug2[Math.floor(Math.random()*hug2.length)]
 
+        while (!ramdonhug || ramdonhug === null || ramdonhug === '' || ramdonhug === undefined) {
+            
+            ramdonhug = hug[Math.floor(Math.random()*hug.length)]
+
+        }
+        
+        while (!ramdonhug2 || ramdonhug2 === null || ramdonhug2 === '' || ramdonhug2 === undefined) {
+            
+            ramdonhug2 = hug2[Math.floor(Math.random()*hug2.length)]
+
+        }
+        
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()

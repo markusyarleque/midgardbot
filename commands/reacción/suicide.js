@@ -10,6 +10,12 @@ module.exports =  {
 
         let suic = star.suicide()
   
+        while (!suic || suic === null || suic === '' || suic === undefined) {
+            
+            suic = star.suicide()
+
+        }
+        
         const embed = new Discord.MessageEmbed()
         .setAuthor({ name: `Midgard's Sad 😔`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
         .setDescription(`**${message.author.username}** se ha suicidado... <a:suicide:881550681239064626>`)

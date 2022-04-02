@@ -24,6 +24,12 @@ module.exports =  {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdontacos = tacos[Math.floor(Math.random()*tacos.length)]
 
+        while (!ramdontacos || ramdontacos === null || ramdontacos === '' || ramdontacos === undefined) {
+            
+            ramdontacos = tacos[Math.floor(Math.random()*tacos.length)]
+
+        }
+        
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()

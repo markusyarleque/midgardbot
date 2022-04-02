@@ -28,6 +28,12 @@ module.exports =  {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonbachata = bachata[Math.floor(Math.random()*bachata.length)]
        
+        while (!ramdonbachata || ramdonbachata === null || ramdonbachata === '' || ramdonbachata === undefined) {
+            
+            ramdonbachata = bachata[Math.floor(Math.random()*bachata.length)]
+
+        }
+        
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()

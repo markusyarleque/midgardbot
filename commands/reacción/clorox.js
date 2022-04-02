@@ -23,6 +23,12 @@ module.exports =  {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonclorox = clorox[Math.floor(Math.random()*clorox.length)]
 
+        while (!ramdonclorox || ramdonclorox === null || ramdonclorox === '' || ramdonclorox === undefined) {
+            
+            ramdonclorox = clorox[Math.floor(Math.random()*clorox.length)]
+
+        }
+
         if (!img || img.id === message.author.id) {
   
             const embed = new Discord.MessageEmbed()

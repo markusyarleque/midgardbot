@@ -11,6 +11,12 @@ module.exports =  {
         let sleep = star.sleep()
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         
+        while (!sleep || sleep === null || sleep === '' || sleep === undefined) {
+            
+            sleep = star.sleep()
+
+        }
+        
         if (!img || img.id === message.author.id) {
   
             const embed = new Discord.MessageEmbed()

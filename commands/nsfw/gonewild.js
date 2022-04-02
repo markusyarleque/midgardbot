@@ -60,8 +60,14 @@ module.exports =  {
 
             let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
             let desc 
-            const image = await nsfw3.gonewild();
+            const image = await nsfw3.gonewild()
     
+            while (!image || image === null || image === '' || image === undefined) {
+                
+                image = await nsfw3.gonewild()
+                
+            }
+
             if (!img || img.id===message.author.id || img.user.bot) {
       
                 desc = `**${message.author.username}**, disfrútalo!`

@@ -68,6 +68,12 @@ module.exports =  {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonkg = kg[Math.floor(Math.random()*kg.length)]
 
+        while (!ramdonkg || ramdonkg === null || ramdonkg === '' || ramdonkg === undefined) {
+            
+            ramdonkg = kg[Math.floor(Math.random()*kg.length)]
+        
+        }
+
         if (!img || img.id === message.author.id) return message.reply({embeds: [
           
             new Discord.MessageEmbed()

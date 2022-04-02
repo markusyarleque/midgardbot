@@ -40,6 +40,18 @@ module.exports =  {
         let ramdoncumbia = cumbia[Math.floor(Math.random()*cumbia.length)]
         let ramdoncumbia2 = cumbia2[Math.floor(Math.random()*cumbia2.length)]
 
+        while (!ramdoncumbia || ramdoncumbia === null || ramdoncumbia === '' || ramdoncumbia === undefined) {
+            
+            ramdoncumbia = cumbia[Math.floor(Math.random()*cumbia.length)]
+
+        }
+        
+        while (!ramdoncumbia2 || ramdoncumbia2 === null || ramdoncumbia2 === '') {
+            
+            ramdoncumbia2 = cumbia2[Math.floor(Math.random()*cumbia2.length)]
+            
+        }
+
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()

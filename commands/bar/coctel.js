@@ -16,13 +16,29 @@ module.exports =  {
             'https://media.discordapp.net/attachments/853500788848853002/873266760319647784/7.gif',
             'https://media.discordapp.net/attachments/853500788848853002/873266768460787722/8.gif',
             'https://media.discordapp.net/attachments/853500788848853002/873266776446738502/9.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873266781815447602/10.gif'
+            'https://media.discordapp.net/attachments/853500788848853002/873266781815447602/10.gif',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
         
         ]
 
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdoncoctel = coctel[Math.floor(Math.random()*coctel.length)]
 
+        while (!ramdoncoctel || ramdoncoctel === null || ramdoncoctel === '' || ramdoncoctel === undefined) {
+
+            ramdoncoctel = coctel[Math.floor(Math.random()*coctel.length)]
+            
+        }
+        
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()

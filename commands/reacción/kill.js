@@ -52,6 +52,12 @@ module.exports =  {
             ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
           
         } else {
+
+            while (!ramdonkill || ramdonkill === null || ramdonkill === '' || ramdonkill === undefined) {
+                
+                ramdonkill = kill[Math.floor(Math.random()*kill.length)]
+
+            }
     
             const embed = new Discord.MessageEmbed()
             .setAuthor({ name: `Midgard's Emotions 🤗`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })

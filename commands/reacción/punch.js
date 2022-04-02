@@ -68,6 +68,12 @@ module.exports =  {
           
         } else {
     
+            while (!ramdonpunch || ramdonpunch === null || ramdonpunch === '' || ramdonpunch === undefined) {
+                
+                ramdonpunch = punch[Math.floor(Math.random()*punch.length)]
+
+            }
+            
             const embed = new Discord.MessageEmbed()
             .setAuthor({ name: `Midgard's Love 💞`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setDescription(`**${message.author.username}** le dió un puñetazo a **${img.user.username}**.`)

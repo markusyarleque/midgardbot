@@ -11,6 +11,12 @@ module.exports =  {
         let cuddle = await anime.cuddle()
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
    
+        while (!cuddle || cuddle === null || cuddle === '' || cuddle === undefined) {
+            
+            cuddle = await anime.cuddle()
+            
+        }
+
         if (!img || img.id === message.author.id) {
 
             const embed = new Discord.MessageEmbed()

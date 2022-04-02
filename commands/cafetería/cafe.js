@@ -24,6 +24,12 @@ module.exports =  {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdoncafe = cafe[Math.floor(Math.random()*cafe.length)]
 
+        while (!ramdoncafe || ramdoncafe === null || ramdoncafe === '' || ramdoncafe === undefined) {
+            
+            ramdoncafe = cafe[Math.floor(Math.random()*cafe.length)]
+
+        }
+        
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()

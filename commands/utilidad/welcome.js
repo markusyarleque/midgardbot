@@ -55,6 +55,12 @@ module.exports =  {
 
         let ramdonwelcome = welcome[Math.floor(Math.random()*welcome.length)]
     
+        while (!ramdonwelcome || ramdonwelcome === null || ramdonwelcome === '' || ramdonwelcome === undefined) {
+            
+            ramdonwelcome = welcome[Math.floor(Math.random()*welcome.length)]
+            
+        }
+
         const embed = new Discord.MessageEmbed()
         .setThumbnail(img.displayAvatarURL() ? img.displayAvatarURL({ dynamic: true }).replace('webp','png') : client.user.avatarURL({ dynamic: true }) )
         .setTitle(`Bienvenid@ <:abby:931432327354155038> **${img.username}** <a:pepedance:880928616416968745>`)

@@ -28,7 +28,7 @@ module.exports =  {
             'https://31.media.tumblr.com/bd21568b5e5ddaa6c7e11b7982effacc/tumblr_mkovmhGBox1rjpsi2o1_250.gif',
             'https://pa1.narvii.com/6828/ee5490e48c367f4c9fa71f8e1bc6b3fd3efa0e05_hq.gif',
             'https://c.tenor.com/sX2r3mk1g3cAAAAC/spank.gif',
-            'https://64.media.tumblr.com/1577f0bdf41dce67a539ce6b6bbaadb1/982de5de294ef415-97/s500x750/a2f9b4b3c55382b4479bd072342d6db0d68d0802.gifv',
+            'https://64.media.tumblr.com/1577f0bdf41dce67a539ce6b6bbaadb1/982de5de294ef415-97/s500x750/a2f9b4b3c55382b4479bd072342d6db0d68d0802.gif',
             'https://static.wikia.nocookie.net/villains/images/4/48/NwVJoC.gif/revision/latest/scale-to-width-down/250?cb=20180428114358',
             'https://static-ca-cdn.eporner.com/gallery/Na/4E/YnLF0xX4ENa/842540-striped.gif',
             'https://tvmedia.ign.com/tv/image/article/112/1123252/the-office-20100924005913387.gif',
@@ -78,6 +78,12 @@ module.exports =  {
             ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
           
         } else {
+
+            while (!ramdonspank || ramdonspank === null || ramdonspank === '' || ramdonspank === undefined) {
+                
+                ramdonspank = spank[Math.floor(Math.random()*spank.length)]
+                
+            }
     
             const embed = new Discord.MessageEmbed()
             .setAuthor({ name: `Midgard's Love 💞`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })

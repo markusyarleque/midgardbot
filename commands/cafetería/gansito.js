@@ -16,16 +16,22 @@ module.exports =  {
             'https://www.rebanando.com/uploads/externalMedia/c6/6c/0e/17/giphy-2-86.gif',
             'https://www.rebanando.com/uploads/externalMedia/6a/8b/b3/2a/giphy-5-52.gif',
             'https://c.tenor.com/HU4xu4-cABMAAAAM/behold-gansitos-food.gif',
-            'https://64.media.tumblr.com/da166699a8fa88cdb9bcfe2820fc334e/tumblr_ocgswc2rHu1t9ocfzo8_500.gifv',
-            'https://64.media.tumblr.com/c5221eb2c70f2eb87f7c0b0f8f9c737b/tumblr_ocgswc2rHu1t9ocfzo5_500.gifv',
+            'https://64.media.tumblr.com/da166699a8fa88cdb9bcfe2820fc334e/tumblr_ocgswc2rHu1t9ocfzo8_500.gif',
+            'https://64.media.tumblr.com/c5221eb2c70f2eb87f7c0b0f8f9c737b/tumblr_ocgswc2rHu1t9ocfzo5_500.gif',
             'https://i.pinimg.com/originals/b9/f7/e3/b9f7e3e5ac0985f7c39bfb0ffccb6ebc.gif',
-            'https://64.media.tumblr.com/7500a6ec8e2bbbbea9b31f5c4f5a53a6/tumblr_ocgswc2rHu1t9ocfzo6_500.gifv',
+            'https://64.media.tumblr.com/7500a6ec8e2bbbbea9b31f5c4f5a53a6/tumblr_ocgswc2rHu1t9ocfzo6_500.gif',
 
         ]
 
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdongansito = gansito[Math.floor(Math.random()*gansito.length)]
 
+        while (!ramdongansito || ramdongansito === null || ramdongansito === '' || ramdongansito === undefined) {
+            
+            ramdongansito = gansito[Math.floor(Math.random()*gansito.length)]
+
+        }
+        
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()

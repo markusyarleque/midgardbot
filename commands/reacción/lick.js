@@ -35,6 +35,12 @@ module.exports =  {
         
         } else {
 
+            while (!lick || lick === null || lick === '' || lick === undefined) {
+                
+                lick = star.lick()
+                
+            }
+
             const embed = new Discord.MessageEmbed()
             .setAuthor({ name: `Midgard's Emotions 🤗`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setDescription(`**${message.author.username}** está lamiendo a **${img.user.username}** <:mmm:880308330894090241>`)

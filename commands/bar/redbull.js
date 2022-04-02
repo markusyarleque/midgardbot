@@ -24,6 +24,12 @@ module.exports =  {
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonredbull = redbull[Math.floor(Math.random()*redbull.length)]
 
+        while (!ramdonredbull || ramdonredbull === null || ramdonredbull === '' || ramdonredbull === undefined) {
+            
+            ramdonredbull = redbull[Math.floor(Math.random()*redbull.length)]
+
+        }
+        
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()

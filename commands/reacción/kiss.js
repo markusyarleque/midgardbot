@@ -124,6 +124,12 @@ module.exports =  {
         
         }
 
+        while (!ramdonkiss || ramdonkiss === null || ramdonkiss === '' || ramdonkiss === undefined) {
+            
+            ramdonkiss = kiss[Math.floor(Math.random()*kiss.length)]
+            
+        }
+
         const embed = new Discord.MessageEmbed()
         .setAuthor({ name: `Midgard's Love 💞`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
         .setDescription(`**${message.author.username}** le dió un beso a **${img.user.username}**. <:GatoLove:925929538863628318>\n<a:flechad:880330587678838784> *${message.author.username}* y *${img.user.username}* se han besado ${conteo}`)

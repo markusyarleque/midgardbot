@@ -95,6 +95,12 @@ module.exports =  {
             let ramdonlick = lick[Math.floor(Math.random()*lick.length)]
             let desc 
     
+            while (!ramdonlick || ramdonlick === null || ramdonlick === '' || ramdonlick === undefined) {
+             
+                ramdonlick = lick[Math.floor(Math.random()*lick.length)]
+                
+            }
+
             if (!img || img.id===message.author.id || img.user.bot) {
       
                 desc = `A **${message.author.username}** le provocó lamer coños <a:sabroso:880695816497541180>`
