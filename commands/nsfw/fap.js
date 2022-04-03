@@ -28,7 +28,8 @@ module.exports =  {
             'https://images-ext-1.discordapp.net/external/z2vgdD0gTG9gE6IZzUi2eFzWi8RMmOPL_Xn7dDubsZE/https/kama-proekt.ru/javgrown/wp-content/uploads/2013/10/198.gif?width=375&height=152',
             'https://images-ext-2.discordapp.net/external/ywIRldkQ6RSt_2llk80MJDGAmZb7kx656NV3aHxt-cQ/https/vayagifporno.com/wp-content/uploads/2014/10/14.gif?width=287&height=208',
             'https://kama-proekt.ru/javgrown/wp-content/uploads/2014/02/198.gif',
-            'https://images-ext-2.discordapp.net/external/XkAfdVMViKIFFSIz4mv0gaaFcQAA84U7CmzE-eErBMA/https/vayagifporno.com/wp-content/uploads/2014/02/1101.gif?width=375&height=225'
+            'https://images-ext-2.discordapp.net/external/XkAfdVMViKIFFSIz4mv0gaaFcQAA84U7CmzE-eErBMA/https/vayagifporno.com/wp-content/uploads/2014/02/1101.gif?width=375&height=225',
+            'http://blowjobgif.net/albums/2019/02/18/21/1/sasha-grey-bdsm.gif'
 
         ]
 
