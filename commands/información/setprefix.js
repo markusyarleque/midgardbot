@@ -61,10 +61,11 @@ module.exports = {
         ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         const embedinicial = new Discord.MessageEmbed()
-        .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+        .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setColor('YELLOW')
         .setThumbnail(message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }))
         .setDescription('<a:cargando:960474774281256980> | **Actualizando prefix...**')
+        .setFooter({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
         .setTimestamp()
 
         message.reply({ allowedMentions: { repliedUser: false}, embeds: [embedinicial]})
@@ -109,13 +110,14 @@ module.exports = {
                 }
 
                 const embedcambio = new Discord.MessageEmbed()
-                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
                 .setColor('GREEN')
                 .setThumbnail(message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }))
                 .setDescription('<a:Verify1:931463354357276742> | **Prefix cambiado con éxito:** ')
                 .addField('\u200B','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>')
                 .addField('Servidor: ', '<a:flech:931432469935312937> `' + message.guild.name + '`')
                 .addField('Nuevo Prefix: ', '<a:flech:931432469935312937> `' + newprefix + '`\n<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>')
+                .setFooter({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                 .setTimestamp()
 
                 setTimeout(() => {
@@ -129,10 +131,11 @@ module.exports = {
                 console.log('Error al Registrar prefix en servidor: ' + message.guid.name + ' - ' + error)
                 
                 const e4 = new Discord.MessageEmbed()
-                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
                 .setThumbnail(message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }))
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | Ocurrió un error inesperado, por favor intenta de nuevo!\n> Error: `+error)
+                .setFooter({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                 .setTimestamp()
 
                 setTimeout(() => {
