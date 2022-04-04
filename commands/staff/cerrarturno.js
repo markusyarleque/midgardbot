@@ -53,21 +53,15 @@ module.exports =  {
         
             if(!userTurno){
 
-                console.log('========================= REGISTRO DE STAFF DE TURNO =========================');
-                        
-                let user = await turnoSchema.create({
+                return message.reply({embeds: [
+        
+                    new Discord.MessageEmbed()
+                    .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
+                    .setColor('RED')
+                    .setDescription(`<a:Verify2:931463492677017650> | El usuario ingresado no está en la Base de Datos de Staff!`)
+              
+                ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-                    idusuario: user1.id,
-                    mensajes: 0,
-                    diamantes: 0,
-
-                })
-
-                user.save();
-                console.log('Usuario Registrado ===> Id: '+ user1.id + ' Username: ' + user1.username)
-                
-                console.log('========================= REGISTRO DE STAFF DE TURNO =========================');
-                        
             }
             
         } catch (error) {
@@ -102,20 +96,15 @@ module.exports =  {
     
                         if(!userTurno){
             
-                            console.log('========================= REGISTRO DE STAFF DE TURNO =========================');
-                    
-                            let user = await turnoSchema.create({
-            
-                                idusuario: user1.id,
-                                mensajes: 0,
-                
-                            })
-                
-                            user.save();
-                            console.log('Staff de Turno Registrado ===> Id: '+ user1.id + ' Username: ' + user1.username)
-               
-                            console.log('========================= REGISTRO DE STAFF DE TURNO =========================');
-               
+                            return message.reply({embeds: [
+        
+                                new Discord.MessageEmbed()
+                                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
+                                .setColor('RED')
+                                .setDescription(`<a:Verify2:931463492677017650> | El usuario ingresado no está en la Base de Datos de Staff!`)
+                          
+                            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+                            
                         } else {
     
                             console.log('========================= ACTUALIZACIÓN DE STAFF DE TURNO =========================');
@@ -134,7 +123,7 @@ module.exports =  {
             
                             update.save()
                
-                            console.log('Staff de Turno Actualizado ===> Id: '+ user1.id + ' Username: ' + user1.username)
+                            console.log('Staff de Turno Actualizado ===> Id: '+ user1.id + ' Username: ' + user1.user.username)
                
                             console.log('========================= ACTUALIZACIÓN DE STAFF DE TURNO =========================');
                
