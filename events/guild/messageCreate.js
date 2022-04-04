@@ -866,7 +866,7 @@ module.exports = async (client, Discord, message) => {
     
         const embed = new Discord.MessageEmbed()
         .setAuthor({ name: message.author.username+'#'+message.author.discriminator, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-        .setDescription('Hola! **'+ message.author.username +'** Mi Prefix en **' + message.guild.name + '** es: ```' + prefix + '``` Puedes ver mis comandos disponibles usando: `' + prefix + 'help`. Para enviar un reporte usa: `' + prefix + 'report` y para una sugerencia: `' + prefix + 'suggestion`.')
+        .setDescription('Hola! **'+ message.author.username +'** Mi Prefix en  **' + message.guild.name + '**  es: `' + prefix + '`\nPuedes ver mis comandos disponibles usando: `' + prefix + 'help`. Para enviar un reporte usa: `' + prefix + 'report` y para una sugerencia: `' + prefix + 'suggestion`.')
         .setColor('RANDOM')
         message.reply({ allowedMentions: { repliedUser: false }, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
