@@ -113,7 +113,7 @@ module.exports = {
                 .setColor('GREEN')
                 .setThumbnail(message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }))
                 .setDescription('<a:Verify1:931463354357276742> | **Prefix cambiado con éxito:** ')
-                .addField('\u200B','\u200B')
+                .addField('\u200B','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>')
                 .addField('Servidor: ', '<a:flech:931432469935312937> `' + message.guild.name + '`')
                 .addField('Nuevo Prefix: ', '<a:flech:931432469935312937> `' + newprefix + '`')
                 .setTimestamp()
