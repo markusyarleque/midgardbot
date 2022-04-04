@@ -116,6 +116,7 @@ module.exports = {
                 .addField('\u200B','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>')
                 .addField('Servidor: ', '<a:flech:931432469935312937> `' + message.guild.name + '`')
                 .addField('Nuevo Prefix: ', '<a:flech:931432469935312937> `' + newprefix + '`')
+                .addField('<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>','\u200B')
                 .setTimestamp()
 
                 setTimeout(() => {
