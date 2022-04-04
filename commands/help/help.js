@@ -48,7 +48,7 @@ module.exports =  {
         .setTimestamp(new Date())
         .setThumbnail('https://mimeti.co/wp-content/uploads/2015/01/01-gif-traduction-localise.gif')
         .setColor('RANDOM')
-        .setDescription('> **ping**\n> Comprueba la latencia del bot y de tus mensajes.\n\n> **stats**\n> Muestra la info y estado del bot.\n\n> **help | h**\n> Menú de ayuda con los comandos del bot\n\n> **server**\n> Muestra información de un servidor determinado.\n\n> **report**\n> Reportar un bug del bot.\n\n> **suggestion**\n> Enviar una sugerencia para mejorar el bot.\n\n')
+        .setDescription('> **ping**\n> Comprueba la latencia del bot y de tus mensajes.\n\n> **stats**\n> Muestra la info y estado del bot.\n\n> **setprefix**\n> Actualiza el prefix del bot en este servidor.\n\n> **help | h**\n> Menú de ayuda con los comandos del bot\n\n> **server**\n> Muestra información de este servidor.\n\n> **report**\n> Reportar un bug del bot.\n\n> **suggestion**\n> Enviar una sugerencia para mejorar el bot.\n\n')
 
         const helputil = new Discord.MessageEmbed()
         .setTitle('💡 • Comandos de Utilidad')

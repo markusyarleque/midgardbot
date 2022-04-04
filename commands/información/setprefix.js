@@ -64,7 +64,7 @@ module.exports = {
         .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
         .setColor('YELLOW')
         .setThumbnail(message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }))
-        .setDescription('<a:cargando:960474774281256980> | Actualizando prefix...')
+        .setDescription('<a:cargando:960474774281256980> | **Actualizando prefix...**')
         .setTimestamp()
 
         message.reply({ allowedMentions: { repliedUser: false}, embeds: [embedinicial]})
@@ -112,7 +112,8 @@ module.exports = {
                 .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                 .setColor('GREEN')
                 .setThumbnail(message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }))
-                .setDescription('<a:Verify1:931463354357276742> | Prefix cambiado con éxito: ')
+                .setDescription('<a:Verify1:931463354357276742> | **Prefix cambiado con éxito:** ')
+                .addField('\u200B','\u200B')
                 .addField('Servidor: ', '<a:flech:931432469935312937> `' + message.guild.name + '`')
                 .addField('Nuevo Prefix: ', '<a:flech:931432469935312937> `' + newprefix + '`')
                 .setTimestamp()
