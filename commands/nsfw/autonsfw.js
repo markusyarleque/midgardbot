@@ -1,7 +1,7 @@
 const NSFW = require('discord-nsfw');
 const nsfw3 = new NSFW();
 const { Permissions } = require('discord.js');
-const prefix = process.env.PREFIX;
+const prefixSchema = require('../../models/prefixSchema');
 const autonsfwSchema = require('../../models/autonsfwSchema');
 
 module.exports =  {
@@ -13,6 +13,28 @@ module.exports =  {
     async execute(client, message, args, Discord) { 
   
         if(message.guild.id !== '777620055344545842') return
+
+        let buscarprefix, prefix
+        try {
+
+            buscarprefix = await prefixSchema.findOne({idserver: message.guild.id})
+
+            if(buscarprefix){
+
+                prefix = buscarprefix.prefix
+
+            } else {
+
+                prefix = process.env.PREFIX
+
+            }
+
+        } catch (error) {
+
+            console.log('Error al Prefix en Servidor: '+ message.guild.id + ' - ' + error)
+            prefix = process.env.PREFIX
+
+        }
 
         let id = ['753435606410985573']
 

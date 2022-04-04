@@ -1,14 +1,36 @@
 const { Collection } = require('mongoose');
 const userSchema = require('../../models/userSchema');
-const prefix = process.env.PREFIX;
+const prefixSchema = require('../../models/prefixSchema');
 
 module.exports =  {
     
     name: 'buy',
     aliases: ['comprar'],
-    description: '🛒 Compra un ítem de la tienda.\n `'+prefix+'buy <item>`',
+    description: '🛒 Compra un ítem de la tienda.\n [prefix]buy <item>`',
 
     async execute(client, message, args, Discord) {
+
+        let buscarprefix, prefix
+        try {
+
+            buscarprefix = await prefixSchema.findOne({idserver: message.guild.id})
+
+            if(buscarprefix){
+
+                prefix = buscarprefix.prefix
+
+            } else {
+
+                prefix = process.env.PREFIX
+
+            }
+
+        } catch (error) {
+
+            console.log('Error al Prefix en Servidor: '+ message.guild.id + ' - ' + error)
+            prefix = process.env.PREFIX
+
+        }
 
         let it = args[0]
 

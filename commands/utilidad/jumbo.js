@@ -1,5 +1,5 @@
 const { Permissions } = require('discord.js');
-const prefix = process.env.PREFIX;
+const prefixSchema = require('../../models/prefixSchema');
 
 module.exports =  {
     
@@ -8,6 +8,28 @@ module.exports =  {
     description: '👀 Ver en grande un emoji.',
   
     async execute(client, message, args, Discord) {
+
+      let buscarprefix, prefix
+      try {
+
+        buscarprefix = await prefixSchema.findOne({idserver: message.guild.id})
+
+        if(buscarprefix){
+
+          prefix = buscarprefix.prefix
+
+        } else {
+
+          prefix = process.env.PREFIX
+
+        }
+
+      } catch (error) {
+
+        console.log('Error al Prefix en Servidor: '+ message.guild.id + ' - ' + error)
+        prefix = process.env.PREFIX
+
+      }
 
         if(!args[0]) return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
 

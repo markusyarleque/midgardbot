@@ -15,7 +15,7 @@ module.exports =  {
                 new Discord.MessageEmbed()
                 .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
                 .setColor('RED')
-                .setDescription(`<a:Verify2:931463492677017650> | Escriba un contenido para decir.`)
+                .setDescription(`<a:Verify2:931463492677017650> | Escriba un mensaje para decir.`)
     
             ]
         }).catch((e) => console.log('Error al enviar mensaje: '+e))

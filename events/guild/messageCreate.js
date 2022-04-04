@@ -1,4 +1,3 @@
-const prefix = process.env.PREFIX;
 const Similar = require('string-similarity');
 const { Permissions } = require('discord.js');
 
@@ -7,6 +6,7 @@ const userModel = require('../../models/userSchema');
 const blSchema = require('../../models/blSchema');
 const autoSchema = require('../../models/autoSchema');
 const turnoSchema = require('../../models/turnoSchema');
+const prefixSchema = require('../../models/prefixSchema');
 //& Modelos
 
 module.exports = async (client, Discord, message) => {
@@ -35,6 +35,28 @@ module.exports = async (client, Discord, message) => {
     
     }
 
+    let buscarprefix, prefix
+    try {
+
+        buscarprefix = await prefixSchema.findOne({idserver: message.guild.id})
+
+        if(buscarprefix){
+
+            prefix = buscarprefix.prefix
+
+        } else {
+
+            prefix = process.env.PREFIX
+
+        }
+
+    } catch (error) {
+
+        console.log('Error al buscar Prefix en Servidor: '+ message.guild.id + ' - ' + error)
+        prefix = process.env.PREFIX
+
+    }
+    
     let sv = client.guilds.cache.get('851924635930329098')
     let channel
     let idcanal = message.channel.id
@@ -844,7 +866,7 @@ module.exports = async (client, Discord, message) => {
     
         const embed = new Discord.MessageEmbed()
         .setAuthor({ name: message.author.username+'#'+message.author.discriminator, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-        .setDescription('Hola! **'+ message.author.username +'** Mi Prefix es: ' + prefix + ' Puedes ver mis comandos disponibles usando: `' + prefix + 'help`. Para enviar un reporte usa: `' + prefix + 'report` y para una sugerencia: `' + prefix + 'suggestion`.')
+        .setDescription('Hola! **'+ message.author.username +'** Mi Prefix en **' + message.guild.id + '** es: ' + prefix + ' Puedes ver mis comandos disponibles usando: `' + prefix + 'help`. Para enviar un reporte usa: `' + prefix + 'report` y para una sugerencia: `' + prefix + 'suggestion`.')
         .setColor('RANDOM')
         message.reply({ allowedMentions: { repliedUser: false }, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
     

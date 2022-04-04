@@ -1,13 +1,35 @@
-const prefix = process.env.PREFIX;
+const prefixSchema = require('../../models/prefixSchema');
 const { Permissions } = require('discord.js');
 
 module.exports =  {
     
     name: 'poll',
     aliases: ['encuesta'],
-    description: '📈 Realizar una encuesta con hasta 10 opciones.\n`'+prefix+'poll pregunta - opción1 - opción2 - opción3 [opcional]...`',
+    description: '📈 Realizar una encuesta con hasta 10 opciones.\n[prefix]poll pregunta - opción1 - opción2 - opción3 [opcional]...`',
   
     async execute(client, message, args, Discord) {
+
+        let buscarprefix, prefix
+        try {
+
+            buscarprefix = await prefixSchema.findOne({idserver: message.guild.id})
+
+            if(buscarprefix){
+
+                prefix = buscarprefix.prefix
+
+            } else {
+
+                prefix = process.env.PREFIX
+
+            }
+
+        } catch (error) {
+
+            console.log('Error al buscar Prefix en Servidor: '+ message.guild.id + ' - ' + error)
+            prefix = process.env.PREFIX
+
+        }
 
         if(!message.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES)) return message.reply({ embeds: [
 

@@ -1,4 +1,4 @@
-const prefix = process.env.PREFIX;
+const prefixSchema = require('../../models/prefixSchema');
 
 module.exports =  {
     
@@ -7,6 +7,28 @@ module.exports =  {
     description: '🏪 Muestra la tienda del Bot en el servidor.',
 
     async execute(client, message, args, Discord) {
+
+        let buscarprefix, prefix
+        try {
+
+            buscarprefix = await prefixSchema.findOne({idserver: message.guild.id})
+
+            if(buscarprefix){
+
+                prefix = buscarprefix.prefix
+
+            } else {
+
+                prefix = process.env.PREFIX
+
+            }
+
+        } catch (error) {
+
+            console.log('Error al Prefix en Servidor: '+ message.guild.id + ' - ' + error)
+            prefix = process.env.PREFIX
+
+        }
 
         // STORE
 

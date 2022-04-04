@@ -1,19 +1,41 @@
-const prefix = process.env.PREFIX;
+const prefixSchema = require('../../models/prefixSchema');
 
 module.exports =  {
     
     name: 'carta',
     aliases: ['md','confession','confesión','dedicatoria'],
-    description: '📩 Envía una carta, confesión o dedicatoria al md de un usuario del servidor. Para más información, ejecuta el comando `'+prefix+'carta`.',
+    description: '📩 Envía una carta, confesión o dedicatoria al md de un usuario del servidor. Para más información, ejecuta el comando [prefix]carta`.',
   
     async execute(client, message, args, Discord) {
+
+        let buscarprefix, prefix
+        try {
+
+            buscarprefix = await prefixSchema.findOne({idserver: message.guild.id})
+
+            if(buscarprefix){
+
+                prefix = buscarprefix.prefix
+
+            } else {
+
+                prefix = process.env.PREFIX
+
+            }
+
+        } catch (error) {
+
+            console.log('Error al Prefix en Servidor: '+ message.guild.id + ' - ' + error)
+            prefix = process.env.PREFIX
+
+        }
 
         const CARTA_TIEMPO_MIN = 2;
         const CARTA_TIEMPO_MAX = 5;
 
         const MENSAJE_AYUDA_CARTA = new Discord.MessageEmbed()
         .setDescription('<a:fijadito:931432134797848607> Carta - Envia una carta a otro usuario <:abby:931432327354155038>')
-        .addField('<a:flech:931432469935312937> Uso: ','`carta <tag> <mensaje>`')
+        .addField('<a:flech:931432469935312937> Uso: ','`' + prefix + 'carta <tag> <mensaje>`')
         .addField('<a:flech:931432469935312937> Argumentos: ','- tag: El tag del usuario / @user / id\n- mensaje: El mensaje que deseas enviar.\n\n-Si deseas que aparezca tu nombre, solo coloca `-n` al final del mensaje.')
         .setColor('RANDOM')
         .setFooter({ text: 'Utiliza con moderación el comando, caso contrario, serás reportado en la lista negra del Bot!', iconURL: `https://c.tenor.com/Gh9SFp64h8wAAAAC/banned-and-you-are-banned.gif` })
