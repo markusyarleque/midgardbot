@@ -1,5 +1,5 @@
 const prefixSchema = require('../../models/prefixSchema');
-const { Permissions } = require('discord.js');
+const { Permissions, MessageButton } = require('discord.js');
 
 module.exports = { 
 
@@ -80,6 +80,7 @@ module.exports = {
                     let setprefix = await prefixSchema.create({
     
                         idserver: message.guild.id,
+                        servername: message.guild.name,
                         prefix: newprefix,
         
                     })
