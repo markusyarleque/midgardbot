@@ -1,4 +1,5 @@
 const prefixSchema = require('../../models/prefixSchema');
+const { Permissions } = require('discord.js');
 
 module.exports = { 
 
