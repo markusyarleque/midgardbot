@@ -3,8 +3,8 @@ const { Permissions } = require('discord.js');
 
 module.exports = { 
 
-    name: 'prefix',
-    aliases: ['setprefix','set-prefix'],
+    name: 'setprefix',
+    aliases: ['set-prefix'],
     description: '📝 Actualiza el prefix del bot en este servidor.',
   
     async execute(client, message, args, Discord) {
@@ -49,7 +49,7 @@ module.exports = {
             .setColor('RED')
             .setDescription('<a:Verify2:931463492677017650> | Por Favor, ingresa un nuevo prefix.\n\n> Uso: ' + prefix + 'setprefix <nuevoprefix>')
     
-        ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
+        ]}).then(m => setTimeout(() => m.delete(), 10000)).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         if (newprefix.length > 3) return message.reply({ embeds: [
 
