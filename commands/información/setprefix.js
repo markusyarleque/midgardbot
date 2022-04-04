@@ -65,7 +65,7 @@ module.exports = {
         .setColor('YELLOW')
         .setThumbnail(message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }))
         .setDescription('<a:cargando:960474774281256980> | **Actualizando prefix...**')
-        .setFooter({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+        .setFooter({ text: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
         .setTimestamp()
 
         message.reply({ allowedMentions: { repliedUser: false}, embeds: [embedinicial]})
@@ -118,7 +118,7 @@ module.exports = {
                 .addField('\u200B','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>')
                 .addField('Servidor: ', '<a:flech:931432469935312937> `' + message.guild.name + '`')
                 .addField('Nuevo Prefix: ', '<a:flech:931432469935312937> `' + newprefix + '`\n<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>')
-                .setFooter({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                .setFooter({ text: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                 .setTimestamp()
 
                 setTimeout(() => {
@@ -136,7 +136,7 @@ module.exports = {
                 .setThumbnail(message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }))
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | Ocurrió un error inesperado, por favor intenta de nuevo!\n> Error: `+error)
-                .setFooter({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                .setFooter({ text: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                 .setTimestamp()
 
                 setTimeout(() => {
