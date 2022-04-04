@@ -94,7 +94,7 @@ module.exports =  {
 
             } else if(user1.roles.cache.find(r => r.id === staffTurno)) {
 
-                await user1.roles.remove(rol).then(() => {
+                await user1.roles.remove(rol).then(async () => {
 
                     try {
 

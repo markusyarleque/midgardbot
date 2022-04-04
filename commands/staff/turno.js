@@ -29,7 +29,7 @@ module.exports =  {
 
             if(!message.member.roles.cache.find(r => r.id === staffTurno)){
                             
-                await message.member.roles.add(rol).then(() => {
+                await message.member.roles.add(rol).then(async () => {
 
                     try {
 
@@ -95,7 +95,7 @@ module.exports =  {
 
             } else if(message.member.roles.cache.find(r => r.id === staffTurno)) {
 
-                await message.member.roles.remove(rol).then(() => {
+                await message.member.roles.remove(rol).then(async () => {
 
                     try {
 
