@@ -63,6 +63,7 @@ module.exports = {
         const embedinicial = new Discord.MessageEmbed()
         .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
         .setColor('YELLOW')
+        .setThumbnail(message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }))
         .setDescription('<a:cargando:960474774281256980> | Actualizando prefix...')
         .setTimestamp()
 
@@ -110,12 +111,17 @@ module.exports = {
                 const embedcambio = new Discord.MessageEmbed()
                 .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                 .setColor('GREEN')
+                .setThumbnail(message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }))
                 .setDescription('<a:Verify1:931463354357276742> | Prefix cambiado con éxito: ')
-                .addField('Servidor: ', '<a:flech:931432469935312937> **' + message.guild.name + '**')
-                .addField('Nuevo Prefix: ', '<a:flech:931432469935312937> **' + newprefix + '**')
+                .addField('Servidor: ', '<a:flech:931432469935312937> `' + message.guild.name + '`')
+                .addField('Nuevo Prefix: ', '<a:flech:931432469935312937> `' + newprefix + '`')
                 .setTimestamp()
 
-                m.edit({ allowedMentions: { repliedUser: false}, embeds: [embedcambio]}).catch((e) => console.log('Error al enviar mensaje editado en setprefix: '+e))
+                setTimeout(() => {
+          
+                    m.edit({ allowedMentions: { repliedUser: false}, embeds: [embedcambio]}).catch((e) => console.log('Error al enviar mensaje editado en setprefix: '+e))
+                    
+                }, 5000)
 
             } catch (error) {
     
@@ -123,12 +129,17 @@ module.exports = {
                 
                 const e4 = new Discord.MessageEmbed()
                 .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                .setThumbnail(message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }))
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | Ocurrió un error inesperado, por favor intenta de nuevo!\n> Error: `+error)
                 .setTimestamp()
+
+                setTimeout(() => {
+          
+                    m.edit({ allowedMentions: { repliedUser: false}, embeds: [e4]}).catch((e) => console.log('Error al enviar mensaje editado en setprefix: '+e))
     
-                m.edit({ allowedMentions: { repliedUser: false}, embeds: [e4]}).catch((e) => console.log('Error al enviar mensaje editado en setprefix: '+e))
-    
+                }, 5000)
+                
             }
 
         })
