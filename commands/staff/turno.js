@@ -83,13 +83,13 @@ module.exports =  {
                     
                     console.log('Ocurrio un error al añadir ROL Staff de Turno al usuario: '+ message.author.id+ ' - '+e)
                     
-                    const e = new Discord.MessageEmbed()
+                    const e3 = new Discord.MessageEmbed()
                     .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                     .setColor('RED')
                     .setDescription('<a:Verify2:931463492677017650> | Ocurrió un error al añadir ROL Staff de Turno al usuario: <@'+ message.author.id+ '>, por favor intenta de nuevo!\n> Error: '+error)
                     .setTimestamp()
                 
-                    return message.reply({embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    return message.reply({embeds: [e3]}).catch((e) => console.log('Error al enviar mensaje: '+e))
                 
                 })
 
@@ -226,13 +226,13 @@ module.exports =  {
                     
                     console.log('Ocurrio un error al remover ROL Staff de Turno al usuario: '+ message.author.id+ ' - '+e)
                     
-                    const e = new Discord.MessageEmbed()
+                    const e2 = new Discord.MessageEmbed()
                     .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                     .setColor('RED')
                     .setDescription('<a:Verify2:931463492677017650> | Ocurrió un error al remover ROL Staff de Turno al usuario: <@'+ message.author.id+ '>, por favor intenta de nuevo!\n> Error: '+error)
                     .setTimestamp()
                 
-                    return message.reply({embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    return message.reply({embeds: [e2]}).catch((e) => console.log('Error al enviar mensaje: '+e))
                 
                 })
       
