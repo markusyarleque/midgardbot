@@ -2,8 +2,8 @@ const turnoSchema = require('../../models/turnoSchema');
 
 module.exports =  {
     
-    name: 'turno',
-    aliases: [],
+    name: 'cerrarturno',
+    aliases: ['ct','cerrar-turno'],
     description: '💻 Comando exclusivo de Staff',
 
     async execute(client, message, args, Discord) {
@@ -14,92 +14,91 @@ module.exports =  {
         let userTurno, mensajes, puntos, diamantes
         let canalstaff = client.channels.cache.get('950717214137409596')
 
-        const embed_inicio = new Discord.MessageEmbed()
-        .setThumbnail('https://images-ext-2.discordapp.net/external/uzG-lPjTdi7gFoYFRZXJcTZ5CiuJxPsE82N88qb0Hg8/https/i.gifer.com/8AMQ.gif?width=375&height=188')
-        .setAuthor({ name: '𝐌𝐢𝐝𝐠𝐚𝐫𝐝 𝐒𝐭𝐚𝐟𝐟', iconURL: client.user.avatarURL({ dynamic: true}) })
-        .setTitle('𝗦𝘁𝗮𝗳𝗳 𝗱𝗲 𝗧𝘂𝗿𝗻𝗼 ✨')
-        .setDescription('<a:BD_decoFlechaVerde:878509031675801640> Muchas gracias por ayudarnos a ser cada día mejor! Acabas de iniciar turno y has obtenido el rol <@&888203969111916595> Recuerda que tus mensajes solo serán contados en el canal <#870195067338506271>. Al finalizar, ejecuta de nuevo el comando `_turno` y automáticamente, el bot te dirá la cantidad de mensajes que has escrito, los puntos ganados que un <@&880241455849938995> te agregará, y los diamantes acumulados, que también serán añadidos en el canal de <#950717214137409596> Mucha Suerte!')
-        .setColor('RANDOM')
-        .setTimestamp(new Date())
-        .setFooter({ text: `Malta's Bot`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+        let id = ['753435606410985573','683501310527668228','743960732542042203']
+
+        if(!id.some(id => message.author.id == id)) {
+      
+            const embed = new Discord.MessageEmbed()
+            .setDescription('Solo los Gerentes pueden usar este comando.')
+            .setColor('RED')
+            
+            return message.reply({ embeds: [embed] })
+            .then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
+
+        }
+
+        let user1 = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
+        
+        if(!user1) return message.reply({embeds: [
        
+            new Discord.MessageEmbed()
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
+            .setColor('RED')
+            .setDescription(`<a:Verify2:931463492677017650> | ¡Debes mencionar a un usuario!`)
+      
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+
+        if(user1.user.bot) return message.reply({embeds: [
+        
+            new Discord.MessageEmbed()
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
+            .setColor('RED')
+            .setDescription(`<a:Verify2:931463492677017650> | No puedes cerrar turno de un bot`)
+      
+        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+
+        try {
+
+            userTurno = await turnoSchema.findOne({ idusuario: user1.id })
+        
+            if(!userTurno){
+
+                console.log('========================= REGISTRO DE STAFF DE TURNO =========================');
+                        
+                let user = await turnoSchema.create({
+
+                    idusuario: user1.id,
+                    mensajes: 0,
+                    diamantes: 0,
+
+                })
+
+                user.save();
+                console.log('Usuario Registrado ===> Id: '+ user1.id + ' Username: ' + user1.username)
+                
+                console.log('========================= REGISTRO DE STAFF DE TURNO =========================');
+                        
+            }
+            
+        } catch (error) {
+
+            console.log('Error al encontrar miembro de staff: '+error)
+            return message.reply('No se encontró al miembro de staff mencionado, por favor, asegúrese de mencionar correctamente o de ingresar una ID válida.').catch((e) => console.log('Error al enviar mensaje: '+e))
+            
+        }
+
         var rol = message.guild.roles.cache.find(x => x.id === staffTurno)
 
         if(rol){
 
-            if(!message.member.roles.cache.find(r => r.id === staffTurno)){
+            if(!user1.roles.cache.find(r => r.id === staffTurno)){
                             
-                await message.member.roles.add(rol).then(() => {
-
-                    try {
-
-                        userTurno = await turnoSchema.findOne({idusuario: message.author.id})
-    
-                        if(!userTurno){
-                        
-                            console.log('========================= REGISTRO DE STAFF DE TURNO =========================');
-                                
-                            let user = await turnoSchema.create({
-                        
-                                idusuario: message.author.id,
-                                mensajes: 0,
-                                diamantes: 0,
-                            
-                            })
-                            
-                            user.save();
-                            console.log('Staff de Turno Registrado ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
-                           
-                            console.log('========================= REGISTRO DE STAFF DE TURNO =========================');
-                           
-                        } else {
-    
-                            console.log('========================= ACTUALIZACIÓN DE STAFF DE TURNO =========================');
-                                
-                            let update = await turnoSchema.findOneAndUpdate({idusuario: message.author.id},{
-                        
-                                mensajes: 0
-                        
-                            })
-                        
-                            update.save()
-                           
-                            console.log('Staff de Turno Actualizado ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
-                           
-                            console.log('========================= ACTUALIZACIÓN DE STAFF DE TURNO =========================');
-                        
-                        }
-    
-                        message.channel.send({ allowedMentions: { repliedUser: false}, embeds: [embed_inicio]}).catch((e) => console.log('Error al enviar mensaje: '+e))
-    
-                    } catch (error) {
-    
-                        console.log('Error al Registrar Staff de Turno: '+ error)
-                        message.channel.send('Ocurrió un error al Registrar Usuario: '+ error).catch((e) => console.log('Error al enviar mensaje: '+e))
-    
-                    }
-                    
-                }).catch(e => {
-                    
-                    console.log('Ocurrio un error al añadir ROL Staff de Turno al usuario: '+ message.author.id+ ' - '+e)
-                    
-                    const e = new Discord.MessageEmbed()
-                    .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                return message.reply({embeds: [
+        
+                    new Discord.MessageEmbed()
+                    .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
                     .setColor('RED')
-                    .setDescription('<a:Verify2:931463492677017650> | Ocurrió un error al añadir ROL Staff de Turno al usuario: <@'+ message.author.id+ '>, por favor intenta de nuevo!\n> Error: '+error)
-                    .setTimestamp()
-                
-                    return message.reply({embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
-                
-                })
+                    .setDescription(`<a:Verify2:931463492677017650> | El usuario ingresado no está en Turno!`)
+              
+                ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-            } else if(message.member.roles.cache.find(r => r.id === staffTurno)) {
+            } else if(user1.roles.cache.find(r => r.id === staffTurno)) {
 
-                await message.member.roles.remove(rol).then(() => {
+                await user1.roles.remove(rol).then(() => {
 
                     try {
 
-                        userTurno = await turnoSchema.findOne({idusuario: message.author.id})
+                        userTurno = await turnoSchema.findOne({idusuario: user1.id})
     
                         if(!userTurno){
             
@@ -107,13 +106,13 @@ module.exports =  {
                     
                             let user = await turnoSchema.create({
             
-                                idusuario: message.author.id,
+                                idusuario: user1.id,
                                 mensajes: 0,
                 
                             })
                 
                             user.save();
-                            console.log('Staff de Turno Registrado ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
+                            console.log('Staff de Turno Registrado ===> Id: '+ user1.id + ' Username: ' + user1.username)
                
                             console.log('========================= REGISTRO DE STAFF DE TURNO =========================');
                
@@ -122,10 +121,10 @@ module.exports =  {
                             console.log('========================= ACTUALIZACIÓN DE STAFF DE TURNO =========================');
                     
                             mensajes = userTurno.mensajes
-                            puntos = Math.round(mensajes * 1)
+                            puntos = Math.round(mensajes * 0.3)
                             diamantes = Math.round(puntos/20)
     
-                            let update = await turnoSchema.findOneAndUpdate({idusuario: message.author.id},
+                            let update = await turnoSchema.findOneAndUpdate({idusuario: user1.id},
                                 {
             
                                     mensajes: 0,
@@ -135,7 +134,7 @@ module.exports =  {
             
                             update.save()
                
-                            console.log('Staff de Turno Actualizado ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
+                            console.log('Staff de Turno Actualizado ===> Id: '+ user1.id + ' Username: ' + user1.username)
                
                             console.log('========================= ACTUALIZACIÓN DE STAFF DE TURNO =========================');
                
@@ -191,7 +190,7 @@ module.exports =  {
     
                             embed.setAuthor({ name: '𝐌𝐢𝐝𝐠𝐚𝐫𝐝 𝐒𝐭𝐚𝐟𝐟', iconURL: client.user.avatarURL({ dynamic: true}) })
                             embed.setTitle('𝗦𝘁𝗮𝗳𝗳 𝗱𝗲 𝗹𝗮 𝗦𝗲𝗺𝗮𝗻𝗮 ✨')
-                            embed.setThumbnail(best.displayAvatarURL() ? best.displayAvatarURL({dynamic: true, size: 2048}) : message.guild.iconURL({ dynamic: true, size: 2048 }))
+                            embed.setThumbnail(best.displayAvatarURL({dynamic: true, size: 2048}))
                             embed.setImage('https://images-ext-1.discordapp.net/external/qucP-6EqjGHVl7U6CLiJpM4epnV7Q9UJKiBHwqMesiA/https/c.tenor.com/739sj-Rs53YAAAAM/ekrut-coworker.gif?width=165&height=124')
                             embed.setDescription(datos.join('\n\n'))   	
                             embed.setColor("RANDOM")
@@ -218,24 +217,24 @@ module.exports =  {
                     } catch (error) {
     
                         console.log('Error al Registrar Staff de Turno: '+ error)
-                        message.channel.send('Ocurrió un error al Registrar Usuario: '+ error).catch((e) => console.log('Error al enviar mensaje: '+e))
+                        message.channel.send('Ocurrió un error al Buscar Usuario: '+ error).catch((e) => console.log('Error al enviar mensaje: '+e))
     
                     }
 
                 }).catch(e => {
                     
-                    console.log('Ocurrio un error al remover ROL Staff de Turno al usuario: '+ message.author.id+ ' - '+e)
-                    
+                    console.log('Ocurrio un error al remover ROL Staff de Turno al usuario: '+ user1.id+ ' - '+e)
+
                     const e = new Discord.MessageEmbed()
                     .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                     .setColor('RED')
-                    .setDescription('<a:Verify2:931463492677017650> | Ocurrió un error al remover ROL Staff de Turno al usuario: <@'+ message.author.id+ '>, por favor intenta de nuevo!\n> Error: '+error)
+                    .setDescription('<a:Verify2:931463492677017650> | Ocurrió un error al remover ROL Staff de Turno al usuario: <@'+ user1.id+ '>, por favor intenta de nuevo!\n> Error: '+error)
                     .setTimestamp()
                 
                     return message.reply({embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
                 
                 })
-      
+                        
             }
                     
         }
