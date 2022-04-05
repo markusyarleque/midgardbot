@@ -508,9 +508,9 @@ module.exports =  {
             message.channel.send({ embeds: [embed] });
             message.delete({timeout: 100})
             
-          }*/
+          }
       
-          // if (command === 'rolesec'){
+          if (command === 'rolesec'){
       
             let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
         
@@ -533,7 +533,7 @@ module.exports =  {
             message.channel.send({ embeds: [embed] });
             message.delete({timeout: 100})
             
-          /*}
+          }
       
           if (command === 'rolesg'){
       
