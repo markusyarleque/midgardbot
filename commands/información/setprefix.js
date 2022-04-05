@@ -133,7 +133,7 @@ module.exports = {
             
                     let datos = []
                     let c = 1
-
+                    console.log('datos 1: '+datos)
                     client.guilds.cache.forEach(async (s)=>{
                         
                         let bx = await prefixSchema.findOne({idserver: s.id})
@@ -143,15 +143,19 @@ module.exports = {
                             datos.push('**' + c + '.** Nombre : `' + s.name + '` - Prefix : `' + bx.prefix + '`')
                             c = c + 1
 
+                            console.log('datos 2: '+datos)
                         } else{
                             
                             datos.push('**' + c + '.** Nombre : `' + s.name + '` - Prefix : `_`')
                             c = c + 1
 
+                            console.log('datos 3: '+datos)
                         }
                     
+                        console.log('datos 4: '+datos)
                     })
         
+                    console.log('datos 5: '+datos)
                     const embedmbp = new Discord.MessageEmbed()
                     .setThumbnail('https://media.giphy.com/media/3rgXBsmYd60rL3w7sc/giphy.gif')
                     .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true}) })
@@ -165,6 +169,7 @@ module.exports = {
                     canalmbp.send({ embeds: [embedmbp] }).catch((e) => console.log('Error al enviar mensaje: '+e))
                     canalmbp.send('https://images-ext-2.discordapp.net/external/9iPHKFXXnKKSQpcFazlW79dr1zbbtdo7QT7-xxtfDY4/%3Fwidth%3D600%26height%3D86/https/media.discordapp.net/attachments/897951731462316073/915663567213199390/bar-1.gif?width=450&height=65').catch((e) => console.log('Error al enviar mensaje: '+e))
                     
+                    console.log('datos 6: '+datos.join(' '))
                 } catch (error) {
                     
                     console.log('Ocurrió un error al buscar la lista de prefix: '+ error)
