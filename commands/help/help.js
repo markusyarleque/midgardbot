@@ -333,11 +333,11 @@ module.exports =  {
                 alias = query.aliases
 
                 const helpcmd = new Discord.MessageEmbed()
-                .setTitle('• Comando ' + cmd + '•')
+                .setTitle('• Comando ' + query.name + ' •')
                 .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
                 .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
                 .setTimestamp(new Date())
-                .setThumbnail('https://images-ext-1.discordapp.net/external/c4ICxQl5BBrJSx2B2HoU9bL2T4chNZBLudX6B62miyo/https/fat.gfycat.com/SpicyComplexCat.mp4')
+                .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/960825061307211786/SpicyComplexCat.gif?width=480&height=276')
                 .setColor('RANDOM')
                 .addField('Descripción: ','<a:flech:931432469935312937> ' + descripcion)
                 .addField('Aliases: ','<a:flech:931432469935312937> ' + alias)
