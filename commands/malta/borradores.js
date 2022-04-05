@@ -508,9 +508,9 @@ module.exports =  {
             message.channel.send({ embeds: [embed] });
             message.delete({timeout: 100})
             
-          }
+          }*/
       
-          if (command === 'rolesec'){
+          // if (command === 'rolesec'){
       
             let permiso = message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)
         
@@ -524,6 +524,7 @@ module.exports =  {
               🌸 <a:flechad:880330587678838784> <@&897701707847434240>\n\n
               ⛩️ <a:flechad:880330587678838784> <@&897701882158530590>\n\n
               🎁 <a:flechad:880330587678838784> <@&897701860176166912>\n\n
+              🤝 <a:flechad:880330587678838784> <@&960987738553868348>\n\n
               🎰 <a:flechad:880330587678838784> <@&897933020361818133>\n\n
               💰 <a:flechad:880330587678838784> <@&897933095720878080>\n\n`)
               .setColor("RANDOM")
@@ -532,7 +533,7 @@ module.exports =  {
             message.channel.send({ embeds: [embed] });
             message.delete({timeout: 100})
             
-          }
+          /*}
       
           if (command === 'rolesg'){
       
