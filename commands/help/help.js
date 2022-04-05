@@ -30,6 +30,8 @@ module.exports =  {
 
         }
 
+        let cmd = args[0]
+        let descripcion, alias
         //let desc = client.commands.find((d) => d.description)
 
         const helpprincipal = new Discord.MessageEmbed()
@@ -173,128 +175,311 @@ module.exports =  {
       
         ])
 
-        message.reply({ allowedMentions: { repliedUser: false}, 
+        if(!cmd){
+
+            message.reply({ allowedMentions: { repliedUser: false}, 
             
-            embeds: [helpprincipal],
-            components: [btns_options1]
+                embeds: [helpprincipal],
+                components: [btns_options1]
+              
+            }).then(async m => {
+                
+                let filter = int => int.isButton() && int.user.id == message.author.id 
+               
+                const collector = m.createMessageComponentCollector({ filter });
+                
+                collector.on("collect", async int => {
+                  
+                    int.deferUpdate();
+               
+                    if (int.customId === "mp") {
+                    
+                        m.edit({
+                      
+                            embeds: [helpprincipal],
+                            components: [btns_options1]
+                    
+                        }).catch((e) => console.log('Error al enviar mensaje: '+e))
           
-        }).then(async m => {
-            
-            let filter = int => int.isButton() && int.user.id == message.author.id 
-           
-            const collector = m.createMessageComponentCollector({ filter });
-            
-            collector.on("collect", async int => {
-              
-                int.deferUpdate();
-           
-                if (int.customId === "mp") {
-                
-                    m.edit({
+                    } else if (int.customId === "inf") {
+                    
+                        m.edit({
+                      
+                            embeds: [helpinfo],
+                            components: [btns_options1]
+                    
+                        }).catch((e) => console.log('Error al enviar mensaje: '+e))
+          
+                    } else if (int.customId === "util") {
+                    
+                        m.edit({
+                      
+                            embeds: [helputil],
+                            components: [btns_options1]
+                    
+                        }).catch((e) => console.log('Error al enviar mensaje: '+e))
+          
+                    } else if (int.customId === "mod") {
+                    
+                        m.edit({
+                      
+                            embeds: [helpmod],
+                            components: [btns_options1]
+                    
+                        }).catch((e) => console.log('Error al enviar mensaje: '+e))
+          
+                    } else if (int.customId === "eco") {
+                    
+                        m.edit({
+                      
+                            embeds: [helpeco],
+                            components: [btns_options1]
+                    
+                        }).catch((e) => console.log('Error al enviar mensaje: '+e))
+          
+                    } else if (int.customId === "m2") {
+                    
+                        m.edit({
+                      
+                            components: [btns_options2]
+                    
+                        }).catch((e) => console.log('Error al enviar mensaje: '+e))
+          
+                    } else if (int.customId === "div") {
+                    
+                        m.edit({
+                      
+                            embeds: [helpdiv],
+                            components: [btns_options2]
+                    
+                        }).catch((e) => console.log('Error al enviar mensaje: '+e))
+          
+                    } else if (int.customId === "rea") {
+                    
+                        m.edit({
+                      
+                            embeds: [helprea],
+                            components: [btns_options2]
+                    
+                        }).catch((e) => console.log('Error al enviar mensaje: '+e))
+          
+                    } else if (int.customId === "cbd") {
+                    
+                        m.edit({
+                      
+                            embeds: [helpcbd],
+                            components: [btns_options2]
+                    
+                        }).catch((e) => console.log('Error al enviar mensaje: '+e))
+          
+                    } else if (int.customId === "nsfw") {
+                    
+                        m.edit({
+                      
+                            embeds: [helpnsfw],
+                            components: [btns_options2]
+                    
+                        }).catch((e) => console.log('Error al enviar mensaje: '+e))
+          
+                    } 
+          
+                });
+          
+                collector.on("end", (collected, reason) => {
                   
+                    if(collected.size < 1) return m.edit({
+                    
                         embeds: [helpprincipal],
-                        components: [btns_options1]
-                
-                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
-      
-                } else if (int.customId === "inf") {
-                
-                    m.edit({
+                        components: []
                   
-                        embeds: [helpinfo],
-                        components: [btns_options1]
-                
                     }).catch((e) => console.log('Error al enviar mensaje: '+e))
-      
-                } else if (int.customId === "util") {
-                
-                    m.edit({
+    
+                    console.log('El collect del help finalizó por: '+reason)
                   
-                        embeds: [helputil],
-                        components: [btns_options1]
-                
-                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
-      
-                } else if (int.customId === "mod") {
-                
-                    m.edit({
-                  
-                        embeds: [helpmod],
-                        components: [btns_options1]
-                
-                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
-      
-                } else if (int.customId === "eco") {
-                
-                    m.edit({
-                  
-                        embeds: [helpeco],
-                        components: [btns_options1]
-                
-                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
-      
-                } else if (int.customId === "m2") {
-                
-                    m.edit({
-                  
-                        components: [btns_options2]
-                
-                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
-      
-                } else if (int.customId === "div") {
-                
-                    m.edit({
-                  
-                        embeds: [helpdiv],
-                        components: [btns_options2]
-                
-                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
-      
-                } else if (int.customId === "rea") {
-                
-                    m.edit({
-                  
-                        embeds: [helprea],
-                        components: [btns_options2]
-                
-                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
-      
-                } else if (int.customId === "cbd") {
-                
-                    m.edit({
-                  
-                        embeds: [helpcbd],
-                        components: [btns_options2]
-                
-                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
-      
-                } else if (int.customId === "nsfw") {
-                
-                    m.edit({
-                  
-                        embeds: [helpnsfw],
-                        components: [btns_options2]
-                
-                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
-      
-                } 
-      
-            });
-      
-            collector.on("end", (collected, reason) => {
+                });
               
-                if(collected.size < 1) return m.edit({
+            }).catch((e) => console.log('Error al enviar mensaje: '+e))
+
+        } else{
+
+            let query
+
+            try {
                 
-                    embeds: [helpprincipal],
-                    components: []
+                query = client.commands.find((c) => {
+                
+                    c.name && c.name.includes(cmd) || c.aliases && c.aliases.includes(cmd)
+    
+                })
+
+            } catch (error) {
+
+                console.log('Error al buscar comando: ' + cmd + ' - ' + error)
+                
+                const e4 = new Discord.MessageEmbed()
+                .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+                .setThumbnail(message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }))
+                .setColor('RED')
+                .setDescription(`<a:Verify2:931463492677017650> | Ocurrió un error inesperado, por favor intenta de nuevo!\n> Error: `+error)
+                .setFooter({ text: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                .setTimestamp()
+
+                return message.reply({embeds: [e4]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+            }
+
+            if(query){
+
+                descripcion = query.description
+                alias = query.aliases
+
+                const helpcmd = new Discord.MessageEmbed()
+                .setTitle('• Comando ' + cmd + '•')
+                .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+                .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
+                .setTimestamp(new Date())
+                .setThumbnail('https://images-ext-1.discordapp.net/external/c4ICxQl5BBrJSx2B2HoU9bL2T4chNZBLudX6B62miyo/https/fat.gfycat.com/SpicyComplexCat.mp4')
+                .setColor('RANDOM')
+                .addField('Descripción: ','<a:flech:931432469935312937> ' + descripcion)
+                .addField('Aliases: ','<a:flech:931432469935312937> ' + alias)
+
+                message.reply({ allowedMentions: { repliedUser: false}, 
+            
+                    embeds: [helpcmd],
+                    components: [btns_options1]
+                  
+                }).then(async m => {
+                    
+                    let filter = int => int.isButton() && int.user.id == message.author.id 
+                   
+                    const collector = m.createMessageComponentCollector({ filter });
+                    
+                    collector.on("collect", async int => {
+                      
+                        int.deferUpdate();
+                   
+                        if (int.customId === "mp") {
+                        
+                            m.edit({
+                          
+                                embeds: [helpprincipal],
+                                components: [btns_options1]
+                        
+                            }).catch((e) => console.log('Error al enviar mensaje: '+e))
               
+                        } else if (int.customId === "inf") {
+                        
+                            m.edit({
+                          
+                                embeds: [helpinfo],
+                                components: [btns_options1]
+                        
+                            }).catch((e) => console.log('Error al enviar mensaje: '+e))
+              
+                        } else if (int.customId === "util") {
+                        
+                            m.edit({
+                          
+                                embeds: [helputil],
+                                components: [btns_options1]
+                        
+                            }).catch((e) => console.log('Error al enviar mensaje: '+e))
+              
+                        } else if (int.customId === "mod") {
+                        
+                            m.edit({
+                          
+                                embeds: [helpmod],
+                                components: [btns_options1]
+                        
+                            }).catch((e) => console.log('Error al enviar mensaje: '+e))
+              
+                        } else if (int.customId === "eco") {
+                        
+                            m.edit({
+                          
+                                embeds: [helpeco],
+                                components: [btns_options1]
+                        
+                            }).catch((e) => console.log('Error al enviar mensaje: '+e))
+              
+                        } else if (int.customId === "m2") {
+                        
+                            m.edit({
+                          
+                                components: [btns_options2]
+                        
+                            }).catch((e) => console.log('Error al enviar mensaje: '+e))
+              
+                        } else if (int.customId === "div") {
+                        
+                            m.edit({
+                          
+                                embeds: [helpdiv],
+                                components: [btns_options2]
+                        
+                            }).catch((e) => console.log('Error al enviar mensaje: '+e))
+              
+                        } else if (int.customId === "rea") {
+                        
+                            m.edit({
+                          
+                                embeds: [helprea],
+                                components: [btns_options2]
+                        
+                            }).catch((e) => console.log('Error al enviar mensaje: '+e))
+              
+                        } else if (int.customId === "cbd") {
+                        
+                            m.edit({
+                          
+                                embeds: [helpcbd],
+                                components: [btns_options2]
+                        
+                            }).catch((e) => console.log('Error al enviar mensaje: '+e))
+              
+                        } else if (int.customId === "nsfw") {
+                        
+                            m.edit({
+                          
+                                embeds: [helpnsfw],
+                                components: [btns_options2]
+                        
+                            }).catch((e) => console.log('Error al enviar mensaje: '+e))
+              
+                        } 
+              
+                    });
+              
+                    collector.on("end", (collected, reason) => {
+                      
+                        if(collected.size < 1) return m.edit({
+                        
+                            embeds: [helpprincipal],
+                            components: []
+                      
+                        }).catch((e) => console.log('Error al enviar mensaje: '+e))
+        
+                        console.log('El collect del help finalizó por: '+reason)
+                      
+                    });
+                  
                 }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-                console.log('El collect del help finalizó por: '+reason)
-              
-            });
-          
-        }).catch((e) => console.log('Error al enviar mensaje: '+e))
+            } else{
+
+                return message.reply({ embeds: [
+
+                    new Discord.MessageEmbed()
+                    .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
+                    .setColor('RED')
+                    .setDescription('<a:Verify2:931463492677017650> | No se encontró ningún comando con ese nombre o alias!')
+            
+                ]}).then(m => setTimeout(() => m.delete(), 10000)).catch((e) => console.log('Error al enviar mensaje: '+e))
+            
+            }
+
+        }
+        
 
     }
 
