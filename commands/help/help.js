@@ -306,11 +306,10 @@ module.exports =  {
 
             try {
                 
-                query = client.commands.find((c) => {
-                
-                    c.name && c.name.includes(cmd) || c.aliases && c.aliases.includes(cmd)
-    
-                })
+                query = client.commands.get(cmd) ||
+                        client.commands.find((a) => a.aliases && a.aliases.includes(cmd)) // Obtiene el comando de la colección client.commandos
+                        
+                console.log('cmd: '+cmd)
                 console.log('query: '+query)
 
             } catch (error) {
