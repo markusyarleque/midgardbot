@@ -311,6 +311,7 @@ module.exports =  {
                     c.name && c.name.includes(cmd) || c.aliases && c.aliases.includes(cmd)
     
                 })
+                console.log('query: '+query)
 
             } catch (error) {
 

@@ -154,7 +154,6 @@ module.exports = {
 
                     setTimeout(() => {
           
-                        console.log('datos 5: '+datos)
                         const embedmbp = new Discord.MessageEmbed()
                         .setThumbnail('https://media.giphy.com/media/3rgXBsmYd60rL3w7sc/giphy.gif')
                         .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true}) })
