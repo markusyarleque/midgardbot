@@ -10,6 +10,8 @@ module.exports = {
     async execute(client, message, args, Discord) {
 
         let buscarprefix, prefix
+        let canalmbp = client.channels.cache.get('960797556261146644')
+
         try {
     
             buscarprefix = await prefixSchema.findOne({idserver: message.guild.id})
@@ -126,6 +128,58 @@ module.exports = {
                     m.edit({ allowedMentions: { repliedUser: false}, embeds: [embedcambio]}).catch((e) => console.log('Error al enviar mensaje editado en setprefix: '+e))
                     
                 }, 5000)
+
+                try {
+            
+                    let datos = []
+                    let c = 1
+
+                    client.guilds.cache.forEach((s)=>{
+                        
+                        let bx = await prefixSchema.findOne({idserver: s.id})
+
+                        if(bx){
+                            
+                            datos.push('**' + c + '.** Nombre : `' + s.name + '` - Prefix : `' + bx.prefix + '`')
+                            c = c + 1
+
+                        } else{
+                            
+                            datos.push('**' + c + '.** Nombre : `' + s.name + '` - Prefix : `_`')
+                            c = c + 1
+
+                        }
+                    
+                    })
+        
+                    const embedmbp = new Discord.MessageEmbed()
+                    .setThumbnail('https://media.giphy.com/media/3rgXBsmYd60rL3w7sc/giphy.gif')
+                    .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true}) })
+                    .setTitle('🚧  Lista de prefix de servidores  🚧')
+                    .addField('\u200B','> ' + datos.join('\n> \n> '))
+                    .setColor('RANDOM')
+                    .setTimestamp(new Date())
+                    .setFooter({ text: `Nací para crecer`, iconURL: client.user.avatarURL({ dynamic: true}) })
+                         
+                    canalmbp.bulkDelete(2)
+                    canalmbp.send({ embeds: [embedmbp] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    canalmbp.send('https://images-ext-2.discordapp.net/external/9iPHKFXXnKKSQpcFazlW79dr1zbbtdo7QT7-xxtfDY4/%3Fwidth%3D600%26height%3D86/https/media.discordapp.net/attachments/897951731462316073/915663567213199390/bar-1.gif?width=450&height=65').catch((e) => console.log('Error al enviar mensaje: '+e))
+                    
+                } catch (error) {
+                    
+                    console.log('Ocurrió un error al buscar la lista de prefix: '+ error)
+        
+                    const e = new Discord.MessageEmbed()
+                    .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                    .setColor('RED')
+                    .setDescription(`<a:Verify2:931463492677017650> | Ocurrió un error inesperado, por favor intenta de nuevo!\n> Error: `+error)
+                    .setTimestamp()
+        
+                    canalmbp.bulkDelete(2)
+                    canalmbp.send({ embeds: [e] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    return canalmbp.send('https://images-ext-2.discordapp.net/external/9iPHKFXXnKKSQpcFazlW79dr1zbbtdo7QT7-xxtfDY4/%3Fwidth%3D600%26height%3D86/https/media.discordapp.net/attachments/897951731462316073/915663567213199390/bar-1.gif?width=450&height=65').catch((e) => console.log('Error al enviar mensaje: '+e))
+                    
+                }
 
             } catch (error) {
     

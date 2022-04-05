@@ -117,7 +117,7 @@ module.exports =  {
                             console.log('========================= ACTUALIZACIÓN DE STAFF DE TURNO =========================');
                     
                             mensajes = userTurno.mensajes
-                            puntos = Math.round(mensajes * 1)
+                            puntos = Math.round(mensajes * 0.3)
                             diamantes = Math.round(puntos/20)
     
                             let update = await turnoSchema.findOneAndUpdate({idusuario: message.author.id},
@@ -143,10 +143,10 @@ module.exports =  {
                             .setAuthor({ name: '𝐌𝐢𝐝𝐠𝐚𝐫𝐝 𝐒𝐭𝐚𝐟𝐟', iconURL: client.user.avatarURL({ dynamic: true}) })
                             .setTitle('𝗦𝘁𝗮𝗳𝗳 𝗱𝗲 𝗧𝘂𝗿𝗻𝗼 ✨')
                             .setDescription('Muchas gracias por apoyarnos en este Turno!')
-                            .addField('Mensajes Escritos: <:sh_text:953436282774781982>','<a:flech:915156906258071554> Total: ' + mensajes, false)
-                            .addField('Puntos Obtenidos: <a:point:953436509426581564>','<a:flech:915156906258071554> Total: ' + puntos, false)
-                            .addField('Diamantes Ganados: <a:diamante:887714567084449892>','<a:flech:915156906258071554> Total: ' + diamantes, false)
-                            .addField('Diamantes Acumulados: <a:diamante:887714567084449892>','<a:flech:915156906258071554> Total: ' + (userTurno.diamantes + diamantes), false)
+                            .addField('Mensajes Escritos: <:sh_text:953436282774781982>','<a:flech:931432469935312937> Total: ' + mensajes, false)
+                            .addField('Puntos Obtenidos: <a:point:953436509426581564>','<a:flech:931432469935312937> Total: ' + puntos, false)
+                            .addField('Diamantes Ganados: <a:diamante:887714567084449892>','<a:flech:931432469935312937> Total: ' + diamantes, false)
+                            .addField('Diamantes Acumulados: <a:diamante:887714567084449892>','<a:flech:931432469935312937> Total: ' + (userTurno.diamantes + diamantes), false)
                             .setColor('RANDOM')
                             .setTimestamp(new Date())
                             .setFooter({ text: `Malta's Bot`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
