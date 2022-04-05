@@ -308,9 +308,6 @@ module.exports =  {
                 
                 query = client.commands.get(cmd) ||
                         client.commands.find((a) => a.aliases && a.aliases.includes(cmd)) // Obtiene el comando de la colección client.commandos
-                        
-                console.log('cmd: '+cmd)
-                console.log('query: '+query)
 
             } catch (error) {
 
@@ -330,7 +327,7 @@ module.exports =  {
             if(query){
 
                 descripcion = query.description
-                alias = query.aliases
+                alias = query.aliases ? query.aliases : 'No tiene'
 
                 const helpcmd = new Discord.MessageEmbed()
                 .setTitle('• Comando ' + query.name + ' •')
