@@ -134,7 +134,7 @@ module.exports = {
                     let datos = []
                     let c = 1
 
-                    client.guilds.cache.forEach((s)=>{
+                    client.guilds.cache.forEach(async (s)=>{
                         
                         let bx = await prefixSchema.findOne({idserver: s.id})
 
