@@ -329,6 +329,24 @@ module.exports =  {
                 descripcion = query.description
                 alias = query.aliases ? query.aliases : 'No tiene'
 
+                if(descripcion == '🔞 Comandos NSFW.'){
+
+                    if(!message.channel.nsfw){
+        
+                        return message.reply({embeds: [
+                  
+                          new Discord.MessageEmbed()
+                          .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
+                          .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936524707677741086/prohibido.gif?width=318&height=149')
+                          .setColor('RED')
+                          .setDescription(`<a:prohibido:936527618466009109> | ¡Oh rayos, necesitas un canal NSFW para ver este menú <:ojooo:925928526119571457>`)
+                  
+                        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+                        
+                    }
+
+                }
+
                 const helpcmd = new Discord.MessageEmbed()
                 .setTitle('• Comando ' + query.name + ' •')
                 .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
