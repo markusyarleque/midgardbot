@@ -73,7 +73,7 @@ module.exports =  {
         let ramdonhug = hug[Math.floor(Math.random()*hug.length)]
         let ramdonhug2 = hug2[Math.floor(Math.random()*hug2.length)]
 
-        console.log('Ramdonhug1: ' + ramdonhug)
+        console.log('Ramdonhug1: ' + ramdonhug + ' - Length: ' + hug.length)
         console.log('Ramdonhug2: ' + ramdonhug2)
 
         while (!ramdonhug || ramdonhug === null || ramdonhug === '' || ramdonhug === undefined) {
