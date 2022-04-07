@@ -73,9 +73,12 @@ module.exports =  {
         let ramdonhug = hug[Math.floor(Math.random()*hug.length)]
         let ramdonhug2 = hug2[Math.floor(Math.random()*hug2.length)]
 
+        console.log('Ramdonhug1: ' + ramdonhug)
+        console.log('Ramdonhug2: ' + ramdonhug2)
+
         while (!ramdonhug || ramdonhug === null || ramdonhug === '' || ramdonhug === undefined) {
             
-            ramdonhug = hug[Math.floor(Math.random()*hug.length)]
+            ramdonhug = hug[Math.floor(Math.random() * hug.length)]
 
         }
         
@@ -84,13 +87,16 @@ module.exports =  {
             ramdonhug2 = hug2[Math.floor(Math.random()*hug2.length)]
 
         }
+
+        console.log('2Ramdonhug1: ' + ramdonhug)
+        console.log('2Ramdonhug2: ' + ramdonhug2)
         
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()
             .setAuthor({ name: `Midgard's Love 💞`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setDescription(`**${message.author.username}** se está abrazando a sí mismo.`)
-            .setImage(ramdonhug2)
+            .setImage(await ramdonhug2)
             .setColor('RANDOM')
             .setTimestamp(new Date())
             .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
@@ -149,7 +155,7 @@ module.exports =  {
             const embed = new Discord.MessageEmbed()
             .setAuthor({ name: `Midgard's Love 💞`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setDescription(`**${message.author.username}** está abrazando a **${img.user.username}**. <:burbujita:925927258789666826>\n<a:flechad:880330587678838784> *${img.user.username}* ha recibido ${text} en total.`)
-            .setImage(ramdonhug)
+            .setImage(await ramdonhug)
             .setColor('RANDOM')
             .setTimestamp(new Date())
             .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
