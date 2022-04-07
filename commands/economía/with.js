@@ -40,7 +40,7 @@ module.exports =  {
 
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184144441000017/with.gif?width=150&height=150')
+            .setThumbnail('https://i.imgur.com/96WfDDC.gif')
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | Ingresa un monto a retirar!`)
 
@@ -50,7 +50,7 @@ module.exports =  {
 
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184144441000017/with.gif?width=150&height=150')
+            .setThumbnail('https://i.imgur.com/96WfDDC.gif')
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | No tienes dinero para retirar!`)
 
@@ -60,7 +60,7 @@ module.exports =  {
 
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184144441000017/with.gif?width=150&height=150')
+            .setThumbnail('https://i.imgur.com/96WfDDC.gif')
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | No tienes ese monto para retirar. Actualmente tienes en tu banco <a:money:930397094924124180> `+ buscarUsuario.banco.toLocaleString('en-US'))
 
@@ -82,7 +82,7 @@ module.exports =  {
 
                 const e = new Discord.MessageEmbed()
                 .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-                .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184144441000017/with.gif?width=150&height=150')
+                .setThumbnail('https://i.imgur.com/96WfDDC.gif')
                 .setColor('GREEN')
                 .setDescription(`<a:Verify1:931463354357276742> | Has retirado <a:money:930397094924124180> `+ buscarUsuario.banco.toLocaleString('en-US')+ ' del banco')
                 .setTimestamp()
@@ -103,7 +103,7 @@ module.exports =  {
 
                 new Discord.MessageEmbed()
                 .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-                .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184144441000017/with.gif?width=150&height=150')
+                .setThumbnail('https://i.imgur.com/96WfDDC.gif')
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | Ingresa un número válido para retirar!`)
 
@@ -125,7 +125,7 @@ module.exports =  {
 
                 const e = new Discord.MessageEmbed()
                 .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-                .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184144441000017/with.gif?width=150&height=150')
+                .setThumbnail('https://i.imgur.com/96WfDDC.gif')
                 .setColor('GREEN')
                 .setDescription(`<a:Verify1:931463354357276742> | Has retirado <a:money:930397094924124180> `+ numero.toLocaleString('en-US') + ' del banco')
                 .setTimestamp()

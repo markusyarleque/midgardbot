@@ -8,16 +8,16 @@ module.exports =  {
 
         var te = [
 
-            'https://media.discordapp.net/attachments/853500788848853002/873253192979341372/1.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873253194308927568/2.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873253202332614686/3.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873253207659409408/4.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873253209660084234/5.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873253212776431697/6.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873253221093740544/7.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873253223014727771/8.gif?width=863&height=484',
-            'https://media.discordapp.net/attachments/853500788848853002/873253231088767016/9.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873253257718415380/10.gif'
+            'https://i.imgur.com/EQPDLSK.gif',
+            'https://i.imgur.com/yUJgyZP.gif',
+            'https://i.imgur.com/OXWYtJI.gif',
+            'https://i.imgur.com/Kpv4VGY.gif',
+            'https://i.imgur.com/2j3PxCp.gif',
+            'https://i.imgur.com/FV726Ch.gif',
+            'https://i.imgur.com/cu4Inzw.gif',
+            'https://i.imgur.com/GlXl4Vm.gif',
+            'https://i.imgur.com/mydxY6f.gif',
+            'https://i.imgur.com/bE6GurU.gif',
         
         ]
 

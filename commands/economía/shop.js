@@ -34,7 +34,7 @@ module.exports =  {
 
         const shop1 = new Discord.MessageEmbed()
         .setAuthor({ name: message.guild.name+' | Store 🏪', iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
-        .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399830872084/shop.gif?width=665&height=499')
+        .setThumbnail('https://i.imgur.com/lpTNXfV.gif')
         .setDescription('Para adquirir un item, debes usar el comando `'+prefix+'buy <name>`') 
         .addField(`<a:money:930397094924124180> 10 - Chicken`, 'Item para apuestas', false)  
         .addField(`<a:money:930397094924124180> 10,000 - Rojo`, 'Color para tu perfil', false)  	
@@ -48,7 +48,7 @@ module.exports =  {
 
         const shop2 = new Discord.MessageEmbed()
         .setAuthor({ name: message.guild.name+' | Store 🏪', iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
-        .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399830872084/shop.gif?width=665&height=499')
+        .setThumbnail('https://i.imgur.com/lpTNXfV.gif')
         .setDescription('Para adquirir un item, debes usar el comando `'+prefix+'buy <name>`')   
         .addField(`<a:money:930397094924124180> 10,000 - Rosa`, 'Color para tu perfil', false)  
         .addField(`<a:money:930397094924124180> 10,000 - Aqua`, 'Color para tu perfil', false)  	

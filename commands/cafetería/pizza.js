@@ -8,19 +8,26 @@ module.exports =  {
 
         var pizza = [
 
-            'https://media.discordapp.net/attachments/853500788848853002/873259191702270013/1.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873259197427499068/2.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873259214884180008/3.gif?width=863&height=521',
-            'https://media.discordapp.net/attachments/853500788848853002/873259208945057872/4.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873259216322822174/5.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873259219531468910/6.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873259223440584734/7.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873259227290947674/8.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873259229157416960/9.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873259232428949525/10.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873259243074105384/11.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873259242562396170/12.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873259247314559057/13.gif'
+            'https://i.imgur.com/KBOi5Wa.gif',
+            'https://i.imgur.com/BB4Ydk0.gif',
+            'https://i.imgur.com/eo6S1m3.gif',
+            'https://i.imgur.com/YKt6J8n.gif',
+            'https://i.imgur.com/zAQRdpV.gif',
+            'https://i.imgur.com/4LLNxAC.gif',
+            'https://i.imgur.com/fVVOnT0.gif',
+            'https://i.imgur.com/Jh1QZcm.gif',
+            'https://i.imgur.com/PC86BMW.gif',
+            'https://i.imgur.com/mi29KeQ.gif',
+            'https://i.imgur.com/cRf1MdP.gif',
+            'https://i.imgur.com/g3kcwA9.gif',
+            'https://i.imgur.com/SKX5BHE.gif',
+            'https://i.imgur.com/50CO1zx.gif',
+            'https://i.imgur.com/1PxHPXo.gif',
+            'https://i.imgur.com/pBIxGM1.gif',
+            'https://i.imgur.com/qTiqRAK.gif',
+            'https://i.imgur.com/plnmtic.gif',
+            'https://i.imgur.com/pnkuk3R.gif',
+            'https://i.imgur.com/DZDTlBf.gif',
         
         ]
 

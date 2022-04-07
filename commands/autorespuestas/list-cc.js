@@ -50,7 +50,7 @@ module.exports =  {
             ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
             embed.setAuthor({ name: `MidgardBot`, iconURL: client.user.avatarURL({ dynamic: true }) })
-            embed.setThumbnail('https://c.tenor.com/NbxBVXKZLokAAAAC/arthur-and-the-invisibles-minimoys.gif')
+            embed.setThumbnail('https://i.imgur.com/vxTQC94.gif')
             embed.setDescription(datos.join('\n\n'))   	
             embed.setColor("RANDOM")
             embed.setFooter({ text: message.guild.name, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })

@@ -8,28 +8,27 @@ module.exports =  {
 
         var salsa = [
 
-            'https://media.discordapp.net/attachments/853500788848853002/873277547759140884/1.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873277558421090314/2.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873277570261606450/3.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873277582743863326/4.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873277597226790932/5.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873277604340334682/6.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873277631984971836/7.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873277638163193866/8.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873277648464388176/9.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873277659109544016/10.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873277666562818098/11.gif'
-        
+            'https://i.imgur.com/KB2EX6g.gif',
+            'https://i.imgur.com/Sr6F0OR.gif',
+            'https://i.imgur.com/91uYc4k.gif',
+            'https://i.imgur.com/kjbETtG.gif',
+            'https://i.imgur.com/V5CxOfl.gif',
+            'https://i.imgur.com/IzdcjYN.gif',
+            'https://i.imgur.com/xTVq90k.gif',
+            'https://i.imgur.com/JHJL6NG.gif',
+            'https://i.imgur.com/TX5yWK1.gif',
+            
         ]
         
         var salsa2 = [
 
-            'https://media.discordapp.net/attachments/853500788848853002/873278131887296573/12.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873278143283200091/13.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873278151998992434/14.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873278166683238480/15.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873278181459775558/16.gif'
-        
+            'https://i.imgur.com/gaFtzDM.gif',
+            'https://i.imgur.com/3IHh4HQ.gif',
+            'https://i.imgur.com/Q6UobIG.gif',
+            'https://i.imgur.com/ZgO5kc4.gif',
+            'https://i.imgur.com/HTVZqmG.gif',
+            'https://i.imgur.com/fkijJF8.gif',
+                    
         ]
 
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));

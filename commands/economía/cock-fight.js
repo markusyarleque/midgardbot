@@ -38,7 +38,7 @@ module.exports =  {
           
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184143224643615/cf.gif?width=330&height=251')
+            .setThumbnail('https://i.imgur.com/pxLIA6b.gif')
             .setColor('RED')
             .setDescription('<a:Verify2:931463492677017650> | No cuentas con tu propio pollito! Adquiere uno usando el comando `'+prefix+'buy ck`')
         
@@ -50,7 +50,7 @@ module.exports =  {
 
                 new Discord.MessageEmbed()
                 .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-                .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184143224643615/cf.gif?width=330&height=251')
+                .setThumbnail('https://i.imgur.com/pxLIA6b.gif')
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | Ingresa un monto para apostar!`)
   
@@ -60,7 +60,7 @@ module.exports =  {
 
                 new Discord.MessageEmbed()
                 .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-                .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184143224643615/cf.gif?width=330&height=251')
+                .setThumbnail('https://i.imgur.com/pxLIA6b.gif')
                 .setColor('RED')
                 .setDescription('<a:Verify2:931463492677017650> | No tienes dinero para apostar! Primero debes retirar un monto.')
   
@@ -70,7 +70,7 @@ module.exports =  {
   
                 new Discord.MessageEmbed()
                 .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-                .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184143224643615/cf.gif?width=330&height=251')
+                .setThumbnail('https://i.imgur.com/pxLIA6b.gif')
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | No tienes ese monto para apostar. Actualmente tienes <a:money:930397094924124180> `+ buscarUsuario.dinero.toLocaleString('en-US'))
   
@@ -96,7 +96,7 @@ module.exports =  {
 
                         const e = new Discord.MessageEmbed()
                         .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-                        .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184143224643615/cf.gif?width=330&height=251')
+                        .setThumbnail('https://i.imgur.com/pxLIA6b.gif')
                         .setColor('GREEN')
                         .setDescription(`<a:Verify1:931463354357276742> |Tu pollito ganó la pelea y obtuviste <a:money:930397094924124180> `+ (buscarUsuario.dinero*2).toLocaleString('en-US'))
                         .setTimestamp()
@@ -129,7 +129,7 @@ module.exports =  {
 
                         const e = new Discord.MessageEmbed()
                         .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-                        .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184143224643615/cf.gif?width=330&height=251')
+                        .setThumbnail('https://i.imgur.com/pxLIA6b.gif')
                         .setColor('RED')
                         .setDescription(`<a:Verify2:931463492677017650> |Tu pollito murió 💀 y perdiste toda la apuesta!`)
                         .setTimestamp()
@@ -152,7 +152,7 @@ module.exports =  {
   
                     new Discord.MessageEmbed()
                     .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-                    .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184143224643615/cf.gif?width=330&height=251')
+                    .setThumbnail('https://i.imgur.com/pxLIA6b.gif')
                     .setColor('RED')
                     .setDescription(`<a:Verify2:931463492677017650> | Ingresa un número válido para apostar!`)
   
@@ -176,7 +176,7 @@ module.exports =  {
                         
                         const e = new Discord.MessageEmbed()
                         .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-                        .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184143224643615/cf.gif?width=330&height=251')
+                        .setThumbnail('https://i.imgur.com/pxLIA6b.gif')
                         .setColor('GREEN')
                         .setDescription(`<a:Verify1:931463354357276742> |Tu pollito ganó la pelea y obtuviste <a:money:930397094924124180> `+ (numero*2).toLocaleString('en-US'))
                         .setTimestamp()
@@ -209,7 +209,7 @@ module.exports =  {
                        
                         const e = new Discord.MessageEmbed()
                         .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-                        .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184143224643615/cf.gif?width=330&height=251')
+                        .setThumbnail('https://i.imgur.com/pxLIA6b.gif')
                         .setColor('RED')
                         .setDescription(`<a:Verify2:931463492677017650> |Tu pollito murió 💀 y perdiste toda la apuesta!`)
                         .setTimestamp()

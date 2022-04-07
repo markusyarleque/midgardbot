@@ -36,7 +36,7 @@ module.exports =  {
           
                 new Discord.MessageEmbed()
                 .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-                .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936039755534172170/work.gif?width=360&height=300')
+                .setThumbnail('https://i.imgur.com/KIfIy5n.gif')
                 .setColor('RED')
                 .setDescription('<a:tiempogif:931434689481285662> | Puedes volver a trabajar en : '+((buscarUsuario.work - Date.now())/1000).toFixed()+' segundos')
           
@@ -81,7 +81,7 @@ module.exports =  {
         const e = new Discord.MessageEmbed()
         .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
         .setColor('GREEN')
-        .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936039755534172170/work.gif?width=360&height=300')
+        .setThumbnail('https://i.imgur.com/KIfIy5n.gif')
         .setDescription(ramdonw + r.toLocaleString('en-US'))
 
         message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))

@@ -8,17 +8,27 @@ module.exports =  {
  
         var cafe = [
 
-            'https://media.discordapp.net/attachments/853500788848853002/873251089703653396/1.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873251090114707476/2.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873251094371909692/3.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873251095122690178/4.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873251098222264360/5.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873251121710395432/6.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873251127439794226/7.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873251134830161971/8.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873251134825980034/9.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873251136134602832/10.gif',
-        
+            'https://i.imgur.com/M7KsF4w.gif',
+            'https://i.imgur.com/ftVp2o7.gif',
+            'https://i.imgur.com/GvELZ7W.gif',
+            'https://i.imgur.com/qbpIBpM.gif',
+            'https://i.imgur.com/WkGMLlH.gif',
+            'https://i.imgur.com/On6W6im.gif',
+            'https://i.imgur.com/n2qck89.gif',
+            'https://i.imgur.com/9BRMrk3.gif',
+            'https://i.imgur.com/gFyimVJ.gif',
+            'https://i.imgur.com/NBTg8MK.gif',
+            'https://i.imgur.com/bX4Lnit.gif',
+            'https://i.imgur.com/1382z4N.gif',
+            'https://i.imgur.com/5brl8wd.gif',
+            'https://i.imgur.com/VgseScD.gif',
+            'https://i.imgur.com/4naToU4.gif',
+            'https://i.imgur.com/tZAcsEz.gif',
+            'https://i.imgur.com/f6aU5Zm.gif',
+            'https://i.imgur.com/rYFNapk.gif',
+            'https://i.imgur.com/GdhDgWX.gif',
+            'https://i.imgur.com/dD0ku5Z.gif',
+            
         ]
 
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));

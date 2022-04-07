@@ -1,42 +1,33 @@
 module.exports =  {
     
-    name: 'chocolate',
-    aliases: ['choco'],
-    description: '🍫',
+    name: 'tamales',
+    aliases: ['tamal'],
+    description: '🌽',
   
     async execute(client, message, args, Discord) {
 
-        var chocolate = [
+        var tamales = [
 
-            'https://i.imgur.com/VMCCY7F.gif',
-            'https://i.imgur.com/ABkiQxp.gif',
-            'https://i.imgur.com/KYghHcF.gif',
-            'https://i.imgur.com/CfNGnxB.gif',
-            'https://i.imgur.com/LUeHKSz.gif',
-            'https://i.imgur.com/DIyfddN.gif',
-            'https://i.imgur.com/pSlQawj.gif',
-            'https://i.imgur.com/BcU1zHS.gif',
-            'https://i.imgur.com/7uDSlzd.gif',
-            'https://i.imgur.com/qKKZRYA.gif',
-            'https://i.imgur.com/jQ9ZJP7.gif',
-            'https://i.imgur.com/9KGKElk.gif',
-            'https://i.imgur.com/BDgd0qy.gif',
-            'https://i.imgur.com/pEpwAAy.gif',
-            'https://i.imgur.com/Nn0DBTy.gif',
-            'https://i.imgur.com/mJe6gDn.gif',
-            'https://i.imgur.com/AplzUL8.gif',
-            'https://i.imgur.com/hdKDUkW.gif',
-            'https://i.imgur.com/o7jSaWs.gif',
-            'https://i.imgur.com/miesJ7g.gif',
+            'https://i.imgur.com/v3ZRtji.gif',
+            'https://i.imgur.com/wM1MDLt.gif',
+            'https://i.imgur.com/4YM8rtx.gif',
+            'https://i.imgur.com/CzXiJgI.gif',
+            'https://i.imgur.com/sTJ40sB.gif',
+            'https://i.imgur.com/AKYQ4wC.gif',
+            'https://i.imgur.com/Xgu2tnb.gif',
+            'https://i.imgur.com/Vs3wvWK.gif',
+            'https://i.imgur.com/CNAqfZX.gif',
+            'https://i.imgur.com/PBCyrHp.gif',
+            'https://i.imgur.com/ZfZsg7U.gif',
         
         ]
 
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
-        let ramdonchocolate = chocolate[Math.floor(Math.random()*chocolate.length)]
+        let ramdontamales = tamales[Math.floor(Math.random()*tamales.length)]
 
-        while (!ramdonchocolate || ramdonchocolate === null || ramdonchocolate === '' || ramdonchocolate === undefined) {
+        while (!ramdontamales || ramdontamales === null || ramdontamales === '' || ramdontamales === undefined) {
             
-            ramdonchocolate = chocolate[Math.floor(Math.random()*chocolate.length)]
+            ramdontamales = tamales[Math.floor(Math.random()*tamales.length)]
 
         }
         
@@ -44,8 +35,8 @@ module.exports =  {
     
             const embed = new Discord.MessageEmbed()
             .setAuthor({ name: `Midgard's Cafe`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
-            .setDescription(`**${message.author.username}** está comiendo un delicioso chocolate.`)
-            .setImage(ramdonchocolate)
+            .setDescription(`**${message.author.username}** está comiendo unos tamales.`)
+            .setImage(ramdontamales)
             .setColor('RANDOM')
             .setTimestamp(new Date())
             .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
@@ -59,7 +50,7 @@ module.exports =  {
                 new Discord.MessageEmbed()
                 .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
                 .setColor('RED')
-                .setDescription(`<a:Verify2:931463492677017650> | Nos encanta el chocolate! Pero... <:nogarsias:932172183453712415>`)
+                .setDescription(`<a:Verify2:931463492677017650> | Se me antoja... pero <:nogarsias:932172183453712415>`)
           
             ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
@@ -67,8 +58,8 @@ module.exports =  {
     
             const embed = new Discord.MessageEmbed()
             .setAuthor({ name: `Midgard's Cafe`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
-            .setDescription(`**${img.user.username}**, ${message.author.username} te invitó un rico chocolate.`)
-            .setImage(ramdonchocolate)
+            .setDescription(`**${img.user.username}**, ${message.author.username} te invitó un rico tamal.`)
+            .setImage(ramdontamales)
             .setColor('RANDOM')
             .setTimestamp(new Date())
             .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })

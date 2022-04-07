@@ -128,9 +128,12 @@ module.exports =  {
     
             }
               
-        } 
+        } else{
+
+          message.channel.send(palta).catch((e) => console.log('Error al enviar mensaje: '+e))
+        
+        }
               
-        message.channel.send(palta).catch((e) => console.log('Error al enviar mensaje: '+e))
         
     }
 

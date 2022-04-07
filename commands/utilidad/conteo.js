@@ -34,8 +34,16 @@ module.exports =  {
             .setDescription(`<a:Verify2:931463492677017650> | **No puedo contar más de 2 horas**`)
     
         ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
+        
+        if(time < 10) return message.reply({ embeds: [
+
+            new Discord.MessageEmbed()
+            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
+            .setColor('RED')
+            .setDescription(`<a:Verify2:931463492677017650> | Solo puedo contar números a partir de 10!`)
     
-       
+        ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
+    
         let msg = await message.channel.send(String(time)).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         if(time < 60) {

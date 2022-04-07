@@ -8,31 +8,31 @@ module.exports =  {
 
         var cumbia = [
 
-            'https://media.discordapp.net/attachments/880918347414380605/883498586841690142/981e0995ba932b34b6fb3db3a7e3904e0d3e778e.gif?width=432&height=332',
-            'https://media.discordapp.net/attachments/880918347414380605/883498593829388328/giphy.gif?width=259&height=184',
-            'https://media.discordapp.net/attachments/879633476532453386/883512435070337044/mp4_5.gif?width=466&height=466',
-            'https://media.discordapp.net/attachments/879633476532453386/883517112965033994/4.gif?width=360&height=202',
-            'https://media.discordapp.net/attachments/879633476532453386/883517117809426432/5.gif?width=576&height=306',
-            'https://media.discordapp.net/attachments/879633476532453386/883517125283704882/6.gif?width=448&height=205',
-            'https://media.discordapp.net/attachments/879633476532453386/883517138776760320/7.gif?width=360&height=202',
-            'https://media.discordapp.net/attachments/879633476532453386/883517159593087026/8.gif?width=423&height=243',
-            'https://media.discordapp.net/attachments/879633476532453386/883517187598475354/9.gif?width=315&height=315',
-            'https://media.discordapp.net/attachments/879633476532453386/883517199636123658/10.gif?width=294&height=226'
+            'https://i.imgur.com/QkX7LBW.gif',
+            'https://i.imgur.com/TInnWrW.gif',
+            'https://i.imgur.com/AeB0ZIu.gif',
+            'https://i.imgur.com/2FsIMmn.gif',
+            'https://i.imgur.com/Xms53Qa.gif',
+            'https://i.imgur.com/lw8sXPJ.gif',
+            'https://i.imgur.com/HKSIpkE.gif',
+            'https://i.imgur.com/6uF2u66.gif',
+            'https://i.imgur.com/1r7mdOF.gif',
+            'https://i.imgur.com/uZaA18q.gif',
         
         ]
         
         var cumbia2 = [
 
-            'https://media.discordapp.net/attachments/880918347414380605/883498600653525012/dance-happy.gif?width=396&height=226',
-            'https://media.discordapp.net/attachments/880918347414380605/883498627484491796/DeadYellowishGrizzlybear-size_restricted.gif?width=391&height=225',
-            'https://media.discordapp.net/attachments/880918347414380605/883498640407158794/WellinformedImpressiveIndiancow-max-1mb.gif?width=155&height=270',
-            'https://media.discordapp.net/attachments/879633476532453386/883509838653571072/mp4_1.gif?width=314&height=562',
-            'https://media.discordapp.net/attachments/879633476532453386/883510318112845834/mp4_2.gif?width=538&height=403',
-            'https://media.discordapp.net/attachments/879633476532453386/883511614182129674/mp4_3.gif?width=340&height=561',
-            'https://media.discordapp.net/attachments/879633476532453386/883512430402097172/mp4_4.gif?width=220&height=162',
-            'https://media.discordapp.net/attachments/879633476532453386/883517074146734112/1.gif?width=396&height=484',
-            'https://media.discordapp.net/attachments/879633476532453386/883517086876442664/2.gif?width=396&height=396',
-            'https://media.discordapp.net/attachments/879633476532453386/883517102856753162/3.gif?width=432&height=317'
+            'https://i.imgur.com/LGQYZqo.gif',
+            'https://i.imgur.com/kTlnzaz.gif',
+            'https://i.imgur.com/cvlFEMG.gif',
+            'https://i.imgur.com/YCIQUdt.gif',
+            'https://i.imgur.com/r36gsBq.gif',
+            'https://i.imgur.com/AoJFbst.gif',
+            'https://i.imgur.com/GJ5POx4.gif',
+            'https://i.imgur.com/ZdMfCTa.gif',
+            'https://i.imgur.com/ES64yHC.gif',
+            'https://i.imgur.com/hwXANwf.gif',
 
         ]
 

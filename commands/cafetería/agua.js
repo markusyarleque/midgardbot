@@ -8,16 +8,27 @@ module.exports =  {
 
         var agua = [
 
-            'https://media.discordapp.net/attachments/853500788848853002/873251653703331900/1.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873251656681287681/2.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873251658048602162/3.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873251666764369940/4.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873251666684682321/5.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873251671562649601/6.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873251673533984818/7.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873252417158922250/8.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873251676289642526/9.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873251681243107388/10.gif'    
+            'https://i.imgur.com/I37S2P0.gif',
+            'https://i.imgur.com/qNbi6Ep.gif',
+            'https://i.imgur.com/KwoLyzf.gif',
+            'https://i.imgur.com/Kz0I9Pg.gif',
+            'https://i.imgur.com/hZbVbQl.gif',
+            'https://i.imgur.com/PFTmFHT.gif',
+            'https://i.imgur.com/GIjpSYU.gif',
+            'https://i.imgur.com/vBDDBEU.gif',
+            'https://i.imgur.com/CvtvuFI.gif',
+            'https://i.imgur.com/9dfrtha.gif',
+            'https://i.imgur.com/Iu1ZzhV.gif',
+            'https://i.imgur.com/hnHooUb.gif',
+            'https://i.imgur.com/OJCHKM9.gif',
+            'https://i.imgur.com/R56zWaH.gif',
+            'https://i.imgur.com/qLpM7kX.gif',
+            'https://i.imgur.com/mBUmCXA.gif',
+            'https://i.imgur.com/UwdfMXi.gif',
+            'https://i.imgur.com/4byupKM.gif',
+            'https://i.imgur.com/R5QSwMq.gif',
+            'https://i.imgur.com/v8rG4Za.gif',
+            'https://i.imgur.com/XfoU3D4.gif',
         
         ]
 

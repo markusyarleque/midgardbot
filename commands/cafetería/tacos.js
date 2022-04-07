@@ -8,16 +8,26 @@ module.exports =  {
 
         var tacos = [
 
-            'https://media.discordapp.net/attachments/942248708421075024/942249247615631360/1.gif?width=225&height=169',
-            'https://media.discordapp.net/attachments/942248708421075024/942249247942770758/2.gif?width=369&height=206',
-            'https://media.discordapp.net/attachments/942248708421075024/942249248307679262/3.gif?width=375&height=278',
-            'https://media.discordapp.net/attachments/942248708421075024/942249248626466867/4.gif?width=360&height=210',
-            'https://media.discordapp.net/attachments/942248708421075024/942249249255587871/5.gif?width=375&height=375',
-            'https://media.discordapp.net/attachments/942248708421075024/942249250073501696/6.gif?width=338&height=225',
-            'https://media.discordapp.net/attachments/942248708421075024/942249250690048081/7.gif?width=375&height=225',
-            'https://media.discordapp.net/attachments/942248708421075024/942249250987868240/8.gif?width=731&height=240',
-            'https://media.discordapp.net/attachments/942248708421075024/942249251692507186/9.gif?width=386&height=218',
-            'https://media.discordapp.net/attachments/942248708421075024/942249252254527488/10.gif?width=360&height=210'
+            'https://i.imgur.com/cmZ1ZxV.gif',
+            'https://i.imgur.com/BDiVsbq.gif',
+            'https://i.imgur.com/f9aASpZ.gif',
+            'https://i.imgur.com/euUJ56u.gif',
+            'https://i.imgur.com/ZzmPSTh.gif',
+            'https://i.imgur.com/uWRW5yU.gif',
+            'https://i.imgur.com/XErfhSu.gif',
+            'https://i.imgur.com/rJl8F9b.gif',
+            'https://i.imgur.com/jaIOr2s.gif',
+            'https://i.imgur.com/WWuKq4H.gif',
+            'https://i.imgur.com/kWHVqhi.gif',
+            'https://i.imgur.com/VRS1Upr.gif',
+            'https://i.imgur.com/pP2uF8x.gif',
+            'https://i.imgur.com/3pWIbBI.gif',
+            'https://i.imgur.com/ZXrvmiw.gif',
+            'https://i.imgur.com/BlSYSbO.gif',
+            'https://i.imgur.com/2iJ3THI.gif',
+            'https://i.imgur.com/veYGieY.gif',
+            'https://i.imgur.com/tjGX332.gif',
+            'https://i.imgur.com/AgbHf76.gif',
         
         ]
 

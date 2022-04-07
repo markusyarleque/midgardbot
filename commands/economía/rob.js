@@ -15,7 +15,7 @@ module.exports =  {
        
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936093229542150234/robo.gif?width=480&height=270')
+            .setThumbnail('https://i.imgur.com/7DX9FLZ.gif')
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | Necesitas mencionar correctamente a alguien!`)
       
@@ -25,7 +25,7 @@ module.exports =  {
         
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936093229542150234/robo.gif?width=480&height=270')
+            .setThumbnail('https://i.imgur.com/7DX9FLZ.gif')
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | No te puedes robar a ti mismo!`)
       
@@ -35,7 +35,7 @@ module.exports =  {
         
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936093229542150234/robo.gif?width=480&height=270')
+            .setThumbnail('https://i.imgur.com/7DX9FLZ.gif')
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | No tienes el poder suficiente para robarle a los bots!`)
       
@@ -76,7 +76,7 @@ module.exports =  {
           
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936093229542150234/robo.gif?width=480&height=270')
+            .setThumbnail('https://i.imgur.com/7DX9FLZ.gif')
             .setColor('RED')
             .setDescription('<a:tiempogif:931434689481285662> | Puedes volver a robar en : '+((usuario1.rob - Date.now())/1000).toFixed()+' segundos')
         
@@ -86,7 +86,7 @@ module.exports =  {
 
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936093229542150234/robo.gif?width=480&height=270')
+            .setThumbnail('https://i.imgur.com/7DX9FLZ.gif')
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | ¿Cómo te atreves a robarle a los pobres?`)
       
@@ -122,7 +122,7 @@ module.exports =  {
             const e = new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setColor('GREEN')
-            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936093229542150234/robo.gif?width=480&height=270')
+            .setThumbnail('https://i.imgur.com/7DX9FLZ.gif')
             .setDescription(`<a:Verify1:931463354357276742> | Le has robado <a:money:930397094924124180> `+ ganarob.toLocaleString('en-US') + ' a ' + usuario.toString())
             .setTimestamp()
         
@@ -144,7 +144,7 @@ module.exports =  {
             const e = new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setColor('RED')
-            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936106953200001034/rob.jpg?width=470&height=239')
+            .setThumbnail('https://i.imgur.com/JxnV5vn.jpg')
             .setDescription(`<a:Verify2:931463492677017650> | Qué malo eres robando, acabas de ser capturado y perdiste <a:money:930397094924124180> `+ pierderob.toLocaleString('en-US'))
             .setTimestamp()
         

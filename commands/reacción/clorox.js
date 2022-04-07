@@ -8,15 +8,21 @@ module.exports =  {
 
         var clorox = [
 
-            'https://media.discordapp.net/attachments/822642787555213312/911184609058897920/1.gif?width=401&height=468',
-            'https://media.discordapp.net/attachments/822642787555213312/911184608849174548/2.gif?width=401&height=468',
-            'https://media.discordapp.net/attachments/822642787555213312/911184608660426752/3.gif?width=401&height=468',
-            'https://media.discordapp.net/attachments/822642787555213312/911184607515402281/4.gif?width=401&height=468',
-            'https://media.discordapp.net/attachments/822642787555213312/911184607272124446/5.gif?width=401&height=468',
-            'https://media.discordapp.net/attachments/822642787555213312/911184607033045012/6.gif?width=401&height=468',
-            'https://media.discordapp.net/attachments/822642787555213312/911184606345187328/7.gif',
-            'https://media.discordapp.net/attachments/822642787555213312/911184606051569684/8.gif',
-            'https://media.discordapp.net/attachments/822642787555213312/911184605359505448/9.gif'
+            'https://i.imgur.com/GoTJf5X.gif',
+            'https://i.imgur.com/gksEfz4.gif',
+            'https://i.imgur.com/F0YEDS9.gif',
+            'https://i.imgur.com/U1lS0S6.gif',
+            'https://i.imgur.com/F0PJgGt.gif',
+            'https://i.imgur.com/AWFy8D9.gif',
+            'https://i.imgur.com/OUJ2et7.gif',
+            'https://i.imgur.com/I3Pk6G9.gif',
+            'https://i.imgur.com/RM5qIWH.gif',
+            'https://i.imgur.com/LpRn5yD.gif',
+            'https://i.imgur.com/5sgUb39.gif',
+            'https://i.imgur.com/ERfEAx1.gif',
+            'https://i.imgur.com/LLTwxuz.gif',
+            'https://i.imgur.com/uBQj6OY.gif',
+            'https://i.imgur.com/MnofYKj.gif',
         
         ]
 

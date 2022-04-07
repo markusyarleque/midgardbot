@@ -8,21 +8,21 @@ module.exports =  {
  
         var messi = [
 
-            'https://media4.giphy.com/media/xUA7aT4k7JLXH71zG0/200.gif',
-            'https://c.tenor.com/b_VTJ4TN0rYAAAAd/leo-messi.gif',
-            'http://i.giphy.com/h2KFQRfCogoxy.gif',
-            'https://i.gifer.com/73tq.gif',
-            'https://i.pinimg.com/originals/bd/60/a9/bd60a9508dfc9ddef020f57b64d6cb53.gif',
-            'https://c.tenor.com/S_pn1-ALg5kAAAAd/boateng-messi.gif',
-            'https://64.media.tumblr.com/a7863e9efcba7b459adcc89f30e73067/a3fe3d95fe35fd67-a7/s540x810/e145c8fbe8b3158444313b2aae90e0174fc3f06b.gif',
-            'https://c.tenor.com/eN_4KgMxTjIAAAAC/messi.gif',
-            'https://c.tenor.com/7UbBNdn7MvkAAAAd/messi.gif',
-            'https://i.pinimg.com/originals/32/73/6f/32736f7055033e91ac986c6a099b1af8.gif',
-            'https://i.giphy.com/media/qp61kl8rdZwuQ/giphy.gif',
-            'https://j.gifs.com/zvN18O.gif',
-            'https://i.gifer.com/SQUL.gif',
-            'http://i.giphy.com/R9zW4gQ0plPlS.gif',
-            'https://i.pinimg.com/originals/da/a4/88/daa488302213bbf53b6921e33d6e3aa9.gif'
+            'https://i.imgur.com/rrXaeqa.gif',
+            'https://i.imgur.com/HSpfO6O.gif',
+            'https://i.imgur.com/Tr76reS.gif',
+            'https://i.imgur.com/5T4818G.gif',
+            'https://i.imgur.com/jpkdUBa.gif',
+            'https://i.imgur.com/46vltS9.gif',
+            'https://i.imgur.com/0n0G1wk.gif',
+            'https://i.imgur.com/gwkBupL.gif',
+            'https://i.imgur.com/n2d8FBf.gif',
+            'https://i.imgur.com/rsIOC32.gif',
+            'https://i.imgur.com/Fy0yZFt.gif',
+            'https://i.imgur.com/cVFJtZb.gif',
+            'https://i.imgur.com/pKjJnob.gif',
+            'https://i.imgur.com/fzeolJG.gif',
+            'https://i.imgur.com/JvdgdXc.gif',
           
         ]   
 

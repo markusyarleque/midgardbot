@@ -95,7 +95,7 @@ module.exports =  {
           
                 new Discord.MessageEmbed()
                 .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-                .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184144055111690/daily.gif?width=353&height=198')
+                .setThumbnail('https://i.imgur.com/nMfywso.gif')
                 .setColor('RED')
                 .setDescription('<a:tiempogif:931434689481285662> | Ya has reclamado tu recompensa hoy! Puedes volver en: **'+ mensaje+'** \nRecuerda que si apoyas al servidor votando en **Top.gg** podrás ganar el doble de coins.\n\n[Click aquí para votar](https://top.gg/servers/777620055344545842/vote)')
           
@@ -154,7 +154,7 @@ module.exports =  {
         const e = new Discord.MessageEmbed()
         .setAuthor({ name: server.name, iconURL: server.iconURL() ? server.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
         .setTitle('Recompensa Diaria 💵')
-        .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936184144055111690/daily.gif?width=353&height=198')
+        .setThumbnail('https://i.imgur.com/nMfywso.gif')
         .setColor(buscarUsuario.color ? buscarUsuario.color : 'RANDOM')
         .setDescription(`Felicidades **${message.author.username}**! Has recibido <a:money:930397094924124180> **` + numero.toLocaleString('en-US') + `** como recompensa diaria.\n¡Muchas gracias por usar mis comandos!`)
         .setTimestamp()

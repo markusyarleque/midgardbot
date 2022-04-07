@@ -11,30 +11,60 @@ module.exports =  {
 
         var kiss = [
             
-            'https://media.discordapp.net/attachments/853500788848853002/873303560559951882/1.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873303577492357150/2.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873303601970315334/3.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873303610883190784/4.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873303633855389736/6.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873303652230639646/7.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873303670568124436/8.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873303680571547648/9.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873303687462797372/10.gif',
-            'https://i.pinimg.com/originals/15/a8/43/15a843df655233fd7829efc70932be17.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/877364191877533696/11.gif?width=202&height=202',
-            'https://media.discordapp.net/attachments/853500788848853002/877364200962408469/12.gif?width=448&height=331',
-            'https://media.discordapp.net/attachments/853500788848853002/877364212379299861/13.gif?width=450&height=351',
-            'https://media.discordapp.net/attachments/853500788848853002/877364221409644574/14.gif?width=319&height=180',
-            'https://media.discordapp.net/attachments/853500788848853002/877364235447984148/15.gif?width=450&height=190',
-            'https://media.discordapp.net/attachments/853500788848853002/877364246252494868/16.gif?width=308&height=227',
-            'https://media.discordapp.net/attachments/853500788848853002/877364263432372284/17.gif?width=450&height=248',
-            'https://media.discordapp.net/attachments/853500788848853002/877364280117325854/18.gif?width=432&height=243',
-            'https://media.discordapp.net/attachments/853500788848853002/877364288724017162/19.gif?width=313&height=176',
-            'https://media.discordapp.net/attachments/853500788848853002/877364300702949386/20.gif?width=450&height=315'
+            'https://i.imgur.com/7GtNFkV.gif',
+            'https://i.imgur.com/SgP16nT.gif',
+            'https://i.imgur.com/akJqZdV.gif',
+            'https://i.imgur.com/89n2FkO.gif',
+            'https://i.imgur.com/pVItRd8.gif',
+            'https://i.imgur.com/5QkoR5s.gif',
+            'https://i.imgur.com/MH8AIBG.gif',
+            'https://i.imgur.com/WhTLezK.gif',
+            'https://i.imgur.com/LOtX2Yc.gif',
+            'https://i.imgur.com/LR69VE4.gif',
+            'https://i.imgur.com/JAtWMD7.gif',
+            'https://i.imgur.com/prKhHyM.gif',
+            'https://i.imgur.com/q6evKbJ.gif',
+            'https://i.imgur.com/SftEAkF.gif',
+            'https://i.imgur.com/c3qGzgn.gif',
+            'https://i.imgur.com/Ad691aB.gif',
+            'https://i.imgur.com/vm8HPUq.gif',
+            'https://i.imgur.com/RxdttXa.gif',
+            'https://i.imgur.com/RSBARcb.gif',
+            'https://i.imgur.com/V9ez4IJ.gif',
+            'https://i.imgur.com/RF10ZLB.gif',
+            'https://i.imgur.com/h7L2l0T.gif',
+            'https://i.imgur.com/tKcUdNy.gif',
+            'https://i.imgur.com/WdIPLc7.gif',
+            'https://i.imgur.com/l1aCJYt.gif',
+            'https://i.imgur.com/ZaeeqMi.gif',
+            'https://i.imgur.com/55WgQPg.gif',
+            'https://i.imgur.com/dkCbVr2.gif',
+            'https://i.imgur.com/1rNwebi.gif',
+            'https://i.imgur.com/q2yBJrb.gif',
+            'https://i.imgur.com/z3Is6LN.gif',
+            'https://i.imgur.com/K28GHZk.gif',
+            'https://i.imgur.com/gUc0E90.gif',
+            'https://i.imgur.com/1NE4s9h.gif',
+            'https://i.imgur.com/zljbhLH.gif',
+            'https://i.imgur.com/OGt2qwV.gif',
+            'https://i.imgur.com/ZntRNbe.gif',
+            'https://i.imgur.com/8aWbeyY.gif',
+            'https://i.imgur.com/sPlMEtv.gif',
+            'https://i.imgur.com/2HnFuFU.gif',
+            'https://i.imgur.com/n5wPmJy.gif',
+            'https://i.imgur.com/XLvynuC.gif',
+            'https://i.imgur.com/U7ECIPx.gif',
+            'https://i.imgur.com/isNYE8Y.gif',
+            'https://i.imgur.com/yr3dMWr.gif',
+            'https://i.imgur.com/4QPcmyC.gif',
+            'https://i.imgur.com/Amo8qAD.gif',
+            'https://i.imgur.com/Rc4NPzX.gif',
+            'https://i.imgur.com/4v5lwoT.gif',
+            'https://i.imgur.com/xp88xs5.gif',
         
         ]
 
-        let conteo
+        let conteo, desc
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonkiss = kiss[Math.floor(Math.random()*kiss.length)]
 
@@ -117,10 +147,39 @@ module.exports =  {
         if(conteo === 1){
           
             conteo ='**'+conteo+'** vez.'
+            desc = '¡Su primer Beso! <:abby:931432327354155038>'
         
         } else {
           
-            conteo ='**'+conteo+'** veces.'
+            if(conteo <= 10){
+
+                desc = '¡Que ternurita! <:tierno:931433334960160799> Van **' + conteo + '**, pero ustedes pueden más!'
+
+            } else if(conteo > 10 && conteo <= 20){
+
+                desc = '¡Algo lindo se está formando entre esta parejita! <:anotanding:936028237404962836> Ya tienen **' + conteo + '** besos acumulados.'
+
+            } else if(conteo > 20 && conteo <= 50){
+
+                desc = '¡Vaya vaya, pero que tenemos aquí! Tienen **' + conteo + '** ósculos y creo que van por más. <:burbujita:930399322183458867>'
+
+            } else if(conteo > 50 && conteo <= 100){
+
+                desc = '¡Que barbaridad! Esta pareja si promete... ya tienen **' + conteo + '** y quién sabe si algo más en interno <a:sabroso:932177227792146433>'
+
+            } else if(conteo > 100 && conteo <= 200){
+
+                desc = '¡Madre mía, Willy! Acumulan **' + conteo + '** y continúan subiendo... algo me dice que quieren el TOP <a:ayajasisi:945203356140441650>'
+
+            } else if(conteo > 200 && conteo <= 500){
+
+                desc = '¡Estoy más sorprendido que ellos! Son **' + conteo + '** y si no me equivoco, tienen el TOP <a:ositovino:932917500218339379>'
+
+            } else if(conteo > 500){
+
+                desc = '¡Nunca había llegado tan lejos! En serio tienen **' + conteo + '**? Ya denle un premio a esta pareja! <:shylove:931432905421520927>'
+
+            }
         
         }
 
@@ -132,7 +191,8 @@ module.exports =  {
 
         const embed = new Discord.MessageEmbed()
         .setAuthor({ name: `Midgard's Love 💞`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
-        .setDescription(`**${message.author.username}** le dió un beso a **${img.user.username}**. <:GatoLove:925929538863628318>\n<a:flechad:880330587678838784> *${message.author.username}* y *${img.user.username}* se han besado ${conteo}`)
+        .setDescription(`**${message.author.username}** le dió un beso a **${img.user.username}**. <:GatoLove:925929538863628318>`)
+        .addField('<a:Besitos:939793778829586442> Total de Besos:','> ' + desc)
         .setImage(ramdonkiss)
         .setColor('RANDOM')
         .setTimestamp(new Date())

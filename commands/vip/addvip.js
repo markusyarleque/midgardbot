@@ -99,7 +99,7 @@ module.exports =  {
                 const embed = new Discord.MessageEmbed()
                 .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
                 .setDescription('El usuario <@'+user.id+'> ha sido añadido a la lista VIP.')
-                .setThumbnail('https://c.tenor.com/b66sjGFhHsIAAAAC/tuxedo.gif')
+                .setThumbnail('https://i.imgur.com/TGJxm2u.gif')
                 .setColor('RANDOM')
 
                 message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed]}).catch((e) => console.log('Error al enviar mensaje: '+e))

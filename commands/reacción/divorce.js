@@ -12,26 +12,25 @@ module.exports =  {
 
         var divorce = [
 
-            'https://c.tenor.com/2ik7IJDoQrQAAAAC/divorce.gif',
-            'https://c.tenor.com/Cx_Ds0yy8CcAAAAC/divorce-kim.gif',
-            'https://media4.giphy.com/media/l1KcP7rHsbSlIeAw0/giphy.gif',
-            'https://media1.giphy.com/media/YWm8PxAIcJ6sgLF7nj/giphy.gif',
-            'https://i2.wp.com/expatpanda.com/wp-content/uploads/2018/11/tenor-1.gif?fit=320%2C320&ssl=1'
+            'https://i.imgur.com/k8XWPvx.gif',
+            'https://i.imgur.com/QQBOYx7.gif',
+            'https://i.imgur.com/J5IqguJ.gif',
+            'https://i.imgur.com/aiExLPw.gif',
+            'https://i.imgur.com/5I39PHO.gif',
           
         ]
 
         var acepta = [
 
-            'https://c.tenor.com/IC8h3gIj074AAAAM/casada-boda.gif',
-            'https://c.tenor.com/1J5kkT96dcAAAAAC/up-si-quiero.gif',
-            'https://img.buzzfeed.com/buzzfeed-static/static/2018-02/21/12/asset/buzzfeed-prod-fastlane-02/anigif_sub-buzz-15864-1519234329-2.gif',
-            'https://i.pinimg.com/originals/47/f2/62/47f262da64e177792047d045e815c695.gif',
-            'https://media.giphy.com/media/l2SpYryWKODJq0isM/giphy.gif',
-            'https://media0.giphy.com/media/UJG50B8TJD5Mk/giphy.gif',
-            'https://media.giphy.com/media/3U0NmWYS4O1kQ/giphy.gif',
-            'https://img.wattpad.com/5c1f2d47198a28aa862ed794c57a45beb4320f01/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f357a34634f544b4f6578517157673d3d2d3536313838373434352e313532356232626563346134316131393730373132373031383732332e676966',
-            'http://i.giphy.com/xT4uQiN5Knf0Gwhzfq.gif',
-            'https://luciasecasa.com/contents/uploads/2019/10/13_razones_2.gif'
+            'https://i.imgur.com/jWqX58o.gif',
+            'https://i.imgur.com/PQREIjQ.gif',
+            'https://i.imgur.com/idXO2Zo.gif',
+            'https://i.imgur.com/XdEU10c.gif',
+            'https://i.imgur.com/4Y6XGNa.gif',
+            'https://i.imgur.com/y5ZsFK7.gif',
+            'https://i.imgur.com/KIQpIC9.gif',
+            'https://i.imgur.com/Dx1Lqyg.gif',
+            'https://i.imgur.com/Ika9thf.gif',
           
         ]
 

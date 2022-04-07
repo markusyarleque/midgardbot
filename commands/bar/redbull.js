@@ -8,16 +8,26 @@ module.exports =  {
 
         var redbull = [
 
-            'https://media.discordapp.net/attachments/853500788848853002/873261607185186816/1.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873261612180594759/2.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873261619923267584/3.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873261626885832724/4.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873261640022360114/5.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873261667469885561/6.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873261673811693690/7.gif?width=562&height=562',
-            'https://media.discordapp.net/attachments/853500788848853002/873261678781923328/8.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873261688919572520/9.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873261694267293777/10.gif'
+            'https://i.imgur.com/j1EivMH.gif',
+            'https://i.imgur.com/bm7xk0E.gif',
+            'https://i.imgur.com/HY6QZWQ.gif',
+            'https://i.imgur.com/qhwrfZ8.gif',
+            'https://i.imgur.com/e8txaob.gif',
+            'https://i.imgur.com/t4H0xs9.gif',
+            'https://i.imgur.com/GI50JD5.gif',
+            'https://i.imgur.com/I9uQWZb.gif',
+            'https://i.imgur.com/tIAg3ky.gif',
+            'https://i.imgur.com/EqZolGg.gif',
+            'https://i.imgur.com/nbtoaeq.gif',
+            'https://i.imgur.com/POuEn64.gif',
+            'https://i.imgur.com/h5DsE1c.gif',
+            'https://i.imgur.com/wFs77pP.gif',
+            'https://i.imgur.com/QJNIZJ6.gif',
+            'https://i.imgur.com/bO0ZmAZ.gif',
+            'https://i.imgur.com/CESyzrH.gif',
+            'https://i.imgur.com/lYyfVIu.gif',
+            'https://i.imgur.com/gcQOZ6h.gif',
+            'https://i.imgur.com/yiGLLjZ.gif',
         
         ]
 

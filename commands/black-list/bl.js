@@ -50,7 +50,7 @@ module.exports =  {
             }
 
             embed.setAuthor({ name: `Midgard's BL`, iconURL: client.user.avatarURL({ dynamic: true }) })
-            embed.setThumbnail('https://i.imgur.com/Hx2KSqC.gif')
+            embed.setThumbnail('https://i.imgur.com/YyxM3bL.gif')
             embed.setDescription(datos.join('\n\n'))   	
             embed.setColor("RANDOM")
             embed.setFooter({ text: message.guild.name, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })

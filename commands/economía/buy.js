@@ -38,7 +38,7 @@ module.exports =  {
           
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399365316658/buy.gif?width=480&height=320')
+            .setThumbnail('https://i.imgur.com/vmjyCli.gif')
             .setColor('RED')
             .setDescription('<a:Verify2:931463492677017650> | Necesitas mencionar un ítem a comprar. Para más detalles ejectua: `'+prefix+'shop`')
         
@@ -50,7 +50,7 @@ module.exports =  {
           
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399365316658/buy.gif?width=480&height=320')
+            .setThumbnail('https://i.imgur.com/vmjyCli.gif')
             .setColor('RED')
             .setDescription('<a:Verify2:931463492677017650> | No tienes suficientes coins para adquirir este item!')
         
@@ -62,7 +62,7 @@ module.exports =  {
           
                 new Discord.MessageEmbed()
                 .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-                .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399365316658/buy.gif?width=480&height=320')
+                .setThumbnail('https://i.imgur.com/vmjyCli.gif')
                 .setColor('RED')
                 .setDescription('<a:Verify2:931463492677017650> | No tienes suficientes coins para adquirir este item!. Actualmente tienes: <a:money:930397094924124180>'+buscarUsuario.dinero.toLocaleString('en-US'))
           
@@ -94,7 +94,7 @@ module.exports =  {
           
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
-            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399365316658/buy.gif?width=480&height=320')
+            .setThumbnail('https://i.imgur.com/vmjyCli.gif')
             .setColor('RED')
             .setDescription('<a:Verify2:931463492677017650> | No tienes suficientes coins para adquirir este item! Actualmente tienes: <a:money:930397094924124180>'+buscarUsuario.dinero.toLocaleString('en-US'))
         
@@ -158,7 +158,7 @@ module.exports =  {
           
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936150399365316658/buy.gif?width=480&height=320')
+            .setThumbnail('https://i.imgur.com/vmjyCli.gif')
             .setColor('RED')
             .setDescription('<a:Verify2:931463492677017650> | Ingresa el nombre correcto del item!')
           

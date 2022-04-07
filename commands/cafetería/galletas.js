@@ -8,15 +8,26 @@ module.exports =  {
 
         var galletas = [
 
-            'https://media.discordapp.net/attachments/853500788848853002/873256019055218728/1.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873256023417303171/2.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873256029528412160/3.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873256030933516298/4.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873256037296259113/5.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873256038139330560/6.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873256047668756570/8.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873256056501968946/9.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873256060956340284/10.gif'
+            'https://i.imgur.com/0uFEKNK.gif',
+            'https://i.imgur.com/BMCaT7d.gif',
+            'https://i.imgur.com/lpTN5Vw.gif',
+            'https://i.imgur.com/dJNLEbW.gif',
+            'https://i.imgur.com/oTn0gof.gif',
+            'https://i.imgur.com/hswxsfj.gif',
+            'https://i.imgur.com/sB9il3y.gif',
+            'https://i.imgur.com/nonZz7i.gif',
+            'https://i.imgur.com/ZEN6idq.gif',
+            'https://i.imgur.com/N0sMvEI.gif',
+            'https://i.imgur.com/JCAL4vp.gif',
+            'https://i.imgur.com/TBHHxQb.gif',
+            'https://i.imgur.com/WAJ9nHg.gif',
+            'https://i.imgur.com/2L25Jpz.gif',
+            'https://i.imgur.com/2iiji06.gif',
+            'https://i.imgur.com/EsuWD6z.gif',
+            'https://i.imgur.com/43iq07g.gif',
+            'https://i.imgur.com/8exUk8v.gif',
+            'https://i.imgur.com/IVTfNow.gif',
+            'https://i.imgur.com/utlGnEB.gif',
         
         ]
 

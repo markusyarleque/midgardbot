@@ -59,7 +59,7 @@ module.exports =  {
 
         let embed2 = new Discord.MessageEmbed()
         .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-        .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/939608838737367080/jackpot-slot.gif?width=320&height=180')
+        .setThumbnail('https://i.imgur.com/ctVqm0y.gif')
         .setTitle("Tragamonedas")
         .addField("Jugando:", slots[result1] + " **|** " + "<a:slot:939590026080190474>" + " **|** " + "<a:slot:939590026080190474>" + " **<**", true)
         .setColor("RANDOM")
@@ -68,7 +68,7 @@ module.exports =  {
         
         let embed3 = new Discord.MessageEmbed()
         .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-        .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/939608838737367080/jackpot-slot.gif?width=320&height=180')
+        .setThumbnail('https://i.imgur.com/ctVqm0y.gif')
         .setTitle("Tragamonedas")
         .addField("Jugando:", slots[result1] + " **|** " + slots[result2] + " **|** " + "<a:slot:939590026080190474>" + " **<**", true)
         .setColor("RANDOM")
@@ -104,7 +104,7 @@ module.exports =  {
 
             let embed4 = new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/939608838737367080/jackpot-slot.gif?width=320&height=180')
+            .setThumbnail('https://i.imgur.com/ctVqm0y.gif')
             .setTitle("¡Ganaste! 🎰")
             .addField("Resultado:", slots[result1] + " **|** " + slots[result2] + " **|** " + slots[result3] + " **<**", true)
             .setColor("GREEN")
@@ -161,7 +161,7 @@ module.exports =  {
 
             let embed5 = new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-            .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/939608838737367080/jackpot-slot.gif?width=320&height=180')
+            .setThumbnail('https://i.imgur.com/ctVqm0y.gif')
             .setTitle("¡Perdiste! 🎰")
             .addField("Resultado:", slots[result1] + " **|** " + slots[result2] + " **|** " + slots[result3] + " **<**", true)
             .setColor("RED")

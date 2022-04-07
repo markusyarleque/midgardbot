@@ -44,7 +44,7 @@ module.exports = {
     let usera = message.author;
 
     const embed = new Discord.MessageEmbed()
-    .setThumbnail(`https://assets.sutori.com/user-uploads/image/bc331db1-aa9d-4684-b73e-8a1fcb7d751b/aa64184f325ce5cc6abe613d51383870.gif`)
+    .setThumbnail(`https://i.imgur.com/HsDjJ2e.gif`)
     .setTitle('<a:alerta:932374957206421614> | Reporte')
     .setDescription(`**${usera.username}** ¿Estás segur@ que quieres reportar este bug? ¡Usar mal el comando causará la prohibición!`)
     .addField('Bug a reportar: ','> ' + (reporte ? reporte : 'Ninguno'))
@@ -74,7 +74,7 @@ module.exports = {
         if (int.customId === "accept") {
 
           let bugco = new Discord.MessageEmbed()
-          .setThumbnail(`https://assets.sutori.com/user-uploads/image/bc331db1-aa9d-4684-b73e-8a1fcb7d751b/aa64184f325ce5cc6abe613d51383870.gif`)
+          .setThumbnail(`https://i.imgur.com/HsDjJ2e.gif`)
           .setTitle('📧 | Reporte')
           .setColor('RANDOM')
           .setDescription('Reporte confirmado con éxito! <a:clap:881331231021756437>')
@@ -88,7 +88,7 @@ module.exports = {
           }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
           let bugre = new Discord.MessageEmbed()
-          .setThumbnail(`https://assets.sutori.com/user-uploads/image/bc331db1-aa9d-4684-b73e-8a1fcb7d751b/aa64184f325ce5cc6abe613d51383870.gif`)
+          .setThumbnail(`https://i.imgur.com/HsDjJ2e.gif`)
           .setTitle('📧 | Reporte')
           .setColor('RANDOM')
           .addField('Ha llegado el siguiente reporte: ', '> '+ (reporte ? reporte : 'Ninguno'))

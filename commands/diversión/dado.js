@@ -7,12 +7,14 @@ module.exports =  {
     async execute(client, message, args, Discord) {
 
         let links = [
-            'https://cdn.discordapp.com/attachments/684757256658747451/794277079243685888/dado-1.png',
-            'https://cdn.discordapp.com/attachments/684757256658747451/794277107537805332/dado-2.png',
-            'https://cdn.discordapp.com/attachments/684757256658747451/794277142800105483/dado-3.png',
-            'https://cdn.discordapp.com/attachments/684757256658747451/794277176592826368/dado-4.png',
-            'https://cdn.discordapp.com/attachments/684757256658747451/794277207619010590/dado-5.png',
-            'https://cdn.discordapp.com/attachments/684757256658747451/794277245157113866/dado-6.png'
+            
+            'https://i.imgur.com/e8Ta8Qg.png',
+            'https://i.imgur.com/VV05Ww9.png',
+            'https://i.imgur.com/yHvON5O.png',
+            'https://i.imgur.com/hJZjV4m.png',
+            'https://i.imgur.com/e6HV74c.png',
+            'https://i.imgur.com/yN78VZK.png',
+            
         ]
 
         var dado = links[Math.floor(Math.random() * links.length)]

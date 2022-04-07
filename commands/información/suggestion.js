@@ -43,7 +43,7 @@ module.exports = {
       let usera = message.author;
   
       const embed = new Discord.MessageEmbed()
-        .setThumbnail(`https://media.giphy.com/media/Jzw7qUU2ZMw7DYpQV8/giphy.gif`)
+        .setThumbnail(`https://i.imgur.com/KWgasJi.gif`)
         .setTitle('<a:corazonBlack_FD:880526799736557679> | Sugerencia')
         .setDescription(`**${usera.username}** ¿Estás segur@ que quieres dar esta sugerencia? ¡Usar mal el comando causará la prohibición!`)
         .addField('Sugerencia: ','> ' + (reporte ? reporte : 'Ninguna'))
@@ -73,7 +73,7 @@ module.exports = {
           if (int.customId === "accept") {
   
             let bugco = new Discord.MessageEmbed()
-            .setThumbnail(`https://media.giphy.com/media/Jzw7qUU2ZMw7DYpQV8/giphy.gif`)
+            .setThumbnail(`https://i.imgur.com/KWgasJi.gif`)
             .setTitle('<a:corazonBlack_FD:880526799736557679> | Sugerencia')
             .setColor('RANDOM')
             .setDescription('Sugerencia realizada con éxito! <a:clap:881331231021756437>')
@@ -87,7 +87,7 @@ module.exports = {
             }).catch((e) => console.log('Error al enviar mensaje: '+e))
   
             let bugre = new Discord.MessageEmbed()
-            .setThumbnail(`https://media.giphy.com/media/Jzw7qUU2ZMw7DYpQV8/giphy.gif`)
+            .setThumbnail(`https://i.imgur.com/KWgasJi.gif`)
             .setTitle('<a:corazonBlack_FD:880526799736557679> | Sugerencia')
             .setColor('RANDOM')
             .addField('Ha llegado la siguiente sugerencia: ', '> ' + (reporte ? reporte : ' Ninguna'))

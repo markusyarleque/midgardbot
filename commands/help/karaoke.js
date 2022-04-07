@@ -31,8 +31,8 @@ module.exports =  {
         }
 
         const embed = new Discord.MessageEmbed()
-        .setThumbnail('https://img1.picmix.com/output/stamp/normal/5/5/3/4/1754355_5b4b9.gif')
-        .setAuthor({ name: `Midgard's Karaoke`, iconURL: 'https://images-ext-1.discordapp.net/external/FrwQc20YeRvAuhpfyvTDLf0qJon61IxQ3wJw6v2RrGs/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/856814676692041738/b9c01810fc4ed6c302bceb25418ec974.png' })
+        .setThumbnail('https://i.imgur.com/ibDS99M.gif')
+        .setAuthor({ name: `Midgard's Karaoke`, iconURL: 'https://i.imgur.com/Bkvm8wy.gif' })
         .setTitle('Comandos:')
         .setDescription(`Se utilizan sólo en: ${client.channels.cache.get('880317466557952000')}`)
         .addField('Agregar a la Lista:', '`'+prefix+'k` `'+prefix+'k <@user>`')

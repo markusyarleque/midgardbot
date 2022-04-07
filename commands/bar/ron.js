@@ -8,16 +8,26 @@ module.exports =  {
 
         var ron = [
 
-            'https://media.discordapp.net/attachments/853500788848853002/873266014559809536/1.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873266031114743888/2.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873266053608788028/3.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873266065948438598/4.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873266085435154502/5.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873266090082455582/6.gif?width=562&height=562',
-            'https://media.discordapp.net/attachments/853500788848853002/873266105542660156/7.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873266116103929866/8.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873266127617261608/9.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873266135775207454/10.gif'
+            'https://i.imgur.com/ekduktl.gif',
+            'https://i.imgur.com/xvhrsp3.gif',
+            'https://i.imgur.com/v7ED7dD.gif',
+            'https://i.imgur.com/HNRBNAU.gif',
+            'https://i.imgur.com/uP1oeYQ.gif',
+            'https://i.imgur.com/H2pd9gi.gif',
+            'https://i.imgur.com/Oxg3qDC.gif',
+            'https://i.imgur.com/YOxbTxq.gif',
+            'https://i.imgur.com/Kkuo2Vi.gif',
+            'https://i.imgur.com/GpXeHDH.gif',
+            'https://i.imgur.com/G8dNT89.gif',
+            'https://i.imgur.com/MEGKbq2.gif',
+            'https://i.imgur.com/2i3Y38G.gif',
+            'https://i.imgur.com/otPsCni.gif',
+            'https://i.imgur.com/BvhnWHZ.gif',
+            'https://i.imgur.com/W7usjro.gif',
+            'https://i.imgur.com/3GNlvXr.gif',
+            'https://i.imgur.com/DPHR84W.gif',
+            'https://i.imgur.com/R15kmOs.gif',
+            'https://i.imgur.com/fdiGAZK.gif',
         
         ]
 

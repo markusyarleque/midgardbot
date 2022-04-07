@@ -36,7 +36,7 @@ module.exports = {
     //console.log('Comandos: '+datosc.join('\n')+' - Tamaño: '+datosc.length)
 
     const embed = new Discord.MessageEmbed()
-    .setThumbnail('https://media.giphy.com/media/3rgXBsmYd60rL3w7sc/giphy.gif')
+    .setThumbnail('https://i.imgur.com/Uq0IPAU.gif')
     .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
     .setTitle('Estadísticas')
     .addField('Desarrollador: ', 'Maltazard#1207')

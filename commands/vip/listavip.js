@@ -49,7 +49,7 @@ module.exports =  {
             }
 
             embed.setAuthor({ name: `Midgard's VIP`, iconURL: client.user.avatarURL({ dynamic: true }) })
-            embed.setThumbnail('https://c.tenor.com/b66sjGFhHsIAAAAC/tuxedo.gif')
+            embed.setThumbnail('https://i.imgur.com/TGJxm2u.gif')
             embed.setDescription(datos.join('\n\n'))   	
             embed.setColor("RANDOM")
             embed.setFooter({ text: message.guild.name, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })

@@ -41,14 +41,14 @@ module.exports =  {
         .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
         .setColor('RANDOM')
-        .setThumbnail('https://c.tenor.com/hE0T8D0GpXsAAAAC/joinblink-blink.gif')
+        .setThumbnail('https://i.imgur.com/L7CrF87.gif')
 
         const helpinfo = new Discord.MessageEmbed()
         .setTitle('📌 • Comandos De Información')
         .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
-        .setThumbnail('https://mimeti.co/wp-content/uploads/2015/01/01-gif-traduction-localise.gif')
+        .setThumbnail('https://i.imgur.com/ElF0ec4.gif')
         .setColor('RANDOM')
         .setDescription('> **ping**\n> Comprueba la latencia del bot y de tus mensajes.\n\n> **stats**\n> Muestra la info y estado del bot.\n\n> **setprefix**\n> Actualiza el prefix del bot en este servidor.\n\n> **help | h**\n> Menú de ayuda con los comandos del bot\n\n> **server**\n> Muestra información de este servidor.\n\n> **report**\n> Reportar un bug del bot.\n\n> **suggestion**\n> Enviar una sugerencia para mejorar el bot.\n\n')
 
@@ -57,7 +57,7 @@ module.exports =  {
         .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
-        .setThumbnail('https://jonmgomes.com/wp-content/uploads/2020/03/Liquid-Lightbulb-Animation-V2-800x600-1.gif')
+        .setThumbnail('https://i.imgur.com/6aWYLFl.gif')
         .setColor('RANDOM')
         .setDescription('> **user**\n> Muestra información sobre un usuario mencionado.\n\n> **avatar**\n> Muestra el avatar de un usuario.\n\n> **banner**\n> Muestra el banner de un usuario.\n\n> **welcome | wlc**\n> Muestra un embed de bienvenida.\n> Uso:\n> `' +prefix +'welcome <@user>`\n> `' +prefix +'wlc <@user>`\n\n> **remindme | rm**\n> Establece un recordatorio.\n> Uso:\n> `' +prefix +'remindme <tiempo en s,m,h> <recordatorio>`\n\n> **snipe**\n> Recupera el último mensaje eliminado.\n\n> **math**\n> Realiza una operación matemática básica.\n\n> **jumbo**\n> Ver en grande un emoji.\n\n> **poll**\n> Crea una encuenta.\n> Uso:\n> `' +prefix +'poll pregunta - opción1 - opción2 - opción3 [opcional]...`\n\n> **conteo**\n> Realiza un conteo regresivo.\n> Uso:\n> `' +prefix +'conteo <número>`\n\n')
   
@@ -66,7 +66,7 @@ module.exports =  {
         .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
-        .setThumbnail('https://elblogdelauz.files.wordpress.com/2018/10/gif-seguridad.gif')
+        .setThumbnail('https://i.imgur.com/Ala12ck.gif')
         .setColor('RANDOM')
         .setDescription('> **role**\n> Muestra información de un rol mencionado.\n> Uso:\n> `' +prefix +'role <nombre/@rol>`\n\n> **roleid**\n> Muestra información de un rol por id.\n> Uso:\n> `' +prefix +'roleid <id>`\n\n> **lock**\n> Bloquea un canal del servidor.\n> Uso:\n> `' +prefix +'lock <#canal>`\n\n> **unlock**\n> Desbloquea un canal del servidor.\n> Uso:\n> `' +prefix +'unlock <#canal>`\n\n> **clear**\n> Elimina mensajes de un canal.\n> Uso:\n> `' +prefix +'clear <cantidad>`\n\n')
     
@@ -77,7 +77,7 @@ module.exports =  {
         .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
-        .setThumbnail('https://blogs.unitec.mx/content/dam/blogs/imagenes/corp_samara/finazas-economia-quieres-ser-un-john-law-1.gif')
+        .setThumbnail('https://i.imgur.com/WYXAUrS.gif')
         .setColor('RANDOM')
         .setDescription('> **perfil**\n> Muestra tu perfil o el de un usuario.\n\n> **top**\n> Muestra el top de Economía y Stats.\n> Uso:\n> `' +prefix +'top`\n> `' +prefix +'top <cash | xp | rep | pat | hug | sape>`\n\n> **shop**\n> Muestra la tienda del Bot en el servidor.`\n\n> **buy**\n> Compra un item de la tienda.\n> Uso:\n> `' +prefix +'buy <item>`\n\n> **bal | balance**\n> Mira tu balance o el de un usuario en el servidor.\n\n> **work | w**\n> Trabajar para obtener coins.\n\n> **crime**\n> Ejecuta un crimen.\n\n> **rob**\n> Roba a un miembro mencionado.\n> Uso:\n> `' +prefix +'rob <@user>`\n\n> **dep**\n> Deposita tu dinero en el banco.\n> Uso:\n> `' +prefix +'dep <cantidad | all>`\n\n> **with**\n> Retira tu dinero del banco.\n> Uso:\n> `' +prefix +'with <cantidad | all>`\n\n> **daily**\n> Reclama tu recompensa diaria.\n\n> **cock-fight | cf**\n> Apuesta en las peleas de pollos.\n> Uso:\n> `' +prefix +'cf <cantidad | all>`\n\n> **slot | slots**\n> Apuesta en el tragamonedas.\n> Uso:\n> `' +prefix +'slot <cantidad>`\n\n')
   
@@ -86,7 +86,7 @@ module.exports =  {
         .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
-        .setThumbnail('https://i.gifer.com/HqGV.gif')
+        .setThumbnail('https://i.imgur.com/oyNwRhK.gif')
         .setColor('RANDOM')
         .setDescription('> **say**\n> Hace que el bot diga un mensaje.\n\n> **8ball**\n> El bot responderá a tus preguntas.\n\n> **dado**\n> Lanza un dado al azar.\n\n> **roll**\n> Saca un número al azar.\n\n> **impostor**\n> Averigua quién es el impostor de este mundo.\n\n> **pokemon**\n> Un juego divertido para adivinar el pokemón.\n\n> **ship**\n> Mide tu nivel de amor con un usuario mencionado.\n> Uso:\n> `' +prefix +'ship <@user>`\n\n> **meme**\n> Envía memes al azar.\n\n> **ttt**\n> Clásico Tic Tac Toe.\n> Uso:\n> `' +prefix +'ttt <@user>`\n\n> **coinflip**\n> Lanza una moneda al aire.\n\n> **connect4**\n> Juega 4 en raya contra alguien.\n\n> **footballmatch**\n> ¿Qué tan bueno eres en penales?.\n\n> **rps**\n> Piedra, papel o tijera... ¿qué elijes?.\n\n> **snake**\n> ¿Recuerdas este clásico juego?.\n\n> **fast**\n> ¿Qué tan rápido eres?.\n\n> **match**\n> Forma las parejas.\n\n> **choose**\n> ¿Qué prefieres?.\n\n> **infiel**\n> Descubre tu % de infidelidad.\n\n> **berenjena**\n> Descubre cuánto te mide 😈\n\n> **carta**\n> Envía una carta a un usuario con el mensaje que quieras.\n> Para más información ejecuta:\n> `' +prefix +'carta`\n\n> **rae**\n> Busca el significado de cualquier palabra.\n\n> **morse**\n> Convierte cualquier texto en código morse o viceversa.\n\n')
   
@@ -95,7 +95,7 @@ module.exports =  {
         .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
-        .setThumbnail('https://i.pinimg.com/originals/14/d6/dc/14d6dc0f242386738df2b7f067a9c593.gif')
+        .setThumbnail('https://i.imgur.com/D1RSBCE.gif')
         .setColor('RANDOM')
         .setDescription('**Cafetería** ☕\n> **cafe**\n> **agua**\n> **te**\n> **jugo**\n> **tacos**\n> **chocolate**\n> **galletas**\n> **gansito**\n> **helado**\n> **hamburguesa**\n> **pizza**\n\n**Bar** 🥂\n> **cocacola**\n> **redbull**\n> **cerveza**\n> **vino**\n> **tequila**\n> **ron**\n> **coctel**\n> **cigarro**\n> **porro**\n> **huca**\n\n**Disco** 💃\n> **perreo**\n> **bachata**\n> **salsa**\n> **cumbia**\n> **colegiala**\n\n')
   
@@ -104,7 +104,7 @@ module.exports =  {
         .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
-        .setThumbnail('https://i.pinimg.com/originals/54/ce/5a/54ce5ae304bd82e54b7d45f639693213.gif')
+        .setThumbnail('https://i.imgur.com/nl1R1hv.gif')
         .setColor('RANDOM')
         .setDescription('> **hi**\n> Saluda a alguien o a todos.\n\n> **hug**\n> Abraza a alguien o a ti mismo.\n\n> **kiss**\n> Besa a un usuario.\n\n> **kless**\n> Beso entre mujeres.\n\n> **kgay**\n> Beso entre hombres.\n\n> **k3**\n> Beso entre 3.\n\n> **happy**\n> Mood Feliz.\n\n> **bored**\n> Mood Aburrido.\n\n> **sleep**\n> ¿Ya tienes sueño?\n\n> **dance**\n> Baila solo o acompañado.\n\n> **blush**\n> Sonrojad@ de nuevo?.\n\n> **confused**\n> Confundido Potter?\n\n> **lick**\n> Dale una lamida a alguien.\n\n> **cuddle**\n> Acurrúcate en alguien.\n\n> **feed**\n> Dale de comer a alguien.\n\n> **pat**\n> Acaricia a alguien.\n\n> **rep**\n> Da un punto de carisma.\n\n> **sad**\n> Modo Sad.\n\n> **cry**\n> Modo Sad 2.0.\n\n> **clorox**\n> ¿Se te antoja?\n\n> **suicide**\n> Hacer la automorision.\n\n> **sape**\n> Dale un sape a alguien.\n\n> **bite**\n> Muerde a alguien.\n\n> **poke**\n> Molesta a alguien.\n\n> **punch**\n> Tira un golpe a alguien.\n\n> **kickbut**\n> Dale una patada a alguien.\n\n> **spank**\n> Nalguea a alguien.\n\n> **slap**\n> Abofetea a alguien.\n\n> **kill**\n> Mata a un usario.\n\n> **marry**\n> Cásate con un usario.\n\n> **divorce**\n> Divórciate de un usario.')
 
@@ -113,7 +113,7 @@ module.exports =  {
         .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
-        .setThumbnail('https://c.tenor.com/E0DqqabbUn0AAAAC/nsfw.gif')
+        .setThumbnail('https://i.imgur.com/fha5PRG.gif')
         .setColor('RANDOM')
         .setDescription('> **||tetas||**\n> **||pussy||**\n> **||culo||**\n> **||dick||**\n> **||kuni||**\n> **||suck||**\n> **||fuck||**\n> **||anal||**\n> **||cum||**\n> \n> **Solo VIP**\n> \n> **||suckb||**\n> **||sboobs||**\n> **||fap||**\n> **||4k||**\n> **||cowgirl||**\n> **||porno||**\n> **||bdsm||**\n> **||hd||**\n> **||gonewild||**\n')
     
@@ -337,7 +337,7 @@ module.exports =  {
                   
                           new Discord.MessageEmbed()
                           .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
-                          .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936524707677741086/prohibido.gif?width=318&height=149')
+                          .setThumbnail('https://i.imgur.com/9hw4JPi.gif')
                           .setColor('RED')
                           .setDescription(`<a:prohibido:936527618466009109> | ¡Oh rayos, necesitas un canal NSFW para ver este menú <:ojooo:925928526119571457>`)
                   
@@ -352,7 +352,7 @@ module.exports =  {
                 .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
                 .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
                 .setTimestamp(new Date())
-                .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/960825061307211786/SpicyComplexCat.gif?width=480&height=276')
+                .setThumbnail('https://i.imgur.com/kwMaqLo.gif')
                 .setColor('RANDOM')
                 .addField('Descripción: ','<a:flech:931432469935312937> ' + descripcion)
                 .addField('Aliases: ','<a:flech:931432469935312937> ' + alias)

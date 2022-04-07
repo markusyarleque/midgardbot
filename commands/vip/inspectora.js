@@ -84,7 +84,7 @@ module.exports =  {
         .addField('<a:Perreito:931724729100943500> Nivel de Perreo:','<a:flech:931432469935312937> ' + ramdonperreo, false)
         .addField('\u200B','\u200B')
         .addField('Información extra:', '> ' + ramdonextra )
-        .setImage('https://media.discordapp.net/attachments/939264324692758568/957154966554951760/76B9A96D-AEA7-4557-BD00-0694938CBA01.gif?width=360&height=272')
+        .setImage('https://i.imgur.com/8ptOou8.gif')
         .setColor('RANDOM')
         .setTimestamp(new Date())
         .setFooter({ text: message.guild.name, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })

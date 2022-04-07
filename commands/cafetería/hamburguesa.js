@@ -8,16 +8,26 @@ module.exports =  {
 
         var hamburguesa = [
 
-            'https://media.discordapp.net/attachments/853500788848853002/873257289824489542/1.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873257293167341598/2.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873257304760410132/3.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873257304311623810/4.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873257305150464020/5.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873257311379009576/6.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873257314461818891/7.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873257316701577216/8.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873257321256595496/9.gif',
-            'https://media.discordapp.net/attachments/853500788848853002/873257323034988554/10.gif'
+            'https://i.imgur.com/3dmN32f.gif',
+            'https://i.imgur.com/u9z85Ho.gif',
+            'https://i.imgur.com/jO0LnmP.gif',
+            'https://i.imgur.com/1dYebrN.gif',
+            'https://i.imgur.com/CXPc7O4.gif',
+            'https://i.imgur.com/bukvs6v.gif',
+            'https://i.imgur.com/gjEKJ81.gif',
+            'https://i.imgur.com/QlHGI3B.gif',
+            'https://i.imgur.com/aXrJIol.gif',
+            'https://i.imgur.com/yKw07i1.gif',
+            'https://i.imgur.com/9jpoghY.gif',
+            'https://i.imgur.com/wnLBxg9.gif',
+            'https://i.imgur.com/qkZAHM5.gif',
+            'https://i.imgur.com/7v1xaF6.gif',
+            'https://i.imgur.com/0nRL5qq.gif',
+            'https://i.imgur.com/CCWjrq5.gif',
+            'https://i.imgur.com/duKQIwf.gif',
+            'https://i.imgur.com/Rgrj0XO.gif',
+            'https://i.imgur.com/ZShDTO1.gif',
+            'https://i.imgur.com/JurScXo.gif',
         
         ]
 

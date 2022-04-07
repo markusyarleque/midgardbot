@@ -12,7 +12,7 @@ module.exports =  {
 
         const embed = new Discord.MessageEmbed()
         .setAuthor({ name: `Midgard's Staff`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
-        .setThumbnail('https://logos-marcas.com/wp-content/uploads/2020/12/Discord-Logo.png')
+        .setThumbnail('https://i.imgur.com/SoNWi4m.png')
         .setTitle('Vota por Nuestro Servidor <a:gatoasomar:930399873113677834>')
         .setDescription(`Estaremos eternamente agradecidos que votes por Midgard! <:abby:931432327354155038>`)
         .addField('Top.gg','[Click aquí para votar](https://top.gg/servers/777620055344545842/vote)\n\n',false)

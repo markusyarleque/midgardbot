@@ -21,7 +21,7 @@ module.exports = async (client, Discord, message) => {
         if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado al dm por: '+message.author).catch((e) => console.log('Error al enviar mensaje del dm al canal: '+e))
     
         const embed = new Discord.MessageEmbed()
-        .setThumbnail(`https://media2.giphy.com/media/3sbiWejYVIGuX1thyq/giphy.gif`)
+        .setThumbnail(`https://i.imgur.com/fnkXBPo.gif`)
         .setAuthor({ name: 'MaltaBot', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setTitle('📢 | Mensaje directo')
         .addField('Autor: ', `<a:flech:931432469935312937> ${message.author}`)

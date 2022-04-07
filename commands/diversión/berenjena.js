@@ -39,32 +39,32 @@ module.exports =  {
         if(random === 20){
           
             heard='😎';
-            image='https://c.tenor.com/_C2LQYYZSLYAAAAC/shocked-surprised.gif';
+            image='https://i.imgur.com/9T3I5Xj.gif';
     
         } else if(random < 20 && random > 15){
           
             heard='😲';
-            image='https://c.tenor.com/2JAEiE6XJJwAAAAC/eugenio-dervez-eugenio.gif';
+            image='https://i.imgur.com/sRDEaKz.gif';
     
         } else if(random < 15 && random > 10){
           
             heard='🤨';
-            image='https://c.tenor.com/T4_6YgD60VgAAAAd/que-hombre-golosa.gif';
+            image='https://i.imgur.com/pURCHiL.gif';
     
         } else if(random < 10 && random > 5){
           
             heard='😬';
-            image='https://c.tenor.com/vkliz2XrL0oAAAAC/boca-abierta-mono.gif';
+            image='https://i.imgur.com/5gsRdLH.gif';
     
         } else if(random < 5 && random > 0){
           
             heard='🤡';
-            image='https://c.tenor.com/0qqmmIO-R6AAAAAd/excuse-me-excuse-you.gif';
+            image='https://i.imgur.com/1jk66IM.gif';
     
         } else if(random === 0){
           
             heard='🚩';
-            image='https://thumbs.gfycat.com/FlusteredUnevenAfricanwildcat-size_restricted.gif';
+            image='https://i.imgur.com/XUSvnYx.gif';
     
         }
 
@@ -80,7 +80,7 @@ module.exports =  {
                 .setAuthor({ name: `Midgard's Love`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
                 .setTitle(`¿Cuánto te mide? 🍆`)
                 .setDescription(`😎 ¡La berenjena de **${message.author.username}** mide **${r}** centímetros! 😎`)
-                .setImage(`https://c.tenor.com/2JAEiE6XJJwAAAAC/eugenio-dervez-eugenio.gif`)
+                .setImage(`https://i.imgur.com/9T3I5Xj.gif`)
                 .setColor('RANDOM')
                 .setTimestamp(new Date())
                 .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
@@ -114,7 +114,7 @@ module.exports =  {
                 .setAuthor({ name: `Midgard's Love`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
                 .setTitle(`¿Cuánto te mide? 🍆`)
                 .setDescription(`😎 ¡La berenjena de **${users.username}** mide **${r}** centímetros! 😎`)
-                .setImage(`https://c.tenor.com/2JAEiE6XJJwAAAAC/eugenio-dervez-eugenio.gif`)
+                .setImage(`https://i.imgur.com/9T3I5Xj.gif`)
                 .setColor('RANDOM')
                 .setTimestamp(new Date())
                 .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
