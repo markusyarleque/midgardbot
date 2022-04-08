@@ -8,7 +8,8 @@ module.exports = (client, Discord) => {
 
     console.log('========================= CONTROLADOR DE SLASH COMMANDS =========================')
     
-    let canalowner = client.channels.cache.get('880312288593195028')
+    let sv = client.guilds.cache.get('777620055344545842')
+    let canalowner = sv.channels.cache.get('880312288593195028')
 
     fs.readdirSync('./slashCommands/').forEach((dir) => {
 

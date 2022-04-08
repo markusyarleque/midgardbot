@@ -7,8 +7,9 @@ module.exports = (client, Discord) => {
 
     console.log('========================= CONTROLADOR DE COMANDOS =========================')
     
-    let canalowner = client.channels.cache.get('880312288593195028')
-
+    let sv = client.guilds.cache.get('777620055344545842')
+    let canalowner = sv.channels.cache.get('880312288593195028')
+    
     fs.readdirSync("./commands/").forEach((dir) => {
 
         const commands = fs
@@ -37,7 +38,8 @@ module.exports = (client, Discord) => {
     })
 
     console.log(table.toString())
-    
+
+    console.log('sv: ' + sv)
     console.log('canal: ' + canalowner)
     //canalowner.send({content: '<@753435606410985573> \n\n' + table.toString})
     
