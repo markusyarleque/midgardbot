@@ -40,7 +40,7 @@ module.exports = {
     .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
     .setTitle('Estadísticas')
     .addField('Desarrollador: ', 'Maltazard#1207')
-    .addField('Nacimiento: ', '' + client.user.createdAt())
+    .addField('Nacimiento: ', '' + client.user.createdAt.toLocaleDateString()+', '+client.user.createdAt.toLocaleTimeString())
     .addField(`Comandos de Prefix [ - ]:`, ''+(datosc.length ? datosc.length : '0'))
     .addField(`Slash Commands:`, ''+(datoss.length ? datoss.length : '0'))
     .addField('Lenguaje: ', 'JavaScript')
