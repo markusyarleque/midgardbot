@@ -1,8 +1,13 @@
 const fs = require('fs'); 
+const ascii = require('ascii-table')
+let table = new ascii('Commands')
+table.setHeading('COMANDOS','ESTADO')
 
 module.exports = (client, Discord) => {
 
     console.log('========================= CONTROLADOR DE COMANDOS =========================')
+    
+    let canalowner = client.channels.cache.get('880312288593195028')
 
     fs.readdirSync("./commands/").forEach((dir) => {
 
@@ -16,19 +21,25 @@ module.exports = (client, Discord) => {
 
             if(cmd.name){
 
-                console.log('Comando cargado: '+cmd.name)
-                client.commands.set(cmd.name, cmd);
+                //console.log('Comando cargado: '+cmd.name)
+                client.commands.set(cmd.name, cmd)
+                table.addRow(cmd.name,'✅')
 
             } else{
 
-                console.log('Error al cargar comando: '+cmd.name)
-        
+                //console.log('Error al cargar comando: '+cmd.name)
+                table.addRow(cmd.name,'❌')
+
             }
 
         }
 
     })
 
+    console.log(table.toString())
+    
+    canalowner.send({content: '<@753435606410985573> \n\n' + table.toString})
+    
     console.log('========================= CONTROLADOR DE COMANDOS =========================')
 
 }

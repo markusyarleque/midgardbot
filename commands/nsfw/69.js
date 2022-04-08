@@ -2,44 +2,59 @@ const userSchema = require('../../models/userSchema');
 
 module.exports =  {
     
-    name: 'cowgirl',
-    aliases: ['vaquera','vaquerita'],
+    name: '69',
+    aliases: [],
     description: '🔞 Comandos NSFW.',
     
     async execute(client, message, args, Discord) { 
   
-        var cowgirl = [
+        var sixnine = [
 
-            'https://i.imgur.com/Zcqvwv5.gif',
-            'https://i.imgur.com/7zYQkgZ.gif',
-            'https://i.imgur.com/dg9ut0e.gif',
-            'https://i.imgur.com/Zlp7kNe.gif',
-            'https://i.imgur.com/fjL3zDb.gif',
-            'https://i.imgur.com/BSvjcO0.gif',
-            'https://i.imgur.com/4dQO96U.gif',
-            'https://i.imgur.com/y04mRRb.gif',
-            'https://i.imgur.com/LJ4jVeD.gif',
-            'https://i.imgur.com/dTUXqfl.gif',
-            'https://i.imgur.com/NSDlisH.gif',
-            'https://i.imgur.com/oj3LgE7.gif',
-            'https://i.imgur.com/TmngP29.gif',
-            'https://i.imgur.com/xEKUaAr.gif',
-            'https://i.imgur.com/jE2DHBS.gif',
-            'https://i.imgur.com/VzgzTp3.gif',
-            'https://i.imgur.com/B5gOpJ4.gif',
-            'https://i.imgur.com/SsOWMvU.gif',
-            'https://i.imgur.com/OMMSSir.gif',
-            'https://i.imgur.com/Pk6haC6.gif',
-            'https://i.imgur.com/Am219Lp.gif',
-            'https://i.imgur.com/dr5lRWQ.gif',
-            'https://i.imgur.com/WQlFrJw.gif',
-            'https://i.imgur.com/WcUxxK4.gif',
-            'https://i.imgur.com/dCGN2xa.gif',
-            'https://i.imgur.com/VfGflye.gif',
-            'https://i.imgur.com/wHCsaJI.gif',
-            'https://i.imgur.com/Jb3LMZn.gif',
-            'https://i.imgur.com/pLlBmz5.gif',
-            'https://i.imgur.com/uZWvBEf.gif',
+            'https://i.imgur.com/2kVGVwA.gif',
+            'https://i.imgur.com/E48kyer.gif',
+            'https://i.imgur.com/2WFjP2G.gif',
+            'https://i.imgur.com/F5vb59V.gif',
+            'https://i.imgur.com/6Ogww6i.gif',
+            'https://i.imgur.com/Ro8kqI0.gif',
+            'https://i.imgur.com/UUNM3Vz.gif',
+            'https://i.imgur.com/yJaFKCn.gif',
+            'https://i.imgur.com/helfML1.gif',
+            'https://i.imgur.com/K0cnW2Q.gif',
+            'https://i.imgur.com/fX9vos3.gif',
+            'https://i.imgur.com/UfqwpwA.gif',
+            'https://i.imgur.com/Y8esnzJ.gif',
+            'https://i.imgur.com/j5sbFog.gif',
+            'https://i.imgur.com/dwG0kOp.gif',
+            'https://i.imgur.com/11KJrWL.gif',
+            'https://i.imgur.com/6BzocAN.gif',
+            'https://i.imgur.com/ErhGjBr.gif',
+            'https://i.imgur.com/EKwvJVB.gif',
+            'https://i.imgur.com/aw4417g.gif',
+            'https://i.imgur.com/ivub713.gif',
+            'https://i.imgur.com/nQp2tWP.gif',
+            'https://i.imgur.com/UfhjgdY.gif',
+            'https://i.imgur.com/lwnnmPe.gif',
+            'https://i.imgur.com/ysyFgs4.gif',
+            'https://i.imgur.com/lmxihmA.gif',
+            'https://i.imgur.com/F4YRtpx.gif',
+            'https://i.imgur.com/9dWnG54.gif',
+            'https://i.imgur.com/m2Fv6ks.gif',
+            'https://i.imgur.com/BtQXemE.gif',
+            'https://i.imgur.com/Qe2sgCK.gif',
+            'https://i.imgur.com/agF3mcO.gif',
+            'https://i.imgur.com/rqPvo6a.gif',
+            'https://i.imgur.com/bTrHWpu.gif',
+            'https://i.imgur.com/CYgLvEL.gif',
+            'https://i.imgur.com/jf0VxFz.gif',
+            'https://i.imgur.com/mlCjbyQ.gif',
+            'https://i.imgur.com/FEXHFTJ.gif',
+            'https://i.imgur.com/mtP5KVu.gif',
+            'https://i.imgur.com/K37jZQm.gif',
+            'https://i.imgur.com/2B9KD6f.gif',
+            'https://i.imgur.com/zTm6KAK.gif',
+            'https://i.imgur.com/utlfAwN.gif',
+            'https://i.imgur.com/Ryj4bFh.gif',
+            'https://i.imgur.com/WqTrhhA.gif',
 
         ]
   
@@ -87,34 +102,34 @@ module.exports =  {
 
             } catch (error) {
 
-                console.log('Error al Buscar Usuario en Comando Cowgirl: '+ error)
+                console.log('Error al Buscar Usuario en Comando 69: '+ error)
                 
             }
       
             let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
-            let ramdoncowgirl = cowgirl[Math.floor(Math.random()*cowgirl.length)]
+            let ramdonsixnine = sixnine[Math.floor(Math.random()*sixnine.length)]
             let desc 
     
-            while (!ramdoncowgirl || ramdoncowgirl === null || ramdoncowgirl === '' || ramdoncowgirl === undefined) {
+            while (!ramdonsixnine || ramdonsixnine === null || ramdonsixnine === '' || ramdonsixnine === undefined) {
                 
-                ramdoncowgirl = cowgirl[Math.floor(Math.random()*cowgirl.length)]
+                ramdonsixnine = sixnine[Math.floor(Math.random()*sixnine.length)]
                 
             }
 
             if (!img || img.id===message.author.id || img.user.bot) {
       
-                desc = `A **${message.author.username}** le gusta ir arriba <a:sabroso:880695816497541180>`
+                desc = `**${message.author.username}** ¿Ya encontraste con quién hacerlo? <a:sabroso:880695816497541180>`
           
             } else {
       
-                desc = `**${message.author.username}** está montando a **${img.user.username}** <a:sabroso:880695816497541180>.`
+                desc = `**${message.author.username}** y **${img.user.username}** están disfrutando de un rico 69 <a:sabroso:880695816497541180>.`
   
             }
   
             const embed = new Discord.MessageEmbed()
             .setAuthor({ name: `🔞 | Midgard's Hot VIP 🔥`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setDescription(desc)
-            .setImage(ramdoncowgirl)
+            .setImage(ramdonsixnine)
             .setColor('RANDOM')
             .setTimestamp(new Date())
             .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })

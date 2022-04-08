@@ -10,24 +10,24 @@ module.exports =  {
   
         var sboobs = [
 
-            'https://media.discordapp.net/attachments/853500788848853002/878543079395713034/1.gif?width=387&height=218',
-            'https://media.discordapp.net/attachments/853500788848853002/878543091630506034/2.gif?width=387&height=218',
-            'https://media.discordapp.net/attachments/853500788848853002/878543104817369118/3.gif?width=387&height=218',
-            'https://media.discordapp.net/attachments/853500788848853002/878543125499482172/4.gif?width=387&height=218',
-            'https://media.discordapp.net/attachments/853500788848853002/878543130301960212/5.gif?width=387&height=218',
-            'https://media.discordapp.net/attachments/853500788848853002/878543148668825610/6.gif?width=387&height=218',
-            'https://media.discordapp.net/attachments/853500788848853002/878543161285292052/7.gif?width=387&height=218',
-            'https://media.discordapp.net/attachments/853500788848853002/878543173008371792/8.gif?width=432&height=230',
-            'https://media.discordapp.net/attachments/853500788848853002/878543189462634526/9.gif?width=301&height=208',
-            'https://media.discordapp.net/attachments/853500788848853002/878543199432491018/10.gif?width=450&height=230',
-            'https://media.discordapp.net/attachments/853500788848853002/878543207028387840/11.gif?width=405&height=228',
-            'https://media.discordapp.net/attachments/853500788848853002/878543213252739093/12.gif?width=270&height=191',
-            'https://media.discordapp.net/attachments/853500788848853002/878543224585744404/13.gif?width=450&height=222',
-            'https://media.discordapp.net/attachments/853500788848853002/878543231527313468/14.gif?width=450&height=255',
-            'https://media.discordapp.net/attachments/853500788848853002/878543244533829642/15.gif?width=450&height=430',
-            'https://media.discordapp.net/attachments/853500788848853002/878543253375426560/16.gif?width=355&height=299',
-            'https://media.discordapp.net/attachments/853500788848853002/878543261357195314/17.gif?width=450&height=243',
-            'https://media.discordapp.net/attachments/853500788848853002/878543270806970368/18.gif?width=360&height=360'
+            'https://i.imgur.com/uhdQ3iv.gif',
+            'https://i.imgur.com/Ajuq4Yz.gif',
+            'https://i.imgur.com/WPgHCs8.gif',
+            'https://i.imgur.com/w9ZMzU8.gif',
+            'https://i.imgur.com/DvwJ3i6.gif',
+            'https://i.imgur.com/zfRhvLB.gif',
+            'https://i.imgur.com/GrggwXb.gif',
+            'https://i.imgur.com/ORcD7dY.gif',
+            'https://i.imgur.com/LAeuiz4.gif',
+            'https://i.imgur.com/st3Q5ZD.gif',
+            'https://i.imgur.com/T9RG2RP.gif',
+            'https://i.imgur.com/cOQVwxE.gif',
+            'https://i.imgur.com/7iNur0H.gif',
+            'https://i.imgur.com/Nqw7Euj.gif',
+            'https://i.imgur.com/n5JHE3s.gif',
+            'https://i.imgur.com/UzlZ5Vr.gif',
+            'https://i.imgur.com/lY90DOk.gif',
+            'https://i.imgur.com/emLSMQ3.gif',
           
         ]
   

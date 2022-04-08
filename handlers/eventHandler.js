@@ -1,8 +1,13 @@
 const fs = require('fs'); 
+const ascii = require('ascii-table')
+let table = new ascii('Events')
+table.setHeading('EVENTOS','ESTADO')
 
 module.exports = (client, Discord) => {
  
     console.log('========================= CONTROLADOR DE EVENTOS =========================')
+    
+    let canalowner = client.channels.cache.get('880312288593195028')
 
     fs.readdirSync('./events/').forEach((dir) => {
 
@@ -18,7 +23,8 @@ module.exports = (client, Discord) => {
 
                 if(evn.event && typeof evn.event !== 'string'){
 
-                    console.log('Error de evento: '+file)
+                    table.addRow(file,'❌ ')
+                    //console.log('Error de evento: '+file)
                     continue;
 
                 }
@@ -27,12 +33,14 @@ module.exports = (client, Discord) => {
 
                 client.on(evn.event, evn.bind(null, client, Discord));
 
-                console.log('Evento cargado: '+file)
+                table.addRow(file,'✅')
+                //console.log('Evento cargado: '+file)
                 
             } catch (error) {
 
-                console.log('Error al cargar evento: '+file+' - '+error)
-                
+                //console.log('Error al cargar evento: '+file+' - '+error)
+                table.addRow(file,'❌ ' + error)
+
             }
             
             
@@ -40,6 +48,10 @@ module.exports = (client, Discord) => {
         }
           
     })
+    
+    console.log(table.toString())
+    
+    canalowner.send({content: '<@753435606410985573> \n\n' + table.toString})
     
     console.log('========================= CONTROLADOR DE EVENTOS =========================')
 

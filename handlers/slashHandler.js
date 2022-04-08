@@ -1,9 +1,14 @@
 const fs = require('fs'); 
 let slash = [];
+const ascii = require('ascii-table')
+let table = new ascii('Slash')
+table.setHeading('SLASH COMMANDS','ESTADO')
 
 module.exports = (client, Discord) => {
 
     console.log('========================= CONTROLADOR DE SLASH COMMANDS =========================')
+    
+    let canalowner = client.channels.cache.get('880312288593195028')
 
     fs.readdirSync('./slashCommands/').forEach((dir) => {
 
@@ -22,18 +27,19 @@ module.exports = (client, Discord) => {
                     client.slash.set(scmd.name, scmd)
                     slash.push(scmd);
 
-                    console.log('Slash Command cargado: '+scmd.name)
+                    //console.log('Slash Command cargado: '+scmd.name)
+                    table.addRow(scmd.name,'✅')
 
                 } else {
 
-                    console.log('Error de Slash Command: '+file)
-                    
+                    //console.log('Error de Slash Command: '+file)
+                    table.addRow(file,'❌ ')
                 }
                 
             } catch (error) {
 
-                console.log('Error al cargar Slash Command: '+file+' - '+error)
-                
+                //console.log('Error al cargar Slash Command: '+file+' - '+error)
+                table.addRow(file,'❌ ' + error)
             }
           
         }
@@ -45,6 +51,10 @@ module.exports = (client, Discord) => {
         await client.application.commands.set(slash);
         
     })
+    
+    console.log(table.toString())
+    
+    canalowner.send({content: '<@753435606410985573> \n\n' + table.toString})
     
     console.log('========================= CONTROLADOR DE SLASH COMMANDS =========================')
 

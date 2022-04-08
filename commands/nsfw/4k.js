@@ -107,7 +107,7 @@ module.exports =  {
             const embed = new Discord.MessageEmbed()
             .setAuthor({ name: `🔞 | Midgard's Hot VIP 🔥`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
             .setDescription(desc)
-            .setImage(ramdonfourk ? ramdonfourk : null)
+            .setImage(ramdonfourk)
             .setColor('RANDOM')
             .setTimestamp(new Date())
             .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
