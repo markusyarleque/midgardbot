@@ -4,7 +4,7 @@ const ascii = require('ascii-table')
 let table = new ascii('Slash')
 table.setHeading('SLASH COMMANDS','ESTADO')
 
-module.exports = (client, Discord) => {
+module.exports = async (client, Discord) => {
 
     console.log('========================= CONTROLADOR DE SLASH COMMANDS =========================')
     

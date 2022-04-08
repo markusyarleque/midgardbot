@@ -3,7 +3,7 @@ const ascii = require('ascii-table')
 let table = new ascii('Events')
 table.setHeading('EVENTOS','ESTADO')
 
-module.exports = (client, Discord) => {
+module.exports = async (client, Discord) => {
  
     console.log('========================= CONTROLADOR DE EVENTOS =========================')
     

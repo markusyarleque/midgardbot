@@ -3,8 +3,8 @@ const ascii = require('ascii-table')
 let table = new ascii('Commands')
 table.setHeading('COMANDOS','ESTADO')
 
-module.exports = (client, Discord) => {
-
+module.exports = async (client, Discord) => {
+    
     console.log('========================= CONTROLADOR DE COMANDOS =========================')
     
     let sv = client.guilds.cache.get('777620055344545842')
