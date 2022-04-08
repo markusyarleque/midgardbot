@@ -54,7 +54,8 @@ module.exports = (client, Discord) => {
     
     console.log(table.toString())
     
-    canalowner.send({content: '<@753435606410985573> \n\n' + table.toString})
+    console.log('canal: ' + canalowner)
+    //canalowner.send({content: '<@753435606410985573> \n\n' + table.toString})
     
     console.log('========================= CONTROLADOR DE SLASH COMMANDS =========================')
 
