@@ -7,8 +7,8 @@ module.exports = async (client, Discord) => {
  
     console.log('========================= CONTROLADOR DE EVENTOS =========================')
     
-    let sv = client.guilds.cache.get('777620055344545842')
-    let canalowner = sv.channels.cache.get('880312288593195028')
+    // let sv = client.guilds.cache.get('777620055344545842')
+    // let canalowner = sv.channels.cache.get('880312288593195028')
 
     fs.readdirSync('./events/').forEach((dir) => {
 
@@ -52,7 +52,7 @@ module.exports = async (client, Discord) => {
     
     console.log(table.toString())
     
-    console.log('canal: ' + canalowner)
+    //console.log('canal: ' + canalowner)
     //canalowner.send({content: '<@753435606410985573> \n\n' + table.toString})
     
     console.log('========================= CONTROLADOR DE EVENTOS =========================')
