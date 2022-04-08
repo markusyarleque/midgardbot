@@ -1,0 +1,142 @@
+const userSchema = require('../../models/userSchema');
+
+module.exports =  {
+    
+    name: 'lesbian',
+    aliases: ['less','lésbico','lesbico'],
+    description: '🔞 Comandos NSFW.',
+    
+    async execute(client, message, args, Discord) { 
+  
+        var less = [
+
+            'https://i.imgur.com/jWyqNQg.gif',
+            'https://i.imgur.com/cH41Kz6.gif',
+            'https://i.imgur.com/tKDKsa4.gif',
+            'https://i.imgur.com/W0DFOpW.gif',
+            'https://i.imgur.com/0JNssqH.gif',
+            'https://i.imgur.com/wpDuRBS.gif',
+            'https://i.imgur.com/Q5ChfFC.gif',
+            'https://i.imgur.com/uutSm0q.gif',
+            'https://i.imgur.com/H7W3Xtn.gif',
+            'https://i.imgur.com/RsaiyOM.gif',
+            'https://i.imgur.com/VRYPkRM.gif',
+            'https://i.imgur.com/BDuq0aH.gif',
+            'https://i.imgur.com/441vOKe.gif',
+            'https://i.imgur.com/JSvYUEg.gif',
+            'https://i.imgur.com/B7kTeGK.gif',
+            'https://i.imgur.com/tezGho9.gif',
+            'https://i.imgur.com/LiiaZZJ.gif',
+            'https://i.imgur.com/cbGk59E.gif',
+            'https://i.imgur.com/7HQDHLr.gif',
+            'https://i.imgur.com/QjE3WDs.gif',
+            'https://i.imgur.com/BaZYp6r.gif',
+            'https://i.imgur.com/Y5zxoWX.gif',
+            'https://i.imgur.com/vy331j3.gif',
+            'https://i.imgur.com/YXF6J0O.gif',
+            'https://i.imgur.com/Wd8CP1G.gif',
+            'https://i.imgur.com/MKXPbqO.gif',
+            'https://i.imgur.com/3EfE0yG.gif',
+            'https://i.imgur.com/70ebZEP.gif',
+            'https://i.imgur.com/BqUEwqe.gif',
+            'https://i.imgur.com/9OsnARs.gif',
+            'https://i.imgur.com/isKdmZF.gif',
+            'https://i.imgur.com/zXQv2lu.gif',
+            'https://i.imgur.com/fA9DMlr.gif',
+            'https://i.imgur.com/NkMzNJE.gif',
+            'https://i.imgur.com/fJheQpe.gif',
+            'https://i.imgur.com/F8FXl8J.gif',
+            'https://i.imgur.com/05xVM7m.gif',
+            'https://i.imgur.com/Lrn0t96.gif',
+            'https://i.imgur.com/P0T8SLp.gif',
+            'https://i.imgur.com/6pLdjDR.gif',
+            'https://i.imgur.com/j0KQOsH.gif',
+            'https://i.imgur.com/J5Br0Jh.gif',
+            'https://i.imgur.com/GRRYEcG.gif',
+            'https://i.imgur.com/fQwM0Xk.gif',
+
+        ]
+  
+        if(!message.channel.nsfw){
+          
+            return message.reply({embeds: [
+  
+                new Discord.MessageEmbed()
+                .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
+                .setThumbnail('https://media.discordapp.net/attachments/936039644959756319/936524707677741086/prohibido.gif?width=318&height=149')
+                .setColor('RED')
+                .setDescription(`<a:prohibido:936527618466009109> | ¡Oh rayos, no puedes hacer eso aquí pillín <:ojooo:925928526119571457>`)
+  
+            ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+        
+        } else {
+
+            try {
+                
+                let userData = await userSchema.findOne({idusuario: message.author.id})
+
+                if(!userData){
+
+                    let user = await userSchema.create({
+
+                        idusuario: message.author.id,
+                        username: message.author.username,
+
+                    })
+    
+                    user.save();
+                    console.log('Usuario Registrado ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
+
+                }
+
+                if (userData.vip === false) return message.reply({ embeds: [
+                            
+                    new Discord.MessageEmbed()
+                    .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                    .setColor('RED')
+                    .setDescription(`<a:Verify2:931463492677017650> | Comando VIP!`)
+        
+                ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+    
+
+            } catch (error) {
+
+                console.log('Error al Buscar Usuario en Comando Lesbian: '+ error)
+                
+            }
+      
+            let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
+            let ramdonless = less[Math.floor(Math.random()*less.length)]
+            let desc 
+    
+            while (!ramdonless || ramdonless === null || ramdonless === '' || ramdonless === undefined) {
+                
+                ramdonless = less[Math.floor(Math.random()*less.length)]
+                
+            }
+
+            if (!img || img.id===message.author.id || img.user.bot) {
+      
+                desc = `**${message.author.username}** está buscando una morrita para un rico tijerazo <a:sabroso:880695816497541180>`
+          
+            } else {
+      
+                desc = `**${message.author.username}** y **${img.user.username}** están tijereando <a:sabroso:880695816497541180>.`
+  
+            }
+  
+            const embed = new Discord.MessageEmbed()
+            .setAuthor({ name: `🔞 | Midgard's Hot VIP 🔥`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+            .setDescription(desc)
+            .setImage(ramdonless)
+            .setColor('RANDOM')
+            .setTimestamp(new Date())
+            .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+
+            message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+      
+        } 
+      
+    }
+  
+}

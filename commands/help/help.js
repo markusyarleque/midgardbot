@@ -97,7 +97,7 @@ module.exports =  {
         .setTimestamp(new Date())
         .setThumbnail('https://i.imgur.com/D1RSBCE.gif')
         .setColor('RANDOM')
-        .setDescription('**Cafetería** ☕\n> **cafe**\n> **agua**\n> **te**\n> **jugo**\n> **tacos**\n> **chocolate**\n> **galletas**\n> **gansito**\n> **helado**\n> **hamburguesa**\n> **pizza**\n\n**Bar** 🥂\n> **cocacola**\n> **redbull**\n> **cerveza**\n> **vino**\n> **tequila**\n> **ron**\n> **coctel**\n> **cigarro**\n> **porro**\n> **huca**\n\n**Disco** 💃\n> **perreo**\n> **bachata**\n> **salsa**\n> **cumbia**\n> **colegiala**\n\n')
+        .setDescription('**Cafetería** ☕\n> **cafe**\n> **agua**\n> **te**\n> **jugo**\n> **tacos**\n> **chocolate**\n> **galletas**\n> **gansito**\n> **helado**\n> **hamburguesa**\n> **pizza**\n> **tamales**\n\n**Bar** 🥂\n> **cocacola**\n> **redbull**\n> **cerveza**\n> **vino**\n> **tequila**\n> **ron**\n> **coctel**\n> **cigarro**\n> **porro**\n> **huca**\n\n**Disco** 💃\n> **perreo**\n> **bachata**\n> **salsa**\n> **cumbia**\n> **colegiala**\n\n')
   
         const helprea = new Discord.MessageEmbed()
         .setTitle('😎 • Comandos de Reacción')
@@ -115,7 +115,7 @@ module.exports =  {
         .setTimestamp(new Date())
         .setThumbnail('https://i.imgur.com/fha5PRG.gif')
         .setColor('RANDOM')
-        .setDescription('> **||tetas||**\n> **||pussy||**\n> **||culo||**\n> **||dick||**\n> **||kuni||**\n> **||suck||**\n> **||fuck||**\n> **||anal||**\n> **||cum||**\n> \n> **Solo VIP**\n> \n> **||suckb||**\n> **||sboobs||**\n> **||fap||**\n> **||4k||**\n> **||cowgirl||**\n> **||porno||**\n> **||bdsm||**\n> **||hd||**\n> **||gonewild||**\n')
+        .setDescription('> **||tetas||**\n> **||pussy||**\n> **||culo||**\n> **||dick||**\n> **||kuni||**\n> **||suck||**\n> **||fuck||**\n> **||anal||**\n> **||cum||**\n> \n> **Solo VIP**\n> \n> **||suckb||**\n> **||sboobs||**\n> **||fap||**\n> **||4k||**\n> **||cowgirl||**\n> **||69||**\n> **||porno||**\n> **||lesbian||**\n> **||trio||**\n> **||bdsm||**\n> **||hd||**\n> **||gonewild||**\n')
     
         const btns_options1 = new Discord.MessageActionRow().addComponents([
       

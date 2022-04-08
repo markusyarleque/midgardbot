@@ -2,7 +2,7 @@ module.exports =  {
     
     name: 'k3',
     aliases: ['ktres','kiss-3','kiss3','kisstres'],
-    description: '😘 Un beso en la mejilla.',
+    description: '😘 Un beso de a 3.',
   
     async execute(client, message, args, Discord) { 
 
