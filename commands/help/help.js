@@ -347,6 +347,12 @@ module.exports =  {
 
                 }
 
+                if(descripcion.includes('[prefix]')){
+
+                    descripcion = descripcion.replace('[prefix]',prefix)
+
+                }
+
                 const helpcmd = new Discord.MessageEmbed()
                 .setTitle('• Comando ' + query.name + ' •')
                 .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })

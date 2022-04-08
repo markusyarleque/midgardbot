@@ -1,6 +1,6 @@
 module.exports =  {
     
-    name: 'malta',
+    name: 'setact',
     aliases: ['set-activity'],
     description: '💻 Cambiar el estado de actividad del bot.',
 
