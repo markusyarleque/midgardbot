@@ -65,7 +65,7 @@ module.exports = async (client, Discord, guild) => {
          
     canalmbs.bulkDelete(2)
     canalmbs.send({ embeds: [embedmbs] }).catch((e) => console.log('Error al enviar mensaje: '+e))
-    canalmbs.send('https://i.imgur.com/OASSWR1.gif').catch((e) => console.log('Error al enviar mensaje: '+e))
+    canalmbs.send('https://images-ext-2.discordapp.net/external/9iPHKFXXnKKSQpcFazlW79dr1zbbtdo7QT7-xxtfDY4/%3Fwidth%3D600%26height%3D86/https/media.discordapp.net/attachments/897951731462316073/915663567213199390/bar-1.gif?width=450&height=65').catch((e) => console.log('Error al enviar mensaje: '+e))
         
     try {
 
