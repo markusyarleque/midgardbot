@@ -11,7 +11,7 @@ const prefixSchema = require('../../models/prefixSchema');
 
 module.exports = async (client, Discord, message) => {
     
-    if(message.channel.type == 'DM' ) return
+    if(message.channel.type == "DM" ) return
 
     let buscarprefix, prefix
     try {
