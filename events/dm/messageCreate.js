@@ -1,6 +1,6 @@
 module.exports = async (client, Discord, message) => {
     
-    if(message.channel.type !== 'DM' ) return
+    if(message.channel.type != 'DM' ) return
 
     console.log('Mensaje enviado 1 al dm por ' + message.author + ' - Mensaje: ' + (message.content ? message.content : 'Ningún mensaje registrado'))
         
