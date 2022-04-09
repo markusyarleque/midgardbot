@@ -97,7 +97,7 @@ module.exports =  {
         .setTimestamp(new Date())
         .setThumbnail('https://i.imgur.com/D1RSBCE.gif')
         .setColor('RANDOM')
-        .setDescription('**Cafetería** ☕\n> **cafe**\n> **agua**\n> **te**\n> **jugo**\n> **tacos**\n> **chocolate**\n> **galletas**\n> **gansito**\n> **helado**\n> **hamburguesa**\n> **pizza**\n> **tamales**\n\n**Bar** 🥂\n> **cocacola**\n> **redbull**\n> **cerveza**\n> **vino**\n> **tequila**\n> **ron**\n> **coctel**\n> **cigarro**\n> **porro**\n> **huca**\n\n**Disco** 💃\n> **perreo**\n> **bachata**\n> **salsa**\n> **cumbia**\n> **colegiala**\n\n')
+        .setDescription('**Cafetería** ☕\n> **cafe**\n> **agua**\n> **te**\n> **jugo**\n> **tacos**\n> **chocolate**\n> **galletas**\n> **gansito**\n> **helado**\n> **hamburguesa**\n> **papitas**\n> **pizza**\n> **tamales**\n\n**Bar** 🥂\n> **cocacola**\n> **redbull**\n> **cerveza**\n> **vino**\n> **tequila**\n> **ron**\n> **coctel**\n> **cigarro**\n> **porro**\n> **huca**\n\n**Disco** 💃\n> **perreo**\n> **bachata**\n> **salsa**\n> **cumbia**\n> **colegiala**\n\n')
   
         const helprea = new Discord.MessageEmbed()
         .setTitle('😎 • Comandos de Reacción')
