@@ -440,7 +440,7 @@ module.exports =  {
     
                         fields(message, embed).then(embed => {
 
-                            message.edit({ embeds: [d.addField('<a:Verify1:931463354357276742> | Embed creado con éxito!', '\u200B')] }).catch((e) => console.log('Error al editar mensaje: ' + e))
+                            message.channel.send({ embeds: [d.addField('<a:Verify1:931463354357276742> | Embed creado con éxito!', '\u200B')] }).catch((e) => console.log('Error al editar mensaje 10: ' + e))
     
                             channel.send({ content: msgContent, embeds: [embed] }).catch((e) => console.log('Error al enviar embed creado: ' + e))
     
@@ -527,7 +527,7 @@ module.exports =  {
         
                                     i++
         
-                                    me.edit({ embeds: [d.addField(array[i], '\u200B')] }).catch((e) => console.log('Error al editar mensaje: ' + e))
+                                    me.edit({ embeds: [d.addField(array[i], '\u200B')] }).catch((e) => console.log('Error al editar mensaje 2: ' + e))
         
                                 break
         
@@ -545,7 +545,7 @@ module.exports =  {
         
                                     i++
         
-                                    me.edit({ embeds: [d.addField(array[i], '\u200B')] }).catch((e) => console.log('Error al editar mensaje: ' + e))
+                                    me.edit({ embeds: [d.addField(array[i], '\u200B')] }).catch((e) => console.log('Error al editar mensaje 3: ' + e))
         
                                 break
 
@@ -565,13 +565,13 @@ module.exports =  {
 
                                     } else{
 
-                                        return me.edit({ embeds: [d.addField('<a:Verify2:931463492677017650> | Opción inválida!', 'Ingrese `si` o `no`')] }).catch((e) => console.log('Error al editar mensaje: ' + e))
+                                        return me.edit({ embeds: [d.addField('<a:Verify2:931463492677017650> | Opción inválida!', 'Ingrese `si` o `no`')] }).catch((e) => console.log('Error al editar mensaje 4: ' + e))
 
                                     }
 
                                     if(o <= 25){
 
-                                        me.edit({ embeds: [d.addField(array[i], '\u200B')] }).catch((e) => console.log('Error al editar mensaje: ' + e))
+                                        me.edit({ embeds: [d.addField(array[i], '\u200B')] }).catch((e) => console.log('Error al editar mensaje 5: ' + e))
 
                                     } else{
 
@@ -591,7 +591,7 @@ module.exports =  {
                                         desc = undefined
                                         i = 0
                                     
-                                        me.edit({ embeds: [d.addField(array[i], '\u200B')] }).catch((e) => console.log('Error al editar mensaje: ' + e))
+                                        me.edit({ embeds: [d.addField(array[i], '\u200B')] }).catch((e) => console.log('Error al editar mensaje 6: ' + e))
                                     
                                     } else if(m.content.toLowerCase() === 'no'){
 
@@ -599,7 +599,7 @@ module.exports =  {
 
                                     } else{
 
-                                        return me.edit({ embeds: [d.addField('<a:Verify2:931463492677017650> | Opción inválida!', 'Ingrese `si` o `no`')] }).catch((e) => console.log('Error al editar mensaje: ' + e))
+                                        return me.edit({ embeds: [d.addField('<a:Verify2:931463492677017650> | Opción inválida!', 'Ingrese `si` o `no`')] }).catch((e) => console.log('Error al editar mensaje 7: ' + e))
 
                                     }
 
