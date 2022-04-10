@@ -85,7 +85,7 @@ module.exports =  {
     
                 collector.on('collect', async m => {
 
-                    setTimeout(() => m.delete(), 100)
+                    //setTimeout(() => m.delete(), 100)
 
                     if(m.content.toLowerCase() === 'exit') return collector.stop('Cancelado');
     
@@ -509,13 +509,13 @@ module.exports =  {
 
                         collector.on('collect', m => {
 
-                            setTimeout(() => m.delete(), 100)
+                            //setTimeout(() => m.delete(), 100)
 
                             switch(i) {
 
                                 case 0:
         
-                                    if(m.content === '\u200B'){
+                                    if(m.content.toLowerCase() === 'none'){
 
                                         title = '\u200B'
 
@@ -533,7 +533,7 @@ module.exports =  {
         
                                 case 1:
 
-                                    if(m.content === '\u200B'){
+                                    if(m.content.toLowerCase() === 'none'){
 
                                         desc = '\u200B'
 
