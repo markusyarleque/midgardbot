@@ -110,16 +110,18 @@ module.exports = async (client, Discord, message) => {
   
         if(!canalrestringidos.some(id => idcanal == id))
         {
-          channel = sv.channels.cache.get('880280265216389140')
+            channel = sv.channels.cache.get('880280265216389140')
       
-          if(message.content.length >= 1000) return channel.send(`Mensaje demasiado largo, enviado en <#${idcanal}> por: `+message.author).catch((e) => console.log('Error al enviar mensaje: '+e))
+            if(message.content.length >= 1000) return channel.send(`Mensaje demasiado largo, enviado en <#${idcanal}> por: `+message.author).catch((e) => console.log('Error al enviar mensaje: '+e))
       
-          em.addField('Servidor: ', `<a:flech:931432469935312937> ${message.guild.name}`)
+            em.addField('Servidor: ', `<a:flech:931432469935312937> ${message.guild.name}`)
       
-          channel.send({ embeds: [em] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+            channel.send({ embeds: [em] }).catch((e) => console.log('Error al enviar mensaje: '+e))
   
         } else {
-          return
+          
+            return
+            
         }
     
     }

@@ -44,7 +44,7 @@ module.exports =  {
 
             let buscarUsuario = await userSchema.findOne({ idusuario: user.id })
 
-            if(!buscarUsuario){
+            while(!buscarUsuario){
 
                 let uservip = await userSchema.create({
     
@@ -55,6 +55,8 @@ module.exports =  {
     
                 uservip.save();
                 console.log('Usuario Registrado ===> Id: '+ user.id + ' Username: ' + user.username)
+
+                buscarUsuario = await userSchema.findOne({ idusuario: user.id })
 
             }
 

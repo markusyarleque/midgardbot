@@ -35,8 +35,8 @@ module.exports =  {
         let usuario2 = await userSchema.findOne({idusuario: img.id})
         let text 
 
-        if(!usuario2){
- 
+        while (!usuario2) {
+            
             let user = await userSchema.create({
 
                 idusuario: img.id,
@@ -47,6 +47,8 @@ module.exports =  {
             user.save();
             console.log('Usuario Registrado ===> Id: '+ img.id + ' Username: ' + img.username)
 
+            usuario2 = await userSchema.findOne({idusuario: img.id})
+            
         }
     
         let update = await userSchema.findOneAndUpdate({idusuario: img.id},

@@ -109,7 +109,7 @@ module.exports =  {
         let usuario1 = await userSchema.findOne({ idusuario: message.author.id })
         let usuario2 = await userSchema.findOne({ idusuario: img.id })
 
-        if(!usuario1){
+        while(!usuario1){
  
             let user = await userSchema.create({
 
@@ -121,9 +121,11 @@ module.exports =  {
             user.save();
             console.log('Usuario Registrado ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
 
+            usuario1 = await userSchema.findOne({ idusuario: message.author.id })
+
         }
 
-      if(!usuario2){
+      while(!usuario2){
  
         let user = await userSchema.create({
 
@@ -135,6 +137,7 @@ module.exports =  {
         user.save();
         console.log('Usuario Registrado ===> Id: '+ img.id + ' Username: ' + img.username)
 
+        usuario2 = await userSchema.findOne({ idusuario: img.id })
         
       }
 
