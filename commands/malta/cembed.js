@@ -45,6 +45,14 @@ module.exports =  {
 
             ]
 
+            let valores = [
+
+                '\u200B',
+                '<a:Verify1:931463354357276742>'
+            ]
+
+            let val = 0
+
             const d = new Discord.MessageEmbed()
             .setThumbnail('https://i.imgur.com/9sJsVmV.gif')
             .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true}) })
@@ -491,7 +499,7 @@ module.exports =  {
 
                         let filter = m => m.author.id == message.author.id
 
-                        const collector = me.createMessageCollector({ filter, idle: 120000 })
+                        const collector = message.channel.createMessageCollector({ filter, idle: 120000 })
 
                         collector.on('collect', m => {
 
