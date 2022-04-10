@@ -65,7 +65,7 @@ module.exports =  {
 
             const embed = new Discord.MessageEmbed();
       
-            message.channel.send({ 
+            await message.channel.send({ 
                 
                 embeds: [d.addField(datos[0], '\u200B')] 
             
@@ -77,7 +77,7 @@ module.exports =  {
     
                 collector.on('collect', async m => {
 
-                    setTimeout(() => m.delete(), 100)
+                    setTimeout(() => m.delete(), 100).catch((e) => console.log('Error al borrar mensaje: ' + e))
 
                     if(m.content.toLowerCase() === 'exit') return collector.stop('Cancelado');
     
