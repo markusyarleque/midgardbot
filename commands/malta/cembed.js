@@ -73,11 +73,11 @@ module.exports =  {
 
                 let filter = a => a.author.id == message.author.id
 
-                const collector = channel.createMessageCollector({ filter, idle: 120000 })
+                const collector = message.channel.createMessageCollector({ filter, idle: 120000 })
     
                 collector.on('collect', async m => {
 
-                    //setTimeout(() => m.delete(), 100).catch((e) => console.log('Error al borrar mensaje: ' + e))
+                    setTimeout(() => m.delete(), 100).catch((e) => console.log('Error al borrar mensaje: ' + e))
 
                     if(m.content.toLowerCase() === 'exit') return collector.stop('Cancelado');
     
