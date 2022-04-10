@@ -50,7 +50,7 @@ module.exports =  {
             .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true}) })
             .setTitle('🚧  Construyendo un Embed  🚧')
             .setDescription('*Bienvenid@ al menú de Creación de un Embed*\n\nPara cancelar escribe `exit`\nPara omitir (excepto en los campos) escribe `none`\n\n')
-            .addField('Autor: ', message.author)
+            .addField('Autor: ', '<@' + message.author.id + '>')
             .addField('Canal: ', '<#' + channel.id + '>')
             .addField('\u200B','***---Por favor ingresa los siguientes valores---***')
             .setColor('RANDOM')
