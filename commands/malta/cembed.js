@@ -414,7 +414,7 @@ module.exports =  {
 
                     fields(message, embed).then(embed => {
                         
-                        channel.send({ content: [msgContent], embeds: [embed] })
+                        channel.send({ content: msgContent, embeds: [embed] })
 
                     }).catch(reason => {
 
@@ -432,7 +432,7 @@ module.exports =  {
 
                 } else if(reason === 'Finalizado'){
 
-                    channel.send({ content: [msgContent], embeds: [embed] })
+                    channel.send({ content: msgContent, embeds: [embed] })
 
                 } else if(reason === 'idle'){
 
