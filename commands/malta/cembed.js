@@ -77,7 +77,7 @@ module.exports =  {
     
                 collector.on('collect', async m => {
 
-                    setTimeout(() => m.delete(), 100).catch((e) => console.log('Error al borrar mensaje: ' + e))
+                    setTimeout(() => m.delete(), 100)
 
                     if(m.content.toLowerCase() === 'exit') return collector.stop('Cancelado');
     
