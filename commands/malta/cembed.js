@@ -54,7 +54,7 @@ module.exports =  {
             .setFooter({ text: `Para cancelar: exit - Para omitir: none`, iconURL: `${message.author.displayAvatarURL({ dynamic: true})}` })
             
             await message.channel.send({ embeds: [d.setDescription(datos[0])] });
-            
+
             let msgContent = "";
             let author = "";
             let authorimg = "";
@@ -63,7 +63,9 @@ module.exports =  {
 
             const embed = new Discord.MessageEmbed();
 
-            let collector = message.channel.createMessageCollector((m) => m.author.id === message.author.id, { idle: 120000 })
+            let filter = m => m.author.id == message.author.id
+
+            const collector = message.channel.createMessageCollector({ filter, idle: 120000 })
 
             collector.on('collect', async m => {
 
@@ -464,11 +466,9 @@ module.exports =  {
 
                     message.channel.send({ embeds: [d.setDescription(array[i])] })
 
-                    let collector = message.channel.createMessageCollector((m) => {
-                        
-                        m.author.id === message.author.id, { idle: 120000 }
+                    let filter = m => m.author.id == message.author.id
 
-                    })
+                    const collector = message.channel.createMessageCollector({ filter, idle: 120000 })
 
                     collector.on('collect', m => {
 
