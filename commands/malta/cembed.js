@@ -73,7 +73,7 @@ module.exports =  {
 
                 let filter = a => a.author.id == message.author.id
 
-                const collector = me.createMessageCollector({ filter, idle: 120000 })
+                const collector = channel.createMessageCollector({ filter, idle: 120000 })
     
                 collector.on('collect', async m => {
 
