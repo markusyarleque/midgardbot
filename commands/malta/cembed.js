@@ -65,7 +65,7 @@ module.exports =  {
 
             const embed = new Discord.MessageEmbed();
       
-            await message.channel.send({ 
+            message.channel.send({ 
                 
                 embeds: [d.addField(datos[0], '\u200B')] 
             
@@ -463,7 +463,7 @@ module.exports =  {
     
                 })
 
-            }).catch((e) => console.log('Error al enviar mensaje: '+e))
+            }).catch((e) => console.log('Error al enviar mensaje 2: '+e))
 
             function fields(message, embed){
 
@@ -610,7 +610,7 @@ module.exports =  {
                         })
                     
                         
-                    }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    }).catch((e) => console.log('Error al enviar mensaje 3: '+e))
 
                 })
 
