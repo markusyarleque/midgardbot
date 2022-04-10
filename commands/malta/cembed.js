@@ -51,9 +51,10 @@ module.exports =  {
             .setTitle('🚧  Construyendo un Embed  🚧')
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter({ text: `Nací para crecer`, iconURL: `${message.author.displayAvatarURL({ dynamic: true})}` })
+            .setFooter({ text: `Para cancelar: exit - Para omitir: none`, iconURL: `${message.author.displayAvatarURL({ dynamic: true})}` })
             
             await message.channel.send({ embeds: [d.setDescription(datos[0])] });
+            
             let msgContent = "";
             let author = "";
             let authorimg = "";
@@ -568,7 +569,7 @@ module.exports =  {
                     })
 
                 })
-                
+
             }
 
         }
