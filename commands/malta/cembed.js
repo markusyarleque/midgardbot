@@ -432,7 +432,7 @@ module.exports =  {
     
                     } else if(reason === 'Agregará Campos'){
     
-                        fields(mensaje, embed).then(embed => {
+                        fields(message, embed).then(embed => {
 
                             me.edit({ embeds: [d.addField('<a:Verify1:931463354357276742> | Embed creado con éxito!', '\u200B')] }).catch((e) => console.log('Error al editar mensaje: ' + e))
     
