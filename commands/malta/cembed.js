@@ -612,7 +612,8 @@ module.exports =  {
                         collector.on('end', (collected, reason) => {
 
                             if(reason === 'OK'){
-
+                                
+                                message.channel.send({ embeds: [d.addField('<a:Verify1:931463354357276742> | Embed creado con éxito!', '\u200B')] }).catch((e) => console.log('Error al editar mensaje 10: ' + e))
                                 resolve(embed)
 
                             } else{

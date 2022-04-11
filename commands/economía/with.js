@@ -15,25 +15,27 @@ module.exports =  {
 
             buscarUsuario = await userSchema.findOne({ idusuario: message.author.id })
             
+            while(!buscarUsuario){
+
+                let user = await userSchema.create({
+    
+                    idusuario: message.author.id,
+                    username: message.author.username
+    
+                })
+    
+                user.save();
+                console.log('Usuario Registrado ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
+                
+                buscarUsuario = await userSchema.findOne({ idusuario: message.author.id })
+
+            }
+
         } catch (error) {
 
             console.log('Error al obtener usuario: '+error)
             return message.reply('Ha ocurrido un error inesperado. Vuelva a ejecutar el comando.').catch((e) => console.log('Error al enviar mensaje: '+e))
             
-        }
-
-        if(!buscarUsuario){
-
-            let user = await userSchema.create({
-
-                idusuario: message.author.id,
-                username: message.author.username
-
-            })
-
-            user.save();
-            console.log('Usuario Registrado ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
-
         }
 
         if(!args[0]) return message.reply({embeds: [

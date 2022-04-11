@@ -24,7 +24,7 @@ module.exports =  {
 
         let buscarUsuario = await userSchema.findOne({idusuario: message.author.id})
 
-        if(!buscarUsuario){
+        while(!buscarUsuario){
 
             let user = await userSchema.create({
 
@@ -38,6 +38,8 @@ module.exports =  {
             user.save();
             console.log('Usuario Registrado ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
 
+            buscarUsuario = await userSchema.findOne({idusuario: message.author.id})
+            
         }
 
         let dinero = await buscarUsuario.dinero

@@ -52,7 +52,7 @@ module.exports =  {
         .setLabel('Sape')
         .setStyle('PRIMARY')
         .setEmoji('932177727589589013')
-
+        
         let lista = await userSchema.find().sort({total: -1}).limit(10)
 
         if(!lista) return message.channel.send({embeds:[
