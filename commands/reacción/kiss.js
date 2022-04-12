@@ -64,7 +64,7 @@ module.exports =  {
         
         ]
 
-        let conteo, desc
+        let conteo, desc, consulta
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
         let ramdonkiss = kiss[Math.floor(Math.random()*kiss.length)]
 
@@ -86,61 +86,59 @@ module.exports =  {
         
         ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-        let consulta1 = await kissSchema.findOne({u1: message.author.id, u2: img.id})
+        consulta = await kissSchema.findOne({u1: message.author.id, u2: img.id})
         
-        if(!consulta1){
+        if(!consulta){
 
-            let consulta2 = await kissSchema.findOne({u1: img.id, u2: message.author.id})
+            consulta = await kissSchema.findOne({u1: img.id, u2: message.author.id})
 
-            if(!consulta2){
+            while(!consulta){
 
                 let tkiss = await kissSchema.create({
 
-                    u1: message.author.id,
-                    u2: img.id,
-                    c: 1
+                    u1: img.id,
+                    u2: message.author.id,
+                    c: 0
 
                 })
 
                 tkiss.save()
-          
-                conteo = 1
+            
+                consulta = await kissSchema.findOne({u1: img.id, u2: message.author.id})
 
-            } else {
+            } 
+            
+            let update = await kissSchema.findOneAndUpdate({u1: img.id, u2: message.author.id},
+                {
 
-                let update = await  kissSchema.findOneAndUpdate({u1: img.id},
-                    {
+                    c: consulta.c + 1
 
-                        c: consulta2.c + 1
+                })
 
-                    })
-
-                update.save()
-          
-                conteo = consulta2.c + 1
-
-            }
+            update.save()
+      
+            conteo = consulta.c + 1
 
         } else {
 
             try {
 
-                let update = await kissSchema.findOneAndUpdate({u1: message.author.id},
+                let update = await kissSchema.findOneAndUpdate({u1: message.author.id, u2: img.id},
                     {
     
-                        c: consulta1.c + 1
+                        c: consulta.c + 1
     
                     })
             
                 update.save()
+
+                conteo = consulta.c + 1
               
             } catch (error) {
                 
                 console.log('No se actualizó la tabla kiss por el error: '+error)
 
             }
- 
-            conteo = consulta1.c + 1
 
         }
 
@@ -197,7 +195,7 @@ module.exports =  {
         .setAuthor({ name: `Midgard's Love 💞`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
         .setDescription(`**${message.author.username}** le dió un beso a **${img.user.username}**. <:GatoLove:925929538863628318>`)
         .addField('<a:Besitos:939793778829586442> Total de Besos:','> ' + desc)
-        .setImage(await ramdonkiss)
+        .setImage(ramdonkiss)
         .setColor('RANDOM')
         .setTimestamp(new Date())
         .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
