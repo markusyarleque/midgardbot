@@ -461,34 +461,34 @@ module.exports = async (client, Discord, message) => {
 
     //? REMINDERS NEKOTINA
 
-    // var canal =  [
+     var canal =  [
 
-    //     '870195067338506271',
-    //     '880336724662825040',
-    //     '881432157602611230',
-    //     '917258698202677258',
-    //     '880260537659850792',
-    //     '935391521480527922',
-    //     '880295833252265994',
-    //     '848755526347128872',
-    //     '880317466557952000',
-    //     '840421355736530985',
-    //     '882258445334626344',
-    //     '882258853767577621',
-    //     '887820617632583772',
-    //     '896865094250684466',
-    //     '935454536678649856',
-    //     '880319348496039946'
+        '870195067338506271',
+        '880336724662825040',
+        '881432157602611230',
+        '917258698202677258',
+        '880260537659850792',
+        '935391521480527922',
+        '880295833252265994',
+        '848755526347128872',
+        '880317466557952000',
+        '840421355736530985',
+        '882258445334626344',
+        '882258853767577621',
+        '887820617632583772',
+        '896865094250684466',
+        '935454536678649856',
+        '880319348496039946'
 
-    // ]
-
-    var canal = [
-        '912790956057710623'
     ]
+
+    // var canal = [
+    //     '912790956057710623'
+    // ]
 
     if (message.content.toLowerCase() === 'mine'){
 
-        if(!canal.some(id => message.channel.id === id)) return
+        if(canal.some(id => message.channel.id === id)) return
 
         function reminder() {
     
@@ -520,7 +520,7 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'hmine'){
 
-        if(!canal.some(id => message.channel.id === id)) return
+        if(canal.some(id => message.channel.id === id)) return
 
         function reminder() {
     
@@ -552,7 +552,7 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'fish'){
 
-        if(!canal.some(id => message.channel.id === id)) return
+        if(canal.some(id => message.channel.id === id)) return
         
         function reminder() {
     
@@ -584,7 +584,7 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'hfish'){
 
-        if(!canal.some(id => message.channel.id === id)) return
+        if(canal.some(id => message.channel.id === id)) return
         
         function reminder() {
     
@@ -616,7 +616,7 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'pet'){
 
-        if(!canal.some(id => message.channel.id === id)) return
+        if(canal.some(id => message.channel.id === id)) return
         
         function reminder() {
     
@@ -648,7 +648,7 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'hpet'){
 
-        if(!canal.some(id => message.channel.id === id)) return
+        if(canal.some(id => message.channel.id === id)) return
         
         function reminder() {
     
@@ -680,7 +680,7 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'work'){
 
-        if(!canal.some(id => message.channel.id === id)) return
+        if(canal.some(id => message.channel.id === id)) return
         
         function reminder() {
     
@@ -710,9 +710,41 @@ module.exports = async (client, Discord, message) => {
 
     }
 
+    if (message.content.toLowerCase() === 'hwork'){
+
+        if(canal.some(id => message.channel.id === id)) return
+        
+        function reminder() {
+    
+            message.reply({embeds: [
+    
+              new Discord.MessageEmbed()
+              .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
+              .setThumbnail('https://i.giphy.com/media/7E8tiGcPf1G78dMXRf/giphy.gif')
+              .setColor('RANDOM')
+              .setDescription('<a:flech:931432469935312937> | Es hora de ir a trabajar, antes que se acabe el Haste<a:exclama2:880930071731392512>')
+        
+            ]})
+    
+        }
+
+        const embed = new Discord.MessageEmbed()
+        .setAuthor({ name: 'Nekotina', iconURL: client.user.avatarURL({ dynamic: true }) })
+        .setTitle('<a:tiempogif:931434689481285662> Recordatorio activado para: *`'+message.author.username+'`*')
+        .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
+        .setDescription('<a:flech:931432469935312937> Te recordaré dentro de `30 minutos` usar el comando `work`.')
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter({ text: message.guild.name, iconURL: message.guild.iconURL({ dynamic: true }) })
+        message.channel.send({ embeds: [embed] })
+
+        setTimeout(reminder, 1800000);
+
+    }
+
     if (message.content.toLowerCase() === 'wf'){
 
-        if(!canal.some(id => message.channel.id === id)) return
+        if(canal.some(id => message.channel.id === id)) return
         
         function reminder() {
     
@@ -744,7 +776,7 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'hb'){
 
-        if(!canal.some(id => message.channel.id === id)) return
+        if(canal.some(id => message.channel.id === id)) return
         
         function reminder() {
     
@@ -776,7 +808,7 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'rep'){
 
-        if(!canal.some(id => message.channel.id === id)) return
+        if(canal.some(id => message.channel.id === id)) return
         
         function reminder() {
     
@@ -808,7 +840,7 @@ module.exports = async (client, Discord, message) => {
 
     if (message.content.toLowerCase() === 'farm'){
 
-        if(!canal.some(id => message.channel.id === id)) return
+        if(canal.some(id => message.channel.id === id)) return
         
         function reminder() {
     
@@ -835,6 +867,38 @@ module.exports = async (client, Discord, message) => {
         message.channel.send({ embeds: [embed] })
 
         setTimeout(reminder, 360000);
+
+    }
+
+    if (message.content.toLowerCase() === 'hfarm'){
+
+        if(canal.some(id => message.channel.id === id)) return
+        
+        function reminder() {
+    
+            message.reply({embeds: [
+    
+              new Discord.MessageEmbed()
+              .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
+              .setThumbnail('http://olegif.com/bin/gifs/00/49/46.gif')
+              .setColor('RANDOM')
+              .setDescription('<a:flech:931432469935312937> | Es hora de farmear, antes que se acabe el haste<a:exclama2:880930071731392512>')
+        
+            ]})
+    
+        }
+
+        const embed = new Discord.MessageEmbed()
+        .setAuthor({ name: 'Nekotina', iconURL: client.user.avatarURL({ dynamic: true }) })
+        .setTitle('<a:tiempogif:931434689481285662> Recordatorio activado para: *`'+message.author.username+'`*')
+        .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
+        .setDescription('<a:flech:931432469935312937> Te recordaré dentro de `3 minutos` usar los comandos de farmeo: `mine` y `fish`.')
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter({ text: message.guild.name, iconURL: message.guild.iconURL({ dynamic: true }) })
+        message.channel.send({ embeds: [embed] })
+
+        setTimeout(reminder, 180000);
 
     }
 
