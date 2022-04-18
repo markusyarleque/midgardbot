@@ -1,4 +1,4 @@
-const prefixSchema = require('../../models/prefixSchema');
+const prefixSchema = require('../../models/serverSchema');
 
 module.exports =  {
     

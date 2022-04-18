@@ -1,6 +1,6 @@
 const { Collection } = require('mongoose');
 const userSchema = require('../../models/userSchema');
-const prefixSchema = require('../../models/prefixSchema');
+const prefixSchema = require('../../models/serverSchema');
 
 module.exports =  {
     

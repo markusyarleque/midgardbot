@@ -1,4 +1,4 @@
-const prefixSchema = require('../../models/prefixSchema');
+const prefixSchema = require('../../models/serverSchema');
 const { Permissions } = require('discord.js');
 
 module.exports =  {
