@@ -12,7 +12,8 @@ module.exports = {
         let buscarprefix, prefix
         let canalmbp = client.channels.cache.get('960797556261146644')
         let ownerserver = await message.guild.fetchOwner().catch((e) => console.log('Error al enviar mensaje: '+e))
-
+        ownerserver = client.users.cache.get(ownerserver.id)
+        
         try {
     
             buscarprefix = await serverSchema.findOne({idserver: message.guild.id})

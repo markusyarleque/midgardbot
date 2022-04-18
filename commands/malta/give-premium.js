@@ -46,6 +46,8 @@ module.exports = {
         logschannel = client.channels.cache.get('965156885558878319')
         ownerserver = await server.fetchOwner().catch((e) => console.log('Error al obtener owner: '+e))
 
+        ownerserver = client.users.cache.get(ownerserver.id)
+
         try {
             
             buscarserver = await serverSchema.findOne({idserver: server.id})

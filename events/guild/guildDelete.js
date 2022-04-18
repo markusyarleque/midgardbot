@@ -10,6 +10,7 @@ module.exports = async (client, Discord, guild) => {
     let ownerserver = await guild.fetchOwner().catch((e) => console.log('Error al obtener owner: '+e))
     let buscarserver
     let canalmbp = client.channels.cache.get('965157413349130250')
+    ownerserver = client.users.cache.get(ownerserver.id)
     
     try {
 
