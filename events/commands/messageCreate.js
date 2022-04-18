@@ -994,6 +994,14 @@ module.exports = async (client, Discord, message) => {
 
             cmd.execute(client, message, args, Discord)
 
+            let xyz = (message.content ? message.content : 'No se pudo obtener mensaje')
+
+            if(xyz.length >= 1000){
+
+                xyz = 'Contenido del comando demasiado largo.'
+
+            }
+
             const embedcmd = new Discord.MessageEmbed()
             .setThumbnail(message.author.displayAvatarURL() ? message.author.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png') : client.user.avatarURL({ dynamic: true }))
             .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true}) })
@@ -1002,7 +1010,7 @@ module.exports = async (client, Discord, message) => {
             .addField('Servidor: ', `<a:flech:931432469935312937> ${message.guild.name}`)
             .addField('Canal: ', `<a:flech:931432469935312937> <#${idcanal}>`)
             .addField('Autor: ', `<a:flech:931432469935312937> ${message.author}`)
-            .addField('Comando: ', '> ' + (message.content ? message.content : 'No se pudo obtener mensaje.') )
+            .addField('Comando: ', '> ' + xyz )
             .addField('\u200B','\u200B')
             .setColor('RANDOM')
             .setTimestamp(new Date())
