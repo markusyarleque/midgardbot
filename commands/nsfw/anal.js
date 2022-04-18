@@ -25,7 +25,7 @@ module.exports =  {
       
             let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
             let desc 
-            const image = await nsfw3.anal()
+            let image = await nsfw3.anal()
 
             while (!image || image === null || image === undefined) {
                 
