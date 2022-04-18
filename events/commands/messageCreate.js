@@ -1,12 +1,16 @@
 const Similar = require('string-similarity');
 const { Permissions } = require('discord.js');
 
+const ascii = require('ascii-table')
+let table = new ascii('Commands')
+table.setHeading('COMMAND','AUTHOR','SERVER','CHANNEL','DATE','TIME','STATUS')
+
 //& Modelos
 const userModel = require('../../models/userSchema');
 const blSchema = require('../../models/blSchema');
 const autoSchema = require('../../models/autoSchema');
 const turnoSchema = require('../../models/turnoSchema');
-const prefixSchema = require('../../models/prefixSchema');
+const serverSchema = require('../../models/serverSchema');
 //& Modelos
 
 module.exports = async (client, Discord, message) => {
@@ -16,7 +20,7 @@ module.exports = async (client, Discord, message) => {
     let buscarprefix, prefix
     try {
 
-        buscarprefix = await prefixSchema.findOne({idserver: message.guild.id})
+        buscarprefix = await serverSchema.findOne({idserver: message.guild.id})
 
         if(buscarprefix){
 
@@ -38,7 +42,8 @@ module.exports = async (client, Discord, message) => {
     let sv = client.guilds.cache.get('851924635930329098')
     let channel
     let idcanal = message.channel.id
-  
+    let logschannel = client.channels.cache.get('965156885558878319')
+
     const em = new Discord.MessageEmbed()
     .setThumbnail(message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) )
     .setAuthor({ name: 'MaltaBot', iconURL: client.user.avatarURL({ dynamic: true }) })
@@ -956,6 +961,8 @@ module.exports = async (client, Discord, message) => {
     let cmd = client.commands.get(command) ||
               client.commands.find((a) => a.aliases && a.aliases.includes(command)); // Obtiene el comando de la colección client.commandos
   
+    let canalcmd = client.channels.cache.get('965156845712994314')
+
     if(!cmd){
 
         let similares = []
@@ -991,12 +998,38 @@ module.exports = async (client, Discord, message) => {
 
             cmd.execute(client, message, args, Discord)
 
+            const embedcmd = new Discord.MessageEmbed()
+            .setThumbnail(message.author.displayAvatarURL() ? message.author.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png') : client.user.avatarURL({ dynamic: true }))
+            .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true}) })
+            .setTitle('📢 | Comando Ejecutado: ' + (cmd ? cmd.name : 'No se pudo obtener comando'))
+            .addField('\u200B','\u200B')
+            .addField('Servidor: ', `<a:flech:931432469935312937> ${message.guild.name}`)
+            .addField('Canal: ', `<a:flech:931432469935312937> <#${idcanal}>`)
+            .addField('Autor: ', `<a:flech:931432469935312937> ${message.author}`)
+            .addField('Comando: ', '> ' + (message.content ? message.content : 'No se pudo obtener mensaje.') )
+            .setColor('RANDOM')
+            .setTimestamp(new Date())
+            .setFooter({ text: `ID: ${message.author.id}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+            
+            canalcmd.send({ embeds: [embedcmd] }).catch((e) => {
+                
+                console.log('Error al enviar mensaje: '+e)
+                logschannel.send({ content: 'Error al enviar embed de comando ' + cmd.name + ' - ' + e })
+            
+            })
+
+            table.addRow(cmd.name, message.author.id, message.guild.id, message.channel.id, message.createdTimestamp, Date.now(), '✅')
+
         } catch (error) {
 
             console.log('Error al ejecutar comando: '+error)
+            logschannel.send({ content: 'Error al ejecutar comando ' + cmd.name + ' - ' + e })
+            table.addRow(cmd.name, message.author.id, message.guild.id, message.channel.id, message.createdTimestamp, Date.now(), '❌')
 
         }
     
+        canalcmd.send({ content: table.toString() })
+
         //* Registro de Usuarios
 
         let userData;

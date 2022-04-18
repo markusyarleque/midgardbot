@@ -1,4 +1,4 @@
-const prefixSchema = require('../../models/prefixSchema');
+const serverSchema = require('../../models/serverSchema');
 const { Permissions, MessageButton } = require('discord.js');
 
 module.exports = { 
@@ -11,10 +11,11 @@ module.exports = {
 
         let buscarprefix, prefix
         let canalmbp = client.channels.cache.get('960797556261146644')
+        let ownerserver = await message.guild.fetchOwner().catch((e) => console.log('Error al enviar mensaje: '+e))
 
         try {
     
-            buscarprefix = await prefixSchema.findOne({idserver: message.guild.id})
+            buscarprefix = await serverSchema.findOne({idserver: message.guild.id})
     
             if(buscarprefix){
     
@@ -79,11 +80,14 @@ module.exports = {
     
                     console.log('========================= REGISTRO DE PREFIX =========================');
             
-                    let setprefix = await prefixSchema.create({
+                    let setprefix = await serverSchema.create({
     
                         idserver: message.guild.id,
                         servername: message.guild.name,
+                        ownerid: ownerserver.id,
+                        ownername: ownerserver.username + '#' + ownerserver.tag,
                         prefix: newprefix,
+                        premium: true,
         
                     })
         
@@ -97,7 +101,7 @@ module.exports = {
     
                     console.log('========================= ACTUALIZACIÓN DE PREFIX =========================');
        
-                    let update = await prefixSchema.findOneAndUpdate({idserver: message.guild.id},
+                    let update = await serverSchema.findOneAndUpdate({idserver: message.guild.id},
                         {
     
                             prefix: newprefix
@@ -136,7 +140,7 @@ module.exports = {
                     
                     client.guilds.cache.forEach(async (s)=>{
                         
-                        let bx = await prefixSchema.findOne({idserver: s.id})
+                        let bx = await serverSchema.findOne({idserver: s.id})
 
                         if(bx){
                             

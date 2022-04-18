@@ -1,3 +1,5 @@
+const serverSchema = require('../../models/serverSchema');
+
 module.exports = async (client, Discord, guild) => {
 
     let owner = client.users.cache.get('753435606410985573')
@@ -5,7 +7,84 @@ module.exports = async (client, Discord, guild) => {
     let channel = sv.channels.cache.get('874943743185285150')
     let canalmbs = client.channels.cache.get('957231545763110984')
 
-    let ownerserver = await guild.fetchOwner().catch((e) => console.log('Error al enviar mensaje: '+e))
+    let ownerserver = await guild.fetchOwner().catch((e) => console.log('Error al obtener owner: '+e))
+    let buscarserver
+    let canalmbp = client.channels.cache.get('965157413349130250')
+    
+    try {
+
+        buscarserver = await serverSchema.findOne({idserver: guild.id})
+
+        if(buscarserver){
+
+            console.log('========================= ELIMINACIÓN DE SERVIDOR =========================');
+            
+            let setserver = await serverSchema.findOneAndDelete({idserver: guild.id})
+        
+            setserver.save();
+                    
+            console.log('Servidor eliminado ===> Servidor: '+ guild.name)
+       
+            console.log('========================= ELIMINACIÓN DE SERVIDOR =========================');
+    
+        }
+
+    } catch (error) {
+
+        console.log('Error al Eliminar Servidor: '+ guild.id + ' - ' + error)
+       
+    }
+    
+    try {
+            
+        let datos = []
+        let c = 1
+        
+        client.guilds.cache.forEach(async (s)=>{
+            
+            let bx = await serverSchema.findOne({idserver: s.id, premium: true})
+
+            if(bx){
+                
+                datos.push('**' + c + '.** Nombre : `' + s.name + '` - Id : `' + s.id + '`')
+                c = c + 1
+
+            }
+        
+        })
+
+        setTimeout(() => {
+
+            const embedmbp = new Discord.MessageEmbed()
+            .setThumbnail('https://i.imgur.com/Uq0IPAU.gif')
+            .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true}) })
+            .setTitle('💎  Lista de servidores Premium  💎')
+            .setDescription('\n\n> ' + datos.join('\n> \n> '))
+            .setColor('RANDOM')
+            .setTimestamp(new Date())
+            .setFooter({ text: `Nací para crecer`, iconURL: client.user.avatarURL({ dynamic: true}) })
+             
+            canalmbp.bulkDelete(2)
+            canalmbp.send({ embeds: [embedmbp] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+            canalmbp.send('https://images-ext-2.discordapp.net/external/9iPHKFXXnKKSQpcFazlW79dr1zbbtdo7QT7-xxtfDY4/%3Fwidth%3D600%26height%3D86/https/media.discordapp.net/attachments/897951731462316073/915663567213199390/bar-1.gif?width=450&height=65').catch((e) => console.log('Error al enviar mensaje: '+e))
+            
+        }, 10000)
+        
+    } catch (error) {
+        
+        console.log('Ocurrió un error al buscar la lista de premium: '+ error)
+
+        const e = new Discord.MessageEmbed()
+        .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+        .setColor('RED')
+        .setDescription(`<a:Verify2:931463492677017650> | Ocurrió un error inesperado, por favor intenta de nuevo!\n> Error: `+error)
+        .setTimestamp()
+
+        canalmbp.bulkDelete(2)
+        canalmbp.send({ embeds: [e] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+        return canalmbp.send('https://images-ext-2.discordapp.net/external/9iPHKFXXnKKSQpcFazlW79dr1zbbtdo7QT7-xxtfDY4/%3Fwidth%3D600%26height%3D86/https/media.discordapp.net/attachments/897951731462316073/915663567213199390/bar-1.gif?width=450&height=65').catch((e) => console.log('Error al enviar mensaje: '+e))
+        
+    }
 
     const embed = new Discord.MessageEmbed()
     .setAuthor({ name: 'MaltaBot', iconURL: client.user.avatarURL() })

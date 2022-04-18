@@ -1,4 +1,4 @@
-const prefixSchema = require('../../models/prefixSchema');
+const serverSchema = require('../../models/serverSchema');
 
 module.exports =  {
     
@@ -11,7 +11,7 @@ module.exports =  {
         let buscarprefix, prefix
         try {
 
-            buscarprefix = await prefixSchema.findOne({idserver: message.guild.id})
+            buscarprefix = await serverSchema.findOne({idserver: message.guild.id})
 
             if(buscarprefix){
 
