@@ -200,49 +200,136 @@ module.exports = async (client, Discord, message) => {
       
     ]
 
-    if (message.content === 'Hola' || message.content === 'hola' || message.content === 'Holas' || message.content === 'holas'){
+    if (message.content.toLowerCase() === 'hola' || message.content.toLowerCase() === 'holas'){
           
         if(message.guild.id !== '777620055344545842') return
         message.channel.send(hola[Math.floor(Math.random()*hola.length)]).catch((e) => console.log('Error al enviar mensaje: '+e))
   
     }
-    if (message.content === 'ola' || message.content === 'Ola' || message.content === 'olas' || message.content === 'Olas'){
+
+    var ola = [
+
+        '<a:Ohsi:887055459612241981> Ola limdo',
+        'Se dice Hola <:luser:920143138696347678>',
+        'Ayoooolaaa <:abby:880300168514252811>', 
+        'Que onda <:PolloPro:911096064545816606>', 
+        'Cara de bola',
+        'Te pico la cola <a:run:880304386826465300>', 
+        'Oliiii', 
+        'To piola?',
+        'Llegaste a tiempo para besarnos <:Awebo_a_simpiar:901600161875259452>', 
+        'Ola mailov <a:holaaa:934823319331569664>',
+        'Hola, con H de Huevos los que le faltaron a tu ex <a:ayajasisi:945203356140441650>',
+        'del mar 🌊',
+      
+    ]
+
+    if (message.content.toLowerCase() === 'ola' || message.content.toLowerCase() === 'olas'){
   
         if(message.guild.id !== '777620055344545842') return
-        message.channel.send('del mar 🌊').catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send(ola[Math.floor(Math.random()*ola.length)]).catch((e) => console.log('Error al enviar mensaje: '+e))
   
     }
-    if (message.content === 'Buen día' || message.content === 'buen día' || message.content === 'Buen dia' || message.content === 'buen dia'){
+
+    var buendia = [
+
+        'Buen día joven <:Para_ti_tambien:897241426021208065>',
+        'Pase, pase, está en su casa <a:ayajasisi:890684634369777724>',
+        '¿Cómo te va?',
+        'Igualmente chulada',
+        '<:QueFachero:915845462127435816> ¿Todo bien?',
+        '<:Me_ataca_aiuda:897241560159236116> Dejo de ser un buen día desde que caíste en sus mentiras',
+        'Tardes ya <:zerotwo_why:880315297104547870>',
+        'Buen día precios@ ❤',
+      
+    ]
+
+    if (message.content.toLowerCase() === 'buen día' || message.content.toLowerCase() === 'buen dia'){
           
         if(message.guild.id !== '777620055344545842') return
-        message.channel.send('Buen día precios@ ❤').catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send(buendia[Math.floor(Math.random()*buendia.length)]).catch((e) => console.log('Error al enviar mensaje: '+e))
           
     }
-    if (message.content === 'Buenos días' || message.content === 'buenos días' || message.content === 'Buenos dias' || message.content === 'buenos dias'){
+
+    var buenosdias = [
+
+        '<:GatoGuatafac:911089127129227314> Solo días', 
+        'Cuanta amabilidad <:yamique:924441571355684935>', 
+        'Eran buenos hasta que llegaste <a:zbailabaila:890772645342236732>', 
+        'Hasta que despiertas <a:ayajasisi:890684634369777724>',
+        'Apenas? <:Y_moriste:897241205111418920>',
+        '¿Cómo amaneciste?',
+        'Tardes ya',
+        'Buenos días precios@ ❤',
+      
+    ]
+
+    if (message.content.toLowerCase() === 'buenos días' || message.content.toLowerCase() === 'buenos dias'){
           
         if(message.guild.id !== '777620055344545842') return
-        message.channel.send('Buenos días precios@ ❤').catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send(buenosdias[Math.floor(Math.random()*buendia.length)]).catch((e) => console.log('Error al enviar mensaje: '+e))
       
     }
-    if (message.content === 'Buenas tardes' || message.content === 'buenas tardes'){
+
+    var buenastardes = [
+
+        'Solo tardes <:FLORK_clorox:956314038227324968> por que buenas sus mentiras', 
+        '**Ya llegooooo!!!**',
+        'Que bueno que llegas, apenas empieza el chisme <:bombon:925327781104082974>', 
+        '¿Qué va a llevar joven?',
+        'Tardes, por que buenas las que te cargas <a:Nalgada:880315282101526598>', 
+        'Para ti también <a:Gatitoalv:900075164295905371>',
+        'Buenas tardes precios@ ❤',
+      
+    ]
+
+    if (message.content.toLowerCase() === 'buenas tardes'){
           
         if(message.guild.id !== '777620055344545842') return
-        message.channel.send('Buenas tardes precios@ ❤').catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send(buenastardes[Math.floor(Math.random()*buenastardes.length)]).catch((e) => console.log('Error al enviar mensaje: '+e))
           
     }
-    if (message.content === 'Buenas noches' || message.content === 'buenas noches'){
+
+    var buenasnoches = [
+
+        '<:ChayanneFlor:906775267492646924> Descansa bb',
+        'Hasta mañana', 
+        'Tan temprano te vas? <:AAAAa:882776373201088512>', 
+        'No te vallas <:668957583889137664:882761465101180960>', 
+        'Sueñas conmigo <a:sabroso:932177227792146433>', 
+        'Solo noches <a:PepeDuckToy:925294858745307136>',  
+        'Noches, por que buenas sus intenciones contigo <:Para_ti_tambien:897241426021208065>',
+        'Buenas noches precios@ ❤',
+      
+    ]
+
+    if (message.content.toLowerCase() === 'buenas noches'){
          
         if(message.guild.id !== '777620055344545842') return
-        message.channel.send('Buenas noches precios@ ❤').catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send(buenasnoches[Math.floor(Math.random()*buenasnoches.length)]).catch((e) => console.log('Error al enviar mensaje: '+e))
           
     }
-    if (message.content === 'Buenas' || message.content === 'Wenas' || message.content === 'buenas' || message.content === 'wenas'){
+    
+    var buenas = [
+
+        'Las que te cargas miamor <a:sabroso:932177227792146433>', 
+        'Hoy amanecimooos <a:Dance:883031053772681216>', 
+        'Ya te las viste? <:zerotwo_why:880315297104547870>', 
+        'Sus mentiras <:ayno:925298581903118376>',  
+        'Hola buenaaaas <:bobesponja:935069041167564820>', 
+        'Las tuyas <a:NalgasdeAna:887498069569044541>',
+        'Las tienes <a:perreom:930719549131735040>',
+      
+    ]
+    
+    if (message.content.toLowerCase() === 'buenas' || message.content.toLowerCase() === 'wenas'){
         
         if(message.guild.id !== '777620055344545842') return
-        message.channel.send('Las tienes <a:perreom:930719549131735040>').catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send(buenas[Math.floor(Math.random()*buenas.length)]).catch((e) => console.log('Error al enviar mensaje: '+e))
   
     }
-    if (message.content === 'wlc' || message.content === 'Wlc' || message.content === 'welcome' || message.content === 'Welcome'){
+
+    if (message.content.toLowerCase() === 'wlc' || message.content.toLowerCase() === 'welcome' || message.content.toLowerCase() === 'bienvenido' || message.content.toLowerCase() === 'bienvenida' || message.content.toLowerCase() === 'bienvenid@' || message.content.toLowerCase() === 'bienvenidos' || message.content.toLowerCase() === 'bienvenid@s' || message.content.toLowerCase() === 'bienvenidas'){
           
         if(message.guild.id !== '777620055344545842') return
         message.react(`<a:pasito:877116925291946094>`).catch((e) => console.log('Error al reaccionar: '+e))
