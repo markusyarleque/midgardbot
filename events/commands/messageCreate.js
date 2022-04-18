@@ -186,10 +186,24 @@ module.exports = async (client, Discord, message) => {
         console.log('Error al obtener autorespuestas: ' + error)
     }
 
+    var hola = [
+
+        'Cara de bola <:niasacandolengua:948756194917507102>',
+        'Ya llegó este wey <a:StichFudioso:911090819174383616>', 
+        'Te pico la cola <a:run:880304386826465300>', 
+        'Hola lindura <a:Gatitoalv:900075164295905371>', 
+        'Que onda <:PolloPro:911096064545816606>',
+        'Ya era hora de que llegaras <:pocoyoMolesto:894367131125284924>', 
+        '¿Qué tal tu día?',
+        'Hola mi amor <:BlushedCat:920964717864964116>',
+        'Hola ' + message.author.username + ', cómo va tu día?'
+      
+    ]
+
     if (message.content === 'Hola' || message.content === 'hola' || message.content === 'Holas' || message.content === 'holas'){
           
         if(message.guild.id !== '777620055344545842') return
-        message.channel.send('Hola '+message.author.username+', cómo va tu día?').catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send(hola[Math.floor(Math.random()*hola.length)]).catch((e) => console.log('Error al enviar mensaje: '+e))
   
     }
     if (message.content === 'ola' || message.content === 'Ola' || message.content === 'olas' || message.content === 'Olas'){
