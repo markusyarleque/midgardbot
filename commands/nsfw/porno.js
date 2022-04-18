@@ -1,6 +1,7 @@
 const NSFW = require('discord-nsfw');
 const nsfw3 = new NSFW();
 const userSchema = require('../../models/userSchema');
+const serverSchema = require('../../models/serverSchema')
 
 module.exports =  {
     
@@ -44,15 +45,24 @@ module.exports =  {
                     
                 }
 
-                if (userData.vip === false) return message.reply({ embeds: [
-                            
-                    new Discord.MessageEmbed()
-                    .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
-                    .setColor('RED')
-                    .setDescription(`<a:Verify2:931463492677017650> | Comando VIP!`)
-        
-                ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
-    
+                if (userData.vip === false){
+                    
+                    let serverData = await serverSchema.findOne({idserver: message.guild.id})
+
+                    if(!serverData || serverData.premium === false){
+
+                        return message.reply({ embeds: [
+                    
+                            new Discord.MessageEmbed()
+                            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                            .setColor('RED')
+                            .setDescription(`<a:Verify2:931463492677017650> | Comando requiere Usuario VIP o Servidor Premium!`)
+            
+                        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+
+                    }
+                
+                }
 
             } catch (error) {
 
