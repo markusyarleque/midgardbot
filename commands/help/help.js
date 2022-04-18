@@ -8,7 +8,7 @@ module.exports =  {
   
     async execute(client, message, args, Discord) {
 
-        let buscarprefix, prefix
+        let buscarprefix, prefix, svp
         try {
 
             buscarprefix = await serverSchema.findOne({idserver: message.guild.id})
@@ -16,10 +16,21 @@ module.exports =  {
             if(buscarprefix){
 
                 prefix = buscarprefix.prefix
+                
+                if(buscarprefix.premium === true){
+
+                    svp = ' | Servidor Premium 💎'
+
+                } else{
+
+                    svp = ''
+
+                }
 
             } else {
 
                 prefix = process.env.PREFIX
+                svp = ''
 
             }
 
@@ -36,7 +47,7 @@ module.exports =  {
 
         const helpprincipal = new Discord.MessageEmbed()
         .setTitle('Bienvenido al apartado de Ayuda 💌')
-        .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+        .setAuthor({ name: 'MidgardBot' + svp, iconURL: client.user.avatarURL({ dynamic: true }) })
         .setDescription('Hola <@' + message.author.id + '> esta es la Lista de Comandos y funciones de **MidgardBot**, te invitamos a unirte a nuestro [servidor](https://discord.gg/CM9yAmXPfC) de soporte.\n\nMi prefix en `' + message.guild.name + '` es: `' + prefix + '`\n\nPara ver la ayuda de cada comando, ejecuta: `help <comando>`\n\nPara ver los comandos por categoría, debes clickear al botón respectivo:\n\n> 📌 • Comandos de Información\n> 💡 • Comandos de Utilidad\n> 🔒 • Comandos de Moderación\n> 💰 • Comandos de Economía\n> 🤣 • Comandos de Diversión\n> 😎 • Comandos de Reacción\n> 🥂 • Comandos Exclusivos (Cafetería - Bar - Disco)\n> 🔥 • Comandos NSFW\n\n<a:flech:931432469935312937> **Muchas gracias por utilizar nuestro bot** <a:darkcrown2:886466286773739530>')
         .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
@@ -45,7 +56,7 @@ module.exports =  {
 
         const helpinfo = new Discord.MessageEmbed()
         .setTitle('📌 • Comandos De Información')
-        .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+        .setAuthor({ name: 'MidgardBot' + svp, iconURL: client.user.avatarURL({ dynamic: true }) })
         .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
         .setThumbnail('https://i.imgur.com/ElF0ec4.gif')
@@ -54,7 +65,7 @@ module.exports =  {
 
         const helputil = new Discord.MessageEmbed()
         .setTitle('💡 • Comandos de Utilidad')
-        .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+        .setAuthor({ name: 'MidgardBot' + svp, iconURL: client.user.avatarURL({ dynamic: true }) })
         .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
         .setThumbnail('https://i.imgur.com/6aWYLFl.gif')
@@ -63,7 +74,7 @@ module.exports =  {
   
         const helpmod = new Discord.MessageEmbed()
         .setTitle('🔒 • Comandos de Moderación')
-        .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+        .setAuthor({ name: 'MidgardBot' + svp, iconURL: client.user.avatarURL({ dynamic: true }) })
         .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
         .setThumbnail('https://i.imgur.com/Ala12ck.gif')
@@ -74,7 +85,7 @@ module.exports =  {
 
         const helpeco = new Discord.MessageEmbed()
         .setTitle('💰 • Comandos de Economía')
-        .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+        .setAuthor({ name: 'MidgardBot' + svp, iconURL: client.user.avatarURL({ dynamic: true }) })
         .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
         .setThumbnail('https://i.imgur.com/WYXAUrS.gif')
@@ -83,7 +94,7 @@ module.exports =  {
   
         const helpdiv = new Discord.MessageEmbed()
         .setTitle('🤣 • Comandos de Diversión')
-        .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+        .setAuthor({ name: 'MidgardBot' + svp, iconURL: client.user.avatarURL({ dynamic: true }) })
         .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
         .setThumbnail('https://i.imgur.com/oyNwRhK.gif')
@@ -92,7 +103,7 @@ module.exports =  {
   
         const helpcbd = new Discord.MessageEmbed()
         .setTitle('• Comandos Exclusivos •')
-        .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+        .setAuthor({ name: 'MidgardBot' + svp, iconURL: client.user.avatarURL({ dynamic: true }) })
         .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
         .setThumbnail('https://i.imgur.com/D1RSBCE.gif')
@@ -101,7 +112,7 @@ module.exports =  {
   
         const helprea = new Discord.MessageEmbed()
         .setTitle('😎 • Comandos de Reacción')
-        .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+        .setAuthor({ name: 'MidgardBot' + svp, iconURL: client.user.avatarURL({ dynamic: true }) })
         .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
         .setThumbnail('https://i.imgur.com/nl1R1hv.gif')
@@ -110,7 +121,7 @@ module.exports =  {
 
         const helpnsfw = new Discord.MessageEmbed()
         .setTitle('🔞 • Comandos NSFW')
-        .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+        .setAuthor({ name: 'MidgardBot' + svp, iconURL: client.user.avatarURL({ dynamic: true }) })
         .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
         .setTimestamp(new Date())
         .setThumbnail('https://i.imgur.com/fha5PRG.gif')
@@ -121,27 +132,27 @@ module.exports =  {
       
             new Discord.MessageButton()
             .setCustomId("inf")
-            .setLabel("📌 Información")
+            .setLabel("📌")
             .setStyle("PRIMARY"),
         
             new Discord.MessageButton()
             .setCustomId("util")
-            .setLabel("💡 Utilidad")
+            .setLabel("💡")
             .setStyle("PRIMARY"),
         
             new Discord.MessageButton()
             .setCustomId("mod")
-            .setLabel("🔒 Moderación")
+            .setLabel("🔒")
             .setStyle("PRIMARY"),
         
             new Discord.MessageButton()
             .setCustomId("eco")
-            .setLabel("💰 Economía")
+            .setLabel("💰")
             .setStyle("PRIMARY"),
         
             new Discord.MessageButton()
             .setCustomId("m2")
-            .setLabel("📋 Más Opciones")
+            .setLabel("📋 Más")
             .setStyle("PRIMARY"),
       
         ])
@@ -150,27 +161,27 @@ module.exports =  {
 
             new Discord.MessageButton()
             .setCustomId("mp")
-            .setLabel("🌎 Inicio")
+            .setLabel("🏠")
             .setStyle("PRIMARY"),
         
             new Discord.MessageButton()
             .setCustomId("div")
-            .setLabel("🤣 Diversión")
+            .setLabel("🤣")
             .setStyle("PRIMARY"),
         
             new Discord.MessageButton()
             .setCustomId("rea")
-            .setLabel("😎 Reacción")
+            .setLabel("😎")
             .setStyle("PRIMARY"),
         
             new Discord.MessageButton()
             .setCustomId("cbd")
-            .setLabel("🥂 CBD")
+            .setLabel("🥂")
             .setStyle("PRIMARY"),
         
             new Discord.MessageButton()
             .setCustomId("nsfw")
-            .setLabel("🔥 NSFW")
+            .setLabel("🔥")
             .setStyle("PRIMARY"),
       
         ])
@@ -314,7 +325,7 @@ module.exports =  {
                 console.log('Error al buscar comando: ' + cmd + ' - ' + error)
                 
                 const e4 = new Discord.MessageEmbed()
-                .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+                .setAuthor({ name: 'MidgardBot' + svp, iconURL: client.user.avatarURL({ dynamic: true }) })
                 .setThumbnail(message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }))
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | Ocurrió un error inesperado, por favor intenta de nuevo!\n> Error: `+error)
@@ -355,7 +366,7 @@ module.exports =  {
 
                 const helpcmd = new Discord.MessageEmbed()
                 .setTitle('• Comando ' + query.name + ' •')
-                .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+                .setAuthor({ name: 'MidgardBot' + svp, iconURL: client.user.avatarURL({ dynamic: true }) })
                 .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: message.author.avatarURL({ dynamic: true }) })
                 .setTimestamp(new Date())
                 .setThumbnail('https://i.imgur.com/kwMaqLo.gif')
