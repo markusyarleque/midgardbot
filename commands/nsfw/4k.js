@@ -123,7 +123,7 @@ module.exports =  {
             .setImage(ramdonfourk)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter({ text: `${message.guild.name} | Si no carga, da click al botón`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+            .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
 
             const row = new Discord.MessageActionRow()
             .addComponents(
@@ -137,7 +137,7 @@ module.exports =  {
 
             message.reply({ allowedMentions: { repliedUser: false}, 
                 
-                content: '<a:fijadito:931432134797848607> > Si no carga, da click al botón 🔁',
+                content: '> <a:fijadito:931432134797848607> Si no carga, da click al botón 🔁',
                 embeds: [embed], 
                 components: [row] 
 
@@ -169,7 +169,7 @@ module.exports =  {
                         .setTimestamp(new Date())
                         .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
 
-                        m.edit({ embeds: [nembed], components: [] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                        m.edit({ content: '', embeds: [nembed], components: [] }).catch((e) => console.log('Error al enviar mensaje: '+e))
    
                     }
           
