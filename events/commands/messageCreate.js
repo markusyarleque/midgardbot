@@ -1,10 +1,6 @@
 const Similar = require('string-similarity');
 const { Permissions } = require('discord.js');
 
-const ascii = require('ascii-table')
-let table = new ascii('Commands')
-table.setHeading('COMMAND','AUTHOR','SERVER','CHANNEL','DATE','TIME','STATUS')
-
 //& Modelos
 const userModel = require('../../models/userSchema');
 const blSchema = require('../../models/blSchema');
@@ -1018,17 +1014,12 @@ module.exports = async (client, Discord, message) => {
             
             })
 
-            table.addRow(cmd.name, message.author.id, message.guild.id, message.channel.id, message.createdTimestamp, Date.now(), '✅')
-
         } catch (error) {
 
             console.log('Error al ejecutar comando: '+error)
             logschannel.send({ content: 'Error al ejecutar comando ' + cmd.name + ' - ' + e })
-            table.addRow(cmd.name, message.author.id, message.guild.id, message.channel.id, message.createdTimestamp, Date.now(), '❌')
-
+          
         }
-    
-        canalcmd.send({ content: table.toString() })
 
         //* Registro de Usuarios
 
