@@ -1003,6 +1003,7 @@ module.exports = async (client, Discord, message) => {
             .addField('Canal: ', `<a:flech:931432469935312937> <#${idcanal}>`)
             .addField('Autor: ', `<a:flech:931432469935312937> ${message.author}`)
             .addField('Comando: ', '> ' + (message.content ? message.content : 'No se pudo obtener mensaje.') )
+            .addField('\u200B','\u200B')
             .setColor('RANDOM')
             .setTimestamp(new Date())
             .setFooter({ text: `ID: ${message.author.id}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
