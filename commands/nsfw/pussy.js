@@ -135,7 +135,7 @@ module.exports =  {
                         .setTimestamp(new Date())
                         .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
 
-                        m.edit({ content: '', embeds: [nembed], components: [] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                        m.edit({ content: ' ', embeds: [nembed], components: [] }).catch((e) => console.log('Error al enviar mensaje: '+e))
    
                     }
           
@@ -143,7 +143,7 @@ module.exports =  {
     
                 collector.on("end", (collected, reason) => {
             
-                    if(collected < 1 || reason === 'time') return m.edit({ content: '', components: [] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    if(collected < 1 || reason === 'time') return m.edit({ content: ' ', components: [] }).catch((e) => console.log('Error al enviar mensaje: '+e))
              
                     console.log('Razón del término de colección de nsfw: '+reason)
          
