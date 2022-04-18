@@ -11,7 +11,7 @@ module.exports = async (client, Discord, guild) => {
     let buscarserver, premium, nservers
     let canalmbp = client.channels.cache.get('965157413349130250')
     ownerserver = client.users.cache.get(ownerserver.id)
-    
+
     try {
 
         nservers = client.guilds.cache.size
@@ -39,7 +39,7 @@ module.exports = async (client, Discord, guild) => {
                 idserver: guild.id,
                 servername: guild.name,
                 ownerid: ownerserver.id,
-                ownername: ownerserver.username + '#' + ownerserver.tag,
+                ownername: ownerserver.tag,
                 premium: premium,
         
             })
@@ -60,7 +60,7 @@ module.exports = async (client, Discord, guild) => {
                     idserver: guild.id,
                     servername: guild.name,
                     ownerid: ownerserver.id,
-                    ownername: ownerserver.username + '#' + ownerserver.tag,
+                    ownername: ownerserver.tag,
                     premium: premium,
 
                 })

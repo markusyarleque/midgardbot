@@ -3,9 +3,9 @@ const { Permissions, MessageButton } = require('discord.js');
 
 module.exports = { 
 
-    name: 'remove-premium',
-    aliases: ['delete-premium'],
-    description: '💎 Quitar Premium a un servidor.',
+    name: 'give-premium',
+    aliases: ['set-premium'],
+    description: '💎 Otorgar Premium a un servidor.',
   
     async execute(client, message, args, Discord) {
 
@@ -46,21 +46,21 @@ module.exports = {
         logschannel = client.channels.cache.get('965156885558878319')
         ownerserver = await server.fetchOwner().catch((e) => console.log('Error al obtener owner: '+e))
         ownerserver = client.users.cache.get(ownerserver.id)
-        
+
         try {
             
             buscarserver = await serverSchema.findOne({idserver: server.id})
 
             if(buscarserver){
 
-                if(buscarserver.premium === false){
+                if(buscarserver.premium === true){
 
                     return message.reply({embeds: [
        
                         new Discord.MessageEmbed()
                         .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
                         .setColor('RED')
-                        .setDescription(`<a:Verify2:931463492677017650> | ¡Servidor NO es Premium!`)
+                        .setDescription(`<a:Verify2:931463492677017650> | ¡Servidor ya es Premium!`)
                   
                     ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
             
@@ -74,8 +74,8 @@ module.exports = {
                             idserver: server.id,
                             servername: server.name,
                             ownerid: ownerserver.id,
-                            ownername: ownerserver.username + '#' + ownerserver.tag,
-                            premium: false,
+                            ownername: ownerserver.tag,
+                            premium: true,
     
                         })
     
@@ -96,8 +96,8 @@ module.exports = {
                     idserver: server.id,
                     servername: server.name,
                     ownerid: ownerserver.id,
-                    ownername: ownerserver.username + '#' + ownerserver.tag,
-                    premium: false,
+                    ownername: ownerserver.tag,
+                    premium: true,
         
                 })
         
@@ -111,8 +111,8 @@ module.exports = {
 
         } catch (error) {
             
-            console.log('Error al Quitar premium en servidor: ' + server.name + ' - ' + error)
-            logschannel.send({ content: 'Error al Quitar premium en servidor: ' + server.name + ' - ' + error })
+            console.log('Error al Registrar premium en servidor: ' + server.name + ' - ' + error)
+            logschannel.send({ content: 'Error al Registrar premium en servidor: ' + server.name + ' - ' + error })
 
             const e4 = new Discord.MessageEmbed()
             .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
@@ -126,8 +126,8 @@ module.exports = {
       
                 message.reply({ allowedMentions: { repliedUser: false}, embeds: [e4]}).catch((e) => {
                     
-                    console.log('Error al enviar mensaje de remove premium: '+e)
-                    logschannel.send({ content: 'Error al enviar mensaje de remove premium ' + e })
+                    console.log('Error al enviar mensaje de no registro de premium: '+e)
+                    logschannel.send({ content: 'Error al enviar mensaje de no registro de premium ' + e })
 
                 })
 
@@ -139,7 +139,7 @@ module.exports = {
         .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setColor('YELLOW')
         .setThumbnail(message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }))
-        .setDescription('<a:cargando:960474774281256980> | **Quitando premium...**')
+        .setDescription('<a:cargando:960474774281256980> | **Otorgando premium...**')
         .setFooter({ text: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
         .setTimestamp()
 
@@ -150,7 +150,7 @@ module.exports = {
             .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
             .setColor('GREEN')
             .setThumbnail(server.iconURL() ? server.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }))
-            .setDescription('<a:Verify1:931463354357276742> | **Premium quitando con éxito:** ')
+            .setDescription('<a:Verify1:931463354357276742> | **Premium otorgado con éxito:** ')
             .addField('\u200B','<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>')
             .addField('Servidor: ', '<a:flech:931432469935312937> `' + server.name + '`')
             .addField('Id: ', '<a:flech:931432469935312937> `' + server.id + '`\n<a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824><a:barra:889717671044726824>')
@@ -159,7 +159,7 @@ module.exports = {
 
             setTimeout(() => {
           
-                m.edit({ allowedMentions: { repliedUser: false}, embeds: [embedcambio]}).catch((e) => console.log('Error al enviar mensaje editado en remove-premium: '+e))
+                m.edit({ allowedMentions: { repliedUser: false}, embeds: [embedcambio]}).catch((e) => console.log('Error al enviar mensaje editado en setprefix: '+e))
                     
             }, 5000)
 
