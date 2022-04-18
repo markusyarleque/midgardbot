@@ -1,7 +1,7 @@
 const NSFW = require('discord-nsfw');
 const nsfw3 = new NSFW();
 const { Permissions } = require('discord.js');
-const prefixSchema = require('../../models/prefixSchema');
+const prefixSchema = require('../../models/serverSchema');
 const autonsfwSchema = require('../../models/autonsfwSchema');
 
 module.exports =  {
