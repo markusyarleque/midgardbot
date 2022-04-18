@@ -34,7 +34,7 @@ module.exports = async (client, Discord, guild) => {
         console.log('Error al Eliminar Servidor: '+ guild.id + ' - ' + error)
        
     }
-    
+
     try {
             
         let datos = []
@@ -119,6 +119,7 @@ module.exports = async (client, Discord, guild) => {
     } catch (error) {
         
         console.log('No se envío dm al owner: '+error)
+        
     }
 
     client.user.setPresence({
