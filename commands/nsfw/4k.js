@@ -137,7 +137,7 @@ module.exports =  {
 
             message.reply({ allowedMentions: { repliedUser: false}, 
                 
-                content: '> <a:fijadito:931432134797848607> Si no carga, da click al botón 🔁',
+                content: '```<a:fijadito:931432134797848607> Si no carga, da click al botón 🔁```',
                 embeds: [embed], 
                 components: [row] 
 
