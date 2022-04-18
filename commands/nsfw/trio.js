@@ -203,7 +203,66 @@ module.exports =  {
             .setTimestamp(new Date())
             .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
   
-            message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+            const row = new Discord.MessageActionRow()
+            .addComponents(
+
+                new Discord.MessageButton()
+                .setCustomId("otro")
+                .setLabel("🔁")
+                .setStyle("SUCCESS")
+
+            )
+
+            message.reply({ allowedMentions: { repliedUser: false}, 
+                
+                content: '||<a:fijadito:931432134797848607> Si no carga, da click al botón 🔁||',
+                embeds: [embed], 
+                components: [row] 
+
+            }).then(async m => {
+        
+                let filter = int => int.isButton() && int.user.id == message.author.id 
+        
+                const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 60000 });
+         
+                collector.on("collect", async int => {
+            
+                    int.deferUpdate();
+            
+                    if (int.customId === "otro") {
+
+                        ramdontrio = trio[Math.floor(Math.random()*trio.length)]
+
+                        while (!ramdontrio || ramdontrio === null || ramdontrio === '' || ramdontrio === undefined) {
+                            
+                            ramdontrio = trio[Math.floor(Math.random()*trio.length)]
+
+                        }
+
+                        const nembed = new Discord.MessageEmbed()
+                        .setAuthor({ name: `🔞 | Midgard's Hot VIP 🔥`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+                        .setDescription(`**${message.author.username}** se unió al trío con **${img1.user.username}** y **${img2.user.username}** <:mmm:880308330894090241>`)
+                        .setImage(ramdontrio)
+                        .setColor('RANDOM')
+                        .setTimestamp(new Date())
+                        .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+            
+                        m.edit({ content: '', embeds: [nembed], components: [] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+   
+                    }
+          
+                });
+    
+                collector.on("end", (collected, reason) => {
+            
+                    if(collected < 1 || reason === 'time') return m.edit({ content: '', components: [] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+             
+                    console.log('Razón del término de colección de nsfw: '+reason)
+         
+                });
+         
+            })
+            .catch((e) => console.log('Error al enviar mensaje: '+e))
 
         }
 

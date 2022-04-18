@@ -177,7 +177,7 @@ module.exports =  {
     
                 collector.on("end", (collected, reason) => {
             
-                    if(collected < 1) return m.edit({components: []}).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    if(collected < 1 || reason === 'time') return m.edit({ content: '', components: [] }).catch((e) => console.log('Error al enviar mensaje: '+e))
              
                     console.log('Razón del término de colección de nsfw: '+reason)
          
