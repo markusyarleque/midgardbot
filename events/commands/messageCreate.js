@@ -209,7 +209,7 @@ module.exports = async (client, Discord, message) => {
 
     var ola = [
 
-        '<a:Ohsi:887055459612241981> Ola limdo',
+        '<a:Ohsi:887055459612241981> Ola lindo',
         'Se dice Hola <:luser:920143138696347678>',
         'Ayoooolaaa <:abby:880300168514252811>', 
         'Que onda <:PolloPro:911096064545816606>', 
@@ -238,7 +238,7 @@ module.exports = async (client, Discord, message) => {
         '¿Cómo te va?',
         'Igualmente chulada',
         '<:QueFachero:915845462127435816> ¿Todo bien?',
-        '<:Me_ataca_aiuda:897241560159236116> Dejo de ser un buen día desde que caíste en sus mentiras',
+        '<:Me_ataca_aiuda:897241560159236116> Dejó de ser un buen día desde que caíste en sus mentiras',
         'Tardes ya <:zerotwo_why:880315297104547870>',
         'Buen día precios@ ❤',
       
@@ -254,7 +254,7 @@ module.exports = async (client, Discord, message) => {
     var buenosdias = [
 
         '<:GatoGuatafac:911089127129227314> Solo días', 
-        'Cuanta amabilidad <:yamique:924441571355684935>', 
+        '¡Cuánta amabilidad! <:yamique:924441571355684935>', 
         'Eran buenos hasta que llegaste <a:zbailabaila:890772645342236732>', 
         'Hasta que despiertas <a:ayajasisi:890684634369777724>',
         'Apenas? <:Y_moriste:897241205111418920>',
@@ -273,11 +273,11 @@ module.exports = async (client, Discord, message) => {
 
     var buenastardes = [
 
-        'Solo tardes <:FLORK_clorox:956314038227324968> por que buenas sus mentiras', 
+        'Solo tardes <:FLORK_clorox:956314038227324968> porque buenas sus mentiras', 
         '**Ya llegooooo!!!**',
         'Que bueno que llegas, apenas empieza el chisme <:bombon:925327781104082974>', 
         '¿Qué va a llevar joven?',
-        'Tardes, por que buenas las que te cargas <a:Nalgada:880315282101526598>', 
+        'Tardes, porque buenas las que te cargas <a:Nalgada:880315282101526598>', 
         'Para ti también <a:Gatitoalv:900075164295905371>',
         'Buenas tardes precios@ ❤',
       
@@ -293,12 +293,12 @@ module.exports = async (client, Discord, message) => {
     var buenasnoches = [
 
         '<:ChayanneFlor:906775267492646924> Descansa bb',
-        'Hasta mañana', 
+        'Hasta mañana bb', 
         'Tan temprano te vas? <:AAAAa:882776373201088512>', 
-        'No te vallas <:668957583889137664:882761465101180960>', 
+        'No te vayas <:668957583889137664:882761465101180960>', 
         'Sueñas conmigo <a:sabroso:932177227792146433>', 
         'Solo noches <a:PepeDuckToy:925294858745307136>',  
-        'Noches, por que buenas sus intenciones contigo <:Para_ti_tambien:897241426021208065>',
+        'Noches, porque buenas sus intenciones contigo <:Para_ti_tambien:897241426021208065>',
         'Buenas noches precios@ ❤',
       
     ]
@@ -312,7 +312,7 @@ module.exports = async (client, Discord, message) => {
     
     var buenas = [
 
-        'Las que te cargas miamor <a:sabroso:932177227792146433>', 
+        'Las que te cargas mi amor <a:sabroso:932177227792146433>', 
         'Hoy amanecimooos <a:Dance:883031053772681216>', 
         'Ya te las viste? <:zerotwo_why:880315297104547870>', 
         'Sus mentiras <:ayno:925298581903118376>',  
