@@ -481,7 +481,8 @@ module.exports = async (client, Discord, message) => {
     
     if (message.content.match(ian))
     {
-          
+        
+        if(message.guild.id !== '777620055344545842') return 
         message.channel.send(`<a:megaphone:932192877449191424> Alo? Tierra llamando al **argentino con más flow** <a:darkcrown2:886466286773739530>, Ian en camino bebé <a:bmirusboyrunfast:880411644893724672>`).catch((e) => console.log('Error al enviar mensaje: '+e))
     
     }
@@ -490,7 +491,8 @@ module.exports = async (client, Discord, message) => {
     
     if (message.content.match(ana))
     {
-            
+        
+        if(message.guild.id !== '777620055344545842') return    
         message.channel.send(`<:emoji_233:890722279074451506> Días,tardes,noches,madrugadas <:mmsi:925934342016995379> porque Buena está la persona que me acaba de mencionar <a:Zuii:890684724673150996> <a:Ytodomedavuelta:890721775699259422>`).catch((e) => console.log('Error al enviar mensaje: '+e))
     
     }
@@ -499,12 +501,13 @@ module.exports = async (client, Discord, message) => {
     
     if (message.content.match(nia))
     {
-          
+        
+        if(message.guild.id !== '777620055344545842') return  
         message.channel.send(`¿¡𝑸𝒖𝒆 𝒏𝒆𝒄𝒆𝒔𝒊𝒅𝒂𝒅 𝒅𝒆 𝒑𝒊𝒏𝒈𝒆𝒂𝒂𝒂𝒂𝒓!? <:gatoNojao:930403164266565642>`).catch((e) => console.log('Error al enviar mensaje: '+e))
     
     }
     
-    if (message.content === 'piropo' || message.content === 'Piropo')
+    if (message.content.toLowerCase() === 'piropo')
     {
     
         var piropo = [
@@ -552,7 +555,7 @@ module.exports = async (client, Discord, message) => {
     }
     
     
-    if (message.content === 'chiste' || message.content === 'Chiste')
+    if (message.content.toLowerCase() === 'chiste')
     {
     
         var chiste = [
