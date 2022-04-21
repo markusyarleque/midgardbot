@@ -45,7 +45,7 @@ module.exports =  {
                 .setAuthor({ name: `MidgardBot`, iconURL: client.user.avatarURL({ dynamic: true }) })
                 .setDescription('Aún no hay autorespuestas agregadas <:tierno:931433334960160799>')   	
                 .setColor("RANDOM")
-                .setFooter({ text: message.guild.name, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+                .setFooter({ text: message.guild.name, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : 'https://i.imgur.com/MNWYvup.gif' })
                 
             ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
@@ -53,7 +53,7 @@ module.exports =  {
             embed.setThumbnail('https://i.imgur.com/vxTQC94.gif')
             embed.setDescription(datos.join('\n\n'))   	
             embed.setColor("RANDOM")
-            embed.setFooter({ text: message.guild.name, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+            embed.setFooter({ text: message.guild.name, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : 'https://i.imgur.com/MNWYvup.gif' })
              
             message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
 

@@ -51,7 +51,7 @@ module.exports =  {
                 .setAuthor({ name: '𝐌𝐢𝐝𝐠𝐚𝐫𝐝 𝐒𝐭𝐚𝐟𝐟', iconURL: client.user.avatarURL({ dynamic: true}) })
                 .setDescription('Aún no hay usuarios con diamantes <:tierno:931433334960160799>')   	
                 .setColor("RANDOM")
-                .setFooter({ text: `Malta's Bot`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+                .setFooter({ text: `Malta's Bot`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : 'https://i.imgur.com/MNWYvup.gif' })
 
             ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
@@ -94,7 +94,7 @@ module.exports =  {
             embed.setDescription('Muchas Felicidades **'+ best.username + '**!!! Por tu gran esfuerzo y dedicación, has obtenido el Rol <@&924042633339367436> Todos estamos agradecimos... Lo mereces!')   	
             embed.setColor("RANDOM")
             embed.setTimestamp(Date())
-            embed.setFooter({ text: `Malta's Bot`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+            embed.setFooter({ text: `Malta's Bot`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : 'https://i.imgur.com/MNWYvup.gif' })
             
             canalstaff.bulkDelete(2)
             canalstaff.send({ content: '<@' + best.id + '>' , embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))

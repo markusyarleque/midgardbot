@@ -176,6 +176,7 @@ module.exports = async (client, Discord, message) => {
         
         let autorespuesta = await autoSchema.find({ idserver: message.guild.id, trigger: message.content.toLowerCase() }).sort({ idcc: -1 })
         let datos = []
+        console.log('Autorespuesta: ' + autorespuesta)
 
         if(autorespuesta && datos.length > 0){
 

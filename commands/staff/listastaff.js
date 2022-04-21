@@ -52,7 +52,7 @@ module.exports =  {
                 .setAuthor({ name: '𝐌𝐢𝐝𝐠𝐚𝐫𝐝 𝐒𝐭𝐚𝐟𝐟', iconURL: client.user.avatarURL({ dynamic: true}) })
                 .setDescription('Aún no hay staff con diamantes <:tierno:931433334960160799>')   	
                 .setColor("RANDOM")
-                .setFooter({ text: `Malta's Bot`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+                .setFooter({ text: `Malta's Bot`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : 'https://i.imgur.com/MNWYvup.gif' })
 
             ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
             
@@ -64,7 +64,7 @@ module.exports =  {
             embed.setImage('https://i.imgur.com/9JJeBS7.gif')
             embed.setDescription(datos.join('\n\n'))   	
             embed.setColor("RANDOM")
-            embed.setFooter({ text: `Malta's Bot`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+            embed.setFooter({ text: `Malta's Bot`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : 'https://i.imgur.com/MNWYvup.gif' })
             
             canalstaff.bulkDelete(2)
             canalstaff.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))

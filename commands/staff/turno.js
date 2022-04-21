@@ -21,7 +21,7 @@ module.exports =  {
         .setDescription('<a:BD_decoFlechaVerde:878509031675801640> Muchas gracias por ayudarnos a ser cada día mejor! Acabas de iniciar turno y has obtenido el rol <@&888203969111916595> Recuerda que tus mensajes solo serán contados en el canal <#870195067338506271>. Al finalizar, ejecuta de nuevo el comando `_turno` y automáticamente, el bot te dirá la cantidad de mensajes que has escrito, los puntos ganados que un <@&880241455849938995> te agregará, y los diamantes acumulados, que también serán añadidos en el canal de <#950717214137409596> Mucha Suerte!')
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter({ text: `Malta's Bot`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+        .setFooter({ text: `Malta's Bot`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : 'https://i.imgur.com/MNWYvup.gif' })
        
         var rol = message.guild.roles.cache.find(x => x.id === staffTurno)
 
@@ -149,7 +149,7 @@ module.exports =  {
                             .addField('Diamantes Acumulados: <a:diamante:887714567084449892>','<a:flech:931432469935312937> Total: ' + (userTurno.diamantes + diamantes), false)
                             .setColor('RANDOM')
                             .setTimestamp(new Date())
-                            .setFooter({ text: `Malta's Bot`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+                            .setFooter({ text: `Malta's Bot`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : 'https://i.imgur.com/MNWYvup.gif' })
                                           
                         ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
                     
@@ -178,7 +178,7 @@ module.exports =  {
                                 .setAuthor({ name: '𝐌𝐢𝐝𝐠𝐚𝐫𝐝 𝐒𝐭𝐚𝐟𝐟', iconURL: client.user.avatarURL({ dynamic: true}) })
                                 .setDescription('Aún no hay usuarios con diamantes <:tierno:931433334960160799>')   	
                                 .setColor("RANDOM")
-                                .setFooter({ text: `Malta's Bot`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+                                .setFooter({ text: `Malta's Bot`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : 'https://i.imgur.com/MNWYvup.gif' })
            
                             ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
                 
@@ -190,7 +190,7 @@ module.exports =  {
                             embed.setImage('https://i.imgur.com/9JJeBS7.gif')
                             embed.setDescription(datos.join('\n\n'))   	
                             embed.setColor("RANDOM")
-                            embed.setFooter({ text: `Malta's Bot`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : client.user.avatarURL({ dynamic: true }) })
+                            embed.setFooter({ text: `Malta's Bot`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : 'https://i.imgur.com/MNWYvup.gif' })
                             
                             canalstaff.bulkDelete(2)
                             canalstaff.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
