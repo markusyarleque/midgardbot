@@ -375,7 +375,7 @@ module.exports = async (client, Discord, message) => {
                   
                     m.edit({
                   
-                        content: `Contactando a mi creador... <a:cargando:887482093481902101><@${img}> Te buscan por aquí <:yonofui:931433119859503194>`,
+                        content: `Contactando a mi creador... <a:cargando:887482093481902101>`,
                         components: []
 
                     }).then(async (m) => {
@@ -388,7 +388,7 @@ module.exports = async (client, Discord, message) => {
 
                             await message.channel.send({
 
-                                contet: `<@${img}> Te buscan por aquí <:yonofui:931433119859503194>`,
+                                content: `<@${img}> Te buscan por aquí <:yonofui:931433119859503194>`,
                                 components: []
         
                             })
