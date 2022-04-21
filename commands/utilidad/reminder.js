@@ -1,5 +1,4 @@
 const prefixSchema = require('../../models/serverSchema');
-const reminderSchema = require('../../models/reminderSchema');
 
 module.exports =  {
     
