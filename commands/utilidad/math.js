@@ -102,7 +102,7 @@ module.exports =  {
             .addField("Pregunta: ", '```js\n'+args[0]+' '+signo+' '+args[2]+'```')
             .addField('Respuesta: ', '```js\n'+await resultado+'```')
             .setTimestamp(new Date())
-            .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+            .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
 
             return message.reply({ allowedMentions: { repliedUser: false}, embeds: [calcula]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 

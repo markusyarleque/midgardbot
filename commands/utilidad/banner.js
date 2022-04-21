@@ -50,9 +50,9 @@ module.exports =  {
                 .setColor(user.hexAccentColor ? user.hexAccentColor : 'RANDOM')
                 .setDescription(`${user.hexAccentColor.toUpperCase()}`) 
                 .setTimestamp(new Date())
-                .setAuthor({ name: 'Color de '+user.tag, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+                .setAuthor({ name: 'Color de '+user.tag, iconURL: client.user.avatarURL({ dynamic: true }) })
                 .setThumbnail(user.displayAvatarURL() ? user.displayAvatarURL({ dynamic: true}) : client.user.avatarURL({ dynamic: true }) )
-                .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+                .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
 
             ],
           
@@ -68,9 +68,9 @@ module.exports =  {
                 .setImage(user.bannerURL({size: 2048, dynamic: true}))
                 .setColor(`COLOR_CUSTOM`)
                 .setTimestamp(new Date())
-                .setAuthor({ name: 'Banner de '+user.tag, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+                .setAuthor({ name: 'Banner de '+user.tag, iconURL: client.user.avatarURL({ dynamic: true }) })
                 .setThumbnail(user.displayAvatarURL() ? user.displayAvatarURL({ dynamic: true}) : client.user.avatarURL({ dynamic: true }) )
-                .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+                .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
 
             ],
         

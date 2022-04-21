@@ -69,6 +69,7 @@ module.exports =  {
             let auto = await autoSchema.create({
 
                 idcc: idcc,
+                idserver: message.guild.id,
                 trigger: trigger,
                 response: response,
 

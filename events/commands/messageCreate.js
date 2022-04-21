@@ -129,6 +129,9 @@ module.exports = async (client, Discord, message) => {
     
     if (message.author.bot) return;
 
+
+    //& SECCIÓN DE TURNOS - STAFF
+
     let userTurno
 
     if(idcanal === '870195067338506271'){
@@ -164,9 +167,14 @@ module.exports = async (client, Discord, message) => {
 
     }
 
+    //& SECCIÓN DE TURNOS - STAFF
+
+    
+    //* SECCIÓN DE AUTORESPUESTAS
+
     try {
         
-        let autorespuesta = await autoSchema.find({trigger: message.content.toLowerCase()}).sort({ idcc: -1 })
+        let autorespuesta = await autoSchema.find({ idserver: message.guild.id, trigger: message.content.toLowerCase() }).sort({ idcc: -1 })
         let datos = []
 
         if(autorespuesta && datos.length > 0){
@@ -185,6 +193,11 @@ module.exports = async (client, Discord, message) => {
         
         console.log('Error al obtener autorespuestas: ' + error)
     }
+
+    //* SECCIÓN DE AUTORESPUESTAS
+
+
+    //? SECCIÓN DE AUTORESPUESTAS - MIDGARD
 
     var hola = [
 
@@ -336,6 +349,9 @@ module.exports = async (client, Discord, message) => {
         message.react(`<a:cerveza:880635824021065738>`).catch((e) => console.log('Error al reaccionar: '+e))
           
     }
+
+    //? SECCIÓN DE AUTORESPUESTAS - MIDGARD
+
   
     let img = '753435606410985573'
   

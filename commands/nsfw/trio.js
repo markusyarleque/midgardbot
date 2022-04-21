@@ -196,12 +196,12 @@ module.exports =  {
             }
 
             const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: `🔞 | Midgard's Hot VIP 🔥`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+            .setAuthor({ name: `🔞 | Midgard's Hot VIP 🔥`, iconURL: client.user.avatarURL({ dynamic: true }) })
             .setDescription(`**${message.author.username}** se unió al trío con **${img1.user.username}** y **${img2.user.username}** <:mmm:880308330894090241>`)
             .setImage(ramdontrio)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+            .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
   
             const row = new Discord.MessageActionRow()
             .addComponents(
@@ -240,12 +240,12 @@ module.exports =  {
                         }
 
                         const nembed = new Discord.MessageEmbed()
-                        .setAuthor({ name: `🔞 | Midgard's Hot VIP 🔥`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+                        .setAuthor({ name: `🔞 | Midgard's Hot VIP 🔥`, iconURL: client.user.avatarURL({ dynamic: true }) })
                         .setDescription(`**${message.author.username}** se unió al trío con **${img1.user.username}** y **${img2.user.username}** <:mmm:880308330894090241>`)
                         .setImage(ramdontrio)
                         .setColor('RANDOM')
                         .setTimestamp(new Date())
-                        .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+                        .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
             
                         m.edit({ allowedMentions: { repliedUser: false}, content: ' ', embeds: [nembed], components: [] }).catch((e) => console.log('Error al enviar mensaje: '+e))
    

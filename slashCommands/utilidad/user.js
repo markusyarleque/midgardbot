@@ -110,7 +110,7 @@ module.exports = {
 
                 const embed = new Discord.MessageEmbed()
                 .setThumbnail(user.displayAvatarURL({ dynamic: true }).replace('webp','png'))
-                .setAuthor({ name: 'Información del Usuario', iconURL: interaction.guild.iconURL() ? interaction.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+                .setAuthor({ name: 'Información del Usuario', iconURL: client.user.avatarURL({ dynamic: true }) })
                 .addField('Actividad:', playing ? playing : 'Nada', true)
                 .addField('Estado:', status ? status : 'Ninguno', true)
                 .addField('Color:', interaction.member.displayHexColor ? interaction.member.displayHexColor : 'Ninguno', true)
@@ -122,7 +122,7 @@ module.exports = {
                 .addField('Roles:', roles ? roles : 'No tiene roles')
                 .setColor(interaction.member.displayColor ? interaction.member.displayColor : 'RANDOM')
                 .setTimestamp(new Date())
-                .setFooter({ text: `${interaction.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif'})
+                .setFooter({ text: `${interaction.guild.name}`, iconURL: interaction.guild.iconURL() ? interaction.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif'})
              
                 await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
                 await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))
@@ -201,7 +201,7 @@ module.exports = {
 
                 const embed = new Discord.MessageEmbed()
                 .setThumbnail(userm.displayAvatarURL({ dynamic: true }).replace('webp','png'))
-                .setAuthor({ name: 'Información del Usuario', iconURL: interaction.guild.iconURL() ? interaction.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+                .setAuthor({ name: 'Información del Usuario', iconURL: client.user.avatarURL({ dynamic: true }) })
                 .addField('Actividad:', playing ? playing : 'Nada', true)
                 .addField('Estado:', status ? status : 'Ninguno', true)
                 .addField('Color:', interaction.guild.members.resolve(userm.id).displayHexColor ? interaction.guild.members.resolve(userm.id).displayHexColor : 'Ninguno', true)
@@ -213,7 +213,7 @@ module.exports = {
                 .addField('Roles:', roles ? roles : 'No tiene roles')
                 .setColor(interaction.guild.members.resolve(userm.id).displayColor ? interaction.guild.members.resolve(userm.id).displayColor : 'RANDOM')
                 .setTimestamp(new Date())
-                .setFooter({ text: `${interaction.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif'})
+                .setFooter({ text: `${interaction.guild.name}`, iconURL: interaction.guild.iconURL() ? interaction.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif'})
              
                 await interaction.deferReply().catch((e) => console.log('Error al usar slash commands: '+e))
                 await wait(500).catch((e) => console.log('Error al usar slash commands: '+e))

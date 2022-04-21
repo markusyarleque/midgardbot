@@ -47,7 +47,7 @@ module.exports =  {
         
         try {
             
-            let idc = await autoSchema.findOne({ idcc: idcc })
+            let idc = await autoSchema.findOne({ idcc: idcc, idserver: message.guild.id })
 
             if(!idc){
 
@@ -64,7 +64,7 @@ module.exports =  {
 
             }
 
-            let update = await autoSchema.findOneAndUpdate({ idcc: idcc },
+            let update = await autoSchema.findOneAndUpdate({ idcc: idcc, idserver: message.guild.id },
                 {
 
                     response: response

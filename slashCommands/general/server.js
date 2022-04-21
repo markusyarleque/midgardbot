@@ -60,7 +60,7 @@ module.exports = {
   
             const embed = new Discord.MessageEmbed()
             .setThumbnail(server.iconURL() ? server.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) )
-            .setAuthor({ name: server.name, iconURL: client.user.avatarURL()})
+            .setAuthor({ name: server.name, iconURL: client.user.avatarURL() })
             .addField('ID:', server.id, false)
             .addField('Dueño:', `${(await server.fetchOwner()).user.tag} (${(await server.fetchOwner()).id})` , true)
             .addField('Creado el:', moment(server.createdTimestamp).format('LL') + ' a las '+moment(server.createdTimestamp).format('LT') + ' [' + moment(server.createdTimestamp).fromNow()+' ]', false)
@@ -73,7 +73,7 @@ module.exports = {
             .addField('Verificación:', '<a:flech:931432469935312937>' +vl[server.verificationLevel] , false)
             .addField('Canales de Texto:', '<a:flech:931432469935312937> '+channels.filter(channel => channel.type === 'GUILD_TEXT').size , true)
             .addField('Canales de Voz:', '<a:flech:931432469935312937> '+channels.filter(channel => channel.type === 'GUILD_VOICE').size , true)
-            .setImage(server.bannerURL() ? server.bannerURL({ dynamic: true, size: 4096 }).replace('webp','png') : 'https://www.cosas-que-pasan.com/wp-content/uploads/portada-facebook-portada-en-construccion.jpg')
+            .setImage(server.bannerURL() ? server.bannerURL({ dynamic: true, size: 4096 }).replace('webp','png') : null)
             .setColor('RANDOM')
             .setTimestamp(new Date())
             .setFooter({ text: interaction.user.username+'#'+interaction.user.discriminator, iconURL: `${interaction.user.displayAvatarURL({ dynamic: true }).replace('webp','png')}`}); 

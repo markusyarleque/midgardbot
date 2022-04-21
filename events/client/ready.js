@@ -172,7 +172,7 @@ module.exports = async (client) => {
   //         .setImage(image ? image : null)
   //         .setColor('RANDOM')
   //         .setTimestamp(new Date())
-  //         .setFooter({ text: `${sbanneer.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+  //         .setFooter({ text: `${sbanneer.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
         
   //         canalverificadonsfw.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar autonsfw: '+e))
           

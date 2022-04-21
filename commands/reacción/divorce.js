@@ -113,11 +113,11 @@ module.exports =  {
             
                         new Discord.MessageEmbed()
                         .setColor('RANDOM')
-                        .setAuthor({ name: `Midgard's Love 💞`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+                        .setAuthor({ name: `Midgard's Love 💞`, iconURL: client.user.avatarURL({ dynamic: true }) })
                         .setTitle('💔 Propuesta de Divorcio 💔')
                         .setDescription(message.author.toString()+' ¿Estás seguro de querer divorciarte de '+img.toString()+" ?")
                         .setTimestamp(new Date())
-                        .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+                        .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
 
                     ],
                     
@@ -177,12 +177,12 @@ module.exports =  {
                     
                                         new Discord.MessageEmbed()
                                         .setColor('RANDOM')
-                                        .setAuthor({ name: `Midgard's Love 💞`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+                                        .setAuthor({ name: `Midgard's Love 💞`, iconURL: client.user.avatarURL({ dynamic: true }) })
                                         .setTitle('🖤 Divorcio Completado 🤵')
                                         .setDescription('💥 Felicidades!!! '+message.author.toString() + " Te has divorciado correctamente de "+img.toString()+" 🔥")
                                         .setImage(ramdond)
                                         .setTimestamp(new Date())
-                                        .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+                                        .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
 
                                     ], components: []
                   
@@ -203,12 +203,12 @@ module.exports =  {
                 
                                     new Discord.MessageEmbed()
                                     .setColor('RANDOM')
-                                    .setAuthor({ name: `Midgard's Love 💞`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+                                    .setAuthor({ name: `Midgard's Love 💞`, iconURL: client.user.avatarURL({ dynamic: true }) })
                                     .setTitle('❤ Divorcio Rechazao 💟')
                                     .setDescription('Aún hay esperanzas en el amor... '+message.author.toString() + " aún sigues casado con "+img.toString()+" <:tierno:931433334960160799>")
                                     .setImage(ramdona)
                                     .setTimestamp(new Date())
-                                    .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+                                    .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
 
                                 ], components: []
               

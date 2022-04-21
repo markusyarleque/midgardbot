@@ -78,12 +78,12 @@ module.exports =  {
         }
         
         const embed = new Discord.MessageEmbed()
-        .setAuthor({ name: `Midgard's Emotions 🤗`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+        .setAuthor({ name: `Midgard's Emotions 🤗`, iconURL: client.user.avatarURL({ dynamic: true }) })
         .setDescription(`**${message.author.username}** está acariciando a **${img.user.username}**. <a:gatoasomar:930399873113677834>\n<a:flechad:880330587678838784> *${img.user.username}* ha recibido ${text} en total.`)
         .setImage(pat)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+        .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
 
         message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
 

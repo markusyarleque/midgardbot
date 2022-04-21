@@ -192,13 +192,13 @@ module.exports =  {
         console.log('Kiss : ' + ramdonkiss)
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor({ name: `Midgard's Love 💞`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+        .setAuthor({ name: `Midgard's Love 💞`, iconURL: client.user.avatarURL({ dynamic: true }) })
         .setDescription(`**${message.author.username}** le dió un beso a **${img.user.username}**. <:GatoLove:925929538863628318>`)
         .addField('<a:Besitos:939793778829586442> Total de Besos:','> ' + desc)
         .setImage(ramdonkiss)
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+        .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
   
         message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
 

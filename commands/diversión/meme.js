@@ -22,12 +22,12 @@ module.exports =  {
             post => {
                     
                 const embed = new Discord.MessageEmbed()
-                .setAuthor({ name: `Midgard's Fun`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+                .setAuthor({ name: `Midgard's Fun`, iconURL: client.user.avatarURL({ dynamic: true }) })
                 .setTitle(post.title ? post.title : 'Sin título')
                 .setImage(post.url)
                 .setColor('RANDOM')
                 .setTimestamp(new Date())
-                .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+                .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
         
                 if(!post.url){
                         

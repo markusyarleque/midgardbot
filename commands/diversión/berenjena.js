@@ -77,26 +77,26 @@ module.exports =  {
                 const r = Math.floor(Math.random() * (21 - 15)) + 15;
           
                 const embed = new Discord.MessageEmbed()
-                .setAuthor({ name: `Midgard's Love`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+                .setAuthor({ name: `Midgard's Love`, iconURL: client.user.avatarURL({ dynamic: true }) })
                 .setTitle(`¿Cuánto te mide? 🍆`)
                 .setDescription(`😎 ¡La berenjena de **${message.author.username}** mide **${r}** centímetros! 😎`)
                 .setImage(`https://i.imgur.com/9T3I5Xj.gif`)
                 .setColor('RANDOM')
                 .setTimestamp(new Date())
-                .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+                .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
           
                 message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
             } else {
 
                 const embed = new Discord.MessageEmbed()
-                .setAuthor({ name: `Midgard's Love`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+                .setAuthor({ name: `Midgard's Love`, iconURL: client.user.avatarURL({ dynamic: true }) })
                 .setTitle(`¿Cuánto te mide? 🍆`)
                 .setDescription(`${heard} ¡La berenjena de **${message.author.username}** mide **${random}** centímetros! ${heard}`)
                 .setImage(`${image}`)
                 .setColor('RANDOM')
                 .setTimestamp(new Date())
-                .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+                .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
           
                 message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
         
@@ -111,26 +111,26 @@ module.exports =  {
                 const r = Math.floor(Math.random() * (21 - 15)) + 15;
           
                 const embed = new Discord.MessageEmbed()
-                .setAuthor({ name: `Midgard's Love`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+                .setAuthor({ name: `Midgard's Love`, iconURL: client.user.avatarURL({ dynamic: true }) })
                 .setTitle(`¿Cuánto te mide? 🍆`)
                 .setDescription(`😎 ¡La berenjena de **${users.username}** mide **${r}** centímetros! 😎`)
                 .setImage(`https://i.imgur.com/9T3I5Xj.gif`)
                 .setColor('RANDOM')
                 .setTimestamp(new Date())
-                .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+                .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
           
                 message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
         
             } else {
 
                 const embed = new Discord.MessageEmbed()
-                .setAuthor({ name: `Midgard's Love`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+                .setAuthor({ name: `Midgard's Love`, iconURL: client.user.avatarURL({ dynamic: true }) })
                 .setTitle(`¿Cuánto te mide? 🍆`)
                 .setDescription(`${heard} ¡La berenjena de **${users.username}** mide **${random}** centímetros! ${heard}`)
                 .setImage(`${image}`)
                 .setColor('RANDOM')
                 .setTimestamp(new Date())
-                .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+                .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
           
                 message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
           

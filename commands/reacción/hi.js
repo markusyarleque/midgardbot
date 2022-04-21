@@ -38,12 +38,12 @@ module.exports =  {
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: `Midgard's Emotions 🤗`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+            .setAuthor({ name: `Midgard's Emotions 🤗`, iconURL: client.user.avatarURL({ dynamic: true }) })
             .setDescription(`**${message.author.username}** está saludando a todos.`)
             .setImage(ramdonhi)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+            .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
 
             message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
@@ -61,12 +61,12 @@ module.exports =  {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: `Midgard's Love 💞`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+            .setAuthor({ name: `Midgard's Love 💞`, iconURL: client.user.avatarURL({ dynamic: true }) })
             .setDescription(`**${img.user.username}**, está saludando a ${message.author.username}.`)
             .setImage(ramdonhi)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+            .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
 
             message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
     

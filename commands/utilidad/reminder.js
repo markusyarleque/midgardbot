@@ -1,4 +1,5 @@
 const prefixSchema = require('../../models/serverSchema');
+const reminderSchema = require('../../models/reminderSchema');
 
 module.exports =  {
     
@@ -56,7 +57,7 @@ module.exports =  {
       ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
           
     } else {
-    
+
       function reminder() {
     
         message.reply({embeds: [
@@ -66,7 +67,7 @@ module.exports =  {
           .setColor('RANDOM')
           .setDescription('<a:exclama2:880930071731392512> | Tengo este recordatorio para ti: \n\n> ' + mensaje)
     
-        ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+        ]}).catch((e) => console.log('Error al enviar recordatorio debido a: '+e))
 
       }
     

@@ -24,7 +24,7 @@ module.exports =  {
 
         try {
 
-            let lista = await autoSchema.find().sort({ idcc: -1 })
+            let lista = await autoSchema.find({ idserver: message.guild.id }).sort({ idcc: -1 })
 
             let embed = new Discord.MessageEmbed()
 

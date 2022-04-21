@@ -85,7 +85,7 @@ module.exports =  {
         .addField('<a:uno:932368116749594674> **' + split[1] + '**', '..........')
         .addField('<a:dos:932368203458445362> **' + split[2] + '**', '..........')
         .setTimestamp(new Date())
-        .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+        .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
 
         if (split[3]) embed.addField('<a:tres:932368254335340614> **' + split[3] + '**', '..........');
         

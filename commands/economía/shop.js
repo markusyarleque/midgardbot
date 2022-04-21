@@ -33,7 +33,7 @@ module.exports =  {
         // STORE
 
         const shop1 = new Discord.MessageEmbed()
-        .setAuthor({ name: message.guild.name+' | Store 🏪', iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+        .setAuthor({ name: 'MidgardBot | Store 🏪', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setThumbnail('https://i.imgur.com/lpTNXfV.gif')
         .setDescription('Para adquirir un item, debes usar el comando `'+prefix+'buy <name>`') 
         .addField(`<a:money:930397094924124180> 10 - Chicken`, 'Item para apuestas', false)  
@@ -44,10 +44,10 @@ module.exports =  {
         .addField(`<a:money:930397094924124180> 10,000 - Dorado`, 'Color para tu perfil', false)  		
         .addField(`<a:money:930397094924124180> 10,000 - Amarillo`, 'Color para tu perfil', false)			
         .setColor("RANDOM")
-        .setFooter({ text: `Página 1/2`, iconURL: client.user.avatarURL({ dynamic: true }) })
+        .setFooter({ text: `Página 1/2`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
 
         const shop2 = new Discord.MessageEmbed()
-        .setAuthor({ name: message.guild.name+' | Store 🏪', iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+        .setAuthor({ name: 'MidgardBot | Store 🏪', iconURL: client.user.avatarURL({ dynamic: true }) })
         .setThumbnail('https://i.imgur.com/lpTNXfV.gif')
         .setDescription('Para adquirir un item, debes usar el comando `'+prefix+'buy <name>`')   
         .addField(`<a:money:930397094924124180> 10,000 - Rosa`, 'Color para tu perfil', false)  
@@ -58,7 +58,7 @@ module.exports =  {
         .addField(`<a:money:930397094924124180> 10,000 - Blanco`, 'Color para tu perfil', false)  		
         .addField(`<a:money:930397094924124180> 10,000 - Negro`, 'Color para tu perfil', false) 			
         .setColor("RANDOM")
-        .setFooter({ text: `Página 2/2`, iconURL: client.user.avatarURL({ dynamic: true }) })
+        .setFooter({ text: `Página 2/2`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
 
         const bS1 = new Discord.MessageButton()
         .setCustomId("p1")

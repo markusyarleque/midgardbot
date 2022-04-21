@@ -121,7 +121,7 @@ module.exports =  {
 
                 const embed = new Discord.MessageEmbed()
                 .setThumbnail(user.displayAvatarURL() ? user.displayAvatarURL({ dynamic: true }).replace('webp','png') : client.user.avatarURL({ dynamic: true }) )
-                .setAuthor({ name: 'Información del Usuario', iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+                .setAuthor({ name: 'Información del Usuario', iconURL: client.user.avatarURL({ dynamic: true }) })
                 .addField('Actividad:', playing ? playing : 'Nada', true)
                 .addField('Estado:', status ? status : 'Ninguno', true)
                 .addField('Color:', message.member.displayHexColor ? message.member.displayHexColor : 'Ninguno', true)
@@ -133,7 +133,7 @@ module.exports =  {
                 .addField('Roles:', roles ? roles : 'No se encontraron roles')
                 .setColor(message.member.displayColor ? message.member.displayColor : 'RANDOM')
                 .setTimestamp(new Date())
-                .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+                .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
 
                 return message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
                 
@@ -221,7 +221,7 @@ module.exports =  {
 
                 const embed = new Discord.MessageEmbed()
                 .setThumbnail(userm.displayAvatarURL() ? userm.displayAvatarURL({ dynamic: true }).replace('webp','png') : client.user.avatarURL({ dynamic: true }) )
-                .setAuthor({ name: 'Información del Usuario', iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+                .setAuthor({ name: 'Información del Usuario', iconURL: client.user.avatarURL({ dynamic: true }) })
                 .addField('Actividad:', playing ? playing : 'Nada', true)
                 .addField('Estado:', status ? status : 'Ninguno', true)
                 .addField('Color:', message.guild.members.resolve(userm.id).displayHexColor ? message.guild.members.resolve(userm.id).displayHexColor : 'Ninguno', true)
@@ -233,7 +233,7 @@ module.exports =  {
                 .addField('Roles:', roles ? roles : 'No se encontraron roles')
                 .setColor(message.guild.members.resolve(userm.id).displayColor ? message.guild.members.resolve(userm.id).displayColor : 'RANDOM')
                 .setTimestamp(new Date())
-                .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+                .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
 
                 message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
       

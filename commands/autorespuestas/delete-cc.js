@@ -37,7 +37,7 @@ module.exports =  {
      
         try {
             
-            let idc = await autoSchema.findOne({ idcc: idcc })
+            let idc = await autoSchema.findOne({ idcc: idcc, idserver: message.guild.id })
 
             if(!idc){
 
@@ -54,7 +54,7 @@ module.exports =  {
 
             }
 
-            let dcc = await autoSchema.deleteOne({ idcc: idcc })
+            let dcc = await autoSchema.deleteOne({ idcc: idcc, idserver: message.guild.id })
 
             console.log('Autorespuesta Eliminada ===> Código: '+ idcc)
 
