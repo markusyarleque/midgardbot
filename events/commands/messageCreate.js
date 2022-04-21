@@ -349,7 +349,7 @@ module.exports = async (client, Discord, message) => {
         .setLabel("NO")
         .setStyle("DANGER")
     
-    /*if (message.content === 'malta' || message.content === 'Malta' || message.content === 'MALTA' || message.content === 'MAlta' || message.content === 'maltazar' || message.content === 'Maltazar' || message.content === 'MALTAZAR' || message.content === 'MAltazar' || message.content === 'maltazard' || message.content === 'Maltazard' || message.content === 'MALTAZARD' || message.content === 'MAltazard')
+    if (message.content.toLowerCase() === 'malta' || message.content.toLowerCase() === 'maltazar' || message.content.toLowerCase() === 'maltazard')
     {
     
         message.channel.send({
@@ -365,7 +365,7 @@ module.exports = async (client, Discord, message) => {
             
             let filter = int => int.isButton() && int.user.id == message.author.id 
              
-            const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 300000 });
+            const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 60000 });
             
             collector.on("collect", async int => {
                 
@@ -390,7 +390,7 @@ module.exports = async (client, Discord, message) => {
         
             collector.on("end", (collected, reason) => {
                 
-              if(collected.size < 1) return m.edit({
+              if(collected.size < 1 || reason === 'time') return m.edit({
                 content: "**¡No confirmaste a tiempo!** <:enojado:931434000751394867>",
                 components: []
               });
@@ -400,7 +400,7 @@ module.exports = async (client, Discord, message) => {
             });
               
         });
-    }*/
+    }
     
     /*let reven = new RegExp(`^<@!?${'710588969557164113'}>( |)$`);
     
@@ -442,7 +442,7 @@ module.exports = async (client, Discord, message) => {
     if (message.content.match(insp))
     {
     
-        message.channel.send(`Tan al pendiente estás que tienes que hacerme ping? <a:ayajasisi:890684634369777724>`).catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send(`¿Qué necesitas de la Inspectora? <a:ayajasisi:890684634369777724> Por ahora solo inspecciones al dm <:X_pw:887055706509959178>…. Ya sabes, tu Inspectora de confianza al servicio de la comunidad <a:ositovino:880306728867078165>`).catch((e) => console.log('Error al enviar mensaje: '+e))
     
     }
   

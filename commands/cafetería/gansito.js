@@ -35,12 +35,12 @@ module.exports =  {
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: `Midgard's Cafe`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+            .setAuthor({ name: `Midgard's Cafe`, iconURL: client.user.avatarURL({ dynamic: true }) })
             .setDescription(`A **${message.author.username}** se le antojó un rico pastelito.`)
             .setImage(ramdongansito)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+            .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif'  })
             
             message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
@@ -58,12 +58,12 @@ module.exports =  {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: `Midgard's Cafe`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : client.user.avatarURL({ dynamic: true }) })
+            .setAuthor({ name: `Midgard's Cafe`, iconURL: client.user.avatarURL({ dynamic: true }) })
             .setDescription(`**${img.user.username}**, ${message.author.username} te invitó unos deliciosos gansitos.`)
             .setImage(ramdongansito)
             .setColor('RANDOM')
             .setTimestamp(new Date())
-            .setFooter({ text: `${message.guild.name}`, iconURL: 'https://media.discordapp.net/attachments/880312288593195028/904603928375726120/Midgard_GIF_AVATAR.gif' })
+            .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif'  })
             
             message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
