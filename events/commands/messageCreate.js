@@ -368,34 +368,58 @@ module.exports = async (client, Discord, message) => {
             const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 60000 });
             
             collector.on("collect", async int => {
+              
+                int.deferUpdate();
                 
-              int.deferUpdate();
-                
-              if (int.customId === "accept") {
+                if (int.customId === "accept") {
                   
-                m.edit({
-                  content: `<@${img}> Te buscan por aquí <:yonofui:931433119859503194>`,
-                  components: []
-                });
+                    m.edit({
+                  
+                        content: `Contactando a mi creador... <a:cargando:887482093481902101><@${img}> Te buscan por aquí <:yonofui:931433119859503194>`,
+                        components: []
+
+                    }).then(async (m) => {
+
+                        message.channel.sendTyping()
+                        
+                        setTimeout(async () => {
+
+                            m.delete()
+
+                            await message.channel.send({
+
+                                contet: `<@${img}> Te buscan por aquí <:yonofui:931433119859503194>`,
+                                components: []
+        
+                            })
+
+                        }, 5000)
+
+                    })
          
-              } else if (int.customId === "deny") {
+                } else if (int.customId === "deny") {
                   
-                m.edit({
-                  content: "Gracias, si necesitas algo, no dudes en contactarme. <:tierno:931433334960160799>",
-                  components: []
-                });
+                    m.edit({
+                  
+                        content: "Gracias, si necesitas algo, no dudes en contactarme. <:tierno:931433334960160799>",
+                        components: []
+
+                    });
                 
-              }
+                }
+            
             });
         
             collector.on("end", (collected, reason) => {
+              
+                if(collected.size < 1 || reason === 'time') return m.edit({
                 
-              if(collected.size < 1 || reason === 'time') return m.edit({
-                content: "**¡No confirmaste a tiempo!** <:enojado:931434000751394867>",
-                components: []
-              });
+                    content: "**¡No confirmaste a tiempo!** <:enojado:931434000751394867>",
+                    components: []
+              
+                });
 
-              console.log('Razón del término de colección de Malta: '+reason)
+                console.log('Razón del término de colección de Malta: '+reason)
                 
             });
               
@@ -442,7 +466,14 @@ module.exports = async (client, Discord, message) => {
     if (message.content.match(insp))
     {
     
-        message.channel.send(`¿Qué necesitas de la Inspectora? <a:ayajasisi:890684634369777724> Por ahora solo inspecciones al dm <:X_pw:887055706509959178>…. Ya sabes, tu Inspectora de confianza al servicio de la comunidad <a:ositovino:880306728867078165>`).catch((e) => console.log('Error al enviar mensaje: '+e))
+        var i = [
+
+            '¿Qué necesitas de la Inspectora? <a:ayajasisi:890684634369777724> Por ahora solo inspecciones al dm <:X_pw:887055706509959178>…. Ya sabes, tu Inspectora de confianza al servicio de la comunidad <a:ositovino:880306728867078165>',
+            '<:simp_:915076757802086401>',
+
+        ]
+
+        message.channel.send(i[Math.floor(Math.random()*i.length)]).catch((e) => console.log('Error al enviar mensaje: '+e))
     
     }
   
