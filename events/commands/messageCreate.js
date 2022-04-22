@@ -176,19 +176,15 @@ module.exports = async (client, Discord, message) => {
         
         let autorespuesta = await autoSchema.find({ idserver: message.guild.id, trigger: message.content.toLowerCase() }).sort({ idcc: -1 })
         let datos = []
-        console.log('Autorespuesta: ' + autorespuesta)
-        console.log('Datos lenght: ' + datos.length)
 
         if(autorespuesta){
 
             for(let ls of autorespuesta){
 
-                console.log('response: ' + ls.response)
                 datos.push(ls.response)
-                console.log('datos: ' + datos)
+
             }
 
-            console.log('datos2: ' + datos)
             message.channel.send(datos[Math.floor(Math.random()*datos.length)]).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         }
