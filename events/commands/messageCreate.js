@@ -179,7 +179,7 @@ module.exports = async (client, Discord, message) => {
         console.log('Autorespuesta: ' + autorespuesta)
         console.log('Datos lenght: ' + datos.length)
 
-        if(autorespuesta && datos.length > 0){
+        if(autorespuesta){
 
             for(let ls of autorespuesta){
 
