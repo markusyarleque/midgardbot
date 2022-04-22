@@ -185,7 +185,7 @@ module.exports = async (client, Discord, message) => {
 
             }
 
-            message.channel.send(datos[Math.floor(Math.random()*datos.length)]).catch((e) => console.log('Error al enviar mensaje: '+e))
+            message.channel.send(datos[Math.floor(Math.random()*datos.length)]).catch((e) => console.log('Error al enviar autorespuesta: '+e))
 
         }
         
