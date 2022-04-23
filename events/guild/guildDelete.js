@@ -56,7 +56,7 @@ module.exports = async (client, Discord, guild) => {
         
         })
 
-        setTimeout(() => {
+        setTimeout(async () => {
 
             const embedmbp = new Discord.MessageEmbed()
             .setThumbnail('https://i.imgur.com/Uq0IPAU.gif')
