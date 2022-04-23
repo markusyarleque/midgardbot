@@ -64,7 +64,7 @@ module.exports =  {
     
         ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-        let purge = parseInt(args[0])
+        let purge = parseInt(args[0]) + 1
 
         // await message.channel.messages.fetch({ limit: purge }).then(
               
@@ -99,14 +99,21 @@ module.exports =  {
                     .catch((e) => {
                         
                         console.log('Error al enviar mensaje de confirmación de comando Clear: ' + e)
-                        logschannel.send({ content: 'Error al enviar mensaje de confirmación de comando Clear: ' + e })
+                        logschannel.send({ content: 'Error al enviar mensaje de confirmación de comando Clear: ' + e }).catch((e) => console.log('Error al enviar mensaje: '+e))
                         
                     })
 
                 }).catch((e) => {
 
                     message.channel.send({ content: 'Ocurrió un error al eliminar algunos mensajes: Debido a las limitaciones de Discord, no es posible eliminar mensajes enviados hace más de 14 días!' })
-                    logschannel.send({ content: 'Error al eliminar mensajes en comando clear: ' + e })
+                    .then(msg => setTimeout(() => msg.delete(), 5000))
+                    .catch((e) => {
+                        
+                        console.log('Error al enviar mensaje de no confirmación de comando Clear: ' + e)
+                        logschannel.send({ content: 'Error al enviar mensaje de no confirmación de comando Clear: ' + e }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                        
+                    })
+                    logschannel.send({ content: 'Error al eliminar mensajes en comando clear: ' + e }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
                 })
                 

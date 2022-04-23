@@ -131,7 +131,7 @@ module.exports = async (client, Discord, guild) => {
             } catch (error) {
                 
                 console.log('Error al eliminar mensajes en MBPremiums: ' + error)
-                logschannel.send({ content: 'Error al eliminar mensajes en MBPremiums: ' + error })
+                logschannel.send({ content: 'Error al eliminar mensajes en MBPremiums: ' + error }).catch((e) => console.log('Error al enviar mensaje: '+e))
         
             }
 
@@ -171,7 +171,7 @@ module.exports = async (client, Discord, guild) => {
         } catch (error) {
             
             console.log('Error al enviar mensajes' + error)
-            logschannel.send({ content: 'Error al enviar mensajes: ' + error })
+            logschannel.send({ content: 'Error al enviar mensajes: ' + error }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         }
 
@@ -222,7 +222,7 @@ module.exports = async (client, Discord, guild) => {
     } catch (error) {
         
         console.log('Error al eliminar mensajes en MBServers: ' + error)
-        logschannel.send({ content: 'Error al eliminar mensajes en MBServers: ' + error })
+        logschannel.send({ content: 'Error al eliminar mensajes en MBServers: ' + error }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
     }
 
