@@ -2866,7 +2866,7 @@ client.login(process.env.TOKEN)
 // });
 
 const embed  = new Discord.MessageEmbed()
-.setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+.setAuthor({ name: 'MidgardBot', iconURL: 'https://i.imgur.com/Cd1FqFh.gif' })
 .setFooter({ text: '© Maltazard', iconURL: 'https://i.imgur.com/MNWYvup.gif' })
 .setTimestamp(new Date())
 
