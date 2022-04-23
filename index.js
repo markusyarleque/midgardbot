@@ -2878,11 +2878,20 @@ client.on('error', (e) => {
   
   console.error(e)
   tablee.addRow('Error: ', e)
-  logschannel.send({ embeds: [
+
+  try {
     
-    embed.setDescription('```' + tablee + '```')
-  
-  ]})
+    logschannel.send({ embeds: [
+    
+      embed.setDescription('```' + tablee + '```')
+    
+    ]})
+
+  } catch (error) {
+    
+    console.log('Error al enviar logs de error: ' + error)
+
+  }
 
 })
 
@@ -2890,11 +2899,20 @@ client.on('warn', (e) => {
   
   console.warn(e)
   tablew.addRow('Warn: ', e)
-  logschannel.send({ embeds: [
+
+  try {
     
-    embed.setDescription('```' + tablew + '```')
-  
-  ]})
+    logschannel.send({ embeds: [
+    
+      embed.setDescription('```' + tablew + '```')
+    
+    ]})
+
+  } catch (error) {
+    
+    console.log('Error al enviar logs de warn: ' + error)
+
+  }
 
 });
 
@@ -2902,10 +2920,19 @@ client.on('debug', (e) => {
   
   console.info(e)
   tabled.addRow('Debug: ', e)
-  logschannel.send({ embeds: [
+
+  try {
     
-    embed.setDescription('```' + tabled + '```')
-  
-  ]})
+    logschannel.send({ embeds: [
+    
+      embed.setDescription('```' + tabled + '```')
+    
+    ]})
+
+  } catch (error) {
+    
+    console.log('Error al enviar logs de debug: ' + error)
+
+  }
 
 });
