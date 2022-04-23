@@ -20,7 +20,7 @@ const prefix = process.env.PREFIX;
 
 var AsciiTable = require('ascii-table')
 
-let logschannel = client.channels.cache.get('965156885558878319')
+let logschannel
 // const DBL = require("dblapi.js");
 
 // client.dbl = new DBL('Yfnr7FYWyZ6DnlUD0pKGbr2cIQkBUMYZ6dWpPPv8X8_AC2nGJSMy_1fA6NwAgAH7UQnS');
@@ -156,6 +156,8 @@ client.login(process.env.TOKEN)
     console.log(`Estoy listo, soy ${client.user.tag}`);
     console.log('========================= LOGIN =========================')
 
+    logschannel = client.channels.cache.get('965156885558878319')
+    
   })
   .catch((err) => {
 

@@ -64,7 +64,7 @@ module.exports =  {
     
         ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-        let purge = parseInt(args[0]) + 1
+        let purge = parseInt(args[0])
 
         // await message.channel.messages.fetch({ limit: purge }).then(
               
