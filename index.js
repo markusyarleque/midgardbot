@@ -17,6 +17,10 @@ const red = require('reddit-fetch');
 const over = require('poke-over');
 
 const prefix = process.env.PREFIX;
+
+var AsciiTable = require('ascii-table')
+
+let logschannel = client.channels.cache.get('965156885558878319')
 // const DBL = require("dblapi.js");
 
 // client.dbl = new DBL('Yfnr7FYWyZ6DnlUD0pKGbr2cIQkBUMYZ6dWpPPv8X8_AC2nGJSMy_1fA6NwAgAH7UQnS');
@@ -2861,6 +2865,47 @@ client.login(process.env.TOKEN)
 
 // });
 
-client.on('error', (e) => console.error(e));
-client.on('warn', (e) => console.warn(e));
-client.on('debug', (e) => console.info(e));
+const embed  = new Discord.MessageEmbed()
+.setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
+.setFooter({ text: '© Maltazard', iconURL: 'https://i.imgur.com/MNWYvup.gif' })
+.setTimestamp(new Date())
+
+var tablee = new AsciiTable()
+var tablew = new AsciiTable()
+var tabled = new AsciiTable()
+
+client.on('error', (e) => {
+  
+  console.error(e)
+  tablee.addRow('Error: ', e)
+  logschannel.send({ embeds: [
+    
+    embed.setDescription('```' + tablee + '```')
+  
+  ]})
+
+})
+
+client.on('warn', (e) => {
+  
+  console.warn(e)
+  tablew.addRow('Warn: ', e)
+  logschannel.send({ embeds: [
+    
+    embed.setDescription('```' + tablew + '```')
+  
+  ]})
+
+});
+
+client.on('debug', (e) => {
+  
+  console.info(e)
+  tabled.addRow('Debug: ', e)
+  logschannel.send({ embeds: [
+    
+    embed.setDescription('```' + tabled + '```')
+  
+  ]})
+
+});

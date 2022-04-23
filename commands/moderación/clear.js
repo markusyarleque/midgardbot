@@ -8,6 +8,8 @@ module.exports =  {
   
     async execute(client, message, args, Discord) {
 
+        let logschannel = client.channels.cache.get('965156885558878319')
+        
         if(!message.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES)) return message.reply({ embeds: [
 
             new Discord.MessageEmbed()
@@ -75,14 +77,56 @@ module.exports =  {
             
         // ).catch((e) => console.log('Error al fetchar mensajes: '+e))
 
-        message.channel.bulkDelete(purge).then(messages => {
+        try {
+                
+            for (let i = 0; i < Math.ceil(purge / 99); i++){ 
+              
+                const msgs = await message.channel.messages.fetch({
+                
+                    limit: Math.round(purge / Math.ceil(purge / 99)),
+              
+                });
+              
+                await message.channel.bulkDelete(
+                
+                    msgs.filter((m) => m.deletable)
+              
+                ).then(messages => {
 
-            let size = messages.size - 1
-            message.channel.send('```'+ size +' mensajes han sido borrados.'+'```')
-            .then(msg => setTimeout(() => msg.delete(), 5000))
-            .catch((e) => console.log('Error al enviar mensaje: '+e))
+                    let size = messages.size - 1
+                    message.channel.send({ content: '```'+ size +' mensajes han sido borrados.'+'```' })
+                    .then(msg => setTimeout(() => msg.delete(), 5000))
+                    .catch((e) => {
+                        
+                        console.log('Error al enviar mensaje de confirmación de comando Clear: ' + e)
+                        logschannel.send({ content: 'Error al enviar mensaje de confirmación de comando Clear: ' + e })
+                        
+                    })
+
+                }).catch((e) => {
+
+                    message.channel.send({ content: 'Ocurrió un error al eliminar algunos mensajes: Debido a las limitaciones de Discord, no es posible eliminar mensajes enviados hace más de 14 días!' })
+                    logschannel.send({ content: 'Error al eliminar mensajes en comando clear: ' + e })
+    
+                })
+                
+            } 
+    
+        } catch (error) {
+            
+            console.log('Error al ejecutar todo el comando clear: ' + error)
+            logschannel.send({ content: 'Error al ejecutar todo el comando clear: ' + error })
+    
+        }
+
+        // message.channel.bulkDelete(purge).then(messages => {
+
+        //     let size = messages.size - 1
+        //     message.channel.send()
+        //     .then(msg => setTimeout(() => msg.delete(), 5000))
+        //     .catch((e) => console.log('Error al enviar mensaje: '+e))
         
-        }).catch(e => message.channel.send('Ocurrió un error al eliminar algunos mensajes: Debido a las limitaciones de Discord, no es posible eliminar mensajes enviados hace más de 14 días! '))
+        // }).catch(e => message.channel.send())
 
     }
 
