@@ -2865,25 +2865,17 @@ client.login(process.env.TOKEN)
 
 // });
 
-const embed  = new Discord.MessageEmbed()
-.setAuthor({ name: 'MidgardBot', iconURL: 'https://i.imgur.com/Cd1FqFh.gif' })
-.setFooter({ text: '© Maltazard', iconURL: 'https://i.imgur.com/MNWYvup.gif' })
-.setTimestamp(new Date())
-
 client.on('error', (e) => {
 
   var tablee = new AsciiTable()
+  var d = new Date()
   console.error(e)
-  tablee.addRow('Error: ', e)
+  tablee.addRow(d.toLocaleString() + ': ', e)
 
   try {
     
     logschannel = client.channels.cache.get('965156885558878319')
-    logschannel.send({ embeds: [
-    
-      embed.setDescription('```' + tablee + '```')
-    
-    ]})
+    logschannel.send({ contents: '```' + tablee + '```' })
 
   } catch (error) {
     
@@ -2896,17 +2888,14 @@ client.on('error', (e) => {
 client.on('warn', (e) => {
   
   var tablew = new AsciiTable()
+  var d = new Date()
   console.warn(e)
-  tablew.addRow('Warn: ', e)
+  tablew.addRow(d.toLocaleString() + ': ', e)
   
   try {
     
     logschannel = client.channels.cache.get('965156885558878319')
-    logschannel.send({ embeds: [
-    
-      embed.setDescription('```' + tablew + '```')
-    
-    ]})
+    logschannel.send({ contents: '```' + tablew + '```' })
 
   } catch (error) {
     
@@ -2919,17 +2908,14 @@ client.on('warn', (e) => {
 client.on('debug', (e) => {
   
   var tabled = new AsciiTable()
+  var d = new Date()
   console.info(e)
-  tabled.addRow('Debug: ', e)
+  tabled.addRow(d.toLocaleString() + ': ', e)
   
   try {
     
     logschannel = client.channels.cache.get('965156885558878319')
-    logschannel.send({ embeds: [
-    
-      embed.setDescription('```' + tabled + '```')
-    
-    ]})
+    logschannel.send({ contents: '```' + tabled + '```' })
 
   } catch (error) {
     
