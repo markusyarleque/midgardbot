@@ -25,8 +25,8 @@ let logschannel
 
 // client.dbl = new DBL('Yfnr7FYWyZ6DnlUD0pKGbr2cIQkBUMYZ6dWpPPv8X8_AC2nGJSMy_1fA6NwAgAH7UQnS');
 
-/*const moment = require('moment');
-require('moment-duration-format');*/
+const moment = require('moment');
+require('moment-duration-format');
 
 /*const dbv = require('megadb');
 const vip = new dbv.crearDB('vip');
@@ -2869,8 +2869,9 @@ client.on('error', (e) => {
 
   var tablee = new AsciiTable()
   var d = new Date()
+  var f = moment(d.toLocaleString()).utcOffset(-5).format("dddd, MMMM Do YYYY, h:mm:ss a")
   console.error(e)
-  tablee.addRow(d.toLocaleString() + ': ', e)
+  tablee.addRow(f, e)
 
   try {
     
@@ -2889,8 +2890,9 @@ client.on('warn', (e) => {
   
   var tablew = new AsciiTable()
   var d = new Date()
+  var f = moment(d.toLocaleString()).utcOffset(-5).format("dddd, MMMM Do YYYY, h:mm:ss a")
   console.warn(e)
-  tablew.addRow(d.toLocaleString() + ': ', e)
+  tablew.addRow(f, e)
   
   try {
     
@@ -2909,8 +2911,9 @@ client.on('debug', (e) => {
   
   var tabled = new AsciiTable()
   var d = new Date()
+  var f = moment(d.toLocaleString()).utcOffset(-5).format("dddd, MMMM Do YYYY, h:mm:ss a")
   console.info(e)
-  tabled.addRow(d.toLocaleString() + ': ', e)
+  tabled.addRow(f, e)
   
   try {
     
