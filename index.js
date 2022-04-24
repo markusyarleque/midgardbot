@@ -156,10 +156,6 @@ client.login(process.env.TOKEN)
     console.log(`Estoy listo, soy ${client.user.tag}`);
     console.log('========================= LOGIN =========================')
 
-    logschannel = client.channels.cache.get('965156885558878319')
-    
-    console.log('Logschannel: ' + logschannel)
-
   })
   .catch((err) => {
 
@@ -2882,9 +2878,13 @@ client.on('error', (e) => {
   
   console.error(e)
   tablee.addRow('Error: ', e)
-  console.log('Logschannel: ' + logschannel)
+
   try {
     
+    logschannel = client.channels.cache.get('965156885558878319')
+    
+    console.log('Logschannel: ' + logschannel)
+
     logschannel.send({ embeds: [
     
       embed.setDescription('```' + tablee + '```')
@@ -2903,9 +2903,13 @@ client.on('warn', (e) => {
   
   console.warn(e)
   tablew.addRow('Warn: ', e)
-  console.log('Logschannel: ' + logschannel)
+  
   try {
     
+    logschannel = client.channels.cache.get('965156885558878319')
+    
+    console.log('Logschannel: ' + logschannel)
+
     logschannel.send({ embeds: [
     
       embed.setDescription('```' + tablew + '```')
@@ -2924,9 +2928,13 @@ client.on('debug', (e) => {
   
   console.info(e)
   tabled.addRow('Debug: ', e)
-  console.log('Logschannel: ' + logschannel)
+  
   try {
     
+    logschannel = client.channels.cache.get('965156885558878319')
+    
+    console.log('Logschannel: ' + logschannel)
+
     logschannel.send({ embeds: [
     
       embed.setDescription('```' + tabled + '```')
