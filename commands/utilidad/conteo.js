@@ -52,7 +52,7 @@ module.exports =  {
 
             let count1 = setInterval(async () => {
     
-                while (time > 0) {
+                if(time > 0){
 
                     await msg.edit(String(time)).catch((e) => console.log('Error al enviar mensaje editado de conteo: '+e))
                     
@@ -60,9 +60,7 @@ module.exports =  {
 
                     time -= 2
 
-                }
-
-                if(time <= 0){
+                } else if(time <= 0){
 
                     await msg.edit(`Se acabó el tiempo ⌛`).catch((e) => console.log('Error al enviar mensaje editado de conteo: '+e))
 
@@ -84,7 +82,7 @@ module.exports =  {
 
             let count2 = setInterval(async () => {
     
-                while (time > 0) {
+                if(time > 0){
 
                     await msg.edit(String(time)).catch((e) => console.log('Error al enviar mensaje editado de conteo: '+e))
                     
@@ -92,9 +90,7 @@ module.exports =  {
 
                     time -= 3
 
-                }
-
-                if(time <= 0){
+                } else if(time <= 0){
 
                     await msg.edit(`Se acabó el tiempo ⌛`).catch((e) => console.log('Error al enviar mensaje editado de conteo: '+e))
 
