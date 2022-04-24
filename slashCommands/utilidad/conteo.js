@@ -68,21 +68,57 @@ module.exports = {
         
                         if(time < 60) {
                     
+                            time -= 2
+                            
                             let count1 = setInterval(async () => {
                     
-                                await interaction.editReply(time <= 0 ? `Se acabó el tiempo ⌛` : String(time)).catch((e) => console.log('Error al usar slash commands: '+e))
-                                time <= 0 ? interaction.followUp(`${interaction.user}... El conteo regresivo, ha llegado a su fin.`).catch((e) => console.log('Error al usar slash commands: '+e)) : time
-                                time <= 0 ? clearInterval(count1) : time -= 2;
+                                if(time > 0){
+
+                                    await interaction.editReply(String(time)).catch((e) => console.log('Error al enviar mensaje editado de conteo: '+e))
+                                   
+                                    time -= 2
+                
+                                } else if(time <= 0){
+                
+                                    await interaction.editReply(`Se acabó el tiempo ⌛`).then(m => setTimeout(() => m.delete(), 2000)).catch((e) => console.log('Error al enviar mensaje editado de conteo: '+e))
+                
+                                    interaction.followUp(`${interaction.user}... El conteo regresivo, ha llegado a su fin.`).catch((e) => console.log('Error al enviar mensaje conteo llegó a su fin: '+e))
+                
+                                    clearInterval(count1)
+                
+                                }
+
+                                // await interaction.editReply(time <= 0 ? `Se acabó el tiempo ⌛` : String(time)).catch((e) => console.log('Error al usar slash commands: '+e))
+                                // time <= 0 ? interaction.followUp(`${interaction.user}... El conteo regresivo, ha llegado a su fin.`).catch((e) => console.log('Error al usar slash commands: '+e)) : time
+                                // time <= 0 ? clearInterval(count1) : time -= 2;
                                 
                             }, 2000)
                 
                         } else {
                     
+                            time -= 3
+
                             let count2 = setInterval(async () => {
                     
-                                await interaction.editReply(time <= 0  ? `... Se acabó el tiempo ⌛` : String(time)).catch((e) => console.log('Error al usar slash commands: '+e))
-                                time <= 0 ? interaction.followUp(`${interaction.user}... El conteo regresivo, ha llegado a su fin.`).catch((e) => console.log('Error al usar slash commands: '+e)) : time
-                                time <= 0 ? clearInterval(count2) : time -= 3
+                                if(time > 0){
+
+                                    await interaction.editReply(String(time)).catch((e) => console.log('Error al enviar mensaje editado de conteo: '+e))
+                                   
+                                    time -= 3
+                
+                                } else if(time <= 0){
+                
+                                    await interaction.editReply(`Se acabó el tiempo ⌛`).then(m => setTimeout(() => m.delete(), 2000)).catch((e) => console.log('Error al enviar mensaje editado de conteo: '+e))
+                
+                                    interaction.followUp(`${interaction.user}... El conteo regresivo, ha llegado a su fin.`).catch((e) => console.log('Error al enviar mensaje conteo llegó a su fin: '+e))
+                
+                                    clearInterval(count2)
+                
+                                }
+
+                                // await interaction.editReply(time <= 0  ? `... Se acabó el tiempo ⌛` : String(time)).catch((e) => console.log('Error al usar slash commands: '+e))
+                                // time <= 0 ? interaction.followUp(`${interaction.user}... El conteo regresivo, ha llegado a su fin.`).catch((e) => console.log('Error al usar slash commands: '+e)) : time
+                                // time <= 0 ? clearInterval(count2) : time -= 3
                     
                             }, 3000)
                             
