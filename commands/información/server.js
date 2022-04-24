@@ -52,7 +52,7 @@ module.exports = {
         .addField('ID:', server.id, false)
         .addField('Dueño:', `${(await server.fetchOwner()).user.tag} (${(await server.fetchOwner()).id})` , true)
         //.addField('Creado el:', server.createdAt, false)
-        .addField('Creado el:', moment(server.createdTimestamp).format('LL') + ' a las '+moment(server.createdTimestamp).format('LT') + ' [' + moment(server.createdTimestamp).fromNow()+' ]', false)
+        .addField('Creado el:', moment(server.createdTimestamp).utcOffset(-5).format('LL') + ' a las '+moment(server.createdTimestamp).utcOffset(-5).format('LT') + ' [' + moment(server.createdTimestamp).fromNow()+' ]', false)
         .addField('Miembros:', '<a:flech:931432469935312937> '+server.memberCount, true)
         //.addField('Region:', '<a:flech:931432469935312937> '+regions[server.region], false)
         .addField('Nivel:', '<a:flech:931432469935312937> '+nivel[server.premiumTier], true)
