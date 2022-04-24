@@ -2870,21 +2870,15 @@ const embed  = new Discord.MessageEmbed()
 .setFooter({ text: '© Maltazard', iconURL: 'https://i.imgur.com/MNWYvup.gif' })
 .setTimestamp(new Date())
 
-var tablee = new AsciiTable()
-var tablew = new AsciiTable()
-var tabled = new AsciiTable()
-
 client.on('error', (e) => {
-  
+
+  var tablee = new AsciiTable()
   console.error(e)
   tablee.addRow('Error: ', e)
 
   try {
     
     logschannel = client.channels.cache.get('965156885558878319')
-    
-    console.log('Logschannel: ' + logschannel)
-
     logschannel.send({ embeds: [
     
       embed.setDescription('```' + tablee + '```')
@@ -2901,15 +2895,13 @@ client.on('error', (e) => {
 
 client.on('warn', (e) => {
   
+  var tablew = new AsciiTable()
   console.warn(e)
   tablew.addRow('Warn: ', e)
   
   try {
     
     logschannel = client.channels.cache.get('965156885558878319')
-    
-    console.log('Logschannel: ' + logschannel)
-
     logschannel.send({ embeds: [
     
       embed.setDescription('```' + tablew + '```')
@@ -2926,15 +2918,13 @@ client.on('warn', (e) => {
 
 client.on('debug', (e) => {
   
+  var tabled = new AsciiTable()
   console.info(e)
   tabled.addRow('Debug: ', e)
   
   try {
     
     logschannel = client.channels.cache.get('965156885558878319')
-    
-    console.log('Logschannel: ' + logschannel)
-
     logschannel.send({ embeds: [
     
       embed.setDescription('```' + tabled + '```')
