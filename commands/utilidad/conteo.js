@@ -48,22 +48,65 @@ module.exports =  {
     
         if(time < 60) {
     
+            time -= 2
+
             let count1 = setInterval(async () => {
     
-                await msg.edit(time <= 0 ? `Se acabó el tiempo ⌛` : String(time)).catch((e) => console.log('Error al enviar mensaje: '+e))
-                // message.channel.send(`${message.author} La cuenta regresiva ha terminado!`)
-                time <= 0 ? message.reply(`${message.author}... El conteo regresivo, ha llegado a su fin.`).catch((e) => console.log('Error al enviar mensaje: '+e)) : message.channel.sendTyping().catch((e) => console.log('Error al enviar mensaje: '+e))
-                time <= 0 ? clearInterval(count1) : time -= 2;
+                while (time > 0) {
+
+                    await msg.edit(String(time)).catch((e) => console.log('Error al enviar mensaje editado de conteo: '+e))
+                    
+                    message.channel.sendTyping().catch((e) => console.log('Error al enviar mensaje: '+e))
+
+                    time -= 2
+
+                }
+
+                if(time <= 0){
+
+                    await msg.edit(`Se acabó el tiempo ⌛`).catch((e) => console.log('Error al enviar mensaje editado de conteo: '+e))
+
+                    message.reply(`${message.author}... El conteo regresivo, ha llegado a su fin.`).catch((e) => console.log('Error al enviar mensaje conteo llegó a su fin: '+e))
+
+                    clearInterval(count1)
+
+                }
+                // await msg.edit(time <= 0 ? `Se acabó el tiempo ⌛` : String(time)).catch((e) => console.log('Error al enviar mensaje: '+e))
+                // // message.channel.send(`${message.author} La cuenta regresiva ha terminado!`)
+                // time <= 0 ? message.reply(`${message.author}... El conteo regresivo, ha llegado a su fin.`).catch((e) => console.log('Error al enviar mensaje: '+e)) : message.channel.sendTyping().catch((e) => console.log('Error al enviar mensaje: '+e))
+                // time <= 0 ? clearInterval(count1) : time -= 2;
                 
             }, 2000)
 
         } else {
     
+            time -= 3
+
             let count2 = setInterval(async () => {
     
-                await msg.edit(time <= 0  ? `... Se acabó el tiempo ⌛` : String(time)).catch((e) => console.log('Error al enviar mensaje: '+e))
-                time <= 0 ? message.reply(`${message.author}... El conteo regresivo, ha llegado a su fin.`).catch((e) => console.log('Error al enviar mensaje: '+e)) : message.channel.sendTyping().catch((e) => console.log('Error al enviar mensaje: '+e))
-                time <= 0 ? clearInterval(count2) : time -= 3
+                while (time > 0) {
+
+                    await msg.edit(String(time)).catch((e) => console.log('Error al enviar mensaje editado de conteo: '+e))
+                    
+                    message.channel.sendTyping().catch((e) => console.log('Error al enviar mensaje: '+e))
+
+                    time -= 3
+
+                }
+
+                if(time <= 0){
+
+                    await msg.edit(`Se acabó el tiempo ⌛`).catch((e) => console.log('Error al enviar mensaje editado de conteo: '+e))
+
+                    message.reply(`${message.author}... El conteo regresivo, ha llegado a su fin.`).catch((e) => console.log('Error al enviar mensaje conteo llegó a su fin: '+e))
+
+                    clearInterval(count2)
+
+                }
+
+                // await msg.edit(time <= 0  ? `... Se acabó el tiempo ⌛` : String(time)).catch((e) => console.log('Error al enviar mensaje: '+e))
+                // time <= 0 ? message.reply(`${message.author}... El conteo regresivo, ha llegado a su fin.`).catch((e) => console.log('Error al enviar mensaje: '+e)) : message.channel.sendTyping().catch((e) => console.log('Error al enviar mensaje: '+e))
+                // time <= 0 ? clearInterval(count2) : time -= 3
     
             }, 3000)
             

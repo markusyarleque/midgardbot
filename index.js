@@ -2877,7 +2877,7 @@ client.on('error', (e) => {
   try {
     
     logschannel = client.channels.cache.get('965156885558878319')
-    logschannel.send({ content: '```' + tablee + '```' })
+    logschannel.send({ content: '<@753435606410985573>\n\n```' + tablee + '```' })
 
   } catch (error) {
     
@@ -2898,7 +2898,7 @@ client.on('warn', (e) => {
   try {
     
     logschannel = client.channels.cache.get('965156885558878319')
-    logschannel.send({ content: '```' + tablew + '```' })
+    logschannel.send({ content: '<@753435606410985573>\n\n```' + tablew + '```' })
 
   } catch (error) {
     

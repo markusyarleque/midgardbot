@@ -63,7 +63,7 @@ module.exports = {
         .addField('Verificación:', '<a:flech:931432469935312937>' +vl[server.verificationLevel] , false)
         .addField('Canales de Texto:', '<a:flech:931432469935312937> '+channels.filter(channel => channel.type === 'GUILD_TEXT').size , true)
         .addField('Canales de Voz:', '<a:flech:931432469935312937> '+channels.filter(channel => channel.type === 'GUILD_VOICE').size , true)
-        .setImage(server.bannerURL() ? server.bannerURL({ dynamic: true, size: 4096 }) : null)
+        .setImage(server.bannerURL() ? server.bannerURL({ dynamic: true, size: 4096 }).replace('webp','png') : null)
         .setColor('RANDOM')
         .setTimestamp(new Date())
         .setFooter({ text: message.author.username+'#'+message.author.discriminator, iconURL: `${message.author.displayAvatarURL({ dynamic: true }).replace('webp','png')}` });
