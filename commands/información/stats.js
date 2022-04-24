@@ -8,6 +8,7 @@ module.exports = {
 
     const moment = require('moment');
     require('moment-duration-format');
+    moment.locale('es');
   
     const actividad = moment.duration(client.uptime).format(' D [dias], H [hrs], m [mins], s [segs]');
 
@@ -40,7 +41,7 @@ module.exports = {
     .setAuthor({ name: 'MidgardBot', iconURL: client.user.avatarURL({ dynamic: true }) })
     .setTitle('Estadísticas')
     .addField('Desarrollador: ', 'Maltazard#1207')
-    .addField('Nacimiento: ', '' + client.user.createdAt.toLocaleDateString()+', '+client.user.createdAt.toLocaleTimeString())
+    .addField('Nacimiento: ', '' + moment(client.user.createdAt.toLocaleString()).utcOffset(-5).format("dddd, MMMM Do YYYY, h:mm:ss:SS a"))
     .addField(`Comandos de Prefix [ - ]:`, ''+(datosc.length ? datosc.length : '0'))
     .addField(`Slash Commands:`, ''+(datoss.length ? datoss.length : '0'))
     .addField('Lenguaje: ', 'JavaScript')

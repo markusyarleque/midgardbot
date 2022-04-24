@@ -27,6 +27,7 @@ let logschannel
 
 const moment = require('moment');
 require('moment-duration-format');
+moment.locale('es');
 
 /*const dbv = require('megadb');
 const vip = new dbv.crearDB('vip');
@@ -2911,7 +2912,7 @@ client.on('debug', (e) => {
   
   var tabled = new AsciiTable()
   var d = new Date()
-  var f = moment(d.toLocaleString()).utcOffset(-5).format("dddd, MMMM Do YYYY, h:mm:ss a")
+  var f = moment(d.toLocaleString()).utcOffset(-5).format("dddd, MMMM Do YYYY, h:mm:ss:SS a")
   console.info(e)
   tabled.addRow(f, e)
   
