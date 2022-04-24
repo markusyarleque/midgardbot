@@ -2877,7 +2877,7 @@ client.on('error', (e) => {
   try {
     
     logschannel = client.channels.cache.get('965156885558878319')
-    logschannel.send({ content: '```' + tablee.removeBorder() + '```' })
+    logschannel.send({ content: '```' + tablee + '```' })
 
   } catch (error) {
     
@@ -2898,7 +2898,7 @@ client.on('warn', (e) => {
   try {
     
     logschannel = client.channels.cache.get('965156885558878319')
-    logschannel.send({ content: '```' + tablew.removeBorder() + '```' })
+    logschannel.send({ content: '```' + tablew + '```' })
 
   } catch (error) {
     
@@ -2919,7 +2919,7 @@ client.on('debug', (e) => {
   try {
     
     logschannel = client.channels.cache.get('965156885558878319')
-    logschannel.send({ content: '```' + tabled.removeBorder() + '```' })
+    logschannel.send({ content: '```' + tabled + '```' })
 
   } catch (error) {
     
