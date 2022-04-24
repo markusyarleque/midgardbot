@@ -36,7 +36,7 @@ module.exports = {
 
             } else {
 
-                if(time <= 10){
+                if(time < 10){
 
                     const e = new Discord.MessageEmbed()
                     .setAuthor({name: interaction.user.tag, iconURL: interaction.user.displayAvatarURL()})
@@ -80,7 +80,7 @@ module.exports = {
                 
                                 } else if(time <= 0){
                 
-                                    await interaction.editReply(`Se acabó el tiempo ⌛`).then(m => setTimeout(() => m.delete(), 2000)).catch((e) => console.log('Error al enviar mensaje editado de conteo: '+e))
+                                    await interaction.editReply(`Se acabó el tiempo ⌛`).catch((e) => console.log('Error al enviar mensaje editado de conteo: '+e))
                 
                                     interaction.followUp(`${interaction.user}... El conteo regresivo, ha llegado a su fin.`).catch((e) => console.log('Error al enviar mensaje conteo llegó a su fin: '+e))
                 
@@ -108,7 +108,7 @@ module.exports = {
                 
                                 } else if(time <= 0){
                 
-                                    await interaction.editReply(`Se acabó el tiempo ⌛`).then(m => setTimeout(() => m.delete(), 2000)).catch((e) => console.log('Error al enviar mensaje editado de conteo: '+e))
+                                    await interaction.editReply(`Se acabó el tiempo ⌛`).catch((e) => console.log('Error al enviar mensaje editado de conteo: '+e))
                 
                                     interaction.followUp(`${interaction.user}... El conteo regresivo, ha llegado a su fin.`).catch((e) => console.log('Error al enviar mensaje conteo llegó a su fin: '+e))
                 

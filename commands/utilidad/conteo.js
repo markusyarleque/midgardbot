@@ -45,19 +45,19 @@ module.exports =  {
         ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         let msg = await message.channel.send(String(time)).catch((e) => console.log('Error al enviar mensaje: '+e))
-    
+      
+        message.channel.sendTyping().catch((e) => console.log('Error al enviar mensaje: '+e))
+
         if(time < 60) {
     
             time -= 2
-
+  
             let count1 = setInterval(async () => {
     
                 if(time > 0){
 
                     await msg.edit(String(time)).catch((e) => console.log('Error al enviar mensaje editado de conteo: '+e))
-                    
-                    message.channel.sendTyping().catch((e) => console.log('Error al enviar mensaje: '+e))
-
+                  
                     time -= 2
 
                 } else if(time <= 0){
@@ -79,15 +79,13 @@ module.exports =  {
         } else {
     
             time -= 3
-
+  
             let count2 = setInterval(async () => {
     
                 if(time > 0){
 
                     await msg.edit(String(time)).catch((e) => console.log('Error al enviar mensaje editado de conteo: '+e))
-                    
-                    message.channel.sendTyping().catch((e) => console.log('Error al enviar mensaje: '+e))
-
+                  
                     time -= 3
 
                 } else if(time <= 0){
