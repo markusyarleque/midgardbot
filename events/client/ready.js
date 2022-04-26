@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const rmSchema = require('../../models/rmSchema');
 const autonsfwSchema = require('../../models/autonsfwSchema');
 const NSFW = require('discord-nsfw');
 const nsfw3 = new NSFW();
@@ -197,5 +198,67 @@ module.exports = async (client) => {
   //   console.log('Error al obtener toda la tabla autonsfw: '+ error)
 
   // }
+
+  //& CÓDIGO REMINDERS
+
+  let rm, datos, server, canal, user, logschannel
+
+  logschannel = client.channels.cache.get('965156885558878319')
+
+  try {
+    
+    client.guilds.cache.forEach(async (s) => {
+
+      rm = await rmSchema.find({ idserver: s.id })
+
+      if(rm){
+
+        for (let ls of rm){
+
+          server = client.guilds.cache.get(ls.idserver)
+          user = server.members.resolve(client.users.cache.get(ls.idusuario));
+          canal = client.channels.cache.get(ls.idcanal)
+  
+          const embedrm = Discord.MessageEmbed()
+          .setAuthor({ name: (user ? user.user.tag : null), iconURL: (user ? user.displayAvatarURL({ dynamic: true}) : null) })
+          .setColor('RANDOM')
+          .setDescription('<a:exclama2:880930071731392512> | Tengo este recordatorio para ti: \n\n> ' + ls.recordatorio)
+            
+          if(Date.now() >= ls.tiempo){
+  
+            if(ls.dm === true){
+  
+              user.send({ embeds: [embedrm] }).catch((e) => {
+                
+                console.log('Error al enviar recordatorio al dm: '+e)
+                logschannel.send({ content: '```Error al enviar recordatorio al dm de ' + ls.idusuario + ' - ' + e + '```' })
+              
+              })
+  
+            } else{
+  
+              canal.send({ content: '<@' + ls.idusuario + '>' ,embeds: [embedrm] }).catch((e) => {
+                
+                console.log('Error al enviar recordatorio en servidor: '+e)
+                logschannel.send({ content: '```Error al enviar recordatorio en el servidor: ' + ls.idserver + ', en el canal: ' + ls.idcanal + ', al usuario: ' + ls.idusuario + ' - ' + e + '```' })
+              
+              })
+  
+            }
+  
+          }
+  
+        }
+
+      }
+
+    })
+
+  } catch (error) {
+    
+    console.log('Error en try-catch de recordatorio: ' + error)
+    logschannel.send({ content: '```Error en el try-catch de recordatorio: ' + error + '```' })
+            
+  }
 
 }

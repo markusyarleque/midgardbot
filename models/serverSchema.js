@@ -9,6 +9,7 @@ const serverSchema = new mongoose.Schema({
     ownername: { type: String, require: true, default: null },
     prefix: { type: String, require: true, default: '_' },
     premium: { type: Boolean, requiere: true, default: false },
+    rmneko: { type: Boolean, requiere: true, default: false },
 
 })
 

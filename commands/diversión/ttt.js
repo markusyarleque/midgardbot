@@ -1,5 +1,6 @@
 const tresenraya = require('tresenraya');
 const { MessageActionRow, MessageButton } = require('discord.js');
+const blSchema = require('../../models/blSchema');
 
 module.exports =  {
     
@@ -23,6 +24,30 @@ module.exports =  {
         
           if (member.user.bot) return message.reply({ allowedMentions: { repliedUser: false}, content: "No puedes competir contra un bot"}).catch((e) => console.log('Error al enviar mensaje: '+e)) //Si el mencionado es un bot retornamos.
     
+          try {
+        
+            let userbl = await blSchema.findOne({idusuario: member.id})
+    
+            if(userbl)
+            {
+    
+                console.log('Usuario en Lista Negra ===> Id: '+ member.id + ' Username: ' + member.username)
+                
+                const e = new Discord.MessageEmbed()
+                .setAuthor({ name: message.author.username+'#'+message.author.discriminator, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                .setColor('RED')
+                .setDescription('<a:Verify2:931463492677017650> | ¡No puedes jugar con el usuario mencionado debido a que está en mi Black List! <:nimoro:887176572711342120>')
+              
+                return message.reply({embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+    
+            }
+    
+        } catch (error) {
+    
+            console.log('Error al buscar (comando) en la Tabla BL: '+ error)
+    
+        }
+
           message.reply({ allowedMentions: { repliedUser: false}, 
             content: member.toString() + ", ¿aceptas jugar **Tres en raya** contra " + message.author.toString() + "?",
             components: [

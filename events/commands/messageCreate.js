@@ -900,6 +900,38 @@ module.exports = async (client, Discord, message) => {
 
     }
 
+    if (message.content.toLowerCase() === 'zodiac'){
+
+        if(!canal.some(id => message.channel.id === id)) return
+        
+        function reminder() {
+    
+            message.reply({embeds: [
+    
+              new Discord.MessageEmbed()
+              .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
+              .setThumbnail('https://i.giphy.com/media/7E8tiGcPf1G78dMXRf/giphy.gif')
+              .setColor('RANDOM')
+              .setDescription('<a:flech:931432469935312937> | Es hora de recoger lo que tu zodiac recolectó para ti<a:exclama2:880930071731392512>')
+        
+            ]})
+    
+        }
+
+        const embed = new Discord.MessageEmbed()
+        .setAuthor({ name: 'Nekotina', iconURL: client.user.avatarURL({ dynamic: true }) })
+        .setTitle('<a:tiempogif:931434689481285662> Recordatorio activado para: *`'+message.author.username+'`*')
+        .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
+        .setDescription('<a:flech:931432469935312937> Te recordaré dentro de `1 hora` usar el comando `work`.')
+        .setColor('RANDOM')
+        .setTimestamp(new Date())
+        .setFooter({ text: message.guild.name, iconURL: message.guild.iconURL({ dynamic: true }) })
+        message.channel.send({ embeds: [embed] })
+
+        setTimeout(reminder, 3600000);
+
+    }
+
     if (message.content.toLowerCase() === 'wf'){
 
         if(!canal.some(id => message.channel.id === id)) return
@@ -1087,7 +1119,7 @@ module.exports = async (client, Discord, message) => {
     
     try {
         
-        userbl = await blSchema.findOne({idusuario: message.author.id})
+        let userbl = await blSchema.findOne({idusuario: message.author.id})
 
         if(userbl)
         {

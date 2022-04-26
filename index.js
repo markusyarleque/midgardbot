@@ -2910,21 +2910,21 @@ client.on('warn', (e) => {
 
 client.on('debug', (e) => {
   
-  var tabled = new AsciiTable()
-  var d = new Date()
-  var f = moment(d.toLocaleString()).utcOffset(-5).format("dddd, DD MMMM YYYY, hh:mm:ss:SS a")
+  // var tabled = new AsciiTable()
+  // var d = new Date()
+  // var f = moment(d.toLocaleString()).utcOffset(-5).format("dddd, DD MMMM YYYY, hh:mm:ss:SS a")
   console.info(e)
-  tabled.addRow(f, e)
+  // tabled.addRow(f, e)
   
-  try {
+  // try {
     
-    logschannel = client.channels.cache.get('965156885558878319')
-    logschannel.send({ content: '```' + tabled + '```' })
+  //   logschannel = client.channels.cache.get('965156885558878319')
+  //   logschannel.send({ content: '```' + tabled + '```' })
 
-  } catch (error) {
+  // } catch (error) {
     
-    console.log('Error al enviar logs de debug: ' + error)
+  //   console.log('Error al enviar logs de debug: ' + error)
 
-  }
+  // }
 
 });

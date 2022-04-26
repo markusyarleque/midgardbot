@@ -1,4 +1,5 @@
 const { Connect4 } = require('leaf-utils');
+const blSchema = require('../../models/blSchema');
 
 module.exports =  {
     
@@ -18,6 +19,30 @@ module.exports =  {
             .setDescription(`<a:Verify2:931463492677017650> | Necesitas mencionar con quién jugar!`)
       
         ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+
+        try {
+        
+            let userbl = await blSchema.findOne({idusuario: usuario.id})
+    
+            if(userbl)
+            {
+    
+                console.log('Usuario en Lista Negra ===> Id: '+ usuario.id + ' Username: ' + usuario.username)
+                
+                const e = new Discord.MessageEmbed()
+                .setAuthor({ name: message.author.username+'#'+message.author.discriminator, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                .setColor('RED')
+                .setDescription('<a:Verify2:931463492677017650> | ¡No puedes jugar con el usuario mencionado debido a que está en mi Black List! <:nimoro:887176572711342120>')
+              
+                return message.reply({embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+    
+            }
+    
+        } catch (error) {
+    
+            console.log('Error al buscar (comando) en la Tabla BL: '+ error)
+    
+        }
 
         await Connect4({
             
