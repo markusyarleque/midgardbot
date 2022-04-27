@@ -9,6 +9,8 @@ module.exports =  {
 
   async execute(client, message, args, Discord) {
 
+    if(message.author.id !== '753435606410985573') return
+
     let buscarprefix, prefix, rm, tiempo, recordatorio, dm
     try {
 
