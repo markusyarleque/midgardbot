@@ -1092,6 +1092,28 @@ module.exports = async (client, Discord, message) => {
 
     }
 
+    //& COMANDO CMEMBER UPDATE XP
+
+    if(message.content.toLowerCase() === '!cmember'){
+            
+        if(message.channel.id !== '938965106275025017') return
+
+        for(var i = 0; i < message.embeds.length; i++){
+    
+
+            message.channel.send({ content: message.content.embeds}).catch((e) => {
+                
+                console.log('Error al enviar contenido del embed: ' + e)
+                logschannel.send({ content: '```Error al detectar y enviar contenido del embed: ' + e + '```' }).catch((e) => console.log('Error al enviar mensaje de logs: ' + e))
+            
+            })
+
+        }
+
+    }
+
+    //& COMANDO CMEMBER UPDATE XP
+
     
     let bot = new RegExp(`^<@!?${'904290001196556369'}>( |)$`);
     
