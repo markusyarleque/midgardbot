@@ -149,22 +149,23 @@ module.exports =  {
                 if(!lista || datos.length === 0) return message.channel.send({embeds:[
               
                     new Discord.MessageEmbed()
-                    .setAuthor({ name: '𝐌𝐢𝐝𝐠𝐚𝐫𝐝 𝐍𝐞𝐤𝐨𝐂𝐥𝐮𝐛', iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : 'https://i.imgur.com/MNWYvup.gif' })
                     .setDescription('Aún no hay usuarios con XP <:tierno:931433334960160799>')   	
                     .setColor("RANDOM")
-                    .setFooter({ text: message.guild.name, iconURL: message.guild.bannerURL() ? message.guild.bannerURL({ dynamic: true, size: 4096 }) : 'https://i.imgur.com/MNWYvup.gif' })
+                    .setTimestamp(new Date())
+                    .setFooter({ text: '𝐌𝐢𝐝𝐠𝐚𝐫𝐝 𝐍𝐞𝐤𝐨𝐂𝐥𝐮𝐛', iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : 'https://i.imgur.com/MNWYvup.gif' })
 
                 ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
                 best = client.users.cache.get(first[0])
 
-                embed.setAuthor({ name: '𝐌𝐢𝐝𝐠𝐚𝐫𝐝 𝐍𝐞𝐤𝐨𝐂𝐥𝐮𝐛', iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : 'https://i.imgur.com/MNWYvup.gif' })
                 embed.setTitle('𝑴𝒊𝒅𝒈𝒂𝒓𝒅 𝑿𝑷 𝑹𝒂𝒄𝒆 💎')
                 embed.setThumbnail(best.displayAvatarURL() ? best.displayAvatarURL({dynamic: true, size: 2048}) : message.guild.iconURL({ dynamic: true, size: 2048 }))
                 embed.setImage('https://i.imgur.com/VKOLvQT.gif')
                 embed.setDescription(datos.join('\n\n'))   	
                 embed.setColor("RANDOM")
-                embed.setFooter({ text: message.guild.name, iconURL: message.guild.bannerURL() ? message.guild.bannerURL({ dynamic: true, size: 4096 }) : 'https://i.imgur.com/MNWYvup.gif' })
+                embed.setTimestamp(new Date())
+                embed.setFooter({ text: '𝐌𝐢𝐝𝐠𝐚𝐫𝐝 𝐍𝐞𝐤𝐨𝐂𝐥𝐮𝐛', iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : 'https://i.imgur.com/MNWYvup.gif' })
+
                 
                 topchannel.bulkDelete(3).catch((e) => console.log('Error al eliminar mensajes: '+e))
                 topchannel.send('https://images-ext-2.discordapp.net/external/9iPHKFXXnKKSQpcFazlW79dr1zbbtdo7QT7-xxtfDY4/%3Fwidth%3D600%26height%3D86/https/media.discordapp.net/attachments/897951731462316073/915663567213199390/bar-1.gif?width=450&height=65').catch((e) => console.log('Error al enviar mensaje: '+e))
