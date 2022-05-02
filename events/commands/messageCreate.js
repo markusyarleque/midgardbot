@@ -1112,7 +1112,7 @@ module.exports = async (client, Discord, message) => {
 
                 fields = dem[0].fields
                 
-                idxpclub = dem[0].fields[0].value
+                idxpclub = 0
 
                 setTimeout(() => {
                     
