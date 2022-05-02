@@ -1108,7 +1108,7 @@ module.exports = async (client, Discord, message) => {
                 
                 setTimeout(() => {
                     
-                    message.channel.send({ content: m.embeds }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    message.channel.send(m.embeds).catch((e) => console.log('Error al enviar mensaje: '+e))
                     
                     console.log('Contenido: ' + m.embeds)
 
