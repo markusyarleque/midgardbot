@@ -1108,13 +1108,15 @@ module.exports = async (client, Discord, message) => {
             
             collector.on('collect', async m => {
                
-                JSON.stringify(m.embeds.fields, null, 2)
+                // JSON.stringify(m.embeds, null, 2)
+                
+                idxpclub = Object.entries(m.embeds)
                 
                 setTimeout(() => {
                     
                     message.channel.send({ content: 'Id: ' + idxpclub + ' - XP: ' + xpclub }).catch((e) => console.log('Error al enviar mensaje: '+e))
                     
-                    console.log('Contenido: ' + JSON.stringify(m.embeds.fields, null, 2))
+                    console.log('Contenido: ' + Object.entries(m.embeds))
 
                 }, 5000)
                 
