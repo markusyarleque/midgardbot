@@ -1098,19 +1098,17 @@ module.exports = async (client, Discord, message) => {
             
         if(message.channel.id !== '938965106275025017') return
 
-        console.log('OK 1')
-        for(var i = 0; i < message.embeds.length; i++){
+        for(var i = 0; i < 1; i++){
     
-            console.log('OK 2')
-            message.channel.send({ content: message.content.embeds}).catch((e) => {
+            message.channel.send({ content: message.content.embeds }).catch((e) => {
                 
                 console.log('Error al enviar contenido del embed: ' + e)
                 logschannel.send({ content: '```Error al detectar y enviar contenido del embed: ' + e + '```' }).catch((e) => console.log('Error al enviar mensaje de logs: ' + e))
             
             })
-            console.log('OK 3')
+
         }
-        console.log('OK 4')
+
     }
 
     //& COMANDO CMEMBER UPDATE XP
