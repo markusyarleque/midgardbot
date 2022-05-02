@@ -1098,6 +1098,8 @@ module.exports = async (client, Discord, message) => {
             
         if(message.channel.id !== '938965106275025017') return
 
+        let idxpclub, xpclub
+
         message.channel.sendTyping().then(async me => {
             
             let filter = a => a.author.id == '429457053791158281'
@@ -1105,12 +1107,14 @@ module.exports = async (client, Discord, message) => {
             const collector = message.channel.createMessageCollector({ filter, idle: 60000, max: 1 })
             
             collector.on('collect', async m => {
+               
+                JSON.stringify(m.embeds.fields, null, 2)
                 
                 setTimeout(() => {
                     
-                    message.channel.send({ content: JSON.stringify(m.embeds, null, 2) }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    message.channel.send({ content: 'Id: ' + idxpclub + ' - XP: ' + xpclub }).catch((e) => console.log('Error al enviar mensaje: '+e))
                     
-                    console.log('Contenido: ' + JSON.stringify(m.embeds, null, 2))
+                    console.log('Contenido: ' + JSON.stringify(m.embeds.fields, null, 2))
 
                 }, 5000)
                 
