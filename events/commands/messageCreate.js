@@ -1098,31 +1098,30 @@ module.exports = async (client, Discord, message) => {
             
         if(message.channel.id !== '938965106275025017') return
 
-        console.log('OK 1')
         message.channel.sendTyping().then(async me => {
-            console.log('OK 2')
+            
             let filter = a => a.author.id == '429457053791158281'
 
             const collector = message.channel.createMessageCollector({ filter, idle: 60000, max: 1 })
-            console.log('OK 3')
+            
             collector.on('collect', async m => {
-                console.log('OK 4')
+                
                 setTimeout(() => {
-                    console.log('OK 5')
-                    message.channel.send({ content: m.content }).catch((e) => console.log('Error al enviar mensaje: '+e))
-                    console.log('OK 6')
-                    console.log('Contenido: ' + m.content)
+                    
+                    message.channel.send({ content: m.content.embeds }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    
+                    console.log('Contenido: ' + m.content.embeds)
+
                 }, 5000)
-                console.log('OK 7')
+                
             })
-            console.log('OK 8')
+            
             collector.on('end', async (collected, reason) => {
                 
                 if(collected.size < 1 || reason === 'time') return
 
-                console.log('OK 9')
             })
-            console.log('OK 10')
+            
         }).catch((e) => {
             
             console.log('Error al enviar contenido del embed: ' + e)
