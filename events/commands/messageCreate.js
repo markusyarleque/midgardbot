@@ -1144,7 +1144,7 @@ module.exports = async (client, Discord, message) => {
 
                 // prend = Object.values(xpclub)
 
-                fields = JSON.stringify(m.embeds, ['title'])
+                fields = JSON.stringify(m.embeds, ['fields'])
 
                 // idxpclub = dem.substring('**ID:**', 26)
 
@@ -1152,7 +1152,7 @@ module.exports = async (client, Discord, message) => {
 
                 setTimeout(() => {
                     
-                    message.channel.send({ content: 'Embed: ' + dem + ' - Title: ' + fields + ' - ZT: ' + prend }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    message.channel.send({ content: 'Embed: ' + dem + ' - Campos: ' + fields + ' - ZT: ' + prend }).catch((e) => console.log('Error al enviar mensaje: '+e))
                     
                     console.log('Contenido: ' + dem)
                     console.log('Fields: ' + fields)
