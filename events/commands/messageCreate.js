@@ -1113,6 +1113,12 @@ module.exports = async (client, Discord, message) => {
 
                 fields = dem.title
 
+                prend = []
+
+                prend.push(dem)
+
+                xpclub = prend.join
+
                 // idxpclub = Object.values(fields)
                 
                 // xpclub = Object.values(idxpclub)
