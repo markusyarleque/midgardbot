@@ -1136,7 +1136,7 @@ module.exports = async (client, Discord, message) => {
 
                 fields = Object.values(dem)
 
-                idxpclub = JSON.stringify(fields, null, 2)
+                idxpclub = JSON.stringify(fields, ['fields'])
 
                 // idxpclub = Object.values(fields)
                 
