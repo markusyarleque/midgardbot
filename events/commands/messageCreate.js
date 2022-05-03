@@ -1147,7 +1147,7 @@ module.exports = async (client, Discord, message) => {
 
                     indexa = fields.indexOf('**Aniversario:**')
 
-                    xpclub = fields.substring(indexxp + 17, indexa - 2)
+                    xpclub = fields.substring(indexxp + 17, indexa - 2).replace(/,/g, '')
 
                     console.log('INDEXP: ' + indexxp + ' - INDEXA: ' + indexa)
 
