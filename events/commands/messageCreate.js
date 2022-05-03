@@ -1097,7 +1097,7 @@ module.exports = async (client, Discord, message) => {
 
     if(message.content.toLowerCase() === '!cmember'){
             
-        if(message.channel.id !== '938965106275025017') return
+        if(message.channel.id !== '941504777056038922') return
 
         let fields, idxpclub, xpclub, indexid, indexxp, indexa, topchannel, userxp, total, lista, dem, datos, first, c, best
 
@@ -1109,36 +1109,48 @@ module.exports = async (client, Discord, message) => {
             
             collector.on('collect', async m => {
                
-                fields = JSON.stringify(m.embeds, ['fields','value'], 2)
+                try {
+                    
+                    fields = JSON.stringify(m.embeds, ['fields','value'], 2)
 
-                if(fields.includes(message.author.id)){
+                    if(fields.includes(message.author.id)){
 
-                    indexid = fields.indexOf(message.author.id)
+                        indexid = fields.indexOf(message.author.id)
 
-                    idxpclub = fields.substring(indexid, indexid + 18)
+                        idxpclub = fields.substring(indexid, indexid + 18)
 
-                }
+                    }
 
-                if(fields.includes('**Experiencia:**')){
+                    if(fields.includes('**Experiencia:**')){
 
-                    indexxp = fields.indexOf('**Experiencia:**')
+                        indexxp = fields.indexOf('**Experiencia:**')
 
-                    indexa = fields.indexOf('**Aniversario:**')
+                        indexa = fields.indexOf('**Aniversario:**')
 
-                    xpclub = fields.substring(indexxp + 17, indexa - 2).replace(/,/g, '')
+                        xpclub = fields.substring(indexxp + 17, indexa - 2).replace(/,/g, '')
 
-                }
+                    }
 
-                if(!xpclub || xpclub === undefined || xpclub === '' || xpclub === ' ' || parseInt(xpclub) < 0){
+                    if(!xpclub || xpclub === undefined || xpclub === '' || xpclub === ' ' || parseInt(xpclub) < 0){
 
-                    logschannel.send({ content: '```Error al detectar XP en el contenido del embed: ' + xpclub + '```' }).catch((e) => console.log('Error al enviar mensaje de logs: ' + e))
+                        logschannel.send({ content: '```Error al detectar XP en el contenido del embed: ' + xpclub + '```' }).catch((e) => console.log('Error al enviar mensaje de logs: ' + e))
+
+                        m.react('<a:Verify2:931463492677017650>').catch((e) => console.log('Error al reaccionar mensaje: '+e))
+
+                        return
+
+                    }
+
+                } catch (error) {
+                    
+                    logschannel.send({ content: '```Ocurrió un error al obtener datos del embed: ' + error + '```' }).catch((e) => console.log('Error al enviar mensaje de logs: ' + e))
 
                     m.react('<a:Verify2:931463492677017650>').catch((e) => console.log('Error al reaccionar mensaje: '+e))
 
                     return
 
                 }
-
+                
                 topchannel = client.channels.cache.get('970094487059709953')
 
                 try {
