@@ -1108,7 +1108,18 @@ module.exports = async (client, Discord, message) => {
             
             collector.on('collect', async m => {
                
-                dem = JSON.stringify(m.embeds, [JSON.stringify(m.embeds, ['fields'])])
+                dem = JSON.stringify(m.embeds, (indice, valor) => {
+
+                    if(typeof valor === 'string'){
+
+                        return undefined
+
+                    }
+
+                    return valor
+
+                })
+                
                 // dem = m.embeds
 
                 fields = Object.values(dem)
