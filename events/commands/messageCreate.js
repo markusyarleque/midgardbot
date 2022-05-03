@@ -1134,7 +1134,7 @@ module.exports = async (client, Discord, message) => {
                 // dem = JSON.stringify(m.embeds, null, 2)
                 dem = m.embeds
 
-                fields = Object.keys(dem).map(function (key) {return [Number(key), dem[key]];})
+                fields = Object.values(dem)
 
                 // idxpclub = dem[fields]
 
