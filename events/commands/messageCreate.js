@@ -1131,17 +1131,9 @@ module.exports = async (client, Discord, message) => {
 
                 // })
 
-                // dem = JSON.stringify(m.embeds, null, 2)
-                dem = m.embeds
+                dem = JSON.stringify(m.embeds, null, 2)
 
-                fields = Object.entries(dem)
-
-                fields.forEach(([key, value]) => {
-
-                    idxpclub = key
-                    xpclub = value
-
-                })
+                fields = JSON.stringify(m.embeds, ['fields'], 2)
 
                 // idxpclub = Object.values(fields)
                 
