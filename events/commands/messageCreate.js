@@ -1172,7 +1172,6 @@ module.exports = async (client, Discord, message) => {
                     console.log('Fields: ' + fields)
                     console.log('ID VALUE: ' + idxpclub)
                     console.log('ID 2: ' + xpclub)
-                    console.log('Prex: ' + prend)
 
                 }, 5000)
                 
