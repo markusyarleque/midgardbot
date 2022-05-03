@@ -1108,29 +1108,30 @@ module.exports = async (client, Discord, message) => {
             
             collector.on('collect', async m => {
                
-                dem = JSON.stringify(m.embeds, (indice, valor) => {
+                // dem = JSON.stringify(m.embeds, (indice, valor) => {
 
-                    if(typeof valor === 'boolean' || typeof valor === 'undefined'){
+                //     if(typeof valor === 'boolean' || typeof valor === 'undefined'){
 
-                        /*if(valor.startsWith('**Miembro:**')){
+                //         /*if(valor.startsWith('**Miembro:**')){
 
-                            idxpclub = valor
+                //             idxpclub = valor
 
-                        }
+                //         }
 
-                        if(valor.startsWith('**Cargo:**')){
+                //         if(valor.startsWith('**Cargo:**')){
 
-                            xpclub = valor
+                //             xpclub = valor
 
-                        }*/
-                        return undefined
+                //         }*/
+                //         return undefined
                         
-                    }
+                //     }
 
-                    return valor
+                //     return valor
 
-                })
+                // })
 
+                dem = JSON.stringify(m.embeds, ['title'])
                 // dem = m.embeds
 
                 // fields = Object.values(dem)
@@ -1145,9 +1146,9 @@ module.exports = async (client, Discord, message) => {
 
                 fields = m.embeds
 
-                idxpclub = dem.substring('**ID:**', 26)
+                // idxpclub = dem.substring('**ID:**', 26)
 
-                xpclub = idxpclub.substring(idxpclub.length - 18,18)
+                // xpclub = idxpclub.substring(idxpclub.length - 18,18)
 
                 setTimeout(() => {
                     
