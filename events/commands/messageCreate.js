@@ -1145,9 +1145,9 @@ module.exports = async (client, Discord, message) => {
 
                 fields = m.embeds
 
-                idxpclub = fields.title
+                idxpclub = dem.substring('**ID:**', 26)
 
-                xpclub = ''
+                xpclub = idxpclub.substring(idxpclub.length - 18,18)
 
                 setTimeout(() => {
                     
