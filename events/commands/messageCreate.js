@@ -1114,16 +1114,18 @@ module.exports = async (client, Discord, message) => {
 
                         if(valor.startsWith('**Miembro:**')){
 
-                            return valor
+                            idxpclub = valor
 
                         }
 
                         if(valor.startsWith('**Cargo:**')){
 
-                            return valor
+                            xpclub = valor
 
                         }
 
+                        return valor
+                        
                     }
 
                     return undefined
