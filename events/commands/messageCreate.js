@@ -1099,6 +1099,7 @@ module.exports = async (client, Discord, message) => {
         if(message.channel.id !== '938965106275025017') return
 
         let dem, fields, idxpclub, xpclub, prend
+        let datosprend = []
 
         message.channel.sendTyping().then(async me => {
             
@@ -1135,8 +1136,13 @@ module.exports = async (client, Discord, message) => {
 
                 fields = JSON.stringify(m.embeds, ['fields','value'], 2)
 
-                idxpclub = ' ' + fields.fields.value
+                for(let ls of fields){
+
+                    datosprend.push(ls.value)
+
+                }
                 
+                idxpclub = datosprend.join('\n\n')
                 // xpclub = Object.values(idxpclub)
 
                 // prend = Object.values(xpclub)
