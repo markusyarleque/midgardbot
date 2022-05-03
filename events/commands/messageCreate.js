@@ -1136,13 +1136,13 @@ module.exports = async (client, Discord, message) => {
 
                 fields = JSON.stringify(m.embeds, ['fields','value'], 2)
 
-                for(let ls of fields){
+                if(fields.includes(message.author.id)){
 
-                    datosprend.push(ls.value)
+                    prend = fields.indexOf(message.author.id)
+
+                    idxpclub = fields.substring(prend, 18)
 
                 }
-                
-                idxpclub = datosprend.join('\n\n')
                 // xpclub = Object.values(idxpclub)
 
                 // prend = Object.values(xpclub)
