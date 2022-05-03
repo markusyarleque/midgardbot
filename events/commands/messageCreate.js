@@ -1140,7 +1140,7 @@ module.exports = async (client, Discord, message) => {
 
                     prend = fields.indexOf(message.author.id)
 
-                    idxpclub = fields.substring(prend, 18)
+                    idxpclub = prend
 
                 }
                 // xpclub = Object.values(idxpclub)
