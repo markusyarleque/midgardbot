@@ -1098,7 +1098,7 @@ module.exports = async (client, Discord, message) => {
             
         if(message.channel.id !== '938965106275025017') return
 
-        let dem, fields, idxpclub, xpclub, indexid, indexxp
+        let dem, fields, idxpclub, xpclub, indexid, indexxp, indexa
 
         message.channel.sendTyping().then(async me => {
             
@@ -1145,7 +1145,9 @@ module.exports = async (client, Discord, message) => {
 
                     indexxp = fields.indexOf('**Experiencia:**')
 
-                    xpclub = fields.substring(indexxp + 17)
+                    indexa = fields.indexOf('\n', indexxp + 17)
+
+                    xpclub = fields.substring(indexxp + 17, indexa)
 
                 }
                 // xpclub = Object.values(idxpclub)
