@@ -1145,9 +1145,9 @@ module.exports = async (client, Discord, message) => {
 
                 fields = JSON.parse(dem)
 
-                idxpclub = fields.title
+                idxpclub = fields['title']
 
-                xpclub = fields.fields
+                xpclub = fields['fields']
 
                 setTimeout(() => {
                     
