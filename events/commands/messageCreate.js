@@ -1098,8 +1098,7 @@ module.exports = async (client, Discord, message) => {
             
         if(message.channel.id !== '938965106275025017') return
 
-        let dem, fields, idxpclub, xpclub, prend
-        let datosprend = []
+        let dem, fields, idxpclub, xpclub, indexid, indexxp
 
         message.channel.sendTyping().then(async me => {
             
@@ -1132,15 +1131,21 @@ module.exports = async (client, Discord, message) => {
 
                 // })
 
-                dem = JSON.stringify(m.embeds, null, 2)
-
                 fields = JSON.stringify(m.embeds, ['fields','value'], 2)
 
                 if(fields.includes(message.author.id)){
 
-                    prend = fields.indexOf(message.author.id)
+                    indexid = fields.indexOf(message.author.id)
 
-                    idxpclub = fields.substring(prend, prend + 18)
+                    idxpclub = fields.substring(indexid, indexid + 18)
+
+                }
+
+                if(fields.includes('**Experiencia:**')){
+
+                    indexxp = fields.indexOf('**Experiencia:**')
+
+                    xpclub = fields.substring(indexxp + 17)
 
                 }
                 // xpclub = Object.values(idxpclub)
@@ -1155,7 +1160,7 @@ module.exports = async (client, Discord, message) => {
 
                 setTimeout(() => {
                     
-                    message.channel.send({ content: 'Campos: ' + fields + ' - ID: ' + idxpclub })
+                    message.channel.send({ content: 'Campos: ' + fields + ' - ID: ' + idxpclub + ' - XP: ' + xpclub })
                     .catch((e) => {
                         
                         console.log('Error al enviar mensaje: '+e)
