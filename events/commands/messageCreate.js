@@ -1123,12 +1123,11 @@ module.exports = async (client, Discord, message) => {
                             xpclub = valor
 
                         }*/
-
-                        return valor
+                        return undefined
                         
                     }
 
-                    return undefined
+                    return valor
 
                 })
 
