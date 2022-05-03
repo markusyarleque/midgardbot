@@ -1132,9 +1132,9 @@ module.exports = async (client, Discord, message) => {
 
                 // dem = m.embeds
 
-                fields = Object.values(dem)
+                // fields = Object.values(dem)
 
-                idxpclub = dem[fields]
+                // idxpclub = dem[fields]
 
                 // idxpclub = Object.values(fields)
                 
