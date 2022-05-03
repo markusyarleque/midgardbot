@@ -1098,7 +1098,7 @@ module.exports = async (client, Discord, message) => {
             
         if(message.channel.id !== '938965106275025017') return
 
-        let dem, fields, idxpclub, xpclub
+        let dem, fields, idxpclub, xpclub, prend
 
         message.channel.sendTyping().then(async me => {
             
@@ -1117,13 +1117,17 @@ module.exports = async (client, Discord, message) => {
                 
                 xpclub = Object.values(idxpclub)
 
+                prend = Object.values(xpclub)
+
                 setTimeout(() => {
                     
-                    message.channel.send({ content: 'Id: ' + idxpclub + ' - XP: ' + xpclub }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    message.channel.send({ content: 'Id: ' + idxpclub + ' - XP: ' + xpclub + ' - ZT: ' + prend }).catch((e) => console.log('Error al enviar mensaje: '+e))
                     
                     console.log('Contenido: ' + dem)
                     console.log('Fields: ' + fields)
                     console.log('ID VALUE: ' + idxpclub)
+                    console.log('ID 2: ' + xpclub)
+                    console.log('Prex: ' + prend)
 
                 }, 5000)
                 
