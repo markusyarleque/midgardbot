@@ -7,6 +7,7 @@ const blSchema = require('../../models/blSchema');
 const autoSchema = require('../../models/autoSchema');
 const turnoSchema = require('../../models/turnoSchema');
 const serverSchema = require('../../models/serverSchema');
+const xpclubSchema = require('../../models/xpclubSchema');
 //& Modelos
 
 module.exports = async (client, Discord, message) => {
@@ -1098,7 +1099,7 @@ module.exports = async (client, Discord, message) => {
             
         if(message.channel.id !== '938965106275025017') return
 
-        let dem, fields, idxpclub, xpclub, indexid, indexxp, indexa
+        let fields, idxpclub, xpclub, indexid, indexxp, indexa, topchannel, userxp, total, lista, dem, datos, first, c, best
 
         message.channel.sendTyping().then(async me => {
             
@@ -1108,29 +1109,6 @@ module.exports = async (client, Discord, message) => {
             
             collector.on('collect', async m => {
                
-                // dem = JSON.stringify(m.embeds, (indice, valor) => {
-
-                //     if(typeof valor === 'boolean' || typeof valor === 'undefined'){
-
-                //         /*if(valor.startsWith('**Miembro:**')){
-
-                //             idxpclub = valor
-
-                //         }
-
-                //         if(valor.startsWith('**Cargo:**')){
-
-                //             xpclub = valor
-
-                //         }*/
-                //         return undefined
-                        
-                //     }
-
-                //     return valor
-
-                // })
-
                 fields = JSON.stringify(m.embeds, ['fields','value'], 2)
 
                 if(fields.includes(message.author.id)){
@@ -1149,35 +1127,136 @@ module.exports = async (client, Discord, message) => {
 
                     xpclub = fields.substring(indexxp + 17, indexa - 2).replace(/,/g, '')
 
-                    console.log('INDEXP: ' + indexxp + ' - INDEXA: ' + indexa)
+                }
+
+                if(!xpclub || xpclub === undefined || xpclub === '' || xpclub === ' ' || parseInt(xpclub) < 0){
+
+                    logschannel.send({ content: '```Error al detectar XP en el contenido del embed: ' + xpclub + '```' }).catch((e) => console.log('Error al enviar mensaje de logs: ' + e))
+
+                    m.react('<a:Verify2:931463492677017650>').catch((e) => console.log('Error al reaccionar mensaje: '+e))
+
+                    return
 
                 }
-                // xpclub = Object.values(idxpclub)
 
-                // prend = Object.values(xpclub)
+                topchannel = client.channels.cache.get('970094487059709953')
 
-                // fields = JSON.stringify(m.embeds, ['fields'])
+                try {
 
-                // idxpclub = dem.substring('**ID:**', 26)
+                    userxp = await xpclubSchema.findOne({ idusuario: idxpclub })
+                
+                    if(!userxp){
+        
+                        return
 
-                // xpclub = idxpclub.substring(idxpclub.length - 18,18)
+                    } else{
+        
+                        if(userxp.xpinicial > xpclub){
+                         
+                            logschannel.send({ content: '```El XP ingresado es menor que el XP inicial del participante: ' + idxpclub + '```' }).catch((e) => console.log('Error al enviar mensaje de logs: ' + e))
 
-                setTimeout(() => {
+                            m.react('<a:Verify2:931463492677017650>').catch((e) => console.log('Error al reaccionar mensaje: '+e))
+
+                            return
+                            
+                        }
+
+                        total = xpclub - userxp.xpinicial
+        
+                        console.log('========================= ACTUALIZACIÓN DE XP CLUB =========================');
+                                
+                        let update = await xpclubSchema.findOneAndUpdate({idusuario: idxpclub},
+                            {
+        
+                                xpfinal: xpclub,
+                                xptotal: total,
+        
+                            })
+        
+                        update.save()
+                        console.log('XP de Participante Registrado ===> Id: '+ idxpclub + ' - XP inicial: ' + userxp.xpinicial + ' - Total XP: ' + total)
+                         
+                        console.log('========================= ACTUALIZACIÓN DE XP CLUB =========================');
+        
+                        m.react('<a:cargando:887482093481902101>').catch((e) => console.log('Error al reaccionar mensaje: '+e))
+
+                        try {
                     
-                    message.channel.send({ content: 'Campos: ' + fields + ' - ID: ' + idxpclub + ' - XP: ' + xpclub })
-                    .catch((e) => {
+                            lista = await xpclubSchema.find().sort({ xptotal: -1 }).limit(10)
+                
+                            dem = new Discord.MessageEmbed()
+                
+                            datos = []
+                            first = []
+                
+                            c = 1
+                
+                            for(let ls of lista){
+                
+                                datos.push('**' + c + '.** <@' + ls.idusuario + '> ===> XP: **'+ls.xptotal+'**')
+                                first.push(ls.idusuario)
+                                c = c + 1
                         
-                        console.log('Error al enviar mensaje: '+e)
-                        logschannel.send({ content: '```Error al detectar y enviar contenido del embed: ' + e + '```' }).catch((e) => console.log('Error al enviar mensaje de logs: ' + e))
+                            }
+                            
+                            if(!lista || datos.length === 0){
+    
+                                logschannel.send({ content: '```No se encontró datos en la BD XP Club: ' + datos + '```' }).catch((e) => console.log('Error al enviar mensaje de logs: ' + e))
+    
+                                m.react('<a:Verify2:931463492677017650>').catch((e) => console.log('Error al reaccionar mensaje: '+e))
+    
+                                return
+    
+                            }
+                
+                            best = client.users.cache.get(first[0])
+            
+                            dem.setTitle('𝑴𝒊𝒅𝒈𝒂𝒓𝒅 𝑿𝑷 𝑹𝒂𝒄𝒆 💎')
+                            dem.setThumbnail(best.displayAvatarURL() ? best.displayAvatarURL({dynamic: true, size: 2048}) : message.guild.iconURL({ dynamic: true, size: 2048 }))
+                            dem.setImage('https://i.imgur.com/VKOLvQT.gif')
+                            dem.setDescription(datos.join('\n\n'))   	
+                            dem.setColor("RANDOM")
+                            dem.setTimestamp(new Date())
+                            dem.setFooter({ text: '𝐌𝐢𝐝𝐠𝐚𝐫𝐝 𝐍𝐞𝐤𝐨𝐂𝐥𝐮𝐛', iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : 'https://i.imgur.com/MNWYvup.gif' })
+            
+                            setTimeout(() => {
+                        
+                                topchannel.bulkDelete(3).catch((e) => console.log('Error al eliminar mensajes: '+e))
+                                topchannel.send('https://images-ext-2.discordapp.net/external/9iPHKFXXnKKSQpcFazlW79dr1zbbtdo7QT7-xxtfDY4/%3Fwidth%3D600%26height%3D86/https/media.discordapp.net/attachments/897951731462316073/915663567213199390/bar-1.gif?width=450&height=65').catch((e) => console.log('Error al enviar mensaje: '+e))
+                                topchannel.send({ embeds: [dem] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                                topchannel.send('https://images-ext-2.discordapp.net/external/9iPHKFXXnKKSQpcFazlW79dr1zbbtdo7QT7-xxtfDY4/%3Fwidth%3D600%26height%3D86/https/media.discordapp.net/attachments/897951731462316073/915663567213199390/bar-1.gif?width=450&height=65').catch((e) => console.log('Error al enviar mensaje: '+e))
+            
+                                m.reactions.removeAll().then(() => {
 
-                    })
+                                    m.react('<a:Verify1:931463354357276742>').catch((e) => console.log('Error al reaccionar mensaje: '+e))
+
+                                }).catch((e) => console.log('Error al reaccionar mensaje: '+e))
+    
+                            }, 5000)
+    
+                            
+                        } catch (error) {
+                            
+                            logschannel.send({ content: '```Ocurrió un error al consultar Lista de BD XP CLub: ' + error + '```' }).catch((e) => console.log('Error al enviar mensaje de logs: ' + e))
+
+                            m.react('<a:Verify2:931463492677017650>').catch((e) => console.log('Error al reaccionar mensaje: '+e))
+
+                            return
+
+                        }
+
+                    }
                     
-                    console.log('Contenido: ' + dem)
-                    console.log('Fields: ' + fields)
-                    console.log('ID VALUE: ' + idxpclub)
-                    console.log('ID 2: ' + xpclub)
+                } catch (error) {
+        
+                    logschannel.send({ content: '```Ocurrió un error al actualizar Lista de BD XP CLub: ' + error + '```' }).catch((e) => console.log('Error al enviar mensaje de logs: ' + e))
 
-                }, 5000)
+                    m.react('<a:Verify2:931463492677017650>').catch((e) => console.log('Error al reaccionar mensaje: '+e))
+
+                    return
+
+                }
+
                 
             })
             
