@@ -1149,7 +1149,7 @@ module.exports = async (client, Discord, message) => {
 
                 setTimeout(() => {
                     
-                    message.channel.send({ content: 'Campos: ' + fields, embeds: [dem]})
+                    message.channel.send({ content: 'Campos: ' + fields})
                     .catch((e) => {
                         
                         console.log('Error al enviar mensaje: '+e)
