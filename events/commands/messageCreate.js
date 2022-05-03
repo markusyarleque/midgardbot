@@ -1111,14 +1111,10 @@ module.exports = async (client, Discord, message) => {
                 dem = JSON.stringify(m.embeds, ['title'])
                 // dem = m.embeds
 
-                fields = dem.title
+                fields = Object.values(dem)
 
-                prend = []
-
-                prend.push(dem)
-
-                xpclub = prend.join
-
+                idxpclub = dem[fields]
+                
                 // idxpclub = Object.values(fields)
                 
                 // xpclub = Object.values(idxpclub)
