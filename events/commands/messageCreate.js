@@ -1110,7 +1110,7 @@ module.exports = async (client, Discord, message) => {
                
                 dem = JSON.stringify(m.embeds, (indice, valor) => {
 
-                    if(typeof valor === 'string'){
+                    if(typeof valor === 'boolean' && typeof valor === 'undefined'){
 
                         /*if(valor.startsWith('**Miembro:**')){
 
