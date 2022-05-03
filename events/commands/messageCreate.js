@@ -1108,10 +1108,10 @@ module.exports = async (client, Discord, message) => {
             
             collector.on('collect', async m => {
                
-                dem = JSON.stringify(m.embeds, ['title'])
+                dem = JSON.stringify(m.embeds, ['fields'])
                 // dem = m.embeds
 
-                fields = Object.keys(dem)
+                fields = Object.values(dem)
 
                 idxpclub = dem[fields]
 
