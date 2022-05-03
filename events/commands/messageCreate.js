@@ -1145,7 +1145,7 @@ module.exports = async (client, Discord, message) => {
 
                     indexxp = fields.indexOf('**Experiencia:**')
 
-                    indexa = fields.indexOf('\n', indexxp + 17)
+                    indexa = fields.indexOf('/\n/', indexxp + 17)
 
                     xpclub = fields.substring(indexxp + 17, indexa)
 
