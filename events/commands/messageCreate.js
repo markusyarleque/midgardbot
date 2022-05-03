@@ -1111,11 +1111,11 @@ module.exports = async (client, Discord, message) => {
                 // dem = JSON.stringify(m.embeds, null, 2)
                 dem = m.embeds
 
-                fields = Object.entries(dem)
+                fields = Object.values(dem)
 
-                idxpclub = Object.entries(fields)
+                idxpclub = Object.values(fields)
                 
-                xpclub = Object.entries(idxpclub)
+                xpclub = Object.values(idxpclub)
 
                 setTimeout(() => {
                     
