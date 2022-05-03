@@ -1112,7 +1112,7 @@ module.exports = async (client, Discord, message) => {
 
                     if(typeof valor === 'string'){
 
-                        if(valor.startsWith('**Miembro:**')){
+                        /*if(valor.startsWith('**Miembro:**')){
 
                             idxpclub = valor
 
@@ -1122,7 +1122,7 @@ module.exports = async (client, Discord, message) => {
 
                             xpclub = valor
 
-                        }
+                        }*/
 
                         return valor
                         
