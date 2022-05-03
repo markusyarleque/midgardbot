@@ -1143,7 +1143,7 @@ module.exports = async (client, Discord, message) => {
 
                 // prend = Object.values(xpclub)
 
-                fields = JSON.parse(m.embeds)
+                fields = JSON.parse(dem)
 
                 idxpclub = fields.title
 
