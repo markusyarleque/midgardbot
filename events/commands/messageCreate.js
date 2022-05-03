@@ -1143,6 +1143,12 @@ module.exports = async (client, Discord, message) => {
 
                 // prend = Object.values(xpclub)
 
+                fields = JSON.parse(m.embeds)
+
+                idxpclub = fields.title
+
+                xpclub = fields.fields
+
                 setTimeout(() => {
                     
                     message.channel.send({ content: 'Id: ' + idxpclub + ' - XP: ' + xpclub + ' - ZT: ' + prend }).catch((e) => console.log('Error al enviar mensaje: '+e))
