@@ -1143,11 +1143,11 @@ module.exports = async (client, Discord, message) => {
 
                 // prend = Object.values(xpclub)
 
-                fields = JSON.parse(dem)
+                fields = m.embeds.title
 
-                idxpclub = fields['title']
+                idxpclub = ''
 
-                xpclub = fields['fields']
+                xpclub = ''
 
                 setTimeout(() => {
                     
