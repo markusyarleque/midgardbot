@@ -1112,14 +1112,24 @@ module.exports = async (client, Discord, message) => {
 
                     if(typeof valor === 'string'){
 
-                        return undefined
+                        if(valor.startsWith('**Miembro:**')){
+
+                            return valor
+
+                        }
+
+                        if(valor.startsWith('**Cargo:**')){
+
+                            return valor
+
+                        }
 
                     }
 
-                    return valor
+                    return undefined
 
                 })
-                
+
                 // dem = m.embeds
 
                 fields = Object.values(dem)
