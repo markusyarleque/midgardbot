@@ -1108,16 +1108,16 @@ module.exports = async (client, Discord, message) => {
             
             collector.on('collect', async m => {
                
-                // dem = JSON.stringify(m.embeds, null, 2)
-                dem = m.embeds
+                dem = JSON.stringify(m.embeds, null, 2)
+                // dem = m.embeds
 
-                fields = Object.values(dem)
+                // fields = Object.values(dem)
 
-                idxpclub = Object.values(fields)
+                // idxpclub = Object.values(fields)
                 
-                xpclub = Object.values(idxpclub)
+                // xpclub = Object.values(idxpclub)
 
-                prend = Object.values(xpclub)
+                // prend = Object.values(xpclub)
 
                 setTimeout(() => {
                     
