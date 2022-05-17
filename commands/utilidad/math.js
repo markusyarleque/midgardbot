@@ -8,7 +8,10 @@ module.exports =  {
 
     async execute(client, message, args, Discord) {
 
-        let buscarprefix, prefix, oper, result
+        let buscarprefix, prefix, oper, result, signos, logschannel
+        
+        logschannel = client.channels.cache.get('965156885558878319')
+
         try {
 
             buscarprefix = await prefixSchema.findOne({idserver: message.guild.id})
@@ -27,10 +30,11 @@ module.exports =  {
 
             console.log('Error al buscar Prefix en Servidor: '+ message.guild.id + ' - ' + error)
             prefix = process.env.PREFIX
+            logschannel.send({ content: '```Error al buscar Prefix en Servidor: ' + message.guild.name + ' - ' + error + '```' }).catch((e) => console.log('Error al enviar mensaje de logs: ' + e))
 
         }
         
-        let signos = ['*','/','+','-','x','~']
+        signos = ['*','/','+','-']
 
         if(!args[0]) return message.reply({ embeds: [
 
@@ -52,14 +56,14 @@ module.exports =  {
     
         // ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-        if(!signos.some(x => x.toLowerCase(oper.split('')))) return message.reply({ embeds: [
+        if(!signos.some(x => x.toLowerCase(message.content.split('')))) return message.reply({ embeds: [
 
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
             .setDescription('<a:Verify2:931463492677017650> | Debes colocar algún signo! `+` `*` `-` `/` `x` `~` <:gatoNojao:930403164266565642>\n\nUso: '+'```js\n'+prefix+'math (Num1)(signo)(Num2)...```')
     
-        ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
+        ]}).then(m => setTimeout(() => m.delete(), 10000)).catch((e) => console.log('Error al enviar mensaje: '+e))
 
         try {
             
@@ -81,8 +85,10 @@ module.exports =  {
             const err = new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
-            .setDescription('<a:Verify2:931463492677017650> | ¡Oh no! a ocurrido un error\n\n`'+e.message+'`')
+            .setDescription('<a:Verify2:931463492677017650> | ¡Oh no! Operación inválida <:Y_moriste:897241205111418920>\n\n`')
     
+            logschannel.send({ content: '```Error al ejecutar operación math en: ' + message.guild.name + ' - Error: ' + e + '```' }).catch((e) => console.log('Error al enviar mensaje de logs: ' + e))
+
             return message.reply({embeds: [err]}).catch((e) => console.log('Error al enviar mensaje: '+e))
             
         }
