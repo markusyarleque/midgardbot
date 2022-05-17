@@ -52,7 +52,7 @@ module.exports =  {
     
         // ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-        if(!signos.some(x => x.toLowerCase(oper))) return message.reply({ embeds: [
+        if(!signos.some(x => x.toLowerCase(oper.split('')))) return message.reply({ embeds: [
 
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
