@@ -8,7 +8,7 @@ module.exports =  {
 
     async execute(client, message, args, Discord) {
 
-        let buscarprefix, prefix
+        let buscarprefix, prefix, signo
         try {
 
             buscarprefix = await prefixSchema.findOne({idserver: message.guild.id})
@@ -39,14 +39,40 @@ module.exports =  {
             .setColor('RED')
             .setDescription(`<a:Verify2:931463492677017650> | ¿Y... qué quieres que calcule? <a:incomodo:943361621416353842>\n\nUso: `+'```js\n'+prefix+'math (Num1) (signo) (Num2)```')
     
-        ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
+        ]}).then(m => setTimeout(() => m.delete(), 10000)).catch((e) => console.log('Error al enviar mensaje: '+e))
+
+        if(!args[1]){
+
+            if(signos.some(s => s.toLowerCase(args[0]))){
+
+                let sp = args[0].split('')
+
+                for(let i = 0; i < sp.length; i++){
+
+                    if(signos.some(z => z.toLowerCase(sp[i]))){
+
+                        args = args[0].replace[sp[i],' '+sp[i]+' ']
+                        console.log('Argumento0: ' + args)
+
+                        const resultado = eval(args)
+
+                        console.log('Result: ' + resultado)
+
+                    }
+
+                }
+
+            }
+
+
+        }
 
         if(isNaN(args[0])) return message.reply({ embeds: [
 
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
-            .setDescription('<a:Verify2:931463492677017650> | Ingresa solo números, exceptuando los signos, que son estos \`(+, *, -, /, x, ~)\` <:gatoNojao:930403164266565642>\n\nUso: '+'```js\n'+prefix+'math (Num1) (signo) (Num2)```')
+            .setDescription('<a:Verify2:931463492677017650> | Ingresa solo números, exceptuando los signos, que son estos: `+` `*` `-` `/` `x` `~` <:gatoNojao:930403164266565642>\n\nUso: '+'```js\n'+prefix+'math (Num1) (signo) (Num2)```')
     
         ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
 
@@ -55,7 +81,7 @@ module.exports =  {
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
-            .setDescription('<a:Verify2:931463492677017650> | Debes colocar algún signo! \`(+, *, -, /, x, ~)\` <:gatoNojao:930403164266565642>\n\nUso: '+'```js\n'+prefix+'math (Num1) (signo) (Num2)```')
+            .setDescription('<a:Verify2:931463492677017650> | Debes colocar algún signo! `+` `*` `-` `/` `x` `~` <:gatoNojao:930403164266565642>\n\nUso: '+'```js\n'+prefix+'math (Num1) (signo) (Num2)```')
     
         ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
 
@@ -77,7 +103,7 @@ module.exports =  {
     
         ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-        let signo = args[1]
+        signo = args[1]
 
         if(signo.toLowerCase() === 'x'){
 
