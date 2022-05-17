@@ -30,120 +30,125 @@ module.exports =  {
 
         }
 
-        let signos = ['*','/','+','-','x','~']
+        oper = message.content.split(' ').slice(1).join(' ')
 
-        if(!args[0]) return message.reply({ embeds: [
+        signo = eval(oper)
 
-            new Discord.MessageEmbed()
-            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
-            .setColor('RED')
-            .setDescription(`<a:Verify2:931463492677017650> | ¿Y... qué quieres que calcule? <a:incomodo:943361621416353842>\n\nUso: `+'```js\n'+prefix+'math (Num1) (signo) (Num2)```')
+        console.log('Operación: ' + oper + ' - Resultado: ' + signo)
+        // let signos = ['*','/','+','-','x','~']
+
+        // if(!args[0]) return message.reply({ embeds: [
+
+        //     new Discord.MessageEmbed()
+        //     .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
+        //     .setColor('RED')
+        //     .setDescription(`<a:Verify2:931463492677017650> | ¿Y... qué quieres que calcule? <a:incomodo:943361621416353842>\n\nUso: `+'```js\n'+prefix+'math (Num1) (signo) (Num2)```')
     
-        ]}).then(m => setTimeout(() => m.delete(), 10000)).catch((e) => console.log('Error al enviar mensaje: '+e))
+        // ]}).then(m => setTimeout(() => m.delete(), 10000)).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-        if(!args[1]){
+        // if(!args[1]){
 
-            oper = args[0]
+        //     oper = args[0]
 
-            if(signos.some(s => s.toLowerCase(oper))){
+        //     if(signos.some(s => s.toLowerCase(oper))){
 
-                let sp = oper.split('')
+        //         let sp = oper.split('')
 
-                for(let i = 0; i < sp.length; i++){
+        //         for(let i = 0; i < sp.length; i++){
 
-                    if(signos.some(z => z.toLowerCase(sp[i]))){
+        //             if(signos.some(z => z.toLowerCase(sp[i]))){
 
-                        oper = oper.replace[sp[i],' '+sp[i]+' ']
-                        console.log('Argumento0: ' + oper)
+        //                 oper = oper.replace[sp[i],' '+sp[i]+' ']
+        //                 console.log('Argumento0: ' + oper)
 
-                        const resultado = eval(oper)
+        //                 const resultado = eval(oper)
 
-                        console.log('Result: ' + resultado)
+        //                 console.log('Result: ' + resultado)
 
-                    }
+        //             }
 
-                }
+        //         }
 
-            }
+        //     }
 
 
-        }
+        // }
 
-        if(isNaN(args[0])) return message.reply({ embeds: [
+        // if(isNaN(args[0])) return message.reply({ embeds: [
 
-            new Discord.MessageEmbed()
-            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
-            .setColor('RED')
-            .setDescription('<a:Verify2:931463492677017650> | Ingresa solo números, exceptuando los signos, que son estos: `+` `*` `-` `/` `x` `~` <:gatoNojao:930403164266565642>\n\nUso: '+'```js\n'+prefix+'math (Num1) (signo) (Num2)```')
+        //     new Discord.MessageEmbed()
+        //     .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
+        //     .setColor('RED')
+        //     .setDescription('<a:Verify2:931463492677017650> | Ingresa solo números, exceptuando los signos, que son estos: `+` `*` `-` `/` `x` `~` <:gatoNojao:930403164266565642>\n\nUso: '+'```js\n'+prefix+'math (Num1) (signo) (Num2)```')
     
-        ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
+        // ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-        if(!signos.some(x => x.toLowerCase(message.content))) return message.reply({ embeds: [
+        // if(!signos.some(x => x.toLowerCase(message.content))) return message.reply({ embeds: [
 
-            new Discord.MessageEmbed()
-            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
-            .setColor('RED')
-            .setDescription('<a:Verify2:931463492677017650> | Debes colocar algún signo! `+` `*` `-` `/` `x` `~` <:gatoNojao:930403164266565642>\n\nUso: '+'```js\n'+prefix+'math (Num1) (signo) (Num2)```')
+        //     new Discord.MessageEmbed()
+        //     .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
+        //     .setColor('RED')
+        //     .setDescription('<a:Verify2:931463492677017650> | Debes colocar algún signo! `+` `*` `-` `/` `x` `~` <:gatoNojao:930403164266565642>\n\nUso: '+'```js\n'+prefix+'math (Num1) (signo) (Num2)```')
     
-        ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
+        // ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-        if(!args[2]) return message.reply({ embeds: [
+        // if(!args[2]) return message.reply({ embeds: [
 
-            new Discord.MessageEmbed()
-            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
-            .setColor('RED')
-            .setDescription(`<a:Verify2:931463492677017650> | ¿Y... el segundo número? <a:incomodo:943361621416353842>\n\nUso: `+'```js\n'+prefix+'math (Num1) (signo) (Num2)```')
+        //     new Discord.MessageEmbed()
+        //     .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
+        //     .setColor('RED')
+        //     .setDescription(`<a:Verify2:931463492677017650> | ¿Y... el segundo número? <a:incomodo:943361621416353842>\n\nUso: `+'```js\n'+prefix+'math (Num1) (signo) (Num2)```')
     
-        ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
+        // ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-        if(isNaN(args[2])) return message.reply({ embeds: [
+        // if(isNaN(args[2])) return message.reply({ embeds: [
 
-            new Discord.MessageEmbed()
-            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
-            .setColor('RED')
-            .setDescription('<a:Verify2:931463492677017650> | Ingresa solo números, exceptuando los signos, que son estos \`(+, *, -, /, x, ~)\` <:gatoNojao:930403164266565642>\n\nUso: '+'```js\n'+prefix+'math (Num1) (signo) (Num2)```')
+        //     new Discord.MessageEmbed()
+        //     .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
+        //     .setColor('RED')
+        //     .setDescription('<a:Verify2:931463492677017650> | Ingresa solo números, exceptuando los signos, que son estos \`(+, *, -, /, x, ~)\` <:gatoNojao:930403164266565642>\n\nUso: '+'```js\n'+prefix+'math (Num1) (signo) (Num2)```')
     
-        ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
+        // ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-        signo = args[1]
+        // signo = args[1]
 
-        if(signo.toLowerCase() === 'x'){
+        // if(signo.toLowerCase() === 'x'){
 
-            signo = '*'
+        //     signo = '*'
 
-        }
+        // }
         
-        if(signo === '~'){
+        // if(signo === '~'){
 
-            signo = '/'
+        //     signo = '/'
         
-        }
+        // }
 
-        try {
+        // try {
             
-            const resultado = eval(args[0]+signo+args[2])
+        //     const resultado = eval(args[0]+signo+args[2])
 
-            const calcula = new Discord.MessageEmbed()
-            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
-            .setTitle('¡Calculadora Midgard!')
-            .setColor('RANDOM')
-            .addField("Pregunta: ", '```js\n'+args[0]+' '+signo+' '+args[2]+'```')
-            .addField('Respuesta: ', '```js\n'+await resultado+'```')
-            .setTimestamp(new Date())
-            .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
+        //     const calcula = new Discord.MessageEmbed()
+        //     .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
+        //     .setTitle('¡Calculadora Midgard!')
+        //     .setColor('RANDOM')
+        //     .addField("Pregunta: ", '```js\n'+args[0]+' '+signo+' '+args[2]+'```')
+        //     .addField('Respuesta: ', '```js\n'+await resultado+'```')
+        //     .setTimestamp(new Date())
+        //     .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
 
-            return message.reply({ allowedMentions: { repliedUser: false}, embeds: [calcula]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+        //     return message.reply({ allowedMentions: { repliedUser: false}, embeds: [calcula]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-        } catch (e) {
+        // } catch (e) {
 
-            const err = new Discord.MessageEmbed()
-            .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
-            .setColor('RED')
-            .setDescription('<a:Verify2:931463492677017650> | ¡Oh no! a ocurrido un error\n\n`'+e.message+'`')
+        //     const err = new Discord.MessageEmbed()
+        //     .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
+        //     .setColor('RED')
+        //     .setDescription('<a:Verify2:931463492677017650> | ¡Oh no! a ocurrido un error\n\n`'+e.message+'`')
     
-            return message.reply({embeds: [err]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+        //     return message.reply({embeds: [err]}).catch((e) => console.log('Error al enviar mensaje: '+e))
             
-        }
+        // }
 
     }
 
