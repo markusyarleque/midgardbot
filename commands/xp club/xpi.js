@@ -129,7 +129,7 @@ module.exports =  {
 
             try {
             
-                lista = await xpclubSchema.find().sort({ xptotal: -1 }).limit(10)
+                lista = await xpclubSchema.find().sort({ xptotal: -1 }).limit(15)
     
                 embed = new Discord.MessageEmbed()
     
