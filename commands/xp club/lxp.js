@@ -23,7 +23,7 @@ module.exports =  {
 
         try {
             
-            lista = await xpclubSchema.find().sort({ xptotal: -1 }).limit(15)
+            lista = await xpclubSchema.find().sort({ xptotal: -1 }).limit(10)
 
             embed = new Discord.MessageEmbed()
 
