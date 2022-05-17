@@ -85,7 +85,7 @@ module.exports =  {
             const err = new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })
             .setColor('RED')
-            .setDescription('<a:Verify2:931463492677017650> | ¡Oh no! Operación inválida <:Y_moriste:897241205111418920>\n\n`')
+            .setDescription('<a:Verify2:931463492677017650> | ¡Oh no! Operación inválida <:Y_moriste:897241205111418920>')
     
             logschannel.send({ content: '```Error al ejecutar operación math en: ' + message.guild.name + ' - Error: ' + e + '```' }).catch((e) => console.log('Error al enviar mensaje de logs: ' + e))
 
