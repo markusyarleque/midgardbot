@@ -8,7 +8,7 @@ module.exports =  {
 
     async execute(client, message, args, Discord) {
 
-        let buscarprefix, prefix, signo
+        let buscarprefix, prefix, signo, oper
         try {
 
             buscarprefix = await prefixSchema.findOne({idserver: message.guild.id})
@@ -43,18 +43,20 @@ module.exports =  {
 
         if(!args[1]){
 
-            if(signos.some(s => s.toLowerCase(args[0]))){
+            oper = args[0]
 
-                let sp = args[0].split('')
+            if(signos.some(s => s.toLowerCase(oper))){
+
+                let sp = oper.split('')
 
                 for(let i = 0; i < sp.length; i++){
 
                     if(signos.some(z => z.toLowerCase(sp[i]))){
 
-                        args = args[0].replace[sp[i],' '+sp[i]+' ']
-                        console.log('Argumento0: ' + args)
+                        oper = oper.replace[sp[i],' '+sp[i]+' ']
+                        console.log('Argumento0: ' + oper)
 
-                        const resultado = eval(args)
+                        const resultado = eval(oper)
 
                         console.log('Result: ' + resultado)
 
