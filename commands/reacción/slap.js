@@ -44,7 +44,7 @@ module.exports =  {
             const embed = new Discord.MessageEmbed()
             .setAuthor({ name: `Midgard's Love 💞`, iconURL: client.user.avatarURL({ dynamic: true }) })
             .setDescription(`**${message.author.username}** abofeteó a **${img.user.username}**.`)
-            .setImage(slap)
+            .setImage(slap.url)
             .setColor('RANDOM')
             .setTimestamp(new Date())
             .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
