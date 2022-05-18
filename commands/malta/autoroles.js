@@ -23,7 +23,7 @@ module.exports =  {
         .setColor('RED')
         .setDescription('<a:Verify2:931463492677017650> | ¡Debes agregar un argumento!\n\nOpciones válidas: `g` `e` `p` `n` `a`')
   
-      ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+      ]}).then((m) => setTimeout(() => m.delete(), 10000)).catch((e) => console.log('Error al enviar mensaje: '+e))
       
       const embed = new Discord.MessageEmbed()
       .setThumbnail('https://i.imgur.com/JUpDHA8.gif')
