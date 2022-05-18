@@ -1097,14 +1097,15 @@ module.exports = async (client, Discord, message) => {
 
     if(message.content.toLowerCase() === 'barra'){
 
+        console.log('1')
         if(message.guild.id !== '777620055344545842') return
-
+        console.log('2')
         if(message.author.id !== '683501310527668228' || message.author.id !== '753435606410985573') return
-
+        console.log('3')
         setTimeout(() => message.delete(), 100)
-
+        console.log('4')
         message.channel.send('https://images-ext-2.discordapp.net/external/9iPHKFXXnKKSQpcFazlW79dr1zbbtdo7QT7-xxtfDY4/%3Fwidth%3D600%26height%3D86/https/media.discordapp.net/attachments/897951731462316073/915663567213199390/bar-1.gif?width=450&height=65').catch((e) => console.log('Error al enviar mensaje: '+e))
-        
+        console.log('5')
     }
 
     //% COMANDO BARRA GIF
