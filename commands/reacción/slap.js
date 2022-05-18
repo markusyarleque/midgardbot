@@ -17,7 +17,7 @@ module.exports =  {
 
         }
 
-        if (!img || img.id===message.author.id) {
+        if (!img || img.id === message.author.id) {
     
             return message.reply({embeds: [
             
