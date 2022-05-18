@@ -1,5 +1,4 @@
-const clientN = require('nekos.life');
-const neko = new clientN();
+const anime = require('anime-actions')
 
 module.exports =  {
     
@@ -9,8 +8,15 @@ module.exports =  {
   
     async execute(client, message, args, Discord) { 
     
+        let slap = await anime.slap()
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
-        
+   
+        while (!slap || slap === null || slap === '' || slap === undefined) {
+            
+            slap = await anime.slap()
+
+        }
+
         if (!img || img.id===message.author.id) {
     
             return message.reply({embeds: [
@@ -35,20 +41,16 @@ module.exports =  {
           
         } else {
     
-            neko.sfw.slap().then(neko => {
-    
-                const embed = new Discord.MessageEmbed()
-                .setAuthor({ name: `Midgard's Love 💞`, iconURL: client.user.avatarURL({ dynamic: true }) })
-                .setDescription(`**${message.author.username}** abofeteó a **${img.user.username}**.`)
-                .setImage(neko.url)
-                .setColor('RANDOM')
-                .setTimestamp(new Date())
-                .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
+            const embed = new Discord.MessageEmbed()
+            .setAuthor({ name: `Midgard's Love 💞`, iconURL: client.user.avatarURL({ dynamic: true }) })
+            .setDescription(`**${message.author.username}** abofeteó a **${img.user.username}**.`)
+            .setImage(slap)
+            .setColor('RANDOM')
+            .setTimestamp(new Date())
+            .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
 
-                message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+            message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
-            }).catch((e) => message.reply('Error al obtener el comando: '+e))
-            
         }
 
     }
