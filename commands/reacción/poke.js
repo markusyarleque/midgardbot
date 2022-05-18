@@ -1,4 +1,4 @@
-const anime = require('anime-actions')
+const nekoapi = require('cacao_nekoapi')
 
 module.exports =  {
     
@@ -8,12 +8,12 @@ module.exports =  {
   
     async execute(client, message, args, Discord) { 
 
-        let poke = await anime.poke()
+        let poke = await nekoapi.SFW.action_1.poke()
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
    
         while (!poke || poke === null || poke === '' || poke === undefined) {
             
-            poke = await anime.poke()
+            poke = await nekoapi.SFW.action_1.poke()
 
         }
         
