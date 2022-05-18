@@ -14,6 +14,7 @@ module.exports =  {
         while (!poke || poke === null || poke === '' || poke === undefined) {
             
             poke = await anime.poke()
+            console.log('Comando poke : ' + poke)
 
         }
         
