@@ -1096,7 +1096,7 @@ module.exports = async (client, Discord, message) => {
 
     //& COMANDO ALIANZAS BABEL
 
-    if(message.channel.id === '938965106275025017'){
+    if(message.channel.id === '961001644294824017'){
 
         if(message.content.includes('https://discord.gg/')){
 
@@ -1117,14 +1117,20 @@ module.exports = async (client, Discord, message) => {
                     embed.setImage(invite.guild.bannerURL() ? invite.guild.bannerURL({ dynamic: true, size: 4096 }).replace('webp','png') : '' )
                     embed.setDescription((invite.inviter ? invite.inviter.toString() : invite.guild.name) + ' **Te invita** <a:ositotikabella:880307057981542432> a disfrutar de la apertura de :tokyo_tower: *Babel*\n\n<:Awebo_a_simpiar:901600161875259452> *A por muchas <:Bolsitas_Midgard:978305556311838800> bolsitas y ese preciado <:hmorado_Midgard:978305606098255902> __Thanatos__*\n\n<a:Flecha3:880315279903703060> **Recuerda** que solo tienes <a:reloj:915171222961135646> **12 HORAS!!!!**')
     
+                    message.reply({ content: '<@&960987738553868348>', embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                
+                    setTimeout(() => {
+                        
+                        message.channel.send({ content: 'https://images-ext-2.discordapp.net/external/9iPHKFXXnKKSQpcFazlW79dr1zbbtdo7QT7-xxtfDY4/%3Fwidth%3D600%26height%3D86/https/media.discordapp.net/attachments/897951731462316073/915663567213199390/bar-1.gif?width=450&height=65' }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                     
+                    }, 1000)
+
                 }else {
     
-                    logschannel.send({ content: '<@753435606410985573> <@683501310527668228>\n```El link enviado por: ' + message.author.username + ' No pertenece a un servidor.```' }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    return logschannel.send({ content: '<@753435606410985573> <@683501310527668228>\n```El link enviado por: ' + message.author.username + ' No pertenece a un servidor.```' }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
                 }
-    
-                message.reply({ content: '<@&960987738553868348>', embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
-                    
+                   
             } catch (error) {
                 
                 if(error.message === 'Unknown Invite'){
