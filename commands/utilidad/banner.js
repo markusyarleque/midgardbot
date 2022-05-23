@@ -63,9 +63,9 @@ module.exports =  {
             embeds: [
               
                 new Discord.MessageEmbed() 
-                .setDescription('[Click aquí]('+`${user.bannerURL({size: 2048, dynamic: true})}`+')')
+                .setDescription('[Click aquí]('+`${user.bannerURL({ size: 2048, format: 'gif' })}`+')')
                 .setTitle('Imagen completa')
-                .setImage(user.bannerURL({size: 2048, dynamic: true}))
+                .setImage(user.bannerURL({ size: 2048, format: 'gif' }))
                 .setColor(`COLOR_CUSTOM`)
                 .setTimestamp(new Date())
                 .setAuthor({ name: 'Banner de '+user.tag, iconURL: client.user.avatarURL({ dynamic: true }) })
