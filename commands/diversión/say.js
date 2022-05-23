@@ -22,8 +22,28 @@ module.exports =  {
             ]
         }).catch((e) => console.log('Error al enviar mensaje: '+e))
         
-        message.channel.send(Util.cleanContent(texto, texto)).catch((e) => console.log('Error al enviar mensaje: '+e))
         setTimeout(() => message.delete(), 100);
+
+        let clean, logschannel
+        
+        logschannel = client.channels.cache.get('965156885558878319')
+
+        try {
+            
+            clean = Util.cleanContent(texto, message.channel)
+            message.channel.send(clean).catch((e) => {
+                
+                console.log('Error al enviar mensaje: ' + e)
+                logschannel.send({ content: '```Ocurrió un error al enviar mensaje del comando SAY.\nAutor: ' + message.autho.username + '\nError: ' + e + '```' }).catch((e) => console.log('Error al enviar mensaje: '+e))
+
+            })
+        
+        } catch (error) {
+
+            console.log('Error al usar Comando Util.cleanContent: ' + error)
+            logschannel.send({ content: '```Ocurrió un error al Limpiar el contenido del comando SAY.\nAutor: ' + message.autho.username + '\nError: ' + error + '```' }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                
+        }
 
     }
     

@@ -1102,13 +1102,6 @@ module.exports = async (client, Discord, message) => {
 
             try {
 
-                let fetch, indexfetch, linkfetch
-
-                indexfetch = message.content.indexOf('https://discord.gg/')
-                linkfetch = message.content.indexOf(' ', indexfetch)
-                fetch = message.content.substring(indexfetch, linkfetch).replace(/,/g, '')
-
-                console.log('link: ' + fetch)
                 const invite = await client.fetchInvite(message.content)
     
                 const embed = new Discord.MessageEmbed()
@@ -1126,7 +1119,7 @@ module.exports = async (client, Discord, message) => {
     
                 }else {
     
-                    logschannel.send({ content: '<@753435606410985573> <@683501310527668228>\n```El link enviado por: ' + message.author.toString() + ' No pertenece a un servidor.```' }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    logschannel.send({ content: '<@753435606410985573> <@683501310527668228>\n```El link enviado por: ' + message.author.username + ' No pertenece a un servidor.```' }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
                 }
     
@@ -1136,11 +1129,11 @@ module.exports = async (client, Discord, message) => {
                 
                 if(error.message === 'Unknown Invite'){
     
-                    return logschannel.send({ content: '<@753435606410985573> <@683501310527668228>\n```La API respondió que la invitación enviada por ' + message.author.toString() + ' es Desconocida o No existe```' }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    return logschannel.send({ content: '<@753435606410985573> <@683501310527668228>\n```La API respondió que la invitación enviada por ' + message.author.username + ' es Desconocida o No existe```' }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
                 } else{
                     
-                    return logschannel.send({ content: '<@753435606410985573> <@683501310527668228>\n```Ocurrió un error al intentar buscar información del link enviado por ' + message.author.toString() + '. \nError: ' + error + '```' }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    return logschannel.send({ content: '<@753435606410985573> <@683501310527668228>\n```Ocurrió un error al intentar buscar información del link enviado por ' + message.author.username + '. \nError: ' + error + '```' }).catch((e) => console.log('Error al enviar mensaje: '+e))
                 }
         
             }
