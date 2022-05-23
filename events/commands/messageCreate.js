@@ -1119,7 +1119,7 @@ module.exports = async (client, Discord, message) => {
     
                 if(invite.guild){
     
-                    embed.setTitle('<:babel_Midgard:978300970868035604> __𝑩𝒂𝒃𝒆𝒍 𝑨𝒃𝒊𝒆𝒓𝒕𝒐 𝒆𝒏:__' + invite.guild.name)
+                    embed.setTitle('<:babel_Midgard:978300970868035604> __𝑩𝒂𝒃𝒆𝒍 𝑨𝒃𝒊𝒆𝒓𝒕𝒐 𝒆𝒏:__ ' + invite.guild.name)
                     embed.setThumbnail(invite.guild.iconURL({dynamic: true}))
                     embed.setImage(invite.guild.bannerURL() ? invite.guild.bannerURL({ dynamic: true, size: 4096 }).replace('webp','png') : '' )
                     embed.setDescription((invite.inviter ? invite.inviter.toString() : invite.guild.name) + ' **Te invita** <a:ositotikabella:880307057981542432> a disfrutar de la apertura de :tokyo_tower: *Babel*\n\n<:Awebo_a_simpiar:901600161875259452> *A por muchas <:Bolsitas_Midgard:978305556311838800> bolsitas y ese preciado <:hmorado_Midgard:978305606098255902> __Thanatos__*\n\n<a:Flecha3:880315279903703060> **Recuerda** que solo tienes <a:reloj:915171222961135646> **12 HORAS!!!!**')
