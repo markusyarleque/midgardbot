@@ -32,6 +32,8 @@ module.exports =  {
                 embed.setDescription('No es un Link de servidor')
 
             }
+
+            message.reply({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
                 
         } catch (error) {
             
