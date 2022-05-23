@@ -1,3 +1,5 @@
+const { Util } = require('discord.js')
+
 module.exports =  {
     
     name: 'say',
@@ -20,7 +22,7 @@ module.exports =  {
             ]
         }).catch((e) => console.log('Error al enviar mensaje: '+e))
         
-        message.channel.send(texto).catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send(Util.cleanContent(texto, texto)).catch((e) => console.log('Error al enviar mensaje: '+e))
         setTimeout(() => message.delete(), 100);
 
     }
