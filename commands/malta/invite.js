@@ -23,9 +23,9 @@ module.exports =  {
             if(invite.guild){
 
                 embed.setThumbnail(invite.guild.iconURL({dynamic: true}))
-                embed.addField('Servidor: ', invite.guild.name + "\nID: `" + invite.guild.id + "`", true)
-                embed.addField('Miembros: ', invite.memberCount, true)
-                embed.addField("Invitado por: ", (invite.inviter ? invite.inviter.tag + "\n" + invite.inviter.toString() : 'None'), true)
+                embed.addField('Servidor:', ' ' + invite.guild.name + "\nID: `" + invite.guild.id + "`", true)
+                embed.addField('Miembros:', ' ' + invite.memberCount, true)
+                embed.addField('Invitado por:', ' ' + (invite.inviter ? invite.inviter.tag + "\n" + invite.inviter.toString() : 'None'), true)
 
             }else {
 
