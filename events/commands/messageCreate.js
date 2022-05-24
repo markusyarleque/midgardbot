@@ -1114,8 +1114,8 @@ module.exports = async (client, Discord, message) => {
     
                     embed.setTitle('<:babel_Midgard:978300970868035604> __𝑩𝒂𝒃𝒆𝒍 𝑨𝒃𝒊𝒆𝒓𝒕𝒐 𝒆𝒏:__ ')
                     embed.setThumbnail(invite.guild.iconURL() ? invite.guild.iconURL({ dynamic: true, size: 4096 }).replace('webp','png') : message.author.displayAvatarURL({ dynamic: true, size: 4096 }).replace('webp','png') )
-                    embed.setImage(invite.guild.bannerURL() ? invite.guild.bannerURL({ size: 2048, format: 'gif' }) : '' )
-                    console.log('Banner: ' + invite.guild.bannerURL() + ' - banner2.: ' + invite.guild.bannerURL({ size: 2048, format: 'gif' }) )
+                    embed.setImage(invite.guild.bannerURL() ? invite.guild.bannerURL({ size: 2048, dynamic: true }) : '' )
+                    console.log('Banner: ' + invite.guild.bannerURL() + ' - banner2.: ' + invite.guild.bannerURL({ size: 2048, dynamic: true }) )
                     embed.setDescription('\n\n◞┈┈┈⋆┈┈⊰✩⊱┈┈⋆┈┈┈◟\n\n     ★ ' + invite.guild.name + ' ★     \n\n◝┈┈┈⋆┈┈⊰✩⊱┈┈⋆┈┈┈◜\n\n' + (invite.inviter ? invite.inviter.toString() : invite.guild.name) + ' **Te invita** <a:ositotikabella:880307057981542432> a disfrutar de la apertura de :tokyo_tower: *Babel*\n\n<:Awebo_a_simpiar:901600161875259452> *A por muchas <:Bolsitas_Midgard:978305556311838800> bolsitas y ese preciado <:hmorado_Midgard:978305606098255902> __Thanatos__*\n\n<a:Flecha3:880315279903703060> **Recuerda** que solo tienes <a:reloj:915171222961135646> **12 HORAS!!!!**')
     
                     message.reply({ content: '<@&960987738553868348>', embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
