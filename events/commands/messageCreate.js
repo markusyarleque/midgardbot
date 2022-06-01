@@ -1183,7 +1183,7 @@ module.exports = async (client, Discord, message) => {
     
     //& COMANDO CMEMBER UPDATE XP
 
-    if(message.content.toLowerCase() === '!cmember'){
+    /*if(message.content.toLowerCase() === '!cmember'){
             
         if(message.channel.id !== '941504777056038922') return
 
@@ -1373,7 +1373,7 @@ module.exports = async (client, Discord, message) => {
         
         })
 
-    }
+    }*/
 
     //& COMANDO CMEMBER UPDATE XP
 
