@@ -1180,7 +1180,6 @@ module.exports = async (client, Discord, message) => {
 
     //% COMANDO BARRA GIF
 
-    
     //& COMANDO CMEMBER UPDATE XP
 
     /*if(message.content.toLowerCase() === '!cmember'){
