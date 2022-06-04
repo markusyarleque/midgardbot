@@ -1303,7 +1303,7 @@ module.exports = async (client, Discord, message) => {
 
                                 if(c <= 10){
                                     
-                                    tablexp.addRow('**' + c + '.**', '<@' + ls.idusuario + '>\n> *XP:* ' + ls.xpsubtotal + '  |  *Extra:* ' + ls.xpadicional + '  |  *TOTAL:* **' + ls.xptotal + '**')
+                                    tablexp.addRow('**' + c + '.**', '<@' + ls.idusuario + '>\n> *XP:* ' + ls.xpsubtotal + '  |  *Extra:* ' + ls.xpadicional + '\n> \n> *TOTAL:* **' + ls.xptotal + '**')
                                     first.push(ls.idusuario)
                                     c = c + 1
 
@@ -1311,7 +1311,7 @@ module.exports = async (client, Discord, message) => {
                                 
                                 if(ls.idusuario === message.author.id){
 
-                                    demxp.setDescription('> <:estrellita:982579093365215252> 𝙿𝚘𝚜𝚒𝚌𝚒𝚘́𝚗: **' + pos + '**\n>\n> <:flech:982579866358673448> 𝚇𝙿: **' + ls.xpsubtotal + '**\n> <:flech:982579866358673448> 𝙰𝚍𝚒𝚌𝚒𝚘𝚗𝚊𝚕: **' + ls.xpadicional + '**\n> <:flech:982579866358673448> 𝚃𝚘𝚝𝚊𝚕: **' + ls.xptotal + '**')
+                                    demxp.setDescription('> <:estrellita:982579093365215252> 𝙿𝚘𝚜𝚒𝚌𝚒𝚘́𝚗: **' + pos + '**\n> \n> <:flech:982579866358673448> 𝚇𝙿: **' + ls.xpsubtotal + '**\n> <:flech:982579866358673448> 𝙰𝚍𝚒𝚌𝚒𝚘𝚗𝚊𝚕: **' + ls.xpadicional + '**\n> <:flech:982579866358673448> 𝚃𝚘𝚝𝚊𝚕: **' + ls.xptotal + '**')
 
                                 }
                         
