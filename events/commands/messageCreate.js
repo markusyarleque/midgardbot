@@ -1294,7 +1294,7 @@ module.exports = async (client, Discord, message) => {
                             pos = 0
                 
                             var tablexp = new AsciiTable()
-                            var tablexpm = new AsciiTable()
+                            var tablexpm = AsciiTable.factory()
                             // tablexp.setHeading('**N°**','**Participante**','**XP**','**Extra**','**TOTAL**')
                             // tablexp.setHeadingAlignCenter()
             
@@ -1312,14 +1312,14 @@ module.exports = async (client, Discord, message) => {
                                 
                                 if(ls.idusuario === message.author.id){
 
-                                    tablexpm.addRow('> <:flech:982579866358673448> 𝚇𝙿: ', '**' + ls.xpsubtotal + '**')
-                                    tablexpm.addRow('> <:flech:982579866358673448> 𝙰𝚍𝚒𝚌𝚒𝚘𝚗𝚊𝚕: ', '**' + ls.xpadicional + '**')
-                                    tablexpm.addRow('> <:flech:982579866358673448> 𝚃𝚘𝚝𝚊𝚕: ', '**' + ls.xptotal + '**')
+                                    tablexpm.alignAuto('> <:flech:982579866358673448> 𝚇𝙿: **' + ls.xpsubtotal + '**', 45)
+                                    tablexpm.alignAuto('> <:flech:982579866358673448> 𝙰𝚍𝚒𝚌𝚒𝚘𝚗𝚊𝚕: **' + ls.xpadicional + '**', 45)
+                                    tablexpm.alignAuto('> <:flech:982579866358673448> 𝚃𝚘𝚝𝚊𝚕: **' + ls.xptotal + '**', 45)
                                     tablexpm.alignLeft('hey', 7, '-')
-                                    tablexpm.setAlignLeft(0)
-                                    tablexpm.setAlignRight(1)
-                                    tablexpm.removeBorder()
-                                    tablexpm.setJustify()
+                                    // tablexpm.setAlignLeft(0)
+                                    // tablexpm.setAlignRight(1)
+                                    // tablexpm.removeBorder()
+                                    // tablexpm.setJustify()
                                     demxp.setDescription('> <:estrellita:982579093365215252> 𝙿𝚘𝚜𝚒𝚌𝚒𝚘́𝚗: **' + pos + '**\n> \n' + tablexpm.toString())
 
                                 }

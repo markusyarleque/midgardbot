@@ -143,13 +143,12 @@ module.exports =  {
                 c = 1
 
                 var tablexp = new AsciiTable()
-                tablexp.setHeading('**N°**','**Participante**','**XP**','**Extra**','**TOTAL**')
-                tablexp.setHeadingAlignCenter()
 
                 for(let ls of lista){
     
                     // datos.push('**' + c + '.** <@' + ls.idusuario + '> ===> XP: **'+ls.xptotal+'**')
-                    tablexp.addRow('**' + c + '.**', '<@' + ls.idusuario + '> <a:flech:931432469935312937>', ls.xpsubtotal + ' | ', ls.xpadicional + ' | **', ls.xptotal + '**')
+                    // tablexp.addRow('**' + c + '.**', '<@' + ls.idusuario + '> <a:flech:931432469935312937>', ls.xpsubtotal + ' | ', ls.xpadicional + ' | **', ls.xptotal + '**')
+                    tablexp.addRow('**' + c + '.**', '<@' + ls.idusuario + '>\n\n> *XP:* ' + ls.xpsubtotal + '  |  *Extra:* ' + ls.xpadicional + '\n> *TOTAL:* **' + ls.xptotal + '**\n\n')
                     first.push(ls.idusuario)
                     c = c + 1
                     
@@ -157,9 +156,6 @@ module.exports =  {
                 
                 tablexp.setAlignCenter(0)
                 tablexp.setAlignCenter(1)
-                tablexp.setAlignRight(2)
-                tablexp.setAlignRight(3)
-                tablexp.setAlignRight(4)
                 tablexp.removeBorder()
 
                 if(!lista) return message.channel.send({embeds:[
