@@ -1294,8 +1294,8 @@ module.exports = async (client, Discord, message) => {
                             pos = 0
                 
                             var tablexp = new AsciiTable()
-                            tablexp.setHeading('**N°**','**Participante**','**XP**','**Extra**','**TOTAL**')
-                            tablexp.setHeadingAlignCenter()
+                            // tablexp.setHeading('**N°**','**Participante**','**XP**','**Extra**','**TOTAL**')
+                            // tablexp.setHeadingAlignCenter()
             
                             for(let ls of lista){
                 
@@ -1303,7 +1303,7 @@ module.exports = async (client, Discord, message) => {
 
                                 if(c <= 10){
                                     
-                                    tablexp.addRow('**' + c + '.**', '<@' + ls.idusuario + '> <a:flech:931432469935312937>', ls.xpsubtotal + ' | ', ls.xpadicional + ' | **', ls.xptotal + '**')
+                                    tablexp.addRow('**' + c + '.**', '<@' + ls.idusuario + '>\n<a:flech:931432469935312937> *XP:* ' + ls.xpsubtotal + ' | *Extra:* ' + ls.xpadicional + ' | *TOTAL:* **' + ls.xptotal + '**')
                                     first.push(ls.idusuario)
                                     c = c + 1
 
@@ -1319,10 +1319,10 @@ module.exports = async (client, Discord, message) => {
                             
                             tablexp.setAlignCenter(0)
                             tablexp.setAlignCenter(1)
-                            tablexp.setAlignRight(2)
-                            tablexp.setAlignRight(3)
-                            tablexp.setAlignRight(4)
-                            tablexp.removeBorder()
+                            // tablexp.setAlignRight(2)
+                            // tablexp.setAlignRight(3)
+                            // tablexp.setAlignRight(4)
+                            // tablexp.removeBorder()
 
                             if(!lista){
     
@@ -1337,7 +1337,7 @@ module.exports = async (client, Discord, message) => {
                             best = client.users.cache.get(first[0])
             
                             dem.setTitle('𝑴𝒊𝒅𝒈𝒂𝒓𝒅 𝑿𝑷 𝑹𝒂𝒄𝒆 💎')
-                            //dem.setThumbnail(best.displayAvatarURL() ? best.displayAvatarURL({dynamic: true, size: 2048}) : message.guild.iconURL({ dynamic: true, size: 2048 }))
+                            dem.setThumbnail(best.displayAvatarURL() ? best.displayAvatarURL({dynamic: true, size: 2048}) : message.guild.iconURL({ dynamic: true, size: 2048 }))
                             dem.setImage('https://i.imgur.com/VKOLvQT.gif')
                             dem.setDescription(tablexp.toString())   	
                             dem.setColor("RANDOM")
