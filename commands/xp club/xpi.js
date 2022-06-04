@@ -154,7 +154,6 @@ module.exports =  {
                     
                 }
                 
-                tablexp.setJustify()
                 tablexp.setAlignCenter(1)
                 tablexp.setAlignCenter(2)
                 tablexp.setAlignRight(3)
