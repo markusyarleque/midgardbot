@@ -145,7 +145,6 @@ module.exports =  {
                 tablexp.setHeading('N°','Participante','XP','Extra','TOTAL')
                 tablexp.setHeadingAlignCenter()
                 tablexp.setJustify()
-                tablexp.alignAuto()
 
                 for(let ls of lista){
     
