@@ -1,5 +1,6 @@
 const Similar = require('string-similarity');
 const { Permissions } = require('discord.js');
+var AsciiTable = require('ascii-table')
 
 //& Modelos
 const userModel = require('../../models/userSchema');
