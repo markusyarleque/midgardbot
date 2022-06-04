@@ -1291,7 +1291,7 @@ module.exports = async (client, Discord, message) => {
                             first = []
                 
                             c = 1
-                            pos = 1
+                            pos = 0
                 
                             var tablexp = new AsciiTable()
                             tablexp.setHeading('**N°**','**Participante**','**XP**','**Extra**','**TOTAL**')
@@ -1301,7 +1301,7 @@ module.exports = async (client, Discord, message) => {
                 
                                 pos = pos + 1
 
-                                while(c <= 10){
+                                if(c <= 10){
                                     
                                     tablexp.addRow('**' + c + '.**', '<@' + ls.idusuario + '> <a:flech:931432469935312937>', ls.xpsubtotal + ' | ', ls.xpadicional + ' | **', ls.xptotal + '**')
                                     first.push(ls.idusuario)
