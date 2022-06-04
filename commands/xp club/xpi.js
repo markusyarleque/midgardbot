@@ -142,7 +142,8 @@ module.exports =  {
                 c = 1
 
                 var tablexp = new AsciiTable()
-                tablexp.setHeadingAlignCenter('N°','Participante','XP','Extra','TOTAL')
+                tablexp.setHeading('N°','Participante','XP','Extra','TOTAL')
+                tablexp.setHeadingAlignCenter()
                 tablexp.setJustify()
 
                 for(let ls of lista){
@@ -159,7 +160,7 @@ module.exports =  {
                 tablexp.setAlignRight(2)
                 tablexp.setAlignRight(3)
                 tablexp.setAlignRight(4)
-                tablexp.setBorder('|','','','')
+                tablexp.setBorder('|',' ',' ',' ')
 
                 if(!lista) return message.channel.send({embeds:[
               
