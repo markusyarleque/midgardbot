@@ -1318,6 +1318,7 @@ module.exports = async (client, Discord, message) => {
                                     tablexpm.setAlignLeft(0)
                                     tablexpm.setAlignRight(1)
                                     tablexpm.removeBorder()
+                                    tablexpm.setJustify()
                                     demxp.setDescription('> <:estrellita:982579093365215252> 𝙿𝚘𝚜𝚒𝚌𝚒𝚘́𝚗: **' + pos + '**\n> \n' + tablexpm.toString())
 
                                 }
