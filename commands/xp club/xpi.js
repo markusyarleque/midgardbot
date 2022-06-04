@@ -154,6 +154,8 @@ module.exports =  {
                     
                 }
                 
+                tablexp.setJustify()
+                
                 if(!lista) return message.channel.send({embeds:[
               
                     new Discord.MessageEmbed()
