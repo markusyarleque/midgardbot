@@ -1303,7 +1303,7 @@ module.exports = async (client, Discord, message) => {
 
                                 if(c <= 10){
                                     
-                                    tablexp.addRow('**' + c + '.**', '<@' + ls.idusuario + '>\n<a:flech:931432469935312937> *XP:* ' + ls.xpsubtotal + ' | *Extra:* ' + ls.xpadicional + ' | *TOTAL:* **' + ls.xptotal + '**')
+                                    tablexp.addRow('**' + c + '.**', '<@' + ls.idusuario + '>\n> *XP:* ' + ls.xpsubtotal + '  |  *Extra:* ' + ls.xpadicional + '  |  *TOTAL:* **' + ls.xptotal + '**')
                                     first.push(ls.idusuario)
                                     c = c + 1
 
