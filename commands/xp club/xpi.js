@@ -1,4 +1,5 @@
 const xpclubSchema = require('../../models/xpclubSchema');
+var AsciiTable = require('ascii-table')
 
 module.exports =  {
     
@@ -90,6 +91,7 @@ module.exports =  {
                     idusuario: user1.id,
                     xpinicial: xpi,
                     xpfinal: xpi,
+                    xpadicional: 0,
                     xptotal: 0,
                             
                 })
@@ -108,6 +110,7 @@ module.exports =  {
 
                         xpinicial: xpi,
                         xpfinal: xpi,
+                        xpadicional: 0,
                         xptotal: 0,
 
                     })
@@ -137,16 +140,20 @@ module.exports =  {
                 first = []
     
                 c = 1
-    
+
+                var tablexp = new AsciiTable()
+                tablexp.setHeading('N°','Participante','XP','Extra','TOTAL')
+
                 for(let ls of lista){
     
-                    datos.push('**' + c + '.** <@' + ls.idusuario + '> ===> XP: **'+ls.xptotal+'**')
+                    // datos.push('**' + c + '.** <@' + ls.idusuario + '> ===> XP: **'+ls.xptotal+'**')
+                    tablexp.addRow(c, '<@' + ls.idusuario + '>', ls.xptotal, ls.xpadicional, (ls.xptotal+ls.xpadicional))
                     first.push(ls.idusuario)
                     c = c + 1
-            
+                    
                 }
                 
-                if(!lista || datos.length === 0) return message.channel.send({embeds:[
+                if(!lista) return message.channel.send({embeds:[
               
                     new Discord.MessageEmbed()
                     .setDescription('Aún no hay usuarios con XP <:tierno:931433334960160799>')   	
@@ -161,7 +168,7 @@ module.exports =  {
                 embed.setTitle('𝑴𝒊𝒅𝒈𝒂𝒓𝒅 𝑿𝑷 𝑹𝒂𝒄𝒆 💎')
                 embed.setThumbnail(best.displayAvatarURL() ? best.displayAvatarURL({dynamic: true, size: 2048}) : message.guild.iconURL({ dynamic: true, size: 2048 }))
                 embed.setImage('https://i.imgur.com/VKOLvQT.gif')
-                embed.setDescription(datos.join('\n\n'))   	
+                embed.setDescription(tablexp.toString())   	
                 embed.setColor("RANDOM")
                 embed.setTimestamp(new Date())
                 embed.setFooter({ text: '𝐌𝐢𝐝𝐠𝐚𝐫𝐝 𝐍𝐞𝐤𝐨𝐂𝐥𝐮𝐛', iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : 'https://i.imgur.com/MNWYvup.gif' })
