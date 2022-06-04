@@ -160,6 +160,7 @@ module.exports =  {
                 tablexp.setAlignRight(2)
                 tablexp.setAlignRight(3)
                 tablexp.setAlignRight(4)
+                tablexp.removeBorder()
 
                 if(!lista) return message.channel.send({embeds:[
               
