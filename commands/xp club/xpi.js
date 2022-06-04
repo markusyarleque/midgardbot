@@ -44,7 +44,7 @@ module.exports =  {
       
         ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-        let userxp, xpi, logschannel, topchannel, lista, embed, datos, first, c, best
+        let userxp, xpi, logschannel, topchannel, lista, embed, first, c, best
 
         if(!args[1]) return message.reply({embeds: [
             
@@ -91,6 +91,7 @@ module.exports =  {
                     idusuario: user1.id,
                     xpinicial: xpi,
                     xpfinal: xpi,
+                    xpsubtotal: 0,
                     xpadicional: 0,
                     xptotal: 0,
                             
@@ -110,6 +111,7 @@ module.exports =  {
 
                         xpinicial: xpi,
                         xpfinal: xpi,
+                        xpsubtotal: 0,
                         xpadicional: 0,
                         xptotal: 0,
 
@@ -136,19 +138,18 @@ module.exports =  {
     
                 embed = new Discord.MessageEmbed()
     
-                datos = []
                 first = []
     
                 c = 1
 
                 var tablexp = new AsciiTable()
-                tablexp.setHeading('N°','Participante','XP','Extra','TOTAL')
+                tablexp.setHeading('**N°**','**Participante**','**XP**','**Extra**','**TOTAL**')
                 tablexp.setHeadingAlignCenter()
 
                 for(let ls of lista){
     
                     // datos.push('**' + c + '.** <@' + ls.idusuario + '> ===> XP: **'+ls.xptotal+'**')
-                    tablexp.addRow('**' + c + '.**', '<@' + ls.idusuario + '> ===>', ls.xptotal + ' | ', ls.xpadicional + ' | **', (ls.xptotal+ls.xpadicional) + '**')
+                    tablexp.addRow('**' + c + '.**', '<@' + ls.idusuario + '> <a:flech:931432469935312937>', ls.xpsubtotal + ' | ', ls.xpadicional + ' | **', ls.xptotal + '**')
                     first.push(ls.idusuario)
                     c = c + 1
                     
@@ -174,7 +175,7 @@ module.exports =  {
                 best = client.users.cache.get(first[0])
 
                 embed.setTitle('𝑴𝒊𝒅𝒈𝒂𝒓𝒅 𝑿𝑷 𝑹𝒂𝒄𝒆 💎')
-                //embed.setThumbnail(best.displayAvatarURL() ? best.displayAvatarURL({dynamic: true, size: 2048}) : message.guild.iconURL({ dynamic: true, size: 2048 }))
+                embed.setThumbnail(best.displayAvatarURL() ? best.displayAvatarURL({dynamic: true, size: 2048}) : message.guild.iconURL({ dynamic: true, size: 2048 }))
                 embed.setImage('https://i.imgur.com/VKOLvQT.gif')
                 embed.setDescription(tablexp.toString())   	
                 embed.setColor("RANDOM")
@@ -196,7 +197,9 @@ module.exports =  {
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | Ocurrió un error inesperado, por favor intenta de nuevo!\n> Error: `+error)
                 .setTimestamp()
-    
+                
+                logschannel.send({ content: '``` Error al Buscar la Lista de XP - User: ' + user1.id + ' - Error: ' + error + '```' }).catch((e) => console.log('Error al enviar mensaje: '+e))
+            
                 return message.reply({embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
             }
@@ -204,7 +207,7 @@ module.exports =  {
         } catch (error) {
 
             console.log('Error al encontrar miembro de Club: ' + error)
-            logschannel.send({ content: '``` Error al Registrar en la Bd XP club - User: ' + user1.id + ' - Error: ' + error + '```' })
+            logschannel.send({ content: '``` Error al Registrar en la Bd XP club - User: ' + user1.id + ' - Error: ' + error + '```' }).catch((e) => console.log('Error al enviar mensaje: '+e))
             return message.reply('Ocurrió un error al registrar en la BD. Por favor, intente de nuevo.').catch((e) => console.log('Error al enviar mensaje: '+e))
             
         }
