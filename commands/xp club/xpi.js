@@ -155,7 +155,12 @@ module.exports =  {
                 }
                 
                 tablexp.setJustify()
-                
+                tablexp.setAlignCenter(1)
+                tablexp.setAlignCenter(2)
+                tablexp.setAlignRight(3)
+                tablexp.setAlignRight(4)
+                tablexp.setAlignRight(5)
+
                 if(!lista) return message.channel.send({embeds:[
               
                     new Discord.MessageEmbed()
