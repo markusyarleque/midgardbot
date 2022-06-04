@@ -154,11 +154,12 @@ module.exports =  {
                     
                 }
                 
+                tablexp.setAlignCenter(0)
                 tablexp.setAlignCenter(1)
-                tablexp.setAlignCenter(2)
+                tablexp.setAlignRight(2)
                 tablexp.setAlignRight(3)
                 tablexp.setAlignRight(4)
-                tablexp.setAlignRight(5)
+                tablexp.removeBorder()
 
                 if(!lista) return message.channel.send({embeds:[
               
