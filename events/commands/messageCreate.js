@@ -1185,7 +1185,7 @@ module.exports = async (client, Discord, message) => {
 
     if(message.content.toLowerCase() === '!cmember'){
             
-        if(message.channel.id !== '938965106275025017') return
+        if(message.channel.id !== '941504777056038922') return
 
         let fields, idxpclub, xpclub, indexid, indexxp, indexa, topchannel, userxp, subtotal, lista, dem, demxp, first, c, best, pos
 
