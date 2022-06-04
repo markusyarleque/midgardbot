@@ -142,7 +142,7 @@ module.exports =  {
                 c = 1
 
                 var tablexp = new AsciiTable()
-                tablexp.setHeading('N°','Participante','XP','Extra','TOTAL')
+                tablexp.setHeading('N°','User','XP','Extra','TOTAL')
                 tablexp.setHeadingAlignCenter()
 
                 for(let ls of lista){
