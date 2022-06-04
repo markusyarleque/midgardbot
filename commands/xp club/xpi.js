@@ -145,6 +145,7 @@ module.exports =  {
                 tablexp.setHeading('N°','Participante','XP','Extra','TOTAL')
                 tablexp.setHeadingAlignCenter()
                 tablexp.setJustify()
+                tablexp.alignAuto()
 
                 for(let ls of lista){
     
@@ -160,7 +161,6 @@ module.exports =  {
                 tablexp.setAlignRight(2)
                 tablexp.setAlignRight(3)
                 tablexp.setAlignRight(4)
-                tablexp.setBorder('|',' ',' ',' ')
 
                 if(!lista) return message.channel.send({embeds:[
               
