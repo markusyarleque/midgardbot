@@ -1311,7 +1311,7 @@ module.exports = async (client, Discord, message) => {
                                 
                                 if(ls.idusuario === message.author.id){
 
-                                    demxp.setDescription('```Posición: ' + pos + '\nXP: ' + ls.xpsubtotal + '\nAdicional: ' + ls.xpadicional + '\nTOTAL: ' + ls.xptotal + '```')
+                                    demxp.setDescription('> <:estrellita:982579093365215252> 𝙿𝚘𝚜𝚒𝚌𝚒𝚘́𝚗: **' + pos + '**>\n> <:flech:982579866358673448> 𝚇𝙿: **' + ls.xpsubtotal + '**>\n> <:flech:982579866358673448> 𝙰𝚍𝚒𝚌𝚒𝚘𝚗𝚊𝚕: **' + ls.xpadicional + '**>\n> <:flech:982579866358673448> 𝚃𝚘𝚝𝚊𝚕: **' + ls.xptotal + '**```')
 
                                 }
                         
@@ -1322,7 +1322,7 @@ module.exports = async (client, Discord, message) => {
                             // tablexp.setAlignRight(2)
                             // tablexp.setAlignRight(3)
                             // tablexp.setAlignRight(4)
-                            // tablexp.removeBorder()
+                            tablexp.removeBorder()
 
                             if(!lista){
     
