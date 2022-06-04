@@ -3,7 +3,7 @@ var AsciiTable = require('ascii-table')
 
 module.exports =  {
     
-    name: 'addxpa',
+    name: 'removexpa',
     aliases: [],
     description: '💻 Comando exclusivo de Staff',
 
