@@ -170,7 +170,7 @@ module.exports =  {
                 best = client.users.cache.get(first[0])
 
                 embed.setTitle('𝑴𝒊𝒅𝒈𝒂𝒓𝒅 𝑿𝑷 𝑹𝒂𝒄𝒆 💎')
-                //embed.setThumbnail(best.displayAvatarURL() ? best.displayAvatarURL({dynamic: true, size: 2048}) : message.guild.iconURL({ dynamic: true, size: 2048 }))
+                embed.setThumbnail(best.displayAvatarURL() ? best.displayAvatarURL({dynamic: true, size: 2048}) : message.guild.iconURL({ dynamic: true, size: 2048 }))
                 embed.setImage('https://i.imgur.com/VKOLvQT.gif')
                 embed.setDescription(tablexp.toString())   	
                 embed.setColor("RANDOM")
