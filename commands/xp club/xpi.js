@@ -144,12 +144,11 @@ module.exports =  {
                 var tablexp = new AsciiTable()
                 tablexp.setHeading('N°','Participante','XP','Extra','TOTAL')
                 tablexp.setHeadingAlignCenter()
-                tablexp.setJustify()
 
                 for(let ls of lista){
     
                     // datos.push('**' + c + '.** <@' + ls.idusuario + '> ===> XP: **'+ls.xptotal+'**')
-                    tablexp.addRow(c, '<@' + ls.idusuario + '>', ls.xptotal, ls.xpadicional, (ls.xptotal+ls.xpadicional))
+                    tablexp.addRow('**' + c + '.**', '<@' + ls.idusuario + '> ===>', ls.xptotal + ' | ', ls.xpadicional + ' | **', (ls.xptotal+ls.xpadicional) + '**')
                     first.push(ls.idusuario)
                     c = c + 1
                     
