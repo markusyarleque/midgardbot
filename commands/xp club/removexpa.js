@@ -3,7 +3,7 @@ var AsciiTable = require('ascii-table')
 
 module.exports =  {
     
-    name: 'xpi',
+    name: 'addxpa',
     aliases: [],
     description: '💻 Comando exclusivo de Staff',
 
@@ -31,7 +31,7 @@ module.exports =  {
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
             .setColor('RED')
-            .setDescription(`<a:Verify2:931463492677017650> | No puedes agregar XP a un bot`)
+            .setDescription(`<a:Verify2:931463492677017650> | No puedes remover XP a un bot`)
       
         ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
@@ -44,14 +44,14 @@ module.exports =  {
       
         ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
 
-        let userxp, xpi, logschannel, topchannel, lista, embed, first, c, best
+        let userxp, xpa, logschannel, topchannel, lista, embed, first, c, best
 
         if(!args[1]) return message.reply({embeds: [
             
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
             .setColor('RED')
-            .setDescription(`<a:Verify2:931463492677017650> | Ingresa el XP inicial del Participante.`)
+            .setDescription(`<a:Verify2:931463492677017650> | Ingresa el XP adicional que deseas remover al Participante.`)
         
         ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
     
@@ -60,18 +60,18 @@ module.exports =  {
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
             .setColor('RED')
-            .setDescription(`<a:Verify2:931463492677017650> | Pon una cantidad, solo puedo agregar números.`)
+            .setDescription(`<a:Verify2:931463492677017650> | Pon una cantidad, solo puedo remover números.`)
         
         ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
     
-        xpi = parseInt(args[1])
+        xpa = parseInt(args[1])
 
-        if(xpi < 0) return message.reply({embeds: [
+        if(xpa <= 0) return message.reply({embeds: [
             
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
             .setColor('RED')
-            .setDescription(`<a:Verify2:931463492677017650> | Ingresa una cantidad mayor o igual a 0`)
+            .setDescription(`<a:Verify2:931463492677017650> | Ingresa una cantidad mayor que 0`)
         
         ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
     
@@ -84,50 +84,38 @@ module.exports =  {
         
             if(!userxp){
 
-                console.log('========================= REGISTRO DE XP CLUB =========================');
-                                
-                let user = await xpclubSchema.create({
-                        
-                    idusuario: user1.id,
-                    xpinicial: xpi,
-                    xpfinal: xpi,
-                    xpsubtotal: 0,
-                    xpadicional: 0,
-                    xptotal: 0,
-                            
-                })
-                            
-                user.save();
-                console.log('XP de Participante Registrado ===> Id: '+ user1.id + ' - XP inicial: ' + xpi)
-                           
-                console.log('========================= REGISTRO DE XP CLUB =========================');
-                    
+                return message.reply({embeds: [
+            
+                    new Discord.MessageEmbed()
+                    .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
+                    .setColor('RED')
+                    .setDescription('<a:Verify2:931463492677017650> | Debes registrar primero al usuario con un XP inicial. Usa `_xpi <@user> <xp>`')
+                
+                ]}).then(m => setTimeout(() => m.delete(), 5000)).catch((e) => console.log('Error al enviar mensaje: '+e))
+            
             } else{
 
-                console.log('========================= ACTUALIZACIÓN DE XP CLUB =========================');
+                console.log('========================= ACTUALIZACIÓN DE XP ADICIONAL CLUB =========================');
                         
                 let update = await xpclubSchema.findOneAndUpdate({idusuario: user1.id},
                     {
 
-                        xpinicial: xpi,
-                        xpfinal: xpi,
-                        xpsubtotal: 0,
-                        xpadicional: 0,
-                        xptotal: 0,
+                        xpadicional: userxp.xpadicional - xpa,
+                        xptotal: userxp.xpadicional - xpa + userxp.xpsubtotal
 
                     })
 
                 update.save()
-                console.log('XP de Participante Registrado ===> Id: '+ user1.id + ' - XP inicial: ' + xpi)
+                console.log('XP adicional de Participante Registrado ===> Id: '+ user1.id + ' - XP inicial: ' + userxp.xpinicial + ' - XP adicional removido: ' + xpa)
                  
-                console.log('========================= ACTUALIZACIÓN DE XP CLUB =========================');
+                console.log('========================= ACTUALIZACIÓN DE XP ADICIONAL CLUB =========================');
 
             }
 
             const e = new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
             .setColor('GREEN')
-            .setDescription('<a:Verify1:931463354357276742> | Participante Registrado: <@' + user1.id + '>\n\n> XP inicial: ' + xpi)
+            .setDescription('<a:Verify1:931463354357276742> | Participante Actualizado: <@' + user1.id + '>\n\n> XP adicional removido: ' + xpa)
             .setTimestamp()
         
             message.reply({ allowedMentions: { repliedUser: false}, embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
@@ -141,18 +129,17 @@ module.exports =  {
                 first = []
     
                 c = 1
-
+    
                 var tablexp = new AsciiTable()
                 tablexp.setHeading('**N°**','**Participante**','**XP**','**Extra**','**TOTAL**')
                 tablexp.setHeadingAlignCenter()
 
                 for(let ls of lista){
     
-                    // datos.push('**' + c + '.** <@' + ls.idusuario + '> ===> XP: **'+ls.xptotal+'**')
                     tablexp.addRow('**' + c + '.**', '<@' + ls.idusuario + '> <a:flech:931432469935312937>', ls.xpsubtotal + ' | ', ls.xpadicional + ' | **', ls.xptotal + '**')
                     first.push(ls.idusuario)
                     c = c + 1
-                    
+            
                 }
                 
                 tablexp.setAlignCenter(0)
@@ -169,6 +156,7 @@ module.exports =  {
                     .setColor("RANDOM")
                     .setTimestamp(new Date())
                     .setFooter({ text: '𝐌𝐢𝐝𝐠𝐚𝐫𝐝 𝐍𝐞𝐤𝐨𝐂𝐥𝐮𝐛', iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : 'https://i.imgur.com/MNWYvup.gif' })
+
 
                 ]}).catch((e) => console.log('Error al enviar mensaje: '+e))
     
@@ -197,7 +185,7 @@ module.exports =  {
                 .setColor('RED')
                 .setDescription(`<a:Verify2:931463492677017650> | Ocurrió un error inesperado, por favor intenta de nuevo!\n> Error: `+error)
                 .setTimestamp()
-                
+    
                 logschannel.send({ content: '``` Error al Buscar la Lista de XP - User: ' + user1.id + ' - Error: ' + error + '```' }).catch((e) => console.log('Error al enviar mensaje: '+e))
             
                 return message.reply({embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))

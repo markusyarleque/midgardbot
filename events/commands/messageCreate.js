@@ -1182,11 +1182,11 @@ module.exports = async (client, Discord, message) => {
 
     //& COMANDO CMEMBER UPDATE XP
 
-    /*if(message.content.toLowerCase() === '!cmember'){
+    if(message.content.toLowerCase() === '!cmember'){
             
-        if(message.channel.id !== '941504777056038922') return
+        if(message.channel.id !== '938965106275025017') return
 
-        let fields, idxpclub, xpclub, indexid, indexxp, indexa, topchannel, userxp, total, lista, dem, datos, first, c, best
+        let fields, idxpclub, xpclub, indexid, indexxp, indexa, topchannel, userxp, subtotal, lista, dem, demxp, first, c, best, pos
 
         message.channel.sendTyping().then(async me => {
             
@@ -1260,7 +1260,7 @@ module.exports = async (client, Discord, message) => {
                             
                         }
 
-                        total = xpclub - userxp.xpinicial
+                        subtotal = xpclub - userxp.xpinicial
         
                         console.log('========================= ACTUALIZACIÓN DE XP CLUB =========================');
                                 
@@ -1268,12 +1268,13 @@ module.exports = async (client, Discord, message) => {
                             {
         
                                 xpfinal: xpclub,
-                                xptotal: total,
+                                xpsubtotal: subtotal,
+                                xptotal: subtotal + userxp.xpadicional
         
                             })
         
                         update.save()
-                        console.log('XP de Participante Registrado ===> Id: '+ idxpclub + ' - XP inicial: ' + userxp.xpinicial + ' - Total XP: ' + total)
+                        console.log('XP de Participante Registrado ===> Id: '+ idxpclub + ' - XP inicial: ' + userxp.xpinicial + ' - Total XP: ' + subtotal)
                          
                         console.log('========================= ACTUALIZACIÓN DE XP CLUB =========================');
         
@@ -1281,24 +1282,48 @@ module.exports = async (client, Discord, message) => {
 
                         try {
                     
-                            lista = await xpclubSchema.find().sort({ xptotal: -1 }).limit(10)
+                            lista = await xpclubSchema.find().sort({ xptotal: -1 })
                 
                             dem = new Discord.MessageEmbed()
+                            demxp = new Discord.MessageEmbed()
                 
-                            datos = []
                             first = []
                 
                             c = 1
+                            pos = 1
                 
+                            var tablexp = new AsciiTable()
+                            tablexp.setHeading('**N°**','**Participante**','**XP**','**Extra**','**TOTAL**')
+                            tablexp.setHeadingAlignCenter()
+            
                             for(let ls of lista){
                 
-                                datos.push('**' + c + '.** <@' + ls.idusuario + '> ===> XP: **'+ls.xptotal+'**')
-                                first.push(ls.idusuario)
-                                c = c + 1
+                                pos = pos + 1
+
+                                while(c <= 10){
+                                    
+                                    tablexp.addRow('**' + c + '.**', '<@' + ls.idusuario + '> <a:flech:931432469935312937>', ls.xpsubtotal + ' | ', ls.xpadicional + ' | **', ls.xptotal + '**')
+                                    first.push(ls.idusuario)
+                                    c = c + 1
+
+                                }
+                                
+                                if(ls.idusuario === message.author.id){
+
+                                    demxp.setDescription('```Posición: ' + pos + '\nXP: ' + ls.xpsubtotal + '\nAdicional: ' + ls.xpadicional + '\nTOTAL: ' + ls.xptotal + '```')
+
+                                }
                         
                             }
                             
-                            if(!lista || datos.length === 0){
+                            tablexp.setAlignCenter(0)
+                            tablexp.setAlignCenter(1)
+                            tablexp.setAlignRight(2)
+                            tablexp.setAlignRight(3)
+                            tablexp.setAlignRight(4)
+                            tablexp.removeBorder()
+
+                            if(!lista){
     
                                 logschannel.send({ content: '```No se encontró datos en la BD XP Club: ' + datos + '```' }).catch((e) => console.log('Error al enviar mensaje de logs: ' + e))
     
@@ -1311,12 +1336,18 @@ module.exports = async (client, Discord, message) => {
                             best = client.users.cache.get(first[0])
             
                             dem.setTitle('𝑴𝒊𝒅𝒈𝒂𝒓𝒅 𝑿𝑷 𝑹𝒂𝒄𝒆 💎')
-                            dem.setThumbnail(best.displayAvatarURL() ? best.displayAvatarURL({dynamic: true, size: 2048}) : message.guild.iconURL({ dynamic: true, size: 2048 }))
+                            //dem.setThumbnail(best.displayAvatarURL() ? best.displayAvatarURL({dynamic: true, size: 2048}) : message.guild.iconURL({ dynamic: true, size: 2048 }))
                             dem.setImage('https://i.imgur.com/VKOLvQT.gif')
-                            dem.setDescription(datos.join('\n\n'))   	
+                            dem.setDescription(tablexp.toString())   	
                             dem.setColor("RANDOM")
                             dem.setTimestamp(new Date())
                             dem.setFooter({ text: '𝐌𝐢𝐝𝐠𝐚𝐫𝐝 𝐍𝐞𝐤𝐨𝐂𝐥𝐮𝐛', iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : 'https://i.imgur.com/MNWYvup.gif' })
+            
+                            demxp.setTitle('𝑴𝒊𝒅𝒈𝒂𝒓𝒅 𝑿𝑷 𝑹𝒂𝒄𝒆 💎')
+                            demxp.setAuthor({ name: message.author.username+'#'+message.author.discriminator, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                            demxp.setColor("RANDOM")
+                            demxp.setTimestamp(new Date())
+                            demxp.setFooter({ text: '𝐌𝐢𝐝𝐠𝐚𝐫𝐝 𝐍𝐞𝐤𝐨𝐂𝐥𝐮𝐛', iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true, size: 2048 }) : 'https://i.imgur.com/MNWYvup.gif' })
             
                             setTimeout(() => {
                         
@@ -1331,6 +1362,8 @@ module.exports = async (client, Discord, message) => {
 
                                 }).catch((e) => console.log('Error al reaccionar mensaje: '+e))
     
+                                message.channel.send({ embeds: [demxp] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+
                             }, 5000)
     
                             
@@ -1372,7 +1405,7 @@ module.exports = async (client, Discord, message) => {
         
         })
 
-    }*/
+    }
 
     //& COMANDO CMEMBER UPDATE XP
 
