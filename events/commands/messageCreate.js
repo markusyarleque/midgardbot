@@ -1315,6 +1315,7 @@ module.exports = async (client, Discord, message) => {
                                     tablexpm.addRow('> <:flech:982579866358673448> 𝚇𝙿: ', '**' + ls.xpsubtotal + '**')
                                     tablexpm.addRow('> <:flech:982579866358673448> 𝙰𝚍𝚒𝚌𝚒𝚘𝚗𝚊𝚕: ', '**' + ls.xpadicional + '**')
                                     tablexpm.addRow('> <:flech:982579866358673448> 𝚃𝚘𝚝𝚊𝚕: ', '**' + ls.xptotal + '**')
+                                    tablexpm.alignLeft('hey', 7, '-')
                                     tablexpm.setAlignLeft(0)
                                     tablexpm.setAlignRight(1)
                                     tablexpm.removeBorder()
