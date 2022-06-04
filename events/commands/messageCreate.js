@@ -1311,7 +1311,7 @@ module.exports = async (client, Discord, message) => {
                                 
                                 if(ls.idusuario === message.author.id){
 
-                                    demxp.setDescription('> <:estrellita:982579093365215252> 𝙿𝚘𝚜𝚒𝚌𝚒𝚘́𝚗: **' + pos + '**>\n> <:flech:982579866358673448> 𝚇𝙿: **' + ls.xpsubtotal + '**>\n> <:flech:982579866358673448> 𝙰𝚍𝚒𝚌𝚒𝚘𝚗𝚊𝚕: **' + ls.xpadicional + '**>\n> <:flech:982579866358673448> 𝚃𝚘𝚝𝚊𝚕: **' + ls.xptotal + '**```')
+                                    demxp.setDescription('> <:estrellita:982579093365215252> 𝙿𝚘𝚜𝚒𝚌𝚒𝚘́𝚗: **' + pos + '**\n>\n> <:flech:982579866358673448> 𝚇𝙿: **' + ls.xpsubtotal + '**\n> <:flech:982579866358673448> 𝙰𝚍𝚒𝚌𝚒𝚘𝚗𝚊𝚕: **' + ls.xpadicional + '**\n> <:flech:982579866358673448> 𝚃𝚘𝚝𝚊𝚕: **' + ls.xptotal + '**')
 
                                 }
                         
@@ -1363,7 +1363,7 @@ module.exports = async (client, Discord, message) => {
 
                                 }).catch((e) => console.log('Error al reaccionar mensaje: '+e))
     
-                                message.channel.send({ embeds: [demxp] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                                message.reply({ allowedMentions: { repliedUser: false }, embeds: [demxp] }).catch((e) => console.log('Error al enviar mensaje: '+e))
 
                             }, 5000)
     
