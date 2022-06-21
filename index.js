@@ -2898,7 +2898,7 @@ client.on('warn', (e) => {
   try {
     
     logschannel = client.channels.cache.get('965156885558878319')
-    logschannel.send({ content: '<@753435606410985573> Warn: \n\n```' + tablew + '```' })
+    logschannel.send({ content: 'Warn: \n\n```' + tablew + '```' })
 
   } catch (error) {
     
