@@ -35,10 +35,16 @@ module.exports = async (client, Discord, guild) => {
             
             let setserver = await serverSchema.findOneAndDelete({idserver: guild.id})
         
-            setserver.save();
-                    
-            console.log('Servidor eliminado ===> Servidor: '+ guild.name)
+            setserver.save().then(() => {
+                
+                console.log('Servidor eliminado ===> Servidor: '+ guild.name)
        
+            }).catch((e) => {
+                
+                console.log('Error al Eliminar Servidor: '+ guild.name + ' - ' + e)
+       
+            })     
+            
             console.log('========================= ELIMINACIÓN DE SERVIDOR =========================');
     
         }
