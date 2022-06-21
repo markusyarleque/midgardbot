@@ -8,11 +8,23 @@ module.exports = async (client, Discord, guild) => {
     let canalmbs = client.channels.cache.get('957231545763110984')
     let logschannel = client.channels.cache.get('965156885558878319')
 
-    let ownerserver = await guild.fetchOwner().catch((e) => console.log('Error al obtener owner: '+e))
+    let ownerserver
     let buscarserver
     let amount = 2
     let canalmbp = client.channels.cache.get('965157413349130250')
-    ownerserver = client.users.cache.get(ownerserver.id).catch((e) => console.log('Error al obtener owner: '+e))
+    
+    try {
+
+        ownerserver = await guild.fetchOwner()
+        ownerserver = client.users.cache.get(ownerserver.id)
+    
+    } catch (error) {
+        
+        logschannel.send({ content: '```Ha ocurrido un error inesperado al obtener Owner de Servidor saliente: ' + error + '```' }).catch((e) => console.log('Error al enviar mensaje: '+e))
+        console.log('Ha ocurrido un error inesperado al obtener Owner de Servidor saliente: ' + error)
+
+    }
+
     
     try {
 
