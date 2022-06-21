@@ -20,7 +20,7 @@ module.exports = async (client, Discord, guild) => {
     
     } catch (error) {
         
-        logschannel.send({ content: '```Ha ocurrido un error inesperado al obtener Owner de Servidor saliente: ' + error + '```' }).catch((e) => console.log('Error al enviar mensaje: '+e))
+        logschannel.send({ content: '```Ha ocurrido un error inesperado al obtener Owner de Servidor saliente: ' + guild.name + ' - Error: ' + error + '```' }).catch((e) => console.log('Error al enviar mensaje: '+e))
         console.log('Ha ocurrido un error inesperado al obtener Owner de Servidor saliente: ' + error)
 
     }
@@ -161,7 +161,7 @@ module.exports = async (client, Discord, guild) => {
     .setDescription('<:yonofui:931433119859503194> Me he salido del servidor: \n\n> Nombre: '+guild.name+'\n> \n> Id: '+guild.id+'\n> \n> Fecha: Hoy\n> \n> Owner: <@' + (ownerserver ? ownerserver.id : 'Fallo al obtener owner') + '>')
     .setColor('RANDOM')
     .setTimestamp(new Date())
-    .setFooter({ text: guild.name, iconURL: (guild.bannerURL() ? guild.bannerURL({ dynamic: true, size: 4096 }).replace('webp','png') : null) })
+    .setFooter({ text: '' + guild.name, iconURL: (guild.bannerURL() ? guild.bannerURL({ dynamic: true, size: 4096 }).replace('webp','png') : null) })
 
     const embedmbs = new Discord.MessageEmbed()
     .setThumbnail('https://i.imgur.com/Uq0IPAU.gif')
