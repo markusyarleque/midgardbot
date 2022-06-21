@@ -25,7 +25,6 @@ module.exports = async (client, Discord, guild) => {
 
     }
 
-    
     try {
 
         buscarserver = await serverSchema.findOne({idserver: guild.id})
