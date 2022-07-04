@@ -29,10 +29,10 @@ module.exports =  {
         if(!img || img.id === message.author.id){
 
             const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: `Avatar de ${message.author.username}#${message.author.discriminator}`, iconURL: client.user.avatarURL({ dynamic: true }) })
-            .setTitle('Imagen completa')
-            .setDescription('[Click aquí]('+`${message.author.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`+')')
-            .setImage(`${message.author.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`)
+            .setAuthor({ name: client.user.username, iconURL: client.user.avatarURL({ dynamic: true }) })
+            .setTitle(`Avatar de ${message.author.username}#${message.author.discriminator}`)
+            .setDescription('Clic [aquí]('+`${message.author.displayAvatarURL({ dynamic: true , size: 4096 }).replace('webp','png')}`+') si deseas descargar la imagen completa.')
+            .setImage(`${message.author.displayAvatarURL({ dynamic: true , size: 4096 }).replace('webp','png')}`)
             .setColor('RANDOM')
             .setTimestamp(new Date())
             .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
@@ -51,14 +51,14 @@ module.exports =  {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: `Avatar de ${img.username}#${img.discriminator}`,iconURL: client.user.avatarURL({ dynamic: true }) })
-            .setTitle('Imagen completa')
-            .setDescription('[Click aquí]('+`${img.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`+')')
-            .setImage(`${img.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`)
+            .setAuthor({ name: client.user.username, iconURL: client.user.avatarURL({ dynamic: true }) })
+            .setTitle(`Avatar de ${img.username}#${img.discriminator}`)
+            .setDescription('Clic [aquí]('+`${img.displayAvatarURL({ dynamic: true , size: 4096 }).replace('webp','png')}`+') si deseas descargar la imagen completa.\n\n> ||Solicitado por: <@' + message.author.id + '>||')
+            .setImage(`${img.displayAvatarURL({ dynamic: true , size: 4096 }).replace('webp','png')}`)
             .setColor('RANDOM')
             .setTimestamp(new Date())
             .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
-
+        
             message.reply({ allowedMentions: { repliedUser: false}, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
       
         }

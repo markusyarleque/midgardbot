@@ -26,9 +26,9 @@ module.exports = {
             if(user){
 
                 const embed = new Discord.MessageEmbed()
-                .setAuthor({ name: `Avatar de ${user.username}#${user.discriminator}`, iconURL: client.user.avatarURL({ dynamic: true }) })
-                .setTitle('Imagen completa')
-                .setDescription('[Click aquí]('+`${user.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`+')')
+                .setAuthor({ name: client.user.username, iconURL: client.user.avatarURL({ dynamic: true }) })
+                .setTitle(`Avatar de ${user.username}#${user.discriminator}`)
+                .setDescription('Clic [aquí]('+`${user.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`+') si deseas descargar la imagen completa.\n\n> ||Solicitado por: <@' + interaction.user.id + '>||')
                 .setImage(`${user.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`)
                 .setColor('RANDOM')
                 .setTimestamp(new Date())
@@ -41,9 +41,9 @@ module.exports = {
             } else {
 
                 const embed = new Discord.MessageEmbed()
-                .setAuthor({ name: `Avatar de ${interaction.user.username}#${interaction.user.discriminator}`, iconURL: client.user.avatarURL({ dynamic: true }) })
-                .setTitle('Imagen completa')
-                .setDescription('[Click aquí]('+`${interaction.user.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`+')')
+                .setAuthor({ name: client.user.username, iconURL: client.user.avatarURL({ dynamic: true }) })
+                .setTitle(`Avatar de ${interaction.user.username}#${interaction.user.discriminator}`)
+                .setDescription('Clic [aquí]('+`${interaction.user.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`+') si deseas descargar la imagen completa.')
                 .setImage(`${interaction.user.displayAvatarURL({ dynamic: true , size: 2048 }).replace('webp','png')}`)
                 .setColor('RANDOM')
                 .setTimestamp(new Date())

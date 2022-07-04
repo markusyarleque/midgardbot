@@ -5,7 +5,7 @@ module.exports =  {
     
     name: 'bal',
     aliases: ['balance'],
-    description: '👛 Mira tu balance o el de usuario en el servidor.',
+    description: '👛 Mira tu balance o el de algún usuario del servidor.',
     use: '<prefix><name> <@user/id>',
     category: 'Economía 💰',
     vip: false,
