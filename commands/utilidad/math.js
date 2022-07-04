@@ -5,6 +5,10 @@ module.exports =  {
     name: 'math',
     aliases: ['cal','calcular', 'calculadora'],
     description: '📱 Ejecuta una operación matemática básica.',
+    use: '<prefix><name> <operación>',
+    category: 'Utilidad 💡',
+    vip: false,
+    owner: false,
 
     async execute(client, message, args, Discord) {
 
@@ -22,14 +26,14 @@ module.exports =  {
 
             } else {
 
-                prefix = process.env.PREFIX
+                prefix = '_'
 
             }
 
         } catch (error) {
 
             console.log('Error al buscar Prefix en Servidor: '+ message.guild.id + ' - ' + error)
-            prefix = process.env.PREFIX
+            prefix = '_'
             logschannel.send({ content: '```Error al buscar Prefix en Servidor: ' + message.guild.name + ' - ' + error + '```' }).catch((e) => console.log('Error al enviar mensaje de logs: ' + e))
 
         }

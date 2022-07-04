@@ -5,7 +5,11 @@ module.exports =  {
     
     name: 'bl',
     aliases: ['black-list','listanegra'],
-    description: '💻 Comando exclusivo de Programación',
+    description: '⛔ Observa la Lista Negra del bot.',
+    use: '<prefix>bl',
+    category: 'BlackList ⛔',
+    vip: false,
+    owner: true,
 
     async execute(client, message, args, Discord) {
 

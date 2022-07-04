@@ -5,6 +5,10 @@ module.exports =  {
     name: 'cerrarturno',
     aliases: ['ct','cerrar-turno'],
     description: '💻 Comando exclusivo de Staff',
+    use: '<prefix><name> <@user/id>',
+    category: 'MIDGARD 🌎',
+    vip: false,
+    owner: true,
 
     async execute(client, message, args, Discord) {
 

@@ -6,6 +6,10 @@ module.exports =  {
     name: 'list-cc',
     aliases: ['list-auto','lcc'],
     description: '💻 Listar autorespuestas personalizables.',
+    use: '<prefix>lcc',
+    category: 'AutoRespuestas 📣',
+    vip: false,
+    owner: true,
 
     async execute(client, message, args, Discord) {
 

@@ -3,6 +3,10 @@ module.exports =  {
     name: 'avatar',
     aliases: ['av'],
     description: '🔎 Muestra el avatar de un usuario en el servidor.',
+    use: '<prefix><name> [@user/id]',
+    category: 'Utilidad 💡',
+    vip: false,
+    owner: false,
 
     async execute(client, message, args, Discord) {
 

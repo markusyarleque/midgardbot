@@ -5,6 +5,10 @@ module.exports =  {
     name: 'listastaff',
     aliases: ['ldiamantes','lista-diamantes','lista-staff','ld'],
     description: '💻 Comando exclusivo de Staff',
+    use: '<prefix><name>',
+    category: 'MIDGARD 🌎',
+    vip: false,
+    owner: true,
 
     async execute(client, message, args, Discord) {
 

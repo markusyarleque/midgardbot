@@ -3,6 +3,10 @@ module.exports =  {
     name: 'cr7',
     aliases: ['bicho','siu'],
     description: '⚽ Comando VIP',
+    use: '<prefix><name>',
+    category: 'VIP 💎',
+    vip: true,
+    owner: false,
   
     async execute(client, message, args, Discord) { 
  
@@ -42,7 +46,11 @@ module.exports =  {
         .setTimestamp(new Date())
         .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
 
-        message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send({ embeds: [embed] }).then((m) => {
+                
+            console.log(JSON.stringify(m.embeds, ['image','url']))
+
+        }).catch((e) => console.log('Error al enviar mensaje: '+e))
         
     }
 

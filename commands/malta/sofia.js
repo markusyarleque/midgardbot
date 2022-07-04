@@ -3,7 +3,11 @@ module.exports =  {
     name: 'sofia',
     aliases: ['sofía','sof','sofi','sofí'],
     description: '❤',
-
+    use: '<prefix><name>',
+    category: 'Programación 💻',
+    vip: false,
+    owner: true,
+    
     async execute(client, message, args, Discord) {
 
         //   _______    _______    ________   __       _

@@ -6,6 +6,10 @@ module.exports =  {
     name: 'tts',
     aliases: [],
     description: '🔊 Convierte tus mensajes en audio.',
+    use: '<prefix><name> <mensaje>',
+    category: 'Utilidad 💡',
+    vip: false,
+    owner: true,
   
     async execute(client, message, args, Discord) { 
 

@@ -6,6 +6,10 @@ module.exports =  {
     name: 'addvip',
     aliases: ['add-vip'],
     description: '💎 Añade a los usuarios VIP del bot.',
+    use: '<prefix><name> <@user/id>',
+    category: 'VIP 💎',
+    vip: true,
+    owner: true,
   
     async execute(client, message, args, Discord) { 
 

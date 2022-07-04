@@ -2,7 +2,11 @@ module.exports =  {
     
     name: 'snipe',
     aliases: [],
-    description: '🔻 Recupera el último mensaje eliminado.',
+    description: '🔻 Recupera los últimos mensajes eliminados.',
+    use: '<prefix><name> [#mensaje]',
+    category: 'Utilidad 💡',
+    vip: false,
+    owner: false,
   
     async execute(client, message, args, Discord) {
 

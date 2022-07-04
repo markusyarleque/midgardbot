@@ -6,6 +6,10 @@ module.exports = {
     name: 'give-premium',
     aliases: ['set-premium'],
     description: '💎 Otorgar Premium a un servidor.',
+    use: '<prefix><name> <idserver>',
+    category: 'PREMIUM 💎',
+    vip: false,
+    owner: true,
   
     async execute(client, message, args, Discord) {
 

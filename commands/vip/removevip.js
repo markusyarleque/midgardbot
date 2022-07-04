@@ -6,6 +6,10 @@ module.exports =  {
     name: 'removevip',
     aliases: ['remove-vip'],
     description: '💎 Remueve a los usuarios VIP del bot.',
+    use: '<prefix><name> <@user/id>',
+    category: 'VIP 💎',
+    vip: true,
+    owner: true,
   
     async execute(client, message, args, Discord) { 
 

@@ -5,7 +5,11 @@ module.exports =  {
     
     name: 'poll',
     aliases: ['encuesta'],
-    description: '📈 Realizar una encuesta con hasta 10 opciones.\n[prefix]poll pregunta - opción1 - opción2 - opción3 [opcional]...`',
+    description: '📈 Realizar una encuesta con hasta 10 opciones.',
+    use: '<prefix><name> <pregunta> - <opción1> - <opción2> - [opción3] - ...',
+    category: 'Utilidad 💡',
+    vip: false,
+    owner: false,
   
     async execute(client, message, args, Discord) {
 
@@ -20,14 +24,14 @@ module.exports =  {
 
             } else {
 
-                prefix = process.env.PREFIX
+                prefix = '_'
 
             }
 
         } catch (error) {
 
             console.log('Error al buscar Prefix en Servidor: '+ message.guild.id + ' - ' + error)
-            prefix = process.env.PREFIX
+            prefix = '_'
 
         }
 

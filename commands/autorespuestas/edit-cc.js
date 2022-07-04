@@ -6,6 +6,10 @@ module.exports =  {
     name: 'edit-cc',
     aliases: ['edit-auto','ecc'],
     description: '💻 Editar autorespuestas personalizables.',
+    use: '<prefix>ecc <código> <response>',
+    category: 'AutoRespuestas 📣',
+    vip: false,
+    owner: true,
 
     async execute(client, message, args, Discord) {
         

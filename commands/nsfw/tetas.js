@@ -3,6 +3,10 @@ module.exports =  {
   name: 'tetas',
   aliases: ['boobs'],
   description: '🔞 Comandos NSFW.',
+  use: '<prefix><name> [@user/id]',
+  category: 'NSFW 🔥',
+  vip: false,
+  owner: false,
   
   async execute(client, message, args, Discord) { 
 
@@ -110,6 +114,8 @@ module.exports =  {
 
             }).then(async m => {
         
+              console.log(JSON.stringify(m.embeds, ['image','url']))
+                
                 let filter = int => int.isButton() && int.user.id == message.author.id 
         
                 const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 60000 });

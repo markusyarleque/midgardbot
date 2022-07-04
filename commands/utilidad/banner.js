@@ -5,6 +5,10 @@ module.exports =  {
     name: 'banner',
     aliases: ['cartel'],
     description: '🔎 Muestra el banner de un usuario en el servidor.',
+    use: '<prefix><name> [@user/id]',
+    category: 'Utilidad 💡',
+    vip: false,
+    owner: false,
 
     async execute(client, message, args, Discord) {
 

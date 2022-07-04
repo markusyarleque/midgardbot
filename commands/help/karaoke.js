@@ -5,7 +5,11 @@ module.exports =  {
     name: 'karaoke',
     aliases: ['help karaoke','help-karaoke'],
     description: '❗ Comandos para la categoría de Karaoke',
-  
+    use: '<prefix><name>',
+    category: 'Información 📌',
+    vip: true,
+    owner: true,
+
     async execute(client, message, args, Discord) {
 
         let buscarprefix, prefix
@@ -19,14 +23,14 @@ module.exports =  {
 
             } else {
 
-                prefix = process.env.PREFIX
+                prefix = '_'
 
             }
 
         } catch (error) {
 
             console.log('Error al Prefix en Servidor: '+ message.guild.id + ' - ' + error)
-            prefix = process.env.PREFIX
+            prefix = '_'
 
         }
 

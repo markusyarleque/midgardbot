@@ -3,6 +3,10 @@ module.exports =  {
     name: 'perreo',
     aliases: ['twerk'],
     description: '🍑',
+    use: '<prefix><name> [@user/id]',
+    category: 'Disco 💃',
+    vip: false,
+    owner: false,
   
     async execute(client, message, args, Discord) {
 
@@ -77,14 +81,18 @@ module.exports =  {
         if (!img || img.id === message.author.id) {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: `Midgard's Disco`, iconURL: client.user.avatarURL({ dynamic: true }) })
+            .setAuthor({ name: `Midgard's Disco 💃`, iconURL: client.user.avatarURL({ dynamic: true }) })
             .setDescription(`**${message.author.username}** está perreando hasta el piso.`)
             .setImage(ramdonperreo)
             .setColor('RANDOM')
             .setTimestamp(new Date())
             .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif'  })
             
-            message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+            message.channel.send({ embeds: [embed] }).then((m) => {
+                
+                console.log(JSON.stringify(m.embeds, ['image','url']))
+
+            }).catch((e) => console.log('Error al enviar mensaje: '+e))
     
         } else if (img.user.bot){
           
@@ -100,14 +108,18 @@ module.exports =  {
         } else {
     
             const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: `Midgard's Disco`, iconURL: client.user.avatarURL({ dynamic: true }) })
+            .setAuthor({ name: `Midgard's Disco 💃`, iconURL: client.user.avatarURL({ dynamic: true }) })
             .setDescription(`**${img.user.username}**, ${message.author.username} te está perreando duro contra el muro. <a:perreom:930719549131735040>`)
             .setImage(ramdonperreo)
             .setColor('RANDOM')
             .setTimestamp(new Date())
             .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif'  })
             
-            message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+            message.channel.send({ embeds: [embed] }).then((m) => {
+                
+                console.log(JSON.stringify(m.embeds, ['image','url']))
+
+            }).catch((e) => console.log('Error al enviar mensaje: '+e))
       
         }
 

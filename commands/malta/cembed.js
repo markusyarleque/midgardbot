@@ -3,6 +3,10 @@ module.exports =  {
     name: 'cembed',
     aliases: ['newembed'],
     description: '💻 Crear un embed.',
+    use: '<prefix><name> [canal]',
+    category: 'Programación 💻',
+    vip: false,
+    owner: true,
 
     async execute(client, message, args, Discord) {
     

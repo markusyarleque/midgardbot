@@ -3,6 +3,10 @@ module.exports =  {
     name: 'ip',
     aliases: ['minecraft','java','bedrock'],
     description: '🪓 Servidor de Minecraft.',
+    use: '<prefix><name>',
+    category: 'VIP 💎',
+    vip: true,
+    owner: false,
   
     async execute(client, message, args, Discord) { 
 

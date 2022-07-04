@@ -6,6 +6,10 @@ module.exports =  {
     name: '4k',
     aliases: ['en4','fourk','four','perrito'],
     description: '🔞 Comandos NSFW.',
+    use: '<prefix><name> [@user/id]',
+    category: 'NSFW 🔥',
+    vip: true,
+    owner: false,
     
     async execute(client, message, args, Discord) { 
   
@@ -98,8 +102,9 @@ module.exports =  {
             }
       
             let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
-            let ramdonfourk = fourk[Math.floor(Math.random()*fourk.length)]
+            let ramdonfourk
             let desc 
+            
 
             while (!ramdonfourk || ramdonfourk === null || ramdonfourk === '' || ramdonfourk === undefined) {
                 
@@ -120,7 +125,7 @@ module.exports =  {
             const embed = new Discord.MessageEmbed()
             .setAuthor({ name: `🔞 | Midgard's Hot VIP 🔥`, iconURL: client.user.avatarURL({ dynamic: true }) })
             .setDescription(desc)
-            .setImage(ramdonfourk)
+            .setImage(await ramdonfourk)
             .setColor('RANDOM')
             .setTimestamp(new Date())
             .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
@@ -143,6 +148,8 @@ module.exports =  {
 
             }).then(async m => {
         
+                console.log(JSON.stringify(m.embeds, ['image','url']))
+
                 let filter = int => int.isButton() && int.user.id == message.author.id 
         
                 const collector = m.createMessageComponentCollector({ filter, max: 1, maxUsers: 1, maxComponents: 1, time: 60000 });

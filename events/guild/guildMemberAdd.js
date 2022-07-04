@@ -5,42 +5,7 @@ const userModel = require('../../models/userSchema')
 module.exports = async (client, Discord, member) => {
 
   if(member.bot) return;
-
-  //* Registro de Usuarios
-
-  console.log('========================= REGISTRO DE USUARIO =========================');
   
-  let userData
-
-  try {
-
-    userData = await userModel.findOne({idusuario: member.id})
-
-    if(!userData){
-
-      let user = await userModel.create({
-
-        idusuario: member.id,
-        username: member.user.username,
-  
-      })
-  
-      user.save();
-      console.log('Usuario Registrado ===> Id: '+ member.id + ' Username: ' + member.user.username)
-
-    }
-
-    
-  } catch (error) {
-
-    console.log('Error al Registrar Usuario: '+error)
-    
-  }
-  
-  console.log('========================= REGISTRO DE USUARIO =========================');
-   
-  //* Registro de Usuarios
-
   const guild = member.guild;
   
   console.log(`Nuevo usuario:  ${member.user.username} se ha unido a ${guild.name}.`);

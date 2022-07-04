@@ -5,6 +5,10 @@ module.exports =  {
   name: 'reminder',
   aliases: ['rm','remindme'],
   description: '⏰ Establece un recordatorio.',
+  use: '<prefix><name> <tiempo> [mensaje]',
+  category: 'Utilidad 💡',
+  vip: false,
+  owner: false,
 
   async execute(client, message, args, Discord) {
 
@@ -19,14 +23,14 @@ module.exports =  {
 
         } else {
 
-            prefix = process.env.PREFIX
+            prefix = '_'
 
         }
 
     } catch (error) {
 
         console.log('Error al buscar Prefix en Servidor: '+ message.guild.id + ' - ' + error)
-        prefix = process.env.PREFIX
+        prefix = '_'
 
     }
 

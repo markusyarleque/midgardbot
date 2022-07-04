@@ -16,7 +16,7 @@ const red = require('reddit-fetch');
 
 const over = require('poke-over');
 
-const prefix = process.env.PREFIX;
+const prefix = '_';
 
 var AsciiTable = require('ascii-table')
 
@@ -55,7 +55,7 @@ db.run(crear, function(err) {
 
 // ----- SQLITE 3 -----
 
-const sqlite3 = require('sqlite3').verbose(),
+/*const sqlite3 = require('sqlite3').verbose(),
 { open } = require('sqlite');
 
 (async()=>{
@@ -100,7 +100,7 @@ const sqlite3 = require('sqlite3').verbose(),
   
   }
 
-})();
+})();*/
 
 // ----- ***** -----
 
@@ -151,7 +151,7 @@ client.slash = new Discord.Collection();
 
 console.log('========================= LOGIN =========================')
 
-client.login(process.env.TOKEN)
+client.login('OTA0MjkwMDAxMTk2NTU2MzY5.YX5XsQ.MU3PWphKsQtAWg4ZLgu4PgCxrHY')
   .then(() => { 
 
     console.log(`Estoy listo, soy ${client.user.tag}`);
@@ -165,12 +165,11 @@ client.login(process.env.TOKEN)
 
   });
 
-
 // client.on('messageCreate', async message => {
 
 //       //AQUÍ
 
-//     // if(!message.content.startsWith(process.env.PREFIX)) return;
+//     // if(!message.content.startsWith('_')) return;
     
 //     // //const serverQueue = queue.get(message.guild.id);
 

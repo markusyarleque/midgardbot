@@ -6,6 +6,10 @@ module.exports =  {
     name: 'jumbo',
     aliases: ['jb','emoji'],
     description: '👀 Ver en grande un emoji.',
+    use: '<prefix><name> <emoji>',
+    category: 'Utilidad 💡',
+    vip: false,
+    owner: false,
   
     async execute(client, message, args, Discord) {
 
@@ -20,18 +24,18 @@ module.exports =  {
 
         } else {
 
-          prefix = process.env.PREFIX
+          prefix = '_'
 
         }
 
       } catch (error) {
 
         console.log('Error al Prefix en Servidor: '+ message.guild.id + ' - ' + error)
-        prefix = process.env.PREFIX
+        prefix = '_'
 
       }
 
-        if(!args[0]) return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
+      if(!args[0]) return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
 
             new Discord.MessageEmbed()
             .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL({ dynamic: true}) })

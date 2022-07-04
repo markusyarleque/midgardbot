@@ -5,6 +5,10 @@ module.exports =  {
     name: 'autoroles',
     aliases: [],
     description: '💻 Actualización de comandos.',
+    use: '<prefix><name>',
+    category: 'Programación 💻',
+    vip: false,
+    owner: true,
   
     async execute(client, message, args, Discord) {
 

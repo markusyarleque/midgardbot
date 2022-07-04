@@ -3,6 +3,10 @@ module.exports =  {
     name: 'cerveza',
     aliases: ['cervezas','beer','chelas','chela'],
     description: '🍺',
+    use: '<prefix><name> [@user/id]',
+    category: 'Bar 🥂',
+    vip: false,
+    owner: false,
   
     async execute(client, message, args, Discord) {
 
@@ -32,26 +36,36 @@ module.exports =  {
         ]
 
         let img = message.guild.members.resolve(message.mentions.users.first() || client.users.cache.get(args[0]));
-        let ramdoncerveza = cerveza[Math.floor(Math.random()*cerveza.length)]
-
-        while (!ramdoncerveza || ramdoncerveza === null || ramdoncerveza === '' || ramdoncerveza === undefined) {
+        let randomcerveza
+        
+        function random(a) {
             
-            ramdoncerveza = cerveza[Math.floor(Math.random()*cerveza.length)]
-
+            return new Promise(async resolve => {
+              
+                randomcerveza = await a[Math.floor(Math.random() * a.length)]
+              
+                resolve(randomcerveza);
+            
+            });
+          
         }
 
         if (!img || img.id === message.author.id) {
 
             const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: `Midgard's Bar`, iconURL: client.user.avatarURL({ dynamic: true }) })
+            .setAuthor({ name: `Midgard's Bar 🥂`, iconURL: client.user.avatarURL({ dynamic: true }) })
             .setDescription(`**${message.author.username}** está tomando una cervecita.`)
-            .setImage(ramdoncerveza)
+            .setImage(await random(cerveza))
             .setColor('RANDOM')
             .setTimestamp(new Date())
             .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
             
-            message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
-    
+            message.channel.send({ embeds: [embed] }).then((m) => {
+                
+                console.log(JSON.stringify(m.embeds, ['image','url']))
+
+            }).catch((e) => console.log('Error al enviar mensaje: '+e))
+            
         } else if (img.user.bot) {
 
             return message.reply({ allowedMentions: { repliedUser: false}, embeds: [
@@ -66,15 +80,19 @@ module.exports =  {
         } else {
 
             const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: `Midgard's Bar`, iconURL: client.user.avatarURL({ dynamic: true })})
+            .setAuthor({ name: `Midgard's Bar 🥂`, iconURL: client.user.avatarURL({ dynamic: true })})
             .setDescription(`Hey, **${img.user.username}**, disfruta tu cerveza invitada por ${message.author.username}.`)
-            .setImage(ramdoncerveza)
+            .setImage(await random(cerveza))
             .setColor('RANDOM')
             .setTimestamp(new Date())
             .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() ? message.guild.iconURL({ dynamic: true }) : 'https://i.imgur.com/MNWYvup.gif' })
             
-            message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+            message.channel.send({ embeds: [embed] }).then((m) => {
+                
+                console.log(JSON.stringify(m.embeds, ['image','url']))
 
+            }).catch((e) => console.log('Error al enviar mensaje: '+e))
+            
         }
 
     }

@@ -25,9 +25,11 @@ const usersSchema = new mongoose.Schema({
     daily: { type: Date, require: true, default: Date.now },
     crep: { type: Date, require: true, default: Date.now },
     ck: { type: Number, require: true, default: 0 },
+    berenjena: { type: Number, require: true, default: 0 },
 
 })
 
+//db.usuarios.updateMany({},{$set: {berenjena:0}}) para agregar todo un campo
 const model = mongoose.model('Usuarios', usersSchema);
 
 module.exports = model;

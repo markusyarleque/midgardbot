@@ -15,7 +15,7 @@ module.exports = async (client, Discord, message) => {
     
     if(message.channel.type == "DM" ) return
 
-    let buscarprefix, prefix
+    let buscarprefix, prefix, idowner
     try {
 
         buscarprefix = await serverSchema.findOne({idserver: message.guild.id})
@@ -26,17 +26,27 @@ module.exports = async (client, Discord, message) => {
 
         } else {
 
-            prefix = process.env.PREFIX
+            prefix = '_'
 
         }
 
     } catch (error) {
 
-        console.log('Error al buscar Prefix en Servidor: '+ message.guild.id + ' - ' + error)
-        prefix = process.env.PREFIX
+        var tableerror = new AsciiTable()
+
+        tableerror.setHeading('Campos','Valores')
+        tableerror.addRow('ERROR', error)
+        tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+        tableerror.addRow('FECHA', new Date())
+
+        console.log(tableerror.toString())
+
+        prefix = '_'
 
     }
     
+    idowner = ['753435606410985573','683501310527668228']
+
     let sv = client.guilds.cache.get('851924635930329098')
     let channel
     let idcanal = message.channel.id
@@ -57,49 +67,217 @@ module.exports = async (client, Discord, message) => {
     {
         channel = sv.channels.cache.get('880267684950999050')
   
-        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en alto cargo por: '+message.author).catch((e) => console.log('Error al enviar mensaje: '+e))
+        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en alto cargo por: '+message.author).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
   
-        channel.send({ embeds: [em] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+        channel.send({ embeds: [em] }).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
     
     } else if(idcanal === '880292291443556383')
     {
         channel = sv.channels.cache.get('880280405993996339')
     
-        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en élite por: '+message.author).catch((e) => console.log('Error al enviar mensaje: '+e))
+        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en élite por: '+message.author).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
         
-        channel.send({ embeds: [em] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+        })
+        
+        channel.send({ embeds: [em] }).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
     
     } else if(idcanal === '840161683732693033')
     {
         channel = sv.channels.cache.get('880280308732272640')
     
-        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en staff por: '+message.author).catch((e) => console.log('Error al enviar mensaje: '+e))
+        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en staff por: '+message.author).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
     
-        channel.send({ embeds: [em] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+        channel.send({ embeds: [em] }).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
     
     } else if(idcanal === '923716261542781018')
     {
         channel = sv.channels.cache.get('933917185695428628')
     
-        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en supervisores por: '+message.author).catch((e) => console.log('Error al enviar mensaje: '+e))
+        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en supervisores por: '+message.author).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
     
-        channel.send({ embeds: [em] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+        channel.send({ embeds: [em] }).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
   
     } else if(idcanal === '909722451745837106')
     {
         channel = sv.channels.cache.get('880280346208395305')
     
-        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en admin por: '+message.author).catch((e) => console.log('Error al enviar mensaje: '+e))
+        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en admin por: '+message.author).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
     
-        channel.send({ embeds: [em] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+        channel.send({ embeds: [em] }).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
     
     } else if(idcanal === '870195067338506271')
     {
         channel = sv.channels.cache.get('880280535304372234')
     
-        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en chat general por: '+message.author).catch((e) => console.log('Error al enviar mensaje: '+e))
+        if(message.content.length >= 1000) return channel.send('Mensaje demasiado largo, enviado en chat general por: '+message.author).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
         
-        channel.send({ embeds: [em] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+        })
+        
+        channel.send({ embeds: [em] }).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
     
     } else
     {
@@ -115,11 +293,39 @@ module.exports = async (client, Discord, message) => {
         {
             channel = sv.channels.cache.get('880280265216389140')
       
-            if(message.content.length >= 1000) return channel.send(`Mensaje demasiado largo, enviado en <#${idcanal}> por: `+message.author).catch((e) => console.log('Error al enviar mensaje: '+e))
+            if(message.content.length >= 1000) return channel.send(`Mensaje demasiado largo, enviado en <#${idcanal}> por: `+message.author).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
       
             em.addField('Servidor: ', `<a:flech:931432469935312937> ${message.guild.name}`)
       
-            channel.send({ embeds: [em] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+            channel.send({ embeds: [em] }).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
   
         } else {
           
@@ -222,7 +428,21 @@ module.exports = async (client, Discord, message) => {
     if (message.content.toLowerCase() === 'hola' || message.content.toLowerCase() === 'holas'){
           
         if(message.guild.id !== '777620055344545842') return
-        message.channel.send(hola[Math.floor(Math.random()*hola.length)]).catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send(hola[Math.floor(Math.random()*hola.length)]).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
   
     }
 
@@ -246,7 +466,21 @@ module.exports = async (client, Discord, message) => {
     if (message.content.toLowerCase() === 'ola' || message.content.toLowerCase() === 'olas'){
   
         if(message.guild.id !== '777620055344545842') return
-        message.channel.send(ola[Math.floor(Math.random()*ola.length)]).catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send(ola[Math.floor(Math.random()*ola.length)]).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
   
     }
 
@@ -266,7 +500,21 @@ module.exports = async (client, Discord, message) => {
     if (message.content.toLowerCase() === 'buen día' || message.content.toLowerCase() === 'buen dia'){
           
         if(message.guild.id !== '777620055344545842') return
-        message.channel.send(buendia[Math.floor(Math.random()*buendia.length)]).catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send(buendia[Math.floor(Math.random()*buendia.length)]).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
           
     }
 
@@ -286,7 +534,21 @@ module.exports = async (client, Discord, message) => {
     if (message.content.toLowerCase() === 'buenos días' || message.content.toLowerCase() === 'buenos dias'){
           
         if(message.guild.id !== '777620055344545842') return
-        message.channel.send(buenosdias[Math.floor(Math.random()*buendia.length)]).catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send(buenosdias[Math.floor(Math.random()*buendia.length)]).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
       
     }
 
@@ -305,7 +567,21 @@ module.exports = async (client, Discord, message) => {
     if (message.content.toLowerCase() === 'buenas tardes'){
           
         if(message.guild.id !== '777620055344545842') return
-        message.channel.send(buenastardes[Math.floor(Math.random()*buenastardes.length)]).catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send(buenastardes[Math.floor(Math.random()*buenastardes.length)]).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
           
     }
 
@@ -325,7 +601,21 @@ module.exports = async (client, Discord, message) => {
     if (message.content.toLowerCase() === 'buenas noches'){
          
         if(message.guild.id !== '777620055344545842') return
-        message.channel.send(buenasnoches[Math.floor(Math.random()*buenasnoches.length)]).catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send(buenasnoches[Math.floor(Math.random()*buenasnoches.length)]).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
           
     }
     
@@ -344,7 +634,21 @@ module.exports = async (client, Discord, message) => {
     if (message.content.toLowerCase() === 'buenas' || message.content.toLowerCase() === 'wenas'){
         
         if(message.guild.id !== '777620055344545842') return
-        message.channel.send(buenas[Math.floor(Math.random()*buenas.length)]).catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send(buenas[Math.floor(Math.random()*buenas.length)]).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
   
     }
 
@@ -479,7 +783,21 @@ module.exports = async (client, Discord, message) => {
     if (message.content.match(malta))
     {
     
-        message.channel.send(`¿Qué necesitas de mi dueño? <a:ositovino:880306728867078165>`).catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send(`¿Qué necesitas de mi dueño? <a:ositovino:880306728867078165>`).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
     
     }
 
@@ -495,7 +813,21 @@ module.exports = async (client, Discord, message) => {
 
         ]
 
-        message.channel.send(i[Math.floor(Math.random()*i.length)]).catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send(i[Math.floor(Math.random()*i.length)]).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
     
     }
   
@@ -505,7 +837,21 @@ module.exports = async (client, Discord, message) => {
     {
         
         if(message.guild.id !== '777620055344545842') return 
-        message.channel.send(`<a:megaphone:932192877449191424> Alo? Tierra llamando al **argentino con más flow** <a:darkcrown2:886466286773739530>, Ian en camino bebé <a:bmirusboyrunfast:880411644893724672>`).catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send(`<a:megaphone:932192877449191424> Alo? Tierra llamando al **argentino con más flow** <a:darkcrown2:886466286773739530>, Ian en camino bebé <a:bmirusboyrunfast:880411644893724672>`).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
     
     }
   
@@ -515,7 +861,21 @@ module.exports = async (client, Discord, message) => {
     {
         
         if(message.guild.id !== '777620055344545842') return    
-        message.channel.send(`<:emoji_233:890722279074451506> Días,tardes,noches,madrugadas <:mmsi:925934342016995379> porque Buena está la persona que me acaba de mencionar <a:Zuii:890684724673150996> <a:Ytodomedavuelta:890721775699259422>`).catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send(`<:emoji_233:890722279074451506> Días,tardes,noches,madrugadas <:mmsi:925934342016995379> porque Buena está la persona que me acaba de mencionar <a:Zuii:890684724673150996> <a:Ytodomedavuelta:890721775699259422>`).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
     
     }
   
@@ -525,7 +885,21 @@ module.exports = async (client, Discord, message) => {
     {
         
         if(message.guild.id !== '777620055344545842') return  
-        message.channel.send(`¿¡𝑸𝒖𝒆 𝒏𝒆𝒄𝒆𝒔𝒊𝒅𝒂𝒅 𝒅𝒆 𝒑𝒊𝒏𝒈𝒆𝒂𝒂𝒂𝒂𝒓!? <:gatoNojao:930403164266565642>`).catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send(`¿¡𝑸𝒖𝒆 𝒏𝒆𝒄𝒆𝒔𝒊𝒅𝒂𝒅 𝒅𝒆 𝒑𝒊𝒏𝒈𝒆𝒂𝒂𝒂𝒂𝒓!? <:gatoNojao:930403164266565642>`).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
     
     }
     
@@ -572,7 +946,21 @@ module.exports = async (client, Discord, message) => {
         .setDescription(rpiropo)
 
         if(message.guild.id !== '777620055344545842') return
-        message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send({ embeds: [embed] }).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
   
     }
     
@@ -613,7 +1001,21 @@ module.exports = async (client, Discord, message) => {
         .setDescription(rchiste)
 
         if(message.guild.id !== '777620055344545842') return
-        message.channel.send({ embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send({ embeds: [embed] }).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
     
     }
 
@@ -1128,17 +1530,56 @@ module.exports = async (client, Discord, message) => {
                     embed.setTitle('<:babel_Midgard:978300970868035604> __𝑩𝒂𝒃𝒆𝒍 𝑨𝒃𝒊𝒆𝒓𝒕𝒐 𝒆𝒏:__ ')
                     embed.setDescription('\n\n◞┈┈┈⋆┈┈⊰✩⊱┈┈⋆┈┈┈◟\n\n     ★ ' + invite.guild.name + ' ★     \n\n◝┈┈┈⋆┈┈⊰✩⊱┈┈⋆┈┈┈◜\n\n' + (invite.inviter ? invite.inviter.toString() : invite.guild.name) + ' **Te invita** <a:ositotikabella:880307057981542432> a disfrutar de la apertura de :tokyo_tower: *Babel*\n\n<:Awebo_a_simpiar:901600161875259452> *A por muchas <:Bolsitas_Midgard:978305556311838800> bolsitas y ese preciado <:hmorado_Midgard:978305606098255902> __Thanatos__*\n\n<a:Flecha3:880315279903703060> **Recuerda** que solo tienes <a:reloj:915171222961135646> **12 HORAS!!!!**')
     
-                    message.reply({ content: '<@&960987738553868348>', embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    message.reply({ content: '<@&960987738553868348>', embeds: [embed] }).catch((e) => { 
+            
+                        var tableerror = new AsciiTable()
+
+                        tableerror.setHeading('Campos','Valores')
+                        tableerror.addRow('ERROR', e)
+                        tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+                        tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+                        tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+                        tableerror.addRow('FECHA', new Date())
+
+                        console.log(tableerror.toString())
+                    
+                    })
                 
                     setTimeout(() => {
                         
-                        message.channel.send({ content: 'https://images-ext-2.discordapp.net/external/9iPHKFXXnKKSQpcFazlW79dr1zbbtdo7QT7-xxtfDY4/%3Fwidth%3D600%26height%3D86/https/media.discordapp.net/attachments/897951731462316073/915663567213199390/bar-1.gif?width=450&height=65' }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                        message.channel.send({ content: 'https://images-ext-2.discordapp.net/external/9iPHKFXXnKKSQpcFazlW79dr1zbbtdo7QT7-xxtfDY4/%3Fwidth%3D600%26height%3D86/https/media.discordapp.net/attachments/897951731462316073/915663567213199390/bar-1.gif?width=450&height=65' }).catch((e) => { 
+            
+                            var tableerror = new AsciiTable()
+
+                            tableerror.setHeading('Campos','Valores')
+                            tableerror.addRow('ERROR', e)
+                            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+                            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+                            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+                            tableerror.addRow('FECHA', new Date())
+
+                            console.log(tableerror.toString())
+                        
+                        })
                      
                     }, 1000)
 
                 }else {
     
-                    return logschannel.send({ content: '<@753435606410985573> <@683501310527668228>\n```El link enviado por: ' + message.author.username + ' No pertenece a un servidor.```' }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    return logschannel.send({ content: '<@753435606410985573> <@683501310527668228>\n```El link enviado por: ' + message.author.username + ' No pertenece a un servidor.```' }).catch((e) => { 
+            
+                        var tableerror = new AsciiTable()
+
+                        tableerror.setHeading('Campos','Valores')
+                        tableerror.addRow('ERROR', e)
+                        tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+                        tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+                        tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+                        tableerror.addRow('FECHA', new Date())
+
+                        console.log(tableerror.toString())
+                    
+                    })
     
                 }
                    
@@ -1146,11 +1587,37 @@ module.exports = async (client, Discord, message) => {
                 
                 if(error.message === 'Unknown Invite'){
     
-                    return logschannel.send({ content: '<@753435606410985573> <@683501310527668228>\n```La API respondió que la invitación enviada por ' + message.author.username + ' es Desconocida o No existe```' }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    return logschannel.send({ content: '<@753435606410985573> <@683501310527668228>\n```La API respondió que la invitación enviada por ' + message.author.username + ' es Desconocida o No existe```' }).catch((e) => { 
+            
+                        var tableerror = new AsciiTable()
+
+                        tableerror.setHeading('Campos','Valores')
+                        tableerror.addRow('ERROR', e)
+                        tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+                        tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+                        tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+                        tableerror.addRow('FECHA', new Date())
+
+                        console.log(tableerror.toString())
+                    
+                    })
     
                 } else{
                     
-                    return logschannel.send({ content: '<@753435606410985573> <@683501310527668228>\n```Ocurrió un error al intentar buscar información del link enviado por ' + message.author.username + '. \nError: ' + error + '```' }).catch((e) => console.log('Error al enviar mensaje: '+e))
+                    return logschannel.send({ content: '<@753435606410985573> <@683501310527668228>\n```Ocurrió un error al intentar buscar información del link enviado por ' + message.author.username + '. \nError: ' + error + '```' }).catch((e) => { 
+            
+                        var tableerror = new AsciiTable()
+
+                        tableerror.setHeading('Campos','Valores')
+                        tableerror.addRow('ERROR', e)
+                        tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+                        tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+                        tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+                        tableerror.addRow('FECHA', new Date())
+
+                        console.log(tableerror.toString())
+                    
+                    })
                 }
         
             }
@@ -1167,7 +1634,15 @@ module.exports = async (client, Discord, message) => {
 
     if(message.content.toLowerCase() === 'barra'){
 
-        if(message.guild.id !== '777620055344545842') return
+        if(message.guild.id !== '777620055344545842'){
+
+            if(message.guild.id !== '888143898713665577'){
+
+                return
+                
+            }
+
+        }
         
         let idadmins = ['753435606410985573','683501310527668228']
   
@@ -1175,7 +1650,20 @@ module.exports = async (client, Discord, message) => {
         
         setTimeout(() => message.delete(), 100)
         
-        message.channel.send('https://images-ext-2.discordapp.net/external/9iPHKFXXnKKSQpcFazlW79dr1zbbtdo7QT7-xxtfDY4/%3Fwidth%3D600%26height%3D86/https/media.discordapp.net/attachments/897951731462316073/915663567213199390/bar-1.gif?width=450&height=65').catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.channel.send('https://images-ext-2.discordapp.net/external/9iPHKFXXnKKSQpcFazlW79dr1zbbtdo7QT7-xxtfDY4/%3Fwidth%3D600%26height%3D86/https/media.discordapp.net/attachments/897951731462316073/915663567213199390/bar-1.gif?width=450&height=65').catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+
+            console.log(tableerror.toString())
+        
+        })
         
     }
 
@@ -1428,7 +1916,20 @@ module.exports = async (client, Discord, message) => {
         .setAuthor({ name: message.author.username+'#'+message.author.discriminator, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
         .setDescription('Hola! **'+ message.author.username +'** Mi Prefix en  **' + message.guild.name + '**  es: `' + prefix + '`\nPuedes ver mis comandos disponibles usando: `' + prefix + 'help`. Para enviar un reporte usa: `' + prefix + 'report` y para una sugerencia: `' + prefix + 'suggestion`.')
         .setColor('RANDOM')
-        message.reply({ allowedMentions: { repliedUser: false }, embeds: [embed] }).catch((e) => console.log('Error al enviar mensaje: '+e))
+        message.reply({ allowedMentions: { repliedUser: false }, embeds: [embed] }).catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+
+            console.log(tableerror.toString())
+        
+        })
     
     }
 
@@ -1457,7 +1958,21 @@ module.exports = async (client, Discord, message) => {
             .setColor('RED')
             .setDescription('<a:Verify2:931463492677017650> | ¡Estás prohibido de usar estos comandos!\n\n**Razón:**\n`'+userbl.reason+'`\n\nContacta con el equipo de desarrolladores para más información.!')
           
-            return message.channel.send({embeds: [e]}).catch((e) => console.log('Error al enviar mensaje: '+e))
+            return message.channel.send({embeds: [e]}).catch((e) => { 
+            
+                var tableerror = new AsciiTable()
+
+                tableerror.setHeading('Campos','Valores')
+                tableerror.addRow('ERROR', e)
+                tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+                tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+                tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+                tableerror.addRow('FECHA', new Date())
+                tableerror.addRow('ARGUMENTOS', message.content)
+
+                console.log(tableerror.toString())
+            
+            })
 
         }
 
@@ -1499,13 +2014,86 @@ module.exports = async (client, Discord, message) => {
         
         return message.channel.send({embeds: [e]})
         .then(m => setTimeout(() => m.delete(), 15000))
-        .catch((e) => console.log('Error al enviar mensaje: '+e))
+        .catch((e) => { 
+            
+            var tableerror = new AsciiTable()
+
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', e)
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', message.content)
+
+            console.log(tableerror.toString())
+        
+        })
 
     } else{
+
+        if(cmd.owner === true){
+
+            if(!idowner.some(id => message.author.id == id)){
+                
+                console.log('============================ COMANDO ONWER ============================')
+
+                var tablecmd = new AsciiTable()
+
+                tablecmd.setHeading('Campos','Valores')
+                tablecmd.addRow('COMANDO', (cmd ? cmd.name : 'No se pudo obtener comando'))
+                tablecmd.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+                tablecmd.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+                tablecmd.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+                tablecmd.addRow('FECHA', new Date())
+                tablecmd.addRow('ARGUMENTOS', args ? args : 'No argumentos')
+
+                console.log(tablecmd.toString())
+
+                const e = new Discord.MessageEmbed()
+                .setAuthor({ name: message.author.username+'#'+message.author.discriminator, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                .setColor('RED')
+                .setDescription(`<a:Verify2:931463492677017650> | El comando **${command}** no existe!\n\n> Sugerencias: No tengo sugerencias`)
+        
+                return message.channel.send({embeds: [e]})
+                .then(m => setTimeout(() => m.delete(), 15000))
+                .catch((e) => { 
+                    
+                    var tableerror = new AsciiTable()
+        
+                    tableerror.setHeading('Campos','Valores')
+                    tableerror.addRow('ERROR', e)
+                    tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+                    tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+                    tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+                    tableerror.addRow('FECHA', new Date())
+                    tableerror.addRow('ARGUMENTOS', message.content)
+        
+                    console.log(tableerror.toString())
+                
+                })
+            
+            }
+
+        }
 
         try {
 
             cmd.execute(client, message, args, Discord)
+
+            console.log('========================== COMANDO EJECUTADO ==========================')
+
+            var tablecmd = new AsciiTable()
+
+            tablecmd.setHeading('Campos','Valores')
+            tablecmd.addRow('COMANDO', (cmd ? cmd.name : 'No se pudo obtener comando'))
+            tablecmd.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tablecmd.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tablecmd.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tablecmd.addRow('FECHA', new Date())
+            tablecmd.addRow('ARGUMENTOS', args ? args : 'No argumentos')
+
+            console.log(tablecmd.toString())
 
             let xyz = (message.content ? message.content : 'No se pudo obtener mensaje')
 
@@ -1532,100 +2120,110 @@ module.exports = async (client, Discord, message) => {
             canalcmd.send({ embeds: [embedcmd] }).catch((e) => {
                 
                 console.log('Error al enviar mensaje: '+e)
-                logschannel.send({ content: 'Error al enviar embed de comando ' + cmd.name + ' - ' + e })
+                logschannel.send({ content: '```Error al enviar embed de comando ' + cmd.name + ' - ' + e + '```'})
             
             })
+            
+            //* Registro de Usuarios
+
+            let userData;
+
+            try {
+
+                userData = await userModel.findOne({idusuario: message.author.id})
+
+                if(!userData){
+
+                    console.log('========================= REGISTRO DE USUARIO =========================');
+            
+                    let user = await userModel.create({
+
+                        idusuario: message.author.id,
+                        username: message.author.username,
+        
+                    })
+        
+                    user.save();
+                    console.log('Usuario Registrado ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
+    
+                    console.log('========================= REGISTRO DE USUARIO =========================');
+    
+                } else {
+
+                    //<-- UPDATE EXPERIENCIA/NIVELES -->
+               
+                    let curLevel = Math.floor(0.1 * Math.sqrt(userData.exp + 1));
+
+                    if(curLevel > userData.nivel) {
+
+                        let update = await userModel.findOneAndUpdate({idusuario: message.author.id},
+                            {
+
+                                exp: userData.exp + 1,
+                                nivel: curLevel,
+                                banco: userData.banco + (curLevel*1000),
+                                total: userData.dinero + userData.banco + (curLevel*1000)
+
+                            })
+
+                        update.save()
+
+                        console.log('Usuario: '+message.author.id+' ha subido al nivel: '+curLevel)
+        
+                    }
+
+                    if(userData.vip === true) {
+
+                        let update = await userModel.findOneAndUpdate({idusuario: message.author.id},
+                            {
+        
+                                exp: userData.exp + 2
+                                
+                            })
+        
+                        update.save()
+
+                    } else if (userData.vip === false){
+
+                        let update = await userModel.findOneAndUpdate({idusuario: message.author.id},
+                            {
+        
+                                exp: userData.exp + 1
+        
+                            })
+        
+                        update.save()
+
+                    }
+
+                }
+    
+            } catch (error) {
+
+                console.log('Error al Registrar Usuario: '+ error)
+        
+            }
+    
+            //* Registro de Usuarios
 
         } catch (error) {
+            
+            var tableerror = new AsciiTable()
 
-            console.log('Error al ejecutar comando: '+error)
-            logschannel.send({ content: 'Error al ejecutar comando ' + cmd.name + ' - ' + e })
+            tableerror.setHeading('Campos','Valores')
+            tableerror.addRow('ERROR', error)
+            tableerror.addRow('COMANDO', (cmd ? cmd.name : 'No se pudo obtener comando'))
+            tableerror.addRow('AUTOR', message.author.username + ' (' + message.author.id + ')')
+            tableerror.addRow('SERVIDOR', message.guild.name + ' (' + message.guild.id + ')')
+            tableerror.addRow('CANAL', message.channel.name + ' (' + message.channel.id + ')')
+            tableerror.addRow('FECHA', new Date())
+            tableerror.addRow('ARGUMENTOS', args ? args : 'No argumentos')
+
+            console.log(tableerror.toString())
+
+            logschannel.send({ content: '```Error al ejecutar comando ' + cmd.name + ' - ' + error + '```'})
           
         }
-
-        //* Registro de Usuarios
-
-        let userData;
-
-        try {
-
-            userData = await userModel.findOne({idusuario: message.author.id})
-
-            if(!userData){
-
-                console.log('========================= REGISTRO DE USUARIO =========================');
-        
-                let user = await userModel.create({
-
-                    idusuario: message.author.id,
-                    username: message.author.username,
-    
-                })
-    
-                user.save();
-                console.log('Usuario Registrado ===> Id: '+ message.author.id + ' Username: ' + message.author.username)
-   
-                console.log('========================= REGISTRO DE USUARIO =========================');
-   
-            } else {
-
-                //<-- UPDATE EXPERIENCIA/NIVELES -->
-            
-                console.log('========================= UPDATE EXPERIENCIA DE USUARIO =========================');
-   
-                let curLevel = Math.floor(0.1 * Math.sqrt(userData.exp + 1));
-
-                if(curLevel > userData.nivel) {
-
-                    let update = await userModel.findOneAndUpdate({idusuario: message.author.id},
-                        {
-
-                            exp: userData.exp + 1,
-                            nivel: curLevel,
-                            banco: userData.banco + (curLevel*1000),
-                            total: userData.dinero + userData.banco + (curLevel*1000)
-
-                        })
-
-                    update.save()
-
-                    console.log('Usuario: '+message.author.id+' ha subido al nivel: '+curLevel)
-      
-                }
-
-                if(userData.vip === true) {
-
-                    let update = await userModel.findOneAndUpdate({idusuario: message.author.id},
-                        {
-    
-                            exp: userData.exp + 2
-                            
-                        })
-    
-                    update.save()
-
-                } else if (userData.vip === false){
-
-                    let update = await userModel.findOneAndUpdate({idusuario: message.author.id},
-                        {
-    
-                            exp: userData.exp + 1
-    
-                        })
-    
-                    update.save()
-
-                }
-
-            }
-   
-        } catch (error) {
-
-            console.log('Error al Registrar Usuario: '+ error)
-    
-        }
-  
-        //* Registro de Usuarios
 
     }
     

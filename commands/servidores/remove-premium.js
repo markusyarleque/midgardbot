@@ -6,6 +6,10 @@ module.exports = {
     name: 'remove-premium',
     aliases: ['delete-premium'],
     description: '💎 Quitar Premium a un servidor.',
+    use: '<prefix><name> <idserver>',
+    category: 'PREMIUM 💎',
+    vip: false,
+    owner: true,
   
     async execute(client, message, args, Discord) {
 

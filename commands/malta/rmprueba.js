@@ -6,7 +6,11 @@ module.exports =  {
   name: 'rmprueba',
   aliases: [],
   description: '⏰ Establece un recordatorio.',
-
+  use: '<prefix><name>',
+  category: 'Programación 💻',
+  vip: false,
+  owner: true,
+  
   async execute(client, message, args, Discord) {
 
     if(message.author.id !== '753435606410985573') return
@@ -22,14 +26,14 @@ module.exports =  {
 
         } else {
 
-            prefix = process.env.PREFIX
+            prefix = '_'
 
         }
 
     } catch (error) {
 
         console.log('Error al buscar Prefix en Servidor: '+ message.guild.id + ' - ' + error)
-        prefix = process.env.PREFIX
+        prefix = '_'
 
     }
 
