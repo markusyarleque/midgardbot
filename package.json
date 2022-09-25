@@ -39,7 +39,7 @@
     "leaf-utils": "^1.1.1",
     "marsnpm": "^0.5.2",
     "megadb": "^3.4.0",
-    "moment": "^2.29.1",
+    "moment": "^2.29.4",
     "moment-duration-format": "^2.3.2",
     "mongodb": "^4.3.1",
     "mongoose": "^6.1.7",
